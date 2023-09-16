@@ -1,0 +1,44 @@
+[**Core Documentation v0.0.0**](README.md) • **Docs**
+
+***
+
+# Core Documentation v0.0.0
+
+## Modules
+
+- [adapter/Adapter](adapter/Adapter/README.md)
+- [adapter/AdapterBuilder](adapter/AdapterBuilder/README.md)
+- [adapter/AdapterMapper](adapter/AdapterMapper/README.md)
+- [ConfigBuilder](ConfigBuilder/README.md)
+- [ConsoleLogger](ConsoleLogger/README.md)
+- [CoreServiceProvider](CoreServiceProvider/README.md)
+- [decorators/AdapterMiddleware](decorators/AdapterMiddleware/README.md)
+- [decorators/ConfigMiddleware](decorators/ConfigMiddleware/README.md)
+- [decorators/Configuration](decorators/Configuration/README.md)
+- [decorators/constants](decorators/constants/README.md)
+- [decorators/Injectable](decorators/Injectable/README.md)
+- [decorators/Listener](decorators/Listener/README.md)
+- [decorators/Metadata](decorators/Metadata/README.md)
+- [decorators/Middleware](decorators/Middleware/README.md)
+- [decorators/Provider](decorators/Provider/README.md)
+- [decorators/Service](decorators/Service/README.md)
+- [decorators/StoneApp](decorators/StoneApp/README.md)
+- [decorators/Subscriber](decorators/Subscriber/README.md)
+- [definitions](definitions/README.md)
+- [ErrorHandler](ErrorHandler/README.md)
+- [events/Event](events/Event/README.md)
+- [events/EventEmitter](events/EventEmitter/README.md)
+- [events/IncomingEvent](events/IncomingEvent/README.md)
+- [events/KernelEvent](events/KernelEvent/README.md)
+- [events/OutgoingResponse](events/OutgoingResponse/README.md)
+- [Kernel](Kernel/README.md)
+- [middleware/configMiddleware](middleware/configMiddleware/README.md)
+- [options/AdapterConfig](options/AdapterConfig/README.md)
+- [options/BuilderConfig](options/BuilderConfig/README.md)
+- [options/ErrorHandlerConfig](options/ErrorHandlerConfig/README.md)
+- [options/KernelConfig](options/KernelConfig/README.md)
+- [options/LoggerConfig](options/LoggerConfig/README.md)
+- [options/StoneBlueprint](options/StoneBlueprint/README.md)
+- [resolvers](resolvers/README.md)
+- [StoneFactory](StoneFactory/README.md)
+- [utils](utils/README.md)
