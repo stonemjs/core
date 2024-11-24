@@ -22,7 +22,7 @@ For example: new Set([TypeError])
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:21](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/ErrorHandlerConfig.ts#L21)
+[src/options/ErrorHandlerConfig.ts:21](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/ErrorHandlerConfig.ts#L21)
 
 ***
 
@@ -36,7 +36,7 @@ For example: { 'warn': [TypeError, ReferenceError] }
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:28](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/ErrorHandlerConfig.ts#L28)
+[src/options/ErrorHandlerConfig.ts:28](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/ErrorHandlerConfig.ts#L28)
 
 ***
 
@@ -46,7 +46,7 @@ For example: { 'warn': [TypeError, ReferenceError] }
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:30](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/ErrorHandlerConfig.ts#L30)
+[src/options/ErrorHandlerConfig.ts:30](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/ErrorHandlerConfig.ts#L30)
 
 ***
 
@@ -59,4 +59,4 @@ If set to true, errors that have already been reported will not be logged again.
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:15](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/ErrorHandlerConfig.ts#L15)
+[src/options/ErrorHandlerConfig.ts:15](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/ErrorHandlerConfig.ts#L15)

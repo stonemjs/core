@@ -30,7 +30,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:37](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L37)
+[src/adapter/Adapter.ts:37](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L37)
 
 ***
 
@@ -40,7 +40,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:38](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L38)
+[src/adapter/Adapter.ts:38](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L38)
 
 ***
 
@@ -50,7 +50,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:57](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L57)
+[src/adapter/Adapter.ts:57](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L57)
 
 ***
 
@@ -60,7 +60,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:36](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L36)
+[src/adapter/Adapter.ts:36](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L36)
 
 ***
 
@@ -70,7 +70,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:39](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L39)
+[src/adapter/Adapter.ts:39](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L39)
 
 ***
 
@@ -80,7 +80,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L35)
+[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L35)
 
 ***
 
@@ -90,4 +90,4 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:48](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L48)
+[src/adapter/Adapter.ts:48](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L48)

@@ -23,7 +23,7 @@ This is a unique identifier for the adapter.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:33](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L33)
+[src/options/AdapterConfig.ts:33](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L33)
 
 ***
 
@@ -35,7 +35,7 @@ The current version or status identifier for the adapter.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:50](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L50)
+[src/options/AdapterConfig.ts:50](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L50)
 
 ***
 
@@ -48,7 +48,7 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:56](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L56)
+[src/options/AdapterConfig.ts:56](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L56)
 
 ***
 
@@ -58,7 +58,7 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:45](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L45)
+[src/options/AdapterConfig.ts:45](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L45)
 
 ***
 
@@ -70,7 +70,7 @@ The middleware used for processing data in the mapper.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:43](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L43)
+[src/options/AdapterConfig.ts:43](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L43)
 
 ***
 
@@ -83,7 +83,7 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:62](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L62)
+[src/options/AdapterConfig.ts:62](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L62)
 
 ***
 
@@ -95,4 +95,4 @@ The class type of the adapter, used to create instances.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:38](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/AdapterConfig.ts#L38)
+[src/options/AdapterConfig.ts:38](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/AdapterConfig.ts#L38)

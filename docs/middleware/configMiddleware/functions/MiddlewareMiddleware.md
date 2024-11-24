@@ -37,4 +37,4 @@ MiddlewareMiddleware({ modules, blueprint }, next);
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:255](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/middleware/configMiddleware.ts#L255)
+[src/middleware/configMiddleware.ts:255](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/middleware/configMiddleware.ts#L255)

@@ -23,7 +23,7 @@ Example: event: [MyCustomMiddleware, 'aliasForMiddleware']
 
 #### Defined in
 
-[src/options/KernelConfig.ts:25](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/KernelConfig.ts#L25)
+[src/options/KernelConfig.ts:25](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/KernelConfig.ts#L25)
 
 ***
 
@@ -36,7 +36,7 @@ This array can include classes or aliases for middleware functions.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:31](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/KernelConfig.ts#L31)
+[src/options/KernelConfig.ts:31](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/KernelConfig.ts#L31)
 
 ***
 
@@ -49,7 +49,7 @@ If set to true, all middleware defined in the kernel will be bypassed.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:18](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/KernelConfig.ts#L18)
+[src/options/KernelConfig.ts:18](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/KernelConfig.ts#L18)
 
 ***
 
@@ -62,4 +62,4 @@ This array can include classes or aliases for middleware functions.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:37](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/KernelConfig.ts#L37)
+[src/options/KernelConfig.ts:37](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/KernelConfig.ts#L37)

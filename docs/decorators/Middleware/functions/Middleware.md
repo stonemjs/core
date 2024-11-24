@@ -50,4 +50,4 @@ class MyMiddleware {
 
 ## Defined in
 
-[src/decorators/Middleware.ts:49](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/decorators/Middleware.ts#L49)
+[src/decorators/Middleware.ts:49](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/decorators/Middleware.ts#L49)

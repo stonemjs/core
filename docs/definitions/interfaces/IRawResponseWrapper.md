@@ -22,7 +22,7 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 #### Defined in
 
-[src/definitions.ts:183](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L183)
+[src/definitions.ts:183](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L183)
 
 ***
 
@@ -36,4 +36,4 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 #### Defined in
 
-[src/definitions.ts:184](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L184)
+[src/definitions.ts:184](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L184)

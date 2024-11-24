@@ -27,4 +27,4 @@ The blueprint configuration to use for the logger.
 
 ## Defined in
 
-[src/resolvers.ts:20](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/resolvers.ts#L20)
+[src/resolvers.ts:20](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/resolvers.ts#L20)

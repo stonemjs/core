@@ -124,7 +124,7 @@ export const RegisterProviderToOnInitHookMiddleware = ({ modules, blueprint }: C
       .map(provider => provider as { onInit: Function })
       .filter((provider) => provider.onInit !== undefined)
       .forEach((provider) => {
-        adapter.hooks.onInit = [...(adapter.hooks.onInit ?? []), () => provider.onInit()]
+        adapter.hooks.onInit = [...(adapter.hooks.onInit ?? []), (v: IBlueprint) => provider.onInit(v)]
       })
   }
   return next({ modules, blueprint })

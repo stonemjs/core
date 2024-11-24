@@ -40,7 +40,7 @@ Service container to resolve dependencies.
 
 #### Defined in
 
-[src/ErrorHandler.ts:63](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L63)
+[src/ErrorHandler.ts:63](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L63)
 
 ## Methods
 
@@ -58,7 +58,7 @@ This ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:126](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L126)
+[src/ErrorHandler.ts:126](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L126)
 
 ***
 
@@ -82,7 +82,7 @@ This ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:95](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L95)
+[src/ErrorHandler.ts:95](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L95)
 
 ***
 
@@ -110,7 +110,7 @@ This ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:83](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L83)
+[src/ErrorHandler.ts:83](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L83)
 
 ***
 
@@ -138,7 +138,7 @@ The rendered error object.
 
 #### Defined in
 
-[src/ErrorHandler.ts:164](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L164)
+[src/ErrorHandler.ts:164](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L164)
 
 ***
 
@@ -166,7 +166,7 @@ This ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:151](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L151)
+[src/ErrorHandler.ts:151](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L151)
 
 ***
 
@@ -184,7 +184,7 @@ This ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:116](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L116)
+[src/ErrorHandler.ts:116](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L116)
 
 ***
 
@@ -208,7 +208,7 @@ Whether the error should be reported.
 
 #### Defined in
 
-[src/ErrorHandler.ts:137](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L137)
+[src/ErrorHandler.ts:137](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L137)
 
 ***
 
@@ -232,7 +232,7 @@ This ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:106](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L106)
+[src/ErrorHandler.ts:106](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L106)
 
 ***
 
@@ -260,4 +260,4 @@ A new ErrorHandler instance.
 
 #### Defined in
 
-[src/ErrorHandler.ts:54](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/ErrorHandler.ts#L54)
+[src/ErrorHandler.ts:54](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ErrorHandler.ts#L54)

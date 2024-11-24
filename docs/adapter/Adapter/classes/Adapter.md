@@ -50,7 +50,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:111](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L111)
+[src/adapter/Adapter.ts:111](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L111)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:82](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L82)
+[src/adapter/Adapter.ts:82](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L82)
 
 ***
 
@@ -70,7 +70,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:83](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L83)
+[src/adapter/Adapter.ts:83](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L83)
 
 ***
 
@@ -80,7 +80,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:104](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L104)
+[src/adapter/Adapter.ts:104](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L104)
 
 ***
 
@@ -90,7 +90,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:81](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L81)
+[src/adapter/Adapter.ts:81](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L81)
 
 ***
 
@@ -100,7 +100,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:84](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L84)
+[src/adapter/Adapter.ts:84](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L84)
 
 ***
 
@@ -110,7 +110,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:80](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L80)
+[src/adapter/Adapter.ts:80](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L80)
 
 ***
 
@@ -120,7 +120,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:94](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L94)
+[src/adapter/Adapter.ts:94](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L94)
 
 ## Methods
 
@@ -142,7 +142,7 @@ Action handler to be run.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:228](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L228)
+[src/adapter/Adapter.ts:228](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L228)
 
 ***
 
@@ -164,7 +164,7 @@ The hook to execute.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:263](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L263)
+[src/adapter/Adapter.ts:263](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L263)
 
 ***
 
@@ -182,7 +182,7 @@ Hook that runs once before everything.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:219](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L219)
+[src/adapter/Adapter.ts:219](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L219)
 
 ***
 
@@ -210,7 +210,7 @@ Platform-specific output.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:177](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L177)
+[src/adapter/Adapter.ts:177](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L177)
 
 ***
 
@@ -236,7 +236,7 @@ The event context.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:241](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L241)
+[src/adapter/Adapter.ts:241](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L241)
 
 ***
 
@@ -268,4 +268,4 @@ return await this.onRawEventReceived(eventHandler, {});
 
 #### Defined in
 
-[src/adapter/Adapter.ts:168](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/Adapter.ts#L168)
+[src/adapter/Adapter.ts:168](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/Adapter.ts#L168)

@@ -21,7 +21,7 @@ Middleware configuration options for different stages of the kernel's lifecycle.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:50](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/KernelConfig.ts#L50)
+[src/options/KernelConfig.ts:50](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/KernelConfig.ts#L50)
 
 ***
 
@@ -33,4 +33,4 @@ The class type of the adapter, used to create instances.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:55](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/KernelConfig.ts#L55)
+[src/options/KernelConfig.ts:55](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/KernelConfig.ts#L55)

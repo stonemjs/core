@@ -47,7 +47,7 @@ The transformed output of type DestinationType.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:151](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/AdapterMapper.ts#L151)
+[src/adapter/AdapterMapper.ts:151](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterMapper.ts#L151)
 
 ***
 
@@ -87,4 +87,4 @@ A new AdapterMapper instance.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:89](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/AdapterMapper.ts#L89)
+[src/adapter/AdapterMapper.ts:89](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterMapper.ts#L89)

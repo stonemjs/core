@@ -23,7 +23,7 @@ Default value is set to 10.
 
 #### Defined in
 
-[src/options/BuilderConfig.ts:22](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/BuilderConfig.ts#L22)
+[src/options/BuilderConfig.ts:22](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/BuilderConfig.ts#L22)
 
 ***
 
@@ -36,4 +36,4 @@ The middleware array can include core pipes and any additional custom pipes.
 
 #### Defined in
 
-[src/options/BuilderConfig.ts:15](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/BuilderConfig.ts#L15)
+[src/options/BuilderConfig.ts:15](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/BuilderConfig.ts#L15)

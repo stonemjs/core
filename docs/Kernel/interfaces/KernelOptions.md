@@ -22,7 +22,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:19](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/Kernel.ts#L19)
+[src/Kernel.ts:19](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/Kernel.ts#L19)
 
 ***
 
@@ -32,7 +32,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:18](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/Kernel.ts#L18)
+[src/Kernel.ts:18](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/Kernel.ts#L18)
 
 ***
 
@@ -42,7 +42,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:20](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/Kernel.ts#L20)
+[src/Kernel.ts:20](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/Kernel.ts#L20)
 
 ***
 
@@ -52,7 +52,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:21](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/Kernel.ts#L21)
+[src/Kernel.ts:21](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/Kernel.ts#L21)
 
 ***
 
@@ -62,4 +62,4 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:17](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/Kernel.ts#L17)
+[src/Kernel.ts:17](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/Kernel.ts#L17)

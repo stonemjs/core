@@ -16,7 +16,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:13](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L13)
+[src/definitions.ts:13](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L13)
 
 ***
 
@@ -26,7 +26,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:16](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L16)
+[src/definitions.ts:16](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L16)
 
 ***
 
@@ -36,7 +36,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:14](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L14)
+[src/definitions.ts:14](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L14)
 
 ***
 
@@ -46,7 +46,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:12](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L12)
+[src/definitions.ts:12](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L12)
 
 ***
 
@@ -56,4 +56,4 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:15](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L15)
+[src/definitions.ts:15](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L15)

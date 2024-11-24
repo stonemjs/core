@@ -244,7 +244,7 @@ export type AdapterHandlerResolver<W extends IncomingEvent, X extends OutgoingRe
  *
  * Represents a listener hook that can either be synchronous or asynchronous.
  */
-export type AdapterListenerHook = () => void | Promise<void>
+export type AdapterListenerHook = (blueprint: IBlueprint) => void | Promise<void>
 
 /**
  * ConfigContext Interface.

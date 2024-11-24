@@ -263,7 +263,7 @@ export abstract class Adapter<
   protected async executeHooks (hook: keyof AdapterHooks): Promise<void> {
     if (Array.isArray(this.hooks[hook])) {
       for (const listener of this.hooks[hook]) {
-        await listener()
+        await listener(this.blueprint)
       }
     }
   }

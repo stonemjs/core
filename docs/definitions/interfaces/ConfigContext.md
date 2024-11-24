@@ -20,7 +20,7 @@ The configuration blueprint.
 
 #### Defined in
 
-[src/definitions.ts:263](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L263)
+[src/definitions.ts:263](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L263)
 
 ***
 
@@ -32,4 +32,4 @@ List of configuration modules.
 
 #### Defined in
 
-[src/definitions.ts:258](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L258)
+[src/definitions.ts:258](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L258)

@@ -34,7 +34,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:103](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L103)
+[src/definitions.ts:103](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L103)
 
 ***
 
@@ -60,7 +60,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:119](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L119)
+[src/definitions.ts:119](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L119)
 
 ***
 
@@ -86,7 +86,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:95](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L95)
+[src/definitions.ts:95](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L95)
 
 ***
 
@@ -112,7 +112,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:127](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L127)
+[src/definitions.ts:127](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L127)
 
 ***
 
@@ -138,7 +138,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:135](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L135)
+[src/definitions.ts:135](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L135)
 
 ***
 
@@ -164,4 +164,4 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:111](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L111)
+[src/definitions.ts:111](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L111)

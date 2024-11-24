@@ -22,4 +22,4 @@ This default configuration can be overridden by providing a custom `LoggerConfig
 
 ## Defined in
 
-[src/options/LoggerConfig.ts:70](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/options/LoggerConfig.ts#L70)
+[src/options/LoggerConfig.ts:70](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/options/LoggerConfig.ts#L70)

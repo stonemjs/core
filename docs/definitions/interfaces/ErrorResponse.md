@@ -18,7 +18,7 @@ Represents an error response with code, status, and message properties.
 
 #### Defined in
 
-[src/definitions.ts:366](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L366)
+[src/definitions.ts:366](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L366)
 
 ***
 
@@ -28,7 +28,7 @@ Represents an error response with code, status, and message properties.
 
 #### Defined in
 
-[src/definitions.ts:368](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L368)
+[src/definitions.ts:368](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L368)
 
 ***
 
@@ -38,4 +38,4 @@ Represents an error response with code, status, and message properties.
 
 #### Defined in
 
-[src/definitions.ts:367](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/definitions.ts#L367)
+[src/definitions.ts:367](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L367)

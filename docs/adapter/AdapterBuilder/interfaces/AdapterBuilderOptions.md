@@ -31,7 +31,7 @@ The initial options used for building the object. This is optional.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:16](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/AdapterBuilder.ts#L16)
+[src/adapter/AdapterBuilder.ts:16](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L16)
 
 ***
 
@@ -51,4 +51,4 @@ The resolver function that takes the options and returns the final object of typ
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:21](https://github.com/stonemjs/core/blob/65be5a9387baf469de681455799e33a2688aa3c9/src/adapter/AdapterBuilder.ts#L21)
+[src/adapter/AdapterBuilder.ts:21](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L21)
