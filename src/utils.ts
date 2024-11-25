@@ -1,4 +1,5 @@
 import deepmerge from 'deepmerge'
+import { SetupError } from './errors/SetupError'
 import { StoneBlueprint } from './options/StoneBlueprint'
 
 /**
@@ -13,7 +14,7 @@ import { StoneBlueprint } from './options/StoneBlueprint'
  * @param blueprints - An array of blueprints to be merged.
  * @returns The merged application blueprint.
  *
- * @throws {TypeError} - If any of the provided blueprints are not valid objects.
+ * @throws {SetupError} - If any of the provided blueprints are not valid objects.
  *
  * @example
  * ```typescript
@@ -35,7 +36,7 @@ export const mergeBlueprints = (...blueprints: StoneBlueprint[]): StoneBlueprint
  * @param userBlueprints - An array of partial user-defined blueprints to be merged with defaults.
  * @returns The fully defined application blueprint.
  *
- * @throws {TypeError} - If any of the provided blueprints are not valid objects.
+ * @throws {SetupError} - If any of the provided blueprints are not valid objects.
  *
  * @example
  * ```typescript
@@ -92,10 +93,10 @@ const isMergeable = (value: any): boolean => {
  * Validates that the provided blueprints are valid objects.
  *
  * This function checks if each blueprint in the provided array is an object,
- * throwing a TypeError if an invalid blueprint is found.
+ * throwing a SetupError if an invalid blueprint is found.
  *
  * @param blueprints - An array of blueprints to validate.
- * @throws {TypeError} - If any of the provided blueprints are not valid objects.
+ * @throws {SetupError} - If any of the provided blueprints are not valid objects.
  *
  * @example
  * ```typescript
@@ -105,7 +106,7 @@ const isMergeable = (value: any): boolean => {
 const validateBlueprints = (blueprints: StoneBlueprint[]): void => {
   blueprints.forEach((blueprint, index) => {
     if (typeof blueprint !== 'object' || blueprint === null) {
-      throw new TypeError(`Invalid blueprint at index ${index}. Expected an object but received ${typeof blueprint}.`)
+      throw new SetupError(`Invalid blueprint at index ${index}. Expected an object but received ${typeof blueprint}.`)
     }
   })
 }

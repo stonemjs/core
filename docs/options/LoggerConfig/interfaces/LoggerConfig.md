@@ -34,7 +34,7 @@ Common values include:
 
 #### Defined in
 
-[src/options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/LoggerConfig.ts#L25)
+[src/options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/LoggerConfig.ts#L25)
 
 ***
 
@@ -53,7 +53,7 @@ This function provides a way to inject a logger that suits specific requirements
 
 #### Defined in
 
-[src/options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/LoggerConfig.ts#L54)
+[src/options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/LoggerConfig.ts#L54)
 
 ***
 
@@ -72,7 +72,7 @@ or when using third-party loggers such as Pino.
 
 #### Defined in
 
-[src/options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/LoggerConfig.ts#L35)
+[src/options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/LoggerConfig.ts#L35)
 
 ***
 
@@ -90,4 +90,4 @@ Adding timestamps helps in tracking when each log event occurred.
 
 #### Defined in
 
-[src/options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/LoggerConfig.ts#L44)
+[src/options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/LoggerConfig.ts#L44)

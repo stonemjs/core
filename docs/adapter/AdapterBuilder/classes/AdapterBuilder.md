@@ -45,7 +45,7 @@ The options for creating the AdapterBuilder instance, including the initial opti
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:61](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L61)
+[src/adapter/AdapterBuilder.ts:61](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterBuilder.ts#L61)
 
 ## Methods
 
@@ -77,7 +77,7 @@ This instance of AdapterBuilder for method chaining.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:74](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L74)
+[src/adapter/AdapterBuilder.ts:74](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterBuilder.ts#L74)
 
 ***
 
@@ -99,7 +99,7 @@ The final object of type `R`.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:84](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L84)
+[src/adapter/AdapterBuilder.ts:84](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterBuilder.ts#L84)
 
 ***
 
@@ -129,4 +129,4 @@ A new instance of AdapterBuilder.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:51](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L51)
+[src/adapter/AdapterBuilder.ts:51](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterBuilder.ts#L51)

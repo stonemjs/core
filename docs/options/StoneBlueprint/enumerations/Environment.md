@@ -20,7 +20,7 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:22](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/StoneBlueprint.ts#L22)
+[src/options/StoneBlueprint.ts:22](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/StoneBlueprint.ts#L22)
 
 ***
 
@@ -30,7 +30,7 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:23](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/StoneBlueprint.ts#L23)
+[src/options/StoneBlueprint.ts:23](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/StoneBlueprint.ts#L23)
 
 ***
 
@@ -40,4 +40,4 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:24](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/options/StoneBlueprint.ts#L24)
+[src/options/StoneBlueprint.ts:24](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/StoneBlueprint.ts#L24)

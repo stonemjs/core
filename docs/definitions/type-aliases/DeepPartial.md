@@ -18,4 +18,4 @@ Represents a type that recursively makes all properties optional.
 
 ## Defined in
 
-[src/definitions.ts:295](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L295)
+[src/definitions.ts:295](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L295)

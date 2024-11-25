@@ -18,7 +18,7 @@ Represents lifecycle hooks that can be defined for the adapter, such as initiali
 
 #### Defined in
 
-[src/definitions.ts:273](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L273)
+[src/definitions.ts:273](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L273)
 
 ***
 
@@ -28,7 +28,7 @@ Represents lifecycle hooks that can be defined for the adapter, such as initiali
 
 #### Defined in
 
-[src/definitions.ts:272](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L272)
+[src/definitions.ts:272](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L272)
 
 ***
 
@@ -38,4 +38,4 @@ Represents lifecycle hooks that can be defined for the adapter, such as initiali
 
 #### Defined in
 
-[src/definitions.ts:274](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L274)
+[src/definitions.ts:274](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L274)

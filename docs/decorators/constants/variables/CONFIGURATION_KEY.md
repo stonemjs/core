@@ -12,4 +12,4 @@ A unique symbol used as a key for the configuration metadata.
 
 ## Defined in
 
-[src/decorators/constants.ts:24](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/decorators/constants.ts#L24)
+[src/decorators/constants.ts:24](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/constants.ts#L24)

@@ -32,4 +32,4 @@ True if the metadata key exists on the class, false otherwise.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:24](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/decorators/Metadata.ts#L24)
+[src/decorators/Metadata.ts:24](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Metadata.ts#L24)

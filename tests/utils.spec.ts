@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { SetupError } from '../src/errors/SetupError'
 import { mergeBlueprints, defineAppBlueprint } from '../src/utils'
 import { StoneBlueprint, Environment, stoneBlueprint } from '../src/options/StoneBlueprint'
 
@@ -40,8 +40,8 @@ describe('mergeBlueprints', () => {
     expect(mergedBlueprint.app?.name).toBe('App1')
   })
 
-  it('should throw TypeError if any blueprint is not a valid object', () => {
-    expect(() => mergeBlueprints(mockBlueprint1, invalidBlueprint as any)).toThrow(TypeError)
+  it('should throw SetupError if any blueprint is not a valid object', () => {
+    expect(() => mergeBlueprints(mockBlueprint1, invalidBlueprint as any)).toThrow(SetupError)
   })
 })
 
@@ -60,7 +60,7 @@ describe('defineAppBlueprint', () => {
     expect(appBlueprint.app?.name).toBe('CustomApp')
   })
 
-  it('should throw TypeError if any user-defined blueprint is invalid', () => {
-    expect(() => defineAppBlueprint(invalidBlueprint as any)).toThrow(TypeError)
+  it('should throw SetupError if any user-defined blueprint is invalid', () => {
+    expect(() => defineAppBlueprint(invalidBlueprint as any)).toThrow(SetupError)
   })
 })

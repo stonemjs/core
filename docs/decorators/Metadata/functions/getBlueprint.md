@@ -34,4 +34,4 @@ The blueprint value or the default value if the key does not exist.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:128](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/decorators/Metadata.ts#L128)
+[src/decorators/Metadata.ts:128](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Metadata.ts#L128)
