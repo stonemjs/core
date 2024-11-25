@@ -7,6 +7,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Unreleased
 
 
+## [0.0.3](https://github.com/stonemjs/core/compare/v0.0.2...v0.0.3) (2024-11-25)
+
+
+### Miscellaneous Chores
+
+* add custom errors ([dd7eaec](https://github.com/stonemjs/core/commit/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa))
+
 ## 0.0.2 (2024-11-23)
 
 
