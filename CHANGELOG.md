@@ -7,6 +7,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Unreleased
 
 
+## [0.0.31](https://github.com/stonemjs/core/compare/v0.0.3...v0.0.31) (2024-11-25)
+
+
+### Miscellaneous Chores
+
+* throw SetupError for blueprint utilities ([a1d0e9f](https://github.com/stonemjs/core/commit/a1d0e9f001d3ced56e24beb77bf778d53bbcde5a))
+
 ## [0.0.3](https://github.com/stonemjs/core/compare/v0.0.2...v0.0.3) (2024-11-25)
 
 
