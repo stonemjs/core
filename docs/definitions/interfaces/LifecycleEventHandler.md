@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [definitions](../README.md) / LifecycleEventHandler
+[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / LifecycleEventHandler
 
 # Interface: LifecycleEventHandler\<W, X\>
 
@@ -32,7 +32,7 @@ X
 
 #### Defined in
 
-[src/definitions.ts:217](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L217)
+[src/definitions.ts:217](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L217)
 
 ***
 
@@ -42,7 +42,7 @@ X
 
 #### Defined in
 
-[src/definitions.ts:218](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L218)
+[src/definitions.ts:218](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L218)
 
 ***
 
@@ -56,7 +56,7 @@ X
 
 #### Defined in
 
-[src/definitions.ts:216](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L216)
+[src/definitions.ts:216](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L216)
 
 ***
 
@@ -70,4 +70,4 @@ X
 
 #### Defined in
 
-[src/definitions.ts:219](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L219)
+[src/definitions.ts:219](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L219)

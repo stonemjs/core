@@ -1,3 +1,4 @@
+import { IntegrationError } from './errors/IntegrationError'
 import { ErrorHandlerLevels, ErrorHandlerRenderResponseResolver, IBlueprint, IErrorHandler, ILogger, LogLevel } from './definitions'
 
 /**
@@ -61,9 +62,9 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    * @param container - Service container to resolve dependencies.
    */
   protected constructor ({ blueprint, logger, renderResponseResolver }: ErrorHandlerOptions<R>) {
-    if (logger === undefined) { throw new TypeError('Logger is required to create an ErrorHandler instance.') }
-    if (blueprint === undefined) { throw new TypeError('Blueprint is required to create an ErrorHandler instance.') }
-    if (renderResponseResolver === undefined) { throw new TypeError('RenderResponseResolver is required to create an ErrorHandler instance.') }
+    if (logger === undefined) { throw new IntegrationError('Logger is required to create an ErrorHandler instance.') }
+    if (blueprint === undefined) { throw new IntegrationError('Blueprint is required to create an ErrorHandler instance.') }
+    if (renderResponseResolver === undefined) { throw new IntegrationError('RenderResponseResolver is required to create an ErrorHandler instance.') }
 
     this.logger = logger
     this.reportedError = new Set()

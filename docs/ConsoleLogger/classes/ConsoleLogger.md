@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [ConsoleLogger](../README.md) / ConsoleLogger
+[Core Documentation v0.0.2](../../modules.md) / [ConsoleLogger](../README.md) / ConsoleLogger
 
 # Class: ConsoleLogger
 
@@ -41,7 +41,7 @@ Options for creating the ConsoleLogger.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:43](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L43)
+[src/ConsoleLogger.ts:44](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L44)
 
 ## Methods
 
@@ -71,7 +71,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:66](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L66)
+[src/ConsoleLogger.ts:67](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L67)
 
 ***
 
@@ -101,7 +101,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:90](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L90)
+[src/ConsoleLogger.ts:91](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L91)
 
 ***
 
@@ -131,7 +131,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:54](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L54)
+[src/ConsoleLogger.ts:55](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L55)
 
 ***
 
@@ -161,7 +161,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:102](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L102)
+[src/ConsoleLogger.ts:103](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L103)
 
 ***
 
@@ -191,7 +191,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:78](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L78)
+[src/ConsoleLogger.ts:79](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L79)
 
 ***
 
@@ -215,4 +215,4 @@ Options for creating the ConsoleLogger.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:34](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConsoleLogger.ts#L34)
+[src/ConsoleLogger.ts:35](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConsoleLogger.ts#L35)

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [definitions](../README.md) / DeepPartial
+[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / DeepPartial
 
 # Type Alias: DeepPartial\<T\>
 
@@ -18,4 +18,4 @@ Represents a type that recursively makes all properties optional.
 
 ## Defined in
 
-[src/definitions.ts:295](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L295)
+[src/definitions.ts:295](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L295)

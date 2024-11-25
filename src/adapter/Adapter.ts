@@ -12,6 +12,7 @@ import {
   LifecycleEventHandler
 } from '../definitions'
 import { OutgoingResponse } from '../events/OutgoingResponse'
+import { IntegrationError } from '../errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'
 
 /**
@@ -125,22 +126,22 @@ export abstract class Adapter<
   OutgoingResponseType
   >) {
     if (logger === undefined) {
-      throw new TypeError('Logger is required to create an Adapter instance.')
+      throw new IntegrationError('Logger is required to create an Adapter instance.')
     }
     if (errorHandler === undefined) {
-      throw new TypeError('ErrorHandler is required to create an Adapter instance.')
+      throw new IntegrationError('ErrorHandler is required to create an Adapter instance.')
     }
     if (blueprint?.get === undefined) {
-      throw new TypeError('Blueprint is required to create an Adapter instance.')
+      throw new IntegrationError('Blueprint is required to create an Adapter instance.')
     }
     if (typeof handlerResolver !== 'function') {
-      throw new TypeError(`The 'handlerResolver' expects a function or a class, but provided: ${typeof handlerResolver}.`)
+      throw new IntegrationError(`The 'handlerResolver' expects a function or a class, but provided: ${typeof handlerResolver}.`)
     }
     if (!(inputMapper instanceof AdapterMapper)) {
-      throw new TypeError('Input Mapper is required to create an Adapter instance.')
+      throw new IntegrationError('Input Mapper is required to create an Adapter instance.')
     }
     if (!(outputMapper instanceof AdapterMapper)) {
-      throw new TypeError('Output Mapper is required to create an Adapter instance.')
+      throw new IntegrationError('Output Mapper is required to create an Adapter instance.')
     }
 
     this.logger = logger
@@ -192,7 +193,7 @@ export abstract class Adapter<
       const incomingEvent = await this.inputMapper.map(context)
 
       if (incomingEvent === undefined) {
-        throw new TypeError('No IncomingEvent provided')
+        throw new IntegrationError('No IncomingEvent provided')
       }
 
       const outgoingResponse = typeof lifecycleHandler.handle === 'function'
@@ -213,8 +214,6 @@ export abstract class Adapter<
 
   /**
    * Hook that runs once before everything.
-   *
-   * @throws {TypeError}
    */
   protected async onInit (): Promise<void> {
     await this.executeHooks('onInit')

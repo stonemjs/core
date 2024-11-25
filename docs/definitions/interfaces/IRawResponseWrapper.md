@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [definitions](../README.md) / IRawResponseWrapper
+[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / IRawResponseWrapper
 
 # Interface: IRawResponseWrapper\<R\>
 
@@ -22,7 +22,7 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 #### Defined in
 
-[src/definitions.ts:183](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L183)
+[src/definitions.ts:183](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L183)
 
 ***
 
@@ -36,4 +36,4 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 #### Defined in
 
-[src/definitions.ts:184](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L184)
+[src/definitions.ts:184](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L184)

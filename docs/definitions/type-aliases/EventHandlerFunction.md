@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [definitions](../README.md) / EventHandlerFunction
+[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / EventHandlerFunction
 
 # Type Alias: EventHandlerFunction()\<W, X\>
 
@@ -32,4 +32,4 @@ The outgoing response.
 
 ## Defined in
 
-[src/definitions.ts:173](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L173)
+[src/definitions.ts:173](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L173)

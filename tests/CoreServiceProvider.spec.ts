@@ -4,12 +4,13 @@ import { KernelEvent } from '../src/events/KernelEvent'
 import { EventEmitter } from '../src/events/EventEmitter'
 import { IBlueprint, IListener, ILogger, ISubscriber } from '../src/definitions'
 import { CoreServiceProvider, CoreServiceProviderOptions } from '../src/CoreServiceProvider'
+import { InitializationError } from '../src/errors/InitializationError'
 
 /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
 class MockService {}
 
 const mockListenerHandleSpy = vi.fn()
-const mockListenerHandleSpyError = vi.fn(async () => await Promise.reject(new TypeError('something bad happened')))
+const mockListenerHandleSpyError = vi.fn(async () => await Promise.reject(new InitializationError('something bad happened')))
 class MockListener implements IListener {
   handle = mockListenerHandleSpy
 }
@@ -23,7 +24,7 @@ class MockSubscriber implements ISubscriber {
 }
 
 class MockSubscriberError implements ISubscriber {
-  subscribe = vi.fn(async () => await Promise.reject(new TypeError('something bad happened')))
+  subscribe = vi.fn(async () => await Promise.reject(new InitializationError('something bad happened')))
 }
 
 describe('CoreServiceProvider', () => {
@@ -45,22 +46,22 @@ describe('CoreServiceProvider', () => {
 
   it('should throw an error if logger is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ container: undefined, blueprint, eventEmitter })).toThrow(TypeError)
+    expect(() => new CoreServiceProvider({ container: undefined, blueprint, eventEmitter })).toThrow(InitializationError)
   })
 
   it('should throw an error if container is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ logger, container: undefined, blueprint, eventEmitter })).toThrow(TypeError)
+    expect(() => new CoreServiceProvider({ logger, container: undefined, blueprint, eventEmitter })).toThrow(InitializationError)
   })
 
   it('should throw an error if blueprint is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ logger, container, blueprint: undefined, eventEmitter })).toThrow(TypeError)
+    expect(() => new CoreServiceProvider({ logger, container, blueprint: undefined, eventEmitter })).toThrow(InitializationError)
   })
 
   it('should throw an error if eventEmitter is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ logger, container, blueprint, eventEmitter: undefined })).toThrow(TypeError)
+    expect(() => new CoreServiceProvider({ logger, container, blueprint, eventEmitter: undefined })).toThrow(InitializationError)
   })
 
   it('should register services', () => {

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](README.md) • **Docs**
+[**Core Documentation v0.0.2**](README.md) • **Docs**
 
 ***
 
-# Core Documentation v0.0.0
+# Core Documentation v0.0.2
 
 ## Modules
 
@@ -26,6 +26,10 @@
 - [decorators/Subscriber](decorators/Subscriber/README.md)
 - [definitions](definitions/README.md)
 - [ErrorHandler](ErrorHandler/README.md)
+- [errors/InitializationError](errors/InitializationError/README.md)
+- [errors/IntegrationError](errors/IntegrationError/README.md)
+- [errors/RuntimeError](errors/RuntimeError/README.md)
+- [errors/SetupError](errors/SetupError/README.md)
 - [events/Event](events/Event/README.md)
 - [events/EventEmitter](events/EventEmitter/README.md)
 - [events/IncomingEvent](events/IncomingEvent/README.md)

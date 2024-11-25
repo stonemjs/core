@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [StoneFactory](../README.md) / StoneFactoryOptions
+[Core Documentation v0.0.2](../../modules.md) / [StoneFactory](../README.md) / StoneFactoryOptions
 
 # Interface: StoneFactoryOptions
 
@@ -35,4 +35,4 @@ The core configuration object for the Stone.js framework.
 
 #### Defined in
 
-[src/StoneFactory.ts:28](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/StoneFactory.ts#L28)
+[src/StoneFactory.ts:30](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/StoneFactory.ts#L30)

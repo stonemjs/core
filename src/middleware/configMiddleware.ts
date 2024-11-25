@@ -1,3 +1,4 @@
+import { SetupError } from '../errors/SetupError'
 import { ServiceOptions } from '../decorators/Service'
 import { AdapterConfig } from '../options/AdapterConfig'
 import { ListenerOptions } from '../decorators/Listener'
@@ -52,7 +53,7 @@ export const BlueprintMiddleware = async ({ modules, blueprint }: ConfigContext,
  */
 export const MainHandlerMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
   const mainHandler = (modules as ClassType[]).find(module => typeof module === 'function' && hasMetadata(module, MAIN_HANDLER_KEY))
-  if (mainHandler === undefined) { throw new TypeError('No Main handler provided') }
+  if (mainHandler === undefined) { throw new SetupError('No Main handler provided') }
   blueprint.set('app.handler', mainHandler)
   return next({ modules, blueprint })
 }
@@ -175,7 +176,7 @@ export const ListenerMiddleware = ({ modules, blueprint }: ConfigContext, next: 
     .filter(module => typeof module === 'function' && hasMetadata(module, LISTENER_KEY))
     .forEach(module => {
       const { event }: ListenerOptions = getMetadata(module, LISTENER_KEY, { event: '' })
-      if (event === undefined || event.length === 0) { throw new TypeError(`No event name provided for this listener ${String(typeof module)}`) }
+      if (event === undefined || event.length === 0) { throw new SetupError(`No event name provided for this listener ${String(typeof module)}`) }
       blueprint.add(`app.listeners.${event}`, [module])
     })
 

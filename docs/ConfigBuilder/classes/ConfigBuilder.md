@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [ConfigBuilder](../README.md) / ConfigBuilder
+[Core Documentation v0.0.2](../../modules.md) / [ConfigBuilder](../README.md) / ConfigBuilder
 
 # Class: ConfigBuilder
 
@@ -39,7 +39,7 @@ The options to create a ConfigBuilder.
 
 #### Defined in
 
-[src/ConfigBuilder.ts:50](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConfigBuilder.ts#L50)
+[src/ConfigBuilder.ts:50](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConfigBuilder.ts#L50)
 
 ## Methods
 
@@ -78,7 +78,7 @@ const blueprint = await configBuilder.build(rawModules);
 
 #### Defined in
 
-[src/ConfigBuilder.ts:71](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConfigBuilder.ts#L71)
+[src/ConfigBuilder.ts:71](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConfigBuilder.ts#L71)
 
 ***
 
@@ -102,4 +102,4 @@ A new ConfigBuilder instance.
 
 #### Defined in
 
-[src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConfigBuilder.ts#L41)
+[src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConfigBuilder.ts#L41)

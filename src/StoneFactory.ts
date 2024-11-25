@@ -1,3 +1,5 @@
+import { RuntimeError } from './errors/RuntimeError'
+import { IntegrationError } from './errors/IntegrationError'
 import { AdapterResolver, IAdapter, IBlueprint } from './definitions'
 
 /**
@@ -65,7 +67,7 @@ export class StoneFactory<R = unknown> {
    * @param options - The options to create the StoneFactory.
    */
   private constructor ({ blueprint }: StoneFactoryOptions) {
-    if (blueprint === undefined) { throw new TypeError('Blueprint is required to create a StoneFactory instance.') }
+    if (blueprint === undefined) { throw new RuntimeError('Blueprint is required to create a StoneFactory instance.') }
     this.blueprint = blueprint
   }
 
@@ -73,7 +75,7 @@ export class StoneFactory<R = unknown> {
    * Run the application by resolving and executing the adapter.
    *
    * @returns A promise that resolves to the result of the adapter's `run` method.
-   * @throws {Error} If no adapter resolver or adapter is provided in the blueprint.
+   * @throws {IntegrationError} If no adapter resolver or adapter is provided in the blueprint.
    *
    * @example
    * ```typescript
@@ -88,7 +90,7 @@ export class StoneFactory<R = unknown> {
    * Resolve and create the appropriate adapter from the blueprint.
    *
    * @returns The resolved adapter instance.
-   * @throws {Error} If no adapter resolver or adapter is provided in the blueprint.
+   * @throws {IntegrationError} If no adapter resolver or adapter is provided in the blueprint.
    *
    * @example
    * ```typescript
@@ -99,13 +101,13 @@ export class StoneFactory<R = unknown> {
     const resolver = this.blueprint.get<AdapterResolver<R>>('app.adapter.resolver')
 
     if (resolver === undefined) {
-      throw new TypeError('No adapter resolver provided. Ensure that a valid adapter resolver is configured under "app.adapter.resolver" in the blueprint configuration.')
+      throw new IntegrationError('No adapter resolver provided. Ensure that a valid adapter resolver is configured under "app.adapter.resolver" in the blueprint configuration.')
     }
 
     const adapter = resolver(this.blueprint)
 
     if (adapter === undefined) {
-      throw new TypeError('No adapters provided. Stone.js needs at least one adapter to run.')
+      throw new IntegrationError('No adapters provided. Stone.js needs at least one adapter to run.')
     }
 
     return adapter

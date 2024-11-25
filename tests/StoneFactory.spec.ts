@@ -1,3 +1,4 @@
+import { RuntimeError } from '../src/errors/RuntimeError'
 import { StoneFactory, StoneFactoryOptions } from '../src/StoneFactory'
 import { IBlueprint, IAdapter, AdapterResolver } from '../src/definitions'
 
@@ -21,7 +22,7 @@ const mockBlueprint = (resolver?: AdapterResolver<string>): IBlueprint => ({
 describe('StoneFactory', () => {
   it('should throw an error if blueprint is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => StoneFactory.create<string>({ blueprint: undefined })).toThrow(TypeError)
+    expect(() => StoneFactory.create<string>({ blueprint: undefined })).toThrow(RuntimeError)
   })
 
   it('should create a StoneFactory instance', () => {

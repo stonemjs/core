@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [CoreServiceProvider](../README.md) / CoreServiceProvider
+[Core Documentation v0.0.2](../../modules.md) / [CoreServiceProvider](../README.md) / CoreServiceProvider
 
 # Class: CoreServiceProvider
 
@@ -45,7 +45,7 @@ If the Blueprint config or EventEmitter is not bound to the container.
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:53](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/CoreServiceProvider.ts#L53)
+[src/CoreServiceProvider.ts:54](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/CoreServiceProvider.ts#L54)
 
 ## Methods
 
@@ -65,7 +65,7 @@ Boots the provider after registration. This method is used to initialize service
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:117](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/CoreServiceProvider.ts#L117)
+[src/CoreServiceProvider.ts:118](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/CoreServiceProvider.ts#L118)
 
 ***
 
@@ -85,4 +85,4 @@ Registers the provider into the system. Typically used for adding services or bi
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:106](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/CoreServiceProvider.ts#L106)
+[src/CoreServiceProvider.ts:107](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/CoreServiceProvider.ts#L107)

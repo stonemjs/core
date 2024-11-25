@@ -1,4 +1,5 @@
 import { Config } from '@stone-js/config'
+import { SetupError } from '../../src/errors/SetupError'
 import { ClassType, ConfigContext } from '../../src/definitions'
 import { stoneBlueprint } from '../../src/options/StoneBlueprint'
 import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY } from '../../src/decorators/constants'
@@ -108,7 +109,7 @@ describe('configMiddleware', () => {
     it('should throw an error when main handler is not defined', async () => {
       await expect(async () => {
         await MainHandlerMiddleware(createMockContext([createMockModule(LISTENER_KEY, {})]), mockNext)
-      }).rejects.toThrow(TypeError)
+      }).rejects.toThrow(SetupError)
     })
   })
 
@@ -190,7 +191,7 @@ describe('configMiddleware', () => {
     it('should throw an error when event name is not defined', async () => {
       await expect(async () => {
         await ListenerMiddleware(createMockContext([createMockModule(LISTENER_KEY, {})]), mockNext)
-      }).rejects.toThrow(TypeError)
+      }).rejects.toThrow(SetupError)
     })
   })
 

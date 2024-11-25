@@ -1,5 +1,6 @@
 import { isConstructor } from '../utils'
 import { OutgoingResponse } from '../events/OutgoingResponse'
+import { IntegrationError } from '../errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'
 import { Pipeline, MixedPipe, PipelineOptions, Pipe } from '@stone-js/pipeline'
 import { AdapterMapperDestinationResolver, IBlueprint, IRawResponseWrapper, AdapterContext } from '../definitions'
@@ -134,8 +135,8 @@ export class AdapterMapper<
   OutgoingResponseType,
   DestinationType
   >) {
-    if (blueprint === undefined) { throw new TypeError('Blueprint is required to create a AdapterMapper instance.') }
-    if (typeof destinationResolver !== 'function') { throw new TypeError('DestinationResolver is required to create a AdapterMapper instance.') }
+    if (blueprint === undefined) { throw new IntegrationError('Blueprint is required to create a AdapterMapper instance.') }
+    if (typeof destinationResolver !== 'function') { throw new IntegrationError('DestinationResolver is required to create a AdapterMapper instance.') }
     this.blueprint = blueprint
     this.middleware = middleware
     this.destinationResolver = destinationResolver

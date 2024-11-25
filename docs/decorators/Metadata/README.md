@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / decorators/Metadata
+[Core Documentation v0.0.2](../../modules.md) / decorators/Metadata
 
 # decorators/Metadata
 

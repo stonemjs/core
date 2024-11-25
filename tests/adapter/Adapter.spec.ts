@@ -4,6 +4,7 @@ import { AdapterMapper } from '../../src/adapter/AdapterMapper'
 import { AdapterBuilder } from '../../src/adapter/AdapterBuilder'
 import { Adapter, AdapterOptions } from '../../src/adapter/Adapter'
 import { OutgoingResponse } from '../../src/events/OutgoingResponse'
+import { IntegrationError } from '../../src/errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
 import { ILogger, IBlueprint, IErrorHandler, AdapterContext, AdapterHandlerResolver, AdapterHooks, IRawResponseWrapper, LifecycleEventHandler, RawResponseOptions } from '../../src/definitions'
 
@@ -174,7 +175,7 @@ describe('Adapter', () => {
         handlerResolver: 'undefined' as any,
         hooks
       }])
-    }).toThrow(TypeError)
+    }).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid logger', () => {
@@ -188,7 +189,7 @@ describe('Adapter', () => {
         handlerResolver,
         hooks
       }])
-    }).toThrow(TypeError)
+    }).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid errorHandler', () => {
@@ -202,7 +203,7 @@ describe('Adapter', () => {
         handlerResolver,
         hooks
       }])
-    }).toThrow(TypeError)
+    }).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid blueprint', () => {
@@ -216,7 +217,7 @@ describe('Adapter', () => {
         handlerResolver,
         hooks
       }])
-    }).toThrow(TypeError)
+    }).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid inputMapper', () => {
@@ -230,7 +231,7 @@ describe('Adapter', () => {
         handlerResolver,
         hooks
       }])
-    }).toThrow(TypeError)
+    }).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid outputMapper', () => {
@@ -244,25 +245,25 @@ describe('Adapter', () => {
         handlerResolver,
         hooks: undefined as any
       }])
-    }).toThrow(TypeError)
+    }).toThrow(IntegrationError)
   })
 
   // Test AdapterBuilder here for simplicity
   it('should throw an error if resolver is not provided to AdapterBuilder', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterBuilder.create({ resolver: undefined })).toThrow(TypeError)
+    expect(() => AdapterBuilder.create({ resolver: undefined })).toThrow(IntegrationError)
   })
 
   // Test AdapterMapper here for simplicity
   it('should throw an error if blueprint is not provided to AdapterMapper', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterMapper.create({ blueprint: undefined })).toThrow(TypeError)
+    expect(() => AdapterMapper.create({ blueprint: undefined })).toThrow(IntegrationError)
   })
 
   // Test AdapterMapper here for simplicity
   it('should throw an error if destinationResolver is not provided to AdapterMapper', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterMapper.create({ blueprint, destinationResolver: undefined })).toThrow(TypeError)
+    expect(() => AdapterMapper.create({ blueprint, destinationResolver: undefined })).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid AdapterBuilder resolver', async () => {
@@ -331,7 +332,7 @@ describe('Adapter', () => {
 
   it('must call report and render when handler throw an error', async () => {
     const handler = (_event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> => {
-      throw new TypeError('Error')
+      throw new IntegrationError('Error')
     }
     handlerResolver = (_blueprint: IBlueprint) => handler
     adapter = new MockAdapter({
@@ -350,7 +351,7 @@ describe('Adapter', () => {
 
   it('must call report and render when incomingEvent is undefined', async () => {
     const handler = (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> => {
-      throw new TypeError('Error')
+      throw new IntegrationError('Error')
     }
     handlerResolver = (_blueprint: IBlueprint) => handler
     inputMapper = AdapterMapper.create({

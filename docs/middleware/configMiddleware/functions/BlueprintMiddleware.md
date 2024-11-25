@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [middleware/configMiddleware](../README.md) / BlueprintMiddleware
+[Core Documentation v0.0.2](../../../modules.md) / [middleware/configMiddleware](../README.md) / BlueprintMiddleware
 
 # Function: BlueprintMiddleware()
 
@@ -38,4 +38,4 @@ await BlueprintMiddleware({ modules, blueprint }, next);
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:29](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/middleware/configMiddleware.ts#L29)
+[src/middleware/configMiddleware.ts:30](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/middleware/configMiddleware.ts#L30)

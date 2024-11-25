@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [resolvers](../README.md) / defaultErrorHandlerResolver
+[Core Documentation v0.0.2](../../modules.md) / [resolvers](../README.md) / defaultErrorHandlerResolver
 
 # Function: defaultErrorHandlerResolver()
 
@@ -27,4 +27,4 @@ The blueprint configuration to use for the error handler.
 
 ## Defined in
 
-[src/resolvers.ts:31](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/resolvers.ts#L31)
+[src/resolvers.ts:31](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/resolvers.ts#L31)

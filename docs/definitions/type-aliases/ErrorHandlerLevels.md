@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [definitions](../README.md) / ErrorHandlerLevels
+[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / ErrorHandlerLevels
 
 # Type Alias: ErrorHandlerLevels
 
@@ -14,4 +14,4 @@ Represents a record of log levels and the corresponding error classes associated
 
 ## Defined in
 
-[src/definitions.ts:304](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/definitions.ts#L304)
+[src/definitions.ts:304](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/definitions.ts#L304)

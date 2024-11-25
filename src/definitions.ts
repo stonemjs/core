@@ -512,3 +512,23 @@ OutgoingResponseType extends OutgoingResponse = OutgoingResponse
    */
   readonly rawResponseBuilder?: IAdapterBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
 }
+
+/**
+ * Represents options for configuring an error.
+ */
+export interface ErrorOptions {
+  /**
+   * A specific error code for identifying the error.
+   */
+  code?: string
+
+  /**
+   * The original error that caused this error, useful for error chaining.
+   */
+  cause?: Error
+
+  /**
+   * Additional information or context about the error.
+   */
+  metadata?: unknown
+}

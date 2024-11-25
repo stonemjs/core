@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../modules.md) / definitions
+[Core Documentation v0.0.2](../modules.md) / definitions
 
 # definitions
 
@@ -17,6 +17,7 @@
 - [AdapterContext](interfaces/AdapterContext.md)
 - [AdapterHooks](interfaces/AdapterHooks.md)
 - [ConfigContext](interfaces/ConfigContext.md)
+- [ErrorOptions](interfaces/ErrorOptions.md)
 - [ErrorResponse](interfaces/ErrorResponse.md)
 - [IAdapter](interfaces/IAdapter.md)
 - [IAdapterBuilder](interfaces/IAdapterBuilder.md)

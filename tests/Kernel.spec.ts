@@ -6,6 +6,7 @@ import { Container } from '@stone-js/service-container'
 import { EventEmitter } from '../src/events/EventEmitter'
 import { IncomingEvent } from '../src/events/IncomingEvent'
 import { OutgoingResponse } from '../src/events/OutgoingResponse'
+import { InitializationError } from '../src/errors/InitializationError'
 import { EventHandlerFunction, IProvider, IRouter, LifecycleEventHandler } from '../src/definitions'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
@@ -76,7 +77,7 @@ describe('Kernel', () => {
     expect(kernel).toBeInstanceOf(Kernel)
   })
 
-  it('should throw TypeError if blueprint is not a valid Config instance', () => {
+  it('should throw InitializationError if blueprint is not a valid Config instance', () => {
     expect(() =>
       Kernel.create({
         ...options,
@@ -86,7 +87,7 @@ describe('Kernel', () => {
     ).toThrowError('Blueprint is required to create a Kernel instance.')
   })
 
-  it('should throw TypeError if container is not a valid Container instance', () => {
+  it('should throw InitializationError if container is not a valid Container instance', () => {
     expect(() =>
       Kernel.create({
         ...options,
@@ -96,7 +97,7 @@ describe('Kernel', () => {
     ).toThrowError('Container is required to create a Kernel instance.')
   })
 
-  it('should throw TypeError if eventEmitter is not a valid EventEmitter instance', () => {
+  it('should throw InitializationError if eventEmitter is not a valid EventEmitter instance', () => {
     expect(() =>
       Kernel.create({
         ...options,
@@ -106,7 +107,7 @@ describe('Kernel', () => {
     ).toThrowError('EventEmitter is required to create a Kernel instance.')
   })
 
-  it('should throw TypeError if handlerResolver is not a valid function', () => {
+  it('should throw InitializationError if handlerResolver is not a valid function', () => {
     expect(() =>
       Kernel.create({
         ...options,
@@ -166,7 +167,7 @@ describe('Kernel', () => {
     kernel.handlerResolver = (_: Container) => undefined
     const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
 
-    await expect(async () => await kernel.handle(mockEvent)).rejects.toBeInstanceOf(TypeError)
+    await expect(async () => await kernel.handle(mockEvent)).rejects.toBeInstanceOf(InitializationError)
   })
 
   it('should throw an error when response not returned', async () => {
@@ -175,7 +176,7 @@ describe('Kernel', () => {
     kernel.handlerResolver = (_: Container) => () => undefined
     const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
 
-    await expect(async () => await kernel.handle(mockEvent)).rejects.toBeInstanceOf(TypeError)
+    await expect(async () => await kernel.handle(mockEvent)).rejects.toBeInstanceOf(InitializationError)
   })
 
   it('should throw an error when response is not a subclass of OutgoingResponse', async () => {
@@ -185,7 +186,7 @@ describe('Kernel', () => {
     // @ts-expect-error - invalid value for test purposes
     const mockEvent = MockIncomingEvent.create({ metadata: 12, type: '' }).setMetadataValue(metadata)
 
-    await expect(async () => await kernel.handle(mockEvent)).rejects.toBeInstanceOf(TypeError)
+    await expect(async () => await kernel.handle(mockEvent)).rejects.toBeInstanceOf(InitializationError)
   })
 
   it('should call onTerminate and invoke onTerminate hooks on providers and middleware', async () => {

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../modules.md) / [ConfigBuilder](../README.md) / ConfigBuilderOptions
+[Core Documentation v0.0.2](../../modules.md) / [ConfigBuilder](../README.md) / ConfigBuilderOptions
 
 # Interface: ConfigBuilderOptions
 
@@ -16,7 +16,7 @@ ConfigBuilderOptions.
 
 #### Defined in
 
-[src/ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConfigBuilder.ts#L14)
+[src/ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConfigBuilder.ts#L14)
 
 ***
 
@@ -26,4 +26,4 @@ ConfigBuilderOptions.
 
 #### Defined in
 
-[src/ConfigBuilder.ts:13](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/ConfigBuilder.ts#L13)
+[src/ConfigBuilder.ts:13](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/ConfigBuilder.ts#L13)

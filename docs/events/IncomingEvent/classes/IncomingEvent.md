@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEvent
+[Core Documentation v0.0.2](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEvent
 
 # Class: IncomingEvent
 
@@ -40,7 +40,7 @@ The options to create an IncomingEvent.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:45](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/IncomingEvent.ts#L45)
+[src/events/IncomingEvent.ts:45](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/IncomingEvent.ts#L45)
 
 ## Properties
 
@@ -52,7 +52,7 @@ The locale of the event.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:28](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/IncomingEvent.ts#L28)
+[src/events/IncomingEvent.ts:28](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/IncomingEvent.ts#L28)
 
 ***
 
@@ -68,7 +68,7 @@ The metadata associated with the event.
 
 #### Defined in
 
-[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L27)
+[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L27)
 
 ***
 
@@ -84,7 +84,7 @@ The source of the event.
 
 #### Defined in
 
-[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L32)
+[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L32)
 
 ***
 
@@ -100,7 +100,7 @@ The timestamp of the event creation.
 
 #### Defined in
 
-[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L37)
+[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L37)
 
 ***
 
@@ -116,7 +116,7 @@ The type of the event.
 
 #### Defined in
 
-[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L22)
+[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L22)
 
 ## Methods
 
@@ -142,7 +142,7 @@ A cloned instance of the current class.
 
 #### Defined in
 
-[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L79)
+[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L79)
 
 ***
 
@@ -174,7 +174,7 @@ The value associated with the key or the fallback.
 
 #### Defined in
 
-[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L58)
+[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L58)
 
 ***
 
@@ -206,7 +206,7 @@ This Event instance.
 
 #### Defined in
 
-[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/Event.ts#L69)
+[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/Event.ts#L69)
 
 ***
 
@@ -230,7 +230,7 @@ A new IncomingEvent instance.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:36](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/IncomingEvent.ts#L36)
+[src/events/IncomingEvent.ts:36](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/IncomingEvent.ts#L36)
 
 ## Events
 
@@ -244,4 +244,4 @@ INCOMING_EVENT Event name, fires on platform message.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:23](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/events/IncomingEvent.ts#L23)
+[src/events/IncomingEvent.ts:23](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/events/IncomingEvent.ts#L23)

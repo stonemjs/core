@@ -40,8 +40,7 @@ export interface KernelMiddlewareConfig {
 /**
  * Kernel options.
  *
- * This interface defines the configuration for kernel-level options, specifically the middleware settings
- * to be used across all adapters.
+ * This interface defines the configuration for kernel-level options.
  */
 export interface KernelConfig {
   /**

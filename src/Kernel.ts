@@ -7,6 +7,7 @@ import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { KernelMiddlewareConfig } from './options/KernelConfig'
+import { InitializationError } from './errors/InitializationError'
 import { MixedPipe, Pipe, PipeInstance, Pipeline, PipelineOptions } from '@stone-js/pipeline'
 import { EventHandlerFunction, IBlueprint, ILogger, IProvider, IRouter, KernelContext, KernelHandlerResolver, LifecycleEventHandler } from './definitions'
 
@@ -57,10 +58,10 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * @param options - Kernel configuration options.
    */
   protected constructor ({ blueprint, container, eventEmitter, logger, handlerResolver }: KernelOptions<U, V>) {
-    if (!(blueprint instanceof Config)) { throw new TypeError('Blueprint is required to create a Kernel instance.') }
-    if (!(container instanceof Container)) { throw new TypeError('Container is required to create a Kernel instance.') }
-    if (!(eventEmitter instanceof EventEmitter)) { throw new TypeError('EventEmitter is required to create a Kernel instance.') }
-    if (typeof handlerResolver !== 'function') { throw new TypeError('HandlerResolver is required to create a Kernel instance.') }
+    if (!(blueprint instanceof Config)) { throw new InitializationError('Blueprint is required to create a Kernel instance.') }
+    if (!(container instanceof Container)) { throw new InitializationError('Container is required to create a Kernel instance.') }
+    if (!(eventEmitter instanceof EventEmitter)) { throw new InitializationError('EventEmitter is required to create a Kernel instance.') }
+    if (typeof handlerResolver !== 'function') { throw new InitializationError('HandlerResolver is required to create a Kernel instance.') }
 
     this.logger = logger
     this.providers = new Set()
@@ -161,10 +162,10 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * Useful to bootstrap things at each event.
    *
    * @param event - The incoming event.
-   * @throws {TypeError} If no event is provided.
+   * @throws {InitializationError} If no event is provided.
    */
   protected async onBootstrap (event: U): Promise<void> {
-    if (event === undefined) { throw new TypeError('No IncomingEvent provided.') }
+    if (event === undefined) { throw new InitializationError('No IncomingEvent provided.') }
     if (typeof event.clone === 'function') { this.container.instance('originalEvent', event.clone()) }
     await this.bootProviders()
   }
@@ -187,7 +188,7 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    *
    * @param event - The incoming event.
    * @returns The prepared response.
-   * @throws {TypeError} If no router or handler has been provided.
+   * @throws {InitializationError} If no router or handler has been provided.
    */
   protected async prepareDestination (event: U): Promise<V> {
     this.currentEvent = event
@@ -209,7 +210,7 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
         : await (handler as EventHandlerFunction<U, V>)(this.currentEvent)
     }
 
-    throw new TypeError('No routers nor handlers has been provided.')
+    throw new InitializationError('No routers nor handlers has been provided.')
   }
 
   /**
@@ -221,11 +222,11 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    */
   protected async prepareResponse (event: U): Promise<V> {
     if (this.currentResponse === undefined) {
-      throw new TypeError('No response was returned')
+      throw new InitializationError('No response was returned')
     }
 
     if (typeof this.currentResponse.prepare !== 'function') {
-      throw new TypeError('Return response must be an instance of `OutgoingResponse` or a subclass of it.')
+      throw new InitializationError('Return response must be an instance of `OutgoingResponse` or a subclass of it.')
     }
 
     this.container.instance('response', this.currentResponse)

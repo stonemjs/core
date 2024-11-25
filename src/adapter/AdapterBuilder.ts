@@ -1,4 +1,5 @@
 import { IAdapterBuilder } from '../definitions'
+import { IntegrationError } from '../errors/IntegrationError'
 
 /**
  * AdapterBuilderOptions.
@@ -58,7 +59,7 @@ export class AdapterBuilder<V extends object, R> implements IAdapterBuilder<V, R
    * @protected
    */
   protected constructor ({ options, resolver }: AdapterBuilderOptions<V, R>) {
-    if (typeof resolver !== 'function') { throw new TypeError('Resolver is required to create an AdapterBuilder instance.') }
+    if (typeof resolver !== 'function') { throw new IntegrationError('Resolver is required to create an AdapterBuilder instance.') }
     this.resolver = resolver
     this.options = options ?? ({} as any)
   }

@@ -1,4 +1,5 @@
 import { ErrorHandler } from '../src/ErrorHandler'
+import { IntegrationError } from '../src/errors/IntegrationError'
 import { ILogger, IBlueprint, LogLevel } from '../src/definitions'
 
 const mockBlueprint: IBlueprint = {
@@ -40,17 +41,17 @@ describe('ErrorHandler', () => {
 
   it('should throw an error if logger is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => ErrorHandler.create<string>({ logger: undefined, blueprint: mockBlueprint, renderResponseResolver: mockRenderResponseResolver })).toThrow(TypeError)
+    expect(() => ErrorHandler.create<string>({ logger: undefined, blueprint: mockBlueprint, renderResponseResolver: mockRenderResponseResolver })).toThrow(IntegrationError)
   })
 
   it('should throw an error if blueprint is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => ErrorHandler.create<string>({ logger: mockLogger, blueprint: undefined, renderResponseResolver: mockRenderResponseResolver })).toThrow(TypeError)
+    expect(() => ErrorHandler.create<string>({ logger: mockLogger, blueprint: undefined, renderResponseResolver: mockRenderResponseResolver })).toThrow(IntegrationError)
   })
 
   it('should throw an error if blueprint is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => ErrorHandler.create<string>({ logger: mockLogger, blueprint: mockBlueprint, renderResponseResolver: undefined })).toThrow(TypeError)
+    expect(() => ErrorHandler.create<string>({ logger: mockLogger, blueprint: mockBlueprint, renderResponseResolver: undefined })).toThrow(IntegrationError)
   })
 
   it('should create an instance of ErrorHandler', () => {

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [decorators/Metadata](../README.md) / getAllMetadata
+[Core Documentation v0.0.2](../../../modules.md) / [decorators/Metadata](../README.md) / getAllMetadata
 
 # Function: getAllMetadata()
 
@@ -34,4 +34,4 @@ All metadata or the default value if no metadata exists.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:47](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/decorators/Metadata.ts#L47)
+[src/decorators/Metadata.ts:47](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/decorators/Metadata.ts#L47)

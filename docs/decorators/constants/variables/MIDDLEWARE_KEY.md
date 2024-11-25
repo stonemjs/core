@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [decorators/constants](../README.md) / MIDDLEWARE\_KEY
+[Core Documentation v0.0.2](../../../modules.md) / [decorators/constants](../README.md) / MIDDLEWARE\_KEY
 
 # Variable: MIDDLEWARE\_KEY
 
@@ -12,4 +12,4 @@ A unique symbol key to mark classes as middleware.
 
 ## Defined in
 
-[src/decorators/constants.ts:34](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/decorators/constants.ts#L34)
+[src/decorators/constants.ts:34](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/decorators/constants.ts#L34)

@@ -1,5 +1,6 @@
 import { IBlueprint } from '../src/definitions'
 import { ConsoleLogger } from '../src/ConsoleLogger'
+import { RuntimeError } from '../src/errors/RuntimeError'
 
 // Mock implementation of IBlueprint to simulate behavior for testing
 const createMockBlueprint = (loggerOptions: Record<string, unknown> = {}): IBlueprint => {
@@ -13,7 +14,7 @@ const createMockBlueprint = (loggerOptions: Record<string, unknown> = {}): IBlue
 describe('ConsoleLogger', () => {
   it('should throw an error if blueprint is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => ConsoleLogger.create({ blueprint: undefined })).toThrow(TypeError)
+    expect(() => ConsoleLogger.create({ blueprint: undefined })).toThrow(RuntimeError)
   })
 
   it('should log message when the log level is info', () => {

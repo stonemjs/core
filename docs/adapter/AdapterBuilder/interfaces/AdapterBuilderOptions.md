@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [adapter/AdapterBuilder](../README.md) / AdapterBuilderOptions
+[Core Documentation v0.0.2](../../../modules.md) / [adapter/AdapterBuilder](../README.md) / AdapterBuilderOptions
 
 # Interface: AdapterBuilderOptions\<V, R\>
 
@@ -31,7 +31,7 @@ The initial options used for building the object. This is optional.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:16](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L16)
+[src/adapter/AdapterBuilder.ts:17](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L17)
 
 ***
 
@@ -51,4 +51,4 @@ The resolver function that takes the options and returns the final object of typ
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:21](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L21)
+[src/adapter/AdapterBuilder.ts:22](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L22)

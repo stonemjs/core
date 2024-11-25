@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [adapter/AdapterMapper](../README.md) / AdapterMapper
+[Core Documentation v0.0.2](../../../modules.md) / [adapter/AdapterMapper](../README.md) / AdapterMapper
 
 # Class: AdapterMapper\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, DestinationType\>
 
@@ -47,7 +47,7 @@ The transformed output of type DestinationType.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:151](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterMapper.ts#L151)
+[src/adapter/AdapterMapper.ts:152](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterMapper.ts#L152)
 
 ***
 
@@ -87,4 +87,4 @@ A new AdapterMapper instance.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:89](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterMapper.ts#L89)
+[src/adapter/AdapterMapper.ts:90](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterMapper.ts#L90)

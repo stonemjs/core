@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.0**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.0](../../../modules.md) / [adapter/AdapterBuilder](../README.md) / AdapterBuilder
+[Core Documentation v0.0.2](../../../modules.md) / [adapter/AdapterBuilder](../README.md) / AdapterBuilder
 
 # Class: AdapterBuilder\<V, R\>
 
@@ -45,7 +45,7 @@ The options for creating the AdapterBuilder instance, including the initial opti
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:60](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L60)
+[src/adapter/AdapterBuilder.ts:61](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L61)
 
 ## Methods
 
@@ -77,7 +77,7 @@ This instance of AdapterBuilder for method chaining.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:73](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L73)
+[src/adapter/AdapterBuilder.ts:74](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L74)
 
 ***
 
@@ -99,7 +99,7 @@ The final object of type `R`.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:83](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L83)
+[src/adapter/AdapterBuilder.ts:84](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L84)
 
 ***
 
@@ -129,4 +129,4 @@ A new instance of AdapterBuilder.
 
 #### Defined in
 
-[src/adapter/AdapterBuilder.ts:50](https://github.com/stonemjs/core/blob/be89f756f02a94c320588453a86b3e95bc4e060f/src/adapter/AdapterBuilder.ts#L50)
+[src/adapter/AdapterBuilder.ts:51](https://github.com/stonemjs/core/blob/aa2a76ee3b0b5f73fa20c9cec0decb9263cddbc2/src/adapter/AdapterBuilder.ts#L51)
