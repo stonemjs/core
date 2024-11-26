@@ -7,8 +7,8 @@ import { IncomingEvent } from './IncomingEvent'
  */
 export interface OutgoingResponseOptions extends EventOptions {
   content: unknown
-  statusCode?: number | null
-  statusMessage?: string | null
+  statusCode?: number
+  statusMessage?: string
 }
 
 /**
@@ -25,24 +25,24 @@ export class OutgoingResponse extends Event {
   static OUTGOING_RESPONSE: string = 'stonejs@outgoing_response'
 
   /**
-   * The content of the response.
-   */
-  public readonly content: unknown
-
-  /**
    * The original content of the response.
    */
   public readonly originalContent: unknown
 
   /**
+   * The content of the response.
+   */
+  protected _content: unknown
+
+  /**
    * The status code of the response.
    */
-  public readonly statusCode?: number | null
+  protected _statusCode?: number
 
   /**
    * The status message of the response.
    */
-  public readonly statusMessage?: string | null
+  protected _statusMessage?: string
 
   /**
    * Create an OutgoingResponse.
@@ -63,16 +63,43 @@ export class OutgoingResponse extends Event {
     source,
     content,
     metadata = {},
-    statusCode = null,
-    statusMessage = null,
     timeStamp = Date.now(),
+    statusCode = undefined,
+    statusMessage = undefined,
     type = OutgoingResponse.OUTGOING_RESPONSE
   }: OutgoingResponseOptions) {
     super({ type, metadata, source, timeStamp })
-    this.content = content
+    this._content = content
+    this._statusCode = statusCode
     this.originalContent = content
-    this.statusCode = statusCode
-    this.statusMessage = statusMessage
+    this._statusMessage = statusMessage
+  }
+
+  /**
+   * Gets the status code of the outgoing response.
+   *
+   * @returns The status code of the response, or undefined if not set.
+   */
+  get statusCode (): number | undefined {
+    return this._statusCode
+  }
+
+  /**
+   * Gets the status message of the outgoing response.
+   *
+   * @returns The status message of the response, or undefined if not set.
+   */
+  get statusMessage (): string | undefined {
+    return this._statusMessage
+  }
+
+  /**
+   * Gets the content of the outgoing response.
+   *
+   * @returns The content of the outgoing response.
+   */
+  get content (): unknown {
+    return this._content
   }
 
   /**

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [options/KernelConfig](../README.md) / kernel
+[Core Documentation v0.0.31](../../../modules.md) / [options/KernelConfig](../README.md) / kernel
 
 # Variable: kernel
 
@@ -16,4 +16,4 @@ and termination processing.
 
 ## Defined in
 
-[src/options/KernelConfig.ts:64](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/KernelConfig.ts#L64)
+[src/options/KernelConfig.ts:64](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L64)

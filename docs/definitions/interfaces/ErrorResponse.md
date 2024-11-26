@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / ErrorResponse
+[Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / ErrorResponse
 
 # Interface: ErrorResponse
 
@@ -18,7 +18,7 @@ Represents an error response with code, status, and message properties.
 
 #### Defined in
 
-[src/definitions.ts:366](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L366)
+[src/definitions.ts:366](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L366)
 
 ***
 
@@ -28,7 +28,7 @@ Represents an error response with code, status, and message properties.
 
 #### Defined in
 
-[src/definitions.ts:368](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L368)
+[src/definitions.ts:368](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L368)
 
 ***
 
@@ -38,4 +38,4 @@ Represents an error response with code, status, and message properties.
 
 #### Defined in
 
-[src/definitions.ts:367](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L367)
+[src/definitions.ts:367](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L367)

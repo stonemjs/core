@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [options/StoneBlueprint](../README.md) / Environment
+[Core Documentation v0.0.31](../../../modules.md) / [options/StoneBlueprint](../README.md) / Environment
 
 # Enumeration: Environment
 
@@ -20,7 +20,7 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:22](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/StoneBlueprint.ts#L22)
+[src/options/StoneBlueprint.ts:22](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L22)
 
 ***
 
@@ -30,7 +30,7 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:23](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/StoneBlueprint.ts#L23)
+[src/options/StoneBlueprint.ts:23](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L23)
 
 ***
 
@@ -40,4 +40,4 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:24](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/StoneBlueprint.ts#L24)
+[src/options/StoneBlueprint.ts:24](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L24)

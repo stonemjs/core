@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [decorators/Metadata](../README.md) / setFieldMetadata
+[Core Documentation v0.0.31](../../../modules.md) / [decorators/Metadata](../README.md) / setFieldMetadata
 
 # Function: setFieldMetadata()
 
@@ -44,4 +44,4 @@ A field decorator function that sets the metadata.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:94](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Metadata.ts#L94)
+[src/decorators/Metadata.ts:94](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Metadata.ts#L94)

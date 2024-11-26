@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / ErrorHandlerResolver
+[Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / ErrorHandlerResolver
 
 # Type Alias: ErrorHandlerResolver()\<R\>
 
@@ -30,4 +30,4 @@ The error handler instance.
 
 ## Defined in
 
-[src/definitions.ts:336](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L336)
+[src/definitions.ts:336](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L336)

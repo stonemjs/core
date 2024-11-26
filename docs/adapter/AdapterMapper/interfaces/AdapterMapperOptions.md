@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [adapter/AdapterMapper](../README.md) / AdapterMapperOptions
+[Core Documentation v0.0.31](../../../modules.md) / [adapter/AdapterMapper](../README.md) / AdapterMapperOptions
 
 # Interface: AdapterMapperOptions\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, DestinationType\>
 
@@ -32,7 +32,7 @@ AdapterMapperOptions.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:28](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterMapper.ts#L28)
+[src/adapter/AdapterMapper.ts:28](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/AdapterMapper.ts#L28)
 
 ***
 
@@ -42,7 +42,7 @@ AdapterMapperOptions.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:30](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterMapper.ts#L30)
+[src/adapter/AdapterMapper.ts:30](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/AdapterMapper.ts#L30)
 
 ***
 
@@ -52,4 +52,4 @@ AdapterMapperOptions.
 
 #### Defined in
 
-[src/adapter/AdapterMapper.ts:29](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/adapter/AdapterMapper.ts#L29)
+[src/adapter/AdapterMapper.ts:29](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/AdapterMapper.ts#L29)

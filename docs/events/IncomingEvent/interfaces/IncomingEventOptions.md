@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
+[Core Documentation v0.0.31](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
 
 # Interface: IncomingEventOptions
 
@@ -20,7 +20,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/events/IncomingEvent.ts#L7)
+[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/IncomingEvent.ts#L7)
 
 ***
 
@@ -34,7 +34,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/events/Event.ts#L10)
+[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/Event.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/events/Event.ts#L8)
+[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/Event.ts#L8)
 
 ***
 
@@ -62,7 +62,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/events/Event.ts#L9)
+[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/Event.ts#L9)
 
 ***
 
@@ -76,4 +76,4 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/events/Event.ts#L7)
+[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/Event.ts#L7)

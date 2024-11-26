@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [decorators/StoneApp](../README.md) / StoneApp
+[Core Documentation v0.0.31](../../../modules.md) / [decorators/StoneApp](../README.md) / StoneApp
 
 # Function: StoneApp()
 
@@ -52,4 +52,4 @@ class MyApp {
 
 ## Defined in
 
-[src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/StoneApp.ts#L30)
+[src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/StoneApp.ts#L30)

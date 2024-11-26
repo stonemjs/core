@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [options/AdapterConfig](../README.md) / AdapterMiddlewareConfig
+[Core Documentation v0.0.31](../../../modules.md) / [options/AdapterConfig](../README.md) / AdapterMiddlewareConfig
 
 # Interface: AdapterMiddlewareConfig
 
@@ -20,7 +20,7 @@ Configuration for the input mapper.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:13](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/AdapterConfig.ts#L13)
+[src/options/AdapterConfig.ts:13](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L13)
 
 ***
 
@@ -32,4 +32,4 @@ Configuration for the output mapper.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:18](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/AdapterConfig.ts#L18)
+[src/options/AdapterConfig.ts:18](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L18)

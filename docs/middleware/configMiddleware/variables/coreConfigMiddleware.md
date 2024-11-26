@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [middleware/configMiddleware](../README.md) / coreConfigMiddleware
+[Core Documentation v0.0.31](../../../modules.md) / [middleware/configMiddleware](../README.md) / coreConfigMiddleware
 
 # Variable: coreConfigMiddleware
 
@@ -25,4 +25,4 @@ import { coreConfigMiddleware } from './coreConfigMiddleware';
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:309](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/middleware/configMiddleware.ts#L309)
+[src/middleware/configMiddleware.ts:309](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/middleware/configMiddleware.ts#L309)

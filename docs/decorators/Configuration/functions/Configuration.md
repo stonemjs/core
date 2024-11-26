@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [decorators/Configuration](../README.md) / Configuration
+[Core Documentation v0.0.31](../../../modules.md) / [decorators/Configuration](../README.md) / Configuration
 
 # Function: Configuration()
 
@@ -47,4 +47,4 @@ class MyClass {
 
 ## Defined in
 
-[src/decorators/Configuration.ts:31](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Configuration.ts#L31)
+[src/decorators/Configuration.ts:31](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Configuration.ts#L31)

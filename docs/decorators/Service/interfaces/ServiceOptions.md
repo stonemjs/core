@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [decorators/Service](../README.md) / ServiceOptions
+[Core Documentation v0.0.31](../../../modules.md) / [decorators/Service](../README.md) / ServiceOptions
 
 # Interface: ServiceOptions
 
@@ -21,7 +21,7 @@ Can be a single alias or an array of aliases.
 
 #### Defined in
 
-[src/decorators/Service.ts:22](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Service.ts#L22)
+[src/decorators/Service.ts:22](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Service.ts#L22)
 
 ***
 
@@ -35,4 +35,4 @@ Optional.
 
 #### Defined in
 
-[src/decorators/Service.ts:16](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Service.ts#L16)
+[src/decorators/Service.ts:16](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Service.ts#L16)

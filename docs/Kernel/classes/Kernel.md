@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../modules.md) / [Kernel](../README.md) / Kernel
+[Core Documentation v0.0.31](../../modules.md) / [Kernel](../README.md) / Kernel
 
 # Class: Kernel\<U, V\>
 
@@ -46,7 +46,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:60](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L60)
+[src/Kernel.ts:60](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L60)
 
 ## Properties
 
@@ -56,7 +56,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:39](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L39)
+[src/Kernel.ts:39](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L39)
 
 ***
 
@@ -66,7 +66,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:38](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L38)
+[src/Kernel.ts:38](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L38)
 
 ***
 
@@ -76,7 +76,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:36](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L36)
+[src/Kernel.ts:36](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L36)
 
 ***
 
@@ -86,7 +86,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:37](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L37)
+[src/Kernel.ts:37](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L37)
 
 ***
 
@@ -96,7 +96,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:41](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L41)
+[src/Kernel.ts:41](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L41)
 
 ***
 
@@ -106,7 +106,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:43](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L43)
+[src/Kernel.ts:43](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L43)
 
 ***
 
@@ -116,7 +116,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:35](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L35)
+[src/Kernel.ts:35](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L35)
 
 ***
 
@@ -126,7 +126,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:40](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L40)
+[src/Kernel.ts:40](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L40)
 
 ***
 
@@ -136,7 +136,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:42](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L42)
+[src/Kernel.ts:42](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L42)
 
 ## Accessors
 
@@ -154,7 +154,7 @@ Get event middleware.
 
 #### Defined in
 
-[src/Kernel.ts:94](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L94)
+[src/Kernel.ts:94](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L94)
 
 ***
 
@@ -172,7 +172,7 @@ Get all middleware.
 
 #### Defined in
 
-[src/Kernel.ts:87](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L87)
+[src/Kernel.ts:87](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L87)
 
 ***
 
@@ -190,7 +190,7 @@ Get response middleware.
 
 #### Defined in
 
-[src/Kernel.ts:101](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L101)
+[src/Kernel.ts:101](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L101)
 
 ***
 
@@ -208,7 +208,7 @@ Check if middleware should be skipped.
 
 #### Defined in
 
-[src/Kernel.ts:80](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L80)
+[src/Kernel.ts:80](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L80)
 
 ***
 
@@ -226,7 +226,7 @@ Get terminate middleware.
 
 #### Defined in
 
-[src/Kernel.ts:108](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L108)
+[src/Kernel.ts:108](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L108)
 
 ## Methods
 
@@ -247,7 +247,7 @@ Useful to initialize things at each event.
 
 #### Defined in
 
-[src/Kernel.ts:116](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L116)
+[src/Kernel.ts:116](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L116)
 
 ***
 
@@ -275,7 +275,7 @@ The outgoing response.
 
 #### Defined in
 
-[src/Kernel.ts:132](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L132)
+[src/Kernel.ts:132](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L132)
 
 ***
 
@@ -293,7 +293,7 @@ The pipeline options for configuring middleware.
 
 #### Defined in
 
-[src/Kernel.ts:255](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L255)
+[src/Kernel.ts:255](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L255)
 
 ***
 
@@ -320,7 +320,7 @@ If no event is provided.
 
 #### Defined in
 
-[src/Kernel.ts:167](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L167)
+[src/Kernel.ts:167](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L167)
 
 ***
 
@@ -336,7 +336,7 @@ Register services to the container.
 
 #### Defined in
 
-[src/Kernel.ts:156](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L156)
+[src/Kernel.ts:156](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L156)
 
 ***
 
@@ -357,7 +357,7 @@ Useful to perform cleanup.
 
 #### Defined in
 
-[src/Kernel.ts:142](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L142)
+[src/Kernel.ts:142](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L142)
 
 ***
 
@@ -385,7 +385,7 @@ If no router or handler has been provided.
 
 #### Defined in
 
-[src/Kernel.ts:193](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L193)
+[src/Kernel.ts:193](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L193)
 
 ***
 
@@ -409,7 +409,7 @@ The prepared response.
 
 #### Defined in
 
-[src/Kernel.ts:223](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L223)
+[src/Kernel.ts:223](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L223)
 
 ***
 
@@ -431,7 +431,7 @@ The incoming event.
 
 #### Defined in
 
-[src/Kernel.ts:178](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L178)
+[src/Kernel.ts:178](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L178)
 
 ***
 
@@ -461,4 +461,4 @@ A new Kernel instance.
 
 #### Defined in
 
-[src/Kernel.ts:51](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/Kernel.ts#L51)
+[src/Kernel.ts:51](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L51)

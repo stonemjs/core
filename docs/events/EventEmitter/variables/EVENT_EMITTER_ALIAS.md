@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [events/EventEmitter](../README.md) / EVENT\_EMITTER\_ALIAS
+[Core Documentation v0.0.31](../../../modules.md) / [events/EventEmitter](../README.md) / EVENT\_EMITTER\_ALIAS
 
 # Variable: EVENT\_EMITTER\_ALIAS
 
@@ -12,4 +12,4 @@ EVENT_EMITTER_ALIAS.
 
 ## Defined in
 
-[src/events/EventEmitter.ts:7](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/events/EventEmitter.ts#L7)
+[src/events/EventEmitter.ts:7](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/EventEmitter.ts#L7)

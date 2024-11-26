@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / ILogger
+[Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / ILogger
 
 # Interface: ILogger
 
@@ -34,7 +34,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:103](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L103)
+[src/definitions.ts:103](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L103)
 
 ***
 
@@ -60,7 +60,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:119](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L119)
+[src/definitions.ts:119](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L119)
 
 ***
 
@@ -86,7 +86,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:95](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L95)
+[src/definitions.ts:95](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L95)
 
 ***
 
@@ -112,7 +112,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:127](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L127)
+[src/definitions.ts:127](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L127)
 
 ***
 
@@ -138,7 +138,7 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:135](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L135)
+[src/definitions.ts:135](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L135)
 
 ***
 
@@ -164,4 +164,4 @@ Optional parameters to log.
 
 #### Defined in
 
-[src/definitions.ts:111](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L111)
+[src/definitions.ts:111](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L111)

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../modules.md) / [StoneFactory](../README.md) / StoneFactory
+[Core Documentation v0.0.31](../../modules.md) / [StoneFactory](../README.md) / StoneFactory
 
 # Class: StoneFactory\<R\>
 
@@ -47,7 +47,7 @@ await factory.run();
 
 #### Defined in
 
-[src/StoneFactory.ts:85](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/StoneFactory.ts#L85)
+[src/StoneFactory.ts:85](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/StoneFactory.ts#L85)
 
 ***
 
@@ -81,4 +81,4 @@ const factory = StoneFactory.create({ blueprint });
 
 #### Defined in
 
-[src/StoneFactory.ts:60](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/StoneFactory.ts#L60)
+[src/StoneFactory.ts:60](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/StoneFactory.ts#L60)

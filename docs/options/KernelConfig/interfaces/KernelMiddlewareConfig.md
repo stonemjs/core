@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [options/KernelConfig](../README.md) / KernelMiddlewareConfig
+[Core Documentation v0.0.31](../../../modules.md) / [options/KernelConfig](../README.md) / KernelMiddlewareConfig
 
 # Interface: KernelMiddlewareConfig
 
@@ -23,7 +23,7 @@ Example: event: [MyCustomMiddleware, 'aliasForMiddleware']
 
 #### Defined in
 
-[src/options/KernelConfig.ts:25](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/KernelConfig.ts#L25)
+[src/options/KernelConfig.ts:25](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L25)
 
 ***
 
@@ -36,7 +36,7 @@ This array can include classes or aliases for middleware functions.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:31](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/KernelConfig.ts#L31)
+[src/options/KernelConfig.ts:31](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L31)
 
 ***
 
@@ -49,7 +49,7 @@ If set to true, all middleware defined in the kernel will be bypassed.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:18](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/KernelConfig.ts#L18)
+[src/options/KernelConfig.ts:18](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L18)
 
 ***
 
@@ -62,4 +62,4 @@ This array can include classes or aliases for middleware functions.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:37](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/options/KernelConfig.ts#L37)
+[src/options/KernelConfig.ts:37](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L37)

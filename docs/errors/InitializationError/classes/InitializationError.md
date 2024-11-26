@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [errors/InitializationError](../README.md) / InitializationError
+[Core Documentation v0.0.31](../../../modules.md) / [errors/InitializationError](../README.md) / InitializationError
 
 # Class: InitializationError
 
@@ -34,7 +34,7 @@ Custom error for Initialization layer operations.
 
 #### Defined in
 
-[src/errors/InitializationError.ts:8](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/errors/InitializationError.ts#L8)
+[src/errors/InitializationError.ts:8](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/errors/InitializationError.ts#L8)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Custom error for Initialization layer operations.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/errors/RuntimeError.ts#L9)
+[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/errors/RuntimeError.ts#L9)
 
 ***
 
@@ -62,7 +62,7 @@ Custom error for Initialization layer operations.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/errors/RuntimeError.ts#L10)
+[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/errors/RuntimeError.ts#L10)
 
 ## Methods
 
@@ -90,4 +90,4 @@ A formatted error string.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:40](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/errors/RuntimeError.ts#L40)
+[src/errors/RuntimeError.ts:40](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/errors/RuntimeError.ts#L40)

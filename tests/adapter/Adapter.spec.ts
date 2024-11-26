@@ -113,7 +113,11 @@ class InputMiddleware {
 // Output function Middleware
 const outputMiddleware = (context: MockAdapterContext, next: NextPipe<MockAdapterContext>): MockAdapterContext | Promise<MockAdapterContext> => {
   const content: { name: string, version: string } = context.outgoingResponse?.content as any
-  context.rawResponseBuilder?.add('name', content.name)?.add('version', content.version)
+  context.rawResponseBuilder
+    ?.add('name', content.name)
+    ?.add('version', content.version)
+    ?.add('status', context.outgoingResponse?.statusCode)
+    ?.add('statusMessage', context.outgoingResponse?.statusMessage)
   return next(context)
 }
 

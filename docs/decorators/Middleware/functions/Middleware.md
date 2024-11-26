@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [decorators/Middleware](../README.md) / Middleware
+[Core Documentation v0.0.31](../../../modules.md) / [decorators/Middleware](../README.md) / Middleware
 
 # Function: Middleware()
 
@@ -50,4 +50,4 @@ class MyMiddleware {
 
 ## Defined in
 
-[src/decorators/Middleware.ts:49](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/Middleware.ts#L49)
+[src/decorators/Middleware.ts:49](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Middleware.ts#L49)

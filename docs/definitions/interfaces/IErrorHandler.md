@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../modules.md) / [definitions](../README.md) / IErrorHandler
+[Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / IErrorHandler
 
 # Interface: IErrorHandler\<R\>
 
@@ -30,7 +30,7 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Defined in
 
-[src/definitions.ts:380](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L380)
+[src/definitions.ts:380](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L380)
 
 ***
 
@@ -48,4 +48,4 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Defined in
 
-[src/definitions.ts:379](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/definitions.ts#L379)
+[src/definitions.ts:379](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L379)

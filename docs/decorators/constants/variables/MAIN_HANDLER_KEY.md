@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.2**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.2](../../../modules.md) / [decorators/constants](../README.md) / MAIN\_HANDLER\_KEY
+[Core Documentation v0.0.31](../../../modules.md) / [decorators/constants](../README.md) / MAIN\_HANDLER\_KEY
 
 # Variable: MAIN\_HANDLER\_KEY
 
@@ -12,4 +12,4 @@ A unique symbol key to mark classes as the main application entry point.
 
 ## Defined in
 
-[src/decorators/constants.ts:9](https://github.com/stonemjs/core/blob/dd7eaec566465ef84c36b87b824f8ea9ab76e8fa/src/decorators/constants.ts#L9)
+[src/decorators/constants.ts:9](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/constants.ts#L9)
