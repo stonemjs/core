@@ -20,7 +20,7 @@ The params to pass to the middleware.
 
 #### Defined in
 
-[src/decorators/AdapterMiddleware.ts:14](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/AdapterMiddleware.ts#L14)
+[src/decorators/AdapterMiddleware.ts:14](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/decorators/AdapterMiddleware.ts#L14)
 
 ***
 
@@ -32,7 +32,7 @@ The platform name for which the middleware is used.
 
 #### Defined in
 
-[src/decorators/AdapterMiddleware.ts:24](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/AdapterMiddleware.ts#L24)
+[src/decorators/AdapterMiddleware.ts:24](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/decorators/AdapterMiddleware.ts#L24)
 
 ***
 
@@ -44,4 +44,4 @@ The execution priority of the middleware.
 
 #### Defined in
 
-[src/decorators/AdapterMiddleware.ts:19](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/AdapterMiddleware.ts#L19)
+[src/decorators/AdapterMiddleware.ts:19](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/decorators/AdapterMiddleware.ts#L19)

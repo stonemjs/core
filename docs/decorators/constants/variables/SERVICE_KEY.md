@@ -12,4 +12,4 @@ A unique symbol key to mark classes as services.
 
 ## Defined in
 
-[src/decorators/constants.ts:44](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/constants.ts#L44)
+[src/decorators/constants.ts:44](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/decorators/constants.ts#L44)

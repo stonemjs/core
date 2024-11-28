@@ -26,7 +26,7 @@ Hook that runs before the main handler is invoked. This can be used for setup or
 
 #### Defined in
 
-[src/definitions.ts:29](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L29)
+[src/definitions.ts:29](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L29)
 
 ***
 
@@ -42,7 +42,7 @@ Boots the provider after registration. This method is used to initialize service
 
 #### Defined in
 
-[src/definitions.ts:39](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L39)
+[src/definitions.ts:39](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L39)
 
 ***
 
@@ -58,7 +58,7 @@ Skip this provider.
 
 #### Defined in
 
-[src/definitions.ts:49](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L49)
+[src/definitions.ts:49](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L49)
 
 ***
 
@@ -74,7 +74,7 @@ Hook that runs after the main handler completes. This can be used for cleanup ta
 
 #### Defined in
 
-[src/definitions.ts:44](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L44)
+[src/definitions.ts:44](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L44)
 
 ***
 
@@ -90,4 +90,4 @@ Registers the provider into the system. Typically used for adding services or bi
 
 #### Defined in
 
-[src/definitions.ts:34](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L34)
+[src/definitions.ts:34](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L34)

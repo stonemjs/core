@@ -34,7 +34,7 @@ Custom error for Setup layer operations.
 
 #### Defined in
 
-[src/errors/SetupError.ts:8](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/errors/SetupError.ts#L8)
+[src/errors/SetupError.ts:8](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/errors/SetupError.ts#L8)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Custom error for Setup layer operations.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/errors/RuntimeError.ts#L9)
+[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/errors/RuntimeError.ts#L9)
 
 ***
 
@@ -62,7 +62,7 @@ Custom error for Setup layer operations.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/errors/RuntimeError.ts#L10)
+[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/errors/RuntimeError.ts#L10)
 
 ## Methods
 
@@ -90,4 +90,4 @@ A formatted error string.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:40](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/errors/RuntimeError.ts#L40)
+[src/errors/RuntimeError.ts:40](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/errors/RuntimeError.ts#L40)

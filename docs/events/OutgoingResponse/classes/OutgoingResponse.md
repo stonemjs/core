@@ -36,7 +36,7 @@ The options to create an OutgoingResponse.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:62](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L62)
+[src/events/OutgoingResponse.ts:62](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L62)
 
 ## Properties
 
@@ -48,7 +48,7 @@ The content of the response.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:35](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L35)
+[src/events/OutgoingResponse.ts:35](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L35)
 
 ***
 
@@ -60,7 +60,7 @@ The status code of the response.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:40](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L40)
+[src/events/OutgoingResponse.ts:40](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L40)
 
 ***
 
@@ -72,7 +72,7 @@ The status message of the response.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:45](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L45)
+[src/events/OutgoingResponse.ts:45](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L45)
 
 ***
 
@@ -88,7 +88,7 @@ The metadata associated with the event.
 
 #### Defined in
 
-[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L27)
+[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L27)
 
 ***
 
@@ -100,7 +100,7 @@ The original content of the response.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:30](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L30)
+[src/events/OutgoingResponse.ts:30](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L30)
 
 ***
 
@@ -116,7 +116,7 @@ The source of the event.
 
 #### Defined in
 
-[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L32)
+[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L32)
 
 ***
 
@@ -132,7 +132,7 @@ The timestamp of the event creation.
 
 #### Defined in
 
-[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L37)
+[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L37)
 
 ***
 
@@ -148,7 +148,7 @@ The type of the event.
 
 #### Defined in
 
-[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L22)
+[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L22)
 
 ## Accessors
 
@@ -168,7 +168,7 @@ The content of the outgoing response.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:101](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L101)
+[src/events/OutgoingResponse.ts:101](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L101)
 
 ***
 
@@ -188,7 +188,7 @@ The status code of the response, or undefined if not set.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:83](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L83)
+[src/events/OutgoingResponse.ts:83](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L83)
 
 ***
 
@@ -208,7 +208,7 @@ The status message of the response, or undefined if not set.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:92](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L92)
+[src/events/OutgoingResponse.ts:92](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L92)
 
 ## Methods
 
@@ -234,7 +234,7 @@ A cloned instance of the current class.
 
 #### Defined in
 
-[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L79)
+[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L79)
 
 ***
 
@@ -266,7 +266,7 @@ The value associated with the key or the fallback.
 
 #### Defined in
 
-[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L58)
+[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L58)
 
 ***
 
@@ -294,7 +294,7 @@ This OutgoingResponse instance.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:112](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L112)
+[src/events/OutgoingResponse.ts:112](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L112)
 
 ***
 
@@ -326,7 +326,7 @@ This Event instance.
 
 #### Defined in
 
-[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/Event.ts#L69)
+[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L69)
 
 ***
 
@@ -350,7 +350,7 @@ A new OutgoingResponse instance.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:53](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L53)
+[src/events/OutgoingResponse.ts:53](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L53)
 
 ## Events
 
@@ -364,4 +364,4 @@ OUTGOING_RESPONSE Event name, fires on response to the incoming event.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:25](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/OutgoingResponse.ts#L25)
+[src/events/OutgoingResponse.ts:25](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/OutgoingResponse.ts#L25)

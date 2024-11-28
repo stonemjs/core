@@ -52,4 +52,4 @@ class MyApp {
 
 ## Defined in
 
-[src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/StoneApp.ts#L30)
+[src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/decorators/StoneApp.ts#L30)

@@ -37,4 +37,4 @@ await SetCurrentAdapterMiddleware({ modules, blueprint }, next);
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:76](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/middleware/configMiddleware.ts#L76)
+[src/middleware/configMiddleware.ts:76](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/middleware/configMiddleware.ts#L76)

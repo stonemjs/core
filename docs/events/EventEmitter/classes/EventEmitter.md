@@ -78,7 +78,7 @@ Additional arguments to pass when emitting.
 
 ##### Defined in
 
-[src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/EventEmitter.ts#L18)
+[src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/EventEmitter.ts#L18)
 
 #### emit(event, args)
 
@@ -114,7 +114,7 @@ Additional arguments to pass when emitting.
 
 ##### Defined in
 
-[src/events/EventEmitter.ts:25](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/EventEmitter.ts#L25)
+[src/events/EventEmitter.ts:25](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/EventEmitter.ts#L25)
 
 #### emit(event, args)
 
@@ -150,4 +150,4 @@ Additional arguments to pass when emitting.
 
 ##### Defined in
 
-[src/events/EventEmitter.ts:32](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/EventEmitter.ts#L32)
+[src/events/EventEmitter.ts:32](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/EventEmitter.ts#L32)

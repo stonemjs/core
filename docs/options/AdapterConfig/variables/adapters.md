@@ -14,4 +14,4 @@ This array defines the collection of adapters and their respective configuration
 
 ## Defined in
 
-[src/options/AdapterConfig.ts:61](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L61)
+[src/options/AdapterConfig.ts:61](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/options/AdapterConfig.ts#L61)

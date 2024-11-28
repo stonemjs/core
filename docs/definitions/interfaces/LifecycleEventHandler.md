@@ -32,7 +32,7 @@ X
 
 #### Defined in
 
-[src/definitions.ts:190](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L190)
+[src/definitions.ts:190](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L190)
 
 ***
 
@@ -42,7 +42,7 @@ X
 
 #### Defined in
 
-[src/definitions.ts:191](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L191)
+[src/definitions.ts:191](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L191)
 
 ***
 
@@ -56,7 +56,7 @@ X
 
 #### Defined in
 
-[src/definitions.ts:189](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L189)
+[src/definitions.ts:189](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L189)
 
 ***
 
@@ -70,4 +70,4 @@ X
 
 #### Defined in
 
-[src/definitions.ts:192](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L192)
+[src/definitions.ts:192](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L192)

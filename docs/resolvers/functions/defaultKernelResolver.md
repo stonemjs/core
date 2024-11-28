@@ -27,4 +27,4 @@ The blueprint configuration to use for the kernel.
 
 ## Defined in
 
-[src/resolvers.ts:45](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/resolvers.ts#L45)
+[src/resolvers.ts:45](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/resolvers.ts#L45)

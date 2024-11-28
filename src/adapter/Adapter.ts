@@ -102,7 +102,12 @@ export abstract class Adapter<
    * Implementation flow
    * ```ts
    * await this.onInit();
-   * const context: AdapterContextType = {};
+   * const rawEvent: MockRawEvent = { name: 'Stone.js' }
+   * const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
+   *   rawEvent,
+   *   incomingEventBuilder: AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
+   *   rawResponseBuilder: AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => new MockRawResponseWrapper(v) })
+   * }
    * return await this.sendEventThroughDestination(context);
    * ```
    * @returns The result of the handler execution.
