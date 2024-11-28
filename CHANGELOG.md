@@ -7,6 +7,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Unreleased
 
 
+## [0.0.32](https://github.com/stonemjs/core/compare/v0.0.31...v0.0.32) (2024-11-28)
+
+
+### Miscellaneous Chores
+
+* change the way Adapter and Kernel handle and process incoming event ([c4dbb69](https://github.com/stonemjs/core/commit/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749))
+* make OutgoingResponse properties mutable ([9cce3ac](https://github.com/stonemjs/core/commit/9cce3accbbae4e07f941cf224818cba52006a712))
+
 ## [0.0.31](https://github.com/stonemjs/core/compare/v0.0.3...v0.0.31) (2024-11-25)
 
 
