@@ -18,7 +18,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should log message when the log level is info', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'info' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'info' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
 
@@ -29,7 +29,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should log info message when the log level is info', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'info' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'info' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'info').mockImplementation(() => {})
 
@@ -40,7 +40,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should log debug message when the log level is debug', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'debug' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'debug' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'debug').mockImplementation(() => {})
 
@@ -51,7 +51,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should not log debug message when the log level is warn', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'warn' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'warn' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'debug').mockImplementation(() => {})
 
@@ -62,7 +62,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should log error message when the log level is error', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'error' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'error' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
@@ -73,7 +73,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should log with timestamp if useTimestamp is true', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'info', 'app.logger.useTimestamp': true })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'info', 'stone.logger.useTimestamp': true })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'info').mockImplementation(() => {})
 
@@ -84,7 +84,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should log warn message when the log level is warn', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'warn' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'warn' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
@@ -95,7 +95,7 @@ describe('ConsoleLogger', () => {
   })
 
   it('should not log info message if log level is higher than info', () => {
-    const blueprint = createMockBlueprint({ 'app.logger.level': 'error' })
+    const blueprint = createMockBlueprint({ 'stone.logger.level': 'error' })
     const logger = ConsoleLogger.create({ blueprint })
     const consoleSpy = vi.spyOn(console, 'info').mockImplementation(() => {})
 

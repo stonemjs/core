@@ -37,4 +37,4 @@ ListenerMiddleware({ modules, blueprint }, next);
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:174](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/middleware/configMiddleware.ts#L174)
+[src/middleware/configMiddleware.ts:174](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/middleware/configMiddleware.ts#L174)

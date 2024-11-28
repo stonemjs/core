@@ -12,4 +12,4 @@ EVENT_EMITTER_ALIAS.
 
 ## Defined in
 
-[src/events/EventEmitter.ts:7](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/events/EventEmitter.ts#L7)
+[src/events/EventEmitter.ts:7](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/events/EventEmitter.ts#L7)

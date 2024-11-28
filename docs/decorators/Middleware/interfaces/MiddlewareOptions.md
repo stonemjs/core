@@ -20,7 +20,7 @@ Set as Kernel middleware
 
 #### Defined in
 
-[src/decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Middleware.ts#L24)
+[src/decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/Middleware.ts#L24)
 
 ***
 
@@ -32,7 +32,7 @@ The params to pass to the middleware.
 
 #### Defined in
 
-[src/decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Middleware.ts#L14)
+[src/decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/Middleware.ts#L14)
 
 ***
 
@@ -44,16 +44,4 @@ The execution priority of the middleware.
 
 #### Defined in
 
-[src/decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Middleware.ts#L19)
-
-***
-
-### type?
-
-> `optional` **type**: `"event"` \| `"response"` \| `"terminate"`
-
-The type of the middleware, determining its purpose (e.g., input, output, terminate).
-
-#### Defined in
-
-[src/decorators/Middleware.ts:29](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Middleware.ts#L29)
+[src/decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/Middleware.ts#L19)

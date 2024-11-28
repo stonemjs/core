@@ -61,7 +61,7 @@ describe('ConfigBuilder', () => {
     const mockMiddleware2 = vi.fn()
     /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
     class MockClass {
-      static readonly app = { builder: { middleware: [mockMiddleware2] } }
+      static readonly stone = { builder: { middleware: [mockMiddleware2] } }
     }
     /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
     class MockClass2 {}
@@ -69,7 +69,7 @@ describe('ConfigBuilder', () => {
     class MockClass3 {}
     MockClass[Symbol.metadata] = { [CONFIGURATION_KEY]: {} }
     MockClass2[Symbol.metadata] = { [CONFIG_MIDDLEWARE_KEY]: {} }
-    MockClass3[Symbol.metadata] = { [BLUEPRINT_KEY]: { app: { builder: { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 } } } }
+    MockClass3[Symbol.metadata] = { [BLUEPRINT_KEY]: { stone: { builder: { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 } } } }
     const extractedOptions = (configBuilder as any).extractOptionsFromModules([MockClass, MockClass2, MockClass3])
     expect(extractedOptions.middleware).toContain(mockMiddleware)
     expect(extractedOptions.middleware).toContain(mockMiddleware2)
@@ -77,7 +77,7 @@ describe('ConfigBuilder', () => {
   })
 
   it('should extract options from modules correctly', () => {
-    const mockModule2 = { app: { builder: { middleware: [mockMiddleware] } } }
+    const mockModule2 = { stone: { builder: { middleware: [mockMiddleware] } } }
     const extractedOptions = (configBuilder as any).extractOptionsFromModules([mockModule, mockModule2])
     expect(extractedOptions.middleware).toContain(mockMiddleware)
     expect(extractedOptions.defaultMiddlewarePriority).toBe(0)

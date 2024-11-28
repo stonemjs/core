@@ -22,11 +22,6 @@ export interface MiddlewareOptions {
    * Set as Kernel middleware
    */
   global?: boolean
-
-  /**
-   * The type of the middleware, determining its purpose (e.g., input, output, terminate).
-   */
-  type?: 'event' | 'response' | 'terminate'
 }
 
 /**

@@ -37,7 +37,6 @@
 
 - [AdapterHandlerResolver](type-aliases/AdapterHandlerResolver.md)
 - [AdapterListenerHook](type-aliases/AdapterListenerHook.md)
-- [AdapterMapperDestinationResolver](type-aliases/AdapterMapperDestinationResolver.md)
 - [AdapterResolver](type-aliases/AdapterResolver.md)
 - [ClassMethodType](type-aliases/ClassMethodType.md)
 - [ClassType](type-aliases/ClassType.md)
@@ -50,6 +49,5 @@
 - [EventHandler](type-aliases/EventHandler.md)
 - [EventHandlerFunction](type-aliases/EventHandlerFunction.md)
 - [IBlueprint](type-aliases/IBlueprint.md)
-- [KernelHandlerResolver](type-aliases/KernelHandlerResolver.md)
 - [KernelResolver](type-aliases/KernelResolver.md)
 - [LoggerResolver](type-aliases/LoggerResolver.md)

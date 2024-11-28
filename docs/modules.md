@@ -8,7 +8,6 @@
 
 - [adapter/Adapter](adapter/Adapter/README.md)
 - [adapter/AdapterBuilder](adapter/AdapterBuilder/README.md)
-- [adapter/AdapterMapper](adapter/AdapterMapper/README.md)
 - [ConfigBuilder](ConfigBuilder/README.md)
 - [ConsoleLogger](ConsoleLogger/README.md)
 - [CoreServiceProvider](CoreServiceProvider/README.md)
@@ -36,7 +35,9 @@
 - [events/KernelEvent](events/KernelEvent/README.md)
 - [events/OutgoingResponse](events/OutgoingResponse/README.md)
 - [Kernel](Kernel/README.md)
+- [middleware/AdapterHandlerMiddleware](middleware/AdapterHandlerMiddleware/README.md)
 - [middleware/configMiddleware](middleware/configMiddleware/README.md)
+- [middleware/KernelHandlerMiddleware](middleware/KernelHandlerMiddleware/README.md)
 - [options/AdapterConfig](options/AdapterConfig/README.md)
 - [options/BuilderConfig](options/BuilderConfig/README.md)
 - [options/ErrorHandlerConfig](options/ErrorHandlerConfig/README.md)

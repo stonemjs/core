@@ -25,4 +25,4 @@ import { coreConfigMiddleware } from './coreConfigMiddleware';
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:309](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/middleware/configMiddleware.ts#L309)
+[src/middleware/configMiddleware.ts:310](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/middleware/configMiddleware.ts#L310)

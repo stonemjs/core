@@ -27,6 +27,9 @@ export interface ErrorHandlerConfig {
    */
   levels: ErrorHandlerLevels
 
+  /**
+   * The class type resolver used to create instances of the errorHandler.
+   */
   resolver?: ErrorHandlerResolver
 }
 

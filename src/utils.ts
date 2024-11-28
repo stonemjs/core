@@ -23,7 +23,7 @@ import { StoneBlueprint } from './options/StoneBlueprint'
  */
 export const mergeBlueprints = (...blueprints: StoneBlueprint[]): StoneBlueprint => {
   validateBlueprints(blueprints)
-  return blueprints.reduce<StoneBlueprint>((prev, curr) => deepmerge<StoneBlueprint>(prev, curr, { isMergeableObject: isMergeable }), { app: {} })
+  return blueprints.reduce<StoneBlueprint>((prev, curr) => deepmerge<StoneBlueprint>(prev, curr, { isMergeableObject: isMergeable }), { stone: {} })
 }
 
 /**

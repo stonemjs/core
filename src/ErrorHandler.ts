@@ -69,9 +69,9 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
     this.logger = logger
     this.reportedError = new Set()
     this.renderResponseResolver = renderResponseResolver
-    this.withoutDuplicates = blueprint.get<boolean>('app.errorHandler.dontReport', true)
-    this.dontReport = blueprint.get<Set<new (...args: any[]) => Error>>('app.errorHandler.dontReport', new Set())
-    this.levels = blueprint.get<ErrorHandlerLevels>('app.errorHandler.levels', { debug: [], info: [], warn: [], error: [], trace: [] })
+    this.withoutDuplicates = blueprint.get<boolean>('stone.errorHandler.dontReport', true)
+    this.dontReport = blueprint.get<Set<new (...args: any[]) => Error>>('stone.errorHandler.dontReport', new Set())
+    this.levels = blueprint.get<ErrorHandlerLevels>('stone.errorHandler.levels', { debug: [], info: [], warn: [], error: [], trace: [] })
   }
 
   /**

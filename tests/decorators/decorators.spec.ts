@@ -22,7 +22,7 @@ vi.mock('../../src/decorators/Metadata', () => ({
 
 describe('AdapterMiddleware', () => {
   it('should call setClassMetadata with correct parameters', () => {
-    const options: AdapterMiddlewareOptions = { priority: 1, type: 'input', platform: 'testPlatform' }
+    const options: AdapterMiddlewareOptions = { priority: 1, platform: 'testPlatform' }
     AdapterMiddleware(options)
     expect(setClassMetadata).toHaveBeenCalledWith(ADAPTER_MIDDLEWARE_KEY, options)
   })
@@ -89,7 +89,7 @@ describe('Listener', () => {
 
 describe('Middleware', () => {
   it('should call setClassMetadata with correct parameters', () => {
-    const options: MiddlewareOptions = { type: 'event' }
+    const options: MiddlewareOptions = {}
     Middleware(options)
     expect(setClassMetadata).toHaveBeenCalledWith(MIDDLEWARE_KEY, options)
   })

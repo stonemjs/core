@@ -14,4 +14,4 @@ Represents a record of log levels and the corresponding error classes associated
 
 ## Defined in
 
-[src/definitions.ts:304](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L304)
+[src/definitions.ts:277](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L277)

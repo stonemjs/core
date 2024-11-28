@@ -5,8 +5,8 @@ import { ILogger, IBlueprint, LogLevel } from '../src/definitions'
 const mockBlueprint: IBlueprint = {
   get: vi.fn((key: string, defaultValue: any) => {
     const mockValues: Record<string, unknown> = {
-      'app.errorHandler.dontReport': new Set(),
-      'app.errorHandler.levels': { debug: [], info: [], warn: [], error: [], trace: [] }
+      'stone.errorHandler.dontReport': new Set(),
+      'stone.errorHandler.levels': { debug: [], info: [], warn: [], error: [], trace: [] }
     }
     return key in mockValues ? mockValues[key] : defaultValue
   })

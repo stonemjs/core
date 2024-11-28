@@ -28,7 +28,7 @@ import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KE
  * ```
  */
 export const BlueprintMiddleware = async ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): Promise<IBlueprint> => {
-  const declarativeBlueprints = (modules as ClassType[]).map((module) => hasBlueprint(module) ? getBlueprint(module) : ({ app: {} }))
+  const declarativeBlueprints = (modules as ClassType[]).map((module) => hasBlueprint(module) ? getBlueprint(module) : ({ stone: {} }))
   const imperativeBlueprints = await Promise.all((modules as ClassType[]).map(async (module) => await extractImperativeBlueprintFromModule(module)))
 
   blueprint.set(mergeBlueprints(...declarativeBlueprints, ...imperativeBlueprints))
@@ -54,7 +54,7 @@ export const BlueprintMiddleware = async ({ modules, blueprint }: ConfigContext,
 export const MainHandlerMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
   const mainHandler = (modules as ClassType[]).find(module => typeof module === 'function' && hasMetadata(module, MAIN_HANDLER_KEY))
   if (mainHandler === undefined) { throw new SetupError('No Main handler provided') }
-  blueprint.set('app.handler', mainHandler)
+  blueprint.set('stone.handler', mainHandler)
   return next({ modules, blueprint })
 }
 
@@ -74,10 +74,10 @@ export const MainHandlerMiddleware = ({ modules, blueprint }: ConfigContext, nex
  * ```
  */
 export const SetCurrentAdapterMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const adapters = blueprint.get<AdapterConfig[]>('app.adapters', [])
-  const currentAlias = blueprint.get<string>('app.adapter.alias')
+  const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
+  const currentAlias = blueprint.get<string>('stone.adapter.alias')
   const adapter = adapters?.find(v => v.preferred === true) ?? adapters?.find(v => v.alias === currentAlias) ?? adapters?.find(v => v.default === true)
-  blueprint.set('app.adapter', adapter)
+  blueprint.set('stone.adapter', adapter)
   return next({ modules, blueprint })
 }
 
@@ -98,7 +98,7 @@ export const SetCurrentAdapterMiddleware = ({ modules, blueprint }: ConfigContex
  */
 export const ProviderMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
   const providers = (modules as ClassType[]).filter(module => typeof module === 'function' && hasMetadata(module, PROVIDER_KEY))
-  blueprint.add('app.providers', providers)
+  blueprint.add('stone.providers', providers)
   return next({ modules, blueprint })
 }
 
@@ -118,7 +118,7 @@ export const ProviderMiddleware = ({ modules, blueprint }: ConfigContext, next: 
  * ```
  */
 export const RegisterProviderToOnInitHookMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const adapter = blueprint.get<AdapterConfig>('app.adapter')
+  const adapter = blueprint.get<AdapterConfig>('stone.adapter')
   const providers = modules.filter(module => typeof module === 'function' && hasMetadata(module as ClassType, PROVIDER_KEY))
   if (adapter?.hooks !== undefined) {
     providers
@@ -151,7 +151,7 @@ export const ServiceMiddleware = ({ modules, blueprint }: ConfigContext, next: N
     .filter(module => typeof module === 'function' && hasMetadata(module, SERVICE_KEY))
     .forEach(module => {
       const options: ServiceOptions = getMetadata(module, SERVICE_KEY, { alias: '' })
-      blueprint.add('app.services', [[module, options]])
+      blueprint.add('stone.services', [[module, options]])
     })
   return next({ modules, blueprint })
 }
@@ -177,7 +177,7 @@ export const ListenerMiddleware = ({ modules, blueprint }: ConfigContext, next: 
     .forEach(module => {
       const { event }: ListenerOptions = getMetadata(module, LISTENER_KEY, { event: '' })
       if (event === undefined || event.length === 0) { throw new SetupError(`No event name provided for this listener ${String(typeof module)}`) }
-      blueprint.add(`app.listeners.${event}`, [module])
+      blueprint.add(`stone.listeners.${event}`, [module])
     })
 
   return next({ modules, blueprint })
@@ -200,7 +200,7 @@ export const ListenerMiddleware = ({ modules, blueprint }: ConfigContext, next: 
  */
 export const SubscriberMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
   const subscribers = (modules as ClassType[]).filter(module => typeof module === 'function' && hasMetadata(module, SUBSCRIBER_KEY))
-  blueprint.add('app.subscribers', subscribers)
+  blueprint.add('stone.subscribers', subscribers)
   return next({ modules, blueprint })
 }
 
@@ -224,14 +224,15 @@ export const AdapterMiddlewareMiddleware = ({ modules, blueprint }: ConfigContex
     .filter(module => typeof module === 'function' && hasMetadata(module, ADAPTER_MIDDLEWARE_KEY))
     .map(module => module)
     .forEach(module => {
-      const { type = 'input', platform, priority, params }: AdapterMiddlewareOptions = getMetadata(module, ADAPTER_MIDDLEWARE_KEY, {})
+      const { platform, priority, params }: AdapterMiddlewareOptions = getMetadata(module, ADAPTER_MIDDLEWARE_KEY, {})
       const middleware: MixedPipe = { priority, params, pipe: module }
-      const adapters = blueprint.get<AdapterConfig[]>('app.adapters', [])
+      const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
       adapters?.forEach(adapter => {
+        adapter.middleware ??= []
         if (platform === undefined) {
-          adapter.middleware[type].push(middleware)
+          adapter.middleware.push(middleware)
         } else if (platform === adapter.alias) {
-          adapter.middleware[type].push(middleware)
+          adapter.middleware.push(middleware)
         }
       })
     })
@@ -258,9 +259,9 @@ export const MiddlewareMiddleware = ({ modules, blueprint }: ConfigContext, next
     .filter(module => typeof module === 'function' && hasMetadata(module, MIDDLEWARE_KEY))
     .map(module => module)
     .forEach(module => {
-      const { type = 'event', global = false, priority, params }: MiddlewareOptions = getMetadata(module, MIDDLEWARE_KEY, {})
+      const { global = false, priority, params }: MiddlewareOptions = getMetadata(module, MIDDLEWARE_KEY, {})
       const middleware: MetaPipe = { priority, params, pipe: module }
-      global && blueprint.add<MetaPipe[]>(`app.kernel.middleware.${type}`, [middleware])
+      global && blueprint.add<MetaPipe[]>('stone.kernel.middleware', [middleware])
     })
   return next({ modules, blueprint })
 }
@@ -280,14 +281,14 @@ export const MiddlewareMiddleware = ({ modules, blueprint }: ConfigContext, next
 async function extractImperativeBlueprintFromModule (module: ClassType): Promise<StoneBlueprint> {
   if (isConstructor(module) && hasMetadata(module, CONFIGURATION_KEY)) {
     try {
-      const loadedOptions = (await (module as IConfiguration<StoneBlueprint>).load?.()) ?? { app: {} }
+      const loadedOptions = (await (module as IConfiguration<StoneBlueprint>).load?.()) ?? { stone: {} }
       const moduleOptions = Object.fromEntries(Object.entries(module).filter(([key]) => key !== 'load')) as StoneBlueprint
       return mergeBlueprints(moduleOptions, loadedOptions)
     } catch (error) {
       console.error(`Error loading options from module: ${String(module)}`, error)
     }
   }
-  return { app: {} }
+  return { stone: {} }
 }
 
 /**

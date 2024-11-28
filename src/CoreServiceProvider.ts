@@ -69,7 +69,7 @@ export class CoreServiceProvider implements IProvider {
    * @returns A list of services or an array of service options.
    */
   private get services (): Function[] | Array<[Function, ServiceOptions]> {
-    return this.blueprint.get<Function[] | Array<[Function, ServiceOptions]>>('app.services', [])
+    return this.blueprint.get<Function[] | Array<[Function, ServiceOptions]>>('stone.services', [])
   }
 
   /**
@@ -78,7 +78,7 @@ export class CoreServiceProvider implements IProvider {
    * @returns A record of event listeners.
    */
   private get listeners (): Record<string, Function[]> {
-    return this.blueprint.get<Record<string, Function[]>>('app.listeners', {})
+    return this.blueprint.get<Record<string, Function[]>>('stone.listeners', {})
   }
 
   /**
@@ -87,7 +87,7 @@ export class CoreServiceProvider implements IProvider {
    * @returns A list of subscribers.
    */
   private get subscribers (): Function[] {
-    return this.blueprint.get<Function[]>('app.subscribers', [])
+    return this.blueprint.get<Function[]>('stone.subscribers', [])
   }
 
   /**
@@ -96,7 +96,7 @@ export class CoreServiceProvider implements IProvider {
    * @returns A record of class aliases.
    */
   private get aliases (): Record<string, ClassType> {
-    return this.blueprint.get<Record<string, ClassType>>('app.aliases', {})
+    return this.blueprint.get<Record<string, ClassType>>('stone.aliases', {})
   }
 
   /**

@@ -19,11 +19,6 @@ export interface AdapterMiddlewareOptions {
   priority?: number
 
   /**
-   * The middleware type.
-   */
-  type?: 'input' | 'output'
-
-  /**
    * The platform name for which the middleware is used.
    */
   platform?: string

@@ -22,18 +22,18 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 #### Defined in
 
-[src/definitions.ts:183](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L183)
+[src/definitions.ts:156](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L156)
 
 ***
 
 ### respond()
 
-> **respond**: () => `R`
+> **respond**: () => `R` \| `Promise`\<`R`\>
 
 #### Returns
 
-`R`
+`R` \| `Promise`\<`R`\>
 
 #### Defined in
 
-[src/definitions.ts:184](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L184)
+[src/definitions.ts:157](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L157)

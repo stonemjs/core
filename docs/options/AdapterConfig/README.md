@@ -11,7 +11,6 @@
 ### Interfaces
 
 - [AdapterConfig](interfaces/AdapterConfig.md)
-- [AdapterMiddlewareConfig](interfaces/AdapterMiddlewareConfig.md)
 
 ### Variables
 

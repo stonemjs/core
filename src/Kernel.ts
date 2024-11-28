@@ -6,20 +6,18 @@ import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
-import { KernelMiddlewareConfig } from './options/KernelConfig'
 import { InitializationError } from './errors/InitializationError'
-import { MixedPipe, Pipe, PipeInstance, Pipeline, PipelineOptions } from '@stone-js/pipeline'
-import { EventHandlerFunction, IBlueprint, ILogger, IProvider, IRouter, KernelContext, KernelHandlerResolver, LifecycleEventHandler } from './definitions'
+import { IBlueprint, ILogger, IProvider, KernelContext, LifecycleEventHandler } from './definitions'
+import { MetaPipe, MixedPipe, Pipe, PipeInstance, Pipeline, PipelineOptions } from '@stone-js/pipeline'
 
 /**
  * KernelOptions.
  */
-export interface KernelOptions<U extends IncomingEvent, V extends OutgoingResponse> {
+export interface KernelOptions {
   logger: ILogger
   container: Container
   blueprint: IBlueprint
   eventEmitter: EventEmitter
-  handlerResolver: KernelHandlerResolver<U, V>
 }
 
 /**
@@ -31,16 +29,13 @@ export interface KernelOptions<U extends IncomingEvent, V extends OutgoingRespon
  *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> implements LifecycleEventHandler<U, V> {
-  protected logger: ILogger
-  protected currentEvent?: U
-  protected currentResponse?: V
+export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseType extends OutgoingResponse> implements LifecycleEventHandler<IncomingEventType, OutgoingResponseType> {
+  protected readonly logger: ILogger
   protected readonly container: Container
   protected readonly blueprint: IBlueprint
   protected readonly providers: Set<IProvider>
   protected readonly eventEmitter: EventEmitter
   protected readonly registeredProviders: Set<string>
-  protected readonly handlerResolver: KernelHandlerResolver<U, V>
 
   /**
    * Create a Kernel.
@@ -48,7 +43,7 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * @param options - Kernel configuration options.
    * @returns A new Kernel instance.
    */
-  public static create<U extends IncomingEvent, V extends OutgoingResponse>(options: KernelOptions<U, V>): Kernel<U, V> {
+  public static create<IncomingEventType extends IncomingEvent, OutgoingResponseType extends OutgoingResponse>(options: KernelOptions): Kernel<IncomingEventType, OutgoingResponseType> {
     return new this(options)
   }
 
@@ -57,11 +52,10 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    *
    * @param options - Kernel configuration options.
    */
-  protected constructor ({ blueprint, container, eventEmitter, logger, handlerResolver }: KernelOptions<U, V>) {
+  protected constructor ({ blueprint, container, eventEmitter, logger }: KernelOptions) {
     if (!(blueprint instanceof Config)) { throw new InitializationError('Blueprint is required to create a Kernel instance.') }
     if (!(container instanceof Container)) { throw new InitializationError('Container is required to create a Kernel instance.') }
     if (!(eventEmitter instanceof EventEmitter)) { throw new InitializationError('EventEmitter is required to create a Kernel instance.') }
-    if (typeof handlerResolver !== 'function') { throw new InitializationError('HandlerResolver is required to create a Kernel instance.') }
 
     this.logger = logger
     this.providers = new Set()
@@ -69,44 +63,27 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
     this.container = container
     this.eventEmitter = eventEmitter
     this.registeredProviders = new Set()
-    this.handlerResolver = handlerResolver
 
     this.registerBaseBindings()
   }
 
   /**
-   * Check if middleware should be skipped.
-   */
-  protected get skipMiddleware (): boolean {
-    return this.blueprint.get<boolean>('app.kernel.middleware.skip', false)
-  }
-
-  /**
    * Get all middleware.
    */
-  protected get middleware (): KernelMiddlewareConfig {
-    return (this.skipMiddleware ? {} : this.blueprint.get('app.kernel.middleware', {})) as KernelMiddlewareConfig
-  }
-
-  /**
-   * Get event middleware.
-   */
-  protected get eventMiddleware (): MixedPipe[] {
-    return this.middleware.event ?? []
-  }
-
-  /**
-   * Get response middleware.
-   */
-  protected get responseMiddleware (): MixedPipe[] {
-    return this.middleware.response ?? []
+  protected get middleware (): MixedPipe[] {
+    return this.blueprint.get<MixedPipe[]>('stone.kernel.middleware', [])
   }
 
   /**
    * Get terminate middleware.
    */
   protected get terminateMiddleware (): MixedPipe[] {
-    return this.middleware.terminate ?? []
+    return this.middleware.filter((middleware) => {
+      const pipe: Function | undefined = typeof (middleware as MetaPipe).pipe === 'function'
+        ? (middleware as MetaPipe).pipe as Function
+        : (typeof middleware === 'function' ? middleware : undefined)
+      return typeof pipe?.prototype?.terminate === 'function'
+    })
   }
 
   /**
@@ -129,10 +106,9 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * @param event - The incoming event to handle.
    * @returns The outgoing response.
    */
-  public async handle (event: U): Promise<V> {
+  public async handle (event: IncomingEventType): Promise<OutgoingResponseType> {
     await this.onBootstrap(event)
-    await this.sendEventThroughDestination(event)
-    return await this.prepareResponse(event)
+    return await this.sendEventThroughDestination(event)
   }
 
   /**
@@ -143,9 +119,14 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
     for (const provider of this.providers) {
       await provider.onTerminate?.()
     }
+
+    const event = this.container.make('event') as IncomingEventType
+    const response = this.container.make('response') as OutgoingResponseType
+
     await Pipeline
-      .create<KernelContext<U, V>, V>(this.makePipelineOptions())
-      .send({ event: this.currentEvent as U, response: this.currentResponse })
+      .create<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType>(this.makePipelineOptions())
+      .send({ event, response })
+      .via('terminate')
       .through(this.terminateMiddleware)
       .thenReturn()
   }
@@ -164,9 +145,13 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * @param event - The incoming event.
    * @throws {InitializationError} If no event is provided.
    */
-  protected async onBootstrap (event: U): Promise<void> {
+  protected async onBootstrap (event: IncomingEventType): Promise<void> {
     if (event === undefined) { throw new InitializationError('No IncomingEvent provided.') }
+
+    this.container.instance('event', event).instance('request', event)
+
     if (typeof event.clone === 'function') { this.container.instance('originalEvent', event.clone()) }
+
     await this.bootProviders()
   }
 
@@ -174,76 +159,41 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * Send event to the destination.
    *
    * @param event - The incoming event.
-   */
-  protected async sendEventThroughDestination (event: U): Promise<void> {
-    this.currentResponse = await Pipeline
-      .create<KernelContext<U, V>, V>(this.makePipelineOptions())
-      .send({ event })
-      .through(this.eventMiddleware)
-      .then(async (v) => await this.prepareDestination(v.event))
-  }
-
-  /**
-   * Prepare event destination.
-   *
-   * @param event - The incoming event.
    * @returns The prepared response.
-   * @throws {InitializationError} If no router or handler has been provided.
    */
-  protected async prepareDestination (event: U): Promise<V> {
-    this.currentEvent = event
-    this.container.instance('event', this.currentEvent)
-    this.container.instance('request', this.currentEvent)
-
-    if (this.container.has('router')) {
-      const router = this.container.make<IRouter<U, V>>('router')
-      if (typeof router?.dispatch === 'function') {
-        return await router.dispatch(this.currentEvent)
-      }
-    }
-
-    const handler = this.handlerResolver(this.container)
-
-    if (handler !== undefined) {
-      return typeof (handler as LifecycleEventHandler<U, V>).handle === 'function'
-        ? await (handler as LifecycleEventHandler<U, V>).handle(this.currentEvent)
-        : await (handler as EventHandlerFunction<U, V>)(this.currentEvent)
-    }
-
-    throw new InitializationError('No routers nor handlers has been provided.')
+  protected async sendEventThroughDestination (event: IncomingEventType): Promise<OutgoingResponseType> {
+    return await Pipeline
+      .create<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType>(this.makePipelineOptions())
+      .send({ event })
+      .through(this.middleware)
+      .then(async (context) => await this.prepareResponse(context))
   }
 
   /**
    * Prepare response before sending
    *
    * @protected
-   * @param event - The incoming event.
+   * @param context - The Kernel event context.
    * @returns The prepared response.
    */
-  protected async prepareResponse (event: U): Promise<V> {
-    if (this.currentResponse === undefined) {
+  protected async prepareResponse (context: KernelContext<IncomingEventType, OutgoingResponseType>): Promise<OutgoingResponseType> {
+    if (context.response === undefined) {
       throw new InitializationError('No response was returned')
     }
 
-    if (typeof this.currentResponse.prepare !== 'function') {
+    if (typeof context.response.prepare !== 'function') {
       throw new InitializationError('Return response must be an instance of `OutgoingResponse` or a subclass of it.')
     }
 
-    this.container.instance('response', this.currentResponse)
-    const metadata = { event, response: this.currentResponse }
+    const metadata = { ...context }
+    this.container.instance('response', context.response)
     this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.PREPARING_RESPONSE, source: this, metadata }))
-    this.currentResponse = await this.currentResponse.prepare(event, this.blueprint)
+    context.response = await context.response.prepare(context.event, this.blueprint)
     this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata }))
-
-    this.currentResponse = await Pipeline
-      .create<KernelContext<U, V>, V>(this.makePipelineOptions())
-      .send({ event, response: this.currentResponse })
-      .through(this.responseMiddleware)
-      .then(({ response }) => response as V)
 
     this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.EVENT_HANDLED, source: this, metadata }))
 
-    return this.currentResponse
+    return context.response
   }
 
   /**
@@ -252,11 +202,11 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * @protected
    * @returns The pipeline options for configuring middleware.
    */
-  protected makePipelineOptions (): PipelineOptions<KernelContext<U, V>, V> {
+  protected makePipelineOptions (): PipelineOptions<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType> {
     return {
       resolver: (middleware: Pipe) => {
         if (isConstructor(middleware)) {
-          return this.container.resolve<PipeInstance<KernelContext<U, V>, V>>(middleware, true)
+          return this.container.resolve<PipeInstance<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType>>(middleware, true)
         }
       }
     }
@@ -291,7 +241,7 @@ export class Kernel<U extends IncomingEvent, V extends OutgoingResponse> impleme
    * @returns The Kernel instance.
    */
   private resolveProviders (): this {
-    (this.blueprint.get('app.providers', []) as Function[])
+    (this.blueprint.get('stone.providers', []) as Function[])
       .map((provider) => this.container.resolve(provider, true) as IProvider)
       .filter((provider) => provider.mustSkip === undefined || !(provider.mustSkip?.()))
       .forEach((provider) => this.providers.add(provider))

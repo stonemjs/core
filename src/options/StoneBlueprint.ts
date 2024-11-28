@@ -9,15 +9,8 @@ import { ErrorHandlerConfig, errorHandler } from './ErrorHandlerConfig'
 import { EventHandler, IListener, IProvider, ISubscriber } from '../definitions'
 
 /**
- * Stone main options.
- *
- * This object defines the main configuration options for the Stone.js framework.
- * It includes settings for middleware, adapters, application-level configurations,
- * logging, services, listeners, subscribers, providers, and aliases.
- *
- * @returns {StoneBlueprint}
+ * Environment settings.
  */
-
 export enum Environment {
   Development = 'development',
   Production = 'production',
@@ -147,7 +140,7 @@ export interface StoneBlueprint {
   /**
    * Application-level settings, including environment, middleware, logging, and service registration.
    */
-  app: Partial<AppConfig>
+  stone: Partial<AppConfig>
 
   /**
    * Allow adding any additional custom properties.
@@ -159,13 +152,16 @@ export interface StoneBlueprint {
 /**
  * Stone main options.
  *
- * This object defines the default configuration for the Stone.js framework,
- * including builder options, adapter settings, and application-level settings.
+ * This object defines the main configuration options for the Stone.js framework.
+ * It includes settings for middleware, adapters, application-level configurations,
+ * logging, services, listeners, subscribers, providers, and aliases.
+ *
+ * @returns {StoneBlueprint}
  */
 export const stoneBlueprint: StoneBlueprint = {
   // App namespace.
   // Here you can define application-level settings.
-  app: {
+  stone: {
     // The name of your application.
     name: 'Stone.js',
 

@@ -12,7 +12,7 @@ class MockAdapter implements IAdapter<string> {
 // Mock Blueprint
 const mockBlueprint = (resolver?: AdapterResolver<string>): IBlueprint => ({
   get: vi.fn((key: string) => {
-    if (key === 'app.adapter.resolver') {
+    if (key === 'stone.adapter.resolver') {
       return resolver
     }
     return undefined
@@ -40,7 +40,7 @@ describe('StoneFactory', () => {
     const factory = StoneFactory.create(options)
 
     await expect(factory.run()).rejects.toThrow(
-      'No adapter resolver provided. Ensure that a valid adapter resolver is configured under "app.adapter.resolver" in the blueprint configuration.'
+      'No adapter resolver provided. Ensure that a valid adapter resolver is configured under "stone.adapter.resolver" in the blueprint configuration.'
     )
   })
 

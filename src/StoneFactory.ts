@@ -98,10 +98,10 @@ export class StoneFactory<R = unknown> {
    * ```
    */
   private makeAdapter (): IAdapter<R> {
-    const resolver = this.blueprint.get<AdapterResolver<R>>('app.adapter.resolver')
+    const resolver = this.blueprint.get<AdapterResolver<R>>('stone.adapter.resolver')
 
     if (resolver === undefined) {
-      throw new IntegrationError('No adapter resolver provided. Ensure that a valid adapter resolver is configured under "app.adapter.resolver" in the blueprint configuration.')
+      throw new IntegrationError('No adapter resolver provided. Ensure that a valid adapter resolver is configured under "stone.adapter.resolver" in the blueprint configuration.')
     }
 
     const adapter = resolver(this.blueprint)

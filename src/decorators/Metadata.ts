@@ -105,7 +105,7 @@ export function setFieldMetadata<T = unknown, V = unknown> (
  * @param blueprints - The list of blueprints.
  */
 export function addBlueprint<T extends ClassType> (Class: T, context: DecoratorContext, ...blueprints: StoneBlueprint[]): void {
-  context.metadata[BLUEPRINT_KEY] = mergeBlueprints(getMetadata<T, StoneBlueprint>(Class, BLUEPRINT_KEY, { app: {} }), ...blueprints)
+  context.metadata[BLUEPRINT_KEY] = mergeBlueprints(getMetadata<T, StoneBlueprint>(Class, BLUEPRINT_KEY, { stone: {} }), ...blueprints)
 }
 
 /**

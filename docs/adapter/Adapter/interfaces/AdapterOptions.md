@@ -4,21 +4,15 @@
 
 [Core Documentation v0.0.31](../../../modules.md) / [adapter/Adapter](../README.md) / AdapterOptions
 
-# Interface: AdapterOptions\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType\>
+# Interface: AdapterOptions\<RawResponseType, IncomingEventType, OutgoingResponseType\>
 
 Adapter options.
 
 ## Type Parameters
 
-• **RawEventType**
-
 • **RawResponseType**
 
-• **ExecutionContextType**
-
 • **IncomingEventType** *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
-
-• **IncomingEventOptionsType** *extends* [`IncomingEventOptions`](../../../events/IncomingEvent/interfaces/IncomingEventOptions.md)
 
 • **OutgoingResponseType** *extends* [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
@@ -30,7 +24,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:38](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L38)
+[src/adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/adapter/Adapter.ts#L33)
 
 ***
 
@@ -40,7 +34,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:39](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L39)
+[src/adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/adapter/Adapter.ts#L34)
 
 ***
 
@@ -50,7 +44,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:58](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L58)
+[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/adapter/Adapter.ts#L35)
 
 ***
 
@@ -60,17 +54,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:37](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L37)
-
-***
-
-### inputMapper
-
-> **inputMapper**: [`AdapterMapper`](../../AdapterMapper/classes/AdapterMapper.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`, `IncomingEventType`, `IncomingEventOptionsType`, `OutgoingResponseType`, `IncomingEventType`\>
-
-#### Defined in
-
-[src/adapter/Adapter.ts:40](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L40)
+[src/adapter/Adapter.ts:32](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/adapter/Adapter.ts#L32)
 
 ***
 
@@ -80,14 +64,4 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:36](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L36)
-
-***
-
-### outputMapper
-
-> **outputMapper**: [`AdapterMapper`](../../AdapterMapper/classes/AdapterMapper.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`, `IncomingEventType`, `IncomingEventOptionsType`, `OutgoingResponseType`, [`IRawResponseWrapper`](../../../definitions/interfaces/IRawResponseWrapper.md)\<`RawResponseType`\>\>
-
-#### Defined in
-
-[src/adapter/Adapter.ts:49](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/adapter/Adapter.ts#L49)
+[src/adapter/Adapter.ts:31](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/adapter/Adapter.ts#L31)

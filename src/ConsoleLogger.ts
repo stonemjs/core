@@ -115,7 +115,7 @@ export class ConsoleLogger implements ILogger {
   private shouldLog (level: LogLevel): boolean {
     const levels = ['trace', 'debug', 'info', 'warn', 'error']
     const requestedLevelIndex = levels.indexOf(level)
-    const currentLevelIndex = levels.indexOf(this.blueprint.get('app.logger.level', 'info') as string)
+    const currentLevelIndex = levels.indexOf(this.blueprint.get('stone.logger.level', 'info') as string)
 
     return requestedLevelIndex >= currentLevelIndex
   }
@@ -127,7 +127,7 @@ export class ConsoleLogger implements ILogger {
    * @returns {string} - The formatted message.
    */
   private formatMessage (message: string): string {
-    if (this.blueprint.get<boolean>('app.logger.useTimestamp', false)) {
+    if (this.blueprint.get<boolean>('stone.logger.useTimestamp', false)) {
       return `[${new Date().toISOString()}] ${message}`
     }
     return message

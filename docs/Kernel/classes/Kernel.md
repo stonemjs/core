@@ -4,7 +4,7 @@
 
 [Core Documentation v0.0.31](../../modules.md) / [Kernel](../README.md) / Kernel
 
-# Class: Kernel\<U, V\>
+# Class: Kernel\<IncomingEventType, OutgoingResponseType\>
 
 Class representing a Kernel.
 
@@ -18,35 +18,35 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **IncomingEventType** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **OutgoingResponseType** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Implements
 
-- [`LifecycleEventHandler`](../../definitions/interfaces/LifecycleEventHandler.md)\<`U`, `V`\>
+- [`LifecycleEventHandler`](../../definitions/interfaces/LifecycleEventHandler.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
 ## Constructors
 
 ### new Kernel()
 
-> `protected` **new Kernel**\<`U`, `V`\>(`options`): [`Kernel`](Kernel.md)\<`U`, `V`\>
+> `protected` **new Kernel**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
 Create a Kernel.
 
 #### Parameters
 
-• **options**: [`KernelOptions`](../interfaces/KernelOptions.md)\<`U`, `V`\>
+• **options**: [`KernelOptions`](../interfaces/KernelOptions.md)
 
 Kernel configuration options.
 
 #### Returns
 
-[`Kernel`](Kernel.md)\<`U`, `V`\>
+[`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
 #### Defined in
 
-[src/Kernel.ts:60](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L60)
+[src/Kernel.ts:55](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L55)
 
 ## Properties
 
@@ -56,7 +56,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:39](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L39)
+[src/Kernel.ts:35](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L35)
 
 ***
 
@@ -66,27 +66,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:38](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L38)
-
-***
-
-### currentEvent?
-
-> `protected` `optional` **currentEvent**: `U`
-
-#### Defined in
-
-[src/Kernel.ts:36](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L36)
-
-***
-
-### currentResponse?
-
-> `protected` `optional` **currentResponse**: `V`
-
-#### Defined in
-
-[src/Kernel.ts:37](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L37)
+[src/Kernel.ts:34](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L34)
 
 ***
 
@@ -96,27 +76,17 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:41](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L41)
-
-***
-
-### handlerResolver
-
-> `protected` `readonly` **handlerResolver**: [`KernelHandlerResolver`](../../definitions/type-aliases/KernelHandlerResolver.md)\<`U`, `V`\>
-
-#### Defined in
-
-[src/Kernel.ts:43](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L43)
+[src/Kernel.ts:37](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L37)
 
 ***
 
 ### logger
 
-> `protected` **logger**: [`ILogger`](../../definitions/interfaces/ILogger.md)
+> `protected` `readonly` **logger**: [`ILogger`](../../definitions/interfaces/ILogger.md)
 
 #### Defined in
 
-[src/Kernel.ts:35](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L35)
+[src/Kernel.ts:33](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L33)
 
 ***
 
@@ -126,7 +96,7 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:40](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L40)
+[src/Kernel.ts:36](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L36)
 
 ***
 
@@ -136,53 +106,17 @@ Kernel configuration options.
 
 #### Defined in
 
-[src/Kernel.ts:42](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L42)
+[src/Kernel.ts:38](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L38)
 
 ## Accessors
-
-### eventMiddleware
-
-#### Get Signature
-
-> **get** `protected` **eventMiddleware**(): `MixedPipe`[]
-
-Get event middleware.
-
-##### Returns
-
-`MixedPipe`[]
-
-#### Defined in
-
-[src/Kernel.ts:94](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L94)
-
-***
 
 ### middleware
 
 #### Get Signature
 
-> **get** `protected` **middleware**(): [`KernelMiddlewareConfig`](../../options/KernelConfig/interfaces/KernelMiddlewareConfig.md)
+> **get** `protected` **middleware**(): `MixedPipe`[]
 
 Get all middleware.
-
-##### Returns
-
-[`KernelMiddlewareConfig`](../../options/KernelConfig/interfaces/KernelMiddlewareConfig.md)
-
-#### Defined in
-
-[src/Kernel.ts:87](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L87)
-
-***
-
-### responseMiddleware
-
-#### Get Signature
-
-> **get** `protected` **responseMiddleware**(): `MixedPipe`[]
-
-Get response middleware.
 
 ##### Returns
 
@@ -190,25 +124,7 @@ Get response middleware.
 
 #### Defined in
 
-[src/Kernel.ts:101](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L101)
-
-***
-
-### skipMiddleware
-
-#### Get Signature
-
-> **get** `protected` **skipMiddleware**(): `boolean`
-
-Check if middleware should be skipped.
-
-##### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/Kernel.ts:80](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L80)
+[src/Kernel.ts:73](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L73)
 
 ***
 
@@ -226,7 +142,7 @@ Get terminate middleware.
 
 #### Defined in
 
-[src/Kernel.ts:108](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L108)
+[src/Kernel.ts:80](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L80)
 
 ## Methods
 
@@ -247,25 +163,25 @@ Useful to initialize things at each event.
 
 #### Defined in
 
-[src/Kernel.ts:116](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L116)
+[src/Kernel.ts:93](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L93)
 
 ***
 
 ### handle()
 
-> **handle**(`event`): `Promise`\<`V`\>
+> **handle**(`event`): `Promise`\<`OutgoingResponseType`\>
 
 Handle IncomingEvent.
 
 #### Parameters
 
-• **event**: `U`
+• **event**: `IncomingEventType`
 
 The incoming event to handle.
 
 #### Returns
 
-`Promise`\<`V`\>
+`Promise`\<`OutgoingResponseType`\>
 
 The outgoing response.
 
@@ -275,25 +191,25 @@ The outgoing response.
 
 #### Defined in
 
-[src/Kernel.ts:132](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L132)
+[src/Kernel.ts:109](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L109)
 
 ***
 
 ### makePipelineOptions()
 
-> `protected` **makePipelineOptions**(): `PipelineOptions`\<[`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`U`, `V`\>, `V`\>
+> `protected` **makePipelineOptions**(): `PipelineOptions`\<[`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>, `OutgoingResponseType`\>
 
 Creates pipeline options for the Kernel.
 
 #### Returns
 
-`PipelineOptions`\<[`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`U`, `V`\>, `V`\>
+`PipelineOptions`\<[`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>, `OutgoingResponseType`\>
 
 The pipeline options for configuring middleware.
 
 #### Defined in
 
-[src/Kernel.ts:255](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L255)
+[src/Kernel.ts:205](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L205)
 
 ***
 
@@ -306,7 +222,7 @@ Useful to bootstrap things at each event.
 
 #### Parameters
 
-• **event**: `U`
+• **event**: `IncomingEventType`
 
 The incoming event.
 
@@ -320,7 +236,7 @@ If no event is provided.
 
 #### Defined in
 
-[src/Kernel.ts:167](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L167)
+[src/Kernel.ts:148](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L148)
 
 ***
 
@@ -336,7 +252,7 @@ Register services to the container.
 
 #### Defined in
 
-[src/Kernel.ts:156](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L156)
+[src/Kernel.ts:137](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L137)
 
 ***
 
@@ -357,108 +273,82 @@ Useful to perform cleanup.
 
 #### Defined in
 
-[src/Kernel.ts:142](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L142)
-
-***
-
-### prepareDestination()
-
-> `protected` **prepareDestination**(`event`): `Promise`\<`V`\>
-
-Prepare event destination.
-
-#### Parameters
-
-• **event**: `U`
-
-The incoming event.
-
-#### Returns
-
-`Promise`\<`V`\>
-
-The prepared response.
-
-#### Throws
-
-If no router or handler has been provided.
-
-#### Defined in
-
-[src/Kernel.ts:193](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L193)
+[src/Kernel.ts:118](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L118)
 
 ***
 
 ### prepareResponse()
 
-> `protected` **prepareResponse**(`event`): `Promise`\<`V`\>
+> `protected` **prepareResponse**(`context`): `Promise`\<`OutgoingResponseType`\>
 
 Prepare response before sending
 
 #### Parameters
 
-• **event**: `U`
+• **context**: [`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-The incoming event.
+The Kernel event context.
 
 #### Returns
 
-`Promise`\<`V`\>
+`Promise`\<`OutgoingResponseType`\>
 
 The prepared response.
 
 #### Defined in
 
-[src/Kernel.ts:223](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L223)
+[src/Kernel.ts:179](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L179)
 
 ***
 
 ### sendEventThroughDestination()
 
-> `protected` **sendEventThroughDestination**(`event`): `Promise`\<`void`\>
+> `protected` **sendEventThroughDestination**(`event`): `Promise`\<`OutgoingResponseType`\>
 
 Send event to the destination.
 
 #### Parameters
 
-• **event**: `U`
+• **event**: `IncomingEventType`
 
 The incoming event.
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<`OutgoingResponseType`\>
+
+The prepared response.
 
 #### Defined in
 
-[src/Kernel.ts:178](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L178)
+[src/Kernel.ts:164](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L164)
 
 ***
 
 ### create()
 
-> `static` **create**\<`U`, `V`\>(`options`): [`Kernel`](Kernel.md)\<`U`, `V`\>
+> `static` **create**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
 Create a Kernel.
 
 #### Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **IncomingEventType** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **OutgoingResponseType** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 #### Parameters
 
-• **options**: [`KernelOptions`](../interfaces/KernelOptions.md)\<`U`, `V`\>
+• **options**: [`KernelOptions`](../interfaces/KernelOptions.md)
 
 Kernel configuration options.
 
 #### Returns
 
-[`Kernel`](Kernel.md)\<`U`, `V`\>
+[`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
 A new Kernel instance.
 
 #### Defined in
 
-[src/Kernel.ts:51](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L51)
+[src/Kernel.ts:46](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L46)

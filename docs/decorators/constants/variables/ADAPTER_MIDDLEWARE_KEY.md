@@ -12,4 +12,4 @@ A unique symbol key to mark classes as middleware.
 
 ## Defined in
 
-[src/decorators/constants.ts:14](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/constants.ts#L14)
+[src/decorators/constants.ts:14](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/constants.ts#L14)

@@ -11,7 +11,6 @@
 ### Interfaces
 
 - [KernelConfig](interfaces/KernelConfig.md)
-- [KernelMiddlewareConfig](interfaces/KernelMiddlewareConfig.md)
 
 ### Variables
 

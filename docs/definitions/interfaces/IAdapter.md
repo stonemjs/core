@@ -26,4 +26,4 @@ Represents an adapter with a run method that returns a promise of type R.
 
 #### Defined in
 
-[src/definitions.ts:285](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L285)
+[src/definitions.ts:258](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L258)

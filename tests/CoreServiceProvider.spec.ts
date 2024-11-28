@@ -65,7 +65,7 @@ describe('CoreServiceProvider', () => {
   })
 
   it('should register services', () => {
-    blueprint.set('app.services', [MockService])
+    blueprint.set('stone.services', [MockService])
     const autoBindingSpy = vi.spyOn(container, 'autoBinding')
 
     coreServiceProvider.register()
@@ -74,7 +74,7 @@ describe('CoreServiceProvider', () => {
   })
 
   it('should register listeners', () => {
-    blueprint.set('app.listeners', { 'test:event': [MockListener] })
+    blueprint.set('stone.listeners', { 'test:event': [MockListener] })
 
     coreServiceProvider.register()
     eventEmitter.emit('test:event')
@@ -83,7 +83,7 @@ describe('CoreServiceProvider', () => {
   })
 
   it('should log error when listeners in is error', () => {
-    blueprint.set('app.listeners', { [KernelEvent.RESPONSE_PREPARED]: [MockListenerError] })
+    blueprint.set('stone.listeners', { [KernelEvent.RESPONSE_PREPARED]: [MockListenerError] })
     const event = KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata: {} }).setMetadataValue('name', 'Stone.js')
     coreServiceProvider.register()
 
@@ -95,8 +95,8 @@ describe('CoreServiceProvider', () => {
   })
 
   it('should register aliases', () => {
-    blueprint.set('app.services', [[MockService, { singleton: true }]])
-    blueprint.set('app.aliases', { mockService: MockService })
+    blueprint.set('stone.services', [[MockService, { singleton: true }]])
+    blueprint.set('stone.aliases', { mockService: MockService })
     const aliasSpy = vi.spyOn(container, 'alias')
     const autoBindingSpy = vi.spyOn(container, 'autoBinding')
 
@@ -107,7 +107,7 @@ describe('CoreServiceProvider', () => {
   })
 
   it('should boot subscribers', async () => {
-    blueprint.set('app.subscribers', [MockSubscriber])
+    blueprint.set('stone.subscribers', [MockSubscriber])
     const resolveSpy = vi.spyOn(container, 'resolve')
 
     await coreServiceProvider.boot()
@@ -116,7 +116,7 @@ describe('CoreServiceProvider', () => {
   })
 
   it('should log error on booting subscribers', async () => {
-    blueprint.set('app.subscribers', [MockSubscriberError])
+    blueprint.set('stone.subscribers', [MockSubscriberError])
     const resolveSpy = vi.spyOn(container, 'resolve')
     const loggerSpy = vi.spyOn(logger, 'error').mockImplementation(() => {})
 

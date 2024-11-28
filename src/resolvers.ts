@@ -1,12 +1,11 @@
 import { Kernel } from './Kernel'
-import { isConstructor } from './utils'
 import { ErrorHandler } from './ErrorHandler'
 import { ConsoleLogger } from './ConsoleLogger'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
-import { ErrorHandlerResolver, EventHandler, IBlueprint, KernelHandlerResolver, KernelResolver, LifecycleEventHandler, LoggerResolver } from './definitions'
+import { ErrorHandlerResolver, IBlueprint, KernelResolver, LoggerResolver } from './definitions'
 
 /**
  * Default logger resolver function.
@@ -30,7 +29,7 @@ export const defaultLoggerResolver: LoggerResolver = (blueprint: IBlueprint): Co
  */
 export const defaultErrorHandlerResolver: ErrorHandlerResolver<string> = (blueprint: IBlueprint): ErrorHandler<string> => {
   const renderResponseResolver = (error: Error): string => error.message
-  const loggerResolver = blueprint.get('app.logger.resolver', defaultLoggerResolver)
+  const loggerResolver = blueprint.get('stone.logger.resolver', defaultLoggerResolver)
   return ErrorHandler.create({ blueprint, logger: loggerResolver(blueprint), renderResponseResolver })
 }
 
@@ -44,12 +43,6 @@ export const defaultErrorHandlerResolver: ErrorHandlerResolver<string> = (bluepr
  * @returns {Kernel<IncomingEvent, OutgoingResponse>} - A `Kernel` instance configured with the provided blueprint.
  */
 export const defaultKernelResolver: KernelResolver<IncomingEvent, OutgoingResponse> = (blueprint: IBlueprint): Kernel<IncomingEvent, OutgoingResponse> => {
-  const loggerResolver = blueprint.get('app.logger.resolver', defaultLoggerResolver)
-  const handler = blueprint.get<EventHandler<IncomingEvent, OutgoingResponse>>('app.handler')
-  const handlerResolver: KernelHandlerResolver<IncomingEvent, OutgoingResponse> = (container: Container) => {
-    return isConstructor(handler)
-      ? (container.resolve<LifecycleEventHandler<IncomingEvent, OutgoingResponse>>(handler, true) ?? handler)
-      : handler
-  }
-  return Kernel.create({ handlerResolver, blueprint, logger: loggerResolver(blueprint), container: Container.create(), eventEmitter: new EventEmitter() })
+  const loggerResolver = blueprint.get('stone.logger.resolver', defaultLoggerResolver)
+  return Kernel.create({ blueprint, logger: loggerResolver(blueprint), container: Container.create(), eventEmitter: new EventEmitter() })
 }

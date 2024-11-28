@@ -10,9 +10,12 @@
 
 Stone main options.
 
-This object defines the default configuration for the Stone.js framework,
-including builder options, adapter settings, and application-level settings.
+This object defines the main configuration options for the Stone.js framework.
+It includes settings for middleware, adapters, application-level configurations,
+logging, services, listeners, subscribers, providers, and aliases.
+
+## Returns
 
 ## Defined in
 
-[src/options/StoneBlueprint.ts:165](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L165)
+[src/options/StoneBlueprint.ts:161](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/StoneBlueprint.ts#L161)

@@ -31,6 +31,6 @@ export const StoneApp = <T extends ClassType = ClassType>(options: StoneAppOptio
   return (target: T, context: ClassDecoratorContext<T>) => {
     setMetadata(context, PROVIDER_KEY, {})
     setMetadata(context, MAIN_HANDLER_KEY, {})
-    addBlueprint(target, context, stoneBlueprint, ...blueprints, { app: options })
+    addBlueprint(target, context, stoneBlueprint, ...blueprints, { stone: options })
   }
 }

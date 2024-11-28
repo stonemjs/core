@@ -6,11 +6,11 @@
 
 # Interface: AdapterConfig
 
-Adapter config.
+AdapterConfig Interface.
 
-This object defines the configuration options for the adapter.
-It includes settings for the adapter's URL, alias, current status, server configuration,
-and other related properties for managing the adapter's behavior.
+This interface defines the configuration options for an adapter within the Stone.js framework.
+It includes settings for the adapter's alias, resolver, middleware, and hooks, among other properties.
+The AdapterConfig allows developers to manage how the adapter behaves and how it integrates with the application.
 
 ## Properties
 
@@ -19,11 +19,11 @@ and other related properties for managing the adapter's behavior.
 > **alias**: `string`
 
 The alias name for the adapter.
-This is a unique identifier for the adapter.
+This is a unique identifier used to reference the adapter.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:33](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L33)
+[src/options/AdapterConfig.ts:16](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L16)
 
 ***
 
@@ -31,11 +31,13 @@ This is a unique identifier for the adapter.
 
 > `optional` **current**: `boolean`
 
-The current version or status identifier for the adapter.
+The current status identifier for the adapter.
+Used to indicate if this adapter instance is active or currently in use.
+Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:50](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L50)
+[src/options/AdapterConfig.ts:40](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L40)
 
 ***
 
@@ -43,12 +45,12 @@ The current version or status identifier for the adapter.
 
 > `optional` **default**: `boolean`
 
-Defines if this is the default adapter.
+Defines whether this adapter is the default adapter used by the application.
 Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:56](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L56)
+[src/options/AdapterConfig.ts:46](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L46)
 
 ***
 
@@ -56,21 +58,25 @@ Optional property.
 
 > **hooks**: [`AdapterHooks`](../../../definitions/interfaces/AdapterHooks.md)
 
+Hooks that provide additional behavior during specific lifecycle events of the adapter.
+These hooks can be used to extend the adapter's functionality at various points.
+
 #### Defined in
 
-[src/options/AdapterConfig.ts:45](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L45)
+[src/options/AdapterConfig.ts:33](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L33)
 
 ***
 
 ### middleware
 
-> **middleware**: [`AdapterMiddlewareConfig`](AdapterMiddlewareConfig.md)
+> **middleware**: `MixedPipe`[]
 
-The middleware used for processing data in the mapper.
+The middleware used for processing incoming or outgoing data in the adapter.
+Middleware can modify or handle events at different stages of the adapter's lifecycle.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:43](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L43)
+[src/options/AdapterConfig.ts:27](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L27)
 
 ***
 
@@ -78,12 +84,13 @@ The middleware used for processing data in the mapper.
 
 > `optional` **preferred**: `boolean`
 
-Indicates if the adapter is preferred over others.
+Indicates if this adapter is preferred over others.
+Useful for prioritizing adapters in environments where multiple are available.
 Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:62](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L62)
+[src/options/AdapterConfig.ts:53](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L53)
 
 ***
 
@@ -91,8 +98,8 @@ Optional property.
 
 > **resolver**: [`AdapterResolver`](../../../definitions/type-aliases/AdapterResolver.md)
 
-The class type of the adapter, used to create instances.
+The class type resolver used to create instances of the adapter.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:38](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/AdapterConfig.ts#L38)
+[src/options/AdapterConfig.ts:21](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/AdapterConfig.ts#L21)

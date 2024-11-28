@@ -38,7 +38,7 @@ R
 
 #### Defined in
 
-[src/definitions.ts:195](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L195)
+[src/definitions.ts:168](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L168)
 
 ***
 
@@ -52,4 +52,4 @@ R
 
 #### Defined in
 
-[src/definitions.ts:196](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L196)
+[src/definitions.ts:169](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L169)

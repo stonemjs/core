@@ -4,15 +4,9 @@
 
 [Core Documentation v0.0.31](../../modules.md) / [Kernel](../README.md) / KernelOptions
 
-# Interface: KernelOptions\<U, V\>
+# Interface: KernelOptions
 
 KernelOptions.
-
-## Type Parameters
-
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
-
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Properties
 
@@ -22,7 +16,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:20](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L20)
+[src/Kernel.ts:19](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L19)
 
 ***
 
@@ -32,7 +26,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:19](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L19)
+[src/Kernel.ts:18](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L18)
 
 ***
 
@@ -42,17 +36,7 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:21](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L21)
-
-***
-
-### handlerResolver
-
-> **handlerResolver**: [`KernelHandlerResolver`](../../definitions/type-aliases/KernelHandlerResolver.md)\<`U`, `V`\>
-
-#### Defined in
-
-[src/Kernel.ts:22](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L22)
+[src/Kernel.ts:20](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L20)
 
 ***
 
@@ -62,4 +46,4 @@ KernelOptions.
 
 #### Defined in
 
-[src/Kernel.ts:18](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/Kernel.ts#L18)
+[src/Kernel.ts:17](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/Kernel.ts#L17)

@@ -38,4 +38,4 @@ The metadata value or the default value if the key does not exist.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:36](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/decorators/Metadata.ts#L36)
+[src/decorators/Metadata.ts:36](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/decorators/Metadata.ts#L36)

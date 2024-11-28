@@ -4,21 +4,21 @@ import { StoneBlueprint, Environment, stoneBlueprint } from '../src/options/Ston
 
 // Mock data for blueprints
 const mockBlueprint1: StoneBlueprint = {
-  app: {
+  stone: {
     name: 'App1',
     env: Environment.Production
   }
 }
 
 const mockBlueprint2: StoneBlueprint = {
-  app: {
+  stone: {
     name: 'App2',
     debug: true
   }
 }
 
 const mockUserBlueprint: StoneBlueprint = {
-  app: {
+  stone: {
     timezone: 'PST'
   }
 }
@@ -30,14 +30,14 @@ describe('mergeBlueprints', () => {
   it('should merge multiple blueprints into one', () => {
     const mergedBlueprint = mergeBlueprints(mockBlueprint1, mockBlueprint2)
 
-    expect(mergedBlueprint.app?.name).toBe('App2') // Last merged wins
-    expect(mergedBlueprint.app?.env).toBe('production')
-    expect(mergedBlueprint.app?.debug).toBe(true)
+    expect(mergedBlueprint.stone?.name).toBe('App2') // Last merged wins
+    expect(mergedBlueprint.stone?.env).toBe('production')
+    expect(mergedBlueprint.stone?.debug).toBe(true)
   })
 
   it('should handle empty blueprints gracefully', () => {
-    const mergedBlueprint = mergeBlueprints({ app: {} }, mockBlueprint1)
-    expect(mergedBlueprint.app?.name).toBe('App1')
+    const mergedBlueprint = mergeBlueprints({ stone: {} }, mockBlueprint1)
+    expect(mergedBlueprint.stone?.name).toBe('App1')
   })
 
   it('should throw SetupError if any blueprint is not a valid object', () => {
@@ -49,15 +49,15 @@ describe('defineAppBlueprint', () => {
   it('should merge user-defined blueprints with default blueprint', () => {
     const appBlueprint = defineAppBlueprint(stoneBlueprint, mockUserBlueprint)
 
-    expect(appBlueprint.app?.name).toBe('Stone.js') // Default blueprint name
-    expect(appBlueprint.app?.timezone).toBe('PST') // User-defined value
+    expect(appBlueprint.stone?.name).toBe('Stone.js') // Default blueprint name
+    expect(appBlueprint.stone?.timezone).toBe('PST') // User-defined value
   })
 
   it('should override default properties with user-defined ones', () => {
-    const customBlueprint = { app: { name: 'CustomApp' } }
+    const customBlueprint = { stone: { name: 'CustomApp' } }
     const appBlueprint = defineAppBlueprint(stoneBlueprint, customBlueprint)
 
-    expect(appBlueprint.app?.name).toBe('CustomApp')
+    expect(appBlueprint.stone?.name).toBe('CustomApp')
   })
 
   it('should throw SetupError if any user-defined blueprint is invalid', () => {

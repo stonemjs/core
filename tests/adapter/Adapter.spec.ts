@@ -1,12 +1,14 @@
 import { Config } from '@stone-js/config'
 import { NextPipe } from '@stone-js/pipeline'
-import { AdapterMapper } from '../../src/adapter/AdapterMapper'
 import { AdapterBuilder } from '../../src/adapter/AdapterBuilder'
 import { Adapter, AdapterOptions } from '../../src/adapter/Adapter'
 import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
+import { AdapterHandlerMiddleware } from '../../src/middleware/AdapterHandlerMiddleware'
 import { ILogger, IBlueprint, IErrorHandler, AdapterContext, AdapterHandlerResolver, AdapterHooks, IRawResponseWrapper, LifecycleEventHandler, RawResponseOptions } from '../../src/definitions'
+
+/* eslint-disable @typescript-eslint/no-useless-constructor */
 
 // Incoming platform event
 type MockRawEvent = Record<string, unknown>
@@ -39,25 +41,39 @@ class MockRawResponseWrapper<T = MockRawResponse> implements IRawResponseWrapper
 }
 
 // Mock Adapter
+// Implement the run method to send event through destination
 class MockAdapter extends Adapter<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
-  private done: boolean
-  constructor (adapterOptions: AdapterOptions<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse>) {
+  constructor (adapterOptions: AdapterOptions<MockRawResponse, IncomingEvent, OutgoingResponse>) {
     super(adapterOptions)
-    this.done = false
   }
 
   public async run (): Promise<any> {
-    this.done = this.done || false
     await this.onInit()
-    const eventHandler = this.handlerResolver(this.blueprint)
-    await this.beforeHandle(eventHandler as LifecycleEventHandler<IncomingEvent, OutgoingResponse>)
     const rawEvent: MockRawEvent = { name: 'Stone.js' }
     const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
       rawEvent,
       incomingEventBuilder: AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
       rawResponseBuilder: AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => new MockRawResponseWrapper(v) })
     }
-    return await this.onRawEventReceived(eventHandler, context)
+    return await this.sendEventThroughDestination(context)
+  }
+}
+
+// MockAdapter2 resolver
+const mockAdapter2Resolver = (incomingEventBuilder: any, rawResponseBuilder: any): Function => class extends Adapter<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
+  constructor (adapterOptions: AdapterOptions<MockRawResponse, IncomingEvent, OutgoingResponse>) {
+    super(adapterOptions)
+  }
+
+  public async run (): Promise<any> {
+    await this.onInit()
+    const rawEvent: MockRawEvent = { name: 'Stone.js' }
+    const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
+      rawEvent,
+      incomingEventBuilder,
+      rawResponseBuilder
+    }
+    return await this.sendEventThroughDestination(context)
   }
 }
 
@@ -88,14 +104,14 @@ class MockAppEventHandler implements LifecycleEventHandler<IncomingEvent, Outgoi
 
   beforeHandle (): void | Promise<void> { appBeforeHandleHookSpy() }
   handle (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> {
-    return OutgoingResponse.create({ content: { version: this.blueprint.get('version'), name: event.getMetadataValue('name') }, type: '' })
+    return OutgoingResponse.create({ content: { version: this.blueprint.get('version'), name: event.getMetadataValue('name') } })
   }
 
   onTerminate (): void | Promise<void> { appOnTerminateHookSpy() }
 }
 
 // Create function app event handler
-const MockFunctionEventHandler = (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> => OutgoingResponse.create({ content: { name: event.getMetadataValue('name') }, type: '' })
+const MockFunctionEventHandler = (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> => OutgoingResponse.create({ content: { name: event.getMetadataValue('name') } })
 
 // Input class Middleware
 class InputMiddleware {
@@ -133,22 +149,21 @@ describe('Adapter', () => {
   let blueprint: IBlueprint
   let errorHandler: IErrorHandler<string>
   let handlerResolver: AdapterHandlerResolver<IncomingEvent, OutgoingResponse>
-  let inputMapper: AdapterMapper<any, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse, IncomingEvent>
-  let outputMapper: AdapterMapper<any, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse, MockRawResponseWrapper>
 
   beforeEach(() => {
     logger = createMockLogger()
     errorHandler = createMockErrorHandler()
-    blueprint = Config.create({ version: '1.0.0' })
-    inputMapper = AdapterMapper.create({
-      blueprint,
-      middleware: [InputMiddleware],
-      destinationResolver: (context) => ({ ...context, incomingEvent: IncomingEvent.create({ locale: 'en', type: '' }) }).incomingEventBuilder?.build() as IncomingEvent
-    })
-    outputMapper = AdapterMapper.create({
-      blueprint,
-      middleware: [outputMiddleware],
-      destinationResolver: (context) => context.rawResponseBuilder?.build() as MockRawResponseWrapper
+    blueprint = Config.create({
+      stone: {
+        version: '1.0.0',
+        adapter: {
+          middleware: [
+            { priority: 0, pipe: InputMiddleware },
+            { priority: 100, pipe: AdapterHandlerMiddleware },
+            { priority: 200, pipe: outputMiddleware }
+          ]
+        }
+      }
     })
     handlerResolver = (blueprint: IBlueprint) => new MockAppEventHandler(blueprint)
     hooks = {
@@ -161,8 +176,6 @@ describe('Adapter', () => {
       logger,
       errorHandler,
       blueprint,
-      inputMapper,
-      outputMapper,
       handlerResolver,
       hooks
     })
@@ -174,8 +187,6 @@ describe('Adapter', () => {
         logger,
         errorHandler,
         blueprint,
-        inputMapper,
-        outputMapper,
         handlerResolver: 'undefined' as any,
         hooks
       }])
@@ -188,8 +199,6 @@ describe('Adapter', () => {
         logger: undefined as any,
         errorHandler,
         blueprint,
-        inputMapper,
-        outputMapper,
         handlerResolver,
         hooks
       }])
@@ -202,8 +211,6 @@ describe('Adapter', () => {
         logger,
         errorHandler: undefined as any,
         blueprint,
-        inputMapper,
-        outputMapper,
         handlerResolver,
         hooks
       }])
@@ -216,40 +223,22 @@ describe('Adapter', () => {
         logger,
         errorHandler,
         blueprint: {} as any,
-        inputMapper,
-        outputMapper,
         handlerResolver,
         hooks
       }])
     }).toThrow(IntegrationError)
   })
 
-  it('should throw errors on invalid inputMapper', () => {
-    expect(() => {
-      Reflect.construct(MockAdapter, [{
-        logger,
-        errorHandler,
-        blueprint,
-        inputMapper: {} as any,
-        outputMapper,
-        handlerResolver,
-        hooks
-      }])
-    }).toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid outputMapper', () => {
-    expect(() => {
-      Reflect.construct(MockAdapter, [{
-        logger,
-        errorHandler,
-        blueprint,
-        inputMapper,
-        outputMapper: {} as any,
-        handlerResolver,
-        hooks: undefined as any
-      }])
-    }).toThrow(IntegrationError)
+  it('should throw errors on invalid eventHandler', async () => {
+    const adapter = Reflect.construct(MockAdapter, [{
+      logger,
+      errorHandler,
+      blueprint,
+      handlerResolver: (_blueprint: IBlueprint) => undefined,
+      hooks
+    }])
+    const res = await adapter.run()
+    expect(res).toBe('error')
   })
 
   // Test AdapterBuilder here for simplicity
@@ -258,49 +247,66 @@ describe('Adapter', () => {
     expect(() => AdapterBuilder.create({ resolver: undefined })).toThrow(IntegrationError)
   })
 
-  // Test AdapterMapper here for simplicity
-  it('should throw an error if blueprint is not provided to AdapterMapper', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterMapper.create({ blueprint: undefined })).toThrow(IntegrationError)
-  })
-
-  // Test AdapterMapper here for simplicity
-  it('should throw an error if destinationResolver is not provided to AdapterMapper', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterMapper.create({ blueprint, destinationResolver: undefined })).toThrow(IntegrationError)
-  })
-
   it('should throw errors on invalid AdapterBuilder resolver', async () => {
-    class MockAdapter2 extends Adapter<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
-      private done: boolean
-      constructor (adapterOptions: AdapterOptions<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse>) {
-        super(adapterOptions)
-        this.done = false
-      }
-
-      public async run (): Promise<any> {
-        this.done = this.done || false
-        await this.onInit()
-        const eventHandler = this.handlerResolver(this.blueprint)
-        await this.beforeHandle(eventHandler as LifecycleEventHandler<IncomingEvent, OutgoingResponse>)
-        const rawEvent: MockRawEvent = { name: 'Stone.js' }
-        const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
-          rawEvent,
-          // @ts-expect-error - invalid value for test purposes
-          incomingEventBuilder: AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: () => undefined }),
-          // @ts-expect-error - invalid value for test purposes
-          rawResponseBuilder: AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: () => undefined })
-        }
-        return await this.onRawEventReceived(eventHandler, context)
-      }
-    }
+    const MockAdapter2 = mockAdapter2Resolver(
+      // @ts-expect-error - invalid value for test purposes
+      AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: () => undefined }),
+      // @ts-expect-error - invalid value for test purposes
+      AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: () => undefined })
+    )
 
     const adapter = Reflect.construct(MockAdapter2, [{
       logger,
       errorHandler,
       blueprint,
-      inputMapper,
-      outputMapper,
+      handlerResolver,
+      hooks
+    }])
+    const res = await adapter.run()
+    expect(res).toBe('error')
+  })
+
+  it('should throw errors on invalid rawResponseBuilder', async () => {
+    const MockAdapter2 = mockAdapter2Resolver(
+      AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
+      AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => ({} as any) })
+    )
+
+    const adapter = Reflect.construct(MockAdapter2, [{
+      logger,
+      errorHandler,
+      blueprint,
+      handlerResolver,
+      hooks
+    }])
+    const res = await adapter.run()
+    expect(res).toBe('error')
+  })
+
+  it('should throw errors on invalid rawResponseWrapper', async () => {
+    const MockAdapter2 = mockAdapter2Resolver(
+      AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
+      null as any
+    )
+
+    const adapter = Reflect.construct(MockAdapter2, [{
+      logger,
+      errorHandler,
+      blueprint,
+      handlerResolver,
+      hooks
+    }])
+    const res = await adapter.run()
+    expect(res).toBe('error')
+  })
+
+  it('should throw errors on invalid incomingEventBuilder', async () => {
+    const MockAdapter2 = mockAdapter2Resolver(undefined, {})
+
+    const adapter = Reflect.construct(MockAdapter2, [{
+      logger,
+      errorHandler,
+      blueprint,
       handlerResolver,
       hooks
     }])
@@ -325,8 +331,6 @@ describe('Adapter', () => {
       logger,
       errorHandler,
       blueprint,
-      inputMapper,
-      outputMapper,
       handlerResolver,
       hooks: undefined as any
     })
@@ -343,8 +347,6 @@ describe('Adapter', () => {
       logger,
       errorHandler,
       blueprint,
-      inputMapper,
-      outputMapper,
       handlerResolver,
       hooks: undefined as any
     })
@@ -358,17 +360,10 @@ describe('Adapter', () => {
       throw new IntegrationError('Error')
     }
     handlerResolver = (_blueprint: IBlueprint) => handler
-    inputMapper = AdapterMapper.create({
-      blueprint,
-      middleware: [],
-      destinationResolver: vi.fn()
-    })
     adapter = new MockAdapter({
       logger,
       errorHandler,
       blueprint,
-      inputMapper,
-      outputMapper,
       handlerResolver,
       hooks: undefined as any
     })

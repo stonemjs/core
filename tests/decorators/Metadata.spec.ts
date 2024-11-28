@@ -28,7 +28,7 @@ const metadataKey = 'testKey'
 const metadataValue = 'testValue'
 
 // Mock blueprint
-const mockBlueprint: StoneBlueprint = { app: { name: 'testApp' } }
+const mockBlueprint: StoneBlueprint = { stone: { name: 'testApp' } }
 
 // Tests for metadata functions
 describe('Metadata Utilities', () => {

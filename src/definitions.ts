@@ -1,7 +1,6 @@
 import { Event } from './events/Event'
 import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
-import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 
@@ -136,32 +135,6 @@ export interface ILogger {
 }
 
 /**
- * Adapter Mapper Destination Resolver.
- *
- * A type alias representing a function that takes an event context and returns the resolved destination.
- *
- * @template RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, DestinationType
- * @param eventContext - The AdapterContext instance containing details of the event.
- * @returns The resolved destination value.
- */
-export type AdapterMapperDestinationResolver<
-  RawEventType,
-  RawResponseType,
-  ExecutionContextType,
-  IncomingEventType extends IncomingEvent,
-  IncomingEventOptionsType extends IncomingEventOptions,
-  OutgoingResponseType extends OutgoingResponse,
-  DestinationType extends IncomingEventType | IRawResponseWrapper<RawResponseType> = IncomingEventType
-> = (eventContext: AdapterContext<
-RawEventType,
-RawResponseType,
-ExecutionContextType,
-IncomingEventType,
-IncomingEventOptionsType,
-OutgoingResponseType
->) => DestinationType
-
-/**
  * EventHandlerFunction.
  *
  * Represents a function that handles incoming events and returns an outgoing response.
@@ -181,7 +154,7 @@ export type EventHandlerFunction<W extends IncomingEvent, X extends OutgoingResp
  */
 export interface IRawResponseWrapper<R> {
   options: RawResponseOptions
-  respond: () => R
+  respond: () => R | Promise<R>
 }
 
 /**
@@ -345,17 +318,6 @@ export type ErrorHandlerResolver<R = unknown> = (blueprint: IBlueprint) => IErro
  * @returns The lifecycle event handler.
  */
 export type KernelResolver<U extends IncomingEvent, V extends OutgoingResponse> = (blueprint: IBlueprint) => LifecycleEventHandler<U, V>
-
-/**
- * KernelHandlerResolver Type.
- *
- * Represents a function that resolves an event handler based on the provided container.
- *
- * @template W, X
- * @param container - The service container.
- * @returns The event handler.
- */
-export type KernelHandlerResolver<W extends IncomingEvent, X extends OutgoingResponse> = (container: Container) => EventHandler<W, X>
 
 /**
  * ErrorResponse Interface.

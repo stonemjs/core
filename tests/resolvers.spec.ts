@@ -26,34 +26,28 @@ describe('defaultHandlerResolver', () => {
 
 describe('defaultKernelResolver', () => {
   it('should create a Kernel with the given blueprint and default dependencies', () => {
-    mockBlueprint.set({ 'app.handler': () => {} })
+    mockBlueprint.set({ 'stone.handler': () => {} })
     const kernel = defaultKernelResolver(mockBlueprint)
     expect(kernel).toBeInstanceOf(Kernel)
     expect(kernel.handle).toBeInstanceOf(Function)
     expect(kernel.beforeHandle).toBeInstanceOf(Function)
-    // @ts-expect-error - access private method for test purposes
-    expect(kernel.handlerResolver()).toBeInstanceOf(Function)
   })
 
   it('should create a Kernel with the given blueprint with class handler', () => {
     class Handler {}
-    mockBlueprint.set({ 'app.handler': Handler })
+    mockBlueprint.set({ 'stone.handler': Handler })
     const kernel = defaultKernelResolver(mockBlueprint)
     expect(kernel).toBeInstanceOf(Kernel)
     expect(kernel.handle).toBeInstanceOf(Function)
     expect(kernel.beforeHandle).toBeInstanceOf(Function)
-    // @ts-expect-error - access private method for test purposes
-    expect(kernel.handlerResolver({ resolve: () => new Handler() })).toBeInstanceOf(Handler)
   })
 
   it('should create a Kernel with the given blueprint with function handler when class handler is undefined', () => {
     class Handler {}
-    mockBlueprint.set({ 'app.handler': Handler })
+    mockBlueprint.set({ 'stone.handler': Handler })
     const kernel = defaultKernelResolver(mockBlueprint)
     expect(kernel).toBeInstanceOf(Kernel)
     expect(kernel.handle).toBeInstanceOf(Function)
     expect(kernel.beforeHandle).toBeInstanceOf(Function)
-    // @ts-expect-error - access private method for test purposes
-    expect(kernel.handlerResolver({ resolve: () => undefined })).toBeInstanceOf(Function)
   })
 })

@@ -6,11 +6,7 @@
 
 # Enumeration: Environment
 
-Stone main options.
-
-This object defines the main configuration options for the Stone.js framework.
-It includes settings for middleware, adapters, application-level configurations,
-logging, services, listeners, subscribers, providers, and aliases.
+Environment settings.
 
 ## Enumeration Members
 
@@ -20,7 +16,7 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:22](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L22)
+[src/options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/StoneBlueprint.ts#L15)
 
 ***
 
@@ -30,7 +26,7 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:23](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L23)
+[src/options/StoneBlueprint.ts:16](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/StoneBlueprint.ts#L16)
 
 ***
 
@@ -40,4 +36,4 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:24](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L24)
+[src/options/StoneBlueprint.ts:17](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/StoneBlueprint.ts#L17)

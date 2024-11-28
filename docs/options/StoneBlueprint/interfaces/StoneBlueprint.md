@@ -18,12 +18,12 @@ while allowing additional custom options to be added.
 
 ## Properties
 
-### app
+### stone
 
-> **app**: `Partial`\<[`AppConfig`](AppConfig.md)\>
+> **stone**: `Partial`\<[`AppConfig`](AppConfig.md)\>
 
 Application-level settings, including environment, middleware, logging, and service registration.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:150](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/StoneBlueprint.ts#L150)
+[src/options/StoneBlueprint.ts:143](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/StoneBlueprint.ts#L143)

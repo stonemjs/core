@@ -32,7 +32,7 @@ The executionContext of type ExecutionContext.
 
 #### Defined in
 
-[src/definitions.ts:498](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L498)
+[src/definitions.ts:460](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L460)
 
 ***
 
@@ -44,7 +44,7 @@ The incomingEvent associated with the executionContext.
 
 #### Defined in
 
-[src/definitions.ts:493](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L493)
+[src/definitions.ts:455](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L455)
 
 ***
 
@@ -56,7 +56,7 @@ The incomingEventBuilder.
 
 #### Defined in
 
-[src/definitions.ts:508](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L508)
+[src/definitions.ts:470](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L470)
 
 ***
 
@@ -68,7 +68,7 @@ The outgoingResponse associated with the executionContext.
 
 #### Defined in
 
-[src/definitions.ts:503](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L503)
+[src/definitions.ts:465](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L465)
 
 ***
 
@@ -80,7 +80,7 @@ The rawEvent of type RawEventType.
 
 #### Defined in
 
-[src/definitions.ts:488](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L488)
+[src/definitions.ts:450](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L450)
 
 ***
 
@@ -92,4 +92,4 @@ The rawResponseBuilder.
 
 #### Defined in
 
-[src/definitions.ts:513](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L513)
+[src/definitions.ts:475](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L475)

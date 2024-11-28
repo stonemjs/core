@@ -14,13 +14,13 @@ This interface defines the configuration for kernel-level options.
 
 ### middleware
 
-> **middleware**: [`KernelMiddlewareConfig`](KernelMiddlewareConfig.md)
+> **middleware**: `MixedPipe`[]
 
 Middleware configuration options for different stages of the kernel's lifecycle.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:49](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L49)
+[src/options/KernelConfig.ts:16](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/KernelConfig.ts#L16)
 
 ***
 
@@ -32,4 +32,4 @@ The class type of the adapter, used to create instances.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:54](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/options/KernelConfig.ts#L54)
+[src/options/KernelConfig.ts:21](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/options/KernelConfig.ts#L21)

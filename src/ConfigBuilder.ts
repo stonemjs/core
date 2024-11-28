@@ -104,7 +104,7 @@ export class ConfigBuilder {
       if (typeof module === 'function') {
         this.applyMetadata(module as ClassType, options)
       } else {
-        this.populateOptions(options, (module as StoneBlueprint).app?.builder)
+        this.populateOptions(options, (module as StoneBlueprint).stone?.builder)
       }
       return options
     }, { ...this.options })
@@ -119,12 +119,12 @@ export class ConfigBuilder {
   private applyMetadata (module: ClassType, options: ConfigBuilderOptions): void {
     if (hasBlueprint(module)) {
       const blueprint = getBlueprint(module)
-      blueprint !== undefined && this.populateOptions(options, blueprint.app?.builder)
+      blueprint !== undefined && this.populateOptions(options, blueprint.stone?.builder)
     } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) {
       const metadata: ConfigMiddlewareOptions = getMetadata(module, CONFIG_MIDDLEWARE_KEY)
       this.populateOptions(options, { middleware: [{ ...metadata, pipe: module }] })
     } else if (hasMetadata(module, CONFIGURATION_KEY)) {
-      this.populateOptions(options, (module as unknown as StoneBlueprint).app?.builder)
+      this.populateOptions(options, (module as unknown as StoneBlueprint).stone?.builder)
     }
   }
 

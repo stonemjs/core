@@ -30,7 +30,7 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Defined in
 
-[src/definitions.ts:380](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L380)
+[src/definitions.ts:342](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L342)
 
 ***
 
@@ -48,4 +48,4 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Defined in
 
-[src/definitions.ts:379](https://github.com/stonemjs/core/blob/40e6656006329b0d27f05f845f48db22a574f5ce/src/definitions.ts#L379)
+[src/definitions.ts:341](https://github.com/stonemjs/core/blob/063868c8035bce8a9a9b73263c757aec9b0c12c8/src/definitions.ts#L341)
