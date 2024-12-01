@@ -20,7 +20,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/IncomingEvent.ts#L7)
+[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/IncomingEvent.ts#L7)
 
 ***
 
@@ -34,7 +34,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L10)
+[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L8)
+[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L8)
 
 ***
 
@@ -62,7 +62,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L9)
+[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L9)
 
 ***
 
@@ -76,4 +76,4 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L7)
+[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L7)

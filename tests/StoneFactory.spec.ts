@@ -3,14 +3,14 @@ import { StoneFactory, StoneFactoryOptions } from '../src/StoneFactory'
 import { IBlueprint, IAdapter, AdapterResolver } from '../src/definitions'
 
 // Mock implementations for IBlueprint and IAdapter
-class MockAdapter implements IAdapter<string> {
-  async run (): Promise<string> {
-    return 'Adapter Run Successfully'
+class MockAdapter implements IAdapter {
+  async run<ExecutionResultType = string> (): Promise<ExecutionResultType> {
+    return 'Adapter Run Successfully' as ExecutionResultType
   }
 }
 
 // Mock Blueprint
-const mockBlueprint = (resolver?: AdapterResolver<string>): IBlueprint => ({
+const mockBlueprint = (resolver?: AdapterResolver): IBlueprint => ({
   get: vi.fn((key: string) => {
     if (key === 'stone.adapter.resolver') {
       return resolver
@@ -22,7 +22,7 @@ const mockBlueprint = (resolver?: AdapterResolver<string>): IBlueprint => ({
 describe('StoneFactory', () => {
   it('should throw an error if blueprint is not provided', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => StoneFactory.create<string>({ blueprint: undefined })).toThrow(RuntimeError)
+    expect(() => StoneFactory.create({ blueprint: undefined })).toThrow(RuntimeError)
   })
 
   it('should create a StoneFactory instance', () => {
@@ -46,7 +46,7 @@ describe('StoneFactory', () => {
 
   it('should throw an error if the adapter resolver returns undefined', async () => {
     // @ts-expect-error - invalid value for test purposes
-    const resolver: AdapterResolver<string> = () => undefined
+    const resolver: AdapterResolver = () => undefined
     const blueprint = mockBlueprint(resolver)
     const options: StoneFactoryOptions = { blueprint }
     const factory = StoneFactory.create(options)
@@ -57,7 +57,7 @@ describe('StoneFactory', () => {
   })
 
   it('should run the adapter successfully when a valid adapter is provided', async () => {
-    const resolver: AdapterResolver<string> = () => new MockAdapter()
+    const resolver: AdapterResolver = () => new MockAdapter()
     const blueprint = mockBlueprint(resolver)
     const options: StoneFactoryOptions = { blueprint }
     const factory = StoneFactory.create(options)

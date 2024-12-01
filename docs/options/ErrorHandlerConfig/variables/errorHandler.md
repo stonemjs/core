@@ -15,4 +15,4 @@ It allows configuration of the logger instance, error reporting behavior, and er
 
 ## Defined in
 
-[src/options/ErrorHandlerConfig.ts:42](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/options/ErrorHandlerConfig.ts#L42)
+[src/options/ErrorHandlerConfig.ts:42](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/ErrorHandlerConfig.ts#L42)

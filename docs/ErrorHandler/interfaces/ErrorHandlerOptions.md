@@ -20,7 +20,7 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:9](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/ErrorHandler.ts#L9)
+[src/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/ErrorHandler.ts#L10)
 
 ***
 
@@ -30,7 +30,7 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:8](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/ErrorHandler.ts#L8)
+[src/ErrorHandler.ts:9](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/ErrorHandler.ts#L9)
 
 ***
 
@@ -40,4 +40,4 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/ErrorHandler.ts#L10)
+[src/ErrorHandler.ts:11](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/ErrorHandler.ts#L11)

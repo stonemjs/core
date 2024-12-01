@@ -67,7 +67,7 @@ Options for creating the AdapterHandlerMiddleware.
 
 #### Defined in
 
-[src/middleware/AdapterHandlerMiddleware.ts:42](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/middleware/AdapterHandlerMiddleware.ts#L42)
+[src/middleware/AdapterHandlerMiddleware.ts:42](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/middleware/AdapterHandlerMiddleware.ts#L42)
 
 ## Methods
 
@@ -99,4 +99,4 @@ If required components such as the incomingEventResolver or IncomingEventBuilder
 
 #### Defined in
 
-[src/middleware/AdapterHandlerMiddleware.ts:55](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/middleware/AdapterHandlerMiddleware.ts#L55)
+[src/middleware/AdapterHandlerMiddleware.ts:55](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/middleware/AdapterHandlerMiddleware.ts#L55)

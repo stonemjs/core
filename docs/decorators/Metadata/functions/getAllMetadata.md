@@ -34,4 +34,4 @@ All metadata or the default value if no metadata exists.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:47](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/decorators/Metadata.ts#L47)
+[src/decorators/Metadata.ts:47](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/Metadata.ts#L47)

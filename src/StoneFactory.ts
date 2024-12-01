@@ -36,11 +36,9 @@ export interface StoneFactoryOptions {
  * The StoneFactory is responsible for creating and running the main application by resolving
  * the appropriate adapter from the provided blueprint. It handles the core setup of the application.
  *
- * @template R - The return type of the adapter's `run` method.
- *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class StoneFactory<R = unknown> {
+export class StoneFactory {
   /**
    * The blueprint configuration for the application.
    */
@@ -57,7 +55,7 @@ export class StoneFactory<R = unknown> {
    * const factory = StoneFactory.create({ blueprint });
    * ```
    */
-  public static create<R = unknown>(options: StoneFactoryOptions): StoneFactory<R> {
+  public static create (options: StoneFactoryOptions): StoneFactory {
     return new this(options)
   }
 
@@ -82,8 +80,8 @@ export class StoneFactory<R = unknown> {
    * await factory.run();
    * ```
    */
-  public async run (): Promise<R> {
-    return await this.makeAdapter().run()
+  public async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
+    return await this.makeAdapter().run<ExecutionResultType>()
   }
 
   /**
@@ -91,14 +89,9 @@ export class StoneFactory<R = unknown> {
    *
    * @returns The resolved adapter instance.
    * @throws {IntegrationError} If no adapter resolver or adapter is provided in the blueprint.
-   *
-   * @example
-   * ```typescript
-   * const adapter = factory.makeAdapter();
-   * ```
    */
-  private makeAdapter (): IAdapter<R> {
-    const resolver = this.blueprint.get<AdapterResolver<R>>('stone.adapter.resolver')
+  private makeAdapter (): IAdapter {
+    const resolver = this.blueprint.get<AdapterResolver>('stone.adapter.resolver')
 
     if (resolver === undefined) {
       throw new IntegrationError('No adapter resolver provided. Ensure that a valid adapter resolver is configured under "stone.adapter.resolver" in the blueprint configuration.')

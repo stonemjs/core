@@ -160,11 +160,13 @@ export class CoreServiceProvider implements IProvider {
       for (const listener of listeners) {
         const instance = this.container.resolve<IListener>(listener, true)
         if (instance?.handle !== undefined) {
-          this.eventEmitter.on(eventName, (event) => {
-            instance
-              .handle(event)
-              ?.then((): void => {})
-              .catch((error) => this.logger.error(`An error has occured with this listener (${String(listener)}) ${String(error.message)}`))
+          /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
+          this.eventEmitter.on(eventName, async (event) => {
+            try {
+              await instance.handle(event)
+            } catch (error: any) {
+              this.logger.error(`An error has occured with this listener (${String(listener)}) ${String(error.message)}`)
+            }
           })
         }
       }

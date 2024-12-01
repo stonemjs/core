@@ -26,4 +26,4 @@ Application-level settings, including environment, middleware, logging, and serv
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:143](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/options/StoneBlueprint.ts#L143)
+[src/options/StoneBlueprint.ts:143](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/StoneBlueprint.ts#L143)

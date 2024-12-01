@@ -1,6 +1,6 @@
 import { Config } from '@stone-js/config'
 import { NextPipe } from '@stone-js/pipeline'
-import { AdapterBuilder } from '../../src/adapter/AdapterBuilder'
+import { AdapterEventBuilder } from '../../src/adapter/AdapterEventBuilder'
 import { Adapter, AdapterOptions } from '../../src/adapter/Adapter'
 import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
@@ -42,20 +42,20 @@ class MockRawResponseWrapper<T = MockRawResponse> implements IRawResponseWrapper
 
 // Mock Adapter
 // Implement the run method to send event through destination
-class MockAdapter extends Adapter<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
+class MockAdapter extends Adapter<MockRawEvent, MockRawResponse, MockRawResponse, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
   constructor (adapterOptions: AdapterOptions<MockRawResponse, IncomingEvent, OutgoingResponse>) {
     super(adapterOptions)
   }
 
-  public async run (): Promise<any> {
+  public async run<ExecutionResultType = MockRawResponse> (): Promise<ExecutionResultType> {
     await this.onInit()
     const rawEvent: MockRawEvent = { name: 'Stone.js' }
-    const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
+    const context: AdapterContext<MockRawEvent, MockRawResponse, MockRawResponse, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
       rawEvent,
-      incomingEventBuilder: AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
-      rawResponseBuilder: AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => new MockRawResponseWrapper(v) })
+      incomingEventBuilder: AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
+      rawResponseBuilder: AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => new MockRawResponseWrapper(v) })
     }
-    return await this.sendEventThroughDestination(context)
+    return await this.sendEventThroughDestination(context) as ExecutionResultType
   }
 }
 
@@ -244,15 +244,15 @@ describe('Adapter', () => {
   // Test AdapterBuilder here for simplicity
   it('should throw an error if resolver is not provided to AdapterBuilder', () => {
     // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterBuilder.create({ resolver: undefined })).toThrow(IntegrationError)
+    expect(() => AdapterEventBuilder.create({ resolver: undefined })).toThrow(IntegrationError)
   })
 
   it('should throw errors on invalid AdapterBuilder resolver', async () => {
     const MockAdapter2 = mockAdapter2Resolver(
       // @ts-expect-error - invalid value for test purposes
-      AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: () => undefined }),
+      AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: () => undefined }),
       // @ts-expect-error - invalid value for test purposes
-      AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: () => undefined })
+      AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: () => undefined })
     )
 
     const adapter = Reflect.construct(MockAdapter2, [{
@@ -268,8 +268,8 @@ describe('Adapter', () => {
 
   it('should throw errors on invalid rawResponseBuilder', async () => {
     const MockAdapter2 = mockAdapter2Resolver(
-      AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
-      AdapterBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => ({} as any) })
+      AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
+      AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => ({} as any) })
     )
 
     const adapter = Reflect.construct(MockAdapter2, [{
@@ -285,7 +285,7 @@ describe('Adapter', () => {
 
   it('should throw errors on invalid rawResponseWrapper', async () => {
     const MockAdapter2 = mockAdapter2Resolver(
-      AdapterBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
+      AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
       null as any
     )
 

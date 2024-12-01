@@ -4,26 +4,26 @@
 
 [Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / IAdapter
 
-# Interface: IAdapter\<R\>
+# Interface: IAdapter
 
 Adapter Interface.
 
-Represents an adapter with a run method that returns a promise of type R.
-
-## Type Parameters
-
-• **R** = `unknown`
+Represents an adapter with a run method that returns a promise of type ExecutionResultType.
 
 ## Properties
 
 ### run()
 
-> **run**: () => `Promise`\<`R`\>
+> **run**: \<`ExecutionResultType`\>() => `Promise`\<`ExecutionResultType`\>
+
+#### Type Parameters
+
+• **ExecutionResultType** = `unknown`
 
 #### Returns
 
-`Promise`\<`R`\>
+`Promise`\<`ExecutionResultType`\>
 
 #### Defined in
 
-[src/definitions.ts:258](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L258)
+[src/definitions.ts:255](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L255)

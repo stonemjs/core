@@ -4,9 +4,9 @@
 
 [Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / ErrorHandlerRenderResponseResolver
 
-# Type Alias: ErrorHandlerRenderResponseResolver()\<R\>
+# Type Alias: ErrorHandlerRenderResponseResolver()\<R, E\>
 
-> **ErrorHandlerRenderResponseResolver**\<`R`\>: (`error`) => `R`
+> **ErrorHandlerRenderResponseResolver**\<`R`, `E`\>: (`error`) => `R`
 
 ErrorHandlerRenderResponseResolver Type.
 
@@ -16,9 +16,11 @@ Represents a function that resolves the response for a given error.
 
 • **R**
 
+• **E** *extends* [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md)
+
 ## Parameters
 
-• **error**: `Error`
+• **error**: `E`
 
 The error instance.
 
@@ -30,4 +32,4 @@ The response for the error.
 
 ## Defined in
 
-[src/definitions.ts:365](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L365)
+[src/definitions.ts:350](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L350)

@@ -32,7 +32,7 @@ The executionContext of type ExecutionContext.
 
 #### Defined in
 
-[src/definitions.ts:460](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L460)
+[src/definitions.ts:445](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L445)
 
 ***
 
@@ -44,19 +44,19 @@ The incomingEvent associated with the executionContext.
 
 #### Defined in
 
-[src/definitions.ts:455](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L455)
+[src/definitions.ts:440](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L440)
 
 ***
 
 ### incomingEventBuilder?
 
-> `readonly` `optional` **incomingEventBuilder**: [`IAdapterBuilder`](IAdapterBuilder.md)\<`IncomingEventOptionsType`, `IncomingEventType`\>
+> `readonly` `optional` **incomingEventBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<`IncomingEventOptionsType`, `IncomingEventType`\>
 
 The incomingEventBuilder.
 
 #### Defined in
 
-[src/definitions.ts:470](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L470)
+[src/definitions.ts:455](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L455)
 
 ***
 
@@ -68,7 +68,7 @@ The outgoingResponse associated with the executionContext.
 
 #### Defined in
 
-[src/definitions.ts:465](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L465)
+[src/definitions.ts:450](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L450)
 
 ***
 
@@ -80,16 +80,16 @@ The rawEvent of type RawEventType.
 
 #### Defined in
 
-[src/definitions.ts:450](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L450)
+[src/definitions.ts:435](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L435)
 
 ***
 
 ### rawResponseBuilder?
 
-> `readonly` `optional` **rawResponseBuilder**: [`IAdapterBuilder`](IAdapterBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
+> `readonly` `optional` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
 
 The rawResponseBuilder.
 
 #### Defined in
 
-[src/definitions.ts:475](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/definitions.ts#L475)
+[src/definitions.ts:460](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L460)

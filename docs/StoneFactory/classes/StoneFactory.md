@@ -4,7 +4,7 @@
 
 [Core Documentation v0.0.31](../../modules.md) / [StoneFactory](../README.md) / StoneFactory
 
-# Class: StoneFactory\<R\>
+# Class: StoneFactory
 
 Class representing StoneFactory.
 
@@ -15,23 +15,21 @@ the appropriate adapter from the provided blueprint. It handles the core setup o
 
 Mr. Stone <evensstone@gmail.com>
 
-## Type Parameters
-
-• **R** = `unknown`
-
-The return type of the adapter's `run` method.
-
 ## Methods
 
 ### run()
 
-> **run**(): `Promise`\<`R`\>
+> **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
 Run the application by resolving and executing the adapter.
 
+#### Type Parameters
+
+• **ExecutionResultType** = `unknown`
+
 #### Returns
 
-`Promise`\<`R`\>
+`Promise`\<`ExecutionResultType`\>
 
 A promise that resolves to the result of the adapter's `run` method.
 
@@ -47,19 +45,15 @@ await factory.run();
 
 #### Defined in
 
-[src/StoneFactory.ts:85](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/StoneFactory.ts#L85)
+[src/StoneFactory.ts:83](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/StoneFactory.ts#L83)
 
 ***
 
 ### create()
 
-> `static` **create**\<`R`\>(`options`): [`StoneFactory`](StoneFactory.md)\<`R`\>
+> `static` **create**(`options`): [`StoneFactory`](StoneFactory.md)
 
 Create a new StoneFactory instance.
-
-#### Type Parameters
-
-• **R** = `unknown`
 
 #### Parameters
 
@@ -69,7 +63,7 @@ The options to create the StoneFactory.
 
 #### Returns
 
-[`StoneFactory`](StoneFactory.md)\<`R`\>
+[`StoneFactory`](StoneFactory.md)
 
 A new StoneFactory instance.
 
@@ -81,4 +75,4 @@ const factory = StoneFactory.create({ blueprint });
 
 #### Defined in
 
-[src/StoneFactory.ts:60](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/StoneFactory.ts#L60)
+[src/StoneFactory.ts:58](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/StoneFactory.ts#L58)

@@ -16,7 +16,7 @@ Environment settings.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/options/StoneBlueprint.ts#L15)
+[src/options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/StoneBlueprint.ts#L15)
 
 ***
 
@@ -26,7 +26,7 @@ Environment settings.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:16](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/options/StoneBlueprint.ts#L16)
+[src/options/StoneBlueprint.ts:16](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/StoneBlueprint.ts#L16)
 
 ***
 
@@ -36,4 +36,4 @@ Environment settings.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:17](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/options/StoneBlueprint.ts#L17)
+[src/options/StoneBlueprint.ts:17](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/StoneBlueprint.ts#L17)

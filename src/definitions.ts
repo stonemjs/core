@@ -154,18 +154,17 @@ export type EventHandlerFunction<W extends IncomingEvent, X extends OutgoingResp
  * @template R
  */
 export interface IRawResponseWrapper<R> {
-  options: RawResponseOptions
   respond: () => R | Promise<R>
 }
 
 /**
- * AdapterBuilder Interface.
+ * IAdapterEventBuilder Interface.
  *
  * Interface representing a builder for adapters that provides methods for adding properties and building the resulting object.
  *
  * @template K, R
  */
-export interface IAdapterBuilder<K, R> {
+export interface IAdapterEventBuilder<K, R> {
   add: (key: keyof K, value: unknown) => this
   build: () => R
 }
@@ -187,7 +186,6 @@ export interface RawResponseOptions {
  * @template W, X
  */
 export interface LifecycleEventHandler<W extends IncomingEvent, X extends OutgoingResponse> {
-  onInit?: () => void | Promise<void>
   beforeHandle?: () => void | Promise<void>
   handle: EventHandlerFunction<W, X>
   onTerminate?: () => void | Promise<void>
@@ -251,12 +249,10 @@ export interface AdapterHooks {
 /**
  * Adapter Interface.
  *
- * Represents an adapter with a run method that returns a promise of type R.
- *
- * @template R
+ * Represents an adapter with a run method that returns a promise of type ExecutionResultType.
  */
-export interface IAdapter<R = unknown> {
-  run: () => Promise<R>
+export interface IAdapter {
+  run: <ExecutionResultType = unknown>() => Promise<ExecutionResultType>
 }
 
 /**
@@ -282,11 +278,10 @@ export type ErrorHandlerLevels = Record<LogLevel, Array<new (...args: any[]) => 
  *
  * Represents a function that resolves an adapter instance based on the provided blueprint.
  *
- * @template R
  * @param blueprint - The application blueprint.
  * @returns The adapter instance.
  */
-export type AdapterResolver<R = unknown> = (blueprint: IBlueprint) => IAdapter<R>
+export type AdapterResolver = (blueprint: IBlueprint) => IAdapter
 
 /**
  * LoggerResolver Type.
@@ -319,17 +314,6 @@ export type ErrorHandlerResolver<R = unknown> = (blueprint: IBlueprint) => IErro
  * @returns The lifecycle event handler.
  */
 export type KernelResolver<U extends IncomingEvent, V extends OutgoingResponse> = (blueprint: IBlueprint) => LifecycleEventHandler<U, V>
-
-/**
- * ErrorResponse Interface.
- *
- * Represents an error response with code, status, and message properties.
- */
-export interface ErrorResponse {
-  code?: number
-  status: number
-  message: unknown
-}
 
 /**
  * ErrorHandler Interface.
@@ -468,12 +452,23 @@ OutgoingResponseType extends OutgoingResponse = OutgoingResponse
   /**
    * The incomingEventBuilder.
    */
-  readonly incomingEventBuilder?: IAdapterBuilder<IncomingEventOptionsType, IncomingEventType>
+  readonly incomingEventBuilder?: IAdapterEventBuilder<IncomingEventOptionsType, IncomingEventType>
 
   /**
    * The rawResponseBuilder.
    */
-  readonly rawResponseBuilder?: IAdapterBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
+  readonly rawResponseBuilder?: IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
+}
+
+/**
+ * ErrorResponse Interface.
+ *
+ * Represents an error response with code, status, and message properties.
+ */
+export interface ErrorResponse {
+  code?: number
+  status: number
+  message: unknown
 }
 
 /**

@@ -56,7 +56,7 @@ export abstract class Adapter<
   IncomingEventOptionsType extends IncomingEventOptions,
   OutgoingResponseType extends OutgoingResponse,
   AdapterContextType extends AdapterContext<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType> = AdapterContext<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType>
-> implements IAdapter<RawResponseType> {
+> implements IAdapter {
   protected readonly logger: ILogger
   protected readonly hooks: AdapterHooks
   protected readonly blueprint: IBlueprint
@@ -112,7 +112,7 @@ export abstract class Adapter<
    * ```
    * @returns The result of the handler execution.
    */
-  abstract run (): Promise<RawResponseType>
+  abstract run<ExecutionResultType = unknown>(): Promise<ExecutionResultType>
 
   /**
    * Incoming message listener.

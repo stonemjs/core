@@ -38,7 +38,7 @@ The options to create an Event.
 
 #### Defined in
 
-[src/events/Event.ts:44](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L44)
+[src/events/Event.ts:44](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L44)
 
 ## Properties
 
@@ -50,7 +50,7 @@ The metadata associated with the event.
 
 #### Defined in
 
-[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L27)
+[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L27)
 
 ***
 
@@ -62,7 +62,7 @@ The source of the event.
 
 #### Defined in
 
-[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L32)
+[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L32)
 
 ***
 
@@ -74,7 +74,7 @@ The timestamp of the event creation.
 
 #### Defined in
 
-[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L37)
+[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L37)
 
 ***
 
@@ -86,7 +86,7 @@ The type of the event.
 
 #### Defined in
 
-[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L22)
+[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L22)
 
 ## Methods
 
@@ -108,7 +108,7 @@ A cloned instance of the current class.
 
 #### Defined in
 
-[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L79)
+[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L79)
 
 ***
 
@@ -136,7 +136,7 @@ The value associated with the key or the fallback.
 
 #### Defined in
 
-[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L58)
+[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L58)
 
 ***
 
@@ -164,4 +164,4 @@ This Event instance.
 
 #### Defined in
 
-[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/events/Event.ts#L69)
+[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L69)

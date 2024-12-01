@@ -7,7 +7,7 @@
 ## Modules
 
 - [adapter/Adapter](adapter/Adapter/README.md)
-- [adapter/AdapterBuilder](adapter/AdapterBuilder/README.md)
+- [adapter/AdapterEventBuilder](adapter/AdapterEventBuilder/README.md)
 - [ConfigBuilder](ConfigBuilder/README.md)
 - [ConsoleLogger](ConsoleLogger/README.md)
 - [CoreServiceProvider](CoreServiceProvider/README.md)

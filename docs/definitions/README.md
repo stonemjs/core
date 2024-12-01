@@ -20,7 +20,7 @@
 - [ErrorOptions](interfaces/ErrorOptions.md)
 - [ErrorResponse](interfaces/ErrorResponse.md)
 - [IAdapter](interfaces/IAdapter.md)
-- [IAdapterBuilder](interfaces/IAdapterBuilder.md)
+- [IAdapterEventBuilder](interfaces/IAdapterEventBuilder.md)
 - [IConfiguration](interfaces/IConfiguration.md)
 - [IErrorHandler](interfaces/IErrorHandler.md)
 - [IListener](interfaces/IListener.md)

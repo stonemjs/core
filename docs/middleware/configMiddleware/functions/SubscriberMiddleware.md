@@ -37,4 +37,4 @@ SubscriberMiddleware({ modules, blueprint }, next);
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:201](https://github.com/stonemjs/core/blob/c4dbb69a8c86aa6134b62f7d9cac7dabb444c749/src/middleware/configMiddleware.ts#L201)
+[src/middleware/configMiddleware.ts:201](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/middleware/configMiddleware.ts#L201)

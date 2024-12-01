@@ -10,7 +10,7 @@ import { InitializationError } from '../src/errors/InitializationError'
 class MockService {}
 
 const mockListenerHandleSpy = vi.fn()
-const mockListenerHandleSpyError = vi.fn(async () => await Promise.reject(new InitializationError('something bad happened')))
+const mockListenerHandleSpyError = vi.fn().mockRejectedValue(new Error('something bad happened'))
 class MockListener implements IListener {
   handle = mockListenerHandleSpy
 }
