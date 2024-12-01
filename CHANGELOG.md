@@ -7,6 +7,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Unreleased
 
 
+## [0.0.33](https://github.com/stonemjs/core/compare/v0.0.32...v0.0.33) (2024-12-01)
+
+
+### Miscellaneous Chores
+
+* rename  AdapterBuilder to AdapterEventBuilder ([59c27bd](https://github.com/stonemjs/core/commit/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c))
+
 ## [0.0.32](https://github.com/stonemjs/core/compare/v0.0.31...v0.0.32) (2024-11-28)
 
 
