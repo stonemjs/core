@@ -1,3 +1,4 @@
+import { RuntimeError } from './errors/RuntimeError'
 import { IntegrationError } from './errors/IntegrationError'
 import { ErrorHandlerLevels, ErrorHandlerRenderResponseResolver, IBlueprint, IErrorHandler, ILogger, LogLevel } from './definitions'
 
@@ -149,7 +150,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    * @param error - The error instance to report.
    * @returns This ErrorHandler instance.
    */
-  report (error: Error): this {
+  report<E extends RuntimeError = RuntimeError>(error: E): this {
     if (this.shouldReport(error)) {
       this.reportError(error)
     }
@@ -162,7 +163,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    * @param error - The error instance to prepare.
    * @returns The rendered error object.
    */
-  render (error: Error): R {
+  render<E extends RuntimeError = RuntimeError>(error: E): R {
     return this.renderResponseResolver(error)
   }
 

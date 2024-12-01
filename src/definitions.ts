@@ -1,6 +1,7 @@
 import { Event } from './events/Event'
 import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
+import { RuntimeError } from './errors/RuntimeError'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 
@@ -362,7 +363,7 @@ export interface IConfiguration<R> {
  * @param error - The error instance.
  * @returns The response for the error.
  */
-export type ErrorHandlerRenderResponseResolver<R> = (error: Error) => R
+export type ErrorHandlerRenderResponseResolver<R, E extends RuntimeError = RuntimeError> = (error: E) => R
 
 /**
  * Blueprint Interface.

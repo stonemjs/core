@@ -141,8 +141,9 @@ export abstract class Adapter<
       if (rawResponseWrapper?.respond === undefined) { throw new IntegrationError('No RawResponseWrapper provided') }
 
       result = await rawResponseWrapper.respond()
-    } catch (error: any) {
-      result = this.errorHandler.report({ ...error, context }).render({ ...error, context })
+    } catch (e: any) {
+      const error = IntegrationError.create<IntegrationError>(e.message, { cause: e, metadata: context })
+      result = this.errorHandler.report(error).render(error)
     } finally {
       await this.onTerminate(eventHandler, context)
     }

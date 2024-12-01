@@ -12,6 +12,16 @@ export class RuntimeError extends Error {
   /**
    * Create a RuntimeError.
    *
+   * @param options - The options to create a RuntimeError.
+   * @returns A new RuntimeError instance.
+   */
+  static create<T extends RuntimeError = RuntimeError>(message: string, options: ErrorOptions = {}): T {
+    return new this(message, options) as T
+  }
+
+  /**
+   * Create a RuntimeError.
+   *
    * @param message - The message to log.
    * @param options - The error options.
    */
