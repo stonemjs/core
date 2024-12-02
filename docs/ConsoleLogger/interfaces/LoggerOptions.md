@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / [ConsoleLogger](../README.md) / LoggerOptions
+[Core Documentation v0.0.32](../../modules.md) / [ConsoleLogger](../README.md) / LoggerOptions
 
 # Interface: LoggerOptions
 
@@ -20,4 +20,4 @@ The blueprint configuration used by the logger.
 
 #### Defined in
 
-[src/ConsoleLogger.ts:12](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/ConsoleLogger.ts#L12)
+[src/ConsoleLogger.ts:12](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/ConsoleLogger.ts#L12)

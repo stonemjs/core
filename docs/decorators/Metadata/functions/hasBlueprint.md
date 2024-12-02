@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [decorators/Metadata](../README.md) / hasBlueprint
+[Core Documentation v0.0.32](../../../modules.md) / [decorators/Metadata](../README.md) / hasBlueprint
 
 # Function: hasBlueprint()
 
@@ -28,4 +28,4 @@ True if the metadata and BLUEPRINT_KEY keys exist on the class, false otherwise.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:117](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/Metadata.ts#L117)
+[src/decorators/Metadata.ts:119](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Metadata.ts#L119)

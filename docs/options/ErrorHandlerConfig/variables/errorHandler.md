@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [options/ErrorHandlerConfig](../README.md) / errorHandler
+[Core Documentation v0.0.32](../../../modules.md) / [options/ErrorHandlerConfig](../README.md) / errorHandler
 
 # Variable: errorHandler
 
@@ -15,4 +15,4 @@ It allows configuration of the logger instance, error reporting behavior, and er
 
 ## Defined in
 
-[src/options/ErrorHandlerConfig.ts:42](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/ErrorHandlerConfig.ts#L42)
+[src/options/ErrorHandlerConfig.ts:42](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/ErrorHandlerConfig.ts#L42)

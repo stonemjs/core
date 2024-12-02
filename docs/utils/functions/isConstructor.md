@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / [utils](../README.md) / isConstructor
+[Core Documentation v0.0.32](../../modules.md) / [utils](../README.md) / isConstructor
 
 # Function: isConstructor()
 
@@ -39,4 +39,4 @@ const result = isConstructor(notAConstructor); // false
 
 ## Defined in
 
-[src/utils.ts:72](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/utils.ts#L72)
+[src/utils.ts:74](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/utils.ts#L74)

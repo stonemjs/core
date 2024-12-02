@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [options/BuilderConfig](../README.md) / BuilderConfig
+[Core Documentation v0.0.32](../../../modules.md) / [options/BuilderConfig](../README.md) / BuilderConfig
 
 # Interface: BuilderConfig
 
@@ -23,7 +23,7 @@ Default value is set to 10.
 
 #### Defined in
 
-[src/options/BuilderConfig.ts:22](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/BuilderConfig.ts#L22)
+[src/options/BuilderConfig.ts:22](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/BuilderConfig.ts#L22)
 
 ***
 
@@ -36,4 +36,4 @@ The middleware array can include core pipes and any additional custom pipes.
 
 #### Defined in
 
-[src/options/BuilderConfig.ts:15](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/BuilderConfig.ts#L15)
+[src/options/BuilderConfig.ts:15](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/BuilderConfig.ts#L15)

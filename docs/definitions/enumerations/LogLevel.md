@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / LogLevel
+[Core Documentation v0.0.32](../../modules.md) / [definitions](../README.md) / LogLevel
 
 # Enumeration: LogLevel
 
@@ -16,7 +16,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:13](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L13)
+[src/definitions.ts:13](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L13)
 
 ***
 
@@ -26,7 +26,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:16](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L16)
+[src/definitions.ts:16](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L16)
 
 ***
 
@@ -36,7 +36,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:14](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L14)
+[src/definitions.ts:14](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L14)
 
 ***
 
@@ -46,7 +46,7 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:12](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L12)
+[src/definitions.ts:12](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L12)
 
 ***
 
@@ -56,4 +56,4 @@ Log level enumeration to define possible log levels.
 
 #### Defined in
 
-[src/definitions.ts:15](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L15)
+[src/definitions.ts:15](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L15)

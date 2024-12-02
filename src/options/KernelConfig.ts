@@ -9,16 +9,15 @@ import { OutgoingResponse } from '../events/OutgoingResponse'
  *
  * This interface defines the configuration for kernel-level options.
  */
-export interface KernelConfig {
+export interface KernelConfig<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> {
   /**
    * Middleware configuration options for different stages of the kernel's lifecycle.
    */
   middleware: MixedPipe[]
-
   /**
    * The class type of the adapter, used to create instances.
    */
-  resolver?: KernelResolver<IncomingEvent, OutgoingResponse>
+  resolver?: KernelResolver<U, V>
 }
 
 /**

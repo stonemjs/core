@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / [definitions](../README.md) / AdapterContext
+[Core Documentation v0.0.32](../../modules.md) / [definitions](../README.md) / AdapterContext
 
 # Interface: AdapterContext\<RawEventType, RawResponseType, ExecutionContext, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType\>
 
@@ -32,7 +32,7 @@ The executionContext of type ExecutionContext.
 
 #### Defined in
 
-[src/definitions.ts:445](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L445)
+[src/definitions.ts:445](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L445)
 
 ***
 
@@ -44,7 +44,7 @@ The incomingEvent associated with the executionContext.
 
 #### Defined in
 
-[src/definitions.ts:440](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L440)
+[src/definitions.ts:440](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L440)
 
 ***
 
@@ -56,7 +56,7 @@ The incomingEventBuilder.
 
 #### Defined in
 
-[src/definitions.ts:455](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L455)
+[src/definitions.ts:455](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L455)
 
 ***
 
@@ -68,7 +68,7 @@ The outgoingResponse associated with the executionContext.
 
 #### Defined in
 
-[src/definitions.ts:450](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L450)
+[src/definitions.ts:450](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L450)
 
 ***
 
@@ -80,7 +80,7 @@ The rawEvent of type RawEventType.
 
 #### Defined in
 
-[src/definitions.ts:435](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L435)
+[src/definitions.ts:435](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L435)
 
 ***
 
@@ -92,4 +92,4 @@ The rawResponseBuilder.
 
 #### Defined in
 
-[src/definitions.ts:460](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/definitions.ts#L460)
+[src/definitions.ts:460](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L460)

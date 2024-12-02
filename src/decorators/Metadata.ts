@@ -1,7 +1,9 @@
 import { mergeBlueprints } from '../utils'
 import { BLUEPRINT_KEY } from './constants'
+import { IncomingEvent } from '../events/IncomingEvent'
 import { StoneBlueprint } from '../options/StoneBlueprint'
 import { ClassMethodType, ClassType } from '../definitions'
+import { OutgoingResponse } from '../events/OutgoingResponse'
 
 /**
  * Set metadata on a given decorator context.
@@ -104,8 +106,8 @@ export function setFieldMetadata<T = unknown, V = unknown> (
  * @param context - The decorator context where metadata is being set.
  * @param blueprints - The list of blueprints.
  */
-export function addBlueprint<T extends ClassType> (Class: T, context: DecoratorContext, ...blueprints: StoneBlueprint[]): void {
-  context.metadata[BLUEPRINT_KEY] = mergeBlueprints(getMetadata<T, StoneBlueprint>(Class, BLUEPRINT_KEY, { stone: {} }), ...blueprints)
+export function addBlueprint<T extends ClassType, U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> (Class: T, context: DecoratorContext, ...blueprints: Array<StoneBlueprint<U, V>>): void {
+  context.metadata[BLUEPRINT_KEY] = mergeBlueprints(getMetadata<T, StoneBlueprint<U, V>>(Class, BLUEPRINT_KEY, { stone: {} }), ...blueprints)
 }
 
 /**
@@ -125,7 +127,7 @@ export function hasBlueprint<T extends ClassType> (Class: T): boolean {
  * @param defaultValue - The default value to return if the blueprint key is not found.
  * @returns The blueprint value or the default value if the key does not exist.
  */
-export function getBlueprint<T extends ClassType, R = StoneBlueprint> (Class: T, defaultValue?: StoneBlueprint): R {
+export function getBlueprint<T extends ClassType, R = StoneBlueprint> (Class: T, defaultValue?: R): R {
   return (hasMetadataSymbol(Class) ? Class[Symbol.metadata][BLUEPRINT_KEY] as StoneBlueprint : defaultValue) as R
 }
 

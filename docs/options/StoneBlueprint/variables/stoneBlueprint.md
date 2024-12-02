@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [options/StoneBlueprint](../README.md) / stoneBlueprint
+[Core Documentation v0.0.32](../../../modules.md) / [options/StoneBlueprint](../README.md) / stoneBlueprint
 
 # Variable: stoneBlueprint
 
@@ -18,4 +18,4 @@ logging, services, listeners, subscribers, providers, and aliases.
 
 ## Defined in
 
-[src/options/StoneBlueprint.ts:161](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/options/StoneBlueprint.ts#L161)
+[src/options/StoneBlueprint.ts:161](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/StoneBlueprint.ts#L161)

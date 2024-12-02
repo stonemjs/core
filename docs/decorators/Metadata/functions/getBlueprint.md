@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [decorators/Metadata](../README.md) / getBlueprint
+[Core Documentation v0.0.32](../../../modules.md) / [decorators/Metadata](../README.md) / getBlueprint
 
 # Function: getBlueprint()
 
@@ -14,7 +14,7 @@ Get the blueprint value from a class.
 
 • **T** *extends* [`ClassType`](../../../definitions/type-aliases/ClassType.md)
 
-• **R** = [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)
+• **R** = [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>
 
 ## Parameters
 
@@ -22,7 +22,7 @@ Get the blueprint value from a class.
 
 The class to get the blueprint from.
 
-• **defaultValue?**: [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)
+• **defaultValue?**: `R`
 
 The default value to return if the blueprint key is not found.
 
@@ -34,4 +34,4 @@ The blueprint value or the default value if the key does not exist.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:128](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/Metadata.ts#L128)
+[src/decorators/Metadata.ts:130](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Metadata.ts#L130)

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [decorators/ConfigMiddleware](../README.md) / ConfigMiddleware
+[Core Documentation v0.0.32](../../../modules.md) / [decorators/ConfigMiddleware](../README.md) / ConfigMiddleware
 
 # Function: ConfigMiddleware()
 
@@ -50,4 +50,4 @@ class MyMiddleware {
 
 ## Defined in
 
-[src/decorators/ConfigMiddleware.ts:39](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/ConfigMiddleware.ts#L39)
+[src/decorators/ConfigMiddleware.ts:39](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/ConfigMiddleware.ts#L39)

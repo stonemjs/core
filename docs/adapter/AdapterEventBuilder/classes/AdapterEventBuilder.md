@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [adapter/AdapterEventBuilder](../README.md) / AdapterEventBuilder
+[Core Documentation v0.0.32](../../../modules.md) / [adapter/AdapterEventBuilder](../README.md) / AdapterEventBuilder
 
 # Class: AdapterEventBuilder\<V, R\>
 
@@ -45,7 +45,7 @@ The options for creating the AdapterEventBuilder instance, including the initial
 
 #### Defined in
 
-src/adapter/AdapterEventBuilder.ts:61
+[src/adapter/AdapterEventBuilder.ts:61](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/adapter/AdapterEventBuilder.ts#L61)
 
 ## Methods
 
@@ -77,7 +77,7 @@ This instance of AdapterEventBuilder for method chaining.
 
 #### Defined in
 
-src/adapter/AdapterEventBuilder.ts:75
+[src/adapter/AdapterEventBuilder.ts:75](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/adapter/AdapterEventBuilder.ts#L75)
 
 ***
 
@@ -99,7 +99,7 @@ The final object of type `R`.
 
 #### Defined in
 
-src/adapter/AdapterEventBuilder.ts:85
+[src/adapter/AdapterEventBuilder.ts:85](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/adapter/AdapterEventBuilder.ts#L85)
 
 ***
 
@@ -129,4 +129,4 @@ A new instance of AdapterEventBuilder.
 
 #### Defined in
 
-src/adapter/AdapterEventBuilder.ts:51
+[src/adapter/AdapterEventBuilder.ts:51](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/adapter/AdapterEventBuilder.ts#L51)

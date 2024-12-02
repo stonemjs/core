@@ -24,7 +24,7 @@ export enum Environment {
  * including general application information, environment settings, adapter configurations,
  * middleware options, logging settings, and service registration.
  */
-export interface AppConfig {
+export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> {
   /**
    * The name of the application.
    */
@@ -76,7 +76,7 @@ export interface AppConfig {
   /**
    * Global middleware settings for the application kernel.
    */
-  kernel: KernelConfig
+  kernel: KernelConfig<U, V>
 
   /**
    * Logging settings, including the logger instance and error reporting configurations.
@@ -136,11 +136,11 @@ export interface AppConfig {
  * It includes settings for the builder, adapters, and the main application,
  * while allowing additional custom options to be added.
  */
-export interface StoneBlueprint {
+export interface StoneBlueprint<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> {
   /**
    * Application-level settings, including environment, middleware, logging, and service registration.
    */
-  stone: Partial<AppConfig>
+  stone: Partial<AppConfig<U, V>>
 
   /**
    * Allow adding any additional custom properties.

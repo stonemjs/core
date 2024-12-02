@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / [resolvers](../README.md) / defaultLoggerResolver
+[Core Documentation v0.0.32](../../modules.md) / [resolvers](../README.md) / defaultLoggerResolver
 
 # Function: defaultLoggerResolver()
 
@@ -27,4 +27,4 @@ The blueprint configuration to use for the logger.
 
 ## Defined in
 
-[src/resolvers.ts:19](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/resolvers.ts#L19)
+[src/resolvers.ts:19](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/resolvers.ts#L19)

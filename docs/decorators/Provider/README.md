@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / decorators/Provider
+[Core Documentation v0.0.32](../../modules.md) / decorators/Provider
 
 # decorators/Provider
 

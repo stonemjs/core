@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../modules.md) / options/AdapterConfig
+[Core Documentation v0.0.32](../../modules.md) / options/AdapterConfig
 
 # options/AdapterConfig
 

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [decorators/Middleware](../README.md) / MiddlewareOptions
+[Core Documentation v0.0.32](../../../modules.md) / [decorators/Middleware](../README.md) / MiddlewareOptions
 
 # Interface: MiddlewareOptions
 
@@ -20,7 +20,7 @@ Set as Kernel middleware
 
 #### Defined in
 
-[src/decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/Middleware.ts#L24)
+[src/decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Middleware.ts#L24)
 
 ***
 
@@ -32,7 +32,7 @@ The params to pass to the middleware.
 
 #### Defined in
 
-[src/decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/Middleware.ts#L14)
+[src/decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Middleware.ts#L14)
 
 ***
 
@@ -44,4 +44,4 @@ The execution priority of the middleware.
 
 #### Defined in
 
-[src/decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/decorators/Middleware.ts#L19)
+[src/decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Middleware.ts#L19)

@@ -1,6 +1,8 @@
 import deepmerge from 'deepmerge'
 import { SetupError } from './errors/SetupError'
+import { IncomingEvent } from './events/IncomingEvent'
 import { StoneBlueprint } from './options/StoneBlueprint'
+import { OutgoingResponse } from './events/OutgoingResponse'
 
 /**
  * Merges multiple blueprints into a single application blueprint.
@@ -21,9 +23,9 @@ import { StoneBlueprint } from './options/StoneBlueprint'
  * const mergedBlueprint = mergeBlueprints(blueprint1, blueprint2);
  * ```
  */
-export const mergeBlueprints = (...blueprints: StoneBlueprint[]): StoneBlueprint => {
+export const mergeBlueprints = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(...blueprints: Array<StoneBlueprint<U, V>>): StoneBlueprint<U, V> => {
   validateBlueprints(blueprints)
-  return blueprints.reduce<StoneBlueprint>((prev, curr) => deepmerge<StoneBlueprint>(prev, curr, { isMergeableObject: isMergeable }), { stone: {} })
+  return blueprints.reduce<StoneBlueprint<U, V>>((prev, curr) => deepmerge<StoneBlueprint<U, V>>(prev, curr, { isMergeableObject: isMergeable }), { stone: {} })
 }
 
 /**
@@ -43,7 +45,7 @@ export const mergeBlueprints = (...blueprints: StoneBlueprint[]): StoneBlueprint
  * const appBlueprint = defineAppBlueprint(customBlueprint1, customBlueprint2);
  * ```
  */
-export const defineAppBlueprint = (...userBlueprints: StoneBlueprint[]): StoneBlueprint => {
+export const defineAppBlueprint = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(...userBlueprints: Array<StoneBlueprint<U, V>>): StoneBlueprint<U, V> => {
   validateBlueprints(userBlueprints)
   return mergeBlueprints(...userBlueprints)
 }
@@ -103,7 +105,7 @@ const isMergeable = (value: any): boolean => {
  * validateBlueprints([blueprint1, blueprint2]);
  * ```
  */
-const validateBlueprints = (blueprints: StoneBlueprint[]): void => {
+const validateBlueprints = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(blueprints: Array<StoneBlueprint<U, V>>): void => {
   blueprints.forEach((blueprint, index) => {
     if (typeof blueprint !== 'object' || blueprint === null) {
       throw new SetupError(`Invalid blueprint at index ${index}. Expected an object but received ${typeof blueprint}.`)

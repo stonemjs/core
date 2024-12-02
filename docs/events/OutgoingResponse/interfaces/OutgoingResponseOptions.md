@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.31**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.31](../../../modules.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
+[Core Documentation v0.0.32](../../../modules.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
 
 # Interface: OutgoingResponseOptions
 
@@ -20,7 +20,7 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/OutgoingResponse.ts#L9)
+[src/events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/OutgoingResponse.ts#L9)
 
 ***
 
@@ -34,7 +34,7 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L10)
+[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L8)
+[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L8)
 
 ***
 
@@ -58,7 +58,7 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/OutgoingResponse.ts#L10)
+[src/events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/OutgoingResponse.ts#L10)
 
 ***
 
@@ -68,7 +68,7 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/OutgoingResponse.ts#L11)
+[src/events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/OutgoingResponse.ts#L11)
 
 ***
 
@@ -82,7 +82,7 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L9)
+[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L9)
 
 ***
 
@@ -96,4 +96,4 @@ OutgoingResponseOptions.
 
 #### Defined in
 
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/a25677efd9a5f5a45cc90fda3ed3e87df97e6124/src/events/Event.ts#L7)
+[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L7)
