@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../modules.md) / errors/RuntimeError
+[Core Documentation v0.0.33](../../modules.md) / errors/RuntimeError
 
 # errors/RuntimeError
 

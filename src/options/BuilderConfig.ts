@@ -19,7 +19,7 @@ export interface BuilderConfig {
    * This value helps to determine the order in which middleware pipes are executed.
    * Default value is set to 10.
    */
-  defaultMiddlewarePriority: number
+  defaultMiddlewarePriority?: number
 }
 
 /**

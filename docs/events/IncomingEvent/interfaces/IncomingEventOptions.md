@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
+[Core Documentation v0.0.33](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
 
 # Interface: IncomingEventOptions
 
@@ -20,7 +20,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/IncomingEvent.ts#L7)
+[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/IncomingEvent.ts#L7)
 
 ***
 
@@ -34,7 +34,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L10)
+[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L8)
+[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L8)
 
 ***
 
@@ -62,7 +62,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L9)
+[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L9)
 
 ***
 
@@ -76,4 +76,4 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L7)
+[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L7)

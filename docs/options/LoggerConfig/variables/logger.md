@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [options/LoggerConfig](../README.md) / logger
+[Core Documentation v0.0.33](../../../modules.md) / [options/LoggerConfig](../README.md) / logger
 
 # Variable: logger
 
@@ -22,4 +22,4 @@ This default configuration can be overridden by providing a custom `LoggerConfig
 
 ## Defined in
 
-[src/options/LoggerConfig.ts:70](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/LoggerConfig.ts#L70)
+[src/options/LoggerConfig.ts:70](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/LoggerConfig.ts#L70)

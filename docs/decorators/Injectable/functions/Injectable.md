@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [decorators/Injectable](../README.md) / Injectable
+[Core Documentation v0.0.33](../../../modules.md) / [decorators/Injectable](../README.md) / Injectable
 
 # Function: Injectable()
 
@@ -63,4 +63,4 @@ class MyService {
 
 ## Defined in
 
-[src/decorators/Injectable.ts:20](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Injectable.ts#L20)
+[src/decorators/Injectable.ts:20](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/decorators/Injectable.ts#L20)

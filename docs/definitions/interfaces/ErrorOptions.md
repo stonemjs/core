@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../modules.md) / [definitions](../README.md) / ErrorOptions
+[Core Documentation v0.0.33](../../modules.md) / [definitions](../README.md) / ErrorOptions
 
 # Interface: ErrorOptions
 
@@ -18,7 +18,7 @@ The original error that caused this error, useful for error chaining.
 
 #### Defined in
 
-[src/definitions.ts:486](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L486)
+[src/definitions.ts:486](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L486)
 
 ***
 
@@ -30,7 +30,7 @@ A specific error code for identifying the error.
 
 #### Defined in
 
-[src/definitions.ts:481](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L481)
+[src/definitions.ts:481](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L481)
 
 ***
 
@@ -42,4 +42,4 @@ Additional information or context about the error.
 
 #### Defined in
 
-[src/definitions.ts:491](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L491)
+[src/definitions.ts:491](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L491)

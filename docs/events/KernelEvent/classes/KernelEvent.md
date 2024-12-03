@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [events/KernelEvent](../README.md) / KernelEvent
+[Core Documentation v0.0.33](../../../modules.md) / [events/KernelEvent](../README.md) / KernelEvent
 
 # Class: KernelEvent
 
@@ -36,7 +36,7 @@ The options to create an Event.
 
 #### Defined in
 
-[src/events/Event.ts:44](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L44)
+[src/events/Event.ts:44](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L44)
 
 ## Properties
 
@@ -52,7 +52,7 @@ The metadata associated with the event.
 
 #### Defined in
 
-[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L27)
+[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L27)
 
 ***
 
@@ -68,7 +68,7 @@ The source of the event.
 
 #### Defined in
 
-[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L32)
+[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L32)
 
 ***
 
@@ -84,7 +84,7 @@ The timestamp of the event creation.
 
 #### Defined in
 
-[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L37)
+[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L37)
 
 ***
 
@@ -100,7 +100,7 @@ The type of the event.
 
 #### Defined in
 
-[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L22)
+[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L22)
 
 ## Methods
 
@@ -126,7 +126,7 @@ A cloned instance of the current class.
 
 #### Defined in
 
-[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L79)
+[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L79)
 
 ***
 
@@ -158,7 +158,7 @@ The value associated with the key or the fallback.
 
 #### Defined in
 
-[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L58)
+[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L58)
 
 ***
 
@@ -190,7 +190,7 @@ This Event instance.
 
 #### Defined in
 
-[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/Event.ts#L69)
+[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/Event.ts#L69)
 
 ***
 
@@ -214,7 +214,7 @@ A new KernelEvent instance.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:36](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/KernelEvent.ts#L36)
+[src/events/KernelEvent.ts:36](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/KernelEvent.ts#L36)
 
 ## Events
 
@@ -228,7 +228,7 @@ EVENT_HANDLED Event name, fires when event was intercepted by kernel.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:14](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/KernelEvent.ts#L14)
+[src/events/KernelEvent.ts:14](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/KernelEvent.ts#L14)
 
 ***
 
@@ -242,7 +242,7 @@ PREPARING_RESPONSE Event name, fires after the response was prepared.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:28](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/KernelEvent.ts#L28)
+[src/events/KernelEvent.ts:28](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/KernelEvent.ts#L28)
 
 ***
 
@@ -256,4 +256,4 @@ RESPONSE_PREPARED Event name, fires before preparing the response.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:21](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/events/KernelEvent.ts#L21)
+[src/events/KernelEvent.ts:21](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/events/KernelEvent.ts#L21)

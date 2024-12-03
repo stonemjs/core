@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [decorators/AdapterMiddleware](../README.md) / AdapterMiddleware
+[Core Documentation v0.0.33](../../../modules.md) / [decorators/AdapterMiddleware](../README.md) / AdapterMiddleware
 
 # Function: AdapterMiddleware()
 
@@ -50,4 +50,4 @@ class MyMiddleware {
 
 ## Defined in
 
-[src/decorators/AdapterMiddleware.ts:44](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/AdapterMiddleware.ts#L44)
+[src/decorators/AdapterMiddleware.ts:44](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/decorators/AdapterMiddleware.ts#L44)

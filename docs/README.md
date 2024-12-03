@@ -1,4 +1,4 @@
-**Core Documentation v0.0.32** • [**Docs**](modules.md)
+**Core Documentation v0.0.33** • [**Docs**](modules.md)
 
 ***
 

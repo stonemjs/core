@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [options/KernelConfig](../README.md) / KernelConfig
+[Core Documentation v0.0.33](../../../modules.md) / [options/KernelConfig](../README.md) / KernelConfig
 
 # Interface: KernelConfig\<U, V\>
 
@@ -26,7 +26,7 @@ Middleware configuration options for different stages of the kernel's lifecycle.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:16](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/KernelConfig.ts#L16)
+[src/options/KernelConfig.ts:17](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/KernelConfig.ts#L17)
 
 ***
 
@@ -38,4 +38,4 @@ The class type of the adapter, used to create instances.
 
 #### Defined in
 
-[src/options/KernelConfig.ts:20](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/options/KernelConfig.ts#L20)
+[src/options/KernelConfig.ts:21](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/KernelConfig.ts#L21)

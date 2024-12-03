@@ -10,10 +10,10 @@ import { AdapterHooks, AdapterResolver } from '../definitions'
  */
 export interface AdapterConfig {
   /**
-   * The alias name for the adapter.
-   * This is a unique identifier used to reference the adapter.
+   * The platform identifier for the adapter.
+   * This is used to categorize the adapter based on the environment or technology it supports.
    */
-  alias: string
+  platform: string
 
   /**
    * The class type resolver used to create instances of the adapter.
@@ -31,6 +31,13 @@ export interface AdapterConfig {
    * These hooks can be used to extend the adapter's functionality at various points.
    */
   hooks: AdapterHooks
+
+  /**
+   * The alias name for the adapter.
+   * This is a unique identifier used to reference the adapter.
+   * Optional property.
+   */
+  alias?: string
 
   /**
    * The current status identifier for the adapter.

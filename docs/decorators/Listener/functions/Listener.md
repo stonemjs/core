@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [decorators/Listener](../README.md) / Listener
+[Core Documentation v0.0.33](../../../modules.md) / [decorators/Listener](../README.md) / Listener
 
 # Function: Listener()
 
@@ -50,4 +50,4 @@ class UserRegisteredListener {
 
 ## Defined in
 
-[src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/decorators/Listener.ts#L34)
+[src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/decorators/Listener.ts#L34)

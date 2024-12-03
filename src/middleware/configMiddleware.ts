@@ -76,7 +76,7 @@ export const MainHandlerMiddleware = ({ modules, blueprint }: ConfigContext, nex
 export const SetCurrentAdapterMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
   const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
   const currentAlias = blueprint.get<string>('stone.adapter.alias')
-  const adapter = adapters?.find(v => v.preferred === true) ?? adapters?.find(v => v.alias === currentAlias) ?? adapters?.find(v => v.default === true)
+  const adapter = adapters?.find(v => v.preferred === true) ?? adapters?.find(v => v.current === true) ?? adapters?.find(v => v.alias === currentAlias) ?? adapters?.find(v => v.default === true)
   blueprint.set('stone.adapter', adapter)
   return next({ modules, blueprint })
 }

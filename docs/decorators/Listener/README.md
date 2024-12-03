@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../modules.md) / decorators/Listener
+[Core Documentation v0.0.33](../../modules.md) / decorators/Listener
 
 # decorators/Listener
 

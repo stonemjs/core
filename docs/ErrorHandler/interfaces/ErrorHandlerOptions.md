@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../modules.md) / [ErrorHandler](../README.md) / ErrorHandlerOptions
+[Core Documentation v0.0.33](../../modules.md) / [ErrorHandler](../README.md) / ErrorHandlerOptions
 
 # Interface: ErrorHandlerOptions\<R\>
 
@@ -20,7 +20,7 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/ErrorHandler.ts#L10)
+[src/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ErrorHandler.ts#L10)
 
 ***
 
@@ -30,7 +30,7 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:9](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/ErrorHandler.ts#L9)
+[src/ErrorHandler.ts:9](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ErrorHandler.ts#L9)
 
 ***
 
@@ -40,4 +40,4 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:11](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/ErrorHandler.ts#L11)
+[src/ErrorHandler.ts:11](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ErrorHandler.ts#L11)

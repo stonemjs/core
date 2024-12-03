@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../modules.md) / middleware/configMiddleware
+[Core Documentation v0.0.33](../../modules.md) / middleware/configMiddleware
 
 # middleware/configMiddleware
 

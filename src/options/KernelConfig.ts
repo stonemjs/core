@@ -3,6 +3,7 @@ import { KernelResolver } from '../definitions'
 import { defaultKernelResolver } from '../resolvers'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { OutgoingResponse } from '../events/OutgoingResponse'
+import { KernelHandlerMiddleware } from '../middleware/KernelHandlerMiddleware'
 
 /**
  * Kernel options.
@@ -30,8 +31,10 @@ export interface KernelConfig<U extends IncomingEvent = IncomingEvent, V extends
 export const kernel: KernelConfig = {
   // Global middleware settings for all adapters.// Example:
   // Example:
-  // event: [MyCustomMiddleware, (...) => ...],
-  middleware: [],
+  // event: [KernelHandlerMiddleware, (...) => ...],
+  middleware: [
+    { priority: 100, pipe: KernelHandlerMiddleware }
+  ],
 
   // The default kernel resolver
   resolver: defaultKernelResolver

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../modules.md) / [definitions](../README.md) / ConfigContext
+[Core Documentation v0.0.33](../../modules.md) / [definitions](../README.md) / ConfigContext
 
 # Interface: ConfigContext
 
@@ -20,7 +20,7 @@ The configuration blueprint.
 
 #### Defined in
 
-[src/definitions.ts:235](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L235)
+[src/definitions.ts:235](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L235)
 
 ***
 
@@ -32,4 +32,4 @@ List of configuration modules.
 
 #### Defined in
 
-[src/definitions.ts:230](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/definitions.ts#L230)
+[src/definitions.ts:230](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L230)

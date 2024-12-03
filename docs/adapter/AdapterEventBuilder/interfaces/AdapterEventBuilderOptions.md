@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [adapter/AdapterEventBuilder](../README.md) / AdapterEventBuilderOptions
+[Core Documentation v0.0.33](../../../modules.md) / [adapter/AdapterEventBuilder](../README.md) / AdapterEventBuilderOptions
 
 # Interface: AdapterEventBuilderOptions\<V, R\>
 
@@ -31,7 +31,7 @@ The initial options used for building the object. This is optional.
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:17](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/adapter/AdapterEventBuilder.ts#L17)
+[src/adapter/AdapterEventBuilder.ts:17](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L17)
 
 ***
 
@@ -51,4 +51,4 @@ The resolver function that takes the options and returns the final object of typ
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:22](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/adapter/AdapterEventBuilder.ts#L22)
+[src/adapter/AdapterEventBuilder.ts:22](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L22)

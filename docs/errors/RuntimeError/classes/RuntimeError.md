@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.32**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.32](../../../modules.md) / [errors/RuntimeError](../README.md) / RuntimeError
+[Core Documentation v0.0.33](../../../modules.md) / [errors/RuntimeError](../README.md) / RuntimeError
 
 # Class: RuntimeError
 
@@ -50,7 +50,7 @@ The error options.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:28](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/errors/RuntimeError.ts#L28)
+[src/errors/RuntimeError.ts:28](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L28)
 
 ## Properties
 
@@ -60,7 +60,7 @@ The error options.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/errors/RuntimeError.ts#L9)
+[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L9)
 
 ***
 
@@ -70,7 +70,7 @@ The error options.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/errors/RuntimeError.ts#L10)
+[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L10)
 
 ## Methods
 
@@ -94,7 +94,7 @@ A formatted error string.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:50](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/errors/RuntimeError.ts#L50)
+[src/errors/RuntimeError.ts:50](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L50)
 
 ***
 
@@ -124,4 +124,4 @@ A new RuntimeError instance.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:18](https://github.com/stonemjs/core/blob/59c27bdae04e7adc72d7c3e25cee704d5e04ce0c/src/errors/RuntimeError.ts#L18)
+[src/errors/RuntimeError.ts:18](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L18)
