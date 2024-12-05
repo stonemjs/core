@@ -7,6 +7,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Unreleased
 
 
+## [0.0.34](https://github.com/stonemjs/core/compare/v0.0.33...v0.0.34) (2024-12-05)
+
+
+### Miscellaneous Chores
+
+* move ErrorHandler config from global config to adapter config ([775bef5](https://github.com/stonemjs/core/commit/775bef589e4302e7bceb11d58608ca782f3078c7))
+
 ## [0.0.33](https://github.com/stonemjs/core/compare/v0.0.32...v0.0.33) (2024-12-01)
 
 
