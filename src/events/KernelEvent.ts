@@ -7,13 +7,6 @@ import { Event, EventOptions } from './Event'
  */
 export class KernelEvent extends Event {
   /**
-   * EVENT_HANDLED Event name, fires when event was intercepted by kernel.
-   *
-   * @event KernelEvent#EVENT_HANDLED
-   */
-  static EVENT_HANDLED: string = 'stonejs@kernel.event_handled'
-
-  /**
    * RESPONSE_PREPARED Event name, fires before preparing the response.
    *
    * @event KernelEvent#RESPONSE_PREPARED

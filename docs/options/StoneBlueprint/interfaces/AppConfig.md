@@ -29,7 +29,7 @@ This key allow you to specify the current adapter with the alias key.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:69](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L69)
+[src/options/StoneBlueprint.ts:68](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L68)
 
 ***
 
@@ -41,7 +41,7 @@ Adapter configurations for the application.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:74](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L74)
+[src/options/StoneBlueprint.ts:73](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L73)
 
 ***
 
@@ -54,7 +54,7 @@ These aliases provide shorthand references to commonly used classes.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:117](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L117)
+[src/options/StoneBlueprint.ts:111](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L111)
 
 ***
 
@@ -66,7 +66,7 @@ Configuration options for building the application, including middleware and pip
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:63](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L63)
+[src/options/StoneBlueprint.ts:62](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L62)
 
 ***
 
@@ -79,7 +79,7 @@ When enabled, detailed error messages with stack traces will be shown.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:43](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L43)
+[src/options/StoneBlueprint.ts:42](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L42)
 
 ***
 
@@ -92,19 +92,7 @@ Possible values are development, production, and test.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:37](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L37)
-
-***
-
-### errorHandler
-
-> **errorHandler**: [`ErrorHandlerConfig`](../../ErrorHandlerConfig/interfaces/ErrorHandlerConfig.md)
-
-Logging settings, including the logger instance and error reporting configurations.
-
-#### Defined in
-
-[src/options/StoneBlueprint.ts:89](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L89)
+[src/options/StoneBlueprint.ts:36](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L36)
 
 ***
 
@@ -116,7 +104,7 @@ The fallback locale used when a translation for the default locale is unavailabl
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:58](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L58)
+[src/options/StoneBlueprint.ts:57](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L57)
 
 ***
 
@@ -129,7 +117,7 @@ This is the main function that handles incoming requests.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:129](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L129)
+[src/options/StoneBlueprint.ts:123](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L123)
 
 ***
 
@@ -141,7 +129,7 @@ Global middleware settings for the application kernel.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:79](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L79)
+[src/options/StoneBlueprint.ts:78](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L78)
 
 ***
 
@@ -154,7 +142,7 @@ This allows you to specify functions to listen for specific events.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:100](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L100)
+[src/options/StoneBlueprint.ts:94](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L94)
 
 ***
 
@@ -166,7 +154,7 @@ The default locale for the application.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:53](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L53)
+[src/options/StoneBlueprint.ts:52](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L52)
 
 ***
 
@@ -178,7 +166,7 @@ Logging settings, including the logger instance and error reporting configuratio
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:84](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L84)
+[src/options/StoneBlueprint.ts:83](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L83)
 
 ***
 
@@ -190,7 +178,7 @@ The name of the application.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:31](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L31)
+[src/options/StoneBlueprint.ts:30](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L30)
 
 ***
 
@@ -202,7 +190,7 @@ Service providers to be automatically loaded for each request to the application
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:111](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L111)
+[src/options/StoneBlueprint.ts:105](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L105)
 
 ***
 
@@ -215,7 +203,7 @@ This key should be kept secure.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:123](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L123)
+[src/options/StoneBlueprint.ts:117](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L117)
 
 ***
 
@@ -227,7 +215,7 @@ Services to be automatically registered when the application starts.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:94](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L94)
+[src/options/StoneBlueprint.ts:88](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L88)
 
 ***
 
@@ -240,7 +228,7 @@ Subscribers are used for handling and responding to events.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:106](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L106)
+[src/options/StoneBlueprint.ts:100](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L100)
 
 ***
 
@@ -252,4 +240,4 @@ The default timezone for the application.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:48](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/StoneBlueprint.ts#L48)
+[src/options/StoneBlueprint.ts:47](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L47)

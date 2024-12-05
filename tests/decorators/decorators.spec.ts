@@ -33,7 +33,7 @@ describe('AdapterMiddleware', () => {
   })
 })
 
-describe('AdapterMiddleware', () => {
+describe('ConfigMiddleware', () => {
   it('should call setClassMetadata with correct parameters', () => {
     const options: ConfigMiddlewareOptions = { priority: 1, params: ['input'] }
     ConfigMiddleware(options)

@@ -5,7 +5,6 @@ import { BuilderConfig, builder } from './BuilderConfig'
 import { AdapterConfig, adapters } from './AdapterConfig'
 import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { ErrorHandlerConfig, errorHandler } from './ErrorHandlerConfig'
 import { EventHandler, IListener, IProvider, ISubscriber } from '../definitions'
 
 /**
@@ -82,11 +81,6 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
    * Logging settings, including the logger instance and error reporting configurations.
    */
   logger: LoggerConfig
-
-  /**
-   * Logging settings, including the logger instance and error reporting configurations.
-   */
-  errorHandler: ErrorHandlerConfig
 
   /**
    * Services to be automatically registered when the application starts.
@@ -193,9 +187,6 @@ export const stoneBlueprint: StoneBlueprint = {
 
     // Logging settings for all adapters.
     logger,
-
-    // Logging settings for all adapters.
-    errorHandler,
 
     // Services to be automatically registered when the application starts.
     services: [],

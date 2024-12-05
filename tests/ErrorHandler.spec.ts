@@ -1,11 +1,13 @@
 import { ErrorHandler } from '../src/ErrorHandler'
 import { IntegrationError } from '../src/errors/IntegrationError'
 import { ILogger, IBlueprint, LogLevel } from '../src/definitions'
+import { errorHandler } from '../src/options/ErrorHandlerConfig'
 
 const mockBlueprint: IBlueprint = {
   get: vi.fn((key: string, defaultValue: any) => {
     const mockValues: Record<string, unknown> = {
       'stone.errorHandler.dontReport': new Set(),
+      'stone.errorHandler.withoutDuplicates': errorHandler.withoutDuplicates,
       'stone.errorHandler.levels': { debug: [], info: [], warn: [], error: [], trace: [] }
     }
     return key in mockValues ? mockValues[key] : defaultValue

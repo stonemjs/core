@@ -4,13 +4,15 @@
 
 [Core Documentation v0.0.33](../../modules.md) / [ErrorHandler](../README.md) / ErrorHandlerOptions
 
-# Interface: ErrorHandlerOptions\<R\>
+# Interface: ErrorHandlerOptions\<R, E\>
 
 ErrorHandlerOptions.
 
 ## Type Parameters
 
 • **R**
+
+• **E** *extends* [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md)
 
 ## Properties
 
@@ -20,7 +22,7 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ErrorHandler.ts#L10)
+[src/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/ErrorHandler.ts#L10)
 
 ***
 
@@ -30,14 +32,14 @@ ErrorHandlerOptions.
 
 #### Defined in
 
-[src/ErrorHandler.ts:9](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ErrorHandler.ts#L9)
+[src/ErrorHandler.ts:9](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/ErrorHandler.ts#L9)
 
 ***
 
 ### renderResponseResolver
 
-> **renderResponseResolver**: [`ErrorHandlerRenderResponseResolver`](../../definitions/type-aliases/ErrorHandlerRenderResponseResolver.md)\<`R`\>
+> **renderResponseResolver**: [`ErrorHandlerRenderResponseResolver`](../../definitions/type-aliases/ErrorHandlerRenderResponseResolver.md)\<`R`, `E`\>
 
 #### Defined in
 
-[src/ErrorHandler.ts:11](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ErrorHandler.ts#L11)
+[src/ErrorHandler.ts:11](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/ErrorHandler.ts#L11)

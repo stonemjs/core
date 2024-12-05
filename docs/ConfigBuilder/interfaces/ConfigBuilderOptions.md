@@ -16,7 +16,7 @@ ConfigBuilderOptions.
 
 #### Defined in
 
-[src/ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ConfigBuilder.ts#L14)
+[src/ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/ConfigBuilder.ts#L14)
 
 ***
 
@@ -26,4 +26,4 @@ ConfigBuilderOptions.
 
 #### Defined in
 
-[src/ConfigBuilder.ts:13](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/ConfigBuilder.ts#L13)
+[src/ConfigBuilder.ts:13](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/ConfigBuilder.ts#L13)

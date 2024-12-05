@@ -322,9 +322,9 @@ export type KernelResolver<U extends IncomingEvent, V extends OutgoingResponse> 
  *
  * @template R
  */
-export interface IErrorHandler<R> {
-  report: (error: Error) => this
-  render: (error: Error) => R
+export interface IErrorHandler<R, E extends RuntimeError = RuntimeError> {
+  report: (error: E) => this
+  render: (error: E) => R
 }
 
 /**

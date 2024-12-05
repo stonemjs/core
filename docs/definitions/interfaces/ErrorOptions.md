@@ -18,7 +18,7 @@ The original error that caused this error, useful for error chaining.
 
 #### Defined in
 
-[src/definitions.ts:486](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L486)
+[src/definitions.ts:486](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L486)
 
 ***
 
@@ -30,7 +30,7 @@ A specific error code for identifying the error.
 
 #### Defined in
 
-[src/definitions.ts:481](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L481)
+[src/definitions.ts:481](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L481)
 
 ***
 
@@ -42,4 +42,4 @@ Additional information or context about the error.
 
 #### Defined in
 
-[src/definitions.ts:491](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L491)
+[src/definitions.ts:491](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L491)

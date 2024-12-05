@@ -4,7 +4,7 @@
 
 [Core Documentation v0.0.33](../../modules.md) / [definitions](../README.md) / IErrorHandler
 
-# Interface: IErrorHandler\<R\>
+# Interface: IErrorHandler\<R, E\>
 
 ErrorHandler Interface.
 
@@ -14,6 +14,8 @@ Represents an error handler that provides methods to report and render errors.
 
 • **R**
 
+• **E** *extends* [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md)
+
 ## Properties
 
 ### render()
@@ -22,7 +24,7 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Parameters
 
-• **error**: `Error`
+• **error**: `E`
 
 #### Returns
 
@@ -30,7 +32,7 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Defined in
 
-[src/definitions.ts:327](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L327)
+[src/definitions.ts:327](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L327)
 
 ***
 
@@ -40,7 +42,7 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Parameters
 
-• **error**: `Error`
+• **error**: `E`
 
 #### Returns
 
@@ -48,4 +50,4 @@ Represents an error handler that provides methods to report and render errors.
 
 #### Defined in
 
-[src/definitions.ts:326](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L326)
+[src/definitions.ts:326](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L326)

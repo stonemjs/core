@@ -5,10 +5,10 @@ import { ErrorHandlerLevels, ErrorHandlerRenderResponseResolver, IBlueprint, IEr
 /**
  * ErrorHandlerOptions.
  */
-export interface ErrorHandlerOptions<R> {
+export interface ErrorHandlerOptions<R, E extends RuntimeError = RuntimeError> {
   logger: ILogger
   blueprint: IBlueprint
-  renderResponseResolver: ErrorHandlerRenderResponseResolver<R>
+  renderResponseResolver: ErrorHandlerRenderResponseResolver<R, E>
 }
 
 /**
@@ -16,7 +16,7 @@ export interface ErrorHandlerOptions<R> {
  *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class ErrorHandler<R> implements IErrorHandler<R> {
+export class ErrorHandler<R, E extends RuntimeError = RuntimeError> implements IErrorHandler<R, E> {
   /**
    * The logger instance.
    */
@@ -45,7 +45,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
   /**
    * Handler to provide the render return response.
    */
-  private readonly renderResponseResolver: ErrorHandlerRenderResponseResolver<R>
+  private readonly renderResponseResolver: ErrorHandlerRenderResponseResolver<R, E>
 
   /**
    * Create an ErrorHandler.
@@ -53,7 +53,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    * @param options - The options to create an ErrorHandler.
    * @returns A new ErrorHandler instance.
    */
-  static create<R>(options: ErrorHandlerOptions<R>): ErrorHandler<R> {
+  static create<R, E extends RuntimeError = RuntimeError>(options: ErrorHandlerOptions<R, E>): ErrorHandler<R, E> {
     return new this(options)
   }
 
@@ -62,7 +62,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    *
    * @param container - Service container to resolve dependencies.
    */
-  protected constructor ({ blueprint, logger, renderResponseResolver }: ErrorHandlerOptions<R>) {
+  protected constructor ({ blueprint, logger, renderResponseResolver }: ErrorHandlerOptions<R, E>) {
     if (logger === undefined) { throw new IntegrationError('Logger is required to create an ErrorHandler instance.') }
     if (blueprint === undefined) { throw new IntegrationError('Blueprint is required to create an ErrorHandler instance.') }
     if (renderResponseResolver === undefined) { throw new IntegrationError('RenderResponseResolver is required to create an ErrorHandler instance.') }
@@ -150,7 +150,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    * @param error - The error instance to report.
    * @returns This ErrorHandler instance.
    */
-  report<E extends RuntimeError = RuntimeError>(error: E): this {
+  report (error: E): this {
     if (this.shouldReport(error)) {
       this.reportError(error)
     }
@@ -163,7 +163,7 @@ export class ErrorHandler<R> implements IErrorHandler<R> {
    * @param error - The error instance to prepare.
    * @returns The rendered error object.
    */
-  render<E extends RuntimeError = RuntimeError>(error: E): R {
+  render (error: E): R {
     return this.renderResponseResolver(error)
   }
 

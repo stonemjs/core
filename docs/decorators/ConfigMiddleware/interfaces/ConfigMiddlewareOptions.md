@@ -20,7 +20,7 @@ The params to pass to the middleware.
 
 #### Defined in
 
-[src/decorators/ConfigMiddleware.ts:14](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/decorators/ConfigMiddleware.ts#L14)
+[src/decorators/ConfigMiddleware.ts:14](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/decorators/ConfigMiddleware.ts#L14)
 
 ***
 
@@ -32,4 +32,4 @@ The execution priority of the middleware.
 
 #### Defined in
 
-[src/decorators/ConfigMiddleware.ts:19](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/decorators/ConfigMiddleware.ts#L19)
+[src/decorators/ConfigMiddleware.ts:19](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/decorators/ConfigMiddleware.ts#L19)

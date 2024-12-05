@@ -46,4 +46,4 @@ const mergedBlueprint = mergeBlueprints(blueprint1, blueprint2);
 
 ## Defined in
 
-[src/utils.ts:26](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/utils.ts#L26)
+[src/utils.ts:26](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/utils.ts#L26)

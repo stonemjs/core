@@ -35,4 +35,4 @@ The core configuration object for the Stone.js framework.
 
 #### Defined in
 
-[src/StoneFactory.ts:30](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/StoneFactory.ts#L30)
+[src/StoneFactory.ts:30](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/StoneFactory.ts#L30)

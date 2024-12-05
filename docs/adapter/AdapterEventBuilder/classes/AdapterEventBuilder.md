@@ -45,7 +45,7 @@ The options for creating the AdapterEventBuilder instance, including the initial
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:61](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L61)
+[src/adapter/AdapterEventBuilder.ts:61](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/AdapterEventBuilder.ts#L61)
 
 ## Methods
 
@@ -77,7 +77,7 @@ This instance of AdapterEventBuilder for method chaining.
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:75](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L75)
+[src/adapter/AdapterEventBuilder.ts:75](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/AdapterEventBuilder.ts#L75)
 
 ***
 
@@ -99,7 +99,7 @@ The final object of type `R`.
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:85](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L85)
+[src/adapter/AdapterEventBuilder.ts:85](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/AdapterEventBuilder.ts#L85)
 
 ***
 
@@ -129,4 +129,4 @@ A new instance of AdapterEventBuilder.
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:51](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L51)
+[src/adapter/AdapterEventBuilder.ts:51](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/AdapterEventBuilder.ts#L51)

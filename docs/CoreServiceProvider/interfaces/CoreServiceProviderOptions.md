@@ -16,7 +16,7 @@ CoreServiceProvider options.
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/CoreServiceProvider.ts#L12)
+[src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/CoreServiceProvider.ts#L12)
 
 ***
 
@@ -26,7 +26,7 @@ CoreServiceProvider options.
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/CoreServiceProvider.ts#L13)
+[src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/CoreServiceProvider.ts#L13)
 
 ***
 
@@ -36,7 +36,7 @@ CoreServiceProvider options.
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/CoreServiceProvider.ts#L14)
+[src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/CoreServiceProvider.ts#L14)
 
 ***
 
@@ -46,4 +46,4 @@ CoreServiceProvider options.
 
 #### Defined in
 
-[src/CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/CoreServiceProvider.ts#L11)
+[src/CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/CoreServiceProvider.ts#L11)

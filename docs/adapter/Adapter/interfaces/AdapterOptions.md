@@ -24,17 +24,17 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/Adapter.ts#L33)
+[src/adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L33)
 
 ***
 
 ### errorHandler
 
-> **errorHandler**: [`IErrorHandler`](../../../definitions/interfaces/IErrorHandler.md)\<`RawResponseType`\>
+> **errorHandler**: [`IErrorHandler`](../../../definitions/interfaces/IErrorHandler.md)\<`RawResponseType`, [`RuntimeError`](../../../errors/RuntimeError/classes/RuntimeError.md)\>
 
 #### Defined in
 
-[src/adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/Adapter.ts#L34)
+[src/adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L34)
 
 ***
 
@@ -44,7 +44,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/Adapter.ts#L35)
+[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L35)
 
 ***
 
@@ -54,7 +54,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:32](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/Adapter.ts#L32)
+[src/adapter/Adapter.ts:32](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L32)
 
 ***
 
@@ -64,4 +64,4 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:31](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/Adapter.ts#L31)
+[src/adapter/Adapter.ts:31](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L31)

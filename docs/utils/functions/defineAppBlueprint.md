@@ -44,4 +44,4 @@ const appBlueprint = defineAppBlueprint(customBlueprint1, customBlueprint2);
 
 ## Defined in
 
-[src/utils.ts:48](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/utils.ts#L48)
+[src/utils.ts:48](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/utils.ts#L48)

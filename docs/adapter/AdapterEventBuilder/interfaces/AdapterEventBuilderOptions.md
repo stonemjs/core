@@ -31,7 +31,7 @@ The initial options used for building the object. This is optional.
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:17](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L17)
+[src/adapter/AdapterEventBuilder.ts:17](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/AdapterEventBuilder.ts#L17)
 
 ***
 
@@ -51,4 +51,4 @@ The resolver function that takes the options and returns the final object of typ
 
 #### Defined in
 
-[src/adapter/AdapterEventBuilder.ts:22](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/adapter/AdapterEventBuilder.ts#L22)
+[src/adapter/AdapterEventBuilder.ts:22](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/AdapterEventBuilder.ts#L22)

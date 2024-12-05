@@ -26,4 +26,4 @@ Represents a configuration with an optional load method to asynchronously load c
 
 #### Defined in
 
-[src/definitions.ts:338](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/definitions.ts#L338)
+[src/definitions.ts:338](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L338)

@@ -45,7 +45,7 @@ await factory.run();
 
 #### Defined in
 
-[src/StoneFactory.ts:83](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/StoneFactory.ts#L83)
+[src/StoneFactory.ts:83](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/StoneFactory.ts#L83)
 
 ***
 
@@ -75,4 +75,4 @@ const factory = StoneFactory.create({ blueprint });
 
 #### Defined in
 
-[src/StoneFactory.ts:58](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/StoneFactory.ts#L58)
+[src/StoneFactory.ts:58](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/StoneFactory.ts#L58)

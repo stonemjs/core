@@ -49,7 +49,7 @@ The container used for dependency injection.
 
 #### Defined in
 
-[src/middleware/KernelHandlerMiddleware.ts:39](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/middleware/KernelHandlerMiddleware.ts#L39)
+[src/middleware/KernelHandlerMiddleware.ts:39](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/KernelHandlerMiddleware.ts#L39)
 
 ## Methods
 
@@ -81,4 +81,4 @@ If no router or event handler is provided.
 
 #### Defined in
 
-[src/middleware/KernelHandlerMiddleware.ts:53](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/middleware/KernelHandlerMiddleware.ts#L53)
+[src/middleware/KernelHandlerMiddleware.ts:53](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/KernelHandlerMiddleware.ts#L53)

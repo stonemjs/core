@@ -24,7 +24,7 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:40](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L40)
+[src/options/AdapterConfig.ts:46](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L46)
 
 ***
 
@@ -38,7 +38,7 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:47](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L47)
+[src/options/AdapterConfig.ts:53](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L53)
 
 ***
 
@@ -51,7 +51,19 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:53](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L53)
+[src/options/AdapterConfig.ts:59](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L59)
+
+***
+
+### errorHandler
+
+> **errorHandler**: [`ErrorHandlerConfig`](../../ErrorHandlerConfig/interfaces/ErrorHandlerConfig.md)\<`unknown`\>
+
+Logging settings, including the logger instance and error reporting configurations.
+
+#### Defined in
+
+[src/options/AdapterConfig.ts:39](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L39)
 
 ***
 
@@ -64,7 +76,7 @@ These hooks can be used to extend the adapter's functionality at various points.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:33](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L33)
+[src/options/AdapterConfig.ts:34](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L34)
 
 ***
 
@@ -77,7 +89,7 @@ Middleware can modify or handle events at different stages of the adapter's life
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:27](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L27)
+[src/options/AdapterConfig.ts:28](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L28)
 
 ***
 
@@ -90,7 +102,7 @@ This is used to categorize the adapter based on the environment or technology it
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:16](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L16)
+[src/options/AdapterConfig.ts:17](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L17)
 
 ***
 
@@ -104,7 +116,7 @@ Optional property.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:60](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L60)
+[src/options/AdapterConfig.ts:66](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L66)
 
 ***
 
@@ -116,4 +128,4 @@ The class type resolver used to create instances of the adapter.
 
 #### Defined in
 
-[src/options/AdapterConfig.ts:21](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/AdapterConfig.ts#L21)
+[src/options/AdapterConfig.ts:22](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/AdapterConfig.ts#L22)

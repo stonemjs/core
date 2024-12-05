@@ -50,4 +50,4 @@ class UserRegisteredListener {
 
 ## Defined in
 
-[src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/decorators/Listener.ts#L34)
+[src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/decorators/Listener.ts#L34)

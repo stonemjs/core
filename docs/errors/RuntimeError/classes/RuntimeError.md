@@ -50,7 +50,7 @@ The error options.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:28](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L28)
+[src/errors/RuntimeError.ts:28](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/errors/RuntimeError.ts#L28)
 
 ## Properties
 
@@ -60,7 +60,7 @@ The error options.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L9)
+[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/errors/RuntimeError.ts#L9)
 
 ***
 
@@ -70,7 +70,7 @@ The error options.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L10)
+[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/errors/RuntimeError.ts#L10)
 
 ## Methods
 
@@ -94,7 +94,7 @@ A formatted error string.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:50](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L50)
+[src/errors/RuntimeError.ts:50](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/errors/RuntimeError.ts#L50)
 
 ***
 
@@ -124,4 +124,4 @@ A new RuntimeError instance.
 
 #### Defined in
 
-[src/errors/RuntimeError.ts:18](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/errors/RuntimeError.ts#L18)
+[src/errors/RuntimeError.ts:18](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/errors/RuntimeError.ts#L18)

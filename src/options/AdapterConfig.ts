@@ -1,4 +1,5 @@
 import { MixedPipe } from '@stone-js/pipeline'
+import { ErrorHandlerConfig } from './ErrorHandlerConfig'
 import { AdapterHooks, AdapterResolver } from '../definitions'
 
 /**
@@ -31,6 +32,11 @@ export interface AdapterConfig {
    * These hooks can be used to extend the adapter's functionality at various points.
    */
   hooks: AdapterHooks
+
+  /**
+   * Logging settings, including the logger instance and error reporting configurations.
+   */
+  errorHandler: ErrorHandlerConfig
 
   /**
    * The alias name for the adapter.

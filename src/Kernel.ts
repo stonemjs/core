@@ -191,8 +191,6 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
     context.response = await context.response.prepare(context.event, this.blueprint)
     this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata }))
 
-    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.EVENT_HANDLED, source: this, metadata }))
-
     return context.response
   }
 
@@ -220,15 +218,15 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    */
   private registerBaseBindings (): this {
     this.container
-      .instance(ConsoleLogger, this.logger)
       .instance(Config, this.blueprint)
       .instance(Container, this.container)
+      .instance(ConsoleLogger, this.logger)
       .instance(EventEmitter, this.eventEmitter)
-      .alias(ConsoleLogger, 'logger')
       .alias(Config, 'config')
       .alias(Config, 'blueprint')
       .alias(Container, 'container')
       .alias(EventEmitter, 'events')
+      .alias(ConsoleLogger, 'logger')
       .alias(EventEmitter, 'eventEmitter')
 
     return this

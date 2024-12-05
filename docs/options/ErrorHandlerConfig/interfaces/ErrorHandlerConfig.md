@@ -4,61 +4,68 @@
 
 [Core Documentation v0.0.33](../../../modules.md) / [options/ErrorHandlerConfig](../README.md) / ErrorHandlerConfig
 
-# Interface: ErrorHandlerConfig
+# Interface: ErrorHandlerConfig\<R\>
 
 Logging options.
 
 This interface defines the configuration options for logging, including the logger instance,
 settings for duplicate error reporting, error classes to ignore, and log levels for different error classes.
 
+## Type Parameters
+
+• **R** = `unknown`
+
 ## Properties
 
-### dontReport
+### dontReport?
 
-> **dontReport**: `Set`\<(...`args`) => `Error`\>
+> `optional` **dontReport**: `Set`\<(...`args`) => `Error`\>
 
 A set of error classes that should not be reported.
 For example: new Set([TypeError])
+Optional property.
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:21](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/ErrorHandlerConfig.ts#L21)
+[src/options/ErrorHandlerConfig.ts:23](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/ErrorHandlerConfig.ts#L23)
 
 ***
 
-### levels
+### levels?
 
-> **levels**: [`ErrorHandlerLevels`](../../../definitions/type-aliases/ErrorHandlerLevels.md)
+> `optional` **levels**: [`ErrorHandlerLevels`](../../../definitions/type-aliases/ErrorHandlerLevels.md)
 
 Defines the log levels for specific error classes.
 This mapping allows different log levels to be associated with different types of errors.
 For example: { 'warn': [TypeError, ReferenceError] }
+Optional property.
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:28](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/ErrorHandlerConfig.ts#L28)
+[src/options/ErrorHandlerConfig.ts:31](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/ErrorHandlerConfig.ts#L31)
 
 ***
 
-### resolver?
+### resolver
 
-> `optional` **resolver**: [`ErrorHandlerResolver`](../../../definitions/type-aliases/ErrorHandlerResolver.md)
+> **resolver**: [`ErrorHandlerResolver`](../../../definitions/type-aliases/ErrorHandlerResolver.md)\<`R`\>
 
 The class type resolver used to create instances of the errorHandler.
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:33](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/ErrorHandlerConfig.ts#L33)
+[src/options/ErrorHandlerConfig.ts:36](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/ErrorHandlerConfig.ts#L36)
 
 ***
 
-### withoutDuplicates
+### withoutDuplicates?
 
-> **withoutDuplicates**: `boolean`
+> `optional` **withoutDuplicates**: `boolean`
 
 Whether to avoid reporting the same error multiple times.
 If set to true, errors that have already been reported will not be logged again.
+Optional property.
 
 #### Defined in
 
-[src/options/ErrorHandlerConfig.ts:15](https://github.com/stonemjs/core/blob/08021ed6e90932028c37aa9d72d99b714efcda42/src/options/ErrorHandlerConfig.ts#L15)
+[src/options/ErrorHandlerConfig.ts:16](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/ErrorHandlerConfig.ts#L16)
