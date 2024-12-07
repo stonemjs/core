@@ -7,6 +7,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## Unreleased
 
 
+## [0.0.35](https://github.com/stonemjs/core/compare/v0.0.34...v0.0.35) (2024-12-07)
+
+
+### Miscellaneous Chores
+
+* fix issues in errorHandler and allow onTerminate hook to finish gracefully ([bd81faa](https://github.com/stonemjs/core/commit/bd81faa568439cf30eb0c939171bd081c0b50861))
+
 ## [0.0.34](https://github.com/stonemjs/core/compare/v0.0.33...v0.0.34) (2024-12-05)
 
 
