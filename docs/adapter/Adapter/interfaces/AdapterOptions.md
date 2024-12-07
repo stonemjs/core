@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [adapter/Adapter](../README.md) / AdapterOptions
+[Core Documentation v0.0.34](../../../modules.md) / [adapter/Adapter](../README.md) / AdapterOptions
 
 # Interface: AdapterOptions\<RawResponseType, IncomingEventType, OutgoingResponseType\>
 
@@ -24,7 +24,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L33)
+[src/adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/adapter/Adapter.ts#L33)
 
 ***
 
@@ -34,7 +34,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L34)
+[src/adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/adapter/Adapter.ts#L34)
 
 ***
 
@@ -44,7 +44,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L35)
+[src/adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/adapter/Adapter.ts#L35)
 
 ***
 
@@ -54,7 +54,7 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:32](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L32)
+[src/adapter/Adapter.ts:32](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/adapter/Adapter.ts#L32)
 
 ***
 
@@ -64,4 +64,4 @@ Adapter options.
 
 #### Defined in
 
-[src/adapter/Adapter.ts:31](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/adapter/Adapter.ts#L31)
+[src/adapter/Adapter.ts:31](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/adapter/Adapter.ts#L31)

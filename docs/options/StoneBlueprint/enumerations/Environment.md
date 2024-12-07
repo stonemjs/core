@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [options/StoneBlueprint](../README.md) / Environment
+[Core Documentation v0.0.34](../../../modules.md) / [options/StoneBlueprint](../README.md) / Environment
 
 # Enumeration: Environment
 
@@ -16,7 +16,7 @@ Environment settings.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:14](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L14)
+[src/options/StoneBlueprint.ts:14](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/StoneBlueprint.ts#L14)
 
 ***
 
@@ -26,7 +26,7 @@ Environment settings.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L15)
+[src/options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/StoneBlueprint.ts#L15)
 
 ***
 
@@ -36,4 +36,4 @@ Environment settings.
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:16](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L16)
+[src/options/StoneBlueprint.ts:16](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/StoneBlueprint.ts#L16)

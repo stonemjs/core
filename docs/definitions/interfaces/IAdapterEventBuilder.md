@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../modules.md) / [definitions](../README.md) / IAdapterEventBuilder
+[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / IAdapterEventBuilder
 
 # Interface: IAdapterEventBuilder\<K, R\>
 
@@ -38,7 +38,7 @@ R
 
 #### Defined in
 
-[src/definitions.ts:168](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L168)
+[src/definitions.ts:168](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L168)
 
 ***
 
@@ -52,4 +52,4 @@ R
 
 #### Defined in
 
-[src/definitions.ts:169](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/definitions.ts#L169)
+[src/definitions.ts:169](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L169)

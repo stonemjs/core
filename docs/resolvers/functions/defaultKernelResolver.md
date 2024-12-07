@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../modules.md) / [resolvers](../README.md) / defaultKernelResolver
+[Core Documentation v0.0.34](../../modules.md) / [resolvers](../README.md) / defaultKernelResolver
 
 # Function: defaultKernelResolver()
 
@@ -33,4 +33,4 @@ The blueprint configuration to use for the kernel.
 
 ## Defined in
 
-[src/resolvers.ts:48](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/resolvers.ts#L48)
+[src/resolvers.ts:48](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/resolvers.ts#L48)

@@ -104,7 +104,7 @@ class MockAppEventHandler implements LifecycleEventHandler<IncomingEvent, Outgoi
 
   beforeHandle (): void | Promise<void> { appBeforeHandleHookSpy() }
   handle (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> {
-    return OutgoingResponse.create({ content: { version: this.blueprint.get('version'), name: event.getMetadataValue('name') } })
+    return OutgoingResponse.create({ content: { version: this.blueprint.get('version'), name: event.get('name') } })
   }
 
   onTerminate (): void | Promise<void> { appOnTerminateHookSpy() }
@@ -343,6 +343,29 @@ describe('Adapter', () => {
       throw new IntegrationError('Error')
     }
     handlerResolver = (_blueprint: IBlueprint) => handler
+    adapter = new MockAdapter({
+      logger,
+      errorHandler,
+      blueprint,
+      handlerResolver,
+      hooks: undefined as any
+    })
+    await adapter.run()
+    expect(errorHandler.render).toHaveBeenCalled()
+    expect(errorHandler.report).toHaveBeenCalled()
+  })
+
+  it('must call report and render when handler onTerminate throw an error', async () => {
+    class AppHandler {
+      handle (_event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> {
+        return OutgoingResponse.create({ content: { name: 'Stone.js' } })
+      }
+
+      onTerminate (): void | Promise<void> {
+        throw new IntegrationError('Error')
+      }
+    }
+    handlerResolver = (_blueprint: IBlueprint) => new AppHandler()
     adapter = new MockAdapter({
       logger,
       errorHandler,

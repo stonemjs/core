@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [decorators/Metadata](../README.md) / setClassMetadata
+[Core Documentation v0.0.34](../../../modules.md) / [decorators/Metadata](../README.md) / setClassMetadata
 
 # Function: setClassMetadata()
 
@@ -42,4 +42,4 @@ A class decorator function that sets the metadata.
 
 ## Defined in
 
-[src/decorators/Metadata.ts:72](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/decorators/Metadata.ts#L72)
+[src/decorators/Metadata.ts:72](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Metadata.ts#L72)

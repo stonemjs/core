@@ -208,6 +208,16 @@ describe('Kernel', () => {
     expect(MockOnTerminateMiddlewareSpy).toHaveBeenCalled()
   })
 
+  it('should call onTerminate and invoke onTerminate hooks gracefully on providers and middleware when event or reponse is undefined', async () => {
+    const middleware = blueprint.get<MixedPipe[]>('stone.kernel.middleware', []).concat(['onTerminate'])
+    blueprint.set('stone.kernel.middleware', middleware)
+    await kernel.beforeHandle()
+    await kernel.onTerminate()
+
+    expect(MockProviderOnTerminateSpy).toHaveBeenCalled()
+    expect(MockOnTerminateMiddlewareSpy).toHaveBeenCalled()
+  })
+
   it('should throw an error if no IncomingEvent is provided in onBootstrap', async () => {
     // @ts-expect-error - access private method for test purposes
     await expect(kernel.onBootstrap(undefined as unknown as MockIncomingEvent)).rejects.toThrow(

@@ -120,11 +120,12 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
       await provider.onTerminate?.()
     }
 
-    const event = this.container.make('event') as IncomingEventType
-    const response = this.container.make('response') as OutgoingResponseType
+    const event = this.container.has('event') ? this.container.make('event') as IncomingEventType : undefined
+    const response = this.container.has('response') ? this.container.make('response') as OutgoingResponseType : undefined
+    const pipelineOptions = this.makePipelineOptions() as PipelineOptions<Partial<KernelContext<IncomingEventType, OutgoingResponseType>>, OutgoingResponseType>
 
     await Pipeline
-      .create<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType>(this.makePipelineOptions())
+      .create<Partial<KernelContext<IncomingEventType, OutgoingResponseType>>, OutgoingResponseType>(pipelineOptions)
       .send({ event, response })
       .via('terminate')
       .through(this.terminateMiddleware)

@@ -55,8 +55,19 @@ export abstract class Event {
    * @param fallback - The fallback value if the key is not found.
    * @returns The value associated with the key or the fallback.
    */
-  getMetadataValue (key: string, fallback: unknown = null): unknown {
-    return get(this.metadata, key, fallback)
+  get<R = unknown>(key: string, fallback?: R): R | undefined {
+    return this.getMetadataValue(key, fallback)
+  }
+
+  /**
+   * Get data from metadata.
+   *
+   * @param key - The key to retrieve from metadata.
+   * @param fallback - The fallback value if the key is not found.
+   * @returns The value associated with the key or the fallback.
+   */
+  getMetadataValue<R = unknown>(key: string, fallback?: R): R | undefined {
+    return get<unknown, string, R | undefined>(this.metadata, key, fallback)
   }
 
   /**
@@ -66,7 +77,7 @@ export abstract class Event {
    * @param value - The value to associate with the key.
    * @returns This Event instance.
    */
-  setMetadataValue (key: string | Record<string, unknown>, value: unknown = null): this {
+  setMetadataValue (key: string | Record<string, unknown>, value?: unknown): this {
     Object.entries(isPlainObject(key) ? key : { [key as string]: value }).forEach(([name, val]) => set(this.metadata, name, val))
     return this
   }

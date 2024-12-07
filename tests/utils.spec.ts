@@ -1,8 +1,18 @@
+import { IBlueprint } from '../src/definitions'
 import { SetupError } from '../src/errors/SetupError'
-import { mergeBlueprints, defineAppBlueprint } from '../src/utils'
+import { mergeBlueprints, defineAppBlueprint, resolveCurrentAdapter } from '../src/utils'
 import { StoneBlueprint, Environment, stoneBlueprint } from '../src/options/StoneBlueprint'
 
 // Mock data for blueprints
+const createMockBlueprint = (adapters: any[], currentAdapter: any): IBlueprint => ({
+  get: vi.fn((key: string, defaultValue: any) => {
+    if (key === 'stone.adapters') return adapters
+    if (key === 'stone.adapter') return currentAdapter
+    return defaultValue
+  }),
+  set: vi.fn()
+} as unknown as IBlueprint)
+
 const mockBlueprint1: StoneBlueprint = {
   stone: {
     name: 'App1',
@@ -62,5 +72,52 @@ describe('defineAppBlueprint', () => {
 
   it('should throw SetupError if any user-defined blueprint is invalid', () => {
     expect(() => defineAppBlueprint(invalidBlueprint as any)).toThrow(SetupError)
+  })
+})
+
+describe('resolveCurrentAdapter', () => {
+  it('should set the adapter when a platform is explicitly provided', () => {
+    const adapters = [
+      { platform: 'node', config: { value: 1 } },
+      { platform: 'browser', config: { value: 2 } }
+    ]
+    const currentAdapter = { platform: 'node', config: { value: 0 } }
+    const blueprint = createMockBlueprint(adapters, currentAdapter)
+
+    resolveCurrentAdapter(blueprint, 'browser')
+
+    expect(blueprint.set).toHaveBeenCalledWith(
+      'stone.adapter',
+      expect.objectContaining({ platform: 'browser', config: { value: 2 } })
+    )
+  })
+
+  it('should infer the adapter when no platform is provided', () => {
+    const adapters = [
+      { platform: 'node', config: { value: 1 } },
+      { platform: 'browser', config: { value: 2 } }
+    ]
+    const currentAdapter = { platform: 'browser' }
+    const blueprint = createMockBlueprint(adapters, currentAdapter)
+
+    resolveCurrentAdapter(blueprint)
+
+    expect(blueprint.set).toHaveBeenCalledWith(
+      'stone.adapter',
+      expect.objectContaining({ platform: 'browser', config: { value: 2 } })
+    )
+  })
+
+  it('should do nothing if no matching adapter is found', () => {
+    const adapters = [
+      { platform: 'node', config: { value: 1 } },
+      { platform: 'browser', config: { value: 2 } }
+    ]
+    const currentAdapter = { platform: 'unknown', config: { value: 0 } }
+    const blueprint = createMockBlueprint(adapters, currentAdapter)
+
+    resolveCurrentAdapter(blueprint, 'nonexistent')
+
+    expect(blueprint.set).not.toHaveBeenCalled()
   })
 })

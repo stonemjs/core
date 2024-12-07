@@ -6,7 +6,7 @@ import { IncomingEvent } from './IncomingEvent'
  * OutgoingResponseOptions.
  */
 export interface OutgoingResponseOptions extends EventOptions {
-  content: unknown
+  content?: unknown
   statusCode?: number
   statusMessage?: string
 }

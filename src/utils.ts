@@ -1,6 +1,8 @@
 import deepmerge from 'deepmerge'
+import { IBlueprint } from './definitions'
 import { SetupError } from './errors/SetupError'
 import { IncomingEvent } from './events/IncomingEvent'
+import { AdapterConfig } from './options/AdapterConfig'
 import { StoneBlueprint } from './options/StoneBlueprint'
 import { OutgoingResponse } from './events/OutgoingResponse'
 
@@ -73,6 +75,30 @@ export const defineAppBlueprint = <U extends IncomingEvent = IncomingEvent, V ex
  */
 export const isConstructor = (value: unknown): boolean => {
   return typeof value === 'function' && Object.prototype.hasOwnProperty.call(value, 'prototype')
+}
+
+/**
+ * Resolves and sets the current adapter configuration.
+ *
+ * If a `platform` is provided, it selects the corresponding adapter from the blueprint's
+ * adapter list. If no `platform` is provided, it infers the adapter by matching the
+ * platform of the existing adapter configuration.
+ *
+ * The selected adapter is merged with the existing adapter configuration and updated
+ * in the blueprint.
+ *
+ * @param blueprint - The blueprint object containing the adapter configurations.
+ * @param platform - Optional platform identifier to explicitly select the adapter.
+ */
+export const resolveCurrentAdapter = (blueprint: IBlueprint, platform?: string): void => {
+  const adapter = blueprint.get<AdapterConfig>('stone.adapter')
+  const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
+  const selectedAdapter = adapters.find((v) => v.platform === platform) ?? adapters.find((v) => v.platform === adapter?.platform)
+
+  if (selectedAdapter !== undefined) {
+    const currentAdapter = platform !== undefined ? selectedAdapter : deepmerge(selectedAdapter, adapter)
+    blueprint.set('stone.adapter', currentAdapter)
+  }
 }
 
 /**

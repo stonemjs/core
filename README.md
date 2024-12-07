@@ -1,4 +1,4 @@
-# StoneJS: Core
+# Stone.js: Core
 
 [![npm](https://img.shields.io/npm/l/@stone-js/core)](https://opensource.org/licenses/Apache-2.0)
 [![npm](https://img.shields.io/npm/v/@stone-js/core)](https://www.npmjs.com/package/@stone-js/core)

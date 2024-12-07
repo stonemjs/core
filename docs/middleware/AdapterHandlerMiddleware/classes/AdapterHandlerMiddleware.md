@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [middleware/AdapterHandlerMiddleware](../README.md) / AdapterHandlerMiddleware
+[Core Documentation v0.0.34](../../../modules.md) / [middleware/AdapterHandlerMiddleware](../README.md) / AdapterHandlerMiddleware
 
 # Class: AdapterHandlerMiddleware\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, DestinationType, AdapterContextType\>
 
@@ -67,7 +67,7 @@ Options for creating the AdapterHandlerMiddleware.
 
 #### Defined in
 
-[src/middleware/AdapterHandlerMiddleware.ts:42](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/AdapterHandlerMiddleware.ts#L42)
+[src/middleware/AdapterHandlerMiddleware.ts:42](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/AdapterHandlerMiddleware.ts#L42)
 
 ## Methods
 
@@ -99,4 +99,4 @@ If required components such as the incomingEventResolver or IncomingEventBuilder
 
 #### Defined in
 
-[src/middleware/AdapterHandlerMiddleware.ts:55](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/AdapterHandlerMiddleware.ts#L55)
+[src/middleware/AdapterHandlerMiddleware.ts:55](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/AdapterHandlerMiddleware.ts#L55)

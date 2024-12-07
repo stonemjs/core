@@ -145,7 +145,12 @@ export abstract class Adapter<
       const error = IntegrationError.create<IntegrationError>(e.message, { cause: e, metadata: context })
       result = this.errorHandler.report(error).render(error)
     } finally {
-      await this.onTerminate(eventHandler, context)
+      try {
+        await this.onTerminate(eventHandler, context)
+      } catch (e: any) {
+        const error = IntegrationError.create<IntegrationError>(e.message, { cause: e, metadata: context })
+        this.errorHandler.report(error)
+      }
     }
 
     return result

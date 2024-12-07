@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [events/KernelEvent](../README.md) / KernelEvent
+[Core Documentation v0.0.34](../../../modules.md) / [events/KernelEvent](../README.md) / KernelEvent
 
 # Class: KernelEvent
 
@@ -36,7 +36,7 @@ The options to create an Event.
 
 #### Defined in
 
-[src/events/Event.ts:44](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L44)
+[src/events/Event.ts:44](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L44)
 
 ## Properties
 
@@ -52,7 +52,7 @@ The metadata associated with the event.
 
 #### Defined in
 
-[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L27)
+[src/events/Event.ts:27](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L27)
 
 ***
 
@@ -68,7 +68,7 @@ The source of the event.
 
 #### Defined in
 
-[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L32)
+[src/events/Event.ts:32](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L32)
 
 ***
 
@@ -84,7 +84,7 @@ The timestamp of the event creation.
 
 #### Defined in
 
-[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L37)
+[src/events/Event.ts:37](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L37)
 
 ***
 
@@ -100,7 +100,7 @@ The type of the event.
 
 #### Defined in
 
-[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L22)
+[src/events/Event.ts:22](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L22)
 
 ## Methods
 
@@ -126,15 +126,19 @@ A cloned instance of the current class.
 
 #### Defined in
 
-[src/events/Event.ts:79](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L79)
+[src/events/Event.ts:90](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L90)
 
 ***
 
-### getMetadataValue()
+### get()
 
-> **getMetadataValue**(`key`, `fallback`): `unknown`
+> **get**\<`R`\>(`key`, `fallback`?): `undefined` \| `R`
 
 Get data from metadata.
+
+#### Type Parameters
+
+• **R** = `unknown`
 
 #### Parameters
 
@@ -142,13 +146,49 @@ Get data from metadata.
 
 The key to retrieve from metadata.
 
-• **fallback**: `unknown` = `null`
+• **fallback?**: `R`
 
 The fallback value if the key is not found.
 
 #### Returns
 
-`unknown`
+`undefined` \| `R`
+
+The value associated with the key or the fallback.
+
+#### Inherited from
+
+[`Event`](../../Event/classes/Event.md).[`get`](../../Event/classes/Event.md#get)
+
+#### Defined in
+
+[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L58)
+
+***
+
+### getMetadataValue()
+
+> **getMetadataValue**\<`R`\>(`key`, `fallback`?): `undefined` \| `R`
+
+Get data from metadata.
+
+#### Type Parameters
+
+• **R** = `unknown`
+
+#### Parameters
+
+• **key**: `string`
+
+The key to retrieve from metadata.
+
+• **fallback?**: `R`
+
+The fallback value if the key is not found.
+
+#### Returns
+
+`undefined` \| `R`
 
 The value associated with the key or the fallback.
 
@@ -158,13 +198,13 @@ The value associated with the key or the fallback.
 
 #### Defined in
 
-[src/events/Event.ts:58](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L58)
+[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L69)
 
 ***
 
 ### setMetadataValue()
 
-> **setMetadataValue**(`key`, `value`): `this`
+> **setMetadataValue**(`key`, `value`?): `this`
 
 Add data to metadata.
 
@@ -174,7 +214,7 @@ Add data to metadata.
 
 The key or object to add to metadata.
 
-• **value**: `unknown` = `null`
+• **value?**: `unknown`
 
 The value to associate with the key.
 
@@ -190,7 +230,7 @@ This Event instance.
 
 #### Defined in
 
-[src/events/Event.ts:69](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L69)
+[src/events/Event.ts:80](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L80)
 
 ***
 
@@ -214,7 +254,7 @@ A new KernelEvent instance.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:29](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/KernelEvent.ts#L29)
+[src/events/KernelEvent.ts:29](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/KernelEvent.ts#L29)
 
 ## Events
 
@@ -228,7 +268,7 @@ PREPARING_RESPONSE Event name, fires after the response was prepared.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:21](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/KernelEvent.ts#L21)
+[src/events/KernelEvent.ts:21](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/KernelEvent.ts#L21)
 
 ***
 
@@ -242,4 +282,4 @@ RESPONSE_PREPARED Event name, fires before preparing the response.
 
 #### Defined in
 
-[src/events/KernelEvent.ts:14](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/KernelEvent.ts#L14)
+[src/events/KernelEvent.ts:14](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/KernelEvent.ts#L14)

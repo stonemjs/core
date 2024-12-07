@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
+[Core Documentation v0.0.34](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
 
 # Interface: IncomingEventOptions
 
@@ -20,7 +20,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/IncomingEvent.ts#L7)
+[src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/IncomingEvent.ts#L7)
 
 ***
 
@@ -34,7 +34,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L10)
+[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L8)
+[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L8)
 
 ***
 
@@ -62,7 +62,7 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L9)
+[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L9)
 
 ***
 
@@ -76,4 +76,4 @@ IncomingEventOptions.
 
 #### Defined in
 
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/events/Event.ts#L7)
+[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L7)

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../modules.md) / ConfigBuilder
+[Core Documentation v0.0.34](../modules.md) / ConfigBuilder
 
 # ConfigBuilder
 

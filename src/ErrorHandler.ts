@@ -176,10 +176,10 @@ export class ErrorHandler<R, E extends RuntimeError = RuntimeError> implements I
     this.reportedError.add(error)
 
     const errorContext = this.buildErrorContext(error)
-    const level = Object.entries(this.levels).find(([, classes]) => classes.find(Class => error instanceof Class))?.[0] ?? 'error'
+    const level = (Object.entries(this.levels).find(([, classes]) => classes.find(Class => error instanceof Class))?.[0] ?? 'error')
 
     if (level in this.logger) {
-      Reflect.get(this.logger, level)(error.message, errorContext)
+      this.logger[level as keyof ILogger]?.(error.message, errorContext)
     } else {
       this.logger.error(error.message, errorContext)
     }

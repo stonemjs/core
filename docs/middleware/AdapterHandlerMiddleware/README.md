@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../modules.md) / middleware/AdapterHandlerMiddleware
+[Core Documentation v0.0.34](../../modules.md) / middleware/AdapterHandlerMiddleware
 
 # middleware/AdapterHandlerMiddleware
 

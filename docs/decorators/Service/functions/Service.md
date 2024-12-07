@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [decorators/Service](../README.md) / Service
+[Core Documentation v0.0.34](../../../modules.md) / [decorators/Service](../README.md) / Service
 
 # Function: Service()
 
@@ -50,4 +50,4 @@ class MyService {
 
 ## Defined in
 
-[src/decorators/Service.ts:42](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/decorators/Service.ts#L42)
+[src/decorators/Service.ts:42](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Service.ts#L42)

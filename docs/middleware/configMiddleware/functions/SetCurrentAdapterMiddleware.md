@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [middleware/configMiddleware](../README.md) / SetCurrentAdapterMiddleware
+[Core Documentation v0.0.34](../../../modules.md) / [middleware/configMiddleware](../README.md) / SetCurrentAdapterMiddleware
 
 # Function: SetCurrentAdapterMiddleware()
 
@@ -37,4 +37,4 @@ await SetCurrentAdapterMiddleware({ modules, blueprint }, next);
 
 ## Defined in
 
-[src/middleware/configMiddleware.ts:76](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/configMiddleware.ts#L76)
+[src/middleware/configMiddleware.ts:76](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/configMiddleware.ts#L76)

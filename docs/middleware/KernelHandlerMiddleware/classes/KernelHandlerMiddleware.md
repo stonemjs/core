@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [middleware/KernelHandlerMiddleware](../README.md) / KernelHandlerMiddleware
+[Core Documentation v0.0.34](../../../modules.md) / [middleware/KernelHandlerMiddleware](../README.md) / KernelHandlerMiddleware
 
 # Class: KernelHandlerMiddleware\<IncomingEventType, OutgoingResponseType, KernelContextType\>
 
@@ -49,7 +49,7 @@ The container used for dependency injection.
 
 #### Defined in
 
-[src/middleware/KernelHandlerMiddleware.ts:39](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/KernelHandlerMiddleware.ts#L39)
+[src/middleware/KernelHandlerMiddleware.ts:39](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/KernelHandlerMiddleware.ts#L39)
 
 ## Methods
 
@@ -81,4 +81,4 @@ If no router or event handler is provided.
 
 #### Defined in
 
-[src/middleware/KernelHandlerMiddleware.ts:53](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/middleware/KernelHandlerMiddleware.ts#L53)
+[src/middleware/KernelHandlerMiddleware.ts:53](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/KernelHandlerMiddleware.ts#L53)

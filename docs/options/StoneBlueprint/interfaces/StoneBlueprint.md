@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.33**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
 
 ***
 
-[Core Documentation v0.0.33](../../../modules.md) / [options/StoneBlueprint](../README.md) / StoneBlueprint
+[Core Documentation v0.0.34](../../../modules.md) / [options/StoneBlueprint](../README.md) / StoneBlueprint
 
 # Interface: StoneBlueprint\<U, V\>
 
@@ -32,4 +32,4 @@ Application-level settings, including environment, middleware, logging, and serv
 
 #### Defined in
 
-[src/options/StoneBlueprint.ts:137](https://github.com/stonemjs/core/blob/077f74fd791b5cd8637e1ab41cbefa238af9d384/src/options/StoneBlueprint.ts#L137)
+[src/options/StoneBlueprint.ts:137](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/StoneBlueprint.ts#L137)
