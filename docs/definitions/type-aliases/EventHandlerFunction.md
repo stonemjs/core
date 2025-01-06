@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / EventHandlerFunction
+[Core Documentation](../../modules.md) / [definitions](../README.md) / EventHandlerFunction
 
-# Type Alias: EventHandlerFunction()\<W, X\>
+# Type Alias: EventHandlerFunction()\<TEvent, UResponse\>
 
-> **EventHandlerFunction**\<`W`, `X`\>: (`incomingEvent`) => `X` \| `Promise`\<`X`\>
+> **EventHandlerFunction**\<`TEvent`, `UResponse`\>: (`incomingEvent`) => `UResponse` \| `Promise`\<`UResponse`\>
+
+Defined in: [src/definitions.ts:160](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L160)
 
 EventHandlerFunction.
 
@@ -14,22 +16,20 @@ Represents a function that handles incoming events and returns an outgoing respo
 
 ## Type Parameters
 
-• **W** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **X** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 
-• **incomingEvent**: `W`
+### incomingEvent
+
+`TEvent`
 
 The incoming event to handle.
 
 ## Returns
 
-`X` \| `Promise`\<`X`\>
+`UResponse` \| `Promise`\<`UResponse`\>
 
 The outgoing response.
-
-## Defined in
-
-[src/definitions.ts:147](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L147)

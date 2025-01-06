@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / LogLevel
+[Core Documentation](../../modules.md) / [definitions](../README.md) / LogLevel
 
 # Enumeration: LogLevel
+
+Defined in: [src/definitions.ts:12](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L12)
 
 Log level enumeration to define possible log levels.
 
@@ -14,9 +16,7 @@ Log level enumeration to define possible log levels.
 
 > **DEBUG**: `"debug"`
 
-#### Defined in
-
-[src/definitions.ts:13](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L13)
+Defined in: [src/definitions.ts:14](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L14)
 
 ***
 
@@ -24,9 +24,7 @@ Log level enumeration to define possible log levels.
 
 > **ERROR**: `"error"`
 
-#### Defined in
-
-[src/definitions.ts:16](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L16)
+Defined in: [src/definitions.ts:17](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L17)
 
 ***
 
@@ -34,9 +32,7 @@ Log level enumeration to define possible log levels.
 
 > **INFO**: `"info"`
 
-#### Defined in
-
-[src/definitions.ts:14](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L14)
+Defined in: [src/definitions.ts:15](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L15)
 
 ***
 
@@ -44,9 +40,7 @@ Log level enumeration to define possible log levels.
 
 > **TRACE**: `"trace"`
 
-#### Defined in
-
-[src/definitions.ts:12](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L12)
+Defined in: [src/definitions.ts:13](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L13)
 
 ***
 
@@ -54,6 +48,4 @@ Log level enumeration to define possible log levels.
 
 > **WARN**: `"warn"`
 
-#### Defined in
-
-[src/definitions.ts:15](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L15)
+Defined in: [src/definitions.ts:16](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L16)

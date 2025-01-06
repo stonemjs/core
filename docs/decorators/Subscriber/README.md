@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/Subscriber
+[Core Documentation](../../modules.md) / decorators/Subscriber
 
 # decorators/Subscriber
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [SubscriberOptions](interfaces/SubscriberOptions.md)
 
-### Functions
+## Functions
 
 - [Subscriber](functions/Subscriber.md)

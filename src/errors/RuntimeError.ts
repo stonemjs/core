@@ -7,6 +7,7 @@ import { ErrorOptions } from '../definitions'
  */
 export class RuntimeError extends Error {
   readonly code?: string
+  readonly cause?: Error
   readonly metadata?: unknown
 
   /**

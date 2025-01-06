@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [options/BuilderConfig](../README.md) / BuilderConfig
+[Core Documentation](../../../modules.md) / [options/BuilderConfig](../README.md) / BuilderConfig
 
 # Interface: BuilderConfig
+
+Defined in: [src/options/BuilderConfig.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/BuilderConfig.ts#L10)
 
 Builder options.
 
@@ -17,13 +19,11 @@ It includes middleware for building the blueprint and the default priority for p
 
 > `optional` **defaultMiddlewarePriority**: `number`
 
+Defined in: [src/options/BuilderConfig.ts:22](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/BuilderConfig.ts#L22)
+
 The default priority for pipes, used when a specific pipe does not have an explicitly set priority.
 This value helps to determine the order in which middleware pipes are executed.
 Default value is set to 10.
-
-#### Defined in
-
-[src/options/BuilderConfig.ts:22](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/BuilderConfig.ts#L22)
 
 ***
 
@@ -31,9 +31,7 @@ Default value is set to 10.
 
 > **middleware**: `MixedPipe`[]
 
+Defined in: [src/options/BuilderConfig.ts:15](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/BuilderConfig.ts#L15)
+
 Middleware used for processing data during the blueprint construction.
 The middleware array can include core pipes and any additional custom pipes.
-
-#### Defined in
-
-[src/options/BuilderConfig.ts:15](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/BuilderConfig.ts#L15)

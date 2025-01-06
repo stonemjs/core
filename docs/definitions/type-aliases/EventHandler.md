@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / EventHandler
+[Core Documentation](../../modules.md) / [definitions](../README.md) / EventHandler
 
-# Type Alias: EventHandler\<W, X\>
+# Type Alias: EventHandler\<TEvent, UResponse\>
 
-> **EventHandler**\<`W`, `X`\>: [`EventHandlerFunction`](EventHandlerFunction.md)\<`W`, `X`\> \| [`LifecycleEventHandler`](../interfaces/LifecycleEventHandler.md)\<`W`, `X`\>
+> **EventHandler**\<`TEvent`, `UResponse`\>: [`EventHandlerFunction`](EventHandlerFunction.md)\<`TEvent`, `UResponse`\> \| [`LifecycleEventHandler`](../interfaces/LifecycleEventHandler.md)\<`TEvent`, `UResponse`\>
+
+Defined in: [src/definitions.ts:216](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L216)
 
 EventHandler Type.
 
@@ -14,14 +16,10 @@ Represents an event handler which can either be a simple function or a lifecycle
 
 ## Type Parameters
 
-• **W** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **X** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Template
 
-X
-
-## Defined in
-
-[src/definitions.ts:201](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L201)
+UResponse

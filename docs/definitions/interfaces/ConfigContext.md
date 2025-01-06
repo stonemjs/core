@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / ConfigContext
+[Core Documentation](../../modules.md) / [definitions](../README.md) / ConfigContext
 
 # Interface: ConfigContext
+
+Defined in: [src/definitions.ts:255](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L255)
 
 ConfigContext Interface.
 
@@ -16,11 +18,9 @@ Represents the context object for configuration, which contains the modules and 
 
 > `readonly` **blueprint**: [`IBlueprint`](../type-aliases/IBlueprint.md)\<`any`\>
 
+Defined in: [src/definitions.ts:264](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L264)
+
 The configuration blueprint.
-
-#### Defined in
-
-[src/definitions.ts:235](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L235)
 
 ***
 
@@ -28,8 +28,6 @@ The configuration blueprint.
 
 > `readonly` **modules**: `unknown`[]
 
+Defined in: [src/definitions.ts:259](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L259)
+
 List of configuration modules.
-
-#### Defined in
-
-[src/definitions.ts:230](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L230)

@@ -1,6 +1,5 @@
 import { Kernel } from './Kernel'
 import { IBlueprint } from './definitions'
-import { ErrorHandler } from './ErrorHandler'
 import { ConsoleLogger } from './ConsoleLogger'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
@@ -18,21 +17,6 @@ import { OutgoingResponse } from './events/OutgoingResponse'
  */
 export function defaultLoggerResolver (blueprint: IBlueprint): ConsoleLogger {
   return ConsoleLogger.create({ blueprint })
-}
-
-/**
- * Default error handler resolver function.
- *
- * This function resolves the error handler for the application, using the blueprint configuration.
- * It creates an `ErrorHandler` instance with the given blueprint, logger, and a response rendering resolver.
- *
- * @param {IBlueprint} blueprint - The blueprint configuration to use for the error handler.
- * @returns {ErrorHandler<string>} - An `ErrorHandler` instance configured to handle errors.
- */
-export function defaultErrorHandlerResolver (blueprint: IBlueprint): ErrorHandler<string> {
-  const renderResponseResolver = (error: Error): string => error.message
-  const loggerResolver = blueprint.get('stone.logger.resolver', defaultLoggerResolver)
-  return ErrorHandler.create({ blueprint, logger: loggerResolver(blueprint), renderResponseResolver })
 }
 
 /**

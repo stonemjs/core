@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/StoneApp](../README.md) / StoneApp
+[Core Documentation](../../../modules.md) / [decorators/StoneApp](../README.md) / StoneApp
 
 # Function: StoneApp()
 
-> **StoneApp**\<`T`\>(`options`, `blueprints`): (`target`, `context`) => `void`
+> **StoneApp**\<`T`\>(`options`, `blueprints`): `ClassDecorator`
+
+Defined in: [src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/StoneApp.ts#L30)
 
 StoneApp decorator to mark a class as the main application entry point.
 
@@ -19,27 +21,21 @@ It allows for configuring the main application settings via the provided options
 
 ## Parameters
 
-• **options**: [`StoneAppOptions`](../interfaces/StoneAppOptions.md) = `{}`
+### options
+
+[`StoneAppOptions`](../interfaces/StoneAppOptions.md) = `{}`
 
 The configuration options for the application, based on StoneOptions.
 
-• **blueprints**: [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>[] = `[]`
+### blueprints
+
+[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)[] = `[]`
 
 ## Returns
 
-`Function`
+`ClassDecorator`
 
 A decorator function to set metadata on the target class.
-
-### Parameters
-
-• **target**: `T`
-
-• **context**: `ClassDecoratorContext`\<`T`\>
-
-### Returns
-
-`void`
 
 ## Example
 
@@ -49,7 +45,3 @@ class MyApp {
   // Application logic here.
 }
 ```
-
-## Defined in
-
-[src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/StoneApp.ts#L30)

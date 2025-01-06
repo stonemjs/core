@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / IAdapterEventBuilder
+[Core Documentation](../../modules.md) / [definitions](../README.md) / IAdapterEventBuilder
 
-# Interface: IAdapterEventBuilder\<K, R\>
+# Interface: IAdapterEventBuilder\<TValues, UResponse\>
+
+Defined in: [src/definitions.ts:180](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L180)
 
 IAdapterEventBuilder Interface.
 
@@ -12,13 +14,13 @@ Interface representing a builder for adapters that provides methods for adding p
 
 ## Template
 
-R
+UResponse
 
 ## Type Parameters
 
-• **K**
+• **TValues**
 
-• **R**
+• **UResponse**
 
 ## Properties
 
@@ -26,30 +28,30 @@ R
 
 > **add**: (`key`, `value`) => `this`
 
+Defined in: [src/definitions.ts:181](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L181)
+
 #### Parameters
 
-• **key**: keyof `K`
+##### key
 
-• **value**: `unknown`
+keyof `TValues`
+
+##### value
+
+`TValues`\[keyof `TValues`\]
 
 #### Returns
 
 `this`
 
-#### Defined in
-
-[src/definitions.ts:168](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L168)
-
 ***
 
 ### build()
 
-> **build**: () => `R`
+> **build**: () => `UResponse`
+
+Defined in: [src/definitions.ts:182](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L182)
 
 #### Returns
 
-`R`
-
-#### Defined in
-
-[src/definitions.ts:169](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L169)
+`UResponse`

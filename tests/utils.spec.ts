@@ -1,6 +1,6 @@
 import { IBlueprint } from '../src/definitions'
 import { SetupError } from '../src/errors/SetupError'
-import { mergeBlueprints, defineAppBlueprint, resolveCurrentAdapter } from '../src/utils'
+import { mergeBlueprints, defineAppBlueprint, setCurrentAdapterByPlatform } from '../src/utils'
 import { StoneBlueprint, Environment, stoneBlueprint } from '../src/options/StoneBlueprint'
 
 // Mock data for blueprints
@@ -84,23 +84,7 @@ describe('resolveCurrentAdapter', () => {
     const currentAdapter = { platform: 'node', config: { value: 0 } }
     const blueprint = createMockBlueprint(adapters, currentAdapter)
 
-    resolveCurrentAdapter(blueprint, 'browser')
-
-    expect(blueprint.set).toHaveBeenCalledWith(
-      'stone.adapter',
-      expect.objectContaining({ platform: 'browser', config: { value: 2 } })
-    )
-  })
-
-  it('should infer the adapter when no platform is provided', () => {
-    const adapters = [
-      { platform: 'node', config: { value: 1 } },
-      { platform: 'browser', config: { value: 2 } }
-    ]
-    const currentAdapter = { platform: 'browser' }
-    const blueprint = createMockBlueprint(adapters, currentAdapter)
-
-    resolveCurrentAdapter(blueprint)
+    setCurrentAdapterByPlatform(blueprint, 'browser')
 
     expect(blueprint.set).toHaveBeenCalledWith(
       'stone.adapter',
@@ -116,7 +100,7 @@ describe('resolveCurrentAdapter', () => {
     const currentAdapter = { platform: 'unknown', config: { value: 0 } }
     const blueprint = createMockBlueprint(adapters, currentAdapter)
 
-    resolveCurrentAdapter(blueprint, 'nonexistent')
+    setCurrentAdapterByPlatform(blueprint, 'nonexistent')
 
     expect(blueprint.set).not.toHaveBeenCalled()
   })

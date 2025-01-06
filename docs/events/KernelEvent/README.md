@@ -1,13 +1,11 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / events/KernelEvent
+[Core Documentation](../../modules.md) / events/KernelEvent
 
 # events/KernelEvent
 
-## Index
-
-### Classes
+## Classes
 
 - [KernelEvent](classes/KernelEvent.md)

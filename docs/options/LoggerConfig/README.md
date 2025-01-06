@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / options/LoggerConfig
+[Core Documentation](../../modules.md) / options/LoggerConfig
 
 # options/LoggerConfig
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [LoggerConfig](interfaces/LoggerConfig.md)
 
-### Variables
+## Variables
 
 - [logger](variables/logger.md)

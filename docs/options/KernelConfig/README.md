@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / options/KernelConfig
+[Core Documentation](../../modules.md) / options/KernelConfig
 
 # options/KernelConfig
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [KernelConfig](interfaces/KernelConfig.md)
 
-### Variables
+## Variables
 
 - [kernel](variables/kernel.md)

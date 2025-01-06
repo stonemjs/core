@@ -1,13 +1,11 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / errors/InitializationError
+[Core Documentation](../../modules.md) / errors/InitializationError
 
 # errors/InitializationError
 
-## Index
-
-### Classes
+## Classes
 
 - [InitializationError](classes/InitializationError.md)

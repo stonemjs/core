@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [Kernel](../README.md) / Kernel
+[Core Documentation](../../modules.md) / [Kernel](../README.md) / Kernel
 
 # Class: Kernel\<IncomingEventType, OutgoingResponseType\>
+
+Defined in: [src/Kernel.ts:32](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L32)
 
 Class representing a Kernel.
 
@@ -32,11 +34,15 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new Kernel**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
+Defined in: [src/Kernel.ts:58](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L58)
+
 Create a Kernel.
 
 #### Parameters
 
-• **options**: [`KernelOptions`](../interfaces/KernelOptions.md)
+##### options
+
+[`KernelOptions`](../interfaces/KernelOptions.md)
 
 Kernel configuration options.
 
@@ -44,19 +50,13 @@ Kernel configuration options.
 
 [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-#### Defined in
-
-[src/Kernel.ts:55](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L55)
-
 ## Properties
 
 ### blueprint
 
 > `protected` `readonly` **blueprint**: [`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
 
-#### Defined in
-
-[src/Kernel.ts:35](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L35)
+Defined in: [src/Kernel.ts:35](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L35)
 
 ***
 
@@ -64,9 +64,7 @@ Kernel configuration options.
 
 > `protected` `readonly` **container**: `Container`
 
-#### Defined in
-
-[src/Kernel.ts:34](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L34)
+Defined in: [src/Kernel.ts:34](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L34)
 
 ***
 
@@ -74,9 +72,7 @@ Kernel configuration options.
 
 > `protected` `readonly` **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-#### Defined in
-
-[src/Kernel.ts:37](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L37)
+Defined in: [src/Kernel.ts:36](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L36)
 
 ***
 
@@ -84,19 +80,15 @@ Kernel configuration options.
 
 > `protected` `readonly` **logger**: [`ILogger`](../../definitions/interfaces/ILogger.md)
 
-#### Defined in
-
-[src/Kernel.ts:33](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L33)
+Defined in: [src/Kernel.ts:33](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L33)
 
 ***
 
 ### providers
 
-> `protected` `readonly` **providers**: `Set`\<[`IProvider`](../../definitions/interfaces/IProvider.md)\>
+> `protected` `readonly` **providers**: `Set`\<[`IProvider`](../../definitions/interfaces/IProvider.md)\<`IncomingEventType`, `OutgoingResponseType`\>\>
 
-#### Defined in
-
-[src/Kernel.ts:36](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L36)
+Defined in: [src/Kernel.ts:38](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L38)
 
 ***
 
@@ -104,51 +96,40 @@ Kernel configuration options.
 
 > `protected` `readonly` **registeredProviders**: `Set`\<`string`\>
 
-#### Defined in
-
-[src/Kernel.ts:38](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L38)
-
-## Accessors
-
-### middleware
-
-#### Get Signature
-
-> **get** `protected` **middleware**(): `MixedPipe`[]
-
-Get all middleware.
-
-##### Returns
-
-`MixedPipe`[]
-
-#### Defined in
-
-[src/Kernel.ts:73](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L73)
-
-***
-
-### terminateMiddleware
-
-#### Get Signature
-
-> **get** `protected` **terminateMiddleware**(): `MixedPipe`[]
-
-Get terminate middleware.
-
-##### Returns
-
-`MixedPipe`[]
-
-#### Defined in
-
-[src/Kernel.ts:80](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L80)
+Defined in: [src/Kernel.ts:37](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L37)
 
 ## Methods
+
+### afterHandle()
+
+> **afterHandle**(`context`): `Promise`\<`void`\>
+
+Defined in: [src/Kernel.ts:114](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L114)
+
+Hook that runs after handling each event.
+Useful for cleanup tasks.
+
+#### Parameters
+
+##### context
+
+[`HookContext`](../../definitions/interfaces/HookContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Implementation of
+
+[`LifecycleEventHandler`](../../definitions/interfaces/LifecycleEventHandler.md).[`afterHandle`](../../definitions/interfaces/LifecycleEventHandler.md#afterhandle)
+
+***
 
 ### beforeHandle()
 
 > **beforeHandle**(): `Promise`\<`void`\>
+
+Defined in: [src/Kernel.ts:91](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L91)
 
 Hook that runs before handling each event.
 Useful to initialize things at each event.
@@ -161,21 +142,21 @@ Useful to initialize things at each event.
 
 [`LifecycleEventHandler`](../../definitions/interfaces/LifecycleEventHandler.md).[`beforeHandle`](../../definitions/interfaces/LifecycleEventHandler.md#beforehandle)
 
-#### Defined in
-
-[src/Kernel.ts:93](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L93)
-
 ***
 
 ### handle()
 
 > **handle**(`event`): `Promise`\<`OutgoingResponseType`\>
 
+Defined in: [src/Kernel.ts:106](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L106)
+
 Handle IncomingEvent.
 
 #### Parameters
 
-• **event**: `IncomingEventType`
+##### event
+
+`IncomingEventType`
 
 The incoming event to handle.
 
@@ -189,79 +170,57 @@ The outgoing response.
 
 `LifecycleEventHandler.handle`
 
-#### Defined in
-
-[src/Kernel.ts:109](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L109)
-
 ***
 
 ### makePipelineOptions()
 
-> `protected` **makePipelineOptions**(): `PipelineOptions`\<[`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>, `OutgoingResponseType`\>
+> `protected` **makePipelineOptions**(): `PipelineOptions`\<`IncomingEventType`, `OutgoingResponseType`\>
+
+Defined in: [src/Kernel.ts:203](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L203)
 
 Creates pipeline options for the Kernel.
 
 #### Returns
 
-`PipelineOptions`\<[`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>, `OutgoingResponseType`\>
+`PipelineOptions`\<`IncomingEventType`, `OutgoingResponseType`\>
 
 The pipeline options for configuring middleware.
 
-#### Defined in
-
-[src/Kernel.ts:204](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L204)
-
 ***
 
-### onBootstrap()
+### onPrepare()
 
-> `protected` **onBootstrap**(`event`): `Promise`\<`void`\>
+> **onPrepare**(): `Promise`\<`void`\>
 
-Hook that runs at each event and just before running the action handler.
-Useful to bootstrap things at each event.
+Defined in: [src/Kernel.ts:75](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L75)
 
-#### Parameters
-
-• **event**: `IncomingEventType`
-
-The incoming event.
+Hook that runs before creating the event context.
+Useful to setup things.
 
 #### Returns
 
 `Promise`\<`void`\>
 
-#### Throws
+#### Implementation of
 
-If no event is provided.
-
-#### Defined in
-
-[src/Kernel.ts:149](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L149)
-
-***
-
-### onRegister()
-
-> `protected` **onRegister**(): `Promise`\<`void`\>
-
-Register services to the container.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/Kernel.ts:138](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L138)
+[`LifecycleEventHandler`](../../definitions/interfaces/LifecycleEventHandler.md).[`onPrepare`](../../definitions/interfaces/LifecycleEventHandler.md#onprepare)
 
 ***
 
 ### onTerminate()
 
-> **onTerminate**(): `Promise`\<`void`\>
+> **onTerminate**(`context`): `Promise`\<`void`\>
+
+Defined in: [src/Kernel.ts:126](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L126)
 
 Hook that runs just before or just after returning the response.
 Useful to perform cleanup.
+
+#### Parameters
+
+##### context
+
+`Partial`\<[`HookContext`](../../definitions/interfaces/HookContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>\>
 
 #### Returns
 
@@ -271,23 +230,23 @@ Useful to perform cleanup.
 
 [`LifecycleEventHandler`](../../definitions/interfaces/LifecycleEventHandler.md).[`onTerminate`](../../definitions/interfaces/LifecycleEventHandler.md#onterminate)
 
-#### Defined in
-
-[src/Kernel.ts:118](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L118)
-
 ***
 
 ### prepareResponse()
 
-> `protected` **prepareResponse**(`context`): `Promise`\<`OutgoingResponseType`\>
+> `protected` **prepareResponse**(`event`): `Promise`\<`OutgoingResponseType`\>
+
+Defined in: [src/Kernel.ts:171](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L171)
 
 Prepare response before sending
 
 #### Parameters
 
-• **context**: [`KernelContext`](../../definitions/interfaces/KernelContext.md)\<`IncomingEventType`, `OutgoingResponseType`\>
+##### event
 
-The Kernel event context.
+`IncomingEventType`
+
+The Kernel event.
 
 #### Returns
 
@@ -295,21 +254,21 @@ The Kernel event context.
 
 The prepared response.
 
-#### Defined in
-
-[src/Kernel.ts:180](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L180)
-
 ***
 
 ### sendEventThroughDestination()
 
 > `protected` **sendEventThroughDestination**(`event`): `Promise`\<`OutgoingResponseType`\>
 
+Defined in: [src/Kernel.ts:140](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L140)
+
 Send event to the destination.
 
 #### Parameters
 
-• **event**: `IncomingEventType`
+##### event
+
+`IncomingEventType`
 
 The incoming event.
 
@@ -319,15 +278,13 @@ The incoming event.
 
 The prepared response.
 
-#### Defined in
-
-[src/Kernel.ts:165](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L165)
-
 ***
 
 ### create()
 
 > `static` **create**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
+
+Defined in: [src/Kernel.ts:49](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L49)
 
 Create a Kernel.
 
@@ -339,7 +296,9 @@ Create a Kernel.
 
 #### Parameters
 
-• **options**: [`KernelOptions`](../interfaces/KernelOptions.md)
+##### options
+
+[`KernelOptions`](../interfaces/KernelOptions.md)
 
 Kernel configuration options.
 
@@ -348,7 +307,3 @@ Kernel configuration options.
 [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
 A new Kernel instance.
-
-#### Defined in
-
-[src/Kernel.ts:46](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L46)

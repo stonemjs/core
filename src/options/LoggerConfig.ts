@@ -14,15 +14,15 @@ export interface LoggerConfig {
    *
    * Defines the minimum level of log messages that should be logged.
    * Common values include:
-   * - `'trace'`: Fine-grained debug information
-   * - `'debug'`: Debug information
-   * - `'info'`: Informational messages
-   * - `'warn'`: Warnings
    * - `'error'`: Errors that need immediate attention
+   * - `'warn'`: Warnings
+   * - `'info'`: Informational messages
+   * - `'debug'`: Debug information
+   * - `'trace'`: Fine-grained debug information
    *
    * @default `'error'`
    */
-  level?: 'trace' | 'debug' | 'info' | 'warn' | 'error'
+  level?: 'error' | 'warn' | 'info' | 'debug' | 'trace'
 
   /**
    * Whether to enable color output in the logs.

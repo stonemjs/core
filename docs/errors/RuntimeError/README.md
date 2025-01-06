@@ -1,13 +1,11 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / errors/RuntimeError
+[Core Documentation](../../modules.md) / errors/RuntimeError
 
 # errors/RuntimeError
 
-## Index
-
-### Classes
+## Classes
 
 - [RuntimeError](classes/RuntimeError.md)

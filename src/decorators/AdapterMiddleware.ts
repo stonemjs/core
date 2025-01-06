@@ -41,6 +41,6 @@ export interface AdapterMiddlewareOptions {
  * }
  * ```
  */
-export const AdapterMiddleware = <T extends ClassType = ClassType>(options: AdapterMiddlewareOptions = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const AdapterMiddleware = <T extends ClassType = ClassType>(options: AdapterMiddlewareOptions = {}): ClassDecorator => {
   return setClassMetadata<T>(ADAPTER_MIDDLEWARE_KEY, options)
 }

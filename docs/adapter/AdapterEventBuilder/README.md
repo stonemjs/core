@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / adapter/AdapterEventBuilder
+[Core Documentation](../../modules.md) / adapter/AdapterEventBuilder
 
 # adapter/AdapterEventBuilder
 
-## Index
-
-### Classes
+## Classes
 
 - [AdapterEventBuilder](classes/AdapterEventBuilder.md)
 
-### Interfaces
+## Interfaces
 
 - [AdapterEventBuilderOptions](interfaces/AdapterEventBuilderOptions.md)

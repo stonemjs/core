@@ -1,19 +1,19 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/constants
+[Core Documentation](../../modules.md) / decorators/constants
 
 # decorators/constants
 
-## Index
+## Variables
 
-### Variables
-
+- [ADAPTER\_ERROR\_HANDLER\_KEY](variables/ADAPTER_ERROR_HANDLER_KEY.md)
 - [ADAPTER\_MIDDLEWARE\_KEY](variables/ADAPTER_MIDDLEWARE_KEY.md)
 - [BLUEPRINT\_KEY](variables/BLUEPRINT_KEY.md)
 - [CONFIG\_MIDDLEWARE\_KEY](variables/CONFIG_MIDDLEWARE_KEY.md)
 - [CONFIGURATION\_KEY](variables/CONFIGURATION_KEY.md)
+- [ERROR\_HANDLER\_KEY](variables/ERROR_HANDLER_KEY.md)
 - [LISTENER\_KEY](variables/LISTENER_KEY.md)
 - [MAIN\_HANDLER\_KEY](variables/MAIN_HANDLER_KEY.md)
 - [MIDDLEWARE\_KEY](variables/MIDDLEWARE_KEY.md)

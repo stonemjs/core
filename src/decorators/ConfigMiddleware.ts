@@ -36,6 +36,6 @@ export interface ConfigMiddlewareOptions {
  * }
  * ```
  */
-export const ConfigMiddleware = <T extends ClassType = ClassType>(options: ConfigMiddlewareOptions = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const ConfigMiddleware = <T extends ClassType = ClassType>(options: ConfigMiddlewareOptions = {}): ClassDecorator => {
   return setClassMetadata<T>(CONFIG_MIDDLEWARE_KEY, options)
 }

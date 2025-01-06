@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [middleware/configMiddleware](../README.md) / BlueprintMiddleware
+[Core Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / BlueprintMiddleware
 
 # Function: BlueprintMiddleware()
 
 > **BlueprintMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+
+Defined in: [src/middleware/configMiddleware.ts:31](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/middleware/configMiddleware.ts#L31)
 
 Middleware to build a blueprint from provided modules and pass it to the next pipeline step.
 
@@ -16,11 +18,15 @@ It uses `Promise.all()` to execute the module processing concurrently for better
 
 ## Parameters
 
-• **context**: [`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
+### context
+
+[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
 
 The configuration context containing modules and blueprint.
 
-• **next**: `NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+### next
+
+`NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
 
 The next function in the pipeline.
 
@@ -35,7 +41,3 @@ A promise that resolves to the updated blueprint.
 ```typescript
 await BlueprintMiddleware({ modules, blueprint }, next);
 ```
-
-## Defined in
-
-[src/middleware/configMiddleware.ts:30](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/configMiddleware.ts#L30)

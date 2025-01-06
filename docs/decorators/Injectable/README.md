@@ -1,13 +1,11 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/Injectable
+[Core Documentation](../../modules.md) / decorators/Injectable
 
 # decorators/Injectable
 
-## Index
-
-### Functions
+## Functions
 
 - [Injectable](functions/Injectable.md)

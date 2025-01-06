@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [middleware/configMiddleware](../README.md) / RegisterProviderToOnInitHookMiddleware
+[Core Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / RegisterProviderToOnInitHookMiddleware
 
 # Function: RegisterProviderToOnInitHookMiddleware()
 
 > **RegisterProviderToOnInitHookMiddleware**(`context`, `next`): [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+
+Defined in: [src/middleware/configMiddleware.ts:130](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/middleware/configMiddleware.ts#L130)
 
 Middleware to register service providers to the `onInit` hook of the current adapter.
 
@@ -15,11 +17,15 @@ and adds them to the `onInit` lifecycle event of the current adapter.
 
 ## Parameters
 
-• **context**: [`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
+### context
+
+[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
 
 The configuration context containing the modules and blueprint.
 
-• **next**: `NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+### next
+
+`NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
 
 The next function in the middleware pipeline.
 
@@ -34,7 +40,3 @@ The next function in the middleware pipeline.
 ```typescript
 await RegisterProviderToOnInitHookMiddleware({ modules, blueprint }, next);
 ```
-
-## Defined in
-
-[src/middleware/configMiddleware.ts:120](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/configMiddleware.ts#L120)

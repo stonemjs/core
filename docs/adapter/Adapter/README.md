@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / adapter/Adapter
+[Core Documentation](../../modules.md) / adapter/Adapter
 
 # adapter/Adapter
 
-## Index
-
-### Classes
+## Classes
 
 - [Adapter](classes/Adapter.md)
 
-### Interfaces
+## Interfaces
 
 - [AdapterOptions](interfaces/AdapterOptions.md)

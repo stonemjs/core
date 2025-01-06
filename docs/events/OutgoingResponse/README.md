@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / events/OutgoingResponse
+[Core Documentation](../../modules.md) / events/OutgoingResponse
 
 # events/OutgoingResponse
 
-## Index
-
-### Classes
+## Classes
 
 - [OutgoingResponse](classes/OutgoingResponse.md)
 
-### Interfaces
+## Interfaces
 
 - [OutgoingResponseOptions](interfaces/OutgoingResponseOptions.md)

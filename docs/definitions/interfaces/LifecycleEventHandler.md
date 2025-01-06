@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / LifecycleEventHandler
+[Core Documentation](../../modules.md) / [definitions](../README.md) / LifecycleEventHandler
 
-# Interface: LifecycleEventHandler\<W, X\>
+# Interface: LifecycleEventHandler\<TEvent, UResponse\>
+
+Defined in: [src/definitions.ts:201](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L201)
 
 LifecycleEventHandler Interface.
 
@@ -12,48 +14,78 @@ Represents a lifecycle event handler with hooks for initialization, pre-handling
 
 ## Template
 
-X
+UResponse
 
 ## Type Parameters
 
-• **W** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **X** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Properties
+
+### afterHandle()?
+
+> `optional` **afterHandle**: (`context`) => `void` \| `Promise`\<`void`\>
+
+Defined in: [src/definitions.ts:205](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L205)
+
+#### Parameters
+
+##### context
+
+[`HookContext`](HookContext.md)\<`TEvent`, `UResponse`\>
+
+#### Returns
+
+`void` \| `Promise`\<`void`\>
+
+***
 
 ### beforeHandle()?
 
 > `optional` **beforeHandle**: () => `void` \| `Promise`\<`void`\>
 
+Defined in: [src/definitions.ts:203](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L203)
+
 #### Returns
 
 `void` \| `Promise`\<`void`\>
-
-#### Defined in
-
-[src/definitions.ts:189](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L189)
 
 ***
 
 ### handle
 
-> **handle**: [`EventHandlerFunction`](../type-aliases/EventHandlerFunction.md)\<`W`, `X`\>
+> **handle**: [`EventHandlerFunction`](../type-aliases/EventHandlerFunction.md)\<`TEvent`, `UResponse`\>
 
-#### Defined in
-
-[src/definitions.ts:190](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L190)
+Defined in: [src/definitions.ts:204](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L204)
 
 ***
 
-### onTerminate()?
+### onPrepare()?
 
-> `optional` **onTerminate**: () => `void` \| `Promise`\<`void`\>
+> `optional` **onPrepare**: () => `void` \| `Promise`\<`void`\>
+
+Defined in: [src/definitions.ts:202](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L202)
 
 #### Returns
 
 `void` \| `Promise`\<`void`\>
 
-#### Defined in
+***
 
-[src/definitions.ts:191](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L191)
+### onTerminate()?
+
+> `optional` **onTerminate**: (`context`) => `void` \| `Promise`\<`void`\>
+
+Defined in: [src/definitions.ts:206](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L206)
+
+#### Parameters
+
+##### context
+
+`Partial`\<[`HookContext`](HookContext.md)\<`TEvent`, `UResponse`\>\>
+
+#### Returns
+
+`void` \| `Promise`\<`void`\>

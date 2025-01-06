@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [middleware/configMiddleware](../README.md) / MainHandlerMiddleware
+[Core Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / MainHandlerMiddleware
 
 # Function: MainHandlerMiddleware()
 
 > **MainHandlerMiddleware**(`context`, `next`): [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+
+Defined in: [src/middleware/configMiddleware.ts:57](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/middleware/configMiddleware.ts#L57)
 
 Middleware to assign the main handler for the application from the provided modules.
 
@@ -15,11 +17,15 @@ the handler in the blueprint. Throws an error if no main handler is found.
 
 ## Parameters
 
-• **context**: [`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
+### context
+
+[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
 
 The configuration context containing modules and blueprint.
 
-• **next**: `NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+### next
+
+`NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
 
 The next function in the pipeline.
 
@@ -34,7 +40,3 @@ The updated blueprint.
 ```typescript
 MainHandlerMiddleware({ modules, blueprint }, next);
 ```
-
-## Defined in
-
-[src/middleware/configMiddleware.ts:54](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/configMiddleware.ts#L54)

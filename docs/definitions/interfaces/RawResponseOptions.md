@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / RawResponseOptions
+[Core Documentation](../../modules.md) / [definitions](../README.md) / RawResponseOptions
 
 # Interface: RawResponseOptions
+
+Defined in: [src/definitions.ts:190](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L190)
 
 RawResponseOptions.
 
@@ -12,4 +14,4 @@ Represents an object where the property keys can be any valid property key and v
 
 ## Indexable
 
- \[`k`: `PropertyKey`\]: `unknown`
+\[`k`: `string` \| `number` \| `symbol`\]: `unknown`

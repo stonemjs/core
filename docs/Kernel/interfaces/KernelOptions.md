@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [Kernel](../README.md) / KernelOptions
+[Core Documentation](../../modules.md) / [Kernel](../README.md) / KernelOptions
 
 # Interface: KernelOptions
+
+Defined in: [src/Kernel.ts:16](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L16)
 
 KernelOptions.
 
@@ -14,9 +16,7 @@ KernelOptions.
 
 > **blueprint**: [`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
 
-#### Defined in
-
-[src/Kernel.ts:19](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L19)
+Defined in: [src/Kernel.ts:19](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L19)
 
 ***
 
@@ -24,9 +24,7 @@ KernelOptions.
 
 > **container**: `Container`
 
-#### Defined in
-
-[src/Kernel.ts:18](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L18)
+Defined in: [src/Kernel.ts:18](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L18)
 
 ***
 
@@ -34,9 +32,7 @@ KernelOptions.
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-#### Defined in
-
-[src/Kernel.ts:20](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L20)
+Defined in: [src/Kernel.ts:20](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L20)
 
 ***
 
@@ -44,6 +40,4 @@ KernelOptions.
 
 > **logger**: [`ILogger`](../../definitions/interfaces/ILogger.md)
 
-#### Defined in
-
-[src/Kernel.ts:17](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/Kernel.ts#L17)
+Defined in: [src/Kernel.ts:17](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/Kernel.ts#L17)

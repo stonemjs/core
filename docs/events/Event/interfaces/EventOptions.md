@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [events/Event](../README.md) / EventOptions
+[Core Documentation](../../../modules.md) / [events/Event](../README.md) / EventOptions
 
 # Interface: EventOptions
+
+Defined in: [src/events/Event.ts:6](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L6)
 
 EventOptions.
 
@@ -17,15 +19,17 @@ EventOptions.
 - [`IncomingEventOptions`](../../IncomingEvent/interfaces/IncomingEventOptions.md)
 - [`OutgoingResponseOptions`](../../OutgoingResponse/interfaces/OutgoingResponseOptions.md)
 
+## Indexable
+
+\[`key`: `string`\]: `unknown`
+
 ## Properties
 
 ### metadata?
 
 > `optional` **metadata**: `Record`\<`string`, `unknown`\>
 
-#### Defined in
-
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L10)
+Defined in: [src/events/Event.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L10)
 
 ***
 
@@ -33,9 +37,7 @@ EventOptions.
 
 > `optional` **source**: `object`
 
-#### Defined in
-
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L8)
+Defined in: [src/events/Event.ts:8](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L8)
 
 ***
 
@@ -43,9 +45,7 @@ EventOptions.
 
 > `optional` **timeStamp**: `number`
 
-#### Defined in
-
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L9)
+Defined in: [src/events/Event.ts:9](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L9)
 
 ***
 
@@ -53,6 +53,4 @@ EventOptions.
 
 > `optional` **type**: `string`
 
-#### Defined in
-
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L7)
+Defined in: [src/events/Event.ts:7](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L7)

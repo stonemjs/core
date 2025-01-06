@@ -1,24 +1,35 @@
 import { MixedPipe } from '@stone-js/pipeline'
-import { KernelResolver } from '../definitions'
 import { defaultKernelResolver } from '../resolvers'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { KernelHandlerMiddleware } from '../middleware/KernelHandlerMiddleware'
+import { IErrorHandler, KernelResolver, RouterResolver } from '../definitions'
 
 /**
  * Kernel options.
  *
  * This interface defines the configuration for kernel-level options.
  */
-export interface KernelConfig<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> {
+export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> {
   /**
    * Middleware configuration options for different stages of the kernel's lifecycle.
    */
-  middleware: MixedPipe[]
+  middleware?: MixedPipe[]
+
   /**
-   * The class type of the adapter, used to create instances.
+   * The kernel resolver, used to create instances.
    */
-  resolver?: KernelResolver<U, V>
+  resolver?: KernelResolver<TEvent, UResponse>
+
+  /**
+   * The router resolver, used to create instances.
+   */
+  routerResolver?: RouterResolver<TEvent, UResponse>
+
+  /**
+   * Error handlers used to manage and report errors that occur within the kernel.
+   * These handlers can be used to customize error handling behavior and logging.
+   */
+  errorHandlers?: Record<string, new (...args: any[]) => IErrorHandler<TEvent, UResponse>>
 }
 
 /**
@@ -29,13 +40,6 @@ export interface KernelConfig<U extends IncomingEvent = IncomingEvent, V extends
  * and termination processing.
  */
 export const kernel: KernelConfig = {
-  // Global middleware settings for all adapters.// Example:
-  // Example:
-  // event: [KernelHandlerMiddleware, (...) => ...],
-  middleware: [
-    { priority: 100, pipe: KernelHandlerMiddleware }
-  ],
-
-  // The default kernel resolver
+  middleware: [],
   resolver: defaultKernelResolver
 }

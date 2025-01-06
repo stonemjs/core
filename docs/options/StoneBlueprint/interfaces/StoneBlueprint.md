@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [options/StoneBlueprint](../README.md) / StoneBlueprint
+[Core Documentation](../../../modules.md) / [options/StoneBlueprint](../README.md) / StoneBlueprint
 
 # Interface: StoneBlueprint\<U, V\>
+
+Defined in: [src/options/StoneBlueprint.ts:133](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/StoneBlueprint.ts#L133)
 
 Stone blueprint.
 
@@ -20,7 +22,7 @@ while allowing additional custom options to be added.
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -28,8 +30,6 @@ while allowing additional custom options to be added.
 
 > **stone**: `Partial`\<[`AppConfig`](AppConfig.md)\<`U`, `V`\>\>
 
+Defined in: [src/options/StoneBlueprint.ts:137](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/StoneBlueprint.ts#L137)
+
 Application-level settings, including environment, middleware, logging, and service registration.
-
-#### Defined in
-
-[src/options/StoneBlueprint.ts:137](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/StoneBlueprint.ts#L137)

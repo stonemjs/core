@@ -1,7 +1,8 @@
 import { Event } from './events/Event'
 import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
-import { RuntimeError } from './errors/RuntimeError'
+import { MetadataSymbol } from './decorators/Metadata'
+import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 
@@ -22,8 +23,15 @@ export enum LogLevel {
  * This interface provides lifecycle hooks for managing the registration,
  * initialization, and termination phases of a provider. Implementations
  * of this interface are expected to define these lifecycle methods as needed.
+ *
+ * @template TEvent, UResponse
  */
-export interface IProvider {
+export interface IProvider<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> {
+  /**
+   * Hook that runs before the context is created. This can be used for setup or validation purposes.
+   */
+  onPrepare?: () => void | Promise<void>
+
   /**
    * Hook that runs before the main handler is invoked. This can be used for setup or validation purposes.
    */
@@ -40,9 +48,14 @@ export interface IProvider {
   boot?: () => void | Promise<void>
 
   /**
+   * Hook that runs after the main handler is invoked. This can be used for cleanup tasks.
+   */
+  afterHandle?: (context: HookContext<TEvent, UResponse>) => void | Promise<void>
+
+  /**
    * Hook that runs after the main handler completes. This can be used for cleanup tasks.
    */
-  onTerminate?: () => void | Promise<void>
+  onTerminate?: (context: Partial<HookContext<TEvent, UResponse>>) => void | Promise<void>
 
   /**
    * Skip this provider.
@@ -140,21 +153,21 @@ export interface ILogger {
  *
  * Represents a function that handles incoming events and returns an outgoing response.
  *
- * @template W, X
+ * @template TEvent, UResponse
  * @param incomingEvent - The incoming event to handle.
  * @returns The outgoing response.
  */
-export type EventHandlerFunction<W extends IncomingEvent, X extends OutgoingResponse> = (incomingEvent: W) => X | Promise<X>
+export type EventHandlerFunction<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (incomingEvent: TEvent) => UResponse | Promise<UResponse>
 
 /**
  * RawResponseBuilder Interface.
  *
  * Represents a wrapper for building raw responses with specific options and a response function.
  *
- * @template R
+ * @template TResponse
  */
-export interface IRawResponseWrapper<R> {
-  respond: () => R | Promise<R>
+export interface IRawResponseWrapper<TResponse> {
+  respond: () => TResponse | Promise<TResponse>
 }
 
 /**
@@ -162,11 +175,11 @@ export interface IRawResponseWrapper<R> {
  *
  * Interface representing a builder for adapters that provides methods for adding properties and building the resulting object.
  *
- * @template K, R
+ * @template TValues, UResponse
  */
-export interface IAdapterEventBuilder<K, R> {
-  add: (key: keyof K, value: unknown) => this
-  build: () => R
+export interface IAdapterEventBuilder<TValues, UResponse> {
+  add: (key: keyof TValues, value: TValues[typeof key]) => this
+  build: () => UResponse
 }
 
 /**
@@ -183,12 +196,14 @@ export interface RawResponseOptions {
  *
  * Represents a lifecycle event handler with hooks for initialization, pre-handling, handling, and termination phases.
  *
- * @template W, X
+ * @template TEvent, UResponse
  */
-export interface LifecycleEventHandler<W extends IncomingEvent, X extends OutgoingResponse> {
+export interface LifecycleEventHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
+  onPrepare?: () => void | Promise<void>
   beforeHandle?: () => void | Promise<void>
-  handle: EventHandlerFunction<W, X>
-  onTerminate?: () => void | Promise<void>
+  handle: EventHandlerFunction<TEvent, UResponse>
+  afterHandle?: (context: HookContext<TEvent, UResponse>) => void | Promise<void>
+  onTerminate?: (context: Partial<HookContext<TEvent, UResponse>>) => void | Promise<void>
 }
 
 /**
@@ -196,20 +211,20 @@ export interface LifecycleEventHandler<W extends IncomingEvent, X extends Outgoi
  *
  * Represents an event handler which can either be a simple function or a lifecycle event handler object.
  *
- * @template W, X
+ * @template TEvent, UResponse
  */
-export type EventHandler<W extends IncomingEvent, X extends OutgoingResponse> = EventHandlerFunction<W, X> | LifecycleEventHandler<W, X>
+export type EventHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = EventHandlerFunction<TEvent, UResponse> | LifecycleEventHandler<TEvent, UResponse>
 
 /**
  * AdapterHandlerResolver.
  *
  * Represents a resolver that provides an event handler based on the provided blueprint.
  *
- * @template W, X
+ * @template TEvent, UResponse
  * @param blueprint - The application blueprint.
  * @returns The event handler.
  */
-export type AdapterHandlerResolver<W extends IncomingEvent, X extends OutgoingResponse> = (blueprint: IBlueprint) => EventHandler<W, X>
+export type AdapterHandlerResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (blueprint: IBlueprint) => EventHandler<TEvent, UResponse>
 
 /**
  * AdapterListenerHook Type.
@@ -217,6 +232,20 @@ export type AdapterHandlerResolver<W extends IncomingEvent, X extends OutgoingRe
  * Represents a listener hook that can either be synchronous or asynchronous.
  */
 export type AdapterListenerHook = (blueprint: IBlueprint) => void | Promise<void>
+
+/**
+ * AdapterAfterHandleListenerHook Type.
+ *
+ * Represents a listener hook that can either be synchronous or asynchronous.
+ */
+export type AdapterAfterHandleListenerHook = <TEvent extends IncomingEvent, UResponse extends OutgoingResponse>(blueprint: IBlueprint, context: HookContext<TEvent, UResponse>) => void | Promise<void>
+
+/**
+ * AdapterOnTerminateListenerHook Type.
+ *
+ * Represents a listener hook that can either be synchronous or asynchronous.
+ */
+export type AdapterOnTerminateListenerHook = <TEvent extends IncomingEvent, UResponse extends OutgoingResponse>(blueprint: IBlueprint, context: Partial<HookContext<TEvent, UResponse>>) => void | Promise<void>
 
 /**
  * ConfigContext Interface.
@@ -242,8 +271,10 @@ export interface ConfigContext {
  */
 export interface AdapterHooks {
   onInit?: AdapterListenerHook[]
+  onPrepare?: AdapterListenerHook[]
   beforeHandle?: AdapterListenerHook[]
-  onTerminate?: AdapterListenerHook[]
+  afterHandle?: AdapterAfterHandleListenerHook[]
+  onTerminate?: AdapterOnTerminateListenerHook[]
 }
 
 /**
@@ -260,18 +291,11 @@ export interface IAdapter {
  *
  * Represents a type that recursively makes all properties optional.
  *
- * @template T
+ * @template TValues
  */
-export type DeepPartial<T> = {
-  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+export type DeepPartial<TValues> = {
+  [P in keyof TValues]?: TValues[P] extends object ? DeepPartial<TValues[P]> : TValues[P];
 }
-
-/**
- * ErrorHandlerLevels Type.
- *
- * Represents a record of log levels and the corresponding error classes associated with each level.
- */
-export type ErrorHandlerLevels = Record<LogLevel, Array<new (...args: any[]) => Error>>
 
 /**
  * AdapterResolver Type.
@@ -294,37 +318,47 @@ export type AdapterResolver = (blueprint: IBlueprint) => IAdapter
 export type LoggerResolver = (blueprint: IBlueprint) => ILogger
 
 /**
- * ErrorHandlerResolver Type.
- *
- * Represents a function that resolves an error handler based on the provided blueprint.
- *
- * @template R
- * @param blueprint - The application blueprint.
- * @returns The error handler instance.
- */
-export type ErrorHandlerResolver<R = unknown> = (blueprint: IBlueprint) => IErrorHandler<R>
-
-/**
  * KernelResolver Type.
  *
  * Represents a function that resolves a lifecycle event handler based on the provided blueprint.
  *
- * @template U, V
+ * @template TEvent, UResponse
  * @param blueprint - The application blueprint.
  * @returns The lifecycle event handler.
  */
-export type KernelResolver<U extends IncomingEvent, V extends OutgoingResponse> = (blueprint: IBlueprint) => LifecycleEventHandler<U, V>
+export type KernelResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (blueprint: IBlueprint) => LifecycleEventHandler<TEvent, UResponse>
+
+/**
+ * A type representing a function that resolves an `IRouter` instance.
+ *
+ * The `RouterResolver` is responsible for generating an instance of `IRouter`
+ * for processing incoming events and producing outgoing responses. It utilizes
+ * a dependency injection container to dynamically resolve necessary dependencies.
+ *
+ * @template TEvent, UResponse
+ * @param container - The dependency injection container used to resolve the `IRouter` instance.
+ * @returns An `IRouter` instance capable of handling the specified incoming and outgoing types.
+ */
+export type RouterResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (container: Container) => IRouter<TEvent, UResponse>
 
 /**
  * ErrorHandler Interface.
  *
  * Represents an error handler that provides methods to report and render errors.
  *
- * @template R
+ * @template TEvent, UResponse
  */
-export interface IErrorHandler<R, E extends RuntimeError = RuntimeError> {
-  report: (error: E) => this
-  render: (error: E) => R
+export interface IErrorHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
+  handle: (error: any, event: TEvent) => UResponse | Promise<UResponse>
+}
+
+/**
+ * Adapter ErrorHandler Interface.
+ *
+ * Represents an error handler for the adapters, which can handle errors and return responses.
+ */
+export interface IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> {
+  handle: (error: any, context: AdapterErrorContext<RawEventType, RawResponseType, ExecutionContextType>) => RawResponseType | Promise<RawResponseType>
 }
 
 /**
@@ -332,41 +366,30 @@ export interface IErrorHandler<R, E extends RuntimeError = RuntimeError> {
  *
  * Represents a configuration with an optional load method to asynchronously load configurations.
  *
- * @template R
+ * @template TResponse
  */
-export interface IConfiguration<R> {
-  load?: () => R | Promise<R>
+export interface IConfiguration<TResponse> {
+  load?: () => TResponse | Promise<TResponse>
 }
-
-/**
- * ErrorHandlerRenderResponseResolver Type.
- *
- * Represents a function that resolves the response for a given error.
- *
- * @template R
- * @param error - The error instance.
- * @returns The response for the error.
- */
-export type ErrorHandlerRenderResponseResolver<R, E extends RuntimeError = RuntimeError> = (error: E) => R
 
 /**
  * Blueprint Interface.
  *
  * Represents the blueprint configuration object, which is an instance of Config.
  *
- * @template T
+ * @template TValues
  */
-export type IBlueprint<T = any> = Config<T>
+export type IBlueprint<TValues extends object = any> = Config<TValues>
 
 /**
  * Router Interface.
  *
  * Represents a router that can dispatch incoming events and return outgoing responses.
  *
- * @template U, V
+ * @template TEvent, UResponse
  */
-export interface IRouter<U extends IncomingEvent, V extends OutgoingResponse> {
-  dispatch: (event: U) => V | Promise<V>
+export interface IRouter<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
+  dispatch: (event: TEvent) => UResponse | Promise<UResponse>
 }
 
 /**
@@ -384,15 +407,15 @@ export type ConfigModuleName = 'app' | 'commands'
 export type ConfigRawModules = Record<ConfigModuleName, Record<PropertyKey, unknown>>
 
 /**
- * KernelContext Interface.
+ * HookContext Interface.
  *
- * Represents the context for a kernel, containing the event and optional response.
+ * Represents the context for the hooks, containing the event and optional response.
  *
- * @template U, V
+ * @template TEvent, UResponse
  */
-export interface KernelContext<U extends IncomingEvent, V extends OutgoingResponse> {
-  event: U
-  response?: V
+export interface HookContext<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
+  event: TEvent
+  response: UResponse
 }
 
 /**
@@ -400,7 +423,14 @@ export interface KernelContext<U extends IncomingEvent, V extends OutgoingRespon
  *
  * Represents a class type, including abstract classes.
  */
-export type ClassType = abstract new (...args: any) => any
+export type ClassType = (abstract new (...args: any) => any) | (new (...args: any) => any)
+
+/**
+ * Represents an object that holds metadata keyed by the `MetadataSymbol`.
+ */
+export interface MetadataHolder {
+  [MetadataSymbol]: Record<PropertyKey, unknown>
+}
 
 /**
  * ClassMethodType Type.
@@ -416,7 +446,7 @@ export type ClassMethodType<This = unknown> = (this: This, ...args: any) => any
  *
  * @template RawEventType
  * @template RawResponseType
- * @template ExecutionContext
+ * @template ExecutionContextType
  * @template IncomingEventType
  * @template IncomingEventOptionsType
  * @template OutgoingResponseType
@@ -424,7 +454,7 @@ export type ClassMethodType<This = unknown> = (this: This, ...args: any) => any
 export interface AdapterContext<
 RawEventType,
 RawResponseType,
-ExecutionContext,
+ExecutionContextType,
 IncomingEventType extends IncomingEvent = IncomingEvent,
 IncomingEventOptionsType extends IncomingEventOptions = IncomingEventOptions,
 OutgoingResponseType extends OutgoingResponse = OutgoingResponse
@@ -432,32 +462,61 @@ OutgoingResponseType extends OutgoingResponse = OutgoingResponse
   /**
    * The rawEvent of type RawEventType.
    */
-  readonly rawEvent?: RawEventType
+  readonly rawEvent: RawEventType
+
+  /**
+   * The rawResponse of type RawResponseType.
+   */
+  rawResponse?: RawResponseType
+
+  /**
+   * The executionContext of type ExecutionContextType.
+   */
+  readonly executionContext: ExecutionContextType
 
   /**
    * The incomingEvent associated with the executionContext.
    */
-  readonly incomingEvent?: IncomingEventType
-
-  /**
-   * The executionContext of type ExecutionContext.
-   */
-  readonly executionContext?: ExecutionContext
+  incomingEvent?: IncomingEventType
 
   /**
    * The outgoingResponse associated with the executionContext.
    */
-  readonly outgoingResponse?: OutgoingResponseType
+  outgoingResponse?: OutgoingResponseType
 
   /**
    * The incomingEventBuilder.
    */
-  readonly incomingEventBuilder?: IAdapterEventBuilder<IncomingEventOptionsType, IncomingEventType>
+  readonly incomingEventBuilder: IAdapterEventBuilder<IncomingEventOptionsType, IncomingEventType>
 
   /**
    * The rawResponseBuilder.
    */
-  readonly rawResponseBuilder?: IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
+  readonly rawResponseBuilder: IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
+}
+
+/**
+ * Class representing an AdapterErrorContext.
+ *
+ * @template RawEventType
+ * @template RawResponseType
+ * @template ExecutionContextType
+ */
+export interface AdapterErrorContext<RawEventType, RawResponseType, ExecutionContextType> {
+  /**
+   * The rawEvent of type RawEventType.
+   */
+  readonly rawEvent: RawEventType
+
+  /**
+   * The executionContext of type ExecutionContextType.
+   */
+  readonly executionContext: ExecutionContextType
+
+  /**
+   * The rawResponseBuilder.
+   */
+  readonly rawResponseBuilder: IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
 }
 
 /**
@@ -490,3 +549,63 @@ export interface ErrorOptions {
    */
   metadata?: unknown
 }
+
+/**
+ * Represents a class decorator using the 2023-11 proposal syntax.
+ *
+ * A function that decorates a class and optionally returns a new constructor.
+ *
+ * @template TClass - The type of the class constructor being decorated.
+ * @param target - The class constructor to be decorated.
+ * @param context - The context object providing metadata about the class.
+ * @returns The original or a modified class constructor, or `undefined`.
+ */
+export type ProposalClassDecorator<TClass extends ClassType = ClassType> = <TFunction extends TClass>(
+  target: TFunction,
+  context: ClassDecoratorContext<TClass>
+) => TFunction | undefined
+
+/**
+ * Represents a method decorator using the 2023-11 proposal syntax.
+ *
+ * A function that decorates a class method and optionally returns a new method implementation.
+ *
+ * @template T - The type of the method being decorated.
+ * @param target - The class prototype or static target containing the method.
+ * @param context - The context object providing metadata about the method.
+ * @returns The original or a modified method, or `undefined`.
+ */
+export type ProposalMethodDecorator<T extends Function = Function> = <TFunction extends T>(
+  target: TFunction,
+  context: ClassMethodDecoratorContext<T>
+) => TFunction | undefined
+
+/**
+ * Represents a property decorator using the 2023-11 proposal syntax.
+ *
+ * A function that decorates a class field and optionally returns an initializer function
+ * to define the property's initial value.
+ *
+ * @param target - Always `undefined` for field decorators.
+ * @param context - The context object providing metadata about the field.
+ * @returns An initializer function for the property value.
+ */
+export type ProposalPropertyDecorator = (
+  target: undefined,
+  context: ClassFieldDecoratorContext
+) => (initialValue: unknown) => unknown | undefined
+
+/**
+ * Represents an accessor decorator using the 2023-11 proposal syntax.
+ *
+ * A function that decorates a getter or setter method and optionally returns a new implementation.
+ *
+ * @template T - The type of the accessor being decorated.
+ * @param target - The class prototype or static target containing the accessor.
+ * @param context - The context object providing metadata about the accessor.
+ * @returns The original or a modified accessor, or `undefined`.
+ */
+export type ProposalAccessorDecorator<T extends Function = Function> = <TFunction extends T>(
+  target: TFunction,
+  context: ClassAccessorDecoratorContext<T>
+) => TFunction | undefined

@@ -1,16 +1,14 @@
-[**Core Documentation v0.0.34**](../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../modules.md) / utils
+[Core Documentation](../modules.md) / utils
 
 # utils
 
-## Index
-
-### Functions
+## Functions
 
 - [defineAppBlueprint](functions/defineAppBlueprint.md)
 - [isConstructor](functions/isConstructor.md)
 - [mergeBlueprints](functions/mergeBlueprints.md)
-- [resolveCurrentAdapter](functions/resolveCurrentAdapter.md)
+- [setCurrentAdapterByPlatform](functions/setCurrentAdapterByPlatform.md)

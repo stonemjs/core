@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/StoneApp
+[Core Documentation](../../modules.md) / decorators/StoneApp
 
 # decorators/StoneApp
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [StoneAppOptions](interfaces/StoneAppOptions.md)
 
-### Functions
+## Functions
 
 - [StoneApp](functions/StoneApp.md)

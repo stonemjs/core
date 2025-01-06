@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/Listener
+[Core Documentation](../../modules.md) / decorators/Listener
 
 # decorators/Listener
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [ListenerOptions](interfaces/ListenerOptions.md)
 
-### Functions
+## Functions
 
 - [Listener](functions/Listener.md)

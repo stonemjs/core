@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/Listener](../README.md) / Listener
+[Core Documentation](../../../modules.md) / [decorators/Listener](../README.md) / Listener
 
 # Function: Listener()
 
-> **Listener**\<`T`\>(`options`): (`target`, `context`) => `void`
+> **Listener**\<`T`\>(`options`): `ClassDecorator`
+
+Defined in: [src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Listener.ts#L34)
 
 Listener decorator to mark a class as a listener for a specific event.
 
@@ -19,25 +21,17 @@ It allows the class to be recognized and managed by the event-handling system.
 
 ## Parameters
 
-• **options**: [`ListenerOptions`](../interfaces/ListenerOptions.md)
+### options
+
+[`ListenerOptions`](../interfaces/ListenerOptions.md)
 
 The configuration options for the listener, including the event to listen for.
 
 ## Returns
 
-`Function`
+`ClassDecorator`
 
 A decorator function to set metadata on the target class.
-
-### Parameters
-
-• **target**: `T`
-
-• **context**: `ClassDecoratorContext`\<`T`\>
-
-### Returns
-
-`void`
 
 ## Example
 
@@ -47,7 +41,3 @@ class UserRegisteredListener {
   // Listener class logic here.
 }
 ```
-
-## Defined in
-
-[src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Listener.ts#L34)

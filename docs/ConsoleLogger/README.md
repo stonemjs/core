@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../modules.md) / ConsoleLogger
+[Core Documentation](../modules.md) / ConsoleLogger
 
 # ConsoleLogger
 
-## Index
-
-### Classes
+## Classes
 
 - [ConsoleLogger](classes/ConsoleLogger.md)
 
-### Interfaces
+## Interfaces
 
 - [LoggerOptions](interfaces/LoggerOptions.md)

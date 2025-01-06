@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../modules.md) / CoreServiceProvider
+[Core Documentation](../modules.md) / CoreServiceProvider
 
 # CoreServiceProvider
 
-## Index
-
-### Classes
+## Classes
 
 - [CoreServiceProvider](classes/CoreServiceProvider.md)
 
-### Interfaces
+## Interfaces
 
 - [CoreServiceProviderOptions](interfaces/CoreServiceProviderOptions.md)

@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/AdapterMiddleware
+[Core Documentation](../../modules.md) / decorators/AdapterMiddleware
 
 # decorators/AdapterMiddleware
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [AdapterMiddlewareOptions](interfaces/AdapterMiddlewareOptions.md)
 
-### Functions
+## Functions
 
 - [AdapterMiddleware](functions/AdapterMiddleware.md)

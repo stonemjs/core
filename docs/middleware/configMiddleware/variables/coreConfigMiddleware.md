@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [middleware/configMiddleware](../README.md) / coreConfigMiddleware
+[Core Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / coreConfigMiddleware
 
 # Variable: coreConfigMiddleware
 
 > `const` **coreConfigMiddleware**: `MixedPipe`[]
+
+Defined in: [src/middleware/configMiddleware.ts:369](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/middleware/configMiddleware.ts#L369)
 
 Array representing the core configuration middleware for the application.
 
@@ -22,7 +24,3 @@ import { coreConfigMiddleware } from './coreConfigMiddleware';
 
 // The middleware will be used to configure the application's settings before it starts.
 ```
-
-## Defined in
-
-[src/middleware/configMiddleware.ts:310](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/middleware/configMiddleware.ts#L310)

@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / ILogger
+[Core Documentation](../../modules.md) / [definitions](../README.md) / ILogger
 
 # Interface: ILogger
+
+Defined in: [src/definitions.ts:101](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L101)
 
 Logger Interface.
 
@@ -16,25 +18,27 @@ Represents a generic logging interface, which can either be a native console obj
 
 > **debug**: (`message`, ...`optionalParams`) => `void`
 
+Defined in: [src/definitions.ts:116](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L116)
+
 Logs debug-level messages, used for debugging purposes.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The message to log.
 
-• ...**optionalParams**: `unknown`[]
+##### optionalParams
+
+...`unknown`[]
 
 Optional parameters to log.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/definitions.ts:103](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L103)
 
 ***
 
@@ -42,25 +46,27 @@ Optional parameters to log.
 
 > **error**: (`message`, ...`optionalParams`) => `void`
 
+Defined in: [src/definitions.ts:132](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L132)
+
 Logs errors, used to report errors or exceptions.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The error message to log.
 
-• ...**optionalParams**: `unknown`[]
+##### optionalParams
+
+...`unknown`[]
 
 Optional parameters to log.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/definitions.ts:119](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L119)
 
 ***
 
@@ -68,25 +74,27 @@ Optional parameters to log.
 
 > **info**: (`message`, ...`optionalParams`) => `void`
 
+Defined in: [src/definitions.ts:108](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L108)
+
 Logs informational messages.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The message to log.
 
-• ...**optionalParams**: `unknown`[]
+##### optionalParams
+
+...`unknown`[]
 
 Optional parameters to log.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/definitions.ts:95](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L95)
 
 ***
 
@@ -94,25 +102,27 @@ Optional parameters to log.
 
 > `optional` **log**: (`message`, ...`optionalParams`) => `void`
 
+Defined in: [src/definitions.ts:140](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L140)
+
 Logs general messages, similar to `info` but less specific.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The message to log.
 
-• ...**optionalParams**: `unknown`[]
+##### optionalParams
+
+...`unknown`[]
 
 Optional parameters to log.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/definitions.ts:127](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L127)
 
 ***
 
@@ -120,25 +130,27 @@ Optional parameters to log.
 
 > `optional` **trace**: (`message`, ...`optionalParams`) => `void`
 
+Defined in: [src/definitions.ts:148](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L148)
+
 Logs trace-level messages, providing the most detailed information, usually for diagnostic purposes.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The trace message to log.
 
-• ...**optionalParams**: `unknown`[]
+##### optionalParams
+
+...`unknown`[]
 
 Optional parameters to log.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/definitions.ts:135](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L135)
 
 ***
 
@@ -146,22 +158,24 @@ Optional parameters to log.
 
 > **warn**: (`message`, ...`optionalParams`) => `void`
 
+Defined in: [src/definitions.ts:124](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L124)
+
 Logs warnings, used to indicate potential issues.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The warning message to log.
 
-• ...**optionalParams**: `unknown`[]
+##### optionalParams
+
+...`unknown`[]
 
 Optional parameters to log.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/definitions.ts:111](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L111)

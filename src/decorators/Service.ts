@@ -39,6 +39,6 @@ export interface ServiceOptions {
  * }
  * ```
  */
-export const Service = <T extends ClassType = ClassType>(options: Partial<ServiceOptions> = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const Service = <T extends ClassType = ClassType>(options: Partial<ServiceOptions> = {}): ClassDecorator => {
   return setClassMetadata<T>(SERVICE_KEY, options)
 }

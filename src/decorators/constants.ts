@@ -24,6 +24,16 @@ export const CONFIG_MIDDLEWARE_KEY = Symbol('ConfigMiddleware')
 export const CONFIGURATION_KEY = Symbol('Configuration')
 
 /**
+ * A unique symbol used as a key for the error handler metadata.
+ */
+export const ERROR_HANDLER_KEY = Symbol('ErrorHandler')
+
+/**
+ * A unique symbol used as a key for the adapter error handler metadata.
+ */
+export const ADAPTER_ERROR_HANDLER_KEY = Symbol('AdapterErrorHandler')
+
+/**
  * A unique symbol key to mark classes as listeners.
  */
 export const LISTENER_KEY = Symbol('Listener')

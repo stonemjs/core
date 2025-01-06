@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / DeepPartial
+[Core Documentation](../../modules.md) / [definitions](../README.md) / DeepPartial
 
-# Type Alias: DeepPartial\<T\>
+# Type Alias: DeepPartial\<TValues\>
 
-> **DeepPartial**\<`T`\>: `{ [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P] }`
+> **DeepPartial**\<`TValues`\>: `{ [P in keyof TValues]?: TValues[P] extends object ? DeepPartial<TValues[P]> : TValues[P] }`
+
+Defined in: [src/definitions.ts:296](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L296)
 
 DeepPartial Type.
 
@@ -14,8 +16,4 @@ Represents a type that recursively makes all properties optional.
 
 ## Type Parameters
 
-• **T**
-
-## Defined in
-
-[src/definitions.ts:265](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L265)
+• **TValues**

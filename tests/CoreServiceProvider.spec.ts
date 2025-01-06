@@ -2,9 +2,9 @@ import { Config } from '@stone-js/config'
 import { Container } from '@stone-js/service-container'
 import { KernelEvent } from '../src/events/KernelEvent'
 import { EventEmitter } from '../src/events/EventEmitter'
+import { InitializationError } from '../src/errors/InitializationError'
 import { IBlueprint, IListener, ILogger, ISubscriber } from '../src/definitions'
 import { CoreServiceProvider, CoreServiceProviderOptions } from '../src/CoreServiceProvider'
-import { InitializationError } from '../src/errors/InitializationError'
 
 /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
 class MockService {}

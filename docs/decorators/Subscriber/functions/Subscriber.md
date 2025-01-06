@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/Subscriber](../README.md) / Subscriber
+[Core Documentation](../../../modules.md) / [decorators/Subscriber](../README.md) / Subscriber
 
 # Function: Subscriber()
 
-> **Subscriber**\<`T`\>(`options`): (`target`, `context`) => `void`
+> **Subscriber**\<`T`\>(`options`): `ClassDecorator`
+
+Defined in: [src/decorators/Subscriber.ts:34](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Subscriber.ts#L34)
 
 Subscriber decorator to mark a class as a subscriber.
 
@@ -19,25 +21,17 @@ allowing them to listen for events or perform specific tasks based on their subs
 
 ## Parameters
 
-• **options**: [`SubscriberOptions`](../interfaces/SubscriberOptions.md) = `{}`
+### options
+
+[`SubscriberOptions`](../interfaces/SubscriberOptions.md) = `{}`
 
 The configuration options for the subscriber.
 
 ## Returns
 
-`Function`
+`ClassDecorator`
 
 A decorator function to set metadata on the target class.
-
-### Parameters
-
-• **target**: `T`
-
-• **context**: `ClassDecoratorContext`\<`T`\>
-
-### Returns
-
-`void`
 
 ## Example
 
@@ -47,7 +41,3 @@ class UserCreatedSubscriber {
   // Subscriber class logic here.
 }
 ```
-
-## Defined in
-
-[src/decorators/Subscriber.ts:34](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Subscriber.ts#L34)

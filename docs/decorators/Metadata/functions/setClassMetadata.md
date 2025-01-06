@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/Metadata](../README.md) / setClassMetadata
+[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / setClassMetadata
 
 # Function: setClassMetadata()
 
-> **setClassMetadata**\<`T`\>(`key`, `value`): (`_`, `context`) => `void`
+> **setClassMetadata**\<`T`\>(`key`, `value`): `ClassDecorator`
+
+Defined in: [src/decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Metadata.ts#L134)
 
 Set metadata on a class using a class decorator.
 
@@ -16,30 +18,20 @@ Set metadata on a class using a class decorator.
 
 ## Parameters
 
-• **key**: `PropertyKey`
+### key
+
+`PropertyKey`
 
 The key for the metadata entry.
 
-• **value**: `unknown`
+### value
+
+`unknown`
 
 The value of the metadata entry.
 
 ## Returns
 
-`Function`
+`ClassDecorator`
 
 A class decorator function that sets the metadata.
-
-### Parameters
-
-• **\_**: `T`
-
-• **context**: `ClassDecoratorContext`\<`T`\>
-
-### Returns
-
-`void`
-
-## Defined in
-
-[src/decorators/Metadata.ts:72](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Metadata.ts#L72)

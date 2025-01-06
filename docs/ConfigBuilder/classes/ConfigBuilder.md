@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [ConfigBuilder](../README.md) / ConfigBuilder
+[Core Documentation](../../modules.md) / [ConfigBuilder](../README.md) / ConfigBuilder
 
 # Class: ConfigBuilder
+
+Defined in: [src/ConfigBuilder.ts:29](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/ConfigBuilder.ts#L29)
 
 Class representing a ConfigBuilder for the Stone.js framework.
 
@@ -25,11 +27,15 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new ConfigBuilder**(`options`): [`ConfigBuilder`](ConfigBuilder.md)
 
+Defined in: [src/ConfigBuilder.ts:50](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/ConfigBuilder.ts#L50)
+
 Create a ConfigBuilder.
 
 #### Parameters
 
-• **options**: [`ConfigBuilderOptions`](../interfaces/ConfigBuilderOptions.md) = `...`
+##### options
+
+[`ConfigBuilderOptions`](../interfaces/ConfigBuilderOptions.md) = `...`
 
 The options to create a ConfigBuilder.
 
@@ -37,15 +43,13 @@ The options to create a ConfigBuilder.
 
 [`ConfigBuilder`](ConfigBuilder.md)
 
-#### Defined in
-
-[src/ConfigBuilder.ts:50](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/ConfigBuilder.ts#L50)
-
 ## Methods
 
 ### build()
 
 > **build**(`rawModules`, `blueprint`): `Promise`\<[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)\>
+
+Defined in: [src/ConfigBuilder.ts:71](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/ConfigBuilder.ts#L71)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -55,11 +59,15 @@ or use a default one if none is provided.
 
 #### Parameters
 
-• **rawModules**: [`ConfigRawModules`](../../definitions/type-aliases/ConfigRawModules.md)
+##### rawModules
+
+[`ConfigRawModules`](../../definitions/type-aliases/ConfigRawModules.md)
 
 The modules to build the configuration from, organized by module names.
 
-• **blueprint**: [`IBlueprint`](../../definitions/type-aliases/IBlueprint.md) = `...`
+##### blueprint
+
+[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md) = `...`
 
 The initial blueprint to populate, defaults to a newly created Config instance.
 
@@ -76,21 +84,21 @@ const configBuilder = ConfigBuilder.create();
 const blueprint = await configBuilder.build(rawModules);
 ```
 
-#### Defined in
-
-[src/ConfigBuilder.ts:71](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/ConfigBuilder.ts#L71)
-
 ***
 
 ### create()
 
 > `static` **create**(`options`?): [`ConfigBuilder`](ConfigBuilder.md)
 
+Defined in: [src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/ConfigBuilder.ts#L41)
+
 Create a ConfigBuilder.
 
 #### Parameters
 
-• **options?**: [`ConfigBuilderOptions`](../interfaces/ConfigBuilderOptions.md)
+##### options?
+
+[`ConfigBuilderOptions`](../interfaces/ConfigBuilderOptions.md)
 
 The options to create a ConfigBuilder.
 
@@ -99,7 +107,3 @@ The options to create a ConfigBuilder.
 [`ConfigBuilder`](ConfigBuilder.md)
 
 A new ConfigBuilder instance.
-
-#### Defined in
-
-[src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/ConfigBuilder.ts#L41)

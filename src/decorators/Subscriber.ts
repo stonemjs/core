@@ -31,6 +31,6 @@ export interface SubscriberOptions {
  * }
  * ```
  */
-export const Subscriber = <T extends ClassType = ClassType>(options: SubscriberOptions = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const Subscriber = <T extends ClassType = ClassType>(options: SubscriberOptions = {}): ClassDecorator => {
   return setClassMetadata<T>(SUBSCRIBER_KEY, options)
 }

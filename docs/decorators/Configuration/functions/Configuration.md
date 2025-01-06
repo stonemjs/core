@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/Configuration](../README.md) / Configuration
+[Core Documentation](../../../modules.md) / [decorators/Configuration](../README.md) / Configuration
 
 # Function: Configuration()
 
-> **Configuration**\<`T`\>(`options`): (`_`, `context`) => `void`
+> **Configuration**\<`T`\>(`options`): `ClassDecorator`
+
+Defined in: [src/decorators/Configuration.ts:31](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Configuration.ts#L31)
 
 Configuration decorator to set imperative configuration.
 
@@ -16,25 +18,17 @@ Configuration decorator to set imperative configuration.
 
 ## Parameters
 
-• **options**: [`ConfigurationOptions`](../interfaces/ConfigurationOptions.md) = `{}`
+### options
+
+[`ConfigurationOptions`](../interfaces/ConfigurationOptions.md) = `{}`
 
 The configuration options.
 
 ## Returns
 
-`Function`
+`ClassDecorator`
 
 A class decorator function that sets the metadata using the provided options.
-
-### Parameters
-
-• **\_**: `T`
-
-• **context**: `ClassDecoratorContext`\<`T`\>
-
-### Returns
-
-`void`
 
 ## Example
 
@@ -44,7 +38,3 @@ class MyClass {
   // ...
 }
 ```
-
-## Defined in
-
-[src/decorators/Configuration.ts:31](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Configuration.ts#L31)

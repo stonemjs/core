@@ -31,6 +31,6 @@ export interface ProviderOptions {
  * }
  * ```
  */
-export const Provider = <T extends ClassType = ClassType>(options: ProviderOptions = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const Provider = <T extends ClassType = ClassType>(options: ProviderOptions = {}): ClassDecorator => {
   return setClassMetadata<T>(PROVIDER_KEY, options)
 }

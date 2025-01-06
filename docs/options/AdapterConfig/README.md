@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / options/AdapterConfig
+[Core Documentation](../../modules.md) / options/AdapterConfig
 
 # options/AdapterConfig
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [AdapterConfig](interfaces/AdapterConfig.md)
 
-### Variables
+## Variables
 
 - [adapters](variables/adapters.md)

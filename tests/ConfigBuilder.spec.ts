@@ -1,7 +1,8 @@
 import { Config } from '@stone-js/config'
 import { Pipeline } from '@stone-js/pipeline'
-import { ConfigRawModules } from '../src/definitions'
+import { MetadataSymbol } from '../src/decorators/Metadata'
 import { ConfigBuilder, ConfigBuilderOptions } from '../src/ConfigBuilder'
+import { ClassType, ConfigRawModules, MetadataHolder } from '../src/definitions'
 import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, BLUEPRINT_KEY } from '../src/decorators/constants'
 
 /**
@@ -53,23 +54,23 @@ describe('ConfigBuilder', () => {
   })
 
   it('should extract modules from raw input correctly', () => {
-    const extractedModules = (configBuilder as any).extractModulesFromRaw(rawModules)
+    const extractedModules = (configBuilder as any).extractModulesFromRawInput(rawModules)
     expect(extractedModules).toContain(mockModule)
   })
 
   it('should extract options from class modules correctly', () => {
     const mockMiddleware2 = vi.fn()
     /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-    class MockClass {
+    const MockClass: ClassType & Partial<MetadataHolder> = class {
       static readonly stone = { builder: { middleware: [mockMiddleware2] } }
     }
     /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-    class MockClass2 {}
+    const MockClass2: ClassType & Partial<MetadataHolder> = class {}
     /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-    class MockClass3 {}
-    MockClass[Symbol.metadata] = { [CONFIGURATION_KEY]: {} }
-    MockClass2[Symbol.metadata] = { [CONFIG_MIDDLEWARE_KEY]: {} }
-    MockClass3[Symbol.metadata] = { [BLUEPRINT_KEY]: { stone: { builder: { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 } } } }
+    const MockClass3: ClassType & Partial<MetadataHolder> = class {}
+    MockClass[MetadataSymbol] = { [CONFIGURATION_KEY]: {} }
+    MockClass2[MetadataSymbol] = { [CONFIG_MIDDLEWARE_KEY]: {} }
+    MockClass3[MetadataSymbol] = { [BLUEPRINT_KEY]: { stone: { builder: { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 } } } }
     const extractedOptions = (configBuilder as any).extractOptionsFromModules([MockClass, MockClass2, MockClass3])
     expect(extractedOptions.middleware).toContain(mockMiddleware)
     expect(extractedOptions.middleware).toContain(mockMiddleware2)

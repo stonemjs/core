@@ -72,8 +72,8 @@ export class AdapterEventBuilder<V extends object, R> implements IAdapterEventBu
    * @param value - The value to set for the given key.
    * @returns This instance of AdapterEventBuilder for method chaining.
    */
-  add (key: keyof V, value: unknown): this {
-    Reflect.set(this.options, key, value)
+  add (key: keyof V, value: V[typeof key]): this {
+    this.options[key] = value
     return this
   }
 

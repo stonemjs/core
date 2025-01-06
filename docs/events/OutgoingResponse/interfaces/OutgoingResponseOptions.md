@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
+[Core Documentation](../../../modules.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
 
 # Interface: OutgoingResponseOptions
+
+Defined in: [src/events/OutgoingResponse.ts:8](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/OutgoingResponse.ts#L8)
 
 OutgoingResponseOptions.
 
@@ -12,15 +14,17 @@ OutgoingResponseOptions.
 
 - [`EventOptions`](../../Event/interfaces/EventOptions.md)
 
+## Indexable
+
+\[`key`: `string`\]: `unknown`
+
 ## Properties
 
 ### content?
 
 > `optional` **content**: `unknown`
 
-#### Defined in
-
-[src/events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/OutgoingResponse.ts#L9)
+Defined in: [src/events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/OutgoingResponse.ts#L9)
 
 ***
 
@@ -28,13 +32,11 @@ OutgoingResponseOptions.
 
 > `optional` **metadata**: `Record`\<`string`, `unknown`\>
 
+Defined in: [src/events/Event.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L10)
+
 #### Inherited from
 
 [`EventOptions`](../../Event/interfaces/EventOptions.md).[`metadata`](../../Event/interfaces/EventOptions.md#metadata)
-
-#### Defined in
-
-[src/events/Event.ts:10](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L10)
 
 ***
 
@@ -42,13 +44,11 @@ OutgoingResponseOptions.
 
 > `optional` **source**: `object`
 
+Defined in: [src/events/Event.ts:8](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L8)
+
 #### Inherited from
 
 [`EventOptions`](../../Event/interfaces/EventOptions.md).[`source`](../../Event/interfaces/EventOptions.md#source)
-
-#### Defined in
-
-[src/events/Event.ts:8](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L8)
 
 ***
 
@@ -56,9 +56,7 @@ OutgoingResponseOptions.
 
 > `optional` **statusCode**: `number`
 
-#### Defined in
-
-[src/events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/OutgoingResponse.ts#L10)
+Defined in: [src/events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/OutgoingResponse.ts#L10)
 
 ***
 
@@ -66,9 +64,7 @@ OutgoingResponseOptions.
 
 > `optional` **statusMessage**: `string`
 
-#### Defined in
-
-[src/events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/OutgoingResponse.ts#L11)
+Defined in: [src/events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/OutgoingResponse.ts#L11)
 
 ***
 
@@ -76,13 +72,11 @@ OutgoingResponseOptions.
 
 > `optional` **timeStamp**: `number`
 
+Defined in: [src/events/Event.ts:9](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L9)
+
 #### Inherited from
 
 [`EventOptions`](../../Event/interfaces/EventOptions.md).[`timeStamp`](../../Event/interfaces/EventOptions.md#timestamp)
-
-#### Defined in
-
-[src/events/Event.ts:9](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L9)
 
 ***
 
@@ -90,10 +84,8 @@ OutgoingResponseOptions.
 
 > `optional` **type**: `string`
 
+Defined in: [src/events/Event.ts:7](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/Event.ts#L7)
+
 #### Inherited from
 
 [`EventOptions`](../../Event/interfaces/EventOptions.md).[`type`](../../Event/interfaces/EventOptions.md#type)
-
-#### Defined in
-
-[src/events/Event.ts:7](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/events/Event.ts#L7)

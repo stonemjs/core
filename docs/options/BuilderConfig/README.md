@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / options/BuilderConfig
+[Core Documentation](../../modules.md) / options/BuilderConfig
 
 # options/BuilderConfig
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [BuilderConfig](interfaces/BuilderConfig.md)
 
-### Variables
+## Variables
 
 - [builder](variables/builder.md)

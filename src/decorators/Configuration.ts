@@ -28,6 +28,6 @@ export interface ConfigurationOptions {
  * @param options - The configuration options.
  * @returns A class decorator function that sets the metadata using the provided options.
  */
-export const Configuration = <T extends ClassType = ClassType>(options: ConfigurationOptions = {}): ((_: T, context: ClassDecoratorContext<T>) => void) => {
+export const Configuration = <T extends ClassType = ClassType>(options: ConfigurationOptions = {}): ClassDecorator => {
   return setClassMetadata<T>(CONFIGURATION_KEY, options)
 }

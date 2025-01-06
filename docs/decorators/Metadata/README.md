@@ -1,21 +1,28 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/Metadata
+[Core Documentation](../../modules.md) / decorators/Metadata
 
 # decorators/Metadata
 
-## Index
+## Variables
 
-### Functions
+- [metadataKey](variables/metadataKey.md)
+- [MetadataSymbol](variables/MetadataSymbol.md)
+
+## Functions
 
 - [addBlueprint](functions/addBlueprint.md)
+- [addMetadata](functions/addMetadata.md)
+- [classDecoratorLegacyWrapper](functions/classDecoratorLegacyWrapper.md)
 - [getAllMetadata](functions/getAllMetadata.md)
 - [getBlueprint](functions/getBlueprint.md)
 - [getMetadata](functions/getMetadata.md)
 - [hasBlueprint](functions/hasBlueprint.md)
 - [hasMetadata](functions/hasMetadata.md)
+- [methodDecoratorLegacyWrapper](functions/methodDecoratorLegacyWrapper.md)
+- [propertyDecoratorLegacyWrapper](functions/propertyDecoratorLegacyWrapper.md)
 - [removeMetadata](functions/removeMetadata.md)
 - [setClassMetadata](functions/setClassMetadata.md)
 - [setFieldMetadata](functions/setFieldMetadata.md)

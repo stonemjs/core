@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / AdapterHandlerResolver
+[Core Documentation](../../modules.md) / [definitions](../README.md) / AdapterHandlerResolver
 
-# Type Alias: AdapterHandlerResolver()\<W, X\>
+# Type Alias: AdapterHandlerResolver()\<TEvent, UResponse\>
 
-> **AdapterHandlerResolver**\<`W`, `X`\>: (`blueprint`) => [`EventHandler`](EventHandler.md)\<`W`, `X`\>
+> **AdapterHandlerResolver**\<`TEvent`, `UResponse`\>: (`blueprint`) => [`EventHandler`](EventHandler.md)\<`TEvent`, `UResponse`\>
+
+Defined in: [src/definitions.ts:227](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L227)
 
 AdapterHandlerResolver.
 
@@ -14,22 +16,20 @@ Represents a resolver that provides an event handler based on the provided bluep
 
 ## Type Parameters
 
-• **W** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **X** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 
-• **blueprint**: [`IBlueprint`](IBlueprint.md)
+### blueprint
+
+[`IBlueprint`](IBlueprint.md)
 
 The application blueprint.
 
 ## Returns
 
-[`EventHandler`](EventHandler.md)\<`W`, `X`\>
+[`EventHandler`](EventHandler.md)\<`TEvent`, `UResponse`\>
 
 The event handler.
-
-## Defined in
-
-[src/definitions.ts:212](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L212)

@@ -1,21 +1,21 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / middleware/configMiddleware
+[Core Documentation](../../modules.md) / middleware/configMiddleware
 
 # middleware/configMiddleware
 
-## Index
-
-### Variables
+## Variables
 
 - [coreConfigMiddleware](variables/coreConfigMiddleware.md)
 
-### Functions
+## Functions
 
+- [AdapterErrorHandlerMiddleware](functions/AdapterErrorHandlerMiddleware.md)
 - [AdapterMiddlewareMiddleware](functions/AdapterMiddlewareMiddleware.md)
 - [BlueprintMiddleware](functions/BlueprintMiddleware.md)
+- [ErrorHandlerMiddleware](functions/ErrorHandlerMiddleware.md)
 - [ListenerMiddleware](functions/ListenerMiddleware.md)
 - [MainHandlerMiddleware](functions/MainHandlerMiddleware.md)
 - [MiddlewareMiddleware](functions/MiddlewareMiddleware.md)

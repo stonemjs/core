@@ -73,32 +73,20 @@ export const defineAppBlueprint = <U extends IncomingEvent = IncomingEvent, V ex
  * const result = isConstructor(notAConstructor); // false
  * ```
  */
-export const isConstructor = (value: unknown): boolean => {
+export const isConstructor = (value: unknown): value is new (...args: any[]) => any => {
   return typeof value === 'function' && Object.prototype.hasOwnProperty.call(value, 'prototype')
 }
 
 /**
- * Resolves and sets the current adapter configuration.
- *
- * If a `platform` is provided, it selects the corresponding adapter from the blueprint's
- * adapter list. If no `platform` is provided, it infers the adapter by matching the
- * platform of the existing adapter configuration.
- *
- * The selected adapter is merged with the existing adapter configuration and updated
- * in the blueprint.
+ * Set the current adapter configuration by platform.
  *
  * @param blueprint - The blueprint object containing the adapter configurations.
- * @param platform - Optional platform identifier to explicitly select the adapter.
+ * @param platform - The platform identifier to explicitly select the adapter.
  */
-export const resolveCurrentAdapter = (blueprint: IBlueprint, platform?: string): void => {
-  const adapter = blueprint.get<AdapterConfig>('stone.adapter')
+export const setCurrentAdapterByPlatform = (blueprint: IBlueprint, platform: string): void => {
   const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
-  const selectedAdapter = adapters.find((v) => v.platform === platform) ?? adapters.find((v) => v.platform === adapter?.platform)
-
-  if (selectedAdapter !== undefined) {
-    const currentAdapter = platform !== undefined ? selectedAdapter : deepmerge(selectedAdapter, adapter)
-    blueprint.set('stone.adapter', currentAdapter)
-  }
+  const selectedAdapter = adapters.find((v) => v.platform === platform)
+  selectedAdapter !== undefined && blueprint.set('stone.adapter', selectedAdapter)
 }
 
 /**

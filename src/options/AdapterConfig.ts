@@ -1,6 +1,5 @@
 import { MixedPipe } from '@stone-js/pipeline'
-import { ErrorHandlerConfig } from './ErrorHandlerConfig'
-import { AdapterHooks, AdapterResolver } from '../definitions'
+import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../definitions'
 
 /**
  * AdapterConfig Interface.
@@ -34,9 +33,10 @@ export interface AdapterConfig {
   hooks: AdapterHooks
 
   /**
-   * Logging settings, including the logger instance and error reporting configurations.
+   * Error handlers used to manage and report errors that occur within the adapter.
+   * These handlers can be used to customize error handling behavior and logging.
    */
-  errorHandler: ErrorHandlerConfig
+  errorHandlers: Record<string, new (...args: any[]) => IAdapterErrorHandler<any, any, any>>
 
   /**
    * The alias name for the adapter.
@@ -57,13 +57,6 @@ export interface AdapterConfig {
    * Optional property.
    */
   default?: boolean
-
-  /**
-   * Indicates if this adapter is preferred over others.
-   * Useful for prioritizing adapters in environments where multiple are available.
-   * Optional property.
-   */
-  preferred?: boolean
 }
 
 /**

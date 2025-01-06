@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [options/LoggerConfig](../README.md) / LoggerConfig
+[Core Documentation](../../../modules.md) / [options/LoggerConfig](../README.md) / LoggerConfig
 
 # Interface: LoggerConfig
+
+Defined in: [src/options/LoggerConfig.ts:11](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/LoggerConfig.ts#L11)
 
 **LoggerConfig Interface**
 
@@ -16,31 +18,31 @@ output styling, and the logger resolver.
 
 ### level?
 
-> `optional` **level**: `"trace"` \| `"debug"` \| `"info"` \| `"warn"` \| `"error"`
+> `optional` **level**: `"debug"` \| `"trace"` \| `"info"` \| `"warn"` \| `"error"`
+
+Defined in: [src/options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/LoggerConfig.ts#L25)
 
 The log level for the logger.
 
 Defines the minimum level of log messages that should be logged.
 Common values include:
-- `'trace'`: Fine-grained debug information
-- `'debug'`: Debug information
-- `'info'`: Informational messages
-- `'warn'`: Warnings
 - `'error'`: Errors that need immediate attention
+- `'warn'`: Warnings
+- `'info'`: Informational messages
+- `'debug'`: Debug information
+- `'trace'`: Fine-grained debug information
 
 #### Default
 
 `'error'`
-
-#### Defined in
-
-[src/options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/LoggerConfig.ts#L25)
 
 ***
 
 ### resolver?
 
 > `optional` **resolver**: [`LoggerResolver`](../../../definitions/type-aliases/LoggerResolver.md)
+
+Defined in: [src/options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/LoggerConfig.ts#L54)
 
 A resolver function that returns a logger instance.
 
@@ -51,15 +53,13 @@ This function provides a way to inject a logger that suits specific requirements
 
 `defaultLoggerResolver`
 
-#### Defined in
-
-[src/options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/LoggerConfig.ts#L54)
-
 ***
 
 ### useColors?
 
 > `optional` **useColors**: `boolean`
+
+Defined in: [src/options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/LoggerConfig.ts#L35)
 
 Whether to enable color output in the logs.
 
@@ -70,15 +70,13 @@ or when using third-party loggers such as Pino.
 
 `false`
 
-#### Defined in
-
-[src/options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/LoggerConfig.ts#L35)
-
 ***
 
 ### useTimestamp?
 
 > `optional` **useTimestamp**: `boolean`
+
+Defined in: [src/options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/options/LoggerConfig.ts#L44)
 
 Defines whether to include a timestamp in log messages.
 
@@ -87,7 +85,3 @@ Adding timestamps helps in tracking when each log event occurred.
 #### Default
 
 `false`
-
-#### Defined in
-
-[src/options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/options/LoggerConfig.ts#L44)

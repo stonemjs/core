@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / ErrorOptions
+[Core Documentation](../../modules.md) / [definitions](../README.md) / ErrorOptions
 
 # Interface: ErrorOptions
+
+Defined in: [src/definitions.ts:536](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L536)
 
 Represents options for configuring an error.
 
@@ -14,11 +16,9 @@ Represents options for configuring an error.
 
 > `optional` **cause**: `Error`
 
+Defined in: [src/definitions.ts:545](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L545)
+
 The original error that caused this error, useful for error chaining.
-
-#### Defined in
-
-[src/definitions.ts:486](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L486)
 
 ***
 
@@ -26,11 +26,9 @@ The original error that caused this error, useful for error chaining.
 
 > `optional` **code**: `string`
 
+Defined in: [src/definitions.ts:540](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L540)
+
 A specific error code for identifying the error.
-
-#### Defined in
-
-[src/definitions.ts:481](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L481)
 
 ***
 
@@ -38,8 +36,6 @@ A specific error code for identifying the error.
 
 > `optional` **metadata**: `unknown`
 
+Defined in: [src/definitions.ts:550](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L550)
+
 Additional information or context about the error.
-
-#### Defined in
-
-[src/definitions.ts:491](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L491)

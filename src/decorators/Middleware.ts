@@ -41,6 +41,6 @@ export interface MiddlewareOptions {
  * }
  * ```
  */
-export const Middleware = <T extends ClassType = ClassType>(options: MiddlewareOptions = {}): ((target: T, context: ClassDecoratorContext<T>) => void) => {
+export const Middleware = <T extends ClassType = ClassType>(options: MiddlewareOptions = {}): ClassDecorator => {
   return setClassMetadata<T>(MIDDLEWARE_KEY, options)
 }

@@ -1,22 +1,20 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / options/StoneBlueprint
+[Core Documentation](../../modules.md) / options/StoneBlueprint
 
 # options/StoneBlueprint
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [Environment](enumerations/Environment.md)
 
-### Interfaces
+## Interfaces
 
 - [AppConfig](interfaces/AppConfig.md)
 - [StoneBlueprint](interfaces/StoneBlueprint.md)
 
-### Variables
+## Variables
 
 - [stoneBlueprint](variables/stoneBlueprint.md)

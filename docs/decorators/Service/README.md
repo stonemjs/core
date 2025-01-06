@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/Service
+[Core Documentation](../../modules.md) / decorators/Service
 
 # decorators/Service
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [ServiceOptions](interfaces/ServiceOptions.md)
 
-### Functions
+## Functions
 
 - [Service](functions/Service.md)

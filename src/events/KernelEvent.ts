@@ -7,18 +7,18 @@ import { Event, EventOptions } from './Event'
  */
 export class KernelEvent extends Event {
   /**
-   * RESPONSE_PREPARED Event name, fires before preparing the response.
-   *
-   * @event KernelEvent#RESPONSE_PREPARED
-   */
-  static RESPONSE_PREPARED: string = 'stonejs@kernel.response_prepared'
-
-  /**
    * PREPARING_RESPONSE Event name, fires after the response was prepared.
    *
    * @event KernelEvent#PREPARING_RESPONSE
    */
   static PREPARING_RESPONSE: string = 'stonejs@kernel.preparing_response'
+
+  /**
+   * RESPONSE_PREPARED Event name, fires before preparing the response.
+   *
+   * @event KernelEvent#RESPONSE_PREPARED
+   */
+  static RESPONSE_PREPARED: string = 'stonejs@kernel.response_prepared'
 
   /**
    * Create a KernelEvent.

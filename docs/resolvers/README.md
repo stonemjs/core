@@ -1,15 +1,12 @@
-[**Core Documentation v0.0.34**](../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../modules.md) / resolvers
+[Core Documentation](../modules.md) / resolvers
 
 # resolvers
 
-## Index
+## Functions
 
-### Functions
-
-- [defaultErrorHandlerResolver](functions/defaultErrorHandlerResolver.md)
 - [defaultKernelResolver](functions/defaultKernelResolver.md)
 - [defaultLoggerResolver](functions/defaultLoggerResolver.md)

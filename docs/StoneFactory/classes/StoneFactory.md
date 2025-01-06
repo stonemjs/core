@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [StoneFactory](../README.md) / StoneFactory
+[Core Documentation](../../modules.md) / [StoneFactory](../README.md) / StoneFactory
 
 # Class: StoneFactory
+
+Defined in: [src/StoneFactory.ts:41](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/StoneFactory.ts#L41)
 
 Class representing StoneFactory.
 
@@ -20,6 +22,8 @@ Mr. Stone <evensstone@gmail.com>
 ### run()
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
+
+Defined in: [src/StoneFactory.ts:83](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/StoneFactory.ts#L83)
 
 Run the application by resolving and executing the adapter.
 
@@ -43,21 +47,21 @@ If no adapter resolver or adapter is provided in the blueprint.
 await factory.run();
 ```
 
-#### Defined in
-
-[src/StoneFactory.ts:83](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/StoneFactory.ts#L83)
-
 ***
 
 ### create()
 
 > `static` **create**(`options`): [`StoneFactory`](StoneFactory.md)
 
+Defined in: [src/StoneFactory.ts:58](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/StoneFactory.ts#L58)
+
 Create a new StoneFactory instance.
 
 #### Parameters
 
-• **options**: [`StoneFactoryOptions`](../interfaces/StoneFactoryOptions.md)
+##### options
+
+[`StoneFactoryOptions`](../interfaces/StoneFactoryOptions.md)
 
 The options to create the StoneFactory.
 
@@ -72,7 +76,3 @@ A new StoneFactory instance.
 ```typescript
 const factory = StoneFactory.create({ blueprint });
 ```
-
-#### Defined in
-
-[src/StoneFactory.ts:58](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/StoneFactory.ts#L58)

@@ -14,7 +14,7 @@ describe('RuntimeError', () => {
 
   it('should set the error code when provided', () => {
     const options: ErrorOptions = { code: 'ERR001' }
-    const error = new RuntimeError('Error with code', options)
+    const error = RuntimeError.create('Error with code', options)
     expect(error.code).toBe('ERR001')
   })
 

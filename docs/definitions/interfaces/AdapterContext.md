@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / AdapterContext
+[Core Documentation](../../modules.md) / [definitions](../README.md) / AdapterContext
 
-# Interface: AdapterContext\<RawEventType, RawResponseType, ExecutionContext, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType\>
+# Interface: AdapterContext\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType\>
+
+Defined in: [src/definitions.ts:454](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L454)
 
 Class representing an AdapterContext.
 
@@ -14,7 +16,7 @@ Class representing an AdapterContext.
 
 • **RawResponseType**
 
-• **ExecutionContext**
+• **ExecutionContextType**
 
 • **IncomingEventType** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
@@ -24,72 +26,70 @@ Class representing an AdapterContext.
 
 ## Properties
 
-### executionContext?
+### executionContext
 
-> `readonly` `optional` **executionContext**: `ExecutionContext`
+> `readonly` **executionContext**: `ExecutionContextType`
 
-The executionContext of type ExecutionContext.
+Defined in: [src/definitions.ts:475](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L475)
 
-#### Defined in
-
-[src/definitions.ts:445](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L445)
+The executionContext of type ExecutionContextType.
 
 ***
 
 ### incomingEvent?
 
-> `readonly` `optional` **incomingEvent**: `IncomingEventType`
+> `optional` **incomingEvent**: `IncomingEventType`
+
+Defined in: [src/definitions.ts:480](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L480)
 
 The incomingEvent associated with the executionContext.
 
-#### Defined in
-
-[src/definitions.ts:440](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L440)
-
 ***
 
-### incomingEventBuilder?
+### incomingEventBuilder
 
-> `readonly` `optional` **incomingEventBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<`IncomingEventOptionsType`, `IncomingEventType`\>
+> `readonly` **incomingEventBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<`IncomingEventOptionsType`, `IncomingEventType`\>
+
+Defined in: [src/definitions.ts:490](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L490)
 
 The incomingEventBuilder.
-
-#### Defined in
-
-[src/definitions.ts:455](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L455)
 
 ***
 
 ### outgoingResponse?
 
-> `readonly` `optional` **outgoingResponse**: `OutgoingResponseType`
+> `optional` **outgoingResponse**: `OutgoingResponseType`
+
+Defined in: [src/definitions.ts:485](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L485)
 
 The outgoingResponse associated with the executionContext.
 
-#### Defined in
-
-[src/definitions.ts:450](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L450)
-
 ***
 
-### rawEvent?
+### rawEvent
 
-> `readonly` `optional` **rawEvent**: `RawEventType`
+> `readonly` **rawEvent**: `RawEventType`
+
+Defined in: [src/definitions.ts:465](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L465)
 
 The rawEvent of type RawEventType.
 
-#### Defined in
+***
 
-[src/definitions.ts:435](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L435)
+### rawResponse?
+
+> `optional` **rawResponse**: `RawResponseType`
+
+Defined in: [src/definitions.ts:470](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L470)
+
+The rawResponse of type RawResponseType.
 
 ***
 
-### rawResponseBuilder?
+### rawResponseBuilder
 
-> `readonly` `optional` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
+> `readonly` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
+
+Defined in: [src/definitions.ts:495](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L495)
 
 The rawResponseBuilder.
-
-#### Defined in
-
-[src/definitions.ts:460](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L460)

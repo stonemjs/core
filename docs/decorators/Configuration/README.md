@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / decorators/Configuration
+[Core Documentation](../../modules.md) / decorators/Configuration
 
 # decorators/Configuration
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [ConfigurationOptions](interfaces/ConfigurationOptions.md)
 
-### Functions
+## Functions
 
 - [Configuration](functions/Configuration.md)

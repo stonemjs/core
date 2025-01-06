@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [errors/RuntimeError](../README.md) / RuntimeError
+[Core Documentation](../../../modules.md) / [errors/RuntimeError](../README.md) / RuntimeError
 
 # Class: RuntimeError
+
+Defined in: [src/errors/RuntimeError.ts:8](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L8)
 
 Class representing a RuntimeError.
 
@@ -28,15 +30,21 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new RuntimeError**(`message`, `options`): [`RuntimeError`](RuntimeError.md)
 
+Defined in: [src/errors/RuntimeError.ts:29](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L29)
+
 Create a RuntimeError.
 
 #### Parameters
 
-• **message**: `string`
+##### message
+
+`string`
 
 The message to log.
 
-• **options**: [`ErrorOptions`](../../../definitions/interfaces/ErrorOptions.md) = `{}`
+##### options
+
+[`ErrorOptions`](../../../definitions/interfaces/ErrorOptions.md) = `{}`
 
 The error options.
 
@@ -48,19 +56,25 @@ The error options.
 
 `Error.constructor`
 
-#### Defined in
-
-[src/errors/RuntimeError.ts:28](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/errors/RuntimeError.ts#L28)
-
 ## Properties
+
+### cause?
+
+> `readonly` `optional` **cause**: `Error`
+
+Defined in: [src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L10)
+
+#### Overrides
+
+`Error.cause`
+
+***
 
 ### code?
 
 > `readonly` `optional` **code**: `string`
 
-#### Defined in
-
-[src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/errors/RuntimeError.ts#L9)
+Defined in: [src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L9)
 
 ***
 
@@ -68,9 +82,7 @@ The error options.
 
 > `readonly` `optional` **metadata**: `unknown`
 
-#### Defined in
-
-[src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/errors/RuntimeError.ts#L10)
+Defined in: [src/errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L11)
 
 ## Methods
 
@@ -78,11 +90,15 @@ The error options.
 
 > **toString**(`multiline`): `string`
 
+Defined in: [src/errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L51)
+
 Converts the error to a formatted string representation.
 
 #### Parameters
 
-• **multiline**: `boolean` = `false`
+##### multiline
+
+`boolean` = `false`
 
 Determine if output value must be multiline or not.
 
@@ -92,15 +108,13 @@ Determine if output value must be multiline or not.
 
 A formatted error string.
 
-#### Defined in
-
-[src/errors/RuntimeError.ts:50](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/errors/RuntimeError.ts#L50)
-
 ***
 
 ### create()
 
 > `static` **create**\<`T`\>(`message`, `options`): `T`
+
+Defined in: [src/errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/errors/RuntimeError.ts#L19)
 
 Create a RuntimeError.
 
@@ -110,9 +124,13 @@ Create a RuntimeError.
 
 #### Parameters
 
-• **message**: `string`
+##### message
 
-• **options**: [`ErrorOptions`](../../../definitions/interfaces/ErrorOptions.md) = `{}`
+`string`
+
+##### options
+
+[`ErrorOptions`](../../../definitions/interfaces/ErrorOptions.md) = `{}`
 
 The options to create a RuntimeError.
 
@@ -121,7 +139,3 @@ The options to create a RuntimeError.
 `T`
 
 A new RuntimeError instance.
-
-#### Defined in
-
-[src/errors/RuntimeError.ts:18](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/errors/RuntimeError.ts#L18)

@@ -1,9 +1,10 @@
 import { Config } from '@stone-js/config'
 import { SetupError } from '../../src/errors/SetupError'
-import { ClassType, ConfigContext } from '../../src/definitions'
+import { MetadataSymbol } from '../../src/decorators/Metadata'
 import { stoneBlueprint } from '../../src/options/StoneBlueprint'
-import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY } from '../../src/decorators/constants'
-import { AdapterMiddlewareMiddleware, BlueprintMiddleware, ListenerMiddleware, MainHandlerMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterProviderToOnInitHookMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
+import { ClassType, ConfigContext, MetadataHolder } from '../../src/definitions'
+import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../../src/decorators/constants'
+import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, MainHandlerMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterProviderToOnInitHookMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
 
 // Mock dependencies
 vi.mock('@stone-js/pipeline')
@@ -13,8 +14,8 @@ const mockNext = vi.fn()
 const createMockContext = (modules: unknown[]): ConfigContext => ({ modules, blueprint: Config.create() })
 const createMockModule = (key: PropertyKey, metadata: Record<any, any>): ClassType => {
   /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-  class MyClass {
-    static readonly app = {
+  const MyClass: ClassType & Partial<MetadataHolder> = class {
+    static readonly stone = {
       builder: {
         middleware: []
       }
@@ -26,12 +27,12 @@ const createMockModule = (key: PropertyKey, metadata: Record<any, any>): ClassTy
       return await Promise.resolve({ stone: { name: 'Test Stone.js' } })
     }
   }
-  MyClass[Symbol.metadata] = { [key]: metadata }
-  return MyClass
+  MyClass[MetadataSymbol] = { [key]: metadata }
+  return MyClass as ClassType
 }
 const createMockModule2 = (key: PropertyKey, metadata: Record<any, any>): ClassType => {
   /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-  class MyClass {
+  const MyClass: ClassType & Partial<MetadataHolder> = class {
     static readonly stone = {
       env: 'test',
       adapters: [{ alias: 'node', middleware: [] }]
@@ -39,7 +40,7 @@ const createMockModule2 = (key: PropertyKey, metadata: Record<any, any>): ClassT
 
     static onInit (): void {}
   }
-  MyClass[Symbol.metadata] = { [key]: metadata }
+  MyClass[MetadataSymbol] = { [key]: metadata }
   return MyClass
 }
 
@@ -58,6 +59,8 @@ describe('configMiddleware', () => {
       createMockModule(ADAPTER_MIDDLEWARE_KEY, { type: 'output', platform: 'node', priority: 1, params: [] }),
       createMockModule(PROVIDER_KEY, {}),
       createMockModule(SERVICE_KEY, { alias: 'Service' }),
+      createMockModule(ERROR_HANDLER_KEY, { error: 'default' }),
+      createMockModule(ADAPTER_ERROR_HANDLER_KEY, { error: 'default' }),
       createMockModule(SUBSCRIBER_KEY, {}),
       createMockModule(LISTENER_KEY, { event: 'onLoad' }),
       createMockModule(MIDDLEWARE_KEY, { type: 'response' }),
@@ -66,7 +69,6 @@ describe('configMiddleware', () => {
     ]
     mockContext = createMockContext(mockModules)
     mockNext.mockResolvedValue(mockContext.blueprint)
-    await BlueprintMiddleware(mockContext, mockNext)
   })
 
   afterEach(() => {
@@ -75,19 +77,21 @@ describe('configMiddleware', () => {
 
   describe('BlueprintMiddleware', () => {
     it('should call next with updated blueprint', async () => {
+      await BlueprintMiddleware(mockContext, mockNext)
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(mockContext.blueprint.get('stone.name')).toBe('Test Stone.js')
       expect(mockContext.blueprint.get('stone.env')).toBe('test')
     })
 
     it('should throw an error when configuration loader failed', async () => {
+      await BlueprintMiddleware(mockContext, mockNext)
       /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-      class MyClass {
+      const MyClass: ClassType & Partial<MetadataHolder> = class {
         static async load (): Promise<unknown> {
           throw new Error('Error')
         }
       }
-      MyClass[Symbol.metadata] = { [CONFIGURATION_KEY]: {} }
+      MyClass[MetadataSymbol] = { [CONFIGURATION_KEY]: {} }
       console.error = vi.fn()
 
       await BlueprintMiddleware(createMockContext([MyClass]), mockNext)
@@ -114,9 +118,9 @@ describe('configMiddleware', () => {
   })
 
   describe('SetCurrentAdapterMiddleware', () => {
-    it('should call next with preferred adapter selected', async () => {
+    it('should call next with current adapter selected', async () => {
       mockContext.blueprint.set('stone.adapter.alias', 'adapter')
-      mockContext.blueprint.set('stone.adapters', [{ preferred: true, alias: 'adapter', default: true }])
+      mockContext.blueprint.set('stone.adapters', [{ current: true, platform: 'adapter', alias: 'adapter', default: true }])
       const result = await SetCurrentAdapterMiddleware(mockContext, mockNext)
 
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
@@ -126,7 +130,17 @@ describe('configMiddleware', () => {
 
     it('should call next with alias adapter selected', async () => {
       mockContext.blueprint.set('stone.adapter.alias', 'adapter')
-      mockContext.blueprint.set('stone.adapters', [{ preferred: false, alias: 'adapter', default: true }])
+      mockContext.blueprint.set('stone.adapters', [{ current: false, platform: 'adapter', alias: 'adapter', default: true }])
+      const result = await SetCurrentAdapterMiddleware(mockContext, mockNext)
+
+      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
+      expect(result).toBe(mockContext.blueprint)
+      expect(mockContext.blueprint.get('stone.adapter.alias')).toBe('adapter')
+    })
+
+    it('should call next with platform adapter selected', async () => {
+      mockContext.blueprint.set('stone.adapter.platform', 'adapter')
+      mockContext.blueprint.set('stone.adapters', [{ current: false, platform: 'adapter', alias: 'adapter', default: true }])
       const result = await SetCurrentAdapterMiddleware(mockContext, mockNext)
 
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
@@ -136,12 +150,22 @@ describe('configMiddleware', () => {
 
     it('should call next with default adapter selected', async () => {
       mockContext.blueprint.set('stone.adapter.alias', 'adapter')
-      mockContext.blueprint.set('stone.adapters', [{ preferred: false, alias: 'mini', default: true }])
+      mockContext.blueprint.set('stone.adapters', [{ current: false, platform: 'adapter', alias: 'mini', default: true }])
       const result = await SetCurrentAdapterMiddleware(mockContext, mockNext)
 
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
       expect(mockContext.blueprint.get('stone.adapter.alias')).toBe('mini')
+    })
+
+    it('should call next with no adapter selected', async () => {
+      mockContext.blueprint.set('stone.adapter.alias', 'adapter')
+      mockContext.blueprint.set('stone.adapters', [{ current: false, platform: 'adapter', alias: 'mini', default: false }])
+      const result = await SetCurrentAdapterMiddleware(mockContext, mockNext)
+
+      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
+      expect(result).toBe(mockContext.blueprint)
+      expect(mockContext.blueprint.get('stone.adapter.alias')).toBeUndefined()
     })
   })
 
@@ -160,7 +184,7 @@ describe('configMiddleware', () => {
       mockContext.blueprint.set('stone.adapter', { alias: 'adapter', hooks: {} })
       await ProviderMiddleware(mockContext, mockNext)
       const result = await RegisterProviderToOnInitHookMiddleware(mockContext, mockNext)
-      const OnInitFn: Function = mockContext.blueprint.get('stone.adapter.hooks.onInit.0')
+      const OnInitFn: Function = mockContext.blueprint.get('stone.adapter.hooks.onInit.0', () => {})
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
       expect(mockContext.blueprint.get('stone.adapter.hooks.onInit')).length(1)
@@ -175,7 +199,27 @@ describe('configMiddleware', () => {
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
       expect(mockContext.blueprint.get('stone.services')).length(1)
-      expect((mockContext.blueprint.get<Function[]>('stone.services'))[0]).length(2)
+      expect((mockContext.blueprint.get<Function[]>('stone.services', []))[0]).length(2)
+    })
+  })
+
+  describe('ErrorHandlerMiddleware', () => {
+    it('should call next with updated blueprint', async () => {
+      const result = await ErrorHandlerMiddleware(mockContext, mockNext)
+
+      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
+      expect(result).toBe(mockContext.blueprint)
+      expect(Object.entries(mockContext.blueprint.get('stone.kernel.errorHandlers', {}))).length(1)
+    })
+  })
+
+  describe('AdapterErrorHandlerMiddleware', () => {
+    it('should call next with updated blueprint', async () => {
+      const result = await AdapterErrorHandlerMiddleware(mockContext, mockNext)
+
+      expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
+      expect(result).toBe(mockContext.blueprint)
+      expect(Object.entries(mockContext.blueprint.get('stone.adapter.errorHandlers', {}))).length(1)
     })
   })
 
@@ -207,6 +251,7 @@ describe('configMiddleware', () => {
 
   describe('AdapterMiddlewareMiddleware', () => {
     it('should call next with updated blueprint', async () => {
+      await BlueprintMiddleware(mockContext, mockNext)
       const result = await AdapterMiddlewareMiddleware(mockContext, mockNext)
 
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })

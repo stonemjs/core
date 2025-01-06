@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.34**](README.md) • **Docs**
+[**Core Documentation v0.0.35**](README.md)
 
 ***
 
-# Core Documentation v0.0.34
+# Core Documentation v0.0.35
 
 ## Modules
 
@@ -11,10 +11,12 @@
 - [ConfigBuilder](ConfigBuilder/README.md)
 - [ConsoleLogger](ConsoleLogger/README.md)
 - [CoreServiceProvider](CoreServiceProvider/README.md)
+- [decorators/AdapterErrorHandler](decorators/AdapterErrorHandler/README.md)
 - [decorators/AdapterMiddleware](decorators/AdapterMiddleware/README.md)
 - [decorators/ConfigMiddleware](decorators/ConfigMiddleware/README.md)
 - [decorators/Configuration](decorators/Configuration/README.md)
 - [decorators/constants](decorators/constants/README.md)
+- [decorators/ErrorHandler](decorators/ErrorHandler/README.md)
 - [decorators/Injectable](decorators/Injectable/README.md)
 - [decorators/Listener](decorators/Listener/README.md)
 - [decorators/Metadata](decorators/Metadata/README.md)
@@ -24,7 +26,6 @@
 - [decorators/StoneApp](decorators/StoneApp/README.md)
 - [decorators/Subscriber](decorators/Subscriber/README.md)
 - [definitions](definitions/README.md)
-- [ErrorHandler](ErrorHandler/README.md)
 - [errors/InitializationError](errors/InitializationError/README.md)
 - [errors/IntegrationError](errors/IntegrationError/README.md)
 - [errors/RuntimeError](errors/RuntimeError/README.md)
@@ -35,12 +36,9 @@
 - [events/KernelEvent](events/KernelEvent/README.md)
 - [events/OutgoingResponse](events/OutgoingResponse/README.md)
 - [Kernel](Kernel/README.md)
-- [middleware/AdapterHandlerMiddleware](middleware/AdapterHandlerMiddleware/README.md)
 - [middleware/configMiddleware](middleware/configMiddleware/README.md)
-- [middleware/KernelHandlerMiddleware](middleware/KernelHandlerMiddleware/README.md)
 - [options/AdapterConfig](options/AdapterConfig/README.md)
 - [options/BuilderConfig](options/BuilderConfig/README.md)
-- [options/ErrorHandlerConfig](options/ErrorHandlerConfig/README.md)
 - [options/KernelConfig](options/KernelConfig/README.md)
 - [options/LoggerConfig](options/LoggerConfig/README.md)
 - [options/StoneBlueprint](options/StoneBlueprint/README.md)

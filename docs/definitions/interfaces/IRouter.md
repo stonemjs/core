@@ -1,10 +1,12 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / IRouter
+[Core Documentation](../../modules.md) / [definitions](../README.md) / IRouter
 
-# Interface: IRouter\<U, V\>
+# Interface: IRouter\<TEvent, UResponse\>
+
+Defined in: [src/definitions.ts:391](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L391)
 
 Router Interface.
 
@@ -12,28 +14,28 @@ Represents a router that can dispatch incoming events and return outgoing respon
 
 ## Template
 
-V
+UResponse
 
 ## Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Properties
 
 ### dispatch()
 
-> **dispatch**: (`event`) => `V` \| `Promise`\<`V`\>
+> **dispatch**: (`event`) => `UResponse` \| `Promise`\<`UResponse`\>
+
+Defined in: [src/definitions.ts:392](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L392)
 
 #### Parameters
 
-• **event**: `U`
+##### event
+
+`TEvent`
 
 #### Returns
 
-`V` \| `Promise`\<`V`\>
-
-#### Defined in
-
-[src/definitions.ts:369](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L369)
+`UResponse` \| `Promise`\<`UResponse`\>

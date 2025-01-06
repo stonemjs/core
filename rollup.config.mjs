@@ -32,7 +32,7 @@ export default Object.entries(inputs).map(([name, input]) => ({
   ]
 })).concat([
   {
-    input: 'dist/**/*.d.ts',
+    input: ['dist/**/*.d.ts', 'types/*.d.ts'],
     output: [{ format: 'es' , file: 'dist/index.d.ts' }],
     plugins: [
       multi(),
@@ -40,6 +40,7 @@ export default Object.entries(inputs).map(([name, input]) => ({
       dts(),
       del({
         targets: [
+          'dist/**/',
           'dist/**/*.d.ts',
           '!dist/index.d.ts'
         ],

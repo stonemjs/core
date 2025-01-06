@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/Metadata](../README.md) / addBlueprint
+[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / addBlueprint
 
 # Function: addBlueprint()
 
-> **addBlueprint**\<`T`, `U`, `V`\>(`Class`, `context`, ...`blueprints`): `void`
+> **addBlueprint**\<`T`, `U`, `V`\>(`_Class`, `context`, ...`blueprints`): `void`
+
+Defined in: [src/decorators/Metadata.ts:174](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Metadata.ts#L174)
 
 Add Blueprint on a given decorator context.
 
@@ -20,22 +22,24 @@ Add Blueprint on a given decorator context.
 
 ## Parameters
 
-• **Class**: `T`
+### \_Class
+
+`T`
 
 The class to get all metadata from.
 
-• **context**: `DecoratorContext`
+### context
+
+`DecoratorContext`
 
 The decorator context where metadata is being set.
 
-• ...**blueprints**: [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>[]
+### blueprints
+
+...[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>[]
 
 The list of blueprints.
 
 ## Returns
 
 `void`
-
-## Defined in
-
-[src/decorators/Metadata.ts:109](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Metadata.ts#L109)

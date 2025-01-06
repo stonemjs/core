@@ -1,12 +1,14 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [utils](../README.md) / defineAppBlueprint
+[Core Documentation](../../modules.md) / [utils](../README.md) / defineAppBlueprint
 
 # Function: defineAppBlueprint()
 
 > **defineAppBlueprint**\<`U`, `V`\>(...`userBlueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
+
+Defined in: [src/utils.ts:50](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/utils.ts#L50)
 
 Defines an application blueprint by merging user-defined blueprints with default options.
 
@@ -22,7 +24,9 @@ It ensures that all necessary properties are available while allowing user custo
 
 ## Parameters
 
-• ...**userBlueprints**: [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>[]
+### userBlueprints
+
+...[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>[]
 
 An array of partial user-defined blueprints to be merged with defaults.
 
@@ -41,7 +45,3 @@ The fully defined application blueprint.
 ```typescript
 const appBlueprint = defineAppBlueprint(customBlueprint1, customBlueprint2);
 ```
-
-## Defined in
-
-[src/utils.ts:50](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/utils.ts#L50)

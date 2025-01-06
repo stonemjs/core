@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../modules.md) / StoneFactory
+[Core Documentation](../modules.md) / StoneFactory
 
 # StoneFactory
 
-## Index
-
-### Classes
+## Classes
 
 - [StoneFactory](classes/StoneFactory.md)
 
-### Interfaces
+## Interfaces
 
 - [StoneFactoryOptions](interfaces/StoneFactoryOptions.md)

@@ -1,13 +1,11 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / errors/SetupError
+[Core Documentation](../../modules.md) / errors/SetupError
 
 # errors/SetupError
 
-## Index
-
-### Classes
+## Classes
 
 - [SetupError](classes/SetupError.md)

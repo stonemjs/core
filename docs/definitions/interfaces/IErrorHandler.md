@@ -1,53 +1,45 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / [definitions](../README.md) / IErrorHandler
+[Core Documentation](../../modules.md) / [definitions](../README.md) / IErrorHandler
 
-# Interface: IErrorHandler\<R, E\>
+# Interface: IErrorHandler\<TEvent, UResponse\>
+
+Defined in: [src/definitions.ts:351](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L351)
 
 ErrorHandler Interface.
 
 Represents an error handler that provides methods to report and render errors.
 
+## Template
+
+UResponse
+
 ## Type Parameters
 
-• **R**
+• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **E** *extends* [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../errors/RuntimeError/classes/RuntimeError.md)
+• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Properties
 
-### render()
+### handle()
 
-> **render**: (`error`) => `R`
+> **handle**: (`error`, `event`) => `UResponse` \| `Promise`\<`UResponse`\>
 
-#### Parameters
-
-• **error**: `E`
-
-#### Returns
-
-`R`
-
-#### Defined in
-
-[src/definitions.ts:327](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L327)
-
-***
-
-### report()
-
-> **report**: (`error`) => `this`
+Defined in: [src/definitions.ts:352](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L352)
 
 #### Parameters
 
-• **error**: `E`
+##### error
+
+`any`
+
+##### event
+
+`TEvent`
 
 #### Returns
 
-`this`
-
-#### Defined in
-
-[src/definitions.ts:326](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/definitions.ts#L326)
+`UResponse` \| `Promise`\<`UResponse`\>

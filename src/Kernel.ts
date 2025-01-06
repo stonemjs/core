@@ -7,8 +7,8 @@ import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { InitializationError } from './errors/InitializationError'
-import { IBlueprint, ILogger, IProvider, KernelContext, LifecycleEventHandler } from './definitions'
-import { MetaPipe, MixedPipe, Pipe, PipeInstance, Pipeline, PipelineOptions } from '@stone-js/pipeline'
+import { MixedPipe, Pipe, PipeInstance, Pipeline, PipelineOptions } from '@stone-js/pipeline'
+import { EventHandler, EventHandlerFunction, HookContext, IBlueprint, IErrorHandler, ILogger, IProvider, IRouter, LifecycleEventHandler, RouterResolver } from './definitions'
 
 /**
  * KernelOptions.
@@ -33,9 +33,12 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
   protected readonly logger: ILogger
   protected readonly container: Container
   protected readonly blueprint: IBlueprint
-  protected readonly providers: Set<IProvider>
   protected readonly eventEmitter: EventEmitter
   protected readonly registeredProviders: Set<string>
+  protected readonly providers: Set<IProvider<IncomingEventType, OutgoingResponseType>>
+
+  private resolvedRouter?: IRouter<IncomingEventType, OutgoingResponseType>
+  private resolvedLifecycleHandler?: LifecycleEventHandler<IncomingEventType, OutgoingResponseType>
 
   /**
    * Create a Kernel.
@@ -63,27 +66,22 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
     this.container = container
     this.eventEmitter = eventEmitter
     this.registeredProviders = new Set()
+  }
 
+  /**
+   * Hook that runs before creating the event context.
+   * Useful to setup things.
+   */
+  public async onPrepare (): Promise<void> {
     this.registerBaseBindings()
-  }
+    this.resolveProviders()
 
-  /**
-   * Get all middleware.
-   */
-  protected get middleware (): MixedPipe[] {
-    return this.blueprint.get<MixedPipe[]>('stone.kernel.middleware', [])
-  }
+    for (const provider of this.providers) {
+      await provider.onPrepare?.()
+    }
 
-  /**
-   * Get terminate middleware.
-   */
-  protected get terminateMiddleware (): MixedPipe[] {
-    return this.middleware.filter((middleware) => {
-      const pipe: Function | undefined = typeof (middleware as MetaPipe).pipe === 'function'
-        ? (middleware as MetaPipe).pipe as Function
-        : (typeof middleware === 'function' ? middleware : undefined)
-      return typeof pipe?.prototype?.terminate === 'function'
-    })
+    await this.registerProviders()
+    await this.resolveLifecycleHandler()?.onPrepare?.()
   }
 
   /**
@@ -91,13 +89,12 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * Useful to initialize things at each event.
    */
   public async beforeHandle (): Promise<void> {
-    this.resolveProviders()
-
     for (const provider of this.providers) {
       await provider.beforeHandle?.()
     }
 
-    await this.onRegister()
+    await this.bootProviders()
+    await this.resolveLifecycleHandler()?.beforeHandle?.()
   }
 
   /**
@@ -107,53 +104,31 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @returns The outgoing response.
    */
   public async handle (event: IncomingEventType): Promise<OutgoingResponseType> {
-    await this.onBootstrap(event)
     return await this.sendEventThroughDestination(event)
+  }
+
+  /**
+   * Hook that runs after handling each event.
+   * Useful for cleanup tasks.
+   */
+  public async afterHandle (context: HookContext<IncomingEventType, OutgoingResponseType>): Promise<void> {
+    for (const provider of this.providers) {
+      await provider.afterHandle?.(context)
+    }
+
+    await this.resolveLifecycleHandler()?.afterHandle?.(context)
   }
 
   /**
    * Hook that runs just before or just after returning the response.
    * Useful to perform cleanup.
    */
-  public async onTerminate (): Promise<void> {
+  public async onTerminate (context: Partial<HookContext<IncomingEventType, OutgoingResponseType>>): Promise<void> {
+    await this.resolveLifecycleHandler()?.onTerminate?.(context)
+
     for (const provider of this.providers) {
-      await provider.onTerminate?.()
+      await provider.onTerminate?.(context)
     }
-
-    const event = this.container.has('event') ? this.container.make('event') as IncomingEventType : undefined
-    const response = this.container.has('response') ? this.container.make('response') as OutgoingResponseType : undefined
-    const pipelineOptions = this.makePipelineOptions() as PipelineOptions<Partial<KernelContext<IncomingEventType, OutgoingResponseType>>, OutgoingResponseType>
-
-    await Pipeline
-      .create<Partial<KernelContext<IncomingEventType, OutgoingResponseType>>, OutgoingResponseType>(pipelineOptions)
-      .send({ event, response })
-      .via('terminate')
-      .through(this.terminateMiddleware)
-      .thenReturn()
-  }
-
-  /**
-   * Register services to the container.
-   */
-  protected async onRegister (): Promise<void> {
-    await this.registerProviders()
-  }
-
-  /**
-   * Hook that runs at each event and just before running the action handler.
-   * Useful to bootstrap things at each event.
-   *
-   * @param event - The incoming event.
-   * @throws {InitializationError} If no event is provided.
-   */
-  protected async onBootstrap (event: IncomingEventType): Promise<void> {
-    if (event === undefined) { throw new InitializationError('No IncomingEvent provided.') }
-
-    this.container.instance('event', event).instance('request', event)
-
-    if (typeof event.clone === 'function') { this.container.instance('originalEvent', event.clone()) }
-
-    await this.bootProviders()
   }
 
   /**
@@ -163,36 +138,60 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @returns The prepared response.
    */
   protected async sendEventThroughDestination (event: IncomingEventType): Promise<OutgoingResponseType> {
-    return await Pipeline
-      .create<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType>(this.makePipelineOptions())
-      .send({ event })
-      .through(this.middleware)
-      .then(async (context) => await this.prepareResponse(context))
+    if (event === undefined) { throw new InitializationError('No IncomingEvent provided.') }
+    if (typeof event.clone === 'function') { this.container.instance('originalEvent', event.clone()) }
+
+    this.container.instance('event', event).instance('request', event)
+
+    try {
+      return await Pipeline
+        .create<IncomingEventType, OutgoingResponseType>(this.makePipelineOptions())
+        .send(event)
+        .through(this.blueprint.get<MixedPipe[]>('stone.kernel.middleware', []))
+        .then(async (ev) => await this.prepareResponse(ev))
+    } catch (error: any) {
+      const errorHandler = this.getErrorHandler(error)
+
+      if (errorHandler === undefined) {
+        throw error
+      } else {
+        const response = await errorHandler.handle(error, event)
+        return await response.prepare(event, this.blueprint)
+      }
+    }
   }
 
   /**
    * Prepare response before sending
    *
    * @protected
-   * @param context - The Kernel event context.
+   * @param event - The Kernel event.
    * @returns The prepared response.
    */
-  protected async prepareResponse (context: KernelContext<IncomingEventType, OutgoingResponseType>): Promise<OutgoingResponseType> {
-    if (context.response === undefined) {
-      throw new InitializationError('No response was returned')
+  protected async prepareResponse (event: IncomingEventType): Promise<OutgoingResponseType> {
+    let response: OutgoingResponseType
+    const router = this.resolveRouter()
+    const handler = this.resolveLifecycleHandler()
+
+    if (router !== undefined) {
+      response = await router.dispatch(event)
+    } else if (handler !== undefined) {
+      response = await this.executeHandler(handler, event)
+    } else {
+      throw new InitializationError('No routers nor handlers have been provided.')
     }
 
-    if (typeof context.response.prepare !== 'function') {
+    if (response === undefined) {
+      throw new InitializationError('No response was returned')
+    } else if (typeof response.prepare !== 'function') {
       throw new InitializationError('Return response must be an instance of `OutgoingResponse` or a subclass of it.')
     }
 
-    const metadata = { ...context }
-    this.container.instance('response', context.response)
-    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.PREPARING_RESPONSE, source: this, metadata }))
-    context.response = await context.response.prepare(context.event, this.blueprint)
-    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata }))
+    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.PREPARING_RESPONSE, source: this, metadata: { event, response } }))
+    response = await response.prepare(event, this.blueprint)
+    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata: { event, response } }))
 
-    return context.response
+    return response
   }
 
   /**
@@ -201,11 +200,11 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @protected
    * @returns The pipeline options for configuring middleware.
    */
-  protected makePipelineOptions (): PipelineOptions<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType> {
+  protected makePipelineOptions (): PipelineOptions<IncomingEventType, OutgoingResponseType> {
     return {
       resolver: (middleware: Pipe) => {
         if (isConstructor(middleware)) {
-          return this.container.resolve<PipeInstance<KernelContext<IncomingEventType, OutgoingResponseType>, OutgoingResponseType>>(middleware, true)
+          return this.container.resolve<PipeInstance<IncomingEventType, OutgoingResponseType>>(middleware, true)
         }
       }
     }
@@ -234,14 +233,47 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
   }
 
   /**
+   * Resolves the event handler from the container.
+   *
+   * @returns The resolved event handler or undefined if not found.
+   */
+  private resolveLifecycleHandler (): LifecycleEventHandler<IncomingEventType, OutgoingResponseType> | undefined {
+    if (this.resolvedLifecycleHandler === undefined) {
+      this.resolvedLifecycleHandler = this.blueprint.get<LifecycleEventHandler<IncomingEventType, OutgoingResponseType>>('stone.handler')
+      if (isConstructor(this.resolvedLifecycleHandler)) {
+        this.resolvedLifecycleHandler = this.container.resolve(this.resolvedLifecycleHandler, true)
+      }
+    }
+
+    return this.resolvedLifecycleHandler
+  }
+
+  /**
+   * Retrieves the router instance from the RouterResolver.
+   *
+   * @returns The router instance if available, otherwise undefined.
+   */
+  private resolveRouter (): IRouter<IncomingEventType, OutgoingResponseType> | undefined {
+    if (this.resolvedRouter === undefined) {
+      const resolver = this.blueprint.get<RouterResolver<IncomingEventType, OutgoingResponseType>>('stone.kernel.routerResolver')
+      if (resolver !== undefined) {
+        this.resolvedRouter = resolver(this.container)
+      }
+    }
+
+    return this.resolvedRouter
+  }
+
+  /**
    * Resolves all providers defined in the blueprint.
    *
    * @private
    * @returns The Kernel instance.
    */
   private resolveProviders (): this {
-    (this.blueprint.get('stone.providers', []) as Function[])
-      .map((provider) => this.container.resolve(provider, true) as IProvider)
+    this.blueprint
+      .get<Function[]>('stone.providers', [])
+      .map((provider) => this.container.resolve<IProvider<IncomingEventType, OutgoingResponseType>>(provider, true))
       .filter((provider) => provider.mustSkip === undefined || !(provider.mustSkip?.()))
       .forEach((provider) => this.providers.add(provider))
 
@@ -275,6 +307,35 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
   private async bootProviders (): Promise<void> {
     for (const provider of this.providers) {
       await provider.boot?.()
+    }
+  }
+
+  /**
+   * Executes the resolved event handler for the given event.
+   *
+   * @param handler - The event handler to execute.
+   * @param event - The incoming event to be processed.
+   * @returns A promise that resolves to the outgoing response.
+   */
+  private async executeHandler (handler: EventHandler<IncomingEventType, OutgoingResponseType>, event: IncomingEventType): Promise<OutgoingResponseType> {
+    if (typeof (handler as LifecycleEventHandler<IncomingEventType, OutgoingResponseType>).handle === 'function') {
+      return await (handler as LifecycleEventHandler<IncomingEventType, OutgoingResponseType>).handle(event)
+    }
+    return await (handler as EventHandlerFunction<IncomingEventType, OutgoingResponseType>)(event)
+  }
+
+  /**
+   * Get the error handler for the given error.
+   *
+   * @param error - The error to get the handler for.
+   * @returns The error handler.
+   */
+  private getErrorHandler (error: Error): IErrorHandler<IncomingEventType, OutgoingResponseType> | undefined {
+    const handlers = this.blueprint.get<Record<string, IErrorHandler<IncomingEventType, OutgoingResponseType>>>('stone.kernel.errorHandlers', {})
+    const ErrorHandler = handlers[error.name] ?? handlers.default
+
+    if (isConstructor(ErrorHandler)) {
+      return this.container.resolve<IErrorHandler<IncomingEventType, OutgoingResponseType>>(ErrorHandler, true)
     }
   }
 }

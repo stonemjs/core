@@ -1,8 +1,7 @@
 import { Kernel } from '../src/Kernel'
 import { Config } from '@stone-js/config'
-import { ErrorHandler } from '../src/ErrorHandler'
 import { ConsoleLogger } from '../src/ConsoleLogger'
-import { defaultErrorHandlerResolver, defaultKernelResolver, defaultLoggerResolver } from '../src/resolvers'
+import { defaultKernelResolver, defaultLoggerResolver } from '../src/resolvers'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -12,15 +11,6 @@ describe('defaultLoggerResolver', () => {
   it('should create a ConsoleLogger with the given blueprint', () => {
     const logger = defaultLoggerResolver(mockBlueprint)
     expect(logger).toBeInstanceOf(ConsoleLogger)
-  })
-})
-
-describe('defaultHandlerResolver', () => {
-  it('should create an ErrorHandler with the given blueprint and default renderResponseResolver', () => {
-    const handler = defaultErrorHandlerResolver(mockBlueprint)
-    expect(handler).toBeInstanceOf(ErrorHandler)
-    expect(handler.report).toBeInstanceOf(Function)
-    expect(handler.render(new Error('simple error'))).toBe('simple error')
   })
 })
 

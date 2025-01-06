@@ -1,47 +1,33 @@
-[**Core Documentation v0.0.34**](../../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../../modules.md) / [decorators/Metadata](../README.md) / setFieldMetadata
+[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / setFieldMetadata
 
 # Function: setFieldMetadata()
 
-> **setFieldMetadata**\<`T`, `V`\>(`key`, `value`): (`_`, `context`) => `void`
+> **setFieldMetadata**(`key`, `value`): `PropertyDecorator`
+
+Defined in: [src/decorators/Metadata.ts:160](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Metadata.ts#L160)
 
 Set metadata on a class field using a field decorator.
 
-## Type Parameters
-
-• **T** = `unknown`
-
-• **V** = `unknown`
-
 ## Parameters
 
-• **key**: `PropertyKey`
+### key
+
+`PropertyKey`
 
 The key for the metadata entry.
 
-• **value**: `unknown`
+### value
+
+`unknown`
 
 The value of the metadata entry.
 
 ## Returns
 
-`Function`
+`PropertyDecorator`
 
 A field decorator function that sets the metadata.
-
-### Parameters
-
-• **\_**: `V`
-
-• **context**: `ClassFieldDecoratorContext`\<`T`, `V`\>
-
-### Returns
-
-`void`
-
-## Defined in
-
-[src/decorators/Metadata.ts:96](https://github.com/stonemjs/core/blob/805ab978d87a028eb5ea9c9da928beb091ec1971/src/decorators/Metadata.ts#L96)

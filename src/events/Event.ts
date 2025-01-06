@@ -41,7 +41,7 @@ export abstract class Event {
    *
    * @param options - The options to create an Event.
    */
-  constructor ({ type = '', metadata = {}, source, timeStamp = Date.now() }: EventOptions) {
+  protected constructor ({ type = '', metadata = {}, source, timeStamp = Date.now() }: EventOptions) {
     this.type = type
     this.source = source
     this.timeStamp = timeStamp
@@ -52,12 +52,9 @@ export abstract class Event {
    * Get data from metadata.
    *
    * @param key - The key to retrieve from metadata.
-   * @param fallback - The fallback value if the key is not found.
    * @returns The value associated with the key or the fallback.
    */
-  get<R = unknown>(key: string, fallback?: R): R | undefined {
-    return this.getMetadataValue(key, fallback)
-  }
+  get<TReturn = unknown>(key: string): TReturn | undefined
 
   /**
    * Get data from metadata.
@@ -66,8 +63,45 @@ export abstract class Event {
    * @param fallback - The fallback value if the key is not found.
    * @returns The value associated with the key or the fallback.
    */
-  getMetadataValue<R = unknown>(key: string, fallback?: R): R | undefined {
-    return get<unknown, string, R | undefined>(this.metadata, key, fallback)
+  get<TReturn = unknown>(key: string, fallback: TReturn): TReturn
+
+  /**
+   * Get data from metadata.
+   *
+   * @param key - The key to retrieve from metadata.
+   * @param fallback - The fallback value if the key is not found.
+   * @returns The value associated with the key or the fallback.
+   */
+  get<TReturn = unknown>(key: string, fallback?: TReturn): TReturn | undefined {
+    return this.getMetadataValue(key, fallback)
+  }
+
+  /**
+   * Get data from metadata.
+   *
+   * @param key - The key to retrieve from metadata.
+   * @returns The value associated with the key or the fallback.
+   */
+  getMetadataValue<TReturn = unknown>(key: string): TReturn | undefined
+
+  /**
+   * Get data from metadata.
+   *
+   * @param key - The key to retrieve from metadata.
+   * @param fallback - The fallback value if the key is not found.
+   * @returns The value associated with the key or the fallback.
+   */
+  getMetadataValue<TReturn = unknown>(key: string, fallback: TReturn): TReturn
+
+  /**
+   * Get data from metadata.
+   *
+   * @param key - The key to retrieve from metadata.
+   * @param fallback - The fallback value if the key is not found.
+   * @returns The value associated with the key or the fallback.
+   */
+  getMetadataValue<TReturn = unknown>(key: string, fallback?: TReturn): TReturn | undefined {
+    return get<unknown, string, TReturn | undefined>(this.metadata, key, fallback)
   }
 
   /**

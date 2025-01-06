@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../modules.md) / ConfigBuilder
+[Core Documentation](../modules.md) / ConfigBuilder
 
 # ConfigBuilder
 
-## Index
-
-### Classes
+## Classes
 
 - [ConfigBuilder](classes/ConfigBuilder.md)
 
-### Interfaces
+## Interfaces
 
 - [ConfigBuilderOptions](interfaces/ConfigBuilderOptions.md)

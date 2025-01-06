@@ -69,7 +69,7 @@ export class ConfigBuilder {
    * ```
    */
   async build (rawModules: ConfigRawModules, blueprint: IBlueprint = Config.create()): Promise<IBlueprint> {
-    const modules = this.extractModulesFromRaw(rawModules)
+    const modules = this.extractModulesFromRawInput(rawModules)
     const context: ConfigContext = { modules, blueprint }
     const { middleware, defaultMiddlewarePriority = 10 } = this.extractOptionsFromModules(modules)
 
@@ -87,7 +87,7 @@ export class ConfigBuilder {
    * @param rawModules - The modules to extract.
    * @returns The list of modules extracted.
    */
-  private extractModulesFromRaw (rawModules: ConfigRawModules): unknown[] {
+  private extractModulesFromRawInput (rawModules: ConfigRawModules): unknown[] {
     return Object.values(rawModules).reduce<unknown[]>((modules, value) => {
       return modules.concat(Object.values(value))
     }, [])
@@ -121,7 +121,7 @@ export class ConfigBuilder {
       const blueprint = getBlueprint(module)
       blueprint !== undefined && this.populateOptions(options, blueprint.stone?.builder)
     } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) {
-      const metadata: ConfigMiddlewareOptions = getMetadata(module, CONFIG_MIDDLEWARE_KEY)
+      const metadata: ConfigMiddlewareOptions = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
       this.populateOptions(options, { middleware: [{ ...metadata, pipe: module }] })
     } else if (hasMetadata(module, CONFIGURATION_KEY)) {
       this.populateOptions(options, (module as unknown as StoneBlueprint).stone?.builder)

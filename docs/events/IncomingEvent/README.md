@@ -1,17 +1,15 @@
-[**Core Documentation v0.0.34**](../../README.md) • **Docs**
+[**Core Documentation v0.0.35**](../../README.md)
 
 ***
 
-[Core Documentation v0.0.34](../../modules.md) / events/IncomingEvent
+[Core Documentation](../../modules.md) / events/IncomingEvent
 
 # events/IncomingEvent
 
-## Index
-
-### Classes
+## Classes
 
 - [IncomingEvent](classes/IncomingEvent.md)
 
-### Interfaces
+## Interfaces
 
 - [IncomingEventOptions](interfaces/IncomingEventOptions.md)
