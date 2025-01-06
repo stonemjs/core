@@ -5,6 +5,18 @@ All notable changes to the "Stone.js Core" extension will be documented in this 
 ## Unreleased
 
 
+## [0.0.36](https://github.com/stonemjs/core/compare/v0.0.35...v0.0.36) (2025-01-06)
+
+
+### Features
+
+* improve lifecycle hooks, implement error handler mechanism and legacy decorator compatibility ([8375902](https://github.com/stonemjs/core/commit/83759020101bdf94fc7c7a0d8609e63689d57c0f))
+
+
+### Bug Fixes
+
+* fix typing issues and update dependencies ([d28941a](https://github.com/stonemjs/core/commit/d28941aea6c8a2d26eb8cc9621f78faa8122d968))
+
 ## [0.0.35](https://github.com/stonemjs/core/compare/v0.0.34...v0.0.35) (2024-12-07)
 
 
