@@ -8,7 +8,7 @@
 
 > **EventHandlerFunction**\<`TEvent`, `UResponse`\>: (`incomingEvent`) => `UResponse` \| `Promise`\<`UResponse`\>
 
-Defined in: [src/definitions.ts:160](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L160)
+Defined in: [src/definitions.ts:160](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L160)
 
 EventHandlerFunction.
 

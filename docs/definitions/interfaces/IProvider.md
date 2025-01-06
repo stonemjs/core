@@ -6,7 +6,7 @@
 
 # Interface: IProvider\<TEvent, UResponse\>
 
-Defined in: [src/definitions.ts:29](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L29)
+Defined in: [src/definitions.ts:29](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L29)
 
 Interface representing a provider within the system.
 
@@ -30,7 +30,7 @@ UResponse
 
 > `optional` **afterHandle**: (`context`) => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:53](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L53)
+Defined in: [src/definitions.ts:53](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L53)
 
 Hook that runs after the main handler is invoked. This can be used for cleanup tasks.
 
@@ -50,7 +50,7 @@ Hook that runs after the main handler is invoked. This can be used for cleanup t
 
 > `optional` **beforeHandle**: () => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:38](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L38)
+Defined in: [src/definitions.ts:38](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L38)
 
 Hook that runs before the main handler is invoked. This can be used for setup or validation purposes.
 
@@ -64,7 +64,7 @@ Hook that runs before the main handler is invoked. This can be used for setup or
 
 > `optional` **boot**: () => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:48](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L48)
+Defined in: [src/definitions.ts:48](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L48)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -78,7 +78,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > `optional` **mustSkip**: () => `boolean`
 
-Defined in: [src/definitions.ts:63](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L63)
+Defined in: [src/definitions.ts:63](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L63)
 
 Skip this provider.
 
@@ -92,7 +92,7 @@ Skip this provider.
 
 > `optional` **onPrepare**: () => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:33](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L33)
+Defined in: [src/definitions.ts:33](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L33)
 
 Hook that runs before the context is created. This can be used for setup or validation purposes.
 
@@ -106,7 +106,7 @@ Hook that runs before the context is created. This can be used for setup or vali
 
 > `optional` **onTerminate**: (`context`) => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:58](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L58)
+Defined in: [src/definitions.ts:58](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L58)
 
 Hook that runs after the main handler completes. This can be used for cleanup tasks.
 
@@ -126,7 +126,7 @@ Hook that runs after the main handler completes. This can be used for cleanup ta
 
 > `optional` **register**: () => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:43](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L43)
+Defined in: [src/definitions.ts:43](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L43)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

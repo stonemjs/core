@@ -6,7 +6,7 @@
 
 # Interface: ProviderOptions
 
-Defined in: [src/decorators/Provider.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Provider.ts#L10)
+Defined in: [src/decorators/Provider.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Provider.ts#L10)
 
 Provider options.
 

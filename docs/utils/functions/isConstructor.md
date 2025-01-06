@@ -8,7 +8,7 @@
 
 > **isConstructor**(`value`): `value is (args: any[]) => any`
 
-Defined in: [src/utils.ts:76](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/utils.ts#L76)
+Defined in: [src/utils.ts:76](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/utils.ts#L76)
 
 Checks if the given value is a constructor function.
 

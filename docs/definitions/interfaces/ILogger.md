@@ -6,7 +6,7 @@
 
 # Interface: ILogger
 
-Defined in: [src/definitions.ts:101](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L101)
+Defined in: [src/definitions.ts:101](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L101)
 
 Logger Interface.
 
@@ -18,7 +18,7 @@ Represents a generic logging interface, which can either be a native console obj
 
 > **debug**: (`message`, ...`optionalParams`) => `void`
 
-Defined in: [src/definitions.ts:116](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L116)
+Defined in: [src/definitions.ts:116](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L116)
 
 Logs debug-level messages, used for debugging purposes.
 
@@ -46,7 +46,7 @@ Optional parameters to log.
 
 > **error**: (`message`, ...`optionalParams`) => `void`
 
-Defined in: [src/definitions.ts:132](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L132)
+Defined in: [src/definitions.ts:132](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L132)
 
 Logs errors, used to report errors or exceptions.
 
@@ -74,7 +74,7 @@ Optional parameters to log.
 
 > **info**: (`message`, ...`optionalParams`) => `void`
 
-Defined in: [src/definitions.ts:108](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L108)
+Defined in: [src/definitions.ts:108](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L108)
 
 Logs informational messages.
 
@@ -102,7 +102,7 @@ Optional parameters to log.
 
 > `optional` **log**: (`message`, ...`optionalParams`) => `void`
 
-Defined in: [src/definitions.ts:140](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L140)
+Defined in: [src/definitions.ts:140](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L140)
 
 Logs general messages, similar to `info` but less specific.
 
@@ -130,7 +130,7 @@ Optional parameters to log.
 
 > `optional` **trace**: (`message`, ...`optionalParams`) => `void`
 
-Defined in: [src/definitions.ts:148](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L148)
+Defined in: [src/definitions.ts:148](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L148)
 
 Logs trace-level messages, providing the most detailed information, usually for diagnostic purposes.
 
@@ -158,7 +158,7 @@ Optional parameters to log.
 
 > **warn**: (`message`, ...`optionalParams`) => `void`
 
-Defined in: [src/definitions.ts:124](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L124)
+Defined in: [src/definitions.ts:124](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L124)
 
 Logs warnings, used to indicate potential issues.
 

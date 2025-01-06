@@ -8,7 +8,7 @@
 
 > **methodDecoratorLegacyWrapper**\<`T`\>(`decorator`): `MethodDecorator`
 
-Defined in: [src/decorators/Metadata.ts:260](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/Metadata.ts#L260)
+Defined in: [src/decorators/Metadata.ts:260](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Metadata.ts#L260)
 
 Wraps a method decorator to ensure compatibility with both legacy and 2023-11 proposal contexts.
 

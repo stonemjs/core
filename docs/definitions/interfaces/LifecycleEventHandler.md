@@ -6,7 +6,7 @@
 
 # Interface: LifecycleEventHandler\<TEvent, UResponse\>
 
-Defined in: [src/definitions.ts:201](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L201)
+Defined in: [src/definitions.ts:201](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L201)
 
 LifecycleEventHandler Interface.
 
@@ -28,7 +28,7 @@ UResponse
 
 > `optional` **afterHandle**: (`context`) => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:205](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L205)
+Defined in: [src/definitions.ts:205](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L205)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [src/definitions.ts:205](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **beforeHandle**: () => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:203](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L203)
+Defined in: [src/definitions.ts:203](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L203)
 
 #### Returns
 
@@ -58,7 +58,7 @@ Defined in: [src/definitions.ts:203](https://github.com/stonemjs/core/blob/c9d95
 
 > **handle**: [`EventHandlerFunction`](../type-aliases/EventHandlerFunction.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [src/definitions.ts:204](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L204)
+Defined in: [src/definitions.ts:204](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L204)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: [src/definitions.ts:204](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **onPrepare**: () => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:202](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L202)
+Defined in: [src/definitions.ts:202](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L202)
 
 #### Returns
 
@@ -78,7 +78,7 @@ Defined in: [src/definitions.ts:202](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **onTerminate**: (`context`) => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:206](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L206)
+Defined in: [src/definitions.ts:206](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L206)
 
 #### Parameters
 

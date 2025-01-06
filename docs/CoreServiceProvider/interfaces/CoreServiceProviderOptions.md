@@ -6,7 +6,7 @@
 
 # Interface: CoreServiceProviderOptions
 
-Defined in: [src/CoreServiceProvider.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/CoreServiceProvider.ts#L10)
+Defined in: [src/CoreServiceProvider.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L10)
 
 CoreServiceProvider options.
 
@@ -16,7 +16,7 @@ CoreServiceProvider options.
 
 > **blueprint**: [`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
 
-Defined in: [src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/CoreServiceProvider.ts#L12)
+Defined in: [src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L12)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blo
 
 > **container**: `Container`
 
-Defined in: [src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/CoreServiceProvider.ts#L13)
+Defined in: [src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L13)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blo
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/CoreServiceProvider.ts#L14)
+Defined in: [src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L14)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blo
 
 > **logger**: [`ILogger`](../../definitions/interfaces/ILogger.md)
 
-Defined in: [src/CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/CoreServiceProvider.ts#L11)
+Defined in: [src/CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L11)

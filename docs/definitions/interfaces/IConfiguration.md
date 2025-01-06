@@ -6,7 +6,7 @@
 
 # Interface: IConfiguration\<TResponse\>
 
-Defined in: [src/definitions.ts:371](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L371)
+Defined in: [src/definitions.ts:371](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L371)
 
 Configuration Interface.
 
@@ -22,7 +22,7 @@ Represents a configuration with an optional load method to asynchronously load c
 
 > `optional` **load**: () => `TResponse` \| `Promise`\<`TResponse`\>
 
-Defined in: [src/definitions.ts:372](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L372)
+Defined in: [src/definitions.ts:372](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L372)
 
 #### Returns
 

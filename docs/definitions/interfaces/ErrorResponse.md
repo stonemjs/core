@@ -6,7 +6,7 @@
 
 # Interface: ErrorResponse
 
-Defined in: [src/definitions.ts:527](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L527)
+Defined in: [src/definitions.ts:527](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L527)
 
 ErrorResponse Interface.
 
@@ -18,7 +18,7 @@ Represents an error response with code, status, and message properties.
 
 > `optional` **code**: `number`
 
-Defined in: [src/definitions.ts:528](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L528)
+Defined in: [src/definitions.ts:528](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L528)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/definitions.ts:528](https://github.com/stonemjs/core/blob/c9d95
 
 > **message**: `unknown`
 
-Defined in: [src/definitions.ts:530](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L530)
+Defined in: [src/definitions.ts:530](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L530)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [src/definitions.ts:530](https://github.com/stonemjs/core/blob/c9d95
 
 > **status**: `number`
 
-Defined in: [src/definitions.ts:529](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L529)
+Defined in: [src/definitions.ts:529](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L529)

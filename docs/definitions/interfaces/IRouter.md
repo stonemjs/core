@@ -6,7 +6,7 @@
 
 # Interface: IRouter\<TEvent, UResponse\>
 
-Defined in: [src/definitions.ts:391](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L391)
+Defined in: [src/definitions.ts:391](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L391)
 
 Router Interface.
 
@@ -28,7 +28,7 @@ UResponse
 
 > **dispatch**: (`event`) => `UResponse` \| `Promise`\<`UResponse`\>
 
-Defined in: [src/definitions.ts:392](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L392)
+Defined in: [src/definitions.ts:392](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L392)
 
 #### Parameters
 

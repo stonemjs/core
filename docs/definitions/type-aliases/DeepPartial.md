@@ -8,7 +8,7 @@
 
 > **DeepPartial**\<`TValues`\>: `{ [P in keyof TValues]?: TValues[P] extends object ? DeepPartial<TValues[P]> : TValues[P] }`
 
-Defined in: [src/definitions.ts:296](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L296)
+Defined in: [src/definitions.ts:296](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L296)
 
 DeepPartial Type.
 

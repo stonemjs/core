@@ -8,7 +8,7 @@
 
 > **ProposalMethodDecorator**\<`T`\>: \<`TFunction`\>(`target`, `context`) => `TFunction` \| `undefined`
 
-Defined in: [src/definitions.ts:578](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L578)
+Defined in: [src/definitions.ts:578](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L578)
 
 Represents a method decorator using the 2023-11 proposal syntax.
 

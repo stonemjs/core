@@ -6,7 +6,7 @@
 
 # Interface: AdapterHooks
 
-Defined in: [src/definitions.ts:272](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L272)
+Defined in: [src/definitions.ts:272](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L272)
 
 AdapterHooks Interface.
 
@@ -18,7 +18,7 @@ Represents lifecycle hooks that can be defined for the adapter, such as initiali
 
 > `optional` **afterHandle**: [`AdapterAfterHandleListenerHook`](../type-aliases/AdapterAfterHandleListenerHook.md)[]
 
-Defined in: [src/definitions.ts:276](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L276)
+Defined in: [src/definitions.ts:276](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L276)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/definitions.ts:276](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **beforeHandle**: [`AdapterListenerHook`](../type-aliases/AdapterListenerHook.md)[]
 
-Defined in: [src/definitions.ts:275](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L275)
+Defined in: [src/definitions.ts:275](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L275)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/definitions.ts:275](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **onInit**: [`AdapterListenerHook`](../type-aliases/AdapterListenerHook.md)[]
 
-Defined in: [src/definitions.ts:273](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L273)
+Defined in: [src/definitions.ts:273](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L273)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/definitions.ts:273](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **onPrepare**: [`AdapterListenerHook`](../type-aliases/AdapterListenerHook.md)[]
 
-Defined in: [src/definitions.ts:274](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L274)
+Defined in: [src/definitions.ts:274](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L274)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: [src/definitions.ts:274](https://github.com/stonemjs/core/blob/c9d95
 
 > `optional` **onTerminate**: [`AdapterOnTerminateListenerHook`](../type-aliases/AdapterOnTerminateListenerHook.md)[]
 
-Defined in: [src/definitions.ts:277](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L277)
+Defined in: [src/definitions.ts:277](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L277)

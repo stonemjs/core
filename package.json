@@ -46,7 +46,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@stone-js/config": "^0.0.34",
+    "@stone-js/config": "^0.0.35",
     "@stone-js/pipeline": "^0.0.46",
     "@stone-js/service-container": "^0.0.44",
     "deepmerge": "^4.3.1",

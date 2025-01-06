@@ -6,7 +6,7 @@
 
 # Enumeration: LogLevel
 
-Defined in: [src/definitions.ts:12](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L12)
+Defined in: [src/definitions.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L12)
 
 Log level enumeration to define possible log levels.
 
@@ -16,7 +16,7 @@ Log level enumeration to define possible log levels.
 
 > **DEBUG**: `"debug"`
 
-Defined in: [src/definitions.ts:14](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L14)
+Defined in: [src/definitions.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L14)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/definitions.ts:14](https://github.com/stonemjs/core/blob/c9d95b
 
 > **ERROR**: `"error"`
 
-Defined in: [src/definitions.ts:17](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L17)
+Defined in: [src/definitions.ts:17](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L17)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/definitions.ts:17](https://github.com/stonemjs/core/blob/c9d95b
 
 > **INFO**: `"info"`
 
-Defined in: [src/definitions.ts:15](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L15)
+Defined in: [src/definitions.ts:15](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L15)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [src/definitions.ts:15](https://github.com/stonemjs/core/blob/c9d95b
 
 > **TRACE**: `"trace"`
 
-Defined in: [src/definitions.ts:13](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L13)
+Defined in: [src/definitions.ts:13](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L13)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [src/definitions.ts:13](https://github.com/stonemjs/core/blob/c9d95b
 
 > **WARN**: `"warn"`
 
-Defined in: [src/definitions.ts:16](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L16)
+Defined in: [src/definitions.ts:16](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L16)

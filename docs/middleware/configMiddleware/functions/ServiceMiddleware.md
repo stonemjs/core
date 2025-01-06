@@ -8,7 +8,7 @@
 
 > **ServiceMiddleware**(`context`, `next`): [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
 
-Defined in: [src/middleware/configMiddleware.ts:211](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/middleware/configMiddleware.ts#L211)
+Defined in: [src/middleware/configMiddleware.ts:211](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/middleware/configMiddleware.ts#L211)
 
 Middleware to add services to the blueprint.
 

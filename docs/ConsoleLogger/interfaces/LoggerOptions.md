@@ -6,7 +6,7 @@
 
 # Interface: LoggerOptions
 
-Defined in: [src/ConsoleLogger.ts:11](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/ConsoleLogger.ts#L11)
+Defined in: [src/ConsoleLogger.ts:11](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L11)
 
 LoggerOptions.
 
@@ -18,6 +18,6 @@ Options for creating a ConsoleLogger instance.
 
 > **blueprint**: [`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
 
-Defined in: [src/ConsoleLogger.ts:12](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/ConsoleLogger.ts#L12)
+Defined in: [src/ConsoleLogger.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L12)
 
 The blueprint configuration used by the logger.

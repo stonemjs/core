@@ -6,7 +6,7 @@
 
 # Interface: IAdapterEventBuilder\<TValues, UResponse\>
 
-Defined in: [src/definitions.ts:180](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L180)
+Defined in: [src/definitions.ts:180](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L180)
 
 IAdapterEventBuilder Interface.
 
@@ -28,7 +28,7 @@ UResponse
 
 > **add**: (`key`, `value`) => `this`
 
-Defined in: [src/definitions.ts:181](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L181)
+Defined in: [src/definitions.ts:181](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L181)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ keyof `TValues`
 
 > **build**: () => `UResponse`
 
-Defined in: [src/definitions.ts:182](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L182)
+Defined in: [src/definitions.ts:182](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L182)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 # Interface: ErrorHandlerOptions
 
-Defined in: [src/decorators/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/ErrorHandler.ts#L10)
+Defined in: [src/decorators/ErrorHandler.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/ErrorHandler.ts#L10)
 
 ErrorHandler options.
 
@@ -18,6 +18,6 @@ This interface defines the ErrorHandler options for marking a class as a ErrorHa
 
 > **error**: `string` \| `string`[]
 
-Defined in: [src/decorators/ErrorHandler.ts:14](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/decorators/ErrorHandler.ts#L14)
+Defined in: [src/decorators/ErrorHandler.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/ErrorHandler.ts#L14)
 
 Additional configuration settings for the ErrorHandler, if needed.

@@ -6,7 +6,7 @@
 
 # Interface: IListener
 
-Defined in: [src/definitions.ts:72](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L72)
+Defined in: [src/definitions.ts:72](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L72)
 
 Interface representing a listener for handling specific events.
 
@@ -19,7 +19,7 @@ that is called whenever the associated event occurs.
 
 > **handle**: (`event`) => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:78](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L78)
+Defined in: [src/definitions.ts:78](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L78)
 
 Handles the event when it occurs. This method contains the logic that runs when the event is triggered.
 

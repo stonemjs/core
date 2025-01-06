@@ -6,7 +6,7 @@
 
 # Interface: HookContext\<TEvent, UResponse\>
 
-Defined in: [src/definitions.ts:416](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L416)
+Defined in: [src/definitions.ts:416](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L416)
 
 HookContext Interface.
 
@@ -28,7 +28,7 @@ UResponse
 
 > **event**: `TEvent`
 
-Defined in: [src/definitions.ts:417](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L417)
+Defined in: [src/definitions.ts:417](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L417)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [src/definitions.ts:417](https://github.com/stonemjs/core/blob/c9d95
 
 > **response**: `UResponse`
 
-Defined in: [src/definitions.ts:418](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L418)
+Defined in: [src/definitions.ts:418](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L418)

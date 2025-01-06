@@ -8,7 +8,7 @@
 
 > **AdapterOnTerminateListenerHook**: \<`TEvent`, `UResponse`\>(`blueprint`, `context`) => `void` \| `Promise`\<`void`\>
 
-Defined in: [src/definitions.ts:248](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L248)
+Defined in: [src/definitions.ts:248](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L248)
 
 AdapterOnTerminateListenerHook Type.
 

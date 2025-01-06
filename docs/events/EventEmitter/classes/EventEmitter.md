@@ -6,7 +6,7 @@
 
 # Class: EventEmitter
 
-Defined in: [src/events/EventEmitter.ts:12](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/EventEmitter.ts#L12)
+Defined in: [src/events/EventEmitter.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L12)
 
 Class representing an EventEmitter.
 
@@ -54,7 +54,7 @@ Additional arguments to pass when emitting.
 
 > **emit**(`event`): `boolean`
 
-Defined in: [src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/EventEmitter.ts#L18)
+Defined in: [src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L18)
 
 Overloaded emit method to accept either a custom Event or event name and arguments.
 
@@ -86,7 +86,7 @@ Additional arguments to pass when emitting.
 
 > **emit**(`event`, ...`args`): `boolean`
 
-Defined in: [src/events/EventEmitter.ts:25](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/EventEmitter.ts#L25)
+Defined in: [src/events/EventEmitter.ts:25](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L25)
 
 Overloaded emit method to accept either a custom Event or event name and arguments.
 
@@ -124,7 +124,7 @@ Additional arguments to pass when emitting.
 
 > **emit**(`event`, ...`args`): `boolean`
 
-Defined in: [src/events/EventEmitter.ts:32](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/events/EventEmitter.ts#L32)
+Defined in: [src/events/EventEmitter.ts:32](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L32)
 
 Overloaded emit method to accept either a custom Event or event name and arguments.
 

@@ -8,7 +8,7 @@
 
 > **setCurrentAdapterByPlatform**(`blueprint`, `platform`): `void`
 
-Defined in: [src/utils.ts:86](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/utils.ts#L86)
+Defined in: [src/utils.ts:86](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/utils.ts#L86)
 
 Set the current adapter configuration by platform.
 

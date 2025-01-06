@@ -8,7 +8,7 @@
 
 > **defineAppBlueprint**\<`U`, `V`\>(...`userBlueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
 
-Defined in: [src/utils.ts:50](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/utils.ts#L50)
+Defined in: [src/utils.ts:50](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/utils.ts#L50)
 
 Defines an application blueprint by merging user-defined blueprints with default options.
 

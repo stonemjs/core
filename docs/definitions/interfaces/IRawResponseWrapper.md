@@ -6,7 +6,7 @@
 
 # Interface: IRawResponseWrapper\<TResponse\>
 
-Defined in: [src/definitions.ts:169](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L169)
+Defined in: [src/definitions.ts:169](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L169)
 
 RawResponseBuilder Interface.
 
@@ -22,7 +22,7 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 > **respond**: () => `TResponse` \| `Promise`\<`TResponse`\>
 
-Defined in: [src/definitions.ts:170](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L170)
+Defined in: [src/definitions.ts:170](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L170)
 
 #### Returns
 

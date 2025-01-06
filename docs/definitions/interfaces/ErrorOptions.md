@@ -6,7 +6,7 @@
 
 # Interface: ErrorOptions
 
-Defined in: [src/definitions.ts:536](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L536)
+Defined in: [src/definitions.ts:536](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L536)
 
 Represents options for configuring an error.
 
@@ -16,7 +16,7 @@ Represents options for configuring an error.
 
 > `optional` **cause**: `Error`
 
-Defined in: [src/definitions.ts:545](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L545)
+Defined in: [src/definitions.ts:545](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L545)
 
 The original error that caused this error, useful for error chaining.
 
@@ -26,7 +26,7 @@ The original error that caused this error, useful for error chaining.
 
 > `optional` **code**: `string`
 
-Defined in: [src/definitions.ts:540](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L540)
+Defined in: [src/definitions.ts:540](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L540)
 
 A specific error code for identifying the error.
 
@@ -36,6 +36,6 @@ A specific error code for identifying the error.
 
 > `optional` **metadata**: `unknown`
 
-Defined in: [src/definitions.ts:550](https://github.com/stonemjs/core/blob/c9d95b58ccfb8efcaba0bed7bbf19084836cc28d/src/definitions.ts#L550)
+Defined in: [src/definitions.ts:550](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/definitions.ts#L550)
 
 Additional information or context about the error.

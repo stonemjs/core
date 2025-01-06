@@ -34,7 +34,7 @@ export const BlueprintMiddleware = async ({ modules, blueprint }: ConfigContext,
   const imperativeBlueprints = classModules.filter((module) => hasMetadata(module, CONFIGURATION_KEY)).map(async (module) => await extractImperativeBlueprintFromModule(module))
   const resolvedImperativeBlueprints = await Promise.all(imperativeBlueprints)
 
-  blueprint.set(mergeBlueprints(...declarativeBlueprints, ...resolvedImperativeBlueprints))
+  blueprint.set(mergeBlueprints(...declarativeBlueprints, ...resolvedImperativeBlueprints) as Record<PropertyKey, any>)
 
   return await next({ modules, blueprint })
 }
