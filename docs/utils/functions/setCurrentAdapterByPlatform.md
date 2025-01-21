@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **setCurrentAdapterByPlatform**(`blueprint`, `platform`): `void`
 
-Defined in: [src/utils.ts:86](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/utils.ts#L86)
+Defined in: [utils.ts:86](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/utils.ts#L86)
 
 Set the current adapter configuration by platform.
 
@@ -16,7 +16,7 @@ Set the current adapter configuration by platform.
 
 ### blueprint
 
-[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
+[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
 The blueprint object containing the adapter configurations.
 

@@ -1,6 +1,6 @@
 import { RuntimeError } from '../src/errors/RuntimeError'
 import { StoneFactory, StoneFactoryOptions } from '../src/StoneFactory'
-import { IBlueprint, IAdapter, AdapterResolver } from '../src/definitions'
+import { IBlueprint, IAdapter, AdapterResolver } from '../src/declarations'
 
 // Mock implementations for IBlueprint and IAdapter
 class MockAdapter implements IAdapter {

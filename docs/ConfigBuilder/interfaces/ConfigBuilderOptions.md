@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: ConfigBuilderOptions
 
-Defined in: [src/ConfigBuilder.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L12)
+Defined in: [ConfigBuilder.ts:12](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L12)
 
 ConfigBuilderOptions.
 
@@ -16,7 +16,7 @@ ConfigBuilderOptions.
 
 > `optional` **defaultMiddlewarePriority**: `number`
 
-Defined in: [src/ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L14)
+Defined in: [ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L14)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [src/ConfigBuilder.ts:14](https://github.com/stonemjs/core/blob/8375
 
 > **middleware**: `MixedPipe`[]
 
-Defined in: [src/ConfigBuilder.ts:13](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L13)
+Defined in: [ConfigBuilder.ts:13](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L13)

@@ -1,4 +1,4 @@
-import { IBlueprint } from '../src/definitions'
+import { IBlueprint } from '../src/declarations'
 import { SetupError } from '../src/errors/SetupError'
 import { mergeBlueprints, defineAppBlueprint, setCurrentAdapterByPlatform } from '../src/utils'
 import { StoneBlueprint, Environment, stoneBlueprint } from '../src/options/StoneBlueprint'

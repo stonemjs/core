@@ -1,159 +1,113 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
 [Core Documentation](../../../modules.md) / [events/EventEmitter](../README.md) / EventEmitter
 
-# Class: EventEmitter
+# Class: EventEmitter\<TEvent\>
 
-Defined in: [src/events/EventEmitter.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L12)
+Defined in: [events/EventEmitter.ts:12](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L12)
 
 Class representing an EventEmitter.
 
-## Extends
+## Type Parameters
 
-- `EventEmitter`
+• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 ## Constructors
 
 ### new EventEmitter()
 
-> **new EventEmitter**(`options`?): [`EventEmitter`](EventEmitter.md)
+> **new EventEmitter**\<`TEvent`\>(): [`EventEmitter`](EventEmitter.md)\<`TEvent`\>
 
-Defined in: node\_modules/@types/node/events.d.ts:134
+Defined in: [events/EventEmitter.ts:17](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L17)
 
-#### Parameters
-
-##### options?
-
-`EventEmitterOptions`
+Create an EventEmitter.
 
 #### Returns
 
-[`EventEmitter`](EventEmitter.md)
-
-#### Inherited from
-
-`NodeEventEmitter.constructor`
+[`EventEmitter`](EventEmitter.md)\<`TEvent`\>
 
 ## Methods
 
 ### emit()
 
-Overloaded emit method to accept either a custom Event or event name and arguments.
+> **emit**(`event`, `args`?): `void`
 
-#### Param
+Defined in: [events/EventEmitter.ts:47](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L47)
 
-The event name or an instance of Event.
+Emits an event, triggering all associated listeners.
 
-#### Param
+#### Parameters
 
-Additional arguments to pass when emitting.
-
-#### Call Signature
-
-> **emit**(`event`): `boolean`
-
-Defined in: [src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L18)
-
-Overloaded emit method to accept either a custom Event or event name and arguments.
-
-##### Parameters
-
-###### event
-
-[`Event`](../../Event/classes/Event.md)
+##### event
 
 The event name or an instance of Event.
 
-##### Returns
+`string` | `symbol` | `TEvent`
 
-`boolean`
+##### args?
 
-##### Param
+`TEvent`
 
-The event name or an instance of Event.
+Additional arguments to pass to the listeners.
 
-##### Param
+#### Returns
 
-Additional arguments to pass when emitting.
+`void`
 
-##### Overrides
+***
 
-`NodeEventEmitter.emit`
+### off()
 
-#### Call Signature
+> **off**(`event`, `listener`): `void`
 
-> **emit**(`event`, ...`args`): `boolean`
+Defined in: [events/EventEmitter.ts:37](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L37)
 
-Defined in: [src/events/EventEmitter.ts:25](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L25)
+Removes an event listener for the given event type.
 
-Overloaded emit method to accept either a custom Event or event name and arguments.
+#### Parameters
 
-##### Parameters
+##### event
 
-###### event
+The event name or type.
 
-`symbol`
+`string` | `symbol`
 
-The event name or an instance of Event.
+##### listener
 
-###### args
+The callback to remove.
 
-...`any`[]
+`Handler`\<[`Event`](../../Event/classes/Event.md)\> | `WildcardHandler`\<`Record`\<`string` \| `symbol`, `TEvent`\>\>
 
-Additional arguments to pass when emitting.
+#### Returns
 
-##### Returns
+`void`
 
-`boolean`
+***
 
-##### Param
+### on()
 
-The event name or an instance of Event.
+> **on**(`event`, `listener`): `void`
 
-##### Param
+Defined in: [events/EventEmitter.ts:27](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L27)
 
-Additional arguments to pass when emitting.
+Registers an event listener for the given event type.
 
-##### Overrides
+#### Parameters
 
-`NodeEventEmitter.emit`
+##### event
 
-#### Call Signature
+The event name or type.
 
-> **emit**(`event`, ...`args`): `boolean`
+`string` | `symbol`
 
-Defined in: [src/events/EventEmitter.ts:32](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L32)
+##### listener
 
-Overloaded emit method to accept either a custom Event or event name and arguments.
+The callback to invoke when the event is emitted.
 
-##### Parameters
+`Handler`\<[`Event`](../../Event/classes/Event.md)\> | `WildcardHandler`\<`Record`\<`string` \| `symbol`, `TEvent`\>\>
 
-###### event
+#### Returns
 
-`string`
-
-The event name or an instance of Event.
-
-###### args
-
-...`any`[]
-
-Additional arguments to pass when emitting.
-
-##### Returns
-
-`boolean`
-
-##### Param
-
-The event name or an instance of Event.
-
-##### Param
-
-Additional arguments to pass when emitting.
-
-##### Overrides
-
-`NodeEventEmitter.emit`
+`void`

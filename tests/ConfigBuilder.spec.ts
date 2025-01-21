@@ -2,7 +2,7 @@ import { Config } from '@stone-js/config'
 import { Pipeline } from '@stone-js/pipeline'
 import { MetadataSymbol } from '../src/decorators/Metadata'
 import { ConfigBuilder, ConfigBuilderOptions } from '../src/ConfigBuilder'
-import { ClassType, ConfigRawModules, MetadataHolder } from '../src/definitions'
+import { ClassType, ConfigRawModules, MetadataHolder } from '../src/declarations'
 import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, BLUEPRINT_KEY } from '../src/decorators/constants'
 
 /**

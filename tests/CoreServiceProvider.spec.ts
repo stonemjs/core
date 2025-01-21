@@ -3,7 +3,7 @@ import { Container } from '@stone-js/service-container'
 import { KernelEvent } from '../src/events/KernelEvent'
 import { EventEmitter } from '../src/events/EventEmitter'
 import { InitializationError } from '../src/errors/InitializationError'
-import { IBlueprint, IListener, ILogger, ISubscriber } from '../src/definitions'
+import { IBlueprint, IListener, ILogger, ISubscriber } from '../src/declarations'
 import { CoreServiceProvider, CoreServiceProviderOptions } from '../src/CoreServiceProvider'
 
 /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
@@ -80,6 +80,7 @@ describe('CoreServiceProvider', () => {
     eventEmitter.emit('test:event')
 
     expect(mockListenerHandleSpy).toHaveBeenCalled()
+    eventEmitter.off('test:event', mockListenerHandleSpy)
   })
 
   it('should log error when listeners in is error', () => {

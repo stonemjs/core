@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **isConstructor**(`value`): `value is (args: any[]) => any`
 
-Defined in: [src/utils.ts:76](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/utils.ts#L76)
+Defined in: [utils.ts:76](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/utils.ts#L76)
 
 Checks if the given value is a constructor function.
 

@@ -13,7 +13,7 @@ import {
   IAdapterErrorHandler,
   LifecycleEventHandler,
   AdapterHandlerResolver
-} from '../definitions'
+} from '../declarations'
 import { isConstructor } from '../utils'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { IntegrationError } from '../errors/IntegrationError'

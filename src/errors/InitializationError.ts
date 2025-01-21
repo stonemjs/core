@@ -1,4 +1,4 @@
-import { ErrorOptions } from '../definitions'
+import { ErrorOptions } from '../declarations'
 import { RuntimeError } from './RuntimeError'
 
 /**

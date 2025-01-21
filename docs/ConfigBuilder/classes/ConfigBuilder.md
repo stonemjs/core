@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: ConfigBuilder
 
-Defined in: [src/ConfigBuilder.ts:29](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L29)
+Defined in: [ConfigBuilder.ts:29](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L29)
 
 Class representing a ConfigBuilder for the Stone.js framework.
 
@@ -27,7 +27,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new ConfigBuilder**(`options`): [`ConfigBuilder`](ConfigBuilder.md)
 
-Defined in: [src/ConfigBuilder.ts:50](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L50)
+Defined in: [ConfigBuilder.ts:50](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L50)
 
 Create a ConfigBuilder.
 
@@ -47,9 +47,9 @@ The options to create a ConfigBuilder.
 
 ### build()
 
-> **build**(`rawModules`, `blueprint`): `Promise`\<[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)\>
+> **build**(`rawModules`, `blueprint`): `Promise`\<[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [src/ConfigBuilder.ts:71](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L71)
+Defined in: [ConfigBuilder.ts:71](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L71)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -61,19 +61,19 @@ or use a default one if none is provided.
 
 ##### rawModules
 
-[`ConfigRawModules`](../../definitions/type-aliases/ConfigRawModules.md)
+[`ConfigRawModules`](../../declarations/type-aliases/ConfigRawModules.md)
 
 The modules to build the configuration from, organized by module names.
 
 ##### blueprint
 
-[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md) = `...`
+[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = `...`
 
 The initial blueprint to populate, defaults to a newly created Config instance.
 
 #### Returns
 
-`Promise`\<[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)\>
+`Promise`\<[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>
 
 A promise that resolves to the populated Blueprint object.
 
@@ -90,7 +90,7 @@ const blueprint = await configBuilder.build(rawModules);
 
 > `static` **create**(`options`?): [`ConfigBuilder`](ConfigBuilder.md)
 
-Defined in: [src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConfigBuilder.ts#L41)
+Defined in: [ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConfigBuilder.ts#L41)
 
 Create a ConfigBuilder.
 

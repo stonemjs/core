@@ -1,10 +1,10 @@
 import { Kernel } from './Kernel'
-import { IBlueprint } from './definitions'
 import { ConsoleLogger } from './ConsoleLogger'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
+import { IBlueprint, ResponseResolverOptions } from './declarations'
 
 /**
  * Default logger resolver function.
@@ -17,6 +17,18 @@ import { OutgoingResponse } from './events/OutgoingResponse'
  */
 export function defaultLoggerResolver (blueprint: IBlueprint): ConsoleLogger {
   return ConsoleLogger.create({ blueprint })
+}
+
+/**
+ * Default response resolver function.
+ *
+ * This function resolves the response for the application, using the options provided.
+ * By default, it creates an `OutgoingResponse` instance with the provided options.
+ *
+ * @returns {OutgoingResponse} - An outgoing response instance.
+ */
+export function defaultResponseResolver (options: ResponseResolverOptions): OutgoingResponse {
+  return OutgoingResponse.create(options)
 }
 
 /**

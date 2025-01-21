@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > `const` **MetadataSymbol**: *typeof* [`metadataKey`](metadataKey.md)
 
-Defined in: [src/decorators/Metadata.ts:18](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Metadata.ts#L18)
+Defined in: [decorators/Metadata.ts:18](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L18)
 
 A unique symbol for storing and accessing metadata on classes and their members.
 This symbol is used by decorators to define and retrieve metadata across modules.

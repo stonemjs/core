@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: MiddlewareOptions
 
-Defined in: [src/decorators/Middleware.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Middleware.ts#L10)
+Defined in: [decorators/Middleware.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Middleware.ts#L10)
 
 Middleware options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as middlewa
 
 > `optional` **global**: `boolean`
 
-Defined in: [src/decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Middleware.ts#L24)
+Defined in: [decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Middleware.ts#L24)
 
 Set as Kernel middleware
 
@@ -28,7 +28,7 @@ Set as Kernel middleware
 
 > `optional` **params**: `unknown`[]
 
-Defined in: [src/decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Middleware.ts#L14)
+Defined in: [decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Middleware.ts#L14)
 
 The params to pass to the middleware.
 
@@ -38,6 +38,6 @@ The params to pass to the middleware.
 
 > `optional` **priority**: `number`
 
-Defined in: [src/decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Middleware.ts#L19)
+Defined in: [decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Middleware.ts#L19)
 
 The execution priority of the middleware.

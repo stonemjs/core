@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 # Function: ListenerMiddleware()
 
-> **ListenerMiddleware**(`context`, `next`): [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+> **ListenerMiddleware**(`context`, `next`): [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [src/middleware/configMiddleware.ts:236](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/middleware/configMiddleware.ts#L236)
+Defined in: [middleware/configMiddleware.ts:236](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/middleware/configMiddleware.ts#L236)
 
 Middleware to add listeners to the blueprint.
 
@@ -19,19 +19,19 @@ events within the blueprint. Throws an error if no event name is provided for a 
 
 ### context
 
-[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
+[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md)
 
 The configuration context containing modules and blueprint.
 
 ### next
 
-`NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+`NextPipe`\<[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md), [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
 The next function in the pipeline.
 
 ## Returns
 
-[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
 The updated blueprint.
 

@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **Subscriber**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [src/decorators/Subscriber.ts:34](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Subscriber.ts#L34)
+Defined in: [decorators/Subscriber.ts:34](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Subscriber.ts#L34)
 
 Subscriber decorator to mark a class as a subscriber.
 
@@ -17,7 +17,7 @@ allowing them to listen for events or perform specific tasks based on their subs
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../definitions/type-aliases/ClassType.md) = [`ClassType`](../../../definitions/type-aliases/ClassType.md)
+• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

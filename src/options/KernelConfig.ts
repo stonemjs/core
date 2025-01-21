@@ -1,8 +1,8 @@
 import { MixedPipe } from '@stone-js/pipeline'
-import { defaultKernelResolver } from '../resolvers'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { IErrorHandler, KernelResolver, RouterResolver } from '../definitions'
+import { defaultKernelResolver, defaultResponseResolver } from '../resolvers'
+import { IErrorHandler, KernelResolver, ResponseResolver, RouterResolver } from '../declarations'
 
 /**
  * Kernel options.
@@ -26,6 +26,11 @@ export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, URes
   routerResolver?: RouterResolver<TEvent, UResponse>
 
   /**
+   * The response resolver, used to create instances.
+   */
+  responseResolver?: ResponseResolver<UResponse>
+
+  /**
    * Error handlers used to manage and report errors that occur within the kernel.
    * These handlers can be used to customize error handling behavior and logging.
    */
@@ -41,5 +46,6 @@ export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, URes
  */
 export const kernel: KernelConfig = {
   middleware: [],
-  resolver: defaultKernelResolver
+  resolver: defaultKernelResolver,
+  responseResolver: defaultResponseResolver
 }

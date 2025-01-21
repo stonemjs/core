@@ -5,7 +5,7 @@ import { BuilderConfig, builder } from './BuilderConfig'
 import { AdapterConfig, adapters } from './AdapterConfig'
 import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { EventHandler, IListener, IProvider, ISubscriber } from '../definitions'
+import { AppEventHandler, IListener, IProvider, ISubscriber } from '../declarations'
 
 /**
  * Environment settings.
@@ -120,7 +120,7 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
    * The entry point or handler function for the application.
    * This is the main function that handles incoming requests.
    */
-  handler?: EventHandler<IncomingEvent, OutgoingResponse>
+  handler?: AppEventHandler<IncomingEvent, OutgoingResponse>
 }
 
 /**

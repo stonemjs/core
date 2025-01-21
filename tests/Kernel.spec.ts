@@ -8,7 +8,7 @@ import { EventEmitter } from '../src/events/EventEmitter'
 import { IncomingEvent } from '../src/events/IncomingEvent'
 import { OutgoingResponse } from '../src/events/OutgoingResponse'
 import { InitializationError } from '../src/errors/InitializationError'
-import { EventHandlerFunction, IBlueprint, IErrorHandler, IProvider, IRouter, LifecycleEventHandler } from '../src/definitions'
+import { EventHandlerFunction, IBlueprint, IErrorHandler, IProvider, IRouter, LifecycleEventHandler } from '../src/declarations'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -163,26 +163,10 @@ describe('Kernel', () => {
     expect(MockProviderBeforeHandleSpy).toHaveBeenCalled()
   })
 
-  it('should send event through handle and receive a response in function app handler context', async () => {
-    const metadata = { name: 'Stone.js' }
-    blueprint.set('stone.handler', MockAppFunctionHandler)
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
-
-    await kernel.onPrepare()
-    await kernel.beforeHandle()
-    const response = await kernel.handle(mockEvent)
-    await kernel.afterHandle({ event: mockEvent, response })
-    await kernel.onTerminate({ event: mockEvent, response })
-
-    expect(response.content).toEqual(metadata)
-    expect(MockEventMiddlewareSpy).toHaveBeenCalled()
-    expect(MockResponseMiddlewareSpy).toHaveBeenCalled()
-  })
-
   it('should send event through handle and receive a response in class app handler context', async () => {
     const metadata = { name: 'Stone.js' }
     blueprint.set('stone.handler', MockAppClassHandler)
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
 
     await kernel.onPrepare()
     await kernel.beforeHandle()
@@ -196,12 +180,12 @@ describe('Kernel', () => {
     expect(MockProviderOnPrepareSpy).toHaveBeenCalledTimes(2)
     expect(MockProviderBeforeHandleSpy).toHaveBeenCalledTimes(2)
     expect(MockProviderAfterHandleSpy).toHaveBeenCalledTimes(2)
-    expect(MockProviderOnTerminateSpy).toHaveBeenCalledTimes(3)
+    expect(MockProviderOnTerminateSpy).toHaveBeenCalledTimes(2)
   })
 
   it('should send event through handle and receive a response in router context', async () => {
     const metadata = { name: 'Stone.js' }
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
     blueprint.set('stone.kernel.routerResolver', (_container: Container) => new MockRouter())
 
     await kernel.onPrepare()
@@ -218,7 +202,7 @@ describe('Kernel', () => {
   it('should handle error when default error handler is defined', async () => {
     const metadata = { name: 'Stone.js' }
     blueprint.set('stone.handler', () => undefined)
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
     blueprint.set('stone.kernel.errorHandlers', { default: MockErrorHandler })
 
     await kernel.onPrepare()
@@ -234,7 +218,7 @@ describe('Kernel', () => {
   it('should handle InitializationError when specific error handler is defined', async () => {
     const metadata = { name: 'Stone.js' }
     blueprint.set('stone.handler', () => undefined)
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
     blueprint.set('stone.kernel.errorHandlers', { InitializationError: MockErrorHandler })
 
     await kernel.onPrepare()
@@ -247,9 +231,66 @@ describe('Kernel', () => {
     expect(MockErrorHandlerSpy).toHaveBeenCalled()
   })
 
+  it('should return the resolved response when the handler does not return a response and the response resolver is defined', async () => {
+    const metadata = { name: 'Stone.js' }
+    class MockMainApp { handle = (): unknown => undefined }
+    blueprint.set('stone.handler', MockMainApp)
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
+    blueprint.set('stone.kernel.responseResolver', () => OutgoingResponse.create({ content: metadata }))
+
+    await kernel.onPrepare()
+    await kernel.beforeHandle()
+    const response = await kernel.handle(mockEvent)
+    await kernel.afterHandle({ event: mockEvent, response })
+    await kernel.onTerminate({ event: mockEvent, response })
+
+    expect(response.content).toEqual(metadata)
+    expect(response).toBeInstanceOf(OutgoingResponse)
+    expect(MockEventMiddlewareSpy).toHaveBeenCalled()
+    expect(MockResponseMiddlewareSpy).toHaveBeenCalled()
+  })
+
+  it('should return the resolved response when the handler does not return an outgoing response and the response resolver is defined', async () => {
+    const metadata = { name: 'Stone.js' }
+    class MockMainApp { handle = (): unknown => metadata }
+    blueprint.set('stone.handler', MockMainApp)
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
+    blueprint.set('stone.kernel.responseResolver', (options: any) => OutgoingResponse.create(options))
+
+    await kernel.onPrepare()
+    await kernel.beforeHandle()
+    const response = await kernel.handle(mockEvent)
+    await kernel.afterHandle({ event: mockEvent, response })
+    await kernel.onTerminate({ event: mockEvent, response })
+
+    expect(response.content).toEqual(metadata)
+    expect(response).toBeInstanceOf(OutgoingResponse)
+    expect(MockEventMiddlewareSpy).toHaveBeenCalled()
+    expect(MockResponseMiddlewareSpy).toHaveBeenCalled()
+  })
+
+  it('should return the resolved response when the handler return response options and the response resolver is defined', async () => {
+    const metadata = { name: 'Stone.js' }
+    class MockMainApp { handle = (): unknown => ({ content: metadata }) }
+    blueprint.set('stone.handler', MockMainApp)
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
+    blueprint.set('stone.kernel.responseResolver', (options: any) => OutgoingResponse.create(options))
+
+    await kernel.onPrepare()
+    await kernel.beforeHandle()
+    const response = await kernel.handle(mockEvent)
+    await kernel.afterHandle({ event: mockEvent, response })
+    await kernel.onTerminate({ event: mockEvent, response })
+
+    expect(response.content).toEqual(metadata)
+    expect(response).toBeInstanceOf(OutgoingResponse)
+    expect(MockEventMiddlewareSpy).toHaveBeenCalled()
+    expect(MockResponseMiddlewareSpy).toHaveBeenCalled()
+  })
+
   it('should throw an error when handler is not provided and no specific nor default error handler is provided', async () => {
     const metadata = { name: 'Stone.js' }
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
     blueprint.set('stone.kernel.errorHandlers', { TypeError: MockErrorHandler })
 
     await kernel.onPrepare()
@@ -266,8 +307,9 @@ describe('Kernel', () => {
 
   it('should throw an error when response not returned', async () => {
     const metadata = { name: 'Stone.js' }
-    blueprint.set('stone.handler', () => undefined)
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '' })
+    class MockMainApp { handle = (): unknown => undefined }
+    blueprint.set('stone.handler', MockMainApp)
+    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
 
     await kernel.onPrepare()
     await kernel.beforeHandle()
@@ -276,7 +318,8 @@ describe('Kernel', () => {
 
   it('should throw an error when response is not a subclass of OutgoingResponse', async () => {
     const metadata = { name: 'Stone.js' }
-    blueprint.set('stone.handler', () => ({}))
+    class MockMainApp { handle = (): unknown => ({}) }
+    blueprint.set('stone.handler', MockMainApp)
     // @ts-expect-error - invalid value for test purposes
     const mockEvent = MockIncomingEvent.create({ metadata: 12, type: '' }).setMetadataValue(metadata)
 

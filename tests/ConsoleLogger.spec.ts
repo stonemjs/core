@@ -1,4 +1,4 @@
-import { IBlueprint } from '../src/definitions'
+import { IBlueprint } from '../src/declarations'
 import { ConsoleLogger } from '../src/ConsoleLogger'
 import { RuntimeError } from '../src/errors/RuntimeError'
 

@@ -6,7 +6,7 @@ import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
 import { AdapterEventBuilder } from '../../src/adapter/AdapterEventBuilder'
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
-import { ILogger, IBlueprint, AdapterContext, AdapterHandlerResolver, AdapterHooks, IRawResponseWrapper, LifecycleEventHandler, RawResponseOptions, IAdapterEventBuilder, IAdapterErrorHandler, AdapterErrorContext } from '../../src/definitions'
+import { ILogger, IBlueprint, AdapterContext, AdapterHandlerResolver, AdapterHooks, IRawResponseWrapper, LifecycleEventHandler, RawResponseOptions, IAdapterEventBuilder, IAdapterErrorHandler, AdapterErrorContext } from '../../src/declarations'
 
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 

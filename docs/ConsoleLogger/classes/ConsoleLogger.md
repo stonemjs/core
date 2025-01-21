@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: ConsoleLogger
 
-Defined in: [src/ConsoleLogger.ts:26](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L26)
+Defined in: [ConsoleLogger.ts:26](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L26)
 
 Console Logger class.
 
@@ -21,7 +21,7 @@ logger.info('Application started');
 
 ## Implements
 
-- [`ILogger`](../../definitions/interfaces/ILogger.md)
+- [`ILogger`](../../declarations/interfaces/ILogger.md)
 
 ## Constructors
 
@@ -29,7 +29,7 @@ logger.info('Application started');
 
 > **new ConsoleLogger**(`options`): [`ConsoleLogger`](ConsoleLogger.md)
 
-Defined in: [src/ConsoleLogger.ts:44](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L44)
+Defined in: [ConsoleLogger.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L44)
 
 Constructs a ConsoleLogger instance.
 
@@ -51,7 +51,7 @@ Options for creating the ConsoleLogger.
 
 > **debug**(`message`, ...`optionalParams`): `void`
 
-Defined in: [src/ConsoleLogger.ts:67](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L67)
+Defined in: [ConsoleLogger.ts:67](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L67)
 
 Logs debug-level messages, used for debugging purposes.
 
@@ -75,7 +75,7 @@ Optional parameters to log.
 
 #### Implementation of
 
-[`ILogger`](../../definitions/interfaces/ILogger.md).[`debug`](../../definitions/interfaces/ILogger.md#debug)
+[`ILogger`](../../declarations/interfaces/ILogger.md).[`debug`](../../declarations/interfaces/ILogger.md#debug)
 
 ***
 
@@ -83,7 +83,7 @@ Optional parameters to log.
 
 > **error**(`message`, ...`optionalParams`): `void`
 
-Defined in: [src/ConsoleLogger.ts:91](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L91)
+Defined in: [ConsoleLogger.ts:91](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L91)
 
 Logs errors, used to report errors or exceptions.
 
@@ -107,7 +107,7 @@ Optional parameters to log.
 
 #### Implementation of
 
-[`ILogger`](../../definitions/interfaces/ILogger.md).[`error`](../../definitions/interfaces/ILogger.md#error)
+[`ILogger`](../../declarations/interfaces/ILogger.md).[`error`](../../declarations/interfaces/ILogger.md#error)
 
 ***
 
@@ -115,7 +115,7 @@ Optional parameters to log.
 
 > **info**(`message`, ...`optionalParams`): `void`
 
-Defined in: [src/ConsoleLogger.ts:55](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L55)
+Defined in: [ConsoleLogger.ts:55](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L55)
 
 Logs informational messages.
 
@@ -139,7 +139,7 @@ Optional parameters to log.
 
 #### Implementation of
 
-[`ILogger`](../../definitions/interfaces/ILogger.md).[`info`](../../definitions/interfaces/ILogger.md#info)
+[`ILogger`](../../declarations/interfaces/ILogger.md).[`info`](../../declarations/interfaces/ILogger.md#info)
 
 ***
 
@@ -147,7 +147,7 @@ Optional parameters to log.
 
 > `optional` **log**(`message`, ...`optionalParams`): `void`
 
-Defined in: [src/ConsoleLogger.ts:103](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L103)
+Defined in: [ConsoleLogger.ts:103](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L103)
 
 Logs general messages, similar to `info` but less specific.
 
@@ -171,7 +171,7 @@ Optional parameters to log.
 
 #### Implementation of
 
-[`ILogger`](../../definitions/interfaces/ILogger.md).[`log`](../../definitions/interfaces/ILogger.md#log)
+[`ILogger`](../../declarations/interfaces/ILogger.md).[`log`](../../declarations/interfaces/ILogger.md#log)
 
 ***
 
@@ -179,7 +179,7 @@ Optional parameters to log.
 
 > **warn**(`message`, ...`optionalParams`): `void`
 
-Defined in: [src/ConsoleLogger.ts:79](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L79)
+Defined in: [ConsoleLogger.ts:79](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L79)
 
 Logs warnings, used to indicate potential issues.
 
@@ -203,7 +203,7 @@ Optional parameters to log.
 
 #### Implementation of
 
-[`ILogger`](../../definitions/interfaces/ILogger.md).[`warn`](../../definitions/interfaces/ILogger.md#warn)
+[`ILogger`](../../declarations/interfaces/ILogger.md).[`warn`](../../declarations/interfaces/ILogger.md#warn)
 
 ***
 
@@ -211,7 +211,7 @@ Optional parameters to log.
 
 > `static` **create**(`options`): [`ConsoleLogger`](ConsoleLogger.md)
 
-Defined in: [src/ConsoleLogger.ts:35](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/ConsoleLogger.ts#L35)
+Defined in: [ConsoleLogger.ts:35](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/ConsoleLogger.ts#L35)
 
 Create a new ConsoleLogger instance.
 

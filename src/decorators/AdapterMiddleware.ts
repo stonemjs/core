@@ -1,4 +1,4 @@
-import { ClassType } from '../definitions'
+import { ClassType } from '../declarations'
 import { setClassMetadata } from './Metadata'
 import { ADAPTER_MIDDLEWARE_KEY } from './constants'
 

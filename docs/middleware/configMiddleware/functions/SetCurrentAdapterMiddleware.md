@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 # Function: SetCurrentAdapterMiddleware()
 
-> **SetCurrentAdapterMiddleware**(`context`, `next`): [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+> **SetCurrentAdapterMiddleware**(`context`, `next`): [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [src/middleware/configMiddleware.ts:80](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/middleware/configMiddleware.ts#L80)
+Defined in: [middleware/configMiddleware.ts:80](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/middleware/configMiddleware.ts#L80)
 
 Middleware to set the current adapter configuration in the blueprint.
 
@@ -20,19 +20,19 @@ and finally the default adapter. The selected adapter is then set in the bluepri
 
 ### context
 
-[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md)
+[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md)
 
 The configuration context containing the modules and blueprint.
 
 ### next
 
-`NextPipe`\<[`ConfigContext`](../../../definitions/interfaces/ConfigContext.md), [`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+`NextPipe`\<[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md), [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
 The next function in the pipeline to continue processing.
 
 ## Returns
 
-[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../definitions/type-aliases/IBlueprint.md)\>
+[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
 The updated blueprint or a promise resolving to the updated blueprint.
 

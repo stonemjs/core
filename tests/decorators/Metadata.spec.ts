@@ -16,7 +16,7 @@ import {
 import { SetupError } from '../../src/errors/SetupError'
 import { BLUEPRINT_KEY } from '../../src/decorators/constants'
 import { StoneBlueprint } from '../../src/options/StoneBlueprint'
-import { ClassType, MetadataHolder } from '../../src/definitions'
+import { ClassType, MetadataHolder } from '../../src/declarations'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 

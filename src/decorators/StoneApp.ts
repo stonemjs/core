@@ -1,4 +1,4 @@
-import { ClassType } from '../definitions'
+import { ClassType } from '../declarations'
 import { MAIN_HANDLER_KEY, PROVIDER_KEY } from './constants'
 import { addBlueprint, classDecoratorLegacyWrapper, setMetadata } from './Metadata'
 import { AppConfig, StoneBlueprint, stoneBlueprint } from '../options/StoneBlueprint'

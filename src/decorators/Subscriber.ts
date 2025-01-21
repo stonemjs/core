@@ -1,4 +1,4 @@
-import { ClassType } from '../definitions'
+import { ClassType } from '../declarations'
 import { SUBSCRIBER_KEY } from './constants'
 import { setClassMetadata } from './Metadata'
 

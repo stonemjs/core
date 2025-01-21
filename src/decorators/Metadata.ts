@@ -4,7 +4,7 @@ import { SetupError } from '../errors/SetupError'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { StoneBlueprint } from '../options/StoneBlueprint'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { ClassType, MetadataHolder, ProposalClassDecorator, ProposalMethodDecorator, ProposalPropertyDecorator } from '../definitions'
+import { ClassType, MetadataHolder, ProposalClassDecorator, ProposalMethodDecorator, ProposalPropertyDecorator } from '../declarations'
 
 /**
  * Declare the unique symbol type for metadata keys.
@@ -232,10 +232,10 @@ export function getBlueprint<TClass extends ClassType, UReturn = StoneBlueprint>
 export function classDecoratorLegacyWrapper<T extends ClassType = ClassType> (
   decorator: ProposalClassDecorator<T>
 ): ClassDecorator {
-  return (target: Function, potentialContext?: ClassDecoratorContext<T>): undefined => {
+  return <TFunction extends Function>(target: TFunction, potentialContext?: ClassDecoratorContext<T>): TFunction | undefined => {
     if (potentialContext !== undefined) {
       if (potentialContext.kind === 'class') {
-        decorator(target as T, potentialContext)
+        return decorator(target as unknown as T, potentialContext) as (TFunction | undefined)
       } else {
         throw new SetupError('This decorator can only be applied to classes.')
       }
@@ -260,14 +260,14 @@ export function classDecoratorLegacyWrapper<T extends ClassType = ClassType> (
 export function methodDecoratorLegacyWrapper<T extends Function = Function> (
   decorator: ProposalMethodDecorator<T>
 ): MethodDecorator {
-  return (
+  return <TFunction>(
     target: Object | T,
     potentialContext: string | symbol | ClassMethodDecoratorContext,
-    _descriptor?: TypedPropertyDescriptor<any>
-  ): void => {
+    _descriptor?: TypedPropertyDescriptor<TFunction>
+  ): TypedPropertyDescriptor<TFunction> | undefined => {
     if (potentialContext !== undefined) {
       if ((potentialContext as ClassMethodDecoratorContext).kind === 'method') {
-        decorator(target as T, potentialContext as ClassMethodDecoratorContext)
+        return decorator(target as T, potentialContext as ClassMethodDecoratorContext) as TypedPropertyDescriptor<TFunction>
       } else {
         throw new SetupError('This decorator can only be applied to class methods.')
       }
@@ -294,10 +294,10 @@ export function propertyDecoratorLegacyWrapper (
   return (
     _target: Object,
     potentialContext: string | symbol | ClassFieldDecoratorContext
-  ): void => {
+  ): (initialValue: unknown) => unknown | undefined => {
     if (potentialContext !== undefined) {
       if ((potentialContext as ClassFieldDecoratorContext).kind === 'field') {
-        decorator(undefined, potentialContext as ClassFieldDecoratorContext)
+        return decorator(undefined, potentialContext as ClassFieldDecoratorContext)
       } else {
         throw new SetupError('This decorator can only be applied to class fields.')
       }

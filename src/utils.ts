@@ -1,5 +1,5 @@
 import deepmerge from 'deepmerge'
-import { IBlueprint } from './definitions'
+import { IBlueprint } from './declarations'
 import { SetupError } from './errors/SetupError'
 import { IncomingEvent } from './events/IncomingEvent'
 import { AdapterConfig } from './options/AdapterConfig'

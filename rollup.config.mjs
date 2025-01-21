@@ -4,7 +4,6 @@ import multi from '@rollup/plugin-multi-entry'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import nodePolyfills from 'rollup-plugin-polyfill-node'
 import nodeExternals from 'rollup-plugin-node-externals'
 
 const inputs = {
@@ -18,7 +17,6 @@ export default Object.entries(inputs).map(([name, input]) => ({
   ],
   plugins: [
     multi(),
-    nodePolyfills({ include: ['events'], sourceMap: true }),
     nodeExternals(), // Must always be before `nodeResolve()`.
     nodeResolve({
       extensions: ['.js', '.ts', '.ts'],

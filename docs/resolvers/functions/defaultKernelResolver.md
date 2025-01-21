@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **defaultKernelResolver**\<`U`, `V`\>(`blueprint`): [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
 
-Defined in: [src/resolvers.ts:32](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/resolvers.ts#L32)
+Defined in: [resolvers.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/resolvers.ts#L44)
 
 Default kernel resolver function.
 
@@ -25,7 +25,7 @@ It creates a `Kernel` instance with the given blueprint, logger, container, and 
 
 ### blueprint
 
-[`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
+[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
 The blueprint configuration to use for the kernel.
 

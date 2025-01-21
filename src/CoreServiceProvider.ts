@@ -1,8 +1,9 @@
+import { Event } from './events/Event'
 import { EventEmitter } from './events/EventEmitter'
 import { ServiceOptions } from './decorators/Service'
 import { Container } from '@stone-js/service-container'
 import { InitializationError } from './errors/InitializationError'
-import { IBlueprint, IListener, ILogger, IProvider, ISubscriber, ClassType } from './definitions'
+import { IBlueprint, IListener, ILogger, IProvider, ISubscriber, ClassType } from './declarations'
 
 /**
  * CoreServiceProvider options.
@@ -161,7 +162,7 @@ export class CoreServiceProvider implements IProvider {
         const instance = this.container.resolve<IListener>(listener, true)
         if (instance?.handle !== undefined) {
           /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
-          this.eventEmitter.on(eventName, async (event) => {
+          this.eventEmitter.on(eventName, async (event: Event) => {
             try {
               await instance.handle(event)
             } catch (error: any) {

@@ -1,4 +1,4 @@
-**Core Documentation v0.0.35**
+**Core Documentation v0.0.36**
 
 ***
 

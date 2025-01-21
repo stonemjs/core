@@ -1,10 +1,12 @@
 import { Event, EventOptions } from './Event'
+import { IncomingEventSource } from '../declarations'
 
 /**
  * IncomingEventOptions.
  */
 export interface IncomingEventOptions extends EventOptions {
   locale?: string
+  source: IncomingEventSource
 }
 
 /**
@@ -28,6 +30,11 @@ export class IncomingEvent extends Event {
   public readonly locale: string
 
   /**
+   * The source of the event.
+   */
+  public readonly source: IncomingEventSource
+
+  /**
    * Create an IncomingEvent.
    *
    * @param options - The options to create an IncomingEvent.
@@ -49,7 +56,8 @@ export class IncomingEvent extends Event {
     timeStamp = Date.now(),
     type = IncomingEvent.INCOMING_EVENT
   }: IncomingEventOptions) {
-    super({ type, metadata, source, timeStamp })
+    super({ type, metadata, timeStamp })
     this.locale = locale
+    this.source = source
   }
 }

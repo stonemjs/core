@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: EventOptions
 
-Defined in: [src/events/Event.ts:6](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L6)
+Defined in: [events/Event.ts:6](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L6)
 
 EventOptions.
 
@@ -29,7 +29,7 @@ EventOptions.
 
 > `optional` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [src/events/Event.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L10)
+Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L10)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [src/events/Event.ts:10](https://github.com/stonemjs/core/blob/83759
 
 > `optional` **source**: `object`
 
-Defined in: [src/events/Event.ts:8](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L8)
+Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L8)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [src/events/Event.ts:8](https://github.com/stonemjs/core/blob/837590
 
 > `optional` **timeStamp**: `number`
 
-Defined in: [src/events/Event.ts:9](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L9)
+Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L9)
 
 ***
 
@@ -53,4 +53,4 @@ Defined in: [src/events/Event.ts:9](https://github.com/stonemjs/core/blob/837590
 
 > `optional` **type**: `string`
 
-Defined in: [src/events/Event.ts:7](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L7)
+Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L7)

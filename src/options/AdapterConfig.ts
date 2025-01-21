@@ -1,5 +1,5 @@
 import { MixedPipe } from '@stone-js/pipeline'
-import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../definitions'
+import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../declarations'
 
 /**
  * AdapterConfig Interface.

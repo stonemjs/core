@@ -1,6 +1,6 @@
-import { IBlueprint } from '../definitions'
 import { Event, EventOptions } from './Event'
 import { IncomingEvent } from './IncomingEvent'
+import { Container } from '@stone-js/service-container'
 
 /**
  * OutgoingResponseOptions.
@@ -106,10 +106,10 @@ export class OutgoingResponse extends Event {
    * Prepare response before sending it.
    *
    * @param _event - The incoming event associated with this response.
-   * @param _blueprint - The blueprint.
+   * @param _container - The container.
    * @returns This OutgoingResponse instance.
    */
-  prepare (_event: IncomingEvent, _blueprint: IBlueprint): this | Promise<this> {
+  prepare (_event: IncomingEvent, _container: Container): this | Promise<this> {
     // Add logic to modify the response based on the incoming event if needed
     return this
   }

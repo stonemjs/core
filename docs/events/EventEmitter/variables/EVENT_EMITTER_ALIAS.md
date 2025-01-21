@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -8,6 +8,6 @@
 
 > `const` **EVENT\_EMITTER\_ALIAS**: `"eventEmitter"` = `'eventEmitter'`
 
-Defined in: [src/events/EventEmitter.ts:7](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/EventEmitter.ts#L7)
+Defined in: [events/EventEmitter.ts:7](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L7)
 
 EVENT_EMITTER_ALIAS.

@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: ListenerOptions
 
-Defined in: [src/decorators/Listener.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Listener.ts#L10)
+Defined in: [decorators/Listener.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Listener.ts#L10)
 
 Listener options.
 
@@ -18,6 +18,6 @@ This interface defines the configuration options for marking a class as a listen
 
 > **event**: `string`
 
-Defined in: [src/decorators/Listener.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Listener.ts#L14)
+Defined in: [decorators/Listener.ts:14](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Listener.ts#L14)
 
 The event that the listener should handle.

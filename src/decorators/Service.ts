@@ -1,5 +1,5 @@
 import { SERVICE_KEY } from './constants'
-import { ClassType } from '../definitions'
+import { ClassType } from '../declarations'
 import { setClassMetadata } from './Metadata'
 
 /**

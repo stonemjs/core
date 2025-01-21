@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../README.md)
+[**Core Documentation v0.0.36**](../README.md)
 
 ***
 
@@ -10,3 +10,4 @@
 
 - [defaultKernelResolver](functions/defaultKernelResolver.md)
 - [defaultLoggerResolver](functions/defaultLoggerResolver.md)
+- [defaultResponseResolver](functions/defaultResponseResolver.md)

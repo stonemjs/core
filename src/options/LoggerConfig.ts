@@ -1,4 +1,4 @@
-import { LoggerResolver } from '../definitions'
+import { LoggerResolver } from '../declarations'
 import { defaultLoggerResolver } from '../resolvers'
 
 /**

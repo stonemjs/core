@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -8,13 +8,13 @@
 
 > **setClassMetadata**\<`T`\>(`key`, `value`): `ClassDecorator`
 
-Defined in: [src/decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/decorators/Metadata.ts#L134)
+Defined in: [decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L134)
 
 Set metadata on a class using a class decorator.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../definitions/type-aliases/ClassType.md) = [`ClassType`](../../../definitions/type-aliases/ClassType.md)
+• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

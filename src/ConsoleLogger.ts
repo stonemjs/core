@@ -1,5 +1,5 @@
 import { RuntimeError } from './errors/RuntimeError'
-import { IBlueprint, ILogger, LogLevel } from './definitions'
+import { IBlueprint, ILogger, LogLevel } from './declarations'
 
 /**
  * LoggerOptions.

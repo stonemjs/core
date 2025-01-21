@@ -3,7 +3,7 @@ import { MixedPipe, Pipeline } from '@stone-js/pipeline'
 import { StoneBlueprint } from './options/StoneBlueprint'
 import { ConfigMiddlewareOptions } from './decorators/ConfigMiddleware'
 import { CONFIGURATION_KEY, CONFIG_MIDDLEWARE_KEY } from './decorators/constants'
-import { ConfigRawModules, IBlueprint, ClassType, ConfigContext } from './definitions'
+import { ConfigRawModules, IBlueprint, ClassType, ConfigContext } from './declarations'
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from './decorators/Metadata'
 
 /**

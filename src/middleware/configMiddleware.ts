@@ -8,7 +8,7 @@ import { MiddlewareOptions } from '../decorators/Middleware'
 import { ErrorHandlerOptions } from '../decorators/ErrorHandler'
 import { MetaPipe, MixedPipe, NextPipe } from '@stone-js/pipeline'
 import { AdapterMiddlewareOptions } from '../decorators/AdapterMiddleware'
-import { IBlueprint, ClassType, ConfigContext, IConfiguration } from '../definitions'
+import { IBlueprint, ClassType, ConfigContext, IConfiguration } from '../declarations'
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from '../decorators/Metadata'
 import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../decorators/constants'
 

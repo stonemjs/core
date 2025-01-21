@@ -1,6 +1,6 @@
 import { RuntimeError } from './errors/RuntimeError'
 import { IntegrationError } from './errors/IntegrationError'
-import { AdapterResolver, IAdapter, IBlueprint } from './definitions'
+import { AdapterResolver, IAdapter, IBlueprint } from './declarations'
 
 /**
  * StoneFactoryOptions interface.

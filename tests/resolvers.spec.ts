@@ -1,7 +1,8 @@
 import { Kernel } from '../src/Kernel'
 import { Config } from '@stone-js/config'
 import { ConsoleLogger } from '../src/ConsoleLogger'
-import { defaultKernelResolver, defaultLoggerResolver } from '../src/resolvers'
+import { OutgoingResponse } from '../src/events/OutgoingResponse'
+import { defaultKernelResolver, defaultLoggerResolver, defaultResponseResolver } from '../src/resolvers'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -11,6 +12,14 @@ describe('defaultLoggerResolver', () => {
   it('should create a ConsoleLogger with the given blueprint', () => {
     const logger = defaultLoggerResolver(mockBlueprint)
     expect(logger).toBeInstanceOf(ConsoleLogger)
+  })
+})
+
+describe('defaultResponseResolver', () => {
+  it('should create a OutgoingResponse with the given options', () => {
+    const response = defaultResponseResolver({ content: 'Hello, World!' })
+    expect(response).toBeInstanceOf(OutgoingResponse)
+    expect(response.content).toBe('Hello, World!')
   })
 })
 

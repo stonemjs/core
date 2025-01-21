@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../../README.md)
+[**Core Documentation v0.0.36**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: `abstract` Event
 
-Defined in: [src/events/Event.ts:18](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L18)
+Defined in: [events/Event.ts:18](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L18)
 
 Class representing an Event.
 
@@ -26,7 +26,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new Event**(`options`): [`Event`](Event.md)
 
-Defined in: [src/events/Event.ts:44](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L44)
+Defined in: [events/Event.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L44)
 
 Create an Event.
 
@@ -48,7 +48,7 @@ The options to create an Event.
 
 > `readonly` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [src/events/Event.ts:27](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L27)
+Defined in: [events/Event.ts:27](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L27)
 
 The metadata associated with the event.
 
@@ -58,7 +58,7 @@ The metadata associated with the event.
 
 > `readonly` `optional` **source**: `object`
 
-Defined in: [src/events/Event.ts:32](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L32)
+Defined in: [events/Event.ts:32](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L32)
 
 The source of the event.
 
@@ -68,7 +68,7 @@ The source of the event.
 
 > `readonly` **timeStamp**: `number`
 
-Defined in: [src/events/Event.ts:37](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L37)
+Defined in: [events/Event.ts:37](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L37)
 
 The timestamp of the event creation.
 
@@ -78,7 +78,7 @@ The timestamp of the event creation.
 
 > `readonly` **type**: `string`
 
-Defined in: [src/events/Event.ts:22](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L22)
+Defined in: [events/Event.ts:22](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L22)
 
 The type of the event.
 
@@ -88,7 +88,7 @@ The type of the event.
 
 > **clone**\<`T`\>(): `T`
 
-Defined in: [src/events/Event.ts:124](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L124)
+Defined in: [events/Event.ts:124](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L124)
 
 Return a cloned instance.
 
@@ -120,7 +120,7 @@ The fallback value if the key is not found.
 
 > **get**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
 
-Defined in: [src/events/Event.ts:57](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L57)
+Defined in: [events/Event.ts:57](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L57)
 
 Get data from metadata.
 
@@ -156,7 +156,7 @@ The fallback value if the key is not found.
 
 > **get**\<`TReturn`\>(`key`, `fallback`): `TReturn`
 
-Defined in: [src/events/Event.ts:66](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L66)
+Defined in: [events/Event.ts:66](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L66)
 
 Get data from metadata.
 
@@ -212,7 +212,7 @@ The fallback value if the key is not found.
 
 > **getMetadataValue**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
 
-Defined in: [src/events/Event.ts:85](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L85)
+Defined in: [events/Event.ts:85](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L85)
 
 Get data from metadata.
 
@@ -248,7 +248,7 @@ The fallback value if the key is not found.
 
 > **getMetadataValue**\<`TReturn`\>(`key`, `fallback`): `TReturn`
 
-Defined in: [src/events/Event.ts:94](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L94)
+Defined in: [events/Event.ts:94](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L94)
 
 Get data from metadata.
 
@@ -292,7 +292,7 @@ The fallback value if the key is not found.
 
 > **setMetadataValue**(`key`, `value`?): `this`
 
-Defined in: [src/events/Event.ts:114](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/events/Event.ts#L114)
+Defined in: [events/Event.ts:114](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L114)
 
 Add data to metadata.
 

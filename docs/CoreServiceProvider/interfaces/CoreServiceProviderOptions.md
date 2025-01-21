@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.35**](../../README.md)
+[**Core Documentation v0.0.36**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: CoreServiceProviderOptions
 
-Defined in: [src/CoreServiceProvider.ts:10](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L10)
+Defined in: [CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L11)
 
 CoreServiceProvider options.
 
@@ -14,9 +14,9 @@ CoreServiceProvider options.
 
 ### blueprint
 
-> **blueprint**: [`IBlueprint`](../../definitions/type-aliases/IBlueprint.md)
+> **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L12)
+Defined in: [CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L13)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blo
 
 > **container**: `Container`
 
-Defined in: [src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L13)
+Defined in: [CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L14)
 
 ***
 
@@ -32,12 +32,12 @@ Defined in: [src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blo
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L14)
+Defined in: [CoreServiceProvider.ts:15](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L15)
 
 ***
 
 ### logger
 
-> **logger**: [`ILogger`](../../definitions/interfaces/ILogger.md)
+> **logger**: [`ILogger`](../../declarations/interfaces/ILogger.md)
 
-Defined in: [src/CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/83759020101bdf94fc7c7a0d8609e63689d57c0f/src/CoreServiceProvider.ts#L11)
+Defined in: [CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L12)

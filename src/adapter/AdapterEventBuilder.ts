@@ -1,4 +1,4 @@
-import { IAdapterEventBuilder } from '../definitions'
+import { IAdapterEventBuilder } from '../declarations'
 import { IntegrationError } from '../errors/IntegrationError'
 
 /**
