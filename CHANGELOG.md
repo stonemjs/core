@@ -5,6 +5,13 @@ All notable changes to the "Stone.js Core" extension will be documented in this 
 ## Unreleased
 
 
+## [0.0.4](https://github.com/stonemjs/core/compare/v0.0.36...v0.0.4) (2025-01-21)
+
+
+### Features
+
+* implement response resolver for kernel ([7b609ec](https://github.com/stonemjs/core/commit/7b609ec8ba784ecdcf8353e8626cb5efb0b144ab))
+
 ## [0.0.36](https://github.com/stonemjs/core/compare/v0.0.35...v0.0.36) (2025-01-06)
 
 
