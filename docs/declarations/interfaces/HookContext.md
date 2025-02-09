@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: HookContext\<TEvent, UResponse\>
 
-Defined in: [declarations.ts:485](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L485)
+Defined in: [core/src/declarations.ts:698](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L698)
 
 HookContext Interface.
 
@@ -28,7 +28,7 @@ UResponse
 
 > **event**: `TEvent`
 
-Defined in: [declarations.ts:486](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L486)
+Defined in: [core/src/declarations.ts:699](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L699)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [declarations.ts:486](https://github.com/stonemjs/core/blob/9f959fbf
 
 > **response**: `UResponse`
 
-Defined in: [declarations.ts:487](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L487)
+Defined in: [core/src/declarations.ts:700](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L700)

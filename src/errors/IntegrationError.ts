@@ -1,5 +1,5 @@
-import { ErrorOptions } from '../declarations'
 import { RuntimeError } from './RuntimeError'
+import { ErrorOptions } from '../declarations'
 
 /**
  * Custom error for Integration layer operations.

@@ -1,4 +1,3 @@
-import { mergeBlueprints } from '../utils'
 import { SetupError } from '../errors/SetupError'
 import { ServiceOptions } from '../decorators/Service'
 import { AdapterConfig } from '../options/AdapterConfig'
@@ -6,11 +5,23 @@ import { ListenerOptions } from '../decorators/Listener'
 import { StoneBlueprint } from '../options/StoneBlueprint'
 import { MiddlewareOptions } from '../decorators/Middleware'
 import { ErrorHandlerOptions } from '../decorators/ErrorHandler'
-import { MetaPipe, MixedPipe, NextPipe } from '@stone-js/pipeline'
+import { isNotEmpty, isStoneBlueprint, mergeBlueprints } from '../utils'
 import { AdapterMiddlewareOptions } from '../decorators/AdapterMiddleware'
-import { IBlueprint, ClassType, ConfigContext, IConfiguration } from '../declarations'
+import { isConstructor, MetaPipe, NextPipe, PipeClass } from '@stone-js/pipeline'
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from '../decorators/Metadata'
-import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../decorators/constants'
+import { IBlueprint, ClassType, ConfigContext, IConfiguration, AdapterHookListener } from '../declarations'
+import {
+  SERVICE_KEY,
+  LISTENER_KEY,
+  PROVIDER_KEY,
+  STONE_APP_KEY,
+  MIDDLEWARE_KEY,
+  SUBSCRIBER_KEY,
+  ERROR_HANDLER_KEY,
+  CONFIGURATION_KEY,
+  ADAPTER_MIDDLEWARE_KEY,
+  ADAPTER_ERROR_HANDLER_KEY
+} from '../decorators/constants'
 
 /**
  * Middleware to build a blueprint from provided modules and pass it to the next pipeline step.
@@ -28,22 +39,42 @@ import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KE
  * await BlueprintMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const BlueprintMiddleware = async ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): Promise<IBlueprint> => {
-  const classModules = modules as ClassType[]
-  const declarativeBlueprints = classModules.filter((module) => hasBlueprint(module)).map((module) => getBlueprint(module, { stone: {} }))
-  const imperativeBlueprints = classModules.filter((module) => hasMetadata(module, CONFIGURATION_KEY)).map(async (module) => await extractImperativeBlueprintFromModule(module))
-  const resolvedImperativeBlueprints = await Promise.all(imperativeBlueprints)
+export const BlueprintMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  let blueprints: StoneBlueprint[] = []
 
-  blueprint.set(mergeBlueprints(...declarativeBlueprints, ...resolvedImperativeBlueprints) as Record<PropertyKey, any>)
+  for (const module of context.modules) {
+    if (isStoneBlueprint(module)) { // Blueprint configuration
+      blueprints = blueprints.concat(module)
+    } else if (hasBlueprint(module)) { // Declarative configuration
+      blueprints = blueprints.concat(getBlueprint(module, { stone: {} }))
+    } else if (hasMetadata(module, CONFIGURATION_KEY) && isConstructor<IConfiguration>(module)) { // Imperative configuration
+      const options = getMetadata(module, CONFIGURATION_KEY, { live: false })
 
-  return await next({ modules, blueprint })
+      if (!options.live) {
+        await (new module.prototype.constructor()).configure(context.blueprint)
+      } else {
+        context.blueprint.add('stone.liveConfigurations', [{ ...options, module }])
+      }
+    }
+  }
+
+  // Imperative configuration takes precedence over declarative configuration
+  context.blueprint.setItems(mergeBlueprints(...blueprints, context.blueprint.all()))
+
+  return await next(context)
 }
 
 /**
- * Middleware to assign the main handler for the application from the provided modules.
+ * Middleware to set the application entry point in the blueprint.
  *
- * This middleware finds a module marked as the main application entry point and assigns it as
- * the handler in the blueprint. Throws an error if no main handler is found.
+ * This middleware identifies the module marked as the main application entry point and sets it in the
+ * blueprint as the handler. If no entry point is found, an error is thrown.
+ *
+ * Note: This middleware is executed in a way to set a default event handler
+ * if none is provided by third-party modules.
  *
  * @param context - The configuration context containing modules and blueprint.
  * @param next - The next function in the pipeline.
@@ -51,14 +82,31 @@ export const BlueprintMiddleware = async ({ modules, blueprint }: ConfigContext,
  *
  * @example
  * ```typescript
- * MainHandlerMiddleware({ modules, blueprint }, next);
+ * ApplicationEntryPointMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const MainHandlerMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const mainHandler = (modules as ClassType[]).find(module => hasMetadata(module, MAIN_HANDLER_KEY))
-  if (mainHandler === undefined) { throw new SetupError('No Main handler provided') }
-  blueprint.set('stone.handler', mainHandler)
-  return next({ modules, blueprint })
+export const ApplicationEntryPointMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const blueprint = await next(context)
+  const module = context.modules.find(module => hasMetadata(module, STONE_APP_KEY))
+
+  // Set the application entry point as the fallback
+  // main handler in the blueprint if not already set
+  if (module !== undefined) {
+    const metaApp = { ...getMetadata(module, STONE_APP_KEY, {}), module }
+    blueprint.set('stone.application', metaApp)
+    !blueprint.has('stone.handler.module') && blueprint.set('stone.handler', metaApp)
+  }
+
+  if (!blueprint.has('stone.handler.module')) {
+    throw new SetupError(
+      'No main event handler found. Every Stone.js app must define one main event handler.'
+    )
+  }
+
+  return blueprint
 }
 
 /**
@@ -77,18 +125,27 @@ export const MainHandlerMiddleware = ({ modules, blueprint }: ConfigContext, nex
  * await SetCurrentAdapterMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const SetCurrentAdapterMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const current = blueprint.get<AdapterConfig>('stone.adapter')
-  const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
+export const SetCurrentAdapterMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const current = context.blueprint.get<AdapterConfig>('stone.adapter')
+  const adapters = context.blueprint.get<AdapterConfig[]>('stone.adapters', [])
   const adapter = (
-    adapters.find(v => v.current === true) ??
-    adapters.find(v => v.alias === current?.alias) ??
-    adapters.find(v => v.platform === current?.platform) ??
-    adapters.find(v => v.default === true) ??
-    {}
+    adapters.length === 1
+      ? adapters[0]
+      : (
+          adapters.find(v => v.current === true) ??
+          adapters.find(v => isNotEmpty(current?.alias) && v.alias === current?.alias) ??
+          adapters.find(v => isNotEmpty(current?.platform) && v.platform === current?.platform) ??
+          adapters.find(v => v.default === true) ??
+          {}
+        )
   )
-  blueprint.set('stone.adapter', adapter)
-  return next({ modules, blueprint })
+
+  context.blueprint.set('stone.adapter', adapter)
+
+  return await next(context)
 }
 
 /**
@@ -106,10 +163,17 @@ export const SetCurrentAdapterMiddleware = ({ modules, blueprint }: ConfigContex
  * ProviderMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const ProviderMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const providers = (modules as ClassType[]).filter(module => hasMetadata(module, PROVIDER_KEY))
-  blueprint.add('stone.providers', providers)
-  return next({ modules, blueprint })
+export const ProviderMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const providers = context.modules
+    .filter(module => hasMetadata(module, PROVIDER_KEY))
+    .map(module => ({ ...getMetadata(module, PROVIDER_KEY, {}), module }))
+
+  context.blueprint.add('stone.providers', providers)
+
+  return await next(context)
 }
 
 /**
@@ -127,18 +191,25 @@ export const ProviderMiddleware = ({ modules, blueprint }: ConfigContext, next: 
  * await RegisterProviderToOnInitHookMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const RegisterProviderToOnInitHookMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const adapter = blueprint.get<AdapterConfig>('stone.adapter')
-  const providers = modules.filter(module => hasMetadata(module as ClassType, PROVIDER_KEY))
-  if (adapter?.hooks !== undefined) {
+export const RegisterProviderToOnInitHookMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const adapter = context.blueprint.get<AdapterConfig>('stone.adapter')
+  const providers = context.modules.filter(module => hasMetadata(module, PROVIDER_KEY))
+
+  if (adapter !== undefined) {
     providers
-      .map(provider => provider as { onInit: Function })
+      .map(provider => provider as unknown as { onInit: AdapterHookListener })
       .filter((provider) => provider.onInit !== undefined)
       .forEach((provider) => {
-        adapter.hooks.onInit = [...(adapter.hooks.onInit ?? []), (v: IBlueprint) => provider.onInit(v)]
+        adapter.hooks ??= {}
+        adapter.hooks.onInit ??= []
+        adapter.hooks.onInit = adapter.hooks.onInit.concat(async (v: IBlueprint) => await provider.onInit(v))
       })
   }
-  return next({ modules, blueprint })
+
+  return await next(context)
 }
 
 /**
@@ -146,6 +217,9 @@ export const RegisterProviderToOnInitHookMiddleware = ({ modules, blueprint }: C
  *
  * This middleware identifies modules marked as error handlers and adds them to the blueprint's list
  * of kernel.errorhandlers.
+ *
+ * Note: User defined error handlers take precedence over built-in and third-party error handlers.
+ * So the users can override the default error handlers.
  *
  * @param context - The configuration context containing modules and blueprint.
  * @param next - The next function in the pipeline.
@@ -156,15 +230,21 @@ export const RegisterProviderToOnInitHookMiddleware = ({ modules, blueprint }: C
  * ErrorHandlerMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const ErrorHandlerMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  (modules as ClassType[])
+export const ErrorHandlerMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const blueprint = await next(context)
+  context.modules
     .filter(module => hasMetadata(module, ERROR_HANDLER_KEY))
     .forEach(module => {
       const options: ErrorHandlerOptions = getMetadata(module, ERROR_HANDLER_KEY, { error: 'default' })
-      const errorHandlers = Array(options.error).flat().reduce((prev, error) => ({ ...prev, [error]: module }), {})
-      blueprint.add('stone.kernel.errorHandlers', errorHandlers)
+      Array(options.error)
+        .flat()
+        .forEach(error => blueprint.set(`stone.kernel.errorHandlers.${error}`, { ...options, error, module }))
     })
-  return next({ modules, blueprint })
+
+  return blueprint
 }
 
 /**
@@ -172,6 +252,9 @@ export const ErrorHandlerMiddleware = ({ modules, blueprint }: ConfigContext, ne
  *
  * This middleware identifies modules marked as adapter error handlers and adds them to the blueprint's list
  * of adapter.errorhandlers.
+ *
+ * Note: User defined error handlers take precedence over built-in and third-party error handlers.
+ * So the users can override the default error handlers.
  *
  * @param context - The configuration context containing modules and blueprint.
  * @param next - The next function in the pipeline.
@@ -182,15 +265,21 @@ export const ErrorHandlerMiddleware = ({ modules, blueprint }: ConfigContext, ne
  * AdapterErrorHandlerMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const AdapterErrorHandlerMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  (modules as ClassType[])
+export const AdapterErrorHandlerMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const blueprint = await next(context)
+  context.modules
     .filter(module => hasMetadata(module, ADAPTER_ERROR_HANDLER_KEY))
     .forEach(module => {
       const options: ErrorHandlerOptions = getMetadata(module, ADAPTER_ERROR_HANDLER_KEY, { error: 'default' })
-      const errorHandlers = Array(options.error).flat().reduce((prev, error) => ({ ...prev, [error]: module }), {})
-      blueprint.add('stone.adapter.errorHandlers', errorHandlers)
+      Array(options.error)
+        .flat()
+        .forEach(error => blueprint.set(`stone.adapter.errorHandlers.${error}}`, { ...options, error, module }))
     })
-  return next({ modules, blueprint })
+
+  return blueprint
 }
 
 /**
@@ -208,14 +297,18 @@ export const AdapterErrorHandlerMiddleware = ({ modules, blueprint }: ConfigCont
  * ServiceMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const ServiceMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  (modules as ClassType[])
+export const ServiceMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  context.modules
     .filter(module => hasMetadata(module, SERVICE_KEY))
     .forEach(module => {
       const options: ServiceOptions = getMetadata(module, SERVICE_KEY, { alias: '' })
-      blueprint.add('stone.services', [[module, options]])
+      context.blueprint.add('stone.services', [{ ...options, module }])
     })
-  return next({ modules, blueprint })
+
+  return await next(context)
 }
 
 /**
@@ -233,16 +326,19 @@ export const ServiceMiddleware = ({ modules, blueprint }: ConfigContext, next: N
  * ListenerMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const ListenerMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  (modules as ClassType[])
+export const ListenerMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  context.modules
     .filter(module => hasMetadata(module, LISTENER_KEY))
     .forEach(module => {
-      const { event }: ListenerOptions = getMetadata(module, LISTENER_KEY, { event: '' })
-      if (event === undefined || event.length === 0) { throw new SetupError(`No event name provided for this listener ${String(typeof module)}`) }
-      blueprint.add(`stone.listeners.${event}`, [module])
+      const options: ListenerOptions = getMetadata(module, LISTENER_KEY, { event: '' })
+      if (options.event === undefined || options.event.length === 0) { throw new SetupError(`No event name provided for this listener ${String(typeof module)}`) }
+      context.blueprint.add('stone.listeners', [{ ...options, module }])
     })
 
-  return next({ modules, blueprint })
+  return await next(context)
 }
 
 /**
@@ -260,10 +356,17 @@ export const ListenerMiddleware = ({ modules, blueprint }: ConfigContext, next: 
  * SubscriberMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const SubscriberMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  const subscribers = (modules as ClassType[]).filter(module => hasMetadata(module, SUBSCRIBER_KEY))
-  blueprint.add('stone.subscribers', subscribers)
-  return next({ modules, blueprint })
+export const SubscriberMiddleware = async (
+  context: ConfigContext<IBlueprint, ClassType>,
+  next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
+): Promise<IBlueprint> => {
+  const subscribers = context.modules
+    .filter(module => hasMetadata(module, SUBSCRIBER_KEY))
+    .map(module => ({ ...getMetadata(module, SUBSCRIBER_KEY, {}), module }))
+
+  context.blueprint.add('stone.subscribers', subscribers)
+
+  return await next(context)
 }
 
 /**
@@ -281,24 +384,30 @@ export const SubscriberMiddleware = ({ modules, blueprint }: ConfigContext, next
  * AdapterMiddlewareMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const AdapterMiddlewareMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  (modules as ClassType[])
+export const AdapterMiddlewareMiddleware = async (
+  context: ConfigContext<IBlueprint, PipeClass>,
+  next: NextPipe<ConfigContext<IBlueprint, PipeClass>, IBlueprint>
+): Promise<IBlueprint> => {
+  context.modules
     .filter(module => hasMetadata(module, ADAPTER_MIDDLEWARE_KEY))
-    .map(module => module)
     .forEach(module => {
-      const { platform, priority, params }: AdapterMiddlewareOptions = getMetadata(module, ADAPTER_MIDDLEWARE_KEY, {})
-      const middleware: MixedPipe = { priority, params, pipe: module }
-      const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
-      adapters?.forEach(adapter => {
-        adapter.middleware ??= []
-        if (platform === undefined) {
-          adapter.middleware.push(middleware)
-        } else if (platform === adapter.alias) {
-          adapter.middleware.push(middleware)
-        }
-      })
+      const options: AdapterMiddlewareOptions = getMetadata(module, ADAPTER_MIDDLEWARE_KEY, {})
+      const middleware: MetaPipe = { ...options, module }
+      context.blueprint
+        .get<AdapterConfig[]>('stone.adapters', [])
+        .forEach(adapter => {
+          adapter.middleware ??= []
+          if (options.platform === undefined) {
+            adapter.middleware.push(middleware)
+          } else if (options.alias === adapter.alias) {
+            adapter.middleware.push(middleware)
+          } else if (options.platform === adapter.platform) {
+            adapter.middleware.push(middleware)
+          }
+        })
     })
-  return next({ modules, blueprint })
+
+  return await next(context)
 }
 
 /**
@@ -316,38 +425,19 @@ export const AdapterMiddlewareMiddleware = ({ modules, blueprint }: ConfigContex
  * MiddlewareMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const MiddlewareMiddleware = ({ modules, blueprint }: ConfigContext, next: NextPipe<ConfigContext, IBlueprint>): IBlueprint | Promise<IBlueprint> => {
-  (modules as ClassType[])
+export const MiddlewareMiddleware = async (
+  context: ConfigContext<IBlueprint, PipeClass>,
+  next: NextPipe<ConfigContext<IBlueprint, PipeClass>, IBlueprint>
+): Promise<IBlueprint> => {
+  context.modules
     .filter(module => hasMetadata(module, MIDDLEWARE_KEY))
-    .map(module => module)
     .forEach(module => {
-      const { global = false, priority, params }: MiddlewareOptions = getMetadata(module, MIDDLEWARE_KEY, {})
-      const middleware: MetaPipe = { priority, params, pipe: module }
-      global && blueprint.add<MetaPipe[]>('stone.kernel.middleware', [middleware])
+      const options: MiddlewareOptions = getMetadata(module, MIDDLEWARE_KEY, {})
+      const middleware: MetaPipe = { ...options, module }
+      options.global === true && context.blueprint.add('stone.kernel.middleware', [middleware])
     })
-  return next({ modules, blueprint })
-}
 
-/**
- * Processes a module to extract its imperative blueprint.
- *
- * @param module - The module to be processed.
- * @returns A promise that resolves to the updated meta blueprint.
- *
- * @example
- * ```typescript
- * const updatedBlueprint = await extractImperativeBlueprintFromModule(myModule);
- * ```
- */
-async function extractImperativeBlueprintFromModule (module: ClassType): Promise<StoneBlueprint> {
-  try {
-    const loadedOptions = await (module as IConfiguration<StoneBlueprint>).load?.()
-    const moduleOptions = Object.fromEntries(Object.entries(module)) as StoneBlueprint
-    return mergeBlueprints(moduleOptions, loadedOptions ?? { stone: {} })
-  } catch (error) {
-    console.error(`Error loading options from module: ${String(module)}`, error)
-    return { stone: {} }
-  }
+  return await next(context)
 }
 
 /**
@@ -358,7 +448,7 @@ async function extractImperativeBlueprintFromModule (module: ClassType): Promise
  * the sequence in which it is executed. Middleware functions are used to build the application's blueprint,
  * set up the adapter, register providers, and handle other essential configuration steps.
  *
- * @type {MixedPipe[]}
+ * @type {MetaPipe[]}
  * @example
  * ```typescript
  * import { coreConfigMiddleware } from './coreConfigMiddleware';
@@ -366,17 +456,17 @@ async function extractImperativeBlueprintFromModule (module: ClassType): Promise
  * // The middleware will be used to configure the application's settings before it starts.
  * ```
  */
-export const coreConfigMiddleware: MixedPipe[] = [
-  { pipe: BlueprintMiddleware, priority: 0 },
-  { pipe: MainHandlerMiddleware, priority: 0.1 },
-  { pipe: SetCurrentAdapterMiddleware, priority: 0.5 },
-  { pipe: ProviderMiddleware, priority: 0.6 },
-  { pipe: ServiceMiddleware, priority: 0.7 },
-  { pipe: ListenerMiddleware, priority: 0.7 },
-  { pipe: SubscriberMiddleware, priority: 0.7 },
-  { pipe: ErrorHandlerMiddleware, priority: 0.7 },
-  { pipe: AdapterErrorHandlerMiddleware, priority: 0.7 },
-  { pipe: RegisterProviderToOnInitHookMiddleware, priority: 0.7 },
-  { pipe: AdapterMiddlewareMiddleware, priority: 3 },
-  { pipe: MiddlewareMiddleware, priority: 3 }
+export const coreConfigMiddleware: Array<MetaPipe<ConfigContext<IBlueprint, ClassType | PipeClass>, IBlueprint>> = [
+  { module: BlueprintMiddleware, priority: 0 },
+  { module: ApplicationEntryPointMiddleware, priority: 0.1 },
+  { module: SetCurrentAdapterMiddleware, priority: 0.5 },
+  { module: ProviderMiddleware, priority: 0.6 },
+  { module: ServiceMiddleware, priority: 0.7 },
+  { module: ListenerMiddleware, priority: 0.7 },
+  { module: SubscriberMiddleware, priority: 0.7 },
+  { module: ErrorHandlerMiddleware, priority: 0.7 },
+  { module: AdapterErrorHandlerMiddleware, priority: 0.7 },
+  { module: RegisterProviderToOnInitHookMiddleware, priority: 0.7 },
+  { module: AdapterMiddlewareMiddleware, priority: 3 },
+  { module: MiddlewareMiddleware, priority: 3 }
 ]

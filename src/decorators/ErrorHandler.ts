@@ -11,7 +11,7 @@ export interface ErrorHandlerOptions {
   /**
    * Additional configuration settings for the ErrorHandler, if needed.
    */
-  error: string | string[]
+  error: string | 'default' | string[]
 }
 
 /**
@@ -29,5 +29,5 @@ export interface ErrorHandlerOptions {
  * @returns A class decorator function that sets the metadata using the provided options.
  */
 export const ErrorHandler = <T extends ClassType = ClassType>(options: ErrorHandlerOptions): ClassDecorator => {
-  return setClassMetadata<T>(ERROR_HANDLER_KEY, options)
+  return setClassMetadata<T>(ERROR_HANDLER_KEY, { ...options, isClass: true })
 }

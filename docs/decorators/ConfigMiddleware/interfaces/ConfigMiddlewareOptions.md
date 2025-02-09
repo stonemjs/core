@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: ConfigMiddlewareOptions
 
-Defined in: [decorators/ConfigMiddleware.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/ConfigMiddleware.ts#L10)
+Defined in: [core/src/decorators/ConfigMiddleware.ts:10](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/ConfigMiddleware.ts#L10)
 
 ConfigMiddleware options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as middlewa
 
 > `optional` **params**: `unknown`[]
 
-Defined in: [decorators/ConfigMiddleware.ts:14](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/ConfigMiddleware.ts#L14)
+Defined in: [core/src/decorators/ConfigMiddleware.ts:14](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/ConfigMiddleware.ts#L14)
 
 The params to pass to the middleware.
 
@@ -28,6 +28,6 @@ The params to pass to the middleware.
 
 > `optional` **priority**: `number`
 
-Defined in: [decorators/ConfigMiddleware.ts:19](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/ConfigMiddleware.ts#L19)
+Defined in: [core/src/decorators/ConfigMiddleware.ts:19](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/ConfigMiddleware.ts#L19)
 
 The execution priority of the middleware.

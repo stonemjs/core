@@ -1,4 +1,5 @@
 import { MixedPipe } from '@stone-js/pipeline'
+import { ConfigContext, IBlueprint } from '../declarations'
 import { coreConfigMiddleware } from '../middleware/configMiddleware'
 
 /**
@@ -12,7 +13,7 @@ export interface BuilderConfig {
    * Middleware used for processing data during the blueprint construction.
    * The middleware array can include core pipes and any additional custom pipes.
    */
-  middleware: MixedPipe[]
+  middleware: Array<MixedPipe<ConfigContext<IBlueprint, any>, IBlueprint>>
 
   /**
    * The default priority for pipes, used when a specific pipe does not have an explicitly set priority.

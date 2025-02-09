@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 # Function: RegisterProviderToOnInitHookMiddleware()
 
-> **RegisterProviderToOnInitHookMiddleware**(`context`, `next`): [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
+> **RegisterProviderToOnInitHookMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [middleware/configMiddleware.ts:130](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/middleware/configMiddleware.ts#L130)
+Defined in: [core/src/middleware/configMiddleware.ts:194](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/middleware/configMiddleware.ts#L194)
 
 Middleware to register service providers to the `onInit` hook of the current adapter.
 
@@ -19,19 +19,19 @@ and adds them to the `onInit` lifecycle event of the current adapter.
 
 ### context
 
-[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md)
+[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md), [`ClassType`](../../../declarations/type-aliases/ClassType.md)\>
 
 The configuration context containing the modules and blueprint.
 
 ### next
 
-`NextPipe`\<[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md), [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
+`NextPipe`\<[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md), [`ClassType`](../../../declarations/type-aliases/ClassType.md)\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
 The next function in the middleware pipeline.
 
 ## Returns
 
-[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md) \| `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
+`Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
 - Returns the updated blueprint or a promise resolving to it.
 

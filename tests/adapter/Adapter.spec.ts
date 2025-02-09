@@ -6,7 +6,7 @@ import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
 import { AdapterEventBuilder } from '../../src/adapter/AdapterEventBuilder'
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
-import { ILogger, IBlueprint, AdapterContext, AdapterHandlerResolver, AdapterHooks, IRawResponseWrapper, LifecycleEventHandler, RawResponseOptions, IAdapterEventBuilder, IAdapterErrorHandler, AdapterErrorContext } from '../../src/declarations'
+import { ILogger, IBlueprint, AdapterContext, AdapterEventHandlerResolver, AdapterHooks, IRawResponseWrapper, LifecycleAdapterEventHandler, RawResponseOptions, IAdapterEventBuilder, IAdapterErrorHandler, AdapterErrorContext } from '../../src/declarations'
 
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 
@@ -52,7 +52,7 @@ class MockAdapter extends Adapter<MockRawEvent, MockRawResponse, MockRawResponse
 
   public async run<ExecutionResultType = MockRawResponse> (): Promise<ExecutionResultType> {
     await this.onInit()
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleEventHandler<IncomingEvent, OutgoingResponse>
+    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
     await this.onPrepare(eventHandler)
     const rawEvent: MockRawEvent = { name: 'Stone.js' }
     const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
@@ -73,7 +73,7 @@ const mockAdapter2Resolver = (incomingEventBuilder: any, rawResponseBuilder: any
 
   public async run (): Promise<any> {
     await this.onInit()
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleEventHandler<IncomingEvent, OutgoingResponse>
+    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
     await this.onPrepare(eventHandler)
     const rawEvent: MockRawEvent = { name: 'Stone.js' }
     const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
@@ -101,7 +101,7 @@ const appAfterHandleHookSpy = vi.fn()
 const appOnTerminateHookSpy = vi.fn()
 
 // Create Lifecycle App Event handler
-class MockAppEventHandler implements LifecycleEventHandler<IncomingEvent, OutgoingResponse> {
+class MockAppEventHandler implements LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse> {
   constructor (private readonly blueprint: IBlueprint) {}
 
   onPrepare (): void | Promise<void> { appOnPrepareHookSpy() }
@@ -167,7 +167,7 @@ describe('Adapter', () => {
   let hooks: AdapterHooks
   let adapter: MockAdapter
   let blueprint: IBlueprint
-  let handlerResolver: AdapterHandlerResolver<IncomingEvent, OutgoingResponse>
+  let handlerResolver: AdapterEventHandlerResolver<IncomingEvent, OutgoingResponse>
 
   beforeEach(() => {
     logger = createMockLogger()

@@ -1,5 +1,5 @@
 import { ClassType } from '../declarations'
-import { MAIN_HANDLER_KEY, PROVIDER_KEY } from './constants'
+import { STONE_APP_KEY } from './constants'
 import { addBlueprint, classDecoratorLegacyWrapper, setMetadata } from './Metadata'
 import { AppConfig, StoneBlueprint, stoneBlueprint } from '../options/StoneBlueprint'
 
@@ -27,10 +27,12 @@ export interface StoneAppOptions extends Partial<AppConfig> {}
  * }
  * ```
  */
-export const StoneApp = <T extends ClassType = ClassType>(options: StoneAppOptions = {}, blueprints: StoneBlueprint[] = []): ClassDecorator => {
+export const StoneApp = <T extends ClassType = ClassType>(
+  options: StoneAppOptions = {},
+  blueprints: Array<StoneBlueprint | Record<string, any>> = []
+): ClassDecorator => {
   return classDecoratorLegacyWrapper<T>((target: T, context: ClassDecoratorContext<T>): undefined => {
-    setMetadata(context, PROVIDER_KEY, {})
-    setMetadata(context, MAIN_HANDLER_KEY, {})
+    setMetadata(context, STONE_APP_KEY, { isClass: true })
     addBlueprint(target, context, stoneBlueprint, ...blueprints, { stone: options })
   })
 }

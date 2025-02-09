@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **StoneApp**\<`T`\>(`options`, `blueprints`): `ClassDecorator`
 
-Defined in: [decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/StoneApp.ts#L30)
+Defined in: [core/src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/StoneApp.ts#L30)
 
 StoneApp decorator to mark a class as the main application entry point.
 
@@ -29,7 +29,7 @@ The configuration options for the application, based on StoneOptions.
 
 ### blueprints
 
-[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)[] = `[]`
+([`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md) \| `Record`\<`string`, `any`\>)[] = `[]`
 
 ## Returns
 

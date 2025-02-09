@@ -46,9 +46,9 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@stone-js/config": "^0.0.35",
-    "@stone-js/pipeline": "^0.0.46",
-    "@stone-js/service-container": "^0.0.44",
+    "@stone-js/config": "file:/Users/evenspierre/Projects/StoneJS/config",
+    "@stone-js/pipeline": "file:/Users/evenspierre/Projects/StoneJS/pipeline",
+    "@stone-js/service-container": "file:/Users/evenspierre/Projects/StoneJS/service-container",
     "deepmerge": "^4.3.1",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1"

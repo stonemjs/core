@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Enumeration: Environment
 
-Defined in: [options/StoneBlueprint.ts:13](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/StoneBlueprint.ts#L13)
+Defined in: [core/src/options/StoneBlueprint.ts:21](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/options/StoneBlueprint.ts#L21)
 
 Environment settings.
 
@@ -16,7 +16,7 @@ Environment settings.
 
 > **Development**: `"development"`
 
-Defined in: [options/StoneBlueprint.ts:14](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/StoneBlueprint.ts#L14)
+Defined in: [core/src/options/StoneBlueprint.ts:24](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/options/StoneBlueprint.ts#L24)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [options/StoneBlueprint.ts:14](https://github.com/stonemjs/core/blob
 
 > **Production**: `"production"`
 
-Defined in: [options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/StoneBlueprint.ts#L15)
+Defined in: [core/src/options/StoneBlueprint.ts:23](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/options/StoneBlueprint.ts#L23)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [options/StoneBlueprint.ts:15](https://github.com/stonemjs/core/blob
 
 > **Test**: `"test"`
 
-Defined in: [options/StoneBlueprint.ts:16](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/StoneBlueprint.ts#L16)
+Defined in: [core/src/options/StoneBlueprint.ts:22](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/options/StoneBlueprint.ts#L22)

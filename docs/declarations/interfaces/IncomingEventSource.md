@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: IncomingEventSource
 
-Defined in: [declarations.ts:23](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L23)
+Defined in: [core/src/declarations.ts:136](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L136)
 
 Represents an IncomingEvent source.
 
@@ -16,7 +16,7 @@ Represents an IncomingEvent source.
 
 > **platform**: `string` \| `symbol`
 
-Defined in: [declarations.ts:42](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L42)
+Defined in: [core/src/declarations.ts:155](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L155)
 
 The platform from which the event originated.
 
@@ -26,7 +26,7 @@ The platform from which the event originated.
 
 > **rawContext**: `unknown`
 
-Defined in: [declarations.ts:32](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L32)
+Defined in: [core/src/declarations.ts:145](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L145)
 
 The raw context object from the originating platform.
 
@@ -36,7 +36,7 @@ The raw context object from the originating platform.
 
 > **rawEvent**: `unknown`
 
-Defined in: [declarations.ts:27](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L27)
+Defined in: [core/src/declarations.ts:140](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L140)
 
 The raw event object from the originating platform.
 
@@ -46,6 +46,6 @@ The raw event object from the originating platform.
 
 > `optional` **rawResponse**: `unknown`
 
-Defined in: [declarations.ts:37](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L37)
+Defined in: [core/src/declarations.ts:150](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L150)
 
 The raw response object from the originating platform.

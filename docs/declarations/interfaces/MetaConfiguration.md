@@ -1,0 +1,33 @@
+[**Core Documentation v0.0.4**](../../README.md)
+
+***
+
+[Core Documentation](../../modules.md) / [declarations](../README.md) / MetaConfiguration
+
+# Interface: MetaConfiguration\<TValues\>
+
+Defined in: [core/src/declarations.ts:665](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L665)
+
+MetaConfiguration Interface.
+
+Represents a metadata object for a configuration.
+
+## Type Parameters
+
+• **TValues** *extends* `object` = `any`
+
+## Properties
+
+### isClass?
+
+> `optional` **isClass**: `boolean`
+
+Defined in: [core/src/declarations.ts:666](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L666)
+
+***
+
+### module
+
+> **module**: [`ConfigurationClass`](../type-aliases/ConfigurationClass.md)\<`TValues`\> \| [`FunctionalConfiguration`](../type-aliases/FunctionalConfiguration.md)\<`TValues`\>
+
+Defined in: [core/src/declarations.ts:667](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L667)

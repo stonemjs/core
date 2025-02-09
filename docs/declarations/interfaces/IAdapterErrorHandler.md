@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: IAdapterErrorHandler\<RawEventType, RawResponseType, ExecutionContextType\>
 
-Defined in: [declarations.ts:429](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L429)
+Defined in: [core/src/declarations.ts:1074](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L1074)
 
 Adapter ErrorHandler Interface.
 
@@ -22,22 +22,8 @@ Represents an error handler for the adapters, which can handle errors and return
 
 ## Properties
 
-### handle()
+### handle
 
-> **handle**: (`error`, `context`) => `RawResponseType` \| `Promise`\<`RawResponseType`\>
+> **handle**: [`FunctionalAdapterErrorHandler`](../type-aliases/FunctionalAdapterErrorHandler.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>
 
-Defined in: [declarations.ts:430](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L430)
-
-#### Parameters
-
-##### error
-
-`any`
-
-##### context
-
-[`AdapterErrorContext`](AdapterErrorContext.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>
-
-#### Returns
-
-`RawResponseType` \| `Promise`\<`RawResponseType`\>
+Defined in: [core/src/declarations.ts:1075](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L1075)

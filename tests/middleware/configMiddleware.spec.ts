@@ -2,16 +2,16 @@ import { Config } from '@stone-js/config'
 import { SetupError } from '../../src/errors/SetupError'
 import { MetadataSymbol } from '../../src/decorators/Metadata'
 import { stoneBlueprint } from '../../src/options/StoneBlueprint'
-import { ClassType, ConfigContext, MetadataHolder } from '../../src/declarations'
-import { MAIN_HANDLER_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../../src/decorators/constants'
-import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, MainHandlerMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterProviderToOnInitHookMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
+import { ClassType, ConfigContext, IBlueprint, MetadataHolder } from '../../src/declarations'
+import { STONE_APP_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../../src/decorators/constants'
+import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, ApplicationEntryPointMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterProviderToOnInitHookMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
 
 // Mock dependencies
 vi.mock('@stone-js/pipeline')
 const mockNext = vi.fn()
 
 // Utility functions
-const createMockContext = (modules: unknown[]): ConfigContext => ({ modules, blueprint: Config.create() })
+const createMockContext = (modules: ClassType[]): ConfigContext<IBlueprint, ClassType> => ({ modules, blueprint: Config.create() })
 const createMockModule = (key: PropertyKey, metadata: Record<any, any>): ClassType => {
   /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
   const MyClass: ClassType & Partial<MetadataHolder> = class {
@@ -46,7 +46,7 @@ const createMockModule2 = (key: PropertyKey, metadata: Record<any, any>): ClassT
 
 describe('configMiddleware', () => {
   let mockModules: ClassType[]
-  let mockContext: ConfigContext
+  let mockContext: ConfigContext<IBlueprint, ClassType>
 
   beforeEach(async () => {
     const mockModule: any = {}
@@ -54,7 +54,7 @@ describe('configMiddleware', () => {
       createMockModule(BLUEPRINT_KEY, { ...stoneBlueprint }),
       createMockModule(CONFIGURATION_KEY, {}),
       createMockModule2(CONFIGURATION_KEY, {}),
-      createMockModule(MAIN_HANDLER_KEY, {}),
+      createMockModule(STONE_APP_KEY, {}),
       createMockModule(ADAPTER_MIDDLEWARE_KEY, {}),
       createMockModule(ADAPTER_MIDDLEWARE_KEY, { type: 'output', platform: 'node', priority: 1, params: [] }),
       createMockModule(PROVIDER_KEY, {}),
@@ -103,7 +103,7 @@ describe('configMiddleware', () => {
 
   describe('MainHandlerMiddleware', () => {
     it('should call next with updated blueprint', async () => {
-      const result = await MainHandlerMiddleware(mockContext, mockNext)
+      const result = await ApplicationEntryPointMiddleware(mockContext, mockNext)
 
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
@@ -112,7 +112,7 @@ describe('configMiddleware', () => {
 
     it('should throw an error when main handler is not defined', async () => {
       await expect(async () => {
-        await MainHandlerMiddleware(createMockContext([createMockModule(LISTENER_KEY, {})]), mockNext)
+        await ApplicationEntryPointMiddleware(createMockContext([createMockModule(LISTENER_KEY, {})]), mockNext)
       }).rejects.toThrow(SetupError)
     })
   })

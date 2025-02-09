@@ -5,15 +5,23 @@ import { BuilderConfig, builder } from './BuilderConfig'
 import { AdapterConfig, adapters } from './AdapterConfig'
 import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { AppEventHandler, IListener, IProvider, ISubscriber } from '../declarations'
+import {
+  MetaService,
+  MetaApplication,
+  MixedEventHandler,
+  MetaEventListener,
+  MixedConfiguration,
+  MixedEventSubscriber,
+  MixedServiceProvider
+} from '../declarations'
 
 /**
  * Environment settings.
  */
 export enum Environment {
-  Development = 'development',
-  Production = 'production',
   Test = 'test',
+  Production = 'production',
+  Development = 'development',
 }
 
 /**
@@ -85,30 +93,30 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   /**
    * Services to be automatically registered when the application starts.
    */
-  services: Function[] | Function[][]
+  services: MetaService[]
 
   /**
    * Event listeners to be automatically registered when the application starts.
    * This allows you to specify functions to listen for specific events.
    */
-  listeners: Record<string, Array<new (...args: any[]) => IListener>>
+  listeners: MetaEventListener[]
 
   /**
    * Subscribers to be automatically registered when the application starts.
    * Subscribers are used for handling and responding to events.
    */
-  subscribers: Array<new (...args: any[]) => ISubscriber>
+  subscribers: MixedEventSubscriber[]
 
   /**
    * Service providers to be automatically loaded for each request to the application.
    */
-  providers: Array<new (...args: any[]) => IProvider>
+  providers: Array<MixedServiceProvider<U, V>>
 
   /**
    * Class aliases to be registered when the application starts.
    * These aliases provide shorthand references to commonly used classes.
    */
-  aliases: Record<string, unknown>
+  aliases: Record<string, any>
 
   /**
    * A secret key used for encryption purposes throughout the application.
@@ -117,10 +125,25 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   secret?: string
 
   /**
-   * The entry point or handler function for the application.
+   * The main handler function for the application.
    * This is the main function that handles incoming requests.
+   * Every Stone.js application must have an handler function.
    */
-  handler?: AppEventHandler<IncomingEvent, OutgoingResponse>
+  handler?: MixedEventHandler<U, V>
+
+  /**
+   * The main application entry point module in declarative context.
+   * It is the class decorated with the @StoneApp() decorator.
+   * Note: It does not exist in imperative context.
+   */
+  application?: MetaApplication<U, V>
+
+  /**
+   * Live configurations are loaded at each request.
+   * By default, configurations are loaded once when the application starts.
+   * This is useful for defining dynamic configurations that do not require a restart to apply changes.
+   */
+  liveConfigurations?: MixedConfiguration[]
 }
 
 /**
@@ -192,7 +215,7 @@ export const stoneBlueprint: StoneBlueprint = {
     services: [],
 
     // Listeners to be automatically registered when the application starts.
-    listeners: {},
+    listeners: [],
 
     // Subscribers to be automatically registered when the application starts.
     subscribers: [],

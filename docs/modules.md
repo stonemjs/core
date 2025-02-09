@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.36**](README.md)
+[**Core Documentation v0.0.4**](README.md)
 
 ***
 
-# Core Documentation v0.0.36
+# Core Documentation v0.0.4
 
 ## Modules
 
@@ -43,5 +43,6 @@
 - [options/LoggerConfig](options/LoggerConfig/README.md)
 - [options/StoneBlueprint](options/StoneBlueprint/README.md)
 - [resolvers](resolvers/README.md)
+- [StoneBuilder](StoneBuilder/README.md)
 - [StoneFactory](StoneFactory/README.md)
 - [utils](utils/README.md)

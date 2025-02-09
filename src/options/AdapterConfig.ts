@@ -1,5 +1,5 @@
 import { MixedPipe } from '@stone-js/pipeline'
-import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../declarations'
+import { AdapterHooks, AdapterResolver, MetaAdapterErrorHandler } from '../declarations'
 
 /**
  * AdapterConfig Interface.
@@ -8,7 +8,12 @@ import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../declarat
  * It includes settings for the adapter's alias, resolver, middleware, and hooks, among other properties.
  * The AdapterConfig allows developers to manage how the adapter behaves and how it integrates with the application.
  */
-export interface AdapterConfig {
+export interface AdapterConfig<
+  RawEventType = any,
+  RawResponseType = any,
+  ExecutionContextType = any,
+  ResponseBuilderType = any
+> {
   /**
    * The platform identifier for the adapter.
    * This is used to categorize the adapter based on the environment or technology it supports.
@@ -24,19 +29,19 @@ export interface AdapterConfig {
    * The middleware used for processing incoming or outgoing data in the adapter.
    * Middleware can modify or handle events at different stages of the adapter's lifecycle.
    */
-  middleware: MixedPipe[]
-
-  /**
-   * Hooks that provide additional behavior during specific lifecycle events of the adapter.
-   * These hooks can be used to extend the adapter's functionality at various points.
-   */
-  hooks: AdapterHooks
+  middleware: Array<MixedPipe<ExecutionContextType, ResponseBuilderType>>
 
   /**
    * Error handlers used to manage and report errors that occur within the adapter.
    * These handlers can be used to customize error handling behavior and logging.
    */
-  errorHandlers: Record<string, new (...args: any[]) => IAdapterErrorHandler<any, any, any>>
+  errorHandlers: Record<string, MetaAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>
+
+  /**
+   * Hooks that provide additional behavior during specific lifecycle events of the adapter.
+   * These hooks can be used to extend the adapter's functionality at various points.
+   */
+  hooks?: AdapterHooks
 
   /**
    * The alias name for the adapter.

@@ -2,7 +2,7 @@ import { MixedPipe } from '@stone-js/pipeline'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { defaultKernelResolver, defaultResponseResolver } from '../resolvers'
-import { IErrorHandler, KernelResolver, ResponseResolver, RouterResolver } from '../declarations'
+import { KernelHook, KernelResolver, ResponseResolver, MetaErrorHandler } from '../declarations'
 
 /**
  * Kernel options.
@@ -11,19 +11,19 @@ import { IErrorHandler, KernelResolver, ResponseResolver, RouterResolver } from 
  */
 export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> {
   /**
+   * Hooks used to manage the kernel's lifecycle.
+   */
+  hooks?: KernelHook
+
+  /**
    * Middleware configuration options for different stages of the kernel's lifecycle.
    */
-  middleware?: MixedPipe[]
+  middleware?: Array<MixedPipe<TEvent, UResponse>>
 
   /**
    * The kernel resolver, used to create instances.
    */
   resolver?: KernelResolver<TEvent, UResponse>
-
-  /**
-   * The router resolver, used to create instances.
-   */
-  routerResolver?: RouterResolver<TEvent, UResponse>
 
   /**
    * The response resolver, used to create instances.
@@ -34,7 +34,7 @@ export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, URes
    * Error handlers used to manage and report errors that occur within the kernel.
    * These handlers can be used to customize error handling behavior and logging.
    */
-  errorHandlers?: Record<string, new (...args: any[]) => IErrorHandler<TEvent, UResponse>>
+  errorHandlers?: Record<string, MetaErrorHandler<TEvent, UResponse>>
 }
 
 /**

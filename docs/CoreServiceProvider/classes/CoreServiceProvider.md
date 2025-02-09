@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: CoreServiceProvider
 
-Defined in: [CoreServiceProvider.ts:28](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L28)
+Defined in: [core/src/CoreServiceProvider.ts:28](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/CoreServiceProvider.ts#L28)
 
 Class representing a CoreServiceProvider.
 
@@ -21,7 +21,7 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Implements
 
-- [`IProvider`](../../declarations/interfaces/IProvider.md)
+- [`IServiceProvider`](../../declarations/interfaces/IServiceProvider.md)
 
 ## Constructors
 
@@ -29,7 +29,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new CoreServiceProvider**(`container`): [`CoreServiceProvider`](CoreServiceProvider.md)
 
-Defined in: [CoreServiceProvider.ts:55](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L55)
+Defined in: [core/src/CoreServiceProvider.ts:55](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/CoreServiceProvider.ts#L55)
 
 Create a new instance of CoreServiceProvider.
 
@@ -55,7 +55,7 @@ If the Blueprint config or EventEmitter is not bound to the container.
 
 > **boot**(): `Promise`\<`void`\>
 
-Defined in: [CoreServiceProvider.ts:119](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L119)
+Defined in: [core/src/CoreServiceProvider.ts:119](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/CoreServiceProvider.ts#L119)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -65,7 +65,7 @@ Boots the provider after registration. This method is used to initialize service
 
 #### Implementation of
 
-[`IProvider`](../../declarations/interfaces/IProvider.md).[`boot`](../../declarations/interfaces/IProvider.md#boot)
+[`IServiceProvider`](../../declarations/interfaces/IServiceProvider.md).[`boot`](../../declarations/interfaces/IServiceProvider.md#boot)
 
 ***
 
@@ -73,7 +73,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > **register**(): `void`
 
-Defined in: [CoreServiceProvider.ts:108](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/CoreServiceProvider.ts#L108)
+Defined in: [core/src/CoreServiceProvider.ts:108](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/CoreServiceProvider.ts#L108)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 
@@ -83,4 +83,4 @@ Registers the provider into the system. Typically used for adding services or bi
 
 #### Implementation of
 
-[`IProvider`](../../declarations/interfaces/IProvider.md).[`register`](../../declarations/interfaces/IProvider.md#register)
+[`IServiceProvider`](../../declarations/interfaces/IServiceProvider.md).[`register`](../../declarations/interfaces/IServiceProvider.md#register)

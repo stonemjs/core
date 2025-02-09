@@ -1,42 +1,42 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
 [Core Documentation](../../../modules.md) / [events/EventEmitter](../README.md) / EventEmitter
 
-# Class: EventEmitter\<TEvent\>
+# Class: EventEmitter
 
-Defined in: [events/EventEmitter.ts:12](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L12)
+Defined in: [core/src/events/EventEmitter.ts:13](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/events/EventEmitter.ts#L13)
 
 Class representing an EventEmitter.
-
-## Type Parameters
-
-• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 ## Constructors
 
 ### new EventEmitter()
 
-> **new EventEmitter**\<`TEvent`\>(): [`EventEmitter`](EventEmitter.md)\<`TEvent`\>
+> **new EventEmitter**(): [`EventEmitter`](EventEmitter.md)
 
-Defined in: [events/EventEmitter.ts:17](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L17)
+Defined in: [core/src/events/EventEmitter.ts:19](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/events/EventEmitter.ts#L19)
 
 Create an EventEmitter.
 
 #### Returns
 
-[`EventEmitter`](EventEmitter.md)\<`TEvent`\>
+[`EventEmitter`](EventEmitter.md)
 
 ## Methods
 
 ### emit()
 
-> **emit**(`event`, `args`?): `void`
+> **emit**\<`TEvent`\>(`event`, `args`?): `Promise`\<`void`\>
 
-Defined in: [events/EventEmitter.ts:47](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L47)
+Defined in: [core/src/events/EventEmitter.ts:59](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/events/EventEmitter.ts#L59)
 
 Emits an event, triggering all associated listeners.
+
+#### Type Parameters
+
+• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 #### Parameters
 
@@ -48,66 +48,74 @@ The event name or an instance of Event.
 
 ##### args?
 
-`TEvent`
+`any`
 
 Additional arguments to pass to the listeners.
 
 #### Returns
 
-`void`
+`Promise`\<`void`\>
 
 ***
 
 ### off()
 
-> **off**(`event`, `listener`): `void`
+> **off**\<`TEvent`\>(`event`, `handler`): `this`
 
-Defined in: [events/EventEmitter.ts:37](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L37)
+Defined in: [core/src/events/EventEmitter.ts:44](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/events/EventEmitter.ts#L44)
 
 Removes an event listener for the given event type.
+
+#### Type Parameters
+
+• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 #### Parameters
 
 ##### event
 
+[`WildcardEventName`](../../../declarations/type-aliases/WildcardEventName.md)
+
 The event name or type.
 
-`string` | `symbol`
+##### handler
 
-##### listener
+[`MixedListenerHandler`](../../../declarations/type-aliases/MixedListenerHandler.md)\<`TEvent`, [`WildcardEventName`](../../../declarations/type-aliases/WildcardEventName.md)\>
 
 The callback to remove.
 
-`Handler`\<[`Event`](../../Event/classes/Event.md)\> | `WildcardHandler`\<`Record`\<`string` \| `symbol`, `TEvent`\>\>
-
 #### Returns
 
-`void`
+`this`
 
 ***
 
 ### on()
 
-> **on**(`event`, `listener`): `void`
+> **on**\<`TEvent`\>(`event`, `handler`): `this`
 
-Defined in: [events/EventEmitter.ts:27](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/EventEmitter.ts#L27)
+Defined in: [core/src/events/EventEmitter.ts:29](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/events/EventEmitter.ts#L29)
 
 Registers an event listener for the given event type.
+
+#### Type Parameters
+
+• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 #### Parameters
 
 ##### event
 
+[`WildcardEventName`](../../../declarations/type-aliases/WildcardEventName.md)
+
 The event name or type.
 
-`string` | `symbol`
+##### handler
 
-##### listener
+[`MixedListenerHandler`](../../../declarations/type-aliases/MixedListenerHandler.md)\<`TEvent`, [`WildcardEventName`](../../../declarations/type-aliases/WildcardEventName.md)\>
 
 The callback to invoke when the event is emitted.
 
-`Handler`\<[`Event`](../../Event/classes/Event.md)\> | `WildcardHandler`\<`Record`\<`string` \| `symbol`, `TEvent`\>\>
-
 #### Returns
 
-`void`
+`this`

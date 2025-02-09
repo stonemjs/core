@@ -1,8 +1,8 @@
 import { Config } from '@stone-js/config'
 import { Pipeline } from '@stone-js/pipeline'
 import { MetadataSymbol } from '../src/decorators/Metadata'
+import { ClassType, MetadataHolder } from '../src/declarations'
 import { ConfigBuilder, ConfigBuilderOptions } from '../src/ConfigBuilder'
-import { ClassType, ConfigRawModules, MetadataHolder } from '../src/declarations'
 import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, BLUEPRINT_KEY } from '../src/decorators/constants'
 
 /**
@@ -11,12 +11,7 @@ import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, BLUEPRINT_KEY } from '../src/
 describe('ConfigBuilder', () => {
   const mockMiddleware = vi.fn()
   const mockModule = { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 }
-  const rawModules: ConfigRawModules = {
-    app: {
-      module1: mockModule
-    },
-    commands: {}
-  }
+  const mockModules: unknown[] = [mockModule]
 
   let configBuilder: ConfigBuilder
 
@@ -38,7 +33,7 @@ describe('ConfigBuilder', () => {
       then: vi.fn((v) => v({ blueprint: {} }))
     } as any)
 
-    const blueprint = await configBuilder.build(rawModules)
+    const blueprint = await configBuilder.build(mockModules)
 
     expect(blueprint).toEqual({})
     expect(Config.create).toHaveBeenCalledTimes(1)
@@ -51,11 +46,6 @@ describe('ConfigBuilder', () => {
 
     expect(populatedOptions.middleware).toContain(mockMiddleware)
     expect(populatedOptions.defaultMiddlewarePriority).toBe(5)
-  })
-
-  it('should extract modules from raw input correctly', () => {
-    const extractedModules = (configBuilder as any).extractModulesFromRawInput(rawModules)
-    expect(extractedModules).toContain(mockModule)
   })
 
   it('should extract options from class modules correctly', () => {

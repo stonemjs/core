@@ -13,14 +13,7 @@ import { AdapterResolver, IAdapter, IBlueprint } from './declarations'
  *
  * @example
  * ```typescript
- * const factoryOptions: StoneFactoryOptions = {
- *   blueprint: {
- *     get: (key: string) => { ... },
- *     set: (key: string, value: any) => { ... }
- *   }
- * };
- *
- * const stoneFactory = StoneFactory.create(factoryOptions);
+ * const stoneFactory = StoneFactory.create({ blueprint });
  * ```
  */
 export interface StoneFactoryOptions {

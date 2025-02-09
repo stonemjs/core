@@ -40,5 +40,5 @@ export interface ServiceOptions {
  * ```
  */
 export const Service = <T extends ClassType = ClassType>(options: Partial<ServiceOptions> = {}): ClassDecorator => {
-  return setClassMetadata<T>(SERVICE_KEY, options)
+  return setClassMetadata<T>(SERVICE_KEY, { ...options, isClass: true })
 }

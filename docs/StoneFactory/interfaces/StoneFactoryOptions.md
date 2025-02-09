@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: StoneFactoryOptions
 
-Defined in: [StoneFactory.ts:26](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L26)
+Defined in: [core/src/StoneFactory.ts:19](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneFactory.ts#L19)
 
 StoneFactoryOptions interface.
 
@@ -17,14 +17,7 @@ required by the Stone.js framework.
 ## Example
 
 ```typescript
-const factoryOptions: StoneFactoryOptions = {
-  blueprint: {
-    get: (key: string) => { ... },
-    set: (key: string, value: any) => { ... }
-  }
-};
-
-const stoneFactory = StoneFactory.create(factoryOptions);
+const stoneFactory = StoneFactory.create({ blueprint });
 ```
 
 ## Properties
@@ -33,6 +26,6 @@ const stoneFactory = StoneFactory.create(factoryOptions);
 
 > **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [StoneFactory.ts:30](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L30)
+Defined in: [core/src/StoneFactory.ts:23](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneFactory.ts#L23)
 
 The core configuration object for the Stone.js framework.

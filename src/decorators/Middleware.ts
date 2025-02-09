@@ -42,5 +42,5 @@ export interface MiddlewareOptions {
  * ```
  */
 export const Middleware = <T extends ClassType = ClassType>(options: MiddlewareOptions = {}): ClassDecorator => {
-  return setClassMetadata<T>(MIDDLEWARE_KEY, options)
+  return setClassMetadata<T>(MIDDLEWARE_KEY, { ...options, isClass: true })
 }

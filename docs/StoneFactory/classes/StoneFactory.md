@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: StoneFactory
 
-Defined in: [StoneFactory.ts:41](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L41)
+Defined in: [core/src/StoneFactory.ts:34](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneFactory.ts#L34)
 
 Class representing StoneFactory.
 
@@ -23,7 +23,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [StoneFactory.ts:83](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L83)
+Defined in: [core/src/StoneFactory.ts:76](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneFactory.ts#L76)
 
 Run the application by resolving and executing the adapter.
 
@@ -53,7 +53,7 @@ await factory.run();
 
 > `static` **create**(`options`): [`StoneFactory`](StoneFactory.md)
 
-Defined in: [StoneFactory.ts:58](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L58)
+Defined in: [core/src/StoneFactory.ts:51](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneFactory.ts#L51)
 
 Create a new StoneFactory instance.
 

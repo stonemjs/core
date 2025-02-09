@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: AdapterErrorContext\<RawEventType, RawResponseType, ExecutionContextType\>
 
-Defined in: [declarations.ts:574](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L574)
+Defined in: [core/src/declarations.ts:1041](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L1041)
 
 Class representing an AdapterErrorContext.
 
@@ -24,7 +24,7 @@ Class representing an AdapterErrorContext.
 
 > `readonly` **executionContext**: `ExecutionContextType`
 
-Defined in: [declarations.ts:583](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L583)
+Defined in: [core/src/declarations.ts:1050](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L1050)
 
 The executionContext of type ExecutionContextType.
 
@@ -34,7 +34,7 @@ The executionContext of type ExecutionContextType.
 
 > `readonly` **rawEvent**: `RawEventType`
 
-Defined in: [declarations.ts:578](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L578)
+Defined in: [core/src/declarations.ts:1045](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L1045)
 
 The rawEvent of type RawEventType.
 
@@ -44,6 +44,6 @@ The rawEvent of type RawEventType.
 
 > `readonly` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
 
-Defined in: [declarations.ts:588](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L588)
+Defined in: [core/src/declarations.ts:1055](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L1055)
 
 The rawResponseBuilder.

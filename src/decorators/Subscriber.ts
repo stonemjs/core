@@ -32,5 +32,5 @@ export interface SubscriberOptions {
  * ```
  */
 export const Subscriber = <T extends ClassType = ClassType>(options: SubscriberOptions = {}): ClassDecorator => {
-  return setClassMetadata<T>(SUBSCRIBER_KEY, options)
+  return setClassMetadata<T>(SUBSCRIBER_KEY, { ...options, isClass: true })
 }

@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > `const` **stoneBlueprint**: [`StoneBlueprint`](../interfaces/StoneBlueprint.md)
 
-Defined in: [options/StoneBlueprint.ts:155](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/StoneBlueprint.ts#L155)
+Defined in: [core/src/options/StoneBlueprint.ts:178](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/options/StoneBlueprint.ts#L178)
 
 Stone main options.
 

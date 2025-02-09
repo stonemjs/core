@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: AdapterOptions\<IncomingEventType, OutgoingResponseType\>
 
-Defined in: [adapter/Adapter.ts:29](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/adapter/Adapter.ts#L29)
+Defined in: [core/src/adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/adapter/Adapter.ts#L33)
 
 Adapter options.
 
@@ -22,15 +22,15 @@ Adapter options.
 
 > **blueprint**: [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [adapter/Adapter.ts:35](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/adapter/Adapter.ts#L35)
+Defined in: [core/src/adapter/Adapter.ts:39](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/adapter/Adapter.ts#L39)
 
 ***
 
 ### handlerResolver
 
-> **handlerResolver**: [`AdapterHandlerResolver`](../../../declarations/type-aliases/AdapterHandlerResolver.md)\<`IncomingEventType`, `OutgoingResponseType`\>
+> **handlerResolver**: [`AdapterEventHandlerResolver`](../../../declarations/type-aliases/AdapterEventHandlerResolver.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [adapter/Adapter.ts:36](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/adapter/Adapter.ts#L36)
+Defined in: [core/src/adapter/Adapter.ts:40](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/adapter/Adapter.ts#L40)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [adapter/Adapter.ts:36](https://github.com/stonemjs/core/blob/9f959f
 
 > **hooks**: [`AdapterHooks`](../../../declarations/interfaces/AdapterHooks.md)
 
-Defined in: [adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/adapter/Adapter.ts#L34)
+Defined in: [core/src/adapter/Adapter.ts:38](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/adapter/Adapter.ts#L38)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [adapter/Adapter.ts:34](https://github.com/stonemjs/core/blob/9f959f
 
 > **logger**: [`ILogger`](../../../declarations/interfaces/ILogger.md)
 
-Defined in: [adapter/Adapter.ts:33](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/adapter/Adapter.ts#L33)
+Defined in: [core/src/adapter/Adapter.ts:37](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/adapter/Adapter.ts#L37)

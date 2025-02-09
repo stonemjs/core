@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **defaultKernelResolver**\<`U`, `V`\>(`blueprint`): [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
 
-Defined in: [resolvers.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/resolvers.ts#L44)
+Defined in: [core/src/resolvers.ts:45](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/resolvers.ts#L45)
 
 Default kernel resolver function.
 
@@ -33,4 +33,4 @@ The blueprint configuration to use for the kernel.
 
 [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
 
-- A `Kernel` instance configured with the provided blueprint.
+A `Kernel` instance configured with the provided blueprint.

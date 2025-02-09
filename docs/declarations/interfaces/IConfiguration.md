@@ -1,29 +1,29 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
 [Core Documentation](../../modules.md) / [declarations](../README.md) / IConfiguration
 
-# Interface: IConfiguration\<TResponse\>
+# Interface: IConfiguration\<TValues\>
 
-Defined in: [declarations.ts:440](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L440)
+Defined in: [core/src/declarations.ts:643](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L643)
 
 Configuration Interface.
 
-Represents a configuration with an optional load method to asynchronously load configurations.
+Represents a configuration object that can be used to configure the system.
+
+## Param
+
+The blueprint to configure.
 
 ## Type Parameters
 
-• **TResponse**
+• **TValues** *extends* `object` = `any`
 
 ## Properties
 
-### load()?
+### configure
 
-> `optional` **load**: () => `TResponse` \| `Promise`\<`TResponse`\>
+> **configure**: [`FunctionalConfiguration`](../type-aliases/FunctionalConfiguration.md)\<`TValues`\>
 
-Defined in: [declarations.ts:441](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L441)
-
-#### Returns
-
-`TResponse` \| `Promise`\<`TResponse`\>
+Defined in: [core/src/declarations.ts:644](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L644)

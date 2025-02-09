@@ -3,7 +3,7 @@ import { Container } from '@stone-js/service-container'
 import { KernelEvent } from '../src/events/KernelEvent'
 import { EventEmitter } from '../src/events/EventEmitter'
 import { InitializationError } from '../src/errors/InitializationError'
-import { IBlueprint, IListener, ILogger, ISubscriber } from '../src/declarations'
+import { IBlueprint, IEventListener, ILogger, IEventSubscriber } from '../src/declarations'
 import { CoreServiceProvider, CoreServiceProviderOptions } from '../src/CoreServiceProvider'
 
 /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
@@ -11,19 +11,19 @@ class MockService {}
 
 const mockListenerHandleSpy = vi.fn()
 const mockListenerHandleSpyError = vi.fn().mockRejectedValue(new Error('something bad happened'))
-class MockListener implements IListener {
+class MockListener implements IEventListener {
   handle = mockListenerHandleSpy
 }
 
-class MockListenerError implements IListener {
+class MockListenerError implements IEventListener {
   handle = mockListenerHandleSpyError
 }
 
-class MockSubscriber implements ISubscriber {
+class MockSubscriber implements IEventSubscriber {
   subscribe = vi.fn()
 }
 
-class MockSubscriberError implements ISubscriber {
+class MockSubscriberError implements IEventSubscriber {
   subscribe = vi.fn(async () => await Promise.reject(new InitializationError('something bad happened')))
 }
 
@@ -73,22 +73,22 @@ describe('CoreServiceProvider', () => {
     expect(autoBindingSpy).toHaveBeenCalledWith(MockService, MockService, true)
   })
 
-  it('should register listeners', () => {
+  it('should register listeners', async () => {
     blueprint.set('stone.listeners', { 'test:event': [MockListener] })
 
     coreServiceProvider.register()
-    eventEmitter.emit('test:event')
+    await eventEmitter.emit('test:event')
 
     expect(mockListenerHandleSpy).toHaveBeenCalled()
     eventEmitter.off('test:event', mockListenerHandleSpy)
   })
 
-  it('should log error when listeners in is error', () => {
+  it('should log error when listeners in is error', async () => {
     blueprint.set('stone.listeners', { [KernelEvent.RESPONSE_PREPARED]: [MockListenerError] })
     const event = KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata: {} }).setMetadataValue('name', 'Stone.js')
     coreServiceProvider.register()
 
-    eventEmitter.emit(event)
+    await eventEmitter.emit(event)
 
     expect(mockListenerHandleSpyError).toHaveBeenCalled()
     expect(event).toEqual(event.clone())

@@ -1,17 +1,19 @@
 import { Config } from '@stone-js/config'
-import { MixedPipe, Pipeline } from '@stone-js/pipeline'
-import { StoneBlueprint } from './options/StoneBlueprint'
-import { ConfigMiddlewareOptions } from './decorators/ConfigMiddleware'
+import { isObjectLikeModule, isStoneBlueprint } from './utils'
+import { isConstructor, MixedPipe, Pipeline } from '@stone-js/pipeline'
 import { CONFIGURATION_KEY, CONFIG_MIDDLEWARE_KEY } from './decorators/constants'
-import { ConfigRawModules, IBlueprint, ClassType, ConfigContext } from './declarations'
+import { IBlueprint, ClassType, ConfigContext, IConfiguration } from './declarations'
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from './decorators/Metadata'
 
 /**
  * ConfigBuilderOptions.
  */
-export interface ConfigBuilderOptions {
-  middleware: MixedPipe[]
+export interface ConfigBuilderOptions<
+  BlueprintType extends IBlueprint = IBlueprint,
+  ContextType extends ConfigContext<BlueprintType> = ConfigContext<BlueprintType>
+> {
   defaultMiddlewarePriority?: number
+  middleware: Array<MixedPipe<ContextType, BlueprintType>>
 }
 
 /**
@@ -26,19 +28,19 @@ export interface ConfigBuilderOptions {
  *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class ConfigBuilder {
-  /**
-   * The configuration options.
-   */
-  private readonly options: ConfigBuilderOptions
-
+export class ConfigBuilder<
+  BlueprintType extends IBlueprint = IBlueprint,
+  ContextType extends ConfigContext<BlueprintType> = ConfigContext<BlueprintType>
+> {
   /**
    * Create a ConfigBuilder.
    *
    * @param options - The options to create a ConfigBuilder.
    * @returns A new ConfigBuilder instance.
    */
-  static create (options?: ConfigBuilderOptions): ConfigBuilder {
+  static create<BlueprintType extends IBlueprint = IBlueprint, ContextType extends ConfigContext<BlueprintType> = ConfigContext<BlueprintType>>(
+    options?: ConfigBuilderOptions<BlueprintType, ContextType>
+  ): ConfigBuilder<BlueprintType, ContextType> {
     return new this(options)
   }
 
@@ -47,9 +49,9 @@ export class ConfigBuilder {
    *
    * @param options - The options to create a ConfigBuilder.
    */
-  protected constructor (options: ConfigBuilderOptions = { middleware: [], defaultMiddlewarePriority: 0 }) {
-    this.options = options
-  }
+  protected constructor (
+    private readonly options: ConfigBuilderOptions<BlueprintType, ContextType> = { middleware: [], defaultMiddlewarePriority: 0 }
+  ) {}
 
   /**
    * Build the configuration blueprint by extracting metadata from the provided modules.
@@ -58,7 +60,7 @@ export class ConfigBuilder {
    * and returns the resulting configuration blueprint. It allows users to pass a custom blueprint
    * or use a default one if none is provided.
    *
-   * @param rawModules - The modules to build the configuration from, organized by module names.
+   * @param modules - The modules to build the configuration from.
    * @param blueprint - The initial blueprint to populate, defaults to a newly created Config instance.
    * @returns A promise that resolves to the populated Blueprint object.
    *
@@ -68,29 +70,16 @@ export class ConfigBuilder {
    * const blueprint = await configBuilder.build(rawModules);
    * ```
    */
-  async build (rawModules: ConfigRawModules, blueprint: IBlueprint = Config.create()): Promise<IBlueprint> {
-    const modules = this.extractModulesFromRawInput(rawModules)
-    const context: ConfigContext = { modules, blueprint }
-    const { middleware, defaultMiddlewarePriority = 10 } = this.extractOptionsFromModules(modules)
+  async build (modules: unknown[], blueprint: BlueprintType = Config.create() as BlueprintType): Promise<BlueprintType> {
+    const context = { modules, blueprint } as unknown as ContextType
+    const { middleware, defaultMiddlewarePriority } = await this.extractOptionsFromModules(modules, blueprint)
 
     return await Pipeline
-      .create<ConfigContext, IBlueprint>()
-      .defaultPriority(defaultMiddlewarePriority)
+      .create<ContextType, BlueprintType>()
       .send(context)
-      .through(middleware)
+      .through(...middleware)
+      .defaultPriority(defaultMiddlewarePriority ?? 0)
       .then((v) => v.blueprint)
-  }
-
-  /**
-   * Extract the modules from raw input.
-   *
-   * @param rawModules - The modules to extract.
-   * @returns The list of modules extracted.
-   */
-  private extractModulesFromRawInput (rawModules: ConfigRawModules): unknown[] {
-    return Object.values(rawModules).reduce<unknown[]>((modules, value) => {
-      return modules.concat(Object.values(value))
-    }, [])
   }
 
   /**
@@ -99,47 +88,62 @@ export class ConfigBuilder {
    * @param modules - The modules to extract options from.
    * @returns The configuration options.
    */
-  private extractOptionsFromModules (modules: unknown[]): ConfigBuilderOptions {
-    return modules.reduce<ConfigBuilderOptions>((options, module) => {
-      if (typeof module === 'function') {
-        this.applyMetadata(module as ClassType, options)
-      } else {
-        this.populateOptions(options, (module as StoneBlueprint).stone?.builder)
+  private async extractOptionsFromModules (modules: unknown[], blueprint: BlueprintType): Promise<ConfigBuilderOptions<BlueprintType, ContextType>> {
+    const {
+      middleware,
+      defaultMiddlewarePriority
+    } = blueprint.get<ConfigBuilderOptions<BlueprintType, ContextType>>('stone.builder', { middleware: [] })
+
+    this.options.middleware = this.options.middleware.concat(middleware)
+    this.options.defaultMiddlewarePriority ??= defaultMiddlewarePriority
+
+    for (const module of modules) {
+      if (isConstructor(module)) {
+        await this.applyMetadata(module)
+      } else if (isStoneBlueprint(module)) {
+        this.populateOptions(module.stone.builder)
       }
-      return options
-    }, { ...this.options })
+    }
+
+    return this.options
   }
 
   /**
    * Apply metadata from a class to the options.
    *
    * @param module - The class to extract metadata from.
-   * @param options - The options to populate.
    */
-  private applyMetadata (module: ClassType, options: ConfigBuilderOptions): void {
+  private async applyMetadata (module: ClassType): Promise<void> {
     if (hasBlueprint(module)) {
       const blueprint = getBlueprint(module)
-      blueprint !== undefined && this.populateOptions(options, blueprint.stone?.builder)
+      this.populateOptions(blueprint?.stone?.builder)
     } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) {
-      const metadata: ConfigMiddlewareOptions = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
-      this.populateOptions(options, { middleware: [{ ...metadata, pipe: module }] })
-    } else if (hasMetadata(module, CONFIGURATION_KEY)) {
-      this.populateOptions(options, (module as unknown as StoneBlueprint).stone?.builder)
+      const metadata = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
+      this.populateOptions({ middleware: [{ ...metadata, pipe: module }] })
+    } else if (hasMetadata(module, CONFIGURATION_KEY) && isConstructor<IConfiguration>(module)) {
+      const options = getMetadata(module, CONFIGURATION_KEY, { live: false })
+
+      if (!options.live) {
+        const blueprint = Config.create()
+        await (new module.prototype.constructor()).configure(blueprint)
+        this.populateOptions(blueprint.get('stone.builder'))
+      }
     }
   }
 
   /**
    * Populate the configuration options with metadata.
    *
-   * @param options - The options to populate.
-   * @param metadataOptions - The metadata to use for populating options.
-   * @returns The updated configuration options.
+   * @param builder - The metadata to use for populating options.
    */
-  private populateOptions (options: ConfigBuilderOptions, metadataOptions?: ConfigBuilderOptions): ConfigBuilderOptions {
-    if (Array.isArray(metadataOptions?.middleware)) {
-      options.middleware = [...options.middleware, ...metadataOptions.middleware]
-      options.defaultMiddlewarePriority = metadataOptions.defaultMiddlewarePriority ?? options.defaultMiddlewarePriority
+  private populateOptions (builder: unknown): void {
+    if (isObjectLikeModule<ConfigBuilderOptions<BlueprintType, ContextType>>(builder)) {
+      const { middleware, defaultMiddlewarePriority } = builder
+
+      if (Array.isArray(middleware)) {
+        this.options.middleware = this.options.middleware.concat(middleware)
+        this.options.defaultMiddlewarePriority = defaultMiddlewarePriority ?? this.options.defaultMiddlewarePriority
+      }
     }
-    return options
   }
 }

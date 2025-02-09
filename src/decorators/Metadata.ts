@@ -1,9 +1,9 @@
-import { mergeBlueprints } from '../utils'
 import { BLUEPRINT_KEY } from './constants'
 import { SetupError } from '../errors/SetupError'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { StoneBlueprint } from '../options/StoneBlueprint'
 import { OutgoingResponse } from '../events/OutgoingResponse'
+import { isFunctionModule, isNotEmpty, isObjectLikeModule, mergeBlueprints } from '../utils'
 import { ClassType, MetadataHolder, ProposalClassDecorator, ProposalMethodDecorator, ProposalPropertyDecorator } from '../declarations'
 
 /**
@@ -175,7 +175,7 @@ export function addBlueprint<
   T extends ClassType,
   U extends IncomingEvent = IncomingEvent,
   V extends OutgoingResponse = OutgoingResponse
-> (_Class: T, context: DecoratorContext, ...blueprints: Array<StoneBlueprint<U, V>>): void {
+> (_Class: T, context: DecoratorContext, ...blueprints: Array<StoneBlueprint<U, V> | Record<string, any>>): void {
   context.metadata[BLUEPRINT_KEY] = mergeBlueprints((context.metadata[BLUEPRINT_KEY] ?? { stone: {} }) as StoneBlueprint<U, V>, ...blueprints)
 }
 
@@ -314,5 +314,5 @@ export function propertyDecoratorLegacyWrapper (
  * @returns True if the target has metadata, false otherwise.
  */
 function hasMetadataSymbol (target: ClassType): target is ClassType & MetadataHolder {
-  return target !== undefined && MetadataSymbol in target && typeof target[MetadataSymbol] !== 'undefined'
+  return (isFunctionModule<MetadataHolder>(target) || isObjectLikeModule<MetadataHolder>(target)) && isNotEmpty(target[MetadataSymbol])
 }

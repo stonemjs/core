@@ -1,17 +1,17 @@
 import { Event } from './events/Event'
 import { EventEmitter } from './events/EventEmitter'
-import { ServiceOptions } from './decorators/Service'
 import { Container } from '@stone-js/service-container'
 import { InitializationError } from './errors/InitializationError'
-import { IBlueprint, IListener, ILogger, IProvider, ISubscriber, ClassType } from './declarations'
+import { isConstructor, isMetaClassModule, isMetaFactoryModule, isMetaFunctionModule } from './utils'
+import { IBlueprint, IEventListener, ILogger, IServiceProvider, IEventSubscriber, MetaService, MetaEventListener, MixedEventSubscriber, IServiceClass, FactoryService, FactoryEventListener, IEventListenerClass, FunctionalEventListener, FactoryEventSubscriber, FunctionalEventSubscriber, IEventSubscriberClass } from './declarations'
 
 /**
  * CoreServiceProvider options.
  */
 export interface CoreServiceProviderOptions {
   logger: ILogger
-  blueprint: IBlueprint
   container: Container
+  blueprint: IBlueprint
   eventEmitter: EventEmitter
 }
 
@@ -25,11 +25,11 @@ export interface CoreServiceProviderOptions {
  *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class CoreServiceProvider implements IProvider {
+export class CoreServiceProvider implements IServiceProvider {
   /**
-   * Blueprint configuration used to retrieve app settings.
+   * The logger
    */
-  private readonly blueprint: IBlueprint
+  private readonly logger: ILogger
 
   /**
    * The service container that manages dependencies.
@@ -37,14 +37,14 @@ export class CoreServiceProvider implements IProvider {
   private readonly container: Container
 
   /**
+   * Blueprint configuration used to retrieve app settings.
+   */
+  private readonly blueprint: IBlueprint
+
+  /**
    * The event emitter used for managing and firing events.
    */
   private readonly eventEmitter: EventEmitter
-
-  /**
-   * The logger
-   */
-  private readonly logger: ILogger
 
   /**
    * Create a new instance of CoreServiceProvider.
@@ -69,8 +69,8 @@ export class CoreServiceProvider implements IProvider {
    *
    * @returns A list of services or an array of service options.
    */
-  private get services (): Function[] | Array<[Function, ServiceOptions]> {
-    return this.blueprint.get<Function[] | Array<[Function, ServiceOptions]>>('stone.services', [])
+  private get services (): MetaService[] {
+    return this.blueprint.get<MetaService[]>('stone.services', [])
   }
 
   /**
@@ -78,8 +78,8 @@ export class CoreServiceProvider implements IProvider {
    *
    * @returns A record of event listeners.
    */
-  private get listeners (): Record<string, Function[]> {
-    return this.blueprint.get<Record<string, Function[]>>('stone.listeners', {})
+  private get listeners (): MetaEventListener[] {
+    return this.blueprint.get<MetaEventListener[]>('stone.listeners', [])
   }
 
   /**
@@ -87,8 +87,8 @@ export class CoreServiceProvider implements IProvider {
    *
    * @returns A list of subscribers.
    */
-  private get subscribers (): Function[] {
-    return this.blueprint.get<Function[]>('stone.subscribers', [])
+  private get subscribers (): MixedEventSubscriber[] {
+    return this.blueprint.get<MixedEventSubscriber[]>('stone.subscribers', [])
   }
 
   /**
@@ -96,8 +96,8 @@ export class CoreServiceProvider implements IProvider {
    *
    * @returns A record of class aliases.
    */
-  private get aliases (): Record<string, ClassType> {
-    return this.blueprint.get<Record<string, ClassType>>('stone.aliases', {})
+  private get aliases (): Record<string, any> {
+    return this.blueprint.get<Record<string, any>>('stone.aliases', {})
   }
 
   /**
@@ -107,8 +107,8 @@ export class CoreServiceProvider implements IProvider {
    */
   public register (): void {
     this.registerServices()
-      .registerListeners()
-      .registerAliases()
+    this.registerListeners()
+    this.registerAliases()
   }
 
   /**
@@ -121,34 +121,34 @@ export class CoreServiceProvider implements IProvider {
   }
 
   /**
-   * Register decorated and imported services.
-   *
-   * @returns This CoreServiceProvider instance for chaining.
-   */
-  private registerServices (): this {
-    this.services.forEach(service => {
-      if (Array.isArray(service)) {
-        const [Class, options] = service
-        this.container.autoBinding(Class, Class, options.singleton, options.alias)
-      } else {
-        this.container.autoBinding(service, service, true)
-      }
-    })
-    return this
-  }
-
-  /**
    * Register aliases in the service container.
    *
    * @returns This CoreServiceProvider instance for chaining.
    */
-  private registerAliases (): this {
-    Object.entries(this.aliases).forEach(([alias, Class]) => {
-      if (typeof Class === 'function' && Object.prototype.hasOwnProperty.call(Class, 'prototype')) {
-        this.container.alias(Class, alias)
+  private registerAliases (): void {
+    Object
+      .entries(this.aliases)
+      .forEach(
+        ([alias, Class]) => isConstructor(Class) && this.container.alias(Class, alias)
+      )
+  }
+
+  /**
+   * Register decorated and imported services.
+   *
+   * @returns This CoreServiceProvider instance for chaining.
+   */
+  private registerServices (): void {
+    this.services.forEach(service => {
+      const { singleton = true, alias = [] } = service
+
+      if (isMetaClassModule<IServiceClass>(service)) {
+        this.container.autoBinding(service.module, service.module, singleton, alias)
+      } else if (isMetaFactoryModule<FactoryService>(service)) {
+        const [name, ...aliases] = [alias].flat()
+        this.container.autoBinding(name, service.module, true, aliases)
       }
     })
-    return this
   }
 
   /**
@@ -156,23 +156,29 @@ export class CoreServiceProvider implements IProvider {
    *
    * @returns This CoreServiceProvider instance for chaining.
    */
-  private registerListeners (): this {
-    for (const [eventName, listeners] of Object.entries(this.listeners)) {
-      for (const listener of listeners) {
-        const instance = this.container.resolve<IListener>(listener, true)
-        if (instance?.handle !== undefined) {
-          /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
-          this.eventEmitter.on(eventName, async (event: Event) => {
-            try {
-              await instance.handle(event)
-            } catch (error: any) {
-              this.logger.error(`An error has occured with this listener (${String(listener)}) ${String(error.message)}`)
-            }
-          })
-        }
+  private registerListeners (): void {
+    for (const listener of this.listeners) {
+      const { event: eventName } = listener
+      let instance: IEventListener | undefined
+
+      if (isMetaClassModule<IEventListenerClass>(listener)) {
+        instance = this.container.resolve<IEventListener>(listener.module, true)
+      } else if (isMetaFactoryModule<FactoryEventListener>(listener)) {
+        instance = { handle: listener.module(this.container) }
+      } else if (isMetaFunctionModule<FunctionalEventListener>(listener)) {
+        instance = { handle: listener.module }
+      }
+
+      if (instance?.handle !== undefined) {
+        this.eventEmitter.on(eventName, async (event: Event) => {
+          try {
+            await instance.handle(event)
+          } catch (error: any) {
+            this.logger.error(`An error has occured with this listener (${String(listener)}) ${String(error.message)}`)
+          }
+        })
       }
     }
-    return this
   }
 
   /**
@@ -182,7 +188,18 @@ export class CoreServiceProvider implements IProvider {
    */
   private async bootSubscribers (): Promise<void> {
     for (const subscriber of this.subscribers) {
-      const instance = this.container.resolve<ISubscriber>(subscriber, true)
+      let instance: IEventSubscriber | undefined
+
+      if (isMetaClassModule<IEventSubscriberClass>(subscriber)) {
+        instance = this.container.resolve<IEventSubscriber>(subscriber.module, true)
+      } else if (isMetaFactoryModule<FactoryEventSubscriber>(subscriber)) {
+        instance = { subscribe: subscriber.module(this.container) }
+      } else if (isMetaFunctionModule<FunctionalEventSubscriber>(subscriber)) {
+        instance = { subscribe: subscriber.module }
+      } else if (isConstructor(subscriber)) {
+        instance = this.container.resolve<IEventSubscriber>(subscriber, true)
+      }
+
       try {
         await instance?.subscribe(this.eventEmitter)
       } catch (error: any) {

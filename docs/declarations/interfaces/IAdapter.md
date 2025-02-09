@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: IAdapter
 
-Defined in: [declarations.ts:336](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L336)
+Defined in: [core/src/declarations.ts:966](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L966)
 
 Adapter Interface.
 
@@ -18,7 +18,7 @@ Represents an adapter with a run method that returns a promise of type Execution
 
 > **run**: \<`ExecutionResultType`\>() => `Promise`\<`ExecutionResultType`\>
 
-Defined in: [declarations.ts:337](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L337)
+Defined in: [core/src/declarations.ts:967](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L967)
 
 #### Type Parameters
 

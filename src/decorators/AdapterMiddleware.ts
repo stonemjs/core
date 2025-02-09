@@ -21,6 +21,11 @@ export interface AdapterMiddlewareOptions {
   /**
    * The platform name for which the middleware is used.
    */
+  alias?: string
+
+  /**
+   * The platform name for which the middleware is used.
+   */
   platform?: string
 }
 
@@ -42,5 +47,5 @@ export interface AdapterMiddlewareOptions {
  * ```
  */
 export const AdapterMiddleware = <T extends ClassType = ClassType>(options: AdapterMiddlewareOptions = {}): ClassDecorator => {
-  return setClassMetadata<T>(ADAPTER_MIDDLEWARE_KEY, options)
+  return setClassMetadata<T>(ADAPTER_MIDDLEWARE_KEY, { ...options, isClass: true })
 }

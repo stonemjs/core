@@ -9,9 +9,12 @@ import { CONFIGURATION_KEY } from './constants'
  */
 export interface ConfigurationOptions {
   /**
-   * Additional configuration settings for the Configuration, if needed.
+   * Live configurations are loaded on each request.
+   * By default, configurations loaded once when the application starts.
+   * Usefull to define dynamic configurations.
+   * No need to restart the application to apply changes.
    */
-  [key: string]: unknown
+  live?: boolean
 }
 
 /**
@@ -20,8 +23,10 @@ export interface ConfigurationOptions {
  * @example
  * ```typescript
  * @Configuration()
- * class MyClass {
- *   // ...
+ * MyConfiguration {
+ *  configure (blueprint): void | Promise<void> {
+ *    blueprint.set('name.name', {})
+ *  }
  * }
  * ```
  *
@@ -29,5 +34,5 @@ export interface ConfigurationOptions {
  * @returns A class decorator function that sets the metadata using the provided options.
  */
 export const Configuration = <T extends ClassType = ClassType>(options: ConfigurationOptions = {}): ClassDecorator => {
-  return setClassMetadata<T>(CONFIGURATION_KEY, options)
+  return setClassMetadata<T>(CONFIGURATION_KEY, { ...options, isClass: true })
 }

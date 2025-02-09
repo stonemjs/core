@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -15,8 +15,8 @@
 - [CONFIGURATION\_KEY](variables/CONFIGURATION_KEY.md)
 - [ERROR\_HANDLER\_KEY](variables/ERROR_HANDLER_KEY.md)
 - [LISTENER\_KEY](variables/LISTENER_KEY.md)
-- [MAIN\_HANDLER\_KEY](variables/MAIN_HANDLER_KEY.md)
 - [MIDDLEWARE\_KEY](variables/MIDDLEWARE_KEY.md)
 - [PROVIDER\_KEY](variables/PROVIDER_KEY.md)
 - [SERVICE\_KEY](variables/SERVICE_KEY.md)
+- [STONE\_APP\_KEY](variables/STONE_APP_KEY.md)
 - [SUBSCRIBER\_KEY](variables/SUBSCRIBER_KEY.md)

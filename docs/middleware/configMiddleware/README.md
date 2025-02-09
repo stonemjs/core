@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -14,10 +14,10 @@
 
 - [AdapterErrorHandlerMiddleware](functions/AdapterErrorHandlerMiddleware.md)
 - [AdapterMiddlewareMiddleware](functions/AdapterMiddlewareMiddleware.md)
+- [ApplicationEntryPointMiddleware](functions/ApplicationEntryPointMiddleware.md)
 - [BlueprintMiddleware](functions/BlueprintMiddleware.md)
 - [ErrorHandlerMiddleware](functions/ErrorHandlerMiddleware.md)
 - [ListenerMiddleware](functions/ListenerMiddleware.md)
-- [MainHandlerMiddleware](functions/MainHandlerMiddleware.md)
 - [MiddlewareMiddleware](functions/MiddlewareMiddleware.md)
 - [ProviderMiddleware](functions/ProviderMiddleware.md)
 - [RegisterProviderToOnInitHookMiddleware](functions/RegisterProviderToOnInitHookMiddleware.md)

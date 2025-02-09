@@ -1,15 +1,29 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
 [Core Documentation](../../modules.md) / [declarations](../README.md) / ClassType
 
-# Type Alias: ClassType
+# Type Alias: ClassType()\<Type\>
 
-> **ClassType**: (...`args`) => `any` \| (...`args`) => `any`
+> **ClassType**\<`Type`\>: (...`args`) => `Type`
 
-Defined in: [declarations.ts:495](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L495)
+Defined in: [core/src/declarations.ts:708](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L708)
 
 ClassType Type.
 
 Represents a class type, including abstract classes.
+
+## Type Parameters
+
+• **Type** = `any`
+
+## Parameters
+
+### args
+
+...`any`[]
+
+## Returns
+
+`Type`

@@ -4,21 +4,25 @@ import {
   IBlueprint,
   HookContext,
   AdapterHooks,
-  EventHandler,
   AdapterContext,
   RawResponseOptions,
   IRawResponseWrapper,
   IAdapterEventBuilder,
-  EventHandlerFunction,
   IAdapterErrorHandler,
-  LifecycleEventHandler,
-  AdapterHandlerResolver
+  MetaAdapterErrorHandler,
+  AdapterEventHandlerType,
+  IAdapterErrorHandlerClass,
+  FactoryAdapterErrorHandler,
+  AdapterEventHandlerResolver,
+  LifecycleAdapterEventHandler,
+  FunctionalAdapterEventHandler,
+  FunctionalAdapterErrorHandler
 } from '../declarations'
-import { isConstructor } from '../utils'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { IntegrationError } from '../errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'
-import { MixedPipe, Pipe, Pipeline, PipelineOptions } from '@stone-js/pipeline'
+import { isMetaClassModule, isMetaFactoryModule, isHandlerHasHook, isMetaFunctionModule } from '../utils'
+import { isClassPipe, isFactoryPipe, isFunction, MetaPipe, MixedPipe, Pipeline, PipelineOptions } from '@stone-js/pipeline'
 
 /**
  * Adapter options.
@@ -33,7 +37,7 @@ export interface AdapterOptions<
   logger: ILogger
   hooks: AdapterHooks
   blueprint: IBlueprint
-  handlerResolver: AdapterHandlerResolver<IncomingEventType, OutgoingResponseType>
+  handlerResolver: AdapterEventHandlerResolver<IncomingEventType, OutgoingResponseType>
 }
 
 /**
@@ -56,12 +60,27 @@ export abstract class Adapter<
   IncomingEventType extends IncomingEvent,
   IncomingEventOptionsType extends IncomingEventOptions,
   OutgoingResponseType extends OutgoingResponse,
-  AdapterContextType extends AdapterContext<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType> = AdapterContext<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType>
+  AdapterContextType extends AdapterContext<
+  RawEventType,
+  RawResponseType,
+  ExecutionContextType,
+  IncomingEventType,
+  IncomingEventOptionsType,
+  OutgoingResponseType
+  > = AdapterContext<
+  RawEventType,
+  RawResponseType,
+  ExecutionContextType,
+  IncomingEventType,
+  IncomingEventOptionsType,
+  OutgoingResponseType
+  >
 > implements IAdapter {
   protected readonly logger: ILogger
   protected readonly hooks: AdapterHooks
   protected readonly blueprint: IBlueprint
-  protected readonly handlerResolver: AdapterHandlerResolver<IncomingEventType, OutgoingResponseType>
+  protected readonly handlerResolver: AdapterEventHandlerResolver<IncomingEventType, OutgoingResponseType>
+  private readonly resolvedErrorHandlers: Record<string, IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>
 
   /**
    * Create an Adapter.
@@ -87,6 +106,7 @@ export abstract class Adapter<
     this.logger = logger
     this.hooks = hooks ?? []
     this.blueprint = blueprint
+    this.resolvedErrorHandlers = {}
     this.handlerResolver = handlerResolver
   }
 
@@ -117,31 +137,39 @@ export abstract class Adapter<
    * @param context - The event context.
    * @returns Platform-specific output.
    */
-  protected async sendEventThroughDestination (eventHandler: EventHandler<IncomingEventType, OutgoingResponseType>, context: AdapterContextType): Promise<RawResponseType> {
+  protected async sendEventThroughDestination (
+    eventHandler: AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>,
+    context: AdapterContextType
+  ): Promise<RawResponseType> {
     if (eventHandler === undefined) { throw new IntegrationError('No eventHandler provided') }
     if (context.rawResponseBuilder?.build === undefined) { throw new IntegrationError('No RawResponseBuilder provided') }
     if (context.incomingEventBuilder?.build === undefined) { throw new IntegrationError('No IncomingEventBuilder provided') }
 
-    const middleware = this.blueprint.get<MixedPipe[]>('stone.adapter.middleware', [])
-    const lifecycleEventHandler = eventHandler as LifecycleEventHandler<IncomingEventType, OutgoingResponseType>
+    const middleware = this.blueprint.get<
+    Array<MixedPipe<AdapterContextType,
+    IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>>
+    >('stone.adapter.middleware', [])
 
     try {
-      await this.beforeHandle(lifecycleEventHandler)
+      await this.beforeHandle(eventHandler)
 
       const responseBuilder = await Pipeline
-        .create<AdapterContextType, IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>(this.makePipelineOptions())
+        .create<
+      AdapterContextType,
+      IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
+      >(this.makePipelineOptions())
         .send(context)
-        .through(middleware)
+        .through(...middleware)
         .then(async (ctx) => await this.prepareResponse(eventHandler, ctx))
 
-      await this.afterHandle(lifecycleEventHandler, context)
+      await this.afterHandle(eventHandler, context)
 
       context.rawResponse = await responseBuilder.build().respond()
     } catch (error: any) {
-      context.rawResponse = await this.getErrorHandler(error).handle(error, context)
+      context.rawResponse = await this.resolveErrorHandler(error).handle(error, context)
     } finally {
       try {
-        await this.onTerminate(lifecycleEventHandler, context)
+        await this.onTerminate(eventHandler, context)
       } catch (error: any) {
         this.logger.error(error.message, { error })
       }
@@ -162,9 +190,9 @@ export abstract class Adapter<
    *
    * @param eventHandler - Action handler to be run.
    */
-  protected async onPrepare (eventHandler: LifecycleEventHandler<IncomingEventType, OutgoingResponseType>): Promise<void> {
+  protected async onPrepare (eventHandler: AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>): Promise<void> {
     await this.executeHooks('onPrepare')
-    if (typeof eventHandler?.onPrepare === 'function') {
+    if (isHandlerHasHook(eventHandler, 'onPrepare')) {
       await eventHandler.onPrepare()
     }
   }
@@ -174,9 +202,9 @@ export abstract class Adapter<
    *
    * @param eventHandler - Action handler to be run.
    */
-  protected async beforeHandle (eventHandler: LifecycleEventHandler<IncomingEventType, OutgoingResponseType>): Promise<void> {
+  protected async beforeHandle (eventHandler: AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>): Promise<void> {
     await this.executeHooks('beforeHandle')
-    if (typeof eventHandler?.beforeHandle === 'function') {
+    if (isHandlerHasHook(eventHandler, 'beforeHandle')) {
       await eventHandler.beforeHandle()
     }
   }
@@ -187,9 +215,9 @@ export abstract class Adapter<
    * @param eventHandler - Action handler to be run.
    * @param context - The event context.
    */
-  protected async afterHandle (eventHandler: LifecycleEventHandler<IncomingEventType, OutgoingResponseType>, context: AdapterContextType): Promise<void> {
+  protected async afterHandle (eventHandler: AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>, context: AdapterContextType): Promise<void> {
     await this.executeHooks('afterHandle', context)
-    if (typeof eventHandler?.afterHandle === 'function') {
+    if (isHandlerHasHook(eventHandler, 'afterHandle')) {
       await eventHandler.afterHandle(this.makeHookContext(context))
     }
   }
@@ -200,9 +228,9 @@ export abstract class Adapter<
    * @param eventHandler - Action handler to be run.
    * @param context - The event context.
    */
-  protected async onTerminate (eventHandler: LifecycleEventHandler<IncomingEventType, OutgoingResponseType>, context: AdapterContextType): Promise<void> {
+  protected async onTerminate (eventHandler: AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>, context: AdapterContextType): Promise<void> {
     await this.executeHooks('onTerminate', context)
-    if (typeof eventHandler?.onTerminate === 'function') {
+    if (isHandlerHasHook(eventHandler, 'onTerminate')) {
       await eventHandler.onTerminate(this.makeHookContext(context))
     }
   }
@@ -228,9 +256,11 @@ export abstract class Adapter<
    */
   protected makePipelineOptions (): PipelineOptions<AdapterContextType, IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>> {
     return {
-      resolver: (Middleware: Pipe) => {
-        if (isConstructor(Middleware)) {
-          return new Middleware({ blueprint: this.blueprint, logger: this.logger })
+      resolver: (metaPipe: MetaPipe<AdapterContextType, IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>) => {
+        if (isClassPipe(metaPipe)) {
+          return new metaPipe.module.prototype.constructor({ blueprint: this.blueprint, logger: this.logger })
+        } else if (isFactoryPipe(metaPipe)) {
+          return metaPipe.module({ blueprint: this.blueprint, logger: this.logger })
         }
       }
     }
@@ -242,15 +272,28 @@ export abstract class Adapter<
    * @param error - The error to get the handler for.
    * @returns The error handler.
    */
-  protected getErrorHandler (error: Error): IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> {
-    const handlers = this.blueprint.get<Record<string, IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>>('stone.adapter.errorHandlers', {})
-    const ErrorHandler = handlers[error.name] ?? handlers.default
+  protected resolveErrorHandler (error: Error): IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> {
+    if (this.resolvedErrorHandlers[error.name] === undefined) {
+      const metaErrorHandler = this.blueprint.get<MetaAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>(
+        `stone.adapter.errorHandlers.${error.name}`,
+        this.blueprint.get<MetaAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>(
+          'stone.adapter.errorHandlers.default',
+          {} as any
+        )
+      )
 
-    if (isConstructor(ErrorHandler)) {
-      return new ErrorHandler({ blueprint: this.blueprint, logger: this.logger })
-    } else {
-      throw new IntegrationError(`The error handler for ${String(error.name)} is not provided or is not a class.`)
+      if (isMetaClassModule<IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType>>(metaErrorHandler)) {
+        this.resolvedErrorHandlers[error.name] = new metaErrorHandler.module.prototype.constructor({ blueprint: this.blueprint, logger: this.logger })
+      } else if (isMetaFactoryModule<FactoryAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>(metaErrorHandler)) {
+        this.resolvedErrorHandlers[error.name] = { handle: metaErrorHandler.module({ blueprint: this.blueprint, logger: this.logger }) }
+      } else if (isMetaFunctionModule<FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>(metaErrorHandler)) {
+        this.resolvedErrorHandlers[error.name] = { handle: metaErrorHandler.module }
+      } else {
+        throw new IntegrationError(`The error handler for ${String(error.name)} is not provided.`)
+      }
     }
+
+    return this.resolvedErrorHandlers[error.name]
   }
 
   /**
@@ -261,10 +304,10 @@ export abstract class Adapter<
    * @returns The raw response wrapper.
    */
   protected async prepareResponse (
-    eventHandler: EventHandler<IncomingEventType, OutgoingResponseType>,
+    eventHandler: AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>,
     context: AdapterContextType
   ): Promise<IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>> {
-    const lifecycleEventHandler = eventHandler as LifecycleEventHandler<IncomingEventType, OutgoingResponseType>
+    const lifecycleEventHandler = eventHandler as LifecycleAdapterEventHandler<IncomingEventType, OutgoingResponseType>
 
     context.incomingEvent = context.incomingEventBuilder.build()
 
@@ -272,9 +315,9 @@ export abstract class Adapter<
       throw new IntegrationError('No IncomingEvent provided')
     }
 
-    context.outgoingResponse = typeof lifecycleEventHandler.handle === 'function'
+    context.outgoingResponse = isFunction(lifecycleEventHandler.handle)
       ? await lifecycleEventHandler.handle(context.incomingEvent)
-      : await (eventHandler as EventHandlerFunction<IncomingEventType, OutgoingResponseType>)(context.incomingEvent)
+      : await (eventHandler as FunctionalAdapterEventHandler<IncomingEventType, OutgoingResponseType>)(context.incomingEvent)
 
     return context.rawResponseBuilder
   }

@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 # Type Alias: KernelResolver()\<TEvent, UResponse\>
 
-> **KernelResolver**\<`TEvent`, `UResponse`\>: (`blueprint`) => [`LifecycleEventHandler`](../interfaces/LifecycleEventHandler.md)\<`TEvent`, `UResponse`\>
+> **KernelResolver**\<`TEvent`, `UResponse`\>: (`blueprint`) => [`LifecycleAdapterEventHandler`](../interfaces/LifecycleAdapterEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:380](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L380)
+Defined in: [core/src/declarations.ts:544](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L544)
 
 KernelResolver Type.
 
@@ -30,6 +30,6 @@ The application blueprint.
 
 ## Returns
 
-[`LifecycleEventHandler`](../interfaces/LifecycleEventHandler.md)\<`TEvent`, `UResponse`\>
+[`LifecycleAdapterEventHandler`](../interfaces/LifecycleAdapterEventHandler.md)\<`TEvent`, `UResponse`\>
 
 The lifecycle event handler.

@@ -32,5 +32,5 @@ export interface ListenerOptions {
  * ```
  */
 export const Listener = <T extends ClassType = ClassType>(options: ListenerOptions): ClassDecorator => {
-  return setClassMetadata<T>(LISTENER_KEY, options)
+  return setClassMetadata<T>(LISTENER_KEY, { ...options, isClass: true })
 }

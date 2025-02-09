@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,14 +6,15 @@
 
 # Function: isConstructor()
 
-> **isConstructor**(`value`): `value is (args: any[]) => any`
+> **isConstructor**\<`ClassType`\>(`value`): `value is (args: any[]) => ClassType`
 
-Defined in: [utils.ts:76](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/utils.ts#L76)
+Defined in: pipeline/dist/index.d.ts:293
 
 Checks if the given value is a constructor function.
 
-This function determines if the provided value is a function
-that can be used as a constructor by verifying if it has a prototype.
+## Type Parameters
+
+• **ClassType** = `any`
 
 ## Parameters
 
@@ -25,18 +26,6 @@ The value to be checked.
 
 ## Returns
 
-`value is (args: any[]) => any`
+`value is (args: any[]) => ClassType`
 
 True if the value is a constructor function, false otherwise.
-
-## Examples
-
-```typescript
-class MyClass {}
-const result = isConstructor(MyClass); // true
-```
-
-```typescript
-const notAConstructor = () => {};
-const result = isConstructor(notAConstructor); // false
-```

@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 # Variable: coreConfigMiddleware
 
-> `const` **coreConfigMiddleware**: `MixedPipe`[]
+> `const` **coreConfigMiddleware**: `MetaPipe`\<[`ConfigContext`](../../../declarations/interfaces/ConfigContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md), [`ClassType`](../../../declarations/type-aliases/ClassType.md) \| `PipeClass`\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>[]
 
-Defined in: [middleware/configMiddleware.ts:369](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/middleware/configMiddleware.ts#L369)
+Defined in: [core/src/middleware/configMiddleware.ts:459](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/middleware/configMiddleware.ts#L459)
 
 Array representing the core configuration middleware for the application.
 

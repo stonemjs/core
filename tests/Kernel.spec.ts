@@ -8,7 +8,7 @@ import { EventEmitter } from '../src/events/EventEmitter'
 import { IncomingEvent } from '../src/events/IncomingEvent'
 import { OutgoingResponse } from '../src/events/OutgoingResponse'
 import { InitializationError } from '../src/errors/InitializationError'
-import { EventHandlerFunction, IBlueprint, IErrorHandler, IProvider, IRouter, LifecycleEventHandler } from '../src/declarations'
+import { FunctionalAdapterEventHandler, IBlueprint, IErrorHandler, IServiceProvider, LifecycleAdapterEventHandler } from '../src/declarations'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -25,9 +25,9 @@ const MockProviderAfterHandleSpy = vi.fn()
 const MockProviderBeforeHandleSpy = vi.fn()
 
 // Mock providers
-class MockProvider implements IProvider {}
-class MockProvider2 implements IProvider { mustSkip = (): boolean => true }
-class MockProvider3 implements IProvider {
+class MockProvider implements IServiceProvider {}
+class MockProvider2 implements IServiceProvider { mustSkip = (): boolean => true }
+class MockProvider3 implements IServiceProvider {
   boot = (): void => { MockProviderbootSpy() }
   register = (): void => { MockProviderRegisterSpy() }
   onPrepare = (): void => { MockProviderOnPrepareSpy() }
@@ -54,20 +54,13 @@ const MockResponseMiddleware = async (event: MockIncomingEvent, next: NextPipe<M
 }
 
 // App handler
-const MockAppFunctionHandler: EventHandlerFunction<MockIncomingEvent, MockOutgoingResponse> = (event: IncomingEvent) => MockOutgoingResponse.create({ content: event.metadata, type: '' })
-class MockAppClassHandler implements LifecycleEventHandler<MockIncomingEvent, MockOutgoingResponse> {
+const MockAppFunctionHandler: FunctionalAdapterEventHandler<MockIncomingEvent, MockOutgoingResponse> = (event: IncomingEvent) => MockOutgoingResponse.create({ content: event.metadata, type: '' })
+class MockAppClassHandler implements LifecycleAdapterEventHandler<MockIncomingEvent, MockOutgoingResponse> {
   handle = MockAppFunctionHandler
   onPrepare = (): void => { MockProviderOnPrepareSpy() }
   afterHandle = (): void => { MockProviderAfterHandleSpy() }
   beforeHandle = (): void => { MockProviderBeforeHandleSpy() }
   onTerminate = (): void => { MockProviderOnTerminateSpy() }
-}
-
-// App router
-class MockRouter implements IRouter<MockIncomingEvent, MockOutgoingResponse> {
-  dispatch (event: MockIncomingEvent): MockOutgoingResponse | Promise<MockOutgoingResponse> {
-    return MockOutgoingResponse.create({ content: event.metadata, type: '' })
-  }
 }
 
 // Error handler spies
@@ -181,22 +174,6 @@ describe('Kernel', () => {
     expect(MockProviderBeforeHandleSpy).toHaveBeenCalledTimes(2)
     expect(MockProviderAfterHandleSpy).toHaveBeenCalledTimes(2)
     expect(MockProviderOnTerminateSpy).toHaveBeenCalledTimes(2)
-  })
-
-  it('should send event through handle and receive a response in router context', async () => {
-    const metadata = { name: 'Stone.js' }
-    const mockEvent = MockIncomingEvent.create({ metadata, type: '', source: {} as any })
-    blueprint.set('stone.kernel.routerResolver', (_container: Container) => new MockRouter())
-
-    await kernel.onPrepare()
-    await kernel.beforeHandle()
-    const response = await kernel.handle(mockEvent)
-    await kernel.afterHandle({ event: mockEvent, response })
-    await kernel.onTerminate({ event: mockEvent, response })
-
-    expect(response.content).toEqual(metadata)
-    expect(MockEventMiddlewareSpy).toHaveBeenCalled()
-    expect(MockResponseMiddlewareSpy).toHaveBeenCalled()
   })
 
   it('should handle error when default error handler is defined', async () => {

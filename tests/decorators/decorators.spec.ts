@@ -11,7 +11,7 @@ import { addBlueprint, setClassMetadata, setMetadata } from '../../src/decorator
 import { ConfigMiddleware, ConfigMiddlewareOptions } from '../../src/decorators/ConfigMiddleware'
 import { AdapterMiddleware, AdapterMiddlewareOptions } from '../../src/decorators/AdapterMiddleware'
 import { AdapterErrorHandler, AdapterErrorHandlerOptions } from '../../src/decorators/AdapterErrorHandler'
-import { ADAPTER_ERROR_HANDLER_KEY, ADAPTER_MIDDLEWARE_KEY, CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, ERROR_HANDLER_KEY, LISTENER_KEY, MAIN_HANDLER_KEY, MIDDLEWARE_KEY, PROVIDER_KEY, SERVICE_KEY, SUBSCRIBER_KEY } from '../../src/decorators/constants'
+import { ADAPTER_ERROR_HANDLER_KEY, ADAPTER_MIDDLEWARE_KEY, CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, ERROR_HANDLER_KEY, LISTENER_KEY, STONE_APP_KEY, MIDDLEWARE_KEY, PROVIDER_KEY, SERVICE_KEY, SUBSCRIBER_KEY } from '../../src/decorators/constants'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -139,13 +139,13 @@ describe('StoneApp', () => {
     // @ts-expect-error - Testing legacy decorator as 2023-11 proposal decorator
     StoneApp(options)(class {}, {} as any)
     expect(addBlueprint).toHaveBeenCalled()
-    expect(setMetadata).toHaveBeenCalledWith({}, MAIN_HANDLER_KEY, {})
+    expect(setMetadata).toHaveBeenCalledWith({}, STONE_APP_KEY, {})
   })
 
   it('should call setClassMetadata with default options if none are provided', () => {
     // @ts-expect-error - Testing legacy decorator as 2023-11 proposal decorator
     StoneApp()(class {}, {} as any)
     expect(addBlueprint).toHaveBeenCalled()
-    expect(setMetadata).toHaveBeenCalledWith({}, MAIN_HANDLER_KEY, {})
+    expect(setMetadata).toHaveBeenCalledWith({}, STONE_APP_KEY, {})
   })
 })

@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation v0.0.4**](../../../README.md)
 
 ***
 
@@ -6,12 +6,21 @@
 
 # Interface: ConfigurationOptions
 
-Defined in: [decorators/Configuration.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Configuration.ts#L10)
+Defined in: [core/src/decorators/Configuration.ts:10](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/Configuration.ts#L10)
 
 Configuration options.
 
 This interface defines the configuration options for marking a class as a Configuration.
 
-## Indexable
+## Properties
 
-\[`key`: `string`\]: `unknown`
+### live?
+
+> `optional` **live**: `boolean`
+
+Defined in: [core/src/decorators/Configuration.ts:17](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/Configuration.ts#L17)
+
+Live configurations are loaded on each request.
+By default, configurations loaded once when the application starts.
+Usefull to define dynamic configurations.
+No need to restart the application to apply changes.

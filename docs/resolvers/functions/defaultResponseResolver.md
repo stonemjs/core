@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **defaultResponseResolver**(`options`): [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
-Defined in: [resolvers.ts:30](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/resolvers.ts#L30)
+Defined in: [core/src/resolvers.ts:31](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/resolvers.ts#L31)
 
 Default response resolver function.
 
@@ -21,8 +21,10 @@ By default, it creates an `OutgoingResponse` instance with the provided options.
 
 [`ResponseResolverOptions`](../../declarations/type-aliases/ResponseResolverOptions.md)
 
+The options to create the response.
+
 ## Returns
 
 [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
-- An outgoing response instance.
+An outgoing response instance.

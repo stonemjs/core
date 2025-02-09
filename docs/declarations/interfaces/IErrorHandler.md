@@ -1,4 +1,4 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation v0.0.4**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Interface: IErrorHandler\<TEvent, UResponse\>
 
-Defined in: [declarations.ts:420](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L420)
+Defined in: [core/src/declarations.ts:580](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L580)
 
 ErrorHandler Interface.
 
@@ -20,26 +20,12 @@ UResponse
 
 • **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
 
-• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+• **UResponse** = `unknown`
 
 ## Properties
 
-### handle()
+### handle
 
-> **handle**: (`error`, `event`) => `UResponse` \| `Promise`\<`UResponse`\>
+> **handle**: [`FunctionalErrorHandler`](../type-aliases/FunctionalErrorHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:421](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L421)
-
-#### Parameters
-
-##### error
-
-`any`
-
-##### event
-
-`TEvent`
-
-#### Returns
-
-`UResponse` \| `Promise`\<`UResponse`\>
+Defined in: [core/src/declarations.ts:581](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L581)
