@@ -8,7 +8,7 @@
 
 > **IServiceClass**: (...`args`) => `any`
 
-Defined in: [core/src/declarations.ts:296](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L296)
+Defined in: [core/src/declarations.ts:296](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L296)
 
 Represents a IServiceClass type.
 

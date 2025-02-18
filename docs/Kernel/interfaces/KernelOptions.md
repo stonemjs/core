@@ -6,7 +6,7 @@
 
 # Interface: KernelOptions
 
-Defined in: [core/src/Kernel.ts:56](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L56)
+Defined in: [core/src/Kernel.ts:56](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L56)
 
 KernelOptions.
 
@@ -16,7 +16,7 @@ KernelOptions.
 
 > **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [core/src/Kernel.ts:59](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L59)
+Defined in: [core/src/Kernel.ts:59](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L59)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/Kernel.ts:59](https://github.com/stonemjs/core/blob/e4675f
 
 > **container**: `Container`
 
-Defined in: [core/src/Kernel.ts:58](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L58)
+Defined in: [core/src/Kernel.ts:58](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L58)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/Kernel.ts:58](https://github.com/stonemjs/core/blob/e4675f
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [core/src/Kernel.ts:60](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L60)
+Defined in: [core/src/Kernel.ts:60](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L60)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [core/src/Kernel.ts:60](https://github.com/stonemjs/core/blob/e4675f
 
 > **logger**: [`ILogger`](../../declarations/interfaces/ILogger.md)
 
-Defined in: [core/src/Kernel.ts:57](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L57)
+Defined in: [core/src/Kernel.ts:57](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L57)

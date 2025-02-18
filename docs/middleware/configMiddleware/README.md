@@ -20,7 +20,7 @@
 - [ListenerMiddleware](functions/ListenerMiddleware.md)
 - [MiddlewareMiddleware](functions/MiddlewareMiddleware.md)
 - [ProviderMiddleware](functions/ProviderMiddleware.md)
-- [RegisterProviderToOnInitHookMiddleware](functions/RegisterProviderToOnInitHookMiddleware.md)
+- [RegisterOnStartOnStopHooksMiddleware](functions/RegisterOnStartOnStopHooksMiddleware.md)
 - [ServiceMiddleware](functions/ServiceMiddleware.md)
 - [SetCurrentAdapterMiddleware](functions/SetCurrentAdapterMiddleware.md)
 - [SubscriberMiddleware](functions/SubscriberMiddleware.md)

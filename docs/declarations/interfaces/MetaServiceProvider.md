@@ -6,7 +6,7 @@
 
 # Interface: MetaServiceProvider\<TEvent, UResponse\>
 
-Defined in: [core/src/declarations.ts:282](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L282)
+Defined in: [core/src/declarations.ts:282](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L282)
 
 Represents a MetaServiceProvider type.
 
@@ -22,7 +22,7 @@ Represents a MetaServiceProvider type.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:283](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L283)
+Defined in: [core/src/declarations.ts:283](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L283)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [core/src/declarations.ts:283](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:284](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L284)
+Defined in: [core/src/declarations.ts:284](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L284)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [core/src/declarations.ts:284](https://github.com/stonemjs/core/blob
 
 > **module**: [`ServiceProviderType`](../type-aliases/ServiceProviderType.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/declarations.ts:285](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L285)
+Defined in: [core/src/declarations.ts:285](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L285)

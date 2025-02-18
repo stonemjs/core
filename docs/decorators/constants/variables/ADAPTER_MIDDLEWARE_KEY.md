@@ -8,6 +8,6 @@
 
 > `const` **ADAPTER\_MIDDLEWARE\_KEY**: *typeof* [`ADAPTER_MIDDLEWARE_KEY`](ADAPTER_MIDDLEWARE_KEY.md)
 
-Defined in: [core/src/decorators/constants.ts:14](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/constants.ts#L14)
+Defined in: [core/src/decorators/constants.ts:14](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/decorators/constants.ts#L14)
 
 A unique symbol key to mark classes as middleware.

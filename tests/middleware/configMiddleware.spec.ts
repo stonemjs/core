@@ -4,7 +4,7 @@ import { MetadataSymbol } from '../../src/decorators/Metadata'
 import { stoneBlueprint } from '../../src/options/StoneBlueprint'
 import { ClassType, ConfigContext, IBlueprint, MetadataHolder } from '../../src/declarations'
 import { STONE_APP_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../../src/decorators/constants'
-import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, ApplicationEntryPointMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterProviderToOnInitHookMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
+import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, ApplicationEntryPointMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterOnStartOnStopHooksMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
 
 // Mock dependencies
 vi.mock('@stone-js/pipeline')
@@ -21,7 +21,7 @@ const createMockModule = (key: PropertyKey, metadata: Record<any, any>): ClassTy
       }
     }
 
-    static onInit (): void {}
+    static onStart (): void {}
 
     static async load (): Promise<unknown> {
       return await Promise.resolve({ stone: { name: 'Test Stone.js' } })
@@ -38,7 +38,7 @@ const createMockModule2 = (key: PropertyKey, metadata: Record<any, any>): ClassT
       adapters: [{ alias: 'node', middleware: [] }]
     }
 
-    static onInit (): void {}
+    static onStart (): void {}
   }
   MyClass[MetadataSymbol] = { [key]: metadata }
   return MyClass
@@ -179,16 +179,16 @@ describe('configMiddleware', () => {
     })
   })
 
-  describe('RegisterProviderToOnInitHookMiddleware', () => {
-    it('should call next with onInit providers added to adapter hooks', async () => {
+  describe('RegisterProviderToOnStartHookMiddleware', () => {
+    it('should call next with onStart providers added to adapter hooks', async () => {
       mockContext.blueprint.set('stone.adapter', { alias: 'adapter', hooks: {} })
       await ProviderMiddleware(mockContext, mockNext)
-      const result = await RegisterProviderToOnInitHookMiddleware(mockContext, mockNext)
-      const OnInitFn: Function = mockContext.blueprint.get('stone.adapter.hooks.onInit.0', () => {})
+      const result = await RegisterOnStartOnStopHooksMiddleware(mockContext, mockNext)
+      const OnStartFn: Function = mockContext.blueprint.get('stone.adapter.hooks.onStart.0', () => {})
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
-      expect(mockContext.blueprint.get('stone.adapter.hooks.onInit')).length(1)
-      expect(OnInitFn()).toBe(undefined)
+      expect(mockContext.blueprint.get('stone.adapter.hooks.onStart')).length(1)
+      expect(OnStartFn()).toBe(undefined)
     })
   })
 

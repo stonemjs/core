@@ -1,11 +1,19 @@
 import { Config } from '@stone-js/config'
 import { mergeBlueprints } from './utils'
 import { StoneFactory } from './StoneFactory'
-import { ConfigBuilder } from './ConfigBuilder'
+import { BlueprintBuilder } from './BlueprintBuilder'
 import { IncomingEvent } from './events/IncomingEvent'
 import { StoneBlueprint } from './options/StoneBlueprint'
 import { OutgoingResponse } from './events/OutgoingResponse'
-import { AdapterHookListener, EventListenerType, HookName, IBlueprint, KernelHookListener, MetaEventListener, MixedEventHandler } from './declarations'
+import {
+  HookName,
+  IBlueprint,
+  EventListenerType,
+  MetaEventListener,
+  MixedEventHandler,
+  KernelHookListener,
+  AdapterHookListener
+} from './declarations'
 
 /**
  * Stone builder options.
@@ -116,8 +124,7 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The current StoneBuilder instance.
    */
   on (event: string, handler: EventListenerType, options?: Omit<MetaEventListener, 'event' | 'module'>): this {
-    this.blueprint.add('stone.listeners', [{ ...options, event, module: handler }])
-    return this
+    return this.add('stone.listeners', [{ ...options, event, module: handler }])
   }
 
   /**
@@ -128,21 +135,29 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The current StoneBuilder instance.
    */
   hook (key: HookName, listener: KernelHookListener): this {
-    this.blueprint.add(`stone.kernel.hooks.${key}`, [listener])
-    return this
+    return this.add(`stone.kernel.hooks.${key}`, [listener])
   }
 
   /**
-   * Add an adapter listener hook to the application.
-   * This hook is specific to the adapter and is called when the adapter is initialized.
-   * Because the adapter is initialized before the application,
+   * Registers a listener that runs when the adapter starts.
+   * This hook is triggered when the adapter is initialized, before the application itself starts.
    *
-   * @param listener - The hook function listener to add.
+   * @param listener - The hook function to execute on adapter start.
    * @returns The current StoneBuilder instance.
    */
-  onInit (listener: AdapterHookListener): this {
-    this.blueprint.add('stone.adapter.hooks.onInit', [listener])
-    return this
+  onStart (listener: AdapterHookListener): this {
+    return this.add('stone.adapter.hooks.onStart', [listener])
+  }
+
+  /**
+   * Registers a listener that runs when the adapter stops.
+   * This hook is triggered before the adapter shuts down, allowing for cleanup operations.
+   *
+   * @param listener - The hook function to execute on adapter stop.
+   * @returns The current StoneBuilder instance.
+   */
+  onStop (listener: AdapterHookListener): this {
+    return this.add('stone.adapter.hooks.onStop', [listener])
   }
 
   /**
@@ -157,8 +172,7 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The current StoneBuilder instance.
    */
   onRegister (listener: KernelHookListener): this {
-    this.hook('onPrepare', listener)
-    return this
+    return this.hook('onPrepare', listener)
   }
 
   /**
@@ -173,8 +187,7 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The current StoneBuilder instance.
    */
   onBoot (listener: KernelHookListener): this {
-    this.hook('beforeHandle', listener)
-    return this
+    return this.hook('beforeHandle', listener)
   }
 
   /**
@@ -196,7 +209,7 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The platform-specific response.
    */
   async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
-    const blueprint = await ConfigBuilder.create().build(this.modules, this.blueprint)
+    const blueprint = await BlueprintBuilder.create().build(this.modules, this.blueprint)
     return await StoneFactory.create({ blueprint }).run<ExecutionResultType>()
   }
 }

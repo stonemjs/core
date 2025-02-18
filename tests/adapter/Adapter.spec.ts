@@ -51,7 +51,7 @@ class MockAdapter extends Adapter<MockRawEvent, MockRawResponse, MockRawResponse
   }
 
   public async run<ExecutionResultType = MockRawResponse> (): Promise<ExecutionResultType> {
-    await this.onInit()
+    await this.onStart()
     const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
     await this.onPrepare(eventHandler)
     const rawEvent: MockRawEvent = { name: 'Stone.js' }
@@ -72,7 +72,7 @@ const mockAdapter2Resolver = (incomingEventBuilder: any, rawResponseBuilder: any
   }
 
   public async run (): Promise<any> {
-    await this.onInit()
+    await this.onStart()
     const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
     await this.onPrepare(eventHandler)
     const rawEvent: MockRawEvent = { name: 'Stone.js' }
@@ -156,7 +156,7 @@ class MockErrorHandler implements IAdapterErrorHandler<MockRawEvent, MockRawResp
 }
 
 // Global Adapter hooks spies
-const globalOnInitSpy = vi.fn()
+const globalOnStartSpy = vi.fn()
 const globalOnPrepareSpy = vi.fn()
 const globalBeforeHandleSpy = vi.fn()
 const globalAfterHandleSpy = vi.fn()
@@ -184,7 +184,7 @@ describe('Adapter', () => {
     })
     handlerResolver = (blueprint: IBlueprint) => new MockAppEventHandler(blueprint)
     hooks = {
-      onInit: [globalOnInitSpy],
+      onStart: [globalOnStartSpy],
       onPrepare: [globalOnPrepareSpy],
       beforeHandle: [globalBeforeHandleSpy],
       afterHandle: [globalAfterHandleSpy],
@@ -379,7 +379,7 @@ describe('Adapter', () => {
     expect(appAfterHandleHookSpy).toHaveBeenCalled()
     expect(appOnTerminateHookSpy).toHaveBeenCalled()
 
-    expect(globalOnInitSpy).toHaveBeenCalled()
+    expect(globalOnStartSpy).toHaveBeenCalled()
     expect(globalOnPrepareSpy).toHaveBeenCalled()
     expect(globalBeforeHandleSpy).toHaveBeenCalled()
     expect(globalAfterHandleSpy).toHaveBeenCalled()

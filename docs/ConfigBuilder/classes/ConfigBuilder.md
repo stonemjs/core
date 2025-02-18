@@ -6,7 +6,7 @@
 
 # Class: ConfigBuilder\<BlueprintType, ContextType\>
 
-Defined in: [core/src/ConfigBuilder.ts:31](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L31)
+Defined in: [core/src/ConfigBuilder.ts:31](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L31)
 
 Class representing a ConfigBuilder for the Stone.js framework.
 
@@ -33,7 +33,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new ConfigBuilder**\<`BlueprintType`, `ContextType`\>(`options`): [`ConfigBuilder`](ConfigBuilder.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/ConfigBuilder.ts:52](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L52)
+Defined in: [core/src/ConfigBuilder.ts:52](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L52)
 
 Create a ConfigBuilder.
 
@@ -55,7 +55,7 @@ The options to create a ConfigBuilder.
 
 > **build**(`modules`, `blueprint`): `Promise`\<`BlueprintType`\>
 
-Defined in: [core/src/ConfigBuilder.ts:73](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L73)
+Defined in: [core/src/ConfigBuilder.ts:73](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L73)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -96,7 +96,7 @@ const blueprint = await configBuilder.build(rawModules);
 
 > `static` **create**\<`BlueprintType`, `ContextType`\>(`options`?): [`ConfigBuilder`](ConfigBuilder.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L41)
+Defined in: [core/src/ConfigBuilder.ts:41](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L41)
 
 Create a ConfigBuilder.
 

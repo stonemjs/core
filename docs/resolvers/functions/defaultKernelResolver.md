@@ -8,7 +8,7 @@
 
 > **defaultKernelResolver**\<`U`, `V`\>(`blueprint`): [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
 
-Defined in: [core/src/resolvers.ts:45](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/resolvers.ts#L45)
+Defined in: [core/src/resolvers.ts:45](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/resolvers.ts#L45)
 
 Default kernel resolver function.
 

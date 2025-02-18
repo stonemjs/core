@@ -6,9 +6,9 @@ import { IBlueprint, ClassType, ConfigContext, IConfiguration } from './declarat
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from './decorators/Metadata'
 
 /**
- * ConfigBuilderOptions.
+ * BlueprintBuilderOptions.
  */
-export interface ConfigBuilderOptions<
+export interface BlueprintBuilderOptions<
   BlueprintType extends IBlueprint = IBlueprint,
   ContextType extends ConfigContext<BlueprintType> = ConfigContext<BlueprintType>
 > {
@@ -17,40 +17,40 @@ export interface ConfigBuilderOptions<
 }
 
 /**
- * Class representing a ConfigBuilder for the Stone.js framework.
+ * Class representing a BlueprintBuilder for the Stone.js framework.
  *
- * The ConfigBuilder is responsible for constructing and configuring the dynamic, complex structured options required by the Stone.js framework.
- * It inspects various modules, extracts metadata, and builds the "blueprint" object which serves as the primary configuration for the Stone.js application.
+ * The BlueprintBuilder is responsible for constructing and configuring the dynamic, complex structured options required by the Stone.js framework.
+ * It introspects various modules, extracts metadata, and builds the "blueprint" object which serves as the primary configuration for the Stone.js application.
  * This class also manages middleware used to process and populate the configuration during the application setup.
  *
- * The ConfigBuilder allows users to create a unified configuration that is used to initialize and bootstrap the Stone.js application,
+ * The BlueprintBuilder allows users to create a unified configuration that is used to initialize and bootstrap the Stone.js application,
  * ensuring all necessary metadata is aggregated into a blueprint that can be used consistently throughout the application lifecycle.
  *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class ConfigBuilder<
+export class BlueprintBuilder<
   BlueprintType extends IBlueprint = IBlueprint,
   ContextType extends ConfigContext<BlueprintType> = ConfigContext<BlueprintType>
 > {
   /**
-   * Create a ConfigBuilder.
+   * Create a BlueprintBuilder.
    *
-   * @param options - The options to create a ConfigBuilder.
-   * @returns A new ConfigBuilder instance.
+   * @param options - The options to create a BlueprintBuilder.
+   * @returns A new BlueprintBuilder instance.
    */
   static create<BlueprintType extends IBlueprint = IBlueprint, ContextType extends ConfigContext<BlueprintType> = ConfigContext<BlueprintType>>(
-    options?: ConfigBuilderOptions<BlueprintType, ContextType>
-  ): ConfigBuilder<BlueprintType, ContextType> {
+    options?: BlueprintBuilderOptions<BlueprintType, ContextType>
+  ): BlueprintBuilder<BlueprintType, ContextType> {
     return new this(options)
   }
 
   /**
-   * Create a ConfigBuilder.
+   * Create a BlueprintBuilder.
    *
-   * @param options - The options to create a ConfigBuilder.
+   * @param options - The options to create a BlueprintBuilder.
    */
   protected constructor (
-    private readonly options: ConfigBuilderOptions<BlueprintType, ContextType> = { middleware: [], defaultMiddlewarePriority: 0 }
+    private readonly options: BlueprintBuilderOptions<BlueprintType, ContextType> = { middleware: [], defaultMiddlewarePriority: 0 }
   ) {}
 
   /**
@@ -66,8 +66,8 @@ export class ConfigBuilder<
    *
    * @example
    * ```typescript
-   * const configBuilder = ConfigBuilder.create();
-   * const blueprint = await configBuilder.build(rawModules);
+   * const BlueprintBuilder = BlueprintBuilder.create();
+   * const blueprint = await BlueprintBuilder.build(rawModules);
    * ```
    */
   async build (modules: unknown[], blueprint: BlueprintType = Config.create() as BlueprintType): Promise<BlueprintType> {
@@ -88,11 +88,11 @@ export class ConfigBuilder<
    * @param modules - The modules to extract options from.
    * @returns The configuration options.
    */
-  private async extractOptionsFromModules (modules: unknown[], blueprint: BlueprintType): Promise<ConfigBuilderOptions<BlueprintType, ContextType>> {
+  private async extractOptionsFromModules (modules: unknown[], blueprint: BlueprintType): Promise<BlueprintBuilderOptions<BlueprintType, ContextType>> {
     const {
       middleware,
       defaultMiddlewarePriority
-    } = blueprint.get<ConfigBuilderOptions<BlueprintType, ContextType>>('stone.builder', { middleware: [] })
+    } = blueprint.get<BlueprintBuilderOptions<BlueprintType, ContextType>>('stone.builder', { middleware: [] })
 
     this.options.middleware = this.options.middleware.concat(middleware)
     this.options.defaultMiddlewarePriority ??= defaultMiddlewarePriority
@@ -137,7 +137,7 @@ export class ConfigBuilder<
    * @param builder - The metadata to use for populating options.
    */
   private populateOptions (builder: unknown): void {
-    if (isObjectLikeModule<ConfigBuilderOptions<BlueprintType, ContextType>>(builder)) {
+    if (isObjectLikeModule<BlueprintBuilderOptions<BlueprintType, ContextType>>(builder)) {
       const { middleware, defaultMiddlewarePriority } = builder
 
       if (Array.isArray(middleware)) {

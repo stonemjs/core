@@ -325,9 +325,34 @@ export const isHandlerHasHook = <HandlerType>(
  *
  * @param value - The value to check.
  * @returns `true` if the value is not empty, otherwise `false`.
-*/
-export const isNotEmpty = <ValueType = unknown>(value: any): value is ValueType => {
-  return value !== undefined && value !== null
+ */
+export const isNotEmpty = <ValueType = unknown>(value: unknown): value is ValueType => {
+  if (value === null || value === undefined) return false
+
+  if (typeof value === 'string' || Array.isArray(value)) {
+    return value.length > 0
+  }
+
+  if (value instanceof Map || value instanceof Set) {
+    return value.size > 0
+  }
+
+  if (typeof value === 'object') {
+    return Object.keys(value).length > 0 ||
+      Object.getOwnPropertySymbols(value).length > 0
+  }
+
+  return true
+}
+
+/**
+ * Check if the provided value is empty.
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is empty, otherwise `false`.
+ */
+export const isEmpty = (value: unknown): value is undefined | null | 0 | false | '' => {
+  return !isNotEmpty(value)
 }
 
 /**

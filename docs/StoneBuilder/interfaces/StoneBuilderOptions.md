@@ -6,7 +6,7 @@
 
 # Interface: StoneBuilderOptions
 
-Defined in: [core/src/StoneBuilder.ts:13](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneBuilder.ts#L13)
+Defined in: [core/src/StoneBuilder.ts:21](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/StoneBuilder.ts#L21)
 
 Stone builder options.
 
@@ -16,4 +16,4 @@ Stone builder options.
 
 > `optional` **modules**: `unknown`[]
 
-Defined in: [core/src/StoneBuilder.ts:14](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/StoneBuilder.ts#L14)
+Defined in: [core/src/StoneBuilder.ts:22](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/StoneBuilder.ts#L22)

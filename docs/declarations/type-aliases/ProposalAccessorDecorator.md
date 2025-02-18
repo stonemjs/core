@@ -8,7 +8,7 @@
 
 > **ProposalAccessorDecorator**\<`T`\>: \<`TFunction`\>(`target`, `context`) => `TFunction` \| `undefined`
 
-Defined in: [core/src/declarations.ts:832](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L832)
+Defined in: [core/src/declarations.ts:832](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L832)
 
 Represents an accessor decorator using the 2023-11 proposal syntax.
 

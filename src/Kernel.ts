@@ -6,7 +6,7 @@ import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { InitializationError } from './errors/InitializationError'
-import { isMetaClassModule, isMetaFactoryModule, isFunctionModule, isMetaFunctionModule } from './utils'
+import { isMetaClassModule, isMetaFactoryModule, isFunctionModule, isMetaFunctionModule, isEmpty } from './utils'
 import {
   MetaPipe,
   Pipeline,
@@ -73,17 +73,17 @@ export class Kernel<
   IncomingEventType extends IncomingEvent,
   OutgoingResponseType extends OutgoingResponse
 > implements LifecycleAdapterEventHandler<IncomingEventType, OutgoingResponseType> {
-  protected readonly logger: ILogger
-  protected readonly hooks: KernelHook
-  protected readonly container: Container
-  protected readonly blueprint: IBlueprint
-  protected readonly eventEmitter: EventEmitter
-  protected readonly registeredProviders: Set<string>
-  protected readonly providers: Set<IServiceProvider<IncomingEventType, OutgoingResponseType>>
-  protected readonly resolvedErrorHandlers: Record<string, IErrorHandler<IncomingEventType, OutgoingResponseType>>
+  private readonly logger: ILogger
+  private readonly hooks: KernelHook
+  private readonly container: Container
+  private readonly blueprint: IBlueprint
+  private readonly eventEmitter: EventEmitter
+  private readonly registeredProviders: Set<string>
+  private readonly providers: Set<IServiceProvider<IncomingEventType, OutgoingResponseType>>
+  private readonly resolvedErrorHandlers: Record<string, IErrorHandler<IncomingEventType, OutgoingResponseType>>
 
-  protected resolvedApplication?: IApplication<IncomingEventType, OutgoingResponseType>
-  protected resolvedEventHandler?: IEventHandler<IncomingEventType, OutgoingResponseType>
+  private resolvedApplication?: IApplication<IncomingEventType, OutgoingResponseType>
+  private resolvedEventHandler?: IEventHandler<IncomingEventType, OutgoingResponseType>
 
   /**
    * Create a Kernel.
@@ -103,7 +103,7 @@ export class Kernel<
    *
    * @param options - Kernel configuration options.
    */
-  protected constructor ({ blueprint, container, eventEmitter, logger }: KernelOptions) {
+  private constructor ({ blueprint, container, eventEmitter, logger }: KernelOptions) {
     if (!(blueprint instanceof Config)) { throw new InitializationError('Blueprint is required to create a Kernel instance.') }
     if (!(container instanceof Container)) { throw new InitializationError('Container is required to create a Kernel instance.') }
     if (!(eventEmitter instanceof EventEmitter)) { throw new InitializationError('EventEmitter is required to create a Kernel instance.') }
@@ -198,8 +198,8 @@ export class Kernel<
    * @returns The prepared response.
    * @throws InitializationError if no IncomingEvent is provided.
    */
-  protected async sendEventThroughDestination (event: IncomingEventType): Promise<OutgoingResponseType> {
-    if (event === undefined) { throw new InitializationError('No IncomingEvent provided.') }
+  private async sendEventThroughDestination (event: IncomingEventType): Promise<OutgoingResponseType> {
+    if (isEmpty(event)) { throw new InitializationError('No IncomingEvent provided.') }
     if (typeof event.clone === 'function') { this.container.instance('originalEvent', event.clone()) }
 
     this.container.instance('event', event).instance('request', event)
@@ -211,28 +211,75 @@ export class Kernel<
         .create<IncomingEventType, OutgoingResponseType>(this.makePipelineOptions())
         .send(event)
         .through(...middleware)
-        .then(async (ev) => await this.prepareResponse(ev))
+        .then(async (ev) => await this.handleEvent(ev))
     } catch (error: any) {
-      return await this.handleErrors(error, event)
+      return await this.handleError(error, event)
     }
+  }
+
+  /**
+   * Handle the event.
+   *
+   * @param event - The incoming event.
+   * @returns The outgoing response.
+   */
+  private async handleEvent (event: IncomingEventType): Promise<OutgoingResponseType> {
+    await this.eventEmitter.emit(KernelEvent.create({
+      source: this,
+      metadata: { event },
+      type: KernelEvent.HANDLING_EVENT
+    }))
+
+    try {
+      const response = await this.resolveEventHandler().handle(event)
+      return await this.prepareResponse(event, response)
+    } catch (error: any) {
+      return await this.handleError(error, event)
+    }
+  }
+
+  /**
+   * Handle error.
+   *
+   * @param error - The error to handle.
+   * @param event - The incoming event.
+   * @returns The outgoing response.
+   */
+  private async handleError (error: Error, event: IncomingEventType): Promise<OutgoingResponseType> {
+    await this.eventEmitter.emit(KernelEvent.create({
+      source: this,
+      metadata: { event, error },
+      type: KernelEvent.HANDLING_ERROR
+    }))
+
+    const response = await this.resolveErrorHandler(error).handle(error, event)
+
+    return await this.prepareResponse(event, response)
   }
 
   /**
    * Prepare response before sending
    *
-   * @protected
    * @param event - The Kernel event.
+   * @param response - The response to prepare.
    * @returns The prepared response.
    */
-  protected async prepareResponse (event: IncomingEventType): Promise<OutgoingResponseType> {
-    await this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.DISPATCHING_EVENT, source: this, metadata: { event } }))
-
-    const response = await this.resolveEventHandler().handle(event)
+  private async prepareResponse (event: IncomingEventType, response: unknown): Promise<OutgoingResponseType> {
     const validatedResponse = await this.validateAndResolveResponse(response)
 
-    await this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.PREPARING_RESPONSE, source: this, metadata: { event, response: validatedResponse } }))
+    await this.eventEmitter.emit(KernelEvent.create({
+      source: this,
+      type: KernelEvent.PREPARING_RESPONSE,
+      metadata: { event, response: validatedResponse }
+    }))
+
     const preparedResponse = await validatedResponse.prepare(event, this.container)
-    await this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata: { event, response: preparedResponse } }))
+
+    await this.eventEmitter.emit(KernelEvent.create({
+      source: this,
+      type: KernelEvent.RESPONSE_PREPARED,
+      metadata: { event, response: preparedResponse }
+    }))
 
     this.container.instance('response', preparedResponse)
 
@@ -242,10 +289,9 @@ export class Kernel<
   /**
    * Creates pipeline options for the Kernel.
    *
-   * @protected
    * @returns The pipeline options for configuring middleware.
    */
-  protected makePipelineOptions (): PipelineOptions<IncomingEventType, OutgoingResponseType> {
+  private makePipelineOptions (): PipelineOptions<IncomingEventType, OutgoingResponseType> {
     return {
       resolver: (metaPipe: MetaPipe<IncomingEventType, OutgoingResponseType>) => {
         if (isClassPipe(metaPipe) || isAliasPipe(metaPipe)) {
@@ -291,7 +337,7 @@ export class Kernel<
    * @returns The resolved application or undefined if not found.
    */
   private resolveApplication (): IApplication<IncomingEventType, OutgoingResponseType> | undefined {
-    if (this.resolvedApplication === undefined) {
+    if (isEmpty(this.resolvedApplication)) {
       const metaApp = this.blueprint.get<MetaApplication<IncomingEventType, OutgoingResponseType>>('stone.application')
 
       if (isMetaClassModule<ApplicationClass<IncomingEventType, OutgoingResponseType>>(metaApp)) {
@@ -309,7 +355,7 @@ export class Kernel<
    * @throws InitializationError if no event handler is found.
    */
   private resolveEventHandler (): IEventHandler<IncomingEventType, OutgoingResponseType> {
-    if (this.resolvedEventHandler === undefined) {
+    if (isEmpty(this.resolvedEventHandler)) {
       const mixedEventHandler = this.blueprint.get<MixedEventHandler<IncomingEventType, OutgoingResponseType>>('stone.handler')
 
       if (isMetaClassModule<EventHandlerClass<IncomingEventType, OutgoingResponseType>>(mixedEventHandler)) {
@@ -336,7 +382,7 @@ export class Kernel<
    * @throws Error if no error handler is found.
    */
   private resolveErrorHandler (error: Error): IErrorHandler<IncomingEventType, OutgoingResponseType> {
-    if (this.resolvedErrorHandlers[error.name] === undefined) {
+    if (isEmpty(this.resolvedErrorHandlers[error.name])) {
       const metaErrorHandler = this.blueprint.get<MetaErrorHandler<IncomingEventType, OutgoingResponseType>>(
         `stone.kernel.errorHandlers.${error.name}`,
         this.blueprint.get<MetaErrorHandler<IncomingEventType, OutgoingResponseType>>(
@@ -379,7 +425,7 @@ export class Kernel<
         resolvedProvider = this.container.resolve<IServiceProvider<IncomingEventType, OutgoingResponseType>>(provider, true)
       }
 
-      if (resolvedProvider !== undefined && (resolvedProvider.mustSkip === undefined || !(await resolvedProvider.mustSkip()))) {
+      if (resolvedProvider !== undefined && (isEmpty(resolvedProvider.mustSkip) || !(await resolvedProvider.mustSkip()))) {
         this.providers.add(resolvedProvider)
       }
     }
@@ -393,7 +439,7 @@ export class Kernel<
    */
   private async registerProviders (): Promise<void> {
     for (const provider of this.providers) {
-      if (provider.register === undefined || this.registeredProviders.has(provider.constructor.name)) { continue }
+      if (isEmpty(provider.register) || this.registeredProviders.has(provider.constructor.name)) { continue }
       await provider.register()
       this.registeredProviders.add(provider.constructor.name)
     }
@@ -412,20 +458,6 @@ export class Kernel<
   }
 
   /**
-   * Handle errors.
-   *
-   * @param error - The error to handle.
-   * @param event - The incoming event.
-   * @returns The outgoing response.
-   */
-  private async handleErrors (error: Error, event: IncomingEventType): Promise<OutgoingResponseType> {
-    const errorHandler = this.resolveErrorHandler(error)
-    const response = await errorHandler.handle(error, event)
-    const validatedResponse = await this.validateAndResolveResponse(response)
-    return await validatedResponse.prepare(event, this.container)
-  }
-
-  /**
    * Validate and resolve the response.
    *
    * @param returnedValue - The returned value that might be a response.
@@ -435,20 +467,20 @@ export class Kernel<
   private async validateAndResolveResponse (returnedValue: unknown): Promise<OutgoingResponseType> {
     const responseResolver = this.blueprint.get<ResponseResolver<OutgoingResponseType>>('stone.kernel.responseResolver')
 
-    if (returnedValue === undefined) {
-      if (responseResolver === undefined) {
+    if (isEmpty(returnedValue)) {
+      if (isEmpty(responseResolver)) {
         throw new InitializationError('No response was returned')
       }
       return await responseResolver({})
     }
 
     if (!(returnedValue instanceof OutgoingResponse)) {
-      if (responseResolver === undefined) {
+      if (isEmpty(responseResolver)) {
         throw new InitializationError('Returned response must be an instance of `OutgoingResponse` or a subclass of it.')
       }
       const valueOptions = returnedValue as ResponseResolverOptions
       const options = (
-        valueOptions?.content === undefined && valueOptions?.statusCode === undefined
+        isEmpty(valueOptions?.statusCode)
           ? { content: returnedValue, statusCode: 200 }
           : returnedValue
       ) as ResponseResolverOptions

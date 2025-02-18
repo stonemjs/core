@@ -63,11 +63,11 @@ export interface IMiddleware<T = unknown, R = T> {
  * Log level enumeration to define possible log levels.
  */
 export enum LogLevel {
-  TRACE = 'trace',
-  DEBUG = 'debug',
   INFO = 'info',
   WARN = 'warn',
-  ERROR = 'error'
+  ERROR = 'error',
+  DEBUG = 'debug',
+  TRACE = 'trace'
 }
 
 /**
@@ -686,7 +686,7 @@ export type IBlueprint<TValues extends object = any> = Config<TValues>
 /**
  * HookName Type.
  */
-export type HookName = 'onInit' | 'onPrepare' | 'beforeHandle' | 'afterHandle' | 'onTerminate'
+export type HookName = 'onStart' | 'onPrepare' | 'beforeHandle' | 'afterHandle' | 'onTerminate' | 'onStop'
 
 /**
  * HookContext Interface.
@@ -864,6 +864,7 @@ export interface IRawResponseWrapper<TResponse> {
 export interface IAdapterEventBuilder<TValues, UResponse> {
   build: () => UResponse
   add: (key: keyof TValues, value: TValues[typeof key]) => this
+  addIf: (key: keyof TValues, value: TValues[typeof key]) => this
 }
 
 /**
@@ -951,11 +952,22 @@ export type AdapterOnTerminateHookListener = <TEvent extends IncomingEvent, URes
  * Represents lifecycle hooks that can be defined for the adapter, such as initialization, pre-handling, and termination.
  */
 export interface AdapterHooks {
-  onInit?: AdapterHookListener[]
+  onStart?: AdapterHookListener[]
   onPrepare?: AdapterHookListener[]
   beforeHandle?: AdapterHookListener[]
   afterHandle?: AdapterAfterHandleHookListener[]
   onTerminate?: AdapterOnTerminateHookListener[]
+  onStop?: AdapterHookListener[]
+}
+
+/**
+ * AdapterStaticHookListener Interface.
+ *
+ * Represents a listener for adapter lifecycle hooks.
+ */
+export interface AdapterStaticHookListener {
+  onStart: AdapterHookListener
+  onStop: AdapterHookListener
 }
 
 /**

@@ -5,11 +5,11 @@ import { ListenerOptions } from '../decorators/Listener'
 import { StoneBlueprint } from '../options/StoneBlueprint'
 import { MiddlewareOptions } from '../decorators/Middleware'
 import { ErrorHandlerOptions } from '../decorators/ErrorHandler'
-import { isNotEmpty, isStoneBlueprint, mergeBlueprints } from '../utils'
 import { AdapterMiddlewareOptions } from '../decorators/AdapterMiddleware'
 import { isConstructor, MetaPipe, NextPipe, PipeClass } from '@stone-js/pipeline'
+import { isFunctionModule, isNotEmpty, isStoneBlueprint, mergeBlueprints } from '../utils'
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from '../decorators/Metadata'
-import { IBlueprint, ClassType, ConfigContext, IConfiguration, AdapterHookListener } from '../declarations'
+import { IBlueprint, ClassType, ConfigContext, IConfiguration, AdapterStaticHookListener } from '../declarations'
 import {
   SERVICE_KEY,
   LISTENER_KEY,
@@ -177,10 +177,10 @@ export const ProviderMiddleware = async (
 }
 
 /**
- * Middleware to register service providers to the `onInit` hook of the current adapter.
+ * Middleware to register service providers to the `onStart` hook of the current adapter.
  *
- * This middleware filters modules to identify service providers that implement the `onInit` hook,
- * and adds them to the `onInit` lifecycle event of the current adapter.
+ * This middleware filters modules to identify service providers that implement the `onStart` hook,
+ * and adds them to the `onStart` lifecycle event of the current adapter.
  *
  * @param {ConfigContext} context - The configuration context containing the modules and blueprint.
  * @param {NextPipe<ConfigContext, IBlueprint>} next - The next function in the middleware pipeline.
@@ -188,25 +188,45 @@ export const ProviderMiddleware = async (
  *
  * @example
  * ```typescript
- * await RegisterProviderToOnInitHookMiddleware({ modules, blueprint }, next);
+ * await RegisterProviderOnStartOnStopHooksMiddleware({ modules, blueprint }, next);
  * ```
  */
-export const RegisterProviderToOnInitHookMiddleware = async (
+export const RegisterOnStartOnStopHooksMiddleware = async (
   context: ConfigContext<IBlueprint, ClassType>,
   next: NextPipe<ConfigContext<IBlueprint, ClassType>, IBlueprint>
 ): Promise<IBlueprint> => {
   const adapter = context.blueprint.get<AdapterConfig>('stone.adapter')
-  const providers = context.modules.filter(module => hasMetadata(module, PROVIDER_KEY))
+  const mainApp = context.modules.find(module => hasMetadata(module, STONE_APP_KEY))
+  const providers = context.modules.filter(module => hasMetadata(module, PROVIDER_KEY)) as unknown[]
 
-  if (adapter !== undefined) {
-    providers
-      .map(provider => provider as unknown as { onInit: AdapterHookListener })
-      .filter((provider) => provider.onInit !== undefined)
-      .forEach((provider) => {
-        adapter.hooks ??= {}
-        adapter.hooks.onInit ??= []
-        adapter.hooks.onInit = adapter.hooks.onInit.concat(async (v: IBlueprint) => await provider.onInit(v))
-      })
+  if (isNotEmpty<AdapterConfig>(adapter)) {
+    adapter.hooks ??= {}
+    adapter.hooks.onStop ??= []
+    adapter.hooks.onStart ??= []
+
+    if (isNotEmpty<AdapterStaticHookListener>(mainApp)) {
+      if (isFunctionModule(mainApp.onStart)) {
+        adapter.hooks.onStart.push(async (v: IBlueprint) => await mainApp.onStart(v))
+      }
+
+      if (isFunctionModule(mainApp.onStop)) {
+        adapter.hooks.onStop.push(async (v: IBlueprint) => await mainApp.onStop(v))
+      }
+    }
+
+    if (isNotEmpty<AdapterStaticHookListener[]>(providers)) {
+      providers
+        .filter((provider) => isNotEmpty(provider.onStart) || isNotEmpty(provider.onStop))
+        .forEach((provider) => {
+          if (isFunctionModule(provider.onStart)) {
+            adapter.hooks?.onStart?.push(async (v: IBlueprint) => await provider.onStart(v))
+          }
+
+          if (isFunctionModule(provider.onStop)) {
+            adapter.hooks?.onStop?.push(async (v: IBlueprint) => await provider.onStop(v))
+          }
+        })
+    }
   }
 
   return await next(context)
@@ -466,7 +486,7 @@ export const coreConfigMiddleware: Array<MetaPipe<ConfigContext<IBlueprint, Clas
   { module: SubscriberMiddleware, priority: 0.7 },
   { module: ErrorHandlerMiddleware, priority: 0.7 },
   { module: AdapterErrorHandlerMiddleware, priority: 0.7 },
-  { module: RegisterProviderToOnInitHookMiddleware, priority: 0.7 },
+  { module: RegisterOnStartOnStopHooksMiddleware, priority: 0.7 },
   { module: AdapterMiddlewareMiddleware, priority: 3 },
   { module: MiddlewareMiddleware, priority: 3 }
 ]

@@ -16,6 +16,7 @@
 - [AdapterErrorContext](interfaces/AdapterErrorContext.md)
 - [AdapterHandlerOptions](interfaces/AdapterHandlerOptions.md)
 - [AdapterHooks](interfaces/AdapterHooks.md)
+- [AdapterStaticHookListener](interfaces/AdapterStaticHookListener.md)
 - [ConfigContext](interfaces/ConfigContext.md)
 - [ErrorOptions](interfaces/ErrorOptions.md)
 - [HookContext](interfaces/HookContext.md)

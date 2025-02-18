@@ -8,7 +8,7 @@
 
 > **isStoneBlueprint**(`value`): `value is StoneBlueprint`
 
-Defined in: [core/src/utils.ts:235](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/utils.ts#L235)
+Defined in: [core/src/utils.ts:235](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L235)
 
 Check if the provided value is a Stone blueprint.
 This function checks if the value is an object and contains the required `stone` property.

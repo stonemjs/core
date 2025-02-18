@@ -8,7 +8,7 @@
 
 > **NextMiddleware**\<`T`, `R`\>: `NextPipe`\<`T`, `R`\>
 
-Defined in: [core/src/declarations.ts:18](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L18)
+Defined in: [core/src/declarations.ts:18](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L18)
 
 Represents a Next type.
 

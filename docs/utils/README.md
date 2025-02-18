@@ -21,6 +21,7 @@
 - [factoryService](functions/factoryService.md)
 - [factoryServiceProvider](functions/factoryServiceProvider.md)
 - [isConstructor](functions/isConstructor.md)
+- [isEmpty](functions/isEmpty.md)
 - [isFunction](functions/isFunction.md)
 - [isFunctionModule](functions/isFunctionModule.md)
 - [isHandlerHasHook](functions/isHandlerHasHook.md)

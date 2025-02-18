@@ -2,18 +2,18 @@
 
 ***
 
-[Core Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / RegisterProviderToOnInitHookMiddleware
+[Core Documentation](../../../modules.md) / [middleware/configMiddleware](../README.md) / RegisterOnStartOnStopHooksMiddleware
 
-# Function: RegisterProviderToOnInitHookMiddleware()
+# Function: RegisterOnStartOnStopHooksMiddleware()
 
-> **RegisterProviderToOnInitHookMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
+> **RegisterOnStartOnStopHooksMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [core/src/middleware/configMiddleware.ts:194](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/middleware/configMiddleware.ts#L194)
+Defined in: [core/src/middleware/configMiddleware.ts:194](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/middleware/configMiddleware.ts#L194)
 
-Middleware to register service providers to the `onInit` hook of the current adapter.
+Middleware to register service providers to the `onStart` hook of the current adapter.
 
-This middleware filters modules to identify service providers that implement the `onInit` hook,
-and adds them to the `onInit` lifecycle event of the current adapter.
+This middleware filters modules to identify service providers that implement the `onStart` hook,
+and adds them to the `onStart` lifecycle event of the current adapter.
 
 ## Parameters
 
@@ -38,5 +38,5 @@ The next function in the middleware pipeline.
 ## Example
 
 ```typescript
-await RegisterProviderToOnInitHookMiddleware({ modules, blueprint }, next);
+await RegisterProviderOnStartOnStopHooksMiddleware({ modules, blueprint }, next);
 ```

@@ -6,7 +6,7 @@
 
 # Interface: ConfigBuilderOptions\<BlueprintType, ContextType\>
 
-Defined in: [core/src/ConfigBuilder.ts:11](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L11)
+Defined in: [core/src/ConfigBuilder.ts:11](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L11)
 
 ConfigBuilderOptions.
 
@@ -22,7 +22,7 @@ ConfigBuilderOptions.
 
 > `optional` **defaultMiddlewarePriority**: `number`
 
-Defined in: [core/src/ConfigBuilder.ts:15](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L15)
+Defined in: [core/src/ConfigBuilder.ts:15](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L15)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [core/src/ConfigBuilder.ts:15](https://github.com/stonemjs/core/blob
 
 > **middleware**: `MixedPipe`\<`ContextType`, `BlueprintType`\>[]
 
-Defined in: [core/src/ConfigBuilder.ts:16](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/ConfigBuilder.ts#L16)
+Defined in: [core/src/ConfigBuilder.ts:16](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/ConfigBuilder.ts#L16)

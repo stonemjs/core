@@ -8,7 +8,7 @@
 
 > **hasBlueprint**\<`T`\>(`Class`): `boolean`
 
-Defined in: [core/src/decorators/Metadata.ts:188](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/Metadata.ts#L188)
+Defined in: [core/src/decorators/Metadata.ts:188](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/decorators/Metadata.ts#L188)
 
 Check if a class has blueprint.
 

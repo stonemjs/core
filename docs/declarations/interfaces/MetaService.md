@@ -6,7 +6,7 @@
 
 # Interface: MetaService
 
-Defined in: [core/src/declarations.ts:309](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L309)
+Defined in: [core/src/declarations.ts:309](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L309)
 
 Represents a MetaService type.
 
@@ -16,7 +16,7 @@ Represents a MetaService type.
 
 > **alias**: `string` \| `string`[]
 
-Defined in: [core/src/declarations.ts:313](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L313)
+Defined in: [core/src/declarations.ts:313](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L313)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/declarations.ts:313](https://github.com/stonemjs/core/blob
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:310](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L310)
+Defined in: [core/src/declarations.ts:310](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L310)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/declarations.ts:310](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:311](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L311)
+Defined in: [core/src/declarations.ts:311](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L311)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [core/src/declarations.ts:311](https://github.com/stonemjs/core/blob
 
 > **module**: [`IServiceClass`](../type-aliases/IServiceClass.md) \| [`FactoryService`](../type-aliases/FactoryService.md)
 
-Defined in: [core/src/declarations.ts:314](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L314)
+Defined in: [core/src/declarations.ts:314](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L314)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [core/src/declarations.ts:314](https://github.com/stonemjs/core/blob
 
 > `optional` **singleton**: `boolean`
 
-Defined in: [core/src/declarations.ts:312](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L312)
+Defined in: [core/src/declarations.ts:312](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L312)

@@ -8,7 +8,7 @@
 
 > **factoryHandler**\<`U`, `V`\>(`module`): [`MetaEventHandler`](../../declarations/interfaces/MetaEventHandler.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:132](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/utils.ts#L132)
+Defined in: [core/src/utils.ts:132](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L132)
 
 Defines a factory handler with metadata for the provided handler function.
 This function allows users to define a factory handler with metadata.

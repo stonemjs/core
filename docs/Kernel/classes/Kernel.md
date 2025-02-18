@@ -6,7 +6,7 @@
 
 # Class: Kernel\<IncomingEventType, OutgoingResponseType\>
 
-Defined in: [core/src/Kernel.ts:72](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L72)
+Defined in: [core/src/Kernel.ts:72](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L72)
 
 Class representing a Kernel.
 
@@ -34,7 +34,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new Kernel**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:106](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L106)
+Defined in: [core/src/Kernel.ts:106](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L106)
 
 Create a Kernel.
 
@@ -56,7 +56,7 @@ Kernel configuration options.
 
 > `protected` `readonly` **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [core/src/Kernel.ts:79](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L79)
+Defined in: [core/src/Kernel.ts:79](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L79)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [core/src/Kernel.ts:79](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **container**: `Container`
 
-Defined in: [core/src/Kernel.ts:78](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L78)
+Defined in: [core/src/Kernel.ts:78](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L78)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [core/src/Kernel.ts:78](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [core/src/Kernel.ts:80](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L80)
+Defined in: [core/src/Kernel.ts:80](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L80)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: [core/src/Kernel.ts:80](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **hooks**: [`KernelHook`](../../declarations/type-aliases/KernelHook.md)
 
-Defined in: [core/src/Kernel.ts:77](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L77)
+Defined in: [core/src/Kernel.ts:77](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L77)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: [core/src/Kernel.ts:77](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **logger**: [`ILogger`](../../declarations/interfaces/ILogger.md)
 
-Defined in: [core/src/Kernel.ts:76](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L76)
+Defined in: [core/src/Kernel.ts:76](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L76)
 
 ***
 
@@ -96,7 +96,7 @@ Defined in: [core/src/Kernel.ts:76](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **providers**: `Set`\<[`IServiceProvider`](../../declarations/interfaces/IServiceProvider.md)\<`IncomingEventType`, `OutgoingResponseType`\>\>
 
-Defined in: [core/src/Kernel.ts:82](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L82)
+Defined in: [core/src/Kernel.ts:82](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L82)
 
 ***
 
@@ -104,7 +104,7 @@ Defined in: [core/src/Kernel.ts:82](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **registeredProviders**: `Set`\<`string`\>
 
-Defined in: [core/src/Kernel.ts:81](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L81)
+Defined in: [core/src/Kernel.ts:81](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L81)
 
 ***
 
@@ -112,7 +112,7 @@ Defined in: [core/src/Kernel.ts:81](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `optional` **resolvedApplication**: [`IApplication`](../../declarations/interfaces/IApplication.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:85](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L85)
+Defined in: [core/src/Kernel.ts:85](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L85)
 
 ***
 
@@ -120,7 +120,7 @@ Defined in: [core/src/Kernel.ts:85](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `readonly` **resolvedErrorHandlers**: `Record`\<`string`, [`IErrorHandler`](../../declarations/interfaces/IErrorHandler.md)\<`IncomingEventType`, `OutgoingResponseType`\>\>
 
-Defined in: [core/src/Kernel.ts:83](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L83)
+Defined in: [core/src/Kernel.ts:83](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L83)
 
 ***
 
@@ -128,7 +128,7 @@ Defined in: [core/src/Kernel.ts:83](https://github.com/stonemjs/core/blob/e4675f
 
 > `protected` `optional` **resolvedEventHandler**: [`IEventHandler`](../../declarations/interfaces/IEventHandler.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:86](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L86)
+Defined in: [core/src/Kernel.ts:86](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L86)
 
 ## Methods
 
@@ -136,7 +136,7 @@ Defined in: [core/src/Kernel.ts:86](https://github.com/stonemjs/core/blob/e4675f
 
 > **afterHandle**(`context`): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:172](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L172)
+Defined in: [core/src/Kernel.ts:172](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L172)
 
 Invoke subsequent hooks after handling the event.
 Execution order is important here, never change it.
@@ -161,7 +161,7 @@ Execution order is important here, never change it.
 
 > **beforeHandle**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:148](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L148)
+Defined in: [core/src/Kernel.ts:148](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L148)
 
 Boot the providers.
 Invoke subsequent hooks.
@@ -181,7 +181,7 @@ Execution order is important here, never change it.
 
 > **handle**(`event`): `Promise`\<`OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:164](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L164)
+Defined in: [core/src/Kernel.ts:164](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L164)
 
 Handle Stone IncomingEvent.
 
@@ -209,7 +209,7 @@ The Stone outgoing response.
 
 > `protected` **makePipelineOptions**(): `PipelineOptions`\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:248](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L248)
+Defined in: [core/src/Kernel.ts:274](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L274)
 
 Creates pipeline options for the Kernel.
 
@@ -225,7 +225,7 @@ The pipeline options for configuring middleware.
 
 > **onPrepare**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:128](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L128)
+Defined in: [core/src/Kernel.ts:128](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L128)
 
 Populate the context with the given bindings.
 The context here is the service container.
@@ -247,7 +247,7 @@ Execution order is important here, never change it.
 
 > **onTerminate**(`context`): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:185](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L185)
+Defined in: [core/src/Kernel.ts:185](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L185)
 
 Invoke subsequent hooks on termination.
 Execution order is important here, never change it.
@@ -272,7 +272,7 @@ Execution order is important here, never change it.
 
 > `protected` **prepareResponse**(`event`): `Promise`\<`OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:227](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L227)
+Defined in: [core/src/Kernel.ts:227](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L227)
 
 Prepare response before sending
 
@@ -296,7 +296,7 @@ The prepared response.
 
 > `protected` **sendEventThroughDestination**(`event`): `Promise`\<`OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:201](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L201)
+Defined in: [core/src/Kernel.ts:201](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L201)
 
 Send event to the destination.
 
@@ -324,7 +324,7 @@ InitializationError if no IncomingEvent is provided.
 
 > `static` **create**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:94](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/Kernel.ts#L94)
+Defined in: [core/src/Kernel.ts:94](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/Kernel.ts#L94)
 
 Create a Kernel.
 

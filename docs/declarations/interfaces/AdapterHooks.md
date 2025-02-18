@@ -6,7 +6,7 @@
 
 # Interface: AdapterHooks
 
-Defined in: [core/src/declarations.ts:953](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L953)
+Defined in: [core/src/declarations.ts:954](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L954)
 
 AdapterHooks Interface.
 
@@ -18,7 +18,7 @@ Represents lifecycle hooks that can be defined for the adapter, such as initiali
 
 > `optional` **afterHandle**: [`AdapterAfterHandleHookListener`](../type-aliases/AdapterAfterHandleHookListener.md)[]
 
-Defined in: [core/src/declarations.ts:957](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L957)
+Defined in: [core/src/declarations.ts:958](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L958)
 
 ***
 
@@ -26,15 +26,7 @@ Defined in: [core/src/declarations.ts:957](https://github.com/stonemjs/core/blob
 
 > `optional` **beforeHandle**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)[]
 
-Defined in: [core/src/declarations.ts:956](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L956)
-
-***
-
-### onInit?
-
-> `optional` **onInit**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)[]
-
-Defined in: [core/src/declarations.ts:954](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L954)
+Defined in: [core/src/declarations.ts:957](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L957)
 
 ***
 
@@ -42,7 +34,23 @@ Defined in: [core/src/declarations.ts:954](https://github.com/stonemjs/core/blob
 
 > `optional` **onPrepare**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)[]
 
-Defined in: [core/src/declarations.ts:955](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L955)
+Defined in: [core/src/declarations.ts:956](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L956)
+
+***
+
+### onStart?
+
+> `optional` **onStart**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)[]
+
+Defined in: [core/src/declarations.ts:955](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L955)
+
+***
+
+### onStop?
+
+> `optional` **onStop**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)[]
+
+Defined in: [core/src/declarations.ts:960](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L960)
 
 ***
 
@@ -50,4 +58,4 @@ Defined in: [core/src/declarations.ts:955](https://github.com/stonemjs/core/blob
 
 > `optional` **onTerminate**: [`AdapterOnTerminateHookListener`](../type-aliases/AdapterOnTerminateHookListener.md)[]
 
-Defined in: [core/src/declarations.ts:958](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L958)
+Defined in: [core/src/declarations.ts:959](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L959)

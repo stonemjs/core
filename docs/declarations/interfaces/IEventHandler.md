@@ -6,7 +6,7 @@
 
 # Interface: IEventHandler\<TEvent, UResponse\>
 
-Defined in: [core/src/declarations.ts:435](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L435)
+Defined in: [core/src/declarations.ts:435](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L435)
 
 EventHandler Interface.
 Represents an event handler for processing incoming events and returning outgoing responses.
@@ -27,4 +27,4 @@ UResponse
 
 > **handle**: [`FunctionalEventHandler`](../type-aliases/FunctionalEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/declarations.ts:436](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/declarations.ts#L436)
+Defined in: [core/src/declarations.ts:436](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L436)

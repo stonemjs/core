@@ -7,12 +7,20 @@ import { Event, EventOptions } from './Event'
  */
 export class KernelEvent extends Event {
   /**
-   * DISPATCHING_EVENT Event name, fires before dispatching
-   * the incoming event to the destination handler.
+   * HANDLING_EVENT Event name,
+   * fires before the destination handler handles the event.
    *
-   * @event KernelEvent#DISPATCHING_EVENT
+   * @event KernelEvent#HANDLING_EVENT
    */
-  static DISPATCHING_EVENT: string = 'stonejs@kernel.dispatching_event'
+  static HANDLING_EVENT: string = 'stonejs@kernel.handling_event'
+
+  /**
+   * HANDLING_ERROR Event name,
+   * fires when an error occurs while handling.
+   *
+   * @event KernelEvent#HANDLING_ERROR
+   */
+  static HANDLING_ERROR: string = 'stonejs@kernel.handling_error'
 
   /**
    * PREPARING_RESPONSE Event name, fires before preparing the response.

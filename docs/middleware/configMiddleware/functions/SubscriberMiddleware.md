@@ -8,7 +8,7 @@
 
 > **SubscriberMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [core/src/middleware/configMiddleware.ts:359](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/middleware/configMiddleware.ts#L359)
+Defined in: [core/src/middleware/configMiddleware.ts:380](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/middleware/configMiddleware.ts#L380)
 
 Middleware to add subscribers to the blueprint.
 

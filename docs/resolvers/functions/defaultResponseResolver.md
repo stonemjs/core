@@ -8,7 +8,7 @@
 
 > **defaultResponseResolver**(`options`): [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
-Defined in: [core/src/resolvers.ts:31](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/resolvers.ts#L31)
+Defined in: [core/src/resolvers.ts:31](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/resolvers.ts#L31)
 
 Default response resolver function.
 

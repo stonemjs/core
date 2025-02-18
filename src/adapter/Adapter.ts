@@ -116,7 +116,7 @@ export abstract class Adapter<
    * @example
    * Implementation flow
    * ```ts
-   * await this.onInit();
+   * await this.onStart();
    * const eventHandler = this.handlerResolver(this.blueprint)
    * await this.onPrepare(eventHandler);
    * const rawEvent: MockRawEvent = { name: 'Stone.js' }
@@ -166,6 +166,7 @@ export abstract class Adapter<
 
       context.rawResponse = await responseBuilder.build().respond()
     } catch (error: any) {
+      await this.afterHandle(eventHandler, context)
       context.rawResponse = await this.resolveErrorHandler(error).handle(error, context)
     } finally {
       try {
@@ -181,8 +182,15 @@ export abstract class Adapter<
   /**
    * Hook that runs once before everything.
    */
-  protected async onInit (): Promise<void> {
-    await this.executeHooks('onInit')
+  protected async onStart (): Promise<void> {
+    await this.executeHooks('onStart')
+  }
+
+  /**
+   * Hook that runs just before shutting down the application.
+   */
+  protected async onStop (): Promise<void> {
+    await this.executeHooks('onStop')
   }
 
   /**

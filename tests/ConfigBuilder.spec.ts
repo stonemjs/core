@@ -2,26 +2,26 @@ import { Config } from '@stone-js/config'
 import { Pipeline } from '@stone-js/pipeline'
 import { MetadataSymbol } from '../src/decorators/Metadata'
 import { ClassType, MetadataHolder } from '../src/declarations'
-import { ConfigBuilder, ConfigBuilderOptions } from '../src/ConfigBuilder'
+import { BlueprintBuilder, BlueprintBuilderOptions } from '../src/BlueprintBuilder'
 import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, BLUEPRINT_KEY } from '../src/decorators/constants'
 
 /**
- * Unit tests for ConfigBuilder.
+ * Unit tests for BlueprintBuilder.
  */
-describe('ConfigBuilder', () => {
+describe('BlueprintBuilder', () => {
   const mockMiddleware = vi.fn()
   const mockModule = { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 }
   const mockModules: unknown[] = [mockModule]
 
-  let configBuilder: ConfigBuilder
+  let BlueprintBuilder: BlueprintBuilder
 
   beforeEach(() => {
-    configBuilder = ConfigBuilder.create({ middleware: [], defaultMiddlewarePriority: 0 })
+    BlueprintBuilder = BlueprintBuilder.create({ middleware: [], defaultMiddlewarePriority: 0 })
   })
 
-  it('should create a ConfigBuilder instance with default options', () => {
-    const defaultConfigBuilder = ConfigBuilder.create()
-    expect(defaultConfigBuilder).toBeInstanceOf(ConfigBuilder)
+  it('should create a BlueprintBuilder instance with default options', () => {
+    const defaultBlueprintBuilder = BlueprintBuilder.create()
+    expect(defaultBlueprintBuilder).toBeInstanceOf(BlueprintBuilder)
   })
 
   it('should build config with given raw modules', async () => {
@@ -33,7 +33,7 @@ describe('ConfigBuilder', () => {
       then: vi.fn((v) => v({ blueprint: {} }))
     } as any)
 
-    const blueprint = await configBuilder.build(mockModules)
+    const blueprint = await BlueprintBuilder.build(mockModules)
 
     expect(blueprint).toEqual({})
     expect(Config.create).toHaveBeenCalledTimes(1)
@@ -41,8 +41,8 @@ describe('ConfigBuilder', () => {
   })
 
   it('should populate options correctly from modules', () => {
-    const options: ConfigBuilderOptions = { middleware: [], defaultMiddlewarePriority: 0 }
-    const populatedOptions = (configBuilder as any).populateOptions(options, mockModule)
+    const options: BlueprintBuilderOptions = { middleware: [], defaultMiddlewarePriority: 0 }
+    const populatedOptions = (BlueprintBuilder as any).populateOptions(options, mockModule)
 
     expect(populatedOptions.middleware).toContain(mockMiddleware)
     expect(populatedOptions.defaultMiddlewarePriority).toBe(5)
@@ -61,7 +61,7 @@ describe('ConfigBuilder', () => {
     MockClass[MetadataSymbol] = { [CONFIGURATION_KEY]: {} }
     MockClass2[MetadataSymbol] = { [CONFIG_MIDDLEWARE_KEY]: {} }
     MockClass3[MetadataSymbol] = { [BLUEPRINT_KEY]: { stone: { builder: { middleware: [mockMiddleware], defaultMiddlewarePriority: 5 } } } }
-    const extractedOptions = (configBuilder as any).extractOptionsFromModules([MockClass, MockClass2, MockClass3])
+    const extractedOptions = (BlueprintBuilder as any).extractOptionsFromModules([MockClass, MockClass2, MockClass3])
     expect(extractedOptions.middleware).toContain(mockMiddleware)
     expect(extractedOptions.middleware).toContain(mockMiddleware2)
     expect(extractedOptions.defaultMiddlewarePriority).toBe(5)
@@ -69,7 +69,7 @@ describe('ConfigBuilder', () => {
 
   it('should extract options from modules correctly', () => {
     const mockModule2 = { stone: { builder: { middleware: [mockMiddleware] } } }
-    const extractedOptions = (configBuilder as any).extractOptionsFromModules([mockModule, mockModule2])
+    const extractedOptions = (BlueprintBuilder as any).extractOptionsFromModules([mockModule, mockModule2])
     expect(extractedOptions.middleware).toContain(mockMiddleware)
     expect(extractedOptions.defaultMiddlewarePriority).toBe(0)
   })

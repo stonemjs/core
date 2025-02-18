@@ -6,7 +6,7 @@
 
 # Interface: ConfigurationOptions
 
-Defined in: [core/src/decorators/Configuration.ts:10](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/Configuration.ts#L10)
+Defined in: [core/src/decorators/Configuration.ts:10](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/decorators/Configuration.ts#L10)
 
 Configuration options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as a Config
 
 > `optional` **live**: `boolean`
 
-Defined in: [core/src/decorators/Configuration.ts:17](https://github.com/stonemjs/core/blob/e4675fc5d1a8e120fdb4d54e226a2496fdda3681/src/decorators/Configuration.ts#L17)
+Defined in: [core/src/decorators/Configuration.ts:17](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/decorators/Configuration.ts#L17)
 
 Live configurations are loaded on each request.
 By default, configurations loaded once when the application starts.
