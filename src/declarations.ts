@@ -5,7 +5,12 @@ import { MetadataSymbol } from './decorators/Metadata'
 import { Container } from '@stone-js/service-container'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 import { OutgoingResponse, OutgoingResponseOptions } from './events/OutgoingResponse'
-import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipeType } from '@stone-js/pipeline'
+import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipelineHookListener, PipeType } from '@stone-js/pipeline'
+
+/**
+ * Represents a Promiseable type.
+ */
+export type Promiseable<T> = T | Promise<T>
 
 /**
  * Represents a Container type.
@@ -71,9 +76,64 @@ export enum LogLevel {
 }
 
 /**
- * Represents a Promiseable type.
+ * HookName Type.
  */
-export type Promiseable<T> = T | Promise<T>
+export type HookName =
+  | BlueprintHookName
+  | AdapterHookName
+  | KernelHookName
+
+/**
+ * BlueprintHookName Type.
+ */
+export type BlueprintHookName =
+  | 'onPreparingBlueprint'
+  | 'onProcessingBlueprintMiddleware'
+  | 'onBlueprintMiddlewareProcessed'
+  | 'onBlueprintPrepared'
+
+/**
+ * AdapterHookName Type.
+ */
+export type AdapterHookName =
+  | 'onStart'
+  | 'onProcessingAdapterMiddleware'
+  | 'onAdapterMiddlewareProcessed'
+  | 'onBuildingIncomingEvent'
+  | 'onHandlingAdapterError'
+  | 'onBuildingRawResponse'
+  | 'onStop'
+
+/**
+ * KernelHookName Type.
+ */
+export type KernelHookName =
+  | 'onInit'
+  | 'onHandlingEvent'
+  | 'onExecutingEventHandler'
+  | 'onExecutingErrorHandler'
+  | 'onKernelMiddlewareProcessed'
+  | 'onProcessingKernelMiddleware'
+  | 'onPreparingResponse'
+  | 'onResponsePrepared'
+  | 'onEventHandled'
+  | 'onTerminate'
+
+/**
+ * Represents a HookOptions type.
+ */
+export interface HookOptions {
+  name: HookName
+  method: string
+}
+
+/**
+ * Represents a BlueprintHookOptions type.
+ */
+export interface BlueprintHookOptions {
+  name: BlueprintHookName
+  method: string
+}
 
 /**
  * Logger Interface.
@@ -158,7 +218,7 @@ export interface IncomingEventSource {
 /**
  * Represents an IServiceProviderClass type.
  */
-export type IServiceProviderClass<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> = new (...args: any[]) => IServiceProvider<TEvent, UResponse>
+export type IServiceProviderClass = new (...args: any[]) => IServiceProvider
 
 /**
  * Interface representing a service provider within the system.
@@ -166,23 +226,8 @@ export type IServiceProviderClass<TEvent extends IncomingEvent = IncomingEvent, 
  * This interface provides lifecycle hooks for managing the registration,
  * initialization, and termination phases of a provider. Implementations
  * of this interface are expected to define these lifecycle methods as needed.
- *
- * @template TEvent, UResponse
  */
-export interface IServiceProvider<
-  TEvent extends IncomingEvent = IncomingEvent,
-  UResponse extends OutgoingResponse = OutgoingResponse
-> {
-  /**
-   * Hook that runs before the context is created. This can be used for setup or validation purposes.
-   */
-  onPrepare?: () => Promiseable<void>
-
-  /**
-   * Hook that runs before the main handler is invoked. This can be used for setup or validation purposes.
-   */
-  beforeHandle?: () => Promiseable<void>
-
+export interface IServiceProvider {
   /**
    * Registers the provider into the system. Typically used for adding services or bindings to the container.
    */
@@ -194,73 +239,9 @@ export interface IServiceProvider<
   boot?: () => Promiseable<void>
 
   /**
-   * Hook that runs after the main handler is invoked. This can be used for cleanup tasks.
-   */
-  afterHandle?: (context: HookContext<TEvent, UResponse>) => Promiseable<void>
-
-  /**
-   * Hook that runs after the main handler completes. This can be used for cleanup tasks.
-   */
-  onTerminate?: (context: Partial<HookContext<TEvent, UResponse>>) => Promiseable<void>
-
-  /**
    * Skip this provider.
    */
   mustSkip?: () => Promiseable<boolean>
-}
-
-/**
- * Represents an ApplicationClass type.
- */
-export type ApplicationClass<
-  TEvent extends IncomingEvent = IncomingEvent,
-  UResponse extends OutgoingResponse = OutgoingResponse,
-  UserResponse = unknown
-> = new (...args: any[]) => IApplication<TEvent, UResponse> | IApplicationHandler<TEvent, UResponse, UserResponse>
-
-/**
- * Interface representing a Stone Application entry point.
- *
- * This interface provides lifecycle hooks for managing the registration.
- * This is an alias for IServiceProvider.
- *
- * @template TEvent, UResponse
- */
-export interface IApplication<
-  TEvent extends IncomingEvent = IncomingEvent,
-  UResponse extends OutgoingResponse = OutgoingResponse
-> extends IServiceProvider<TEvent, UResponse> {}
-
-/**
- * Interface representing a Stone Application entry point.
- *
- * This interface provides lifecycle hooks for managing the registration.
- * This is an alias for IServiceProvider.
- * This interface is used for single event handler applications.
- *
- * @template TEvent, UResponse, UserResponse
- */
-export interface IApplicationHandler<
-  TEvent extends IncomingEvent = IncomingEvent,
-  UResponse extends OutgoingResponse = OutgoingResponse,
-  UserResponse = unknown
-> extends IApplication<TEvent, UResponse> {
-  handle: FunctionalEventHandler<TEvent, UserResponse>
-}
-
-/**
- * MetaApplication Type.
- *
- * @template TEvent, UResponse, UserResponse
-*/
-export interface MetaApplication<
-  TEvent extends IncomingEvent = IncomingEvent,
-  UResponse extends OutgoingResponse = OutgoingResponse,
-  UserResponse = unknown
-> {
-  isClass?: boolean
-  isFactory?: boolean
-  module: ApplicationClass<TEvent, UResponse, UserResponse>
 }
 
 /**
@@ -269,26 +250,26 @@ export interface MetaApplication<
  * @param container - The dependency injection container.
  * @returns The service provider object.
  */
-export type FactoryServiceProvider<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> = (container: IContainer | any) => IServiceProvider<TEvent, UResponse>
+export type FactoryServiceProvider = (container: IContainer | any) => IServiceProvider
 
 /**
  * Represents a ServiceProvider type.
  */
-export type ServiceProviderType<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> = IServiceProviderClass<TEvent, UResponse> | FactoryServiceProvider<TEvent, UResponse>
+export type ServiceProviderType = IServiceProviderClass | FactoryServiceProvider
 
 /**
  * Represents a MetaServiceProvider type.
  */
-export interface MetaServiceProvider<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> {
+export interface MetaServiceProvider {
   isClass?: boolean
   isFactory?: boolean
-  module: ServiceProviderType<TEvent, UResponse>
+  module: ServiceProviderType
 }
 
 /**
  * Represents a MixedServiceProvider type.
  */
-export type MixedServiceProvider<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> = IServiceProviderClass<TEvent, UResponse> | MetaServiceProvider<TEvent, UResponse>
+export type MixedServiceProvider = IServiceProviderClass | MetaServiceProvider
 
 /**
  * Represents a IServiceClass type.
@@ -352,7 +333,10 @@ export type FactoryEventListener<TEvent extends Event = Event> = (container: ICo
 /**
  * Represents a EventListener type.
  */
-export type EventListenerType<TEvent extends Event = Event> = IEventListenerClass<TEvent> | FunctionalEventListener<TEvent> | FactoryEventListener<TEvent>
+export type EventListenerType<TEvent extends Event = Event> =
+  | IEventListenerClass<TEvent>
+  | FactoryEventListener<TEvent>
+  | FunctionalEventListener<TEvent>
 
 /**
  * Represents a MetaEventListener type.
@@ -424,7 +408,9 @@ export type MixedEventSubscriber = FunctionalEventSubscriber | MetaEventSubscrib
  *
  * @template TEvent, UResponse
  */
-export type EventHandlerClass<TEvent extends IncomingEvent = IncomingEvent, UResponse = unknown> = new (...args: any[]) => IEventHandler<TEvent, UResponse>
+export type EventHandlerClass<TEvent extends IncomingEvent = IncomingEvent, UResponse = unknown> = new (
+  ...args: any[]
+) => IEventHandler<TEvent, UResponse>
 
 /**
  * EventHandler Interface.
@@ -445,7 +431,9 @@ export interface IEventHandler<TEvent extends IncomingEvent = IncomingEvent, URe
  * @param incomingEvent - The incoming event to handle.
  * @returns The outgoing response.
  */
-export type FunctionalEventHandler<TEvent extends IncomingEvent, UResponse = unknown> = (incomingEvent: TEvent) => Promiseable<UResponse>
+export type FunctionalEventHandler<TEvent extends IncomingEvent, UResponse = unknown> = (
+  incomingEvent: TEvent
+) => Promiseable<UResponse>
 
 /**
  * FactoryEventHandler.
@@ -456,7 +444,9 @@ export type FunctionalEventHandler<TEvent extends IncomingEvent, UResponse = unk
  * @param container - The dependency injection container.
  * @returns The event handler function.
  */
-export type FactoryEventHandler<TEvent extends IncomingEvent, UResponse = unknown> = (container: IContainer | any) => FunctionalEventHandler<TEvent, UResponse>
+export type FactoryEventHandler<TEvent extends IncomingEvent, UResponse = unknown> = (
+  container: IContainer | any
+) => FunctionalEventHandler<TEvent, UResponse>
 
 /**
  * EventHandler Interface.
@@ -489,38 +479,133 @@ export interface MetaEventHandler<TEvent extends IncomingEvent = IncomingEvent, 
  *
  * @template TEvent, UResponse
  */
-export type MixedEventHandler<TEvent extends IncomingEvent = IncomingEvent, UResponse = unknown> = FunctionalEventHandler<TEvent, UResponse> | MetaEventHandler<TEvent, UResponse>
+export type MixedEventHandler<TEvent extends IncomingEvent = IncomingEvent, UResponse = unknown> =
+  | FunctionalEventHandler<TEvent, UResponse>
+  | MetaEventHandler<TEvent, UResponse>
 
 /**
  * Hook Type.
  *
  * Represents a hook that can either be synchronous or asynchronous.
  */
-export type KernelHook = Record<HookName, KernelHookListener[]>
+export interface KernelHookType<
+IncomingEventType extends IncomingEvent,
+OutgoingResponseType extends OutgoingResponse
+> {
+  onInit?: KernelHookListener[]
+  onHandlingEvent?: KernelHookListener[]
+  onExecutingEventHandler?: KernelHookListener[]
+  onExecutingErrorHandler?: KernelHookListener[]
+  onPreparingResponse?: KernelHookListener[]
+  onResponsePrepared?: KernelHookListener[]
+  onProcessingKernelMiddleware?: Array<PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>>
+  onKernelMiddlewareProcessed?: Array<PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>>
+  onEventHandled?: KernelHookListener[]
+  onTerminate?: KernelHookListener[]
+}
+
+/**
+ * Hook interface.
+ *
+ * Represents a hook that can either be synchronous or asynchronous.
+ */
+export interface IKernelHook<
+IncomingEventType extends IncomingEvent,
+OutgoingResponseType extends OutgoingResponse
+> {
+  onInit?: KernelHookListener
+  onHandlingEvent?: KernelHookListener
+  onExecutingEventHandler?: KernelHookListener
+  onExecutingErrorHandler?: KernelHookListener
+  onPreparingResponse?: KernelHookListener
+  onResponsePrepared?: KernelHookListener
+  onProcessingKernelMiddleware?: PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>
+  onKernelMiddlewareProcessed?: PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>
+  onEventHandled?: KernelHookListener
+  onTerminate?: KernelHookListener
+}
 
 /**
  * KernelHookListener Type.
  *
  * Represents a listener hook that can either be synchronous or asynchronous.
  */
-export type KernelHookListener = (container?: Container) => Promiseable<void>
+export type KernelHookListener = (container?: Container | any) => Promiseable<void>
+
+/**
+ * Represents a IBlueprintBuilder type.
+ *
+ * @template BlueprintType
+ */
+export interface IBlueprintBuilder<BlueprintType extends IBlueprint = IBlueprint> {
+  /**
+   * Build the configuration blueprint by extracting metadata from the provided modules.
+   *
+   * @param modules - The modules to build the configuration from.
+   * @returns The configuration blueprint.
+  */
+  build: (modules: unknown[]) => Promise<BlueprintType>
+}
 
 /**
  * ConfigContext Interface.
  *
  * Represents the context object for configuration, which contains the modules and blueprint used to configure the system.
  */
-export interface ConfigContext<T extends IBlueprint = IBlueprint, ModuleType = unknown> {
+export interface BlueprintContext<
+BlueprintType extends IBlueprint = IBlueprint,
+ModuleType = ClassType | PipeClass
+> {
+  /**
+   * The configuration blueprint.
+   */
+  readonly blueprint: BlueprintType
+
   /**
    * List of configuration modules.
    */
   readonly modules: ModuleType[]
-
-  /**
-   * The configuration blueprint.
-   */
-  readonly blueprint: T
 }
+
+/**
+ * Blueprint Hook Type.
+ *
+ * Represents a hook that can either be synchronous or asynchronous.
+ */
+export interface BlueprintHookType<
+BlueprintType extends IBlueprint = IBlueprint,
+ContextType extends BlueprintContext<BlueprintType> = BlueprintContext<BlueprintType>
+> {
+  onPreparingBlueprint?: Array<BlueprintHookListener<BlueprintType, ContextType>>
+  onBlueprintPrepared?: Array<BlueprintHookListener<BlueprintType, ContextType>>
+  onProcessingBlueprintMiddleware?: Array<PipelineHookListener<ContextType, BlueprintType, any[]>>
+  onBlueprintMiddlewareProcessed?: Array<PipelineHookListener<ContextType, BlueprintType, any[]>>
+}
+
+/**
+ * Blueprint Hook interface.
+ *
+ * Represents a hook that can either be synchronous or asynchronous.
+ */
+export interface IBlueprintHook<
+BlueprintType extends IBlueprint = IBlueprint,
+ContextType extends BlueprintContext<BlueprintType> = BlueprintContext<BlueprintType>
+> {
+  onPreparingBlueprint?: BlueprintHookListener<BlueprintType, ContextType>
+  onBlueprintPrepared?: BlueprintHookListener<BlueprintType, ContextType>
+  onProcessingBlueprintMiddleware?: PipelineHookListener<ContextType, BlueprintType, any[]>
+  onBlueprintMiddlewareProcessed?: PipelineHookListener<ContextType, BlueprintType, any[]>
+}
+
+/**
+ * BlueprintHookListener Type.
+ *
+ * Represents a listener hook that can either be synchronous or asynchronous.
+ */
+export type BlueprintHookListener<
+BlueprintType extends IBlueprint = IBlueprint,
+ContextType extends BlueprintContext<BlueprintType> = BlueprintContext<BlueprintType>
+> = (context: ContextType) => Promiseable<void>
 
 /**
  * LoggerResolver Type.
@@ -541,7 +626,9 @@ export type LoggerResolver = (blueprint: IBlueprint) => ILogger
  * @param blueprint - The application blueprint.
  * @returns The lifecycle event handler.
  */
-export type KernelResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (blueprint: IBlueprint) => LifecycleAdapterEventHandler<TEvent, UResponse>
+export type KernelResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (
+  blueprint: IBlueprint
+) => ILifecycleAdapterEventHandler<TEvent, UResponse>
 
 /**
  * ResponseResolverOptions Type.
@@ -559,7 +646,9 @@ export type ResponseResolverOptions = OutgoingResponseOptions & Record<string, u
  * @param options - The outgoing response options.
  * @returns The outgoing response.
  */
-export type ResponseResolver<TOutgoingResponse extends OutgoingResponse> = (options: ResponseResolverOptions) => Promiseable<TOutgoingResponse>
+export type ResponseResolver<TOutgoingResponse extends OutgoingResponse> = (
+  options: ResponseResolverOptions
+) => Promiseable<TOutgoingResponse>
 
 /**
  * IErrorHandlerClass Type.
@@ -568,7 +657,10 @@ export type ResponseResolver<TOutgoingResponse extends OutgoingResponse> = (opti
  * @param args - The application constructor params.
  * @returns The error handler.
  */
-export type IErrorHandlerClass<TEvent extends IncomingEvent = IncomingEvent, UResponse = unknown> = new (...args: any[]) => IErrorHandler<TEvent, UResponse>
+export type IErrorHandlerClass<
+TEvent extends IncomingEvent = IncomingEvent,
+UResponse = unknown
+> = new (...args: any[]) => IErrorHandler<TEvent, UResponse>
 
 /**
  * ErrorHandler Interface.
@@ -591,7 +683,10 @@ export interface IErrorHandler<TEvent extends IncomingEvent, UResponse = unknown
  * @param event - The incoming event.
  * @returns The outgoing response.
  */
-export type FunctionalErrorHandler<TEvent extends IncomingEvent, UResponse = unknown> = (error: any, event: TEvent) => Promiseable<UResponse>
+export type FunctionalErrorHandler<
+TEvent extends IncomingEvent,
+UResponse = unknown
+> = (error: any, event: TEvent) => Promiseable<UResponse>
 
 /**
  * FactoryErrorHandler Type.
@@ -602,14 +697,18 @@ export type FunctionalErrorHandler<TEvent extends IncomingEvent, UResponse = unk
  * @param container - The dependency injection container.
  * @returns The error handler function.
  */
-export type FactoryErrorHandler<TEvent extends IncomingEvent, UResponse = unknown> = (container: IContainer | any) => FunctionalErrorHandler<TEvent, UResponse>
+export type FactoryErrorHandler<TEvent extends IncomingEvent, UResponse = unknown> = (
+  container: IContainer | any
+) => FunctionalErrorHandler<TEvent, UResponse>
 
 /**
  * ErrorHandler Type.
  *
  * Represents an error handler which can either be a class, a simple function or a factory function.
  */
-export type ErrorHandlerType<TEvent extends IncomingEvent, UResponse = unknown> = IErrorHandlerClass<TEvent, UResponse> | FunctionalErrorHandler<TEvent, UResponse> | FactoryErrorHandler<TEvent, UResponse>
+export type ErrorHandlerType<TEvent extends IncomingEvent, UResponse = unknown> =
+  | IErrorHandlerClass<TEvent, UResponse>
+  | FunctionalErrorHandler<TEvent, UResponse> | FactoryErrorHandler<TEvent, UResponse>
 
 /**
  * MetaErrorHandler Interface.
@@ -684,23 +783,6 @@ export type MixedConfiguration<TValues extends object = any> = MetaConfiguration
 export type IBlueprint<TValues extends object = any> = Config<TValues>
 
 /**
- * HookName Type.
- */
-export type HookName = 'onStart' | 'onPrepare' | 'beforeHandle' | 'afterHandle' | 'onTerminate' | 'onStop'
-
-/**
- * HookContext Interface.
- *
- * Represents the context for the hooks, containing the event and optional response.
- *
- * @template TEvent, UResponse
- */
-export interface HookContext<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
-  event: TEvent
-  response: UResponse
-}
-
-/**
  * ClassType Type.
  *
  * Represents a class type, including abstract classes.
@@ -765,6 +847,20 @@ export type MixedListenerHandler<
   TEventType extends Event,
   UEventName
 > = ListenerHandler<TEventType> | WildcardListenerHandler<UEventName, TEventType>
+
+/**
+ * Represents the application lifecycle hooks.
+ */
+export type LifecycleHookType<
+BlueprintType extends IBlueprint = IBlueprint,
+AdapterContextType = unknown,
+RawResponseType = unknown,
+IncomingEventType extends IncomingEvent = IncomingEvent,
+OutgoingResponseType extends OutgoingResponse = OutgoingResponse
+> =
+  & BlueprintHookType<BlueprintType>
+  & AdapterHookType<AdapterContextType, RawResponseType>
+  & KernelHookType<IncomingEventType, OutgoingResponseType>
 
 /** *********************************************** Proposal decorator *************/
 /**
@@ -839,7 +935,6 @@ export type ProposalAccessorDecorator<T extends Function = Function> = <TFunctio
  * Represents an adapter handler options.
 */
 export interface AdapterHandlerOptions {
-  logger: ILogger
   blueprint: IBlueprint
 }
 
@@ -862,10 +957,31 @@ export interface IRawResponseWrapper<TResponse> {
  * @template TValues, UResponse
  */
 export interface IAdapterEventBuilder<TValues, UResponse> {
+  readonly options: TValues
   build: () => UResponse
   add: (key: keyof TValues, value: TValues[typeof key]) => this
   addIf: (key: keyof TValues, value: TValues[typeof key]) => this
 }
+
+/**
+ * AdapterEventBuilderType Type.
+ *
+ * Represents an event builder type for adapters.
+ *
+ * @template RawResponseType
+ */
+export type AdapterEventBuilderType<RawResponseType> =
+  | IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>
+
+/**
+ * AdapterMixedPipeType Type.
+ *
+ * Represents a mixed pipe type for adapters.
+ *
+ * @template AdapterContextType, RawResponseType
+ */
+export type AdapterMixedPipeType<AdapterContextType, RawResponseType> =
+  | MixedPipe<AdapterContextType, AdapterEventBuilderType<RawResponseType>>
 
 /**
  * RawResponseOptions.
@@ -877,18 +993,18 @@ export interface RawResponseOptions {
 }
 
 /**
- * LifecycleAdapterEventHandler Interface.
+ * ILifecycleAdapterEventHandler Interface.
  *
  * Represents a lifecycle event handler with hooks for initialization, pre-handling, handling, and termination phases.
  *
  * @template TEvent, UResponse
  */
-export interface LifecycleAdapterEventHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
-  onPrepare?: () => Promiseable<void>
-  beforeHandle?: () => Promiseable<void>
+export interface ILifecycleAdapterEventHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
+  onInit?: () => Promiseable<void>
+  onHandlingEvent?: () => Promiseable<void>
   handle: FunctionalAdapterEventHandler<TEvent, UResponse>
-  afterHandle?: (context: HookContext<TEvent, UResponse>) => Promiseable<void>
-  onTerminate?: (context: Partial<HookContext<TEvent, UResponse>>) => Promiseable<void>
+  onEventHandled?: () => Promiseable<void>
+  onTerminate?: () => Promiseable<void>
 }
 
 /**
@@ -900,7 +1016,9 @@ export interface LifecycleAdapterEventHandler<TEvent extends IncomingEvent, URes
  * @param incomingEvent - The incoming event to handle.
  * @returns The outgoing response.
  */
-export type FunctionalAdapterEventHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (incomingEvent: TEvent) => Promiseable<UResponse>
+export type FunctionalAdapterEventHandler<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (
+  incomingEvent: TEvent
+) => Promiseable<UResponse>
 
 /**
  * AdapterEventHandler Type.
@@ -912,7 +1030,7 @@ export type FunctionalAdapterEventHandler<TEvent extends IncomingEvent, URespons
 export type AdapterEventHandlerType<
   TEvent extends IncomingEvent = IncomingEvent,
   UResponse extends OutgoingResponse = OutgoingResponse
-> = LifecycleAdapterEventHandler<TEvent, UResponse> | FunctionalAdapterEventHandler<TEvent, UResponse>
+> = ILifecycleAdapterEventHandler<TEvent, UResponse> | FunctionalAdapterEventHandler<TEvent, UResponse>
 
 /**
  * AdapterEventHandlerResolver.
@@ -923,51 +1041,58 @@ export type AdapterEventHandlerType<
  * @param blueprint - The application blueprint.
  * @returns The event handler.
  */
-export type AdapterEventHandlerResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (blueprint: IBlueprint) => AdapterEventHandlerType<TEvent, UResponse>
+export type AdapterEventHandlerResolver<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> = (
+  blueprint: IBlueprint
+) => AdapterEventHandlerType<TEvent, UResponse>
 
 /**
  * AdapterHookListener Type.
  *
  * Represents a listener hook that can either be synchronous or asynchronous.
  */
-export type AdapterHookListener = (blueprint: IBlueprint) => Promiseable<void>
+export type AdapterHookListener<AdapterContextType = any> = (
+  context: AdapterHookListenerContext<AdapterContextType>
+) => Promiseable<void>
 
 /**
- * AdapterAfterHandleHookListener Type.
+ * AdapterHookListenerContext Interface.
  *
- * Represents a listener hook that can either be synchronous or asynchronous.
+ * Represents the context object for adapter hook listeners.
  */
-export type AdapterAfterHandleHookListener = <TEvent extends IncomingEvent, UResponse extends OutgoingResponse>(blueprint: IBlueprint, context: HookContext<TEvent, UResponse>) => Promiseable<void>
-
-/**
- * AdapterOnTerminateHookListener Type.
- *
- * Represents a listener hook that can either be synchronous or asynchronous.
- */
-export type AdapterOnTerminateHookListener = <TEvent extends IncomingEvent, UResponse extends OutgoingResponse>(blueprint: IBlueprint, context: Partial<HookContext<TEvent, UResponse>>) => Promiseable<void>
-
-/**
- * AdapterHooks Interface.
- *
- * Represents lifecycle hooks that can be defined for the adapter, such as initialization, pre-handling, and termination.
- */
-export interface AdapterHooks {
-  onStart?: AdapterHookListener[]
-  onPrepare?: AdapterHookListener[]
-  beforeHandle?: AdapterHookListener[]
-  afterHandle?: AdapterAfterHandleHookListener[]
-  onTerminate?: AdapterOnTerminateHookListener[]
-  onStop?: AdapterHookListener[]
+export interface AdapterHookListenerContext<AdapterContextType = any> {
+  error?: any
+  blueprint: IBlueprint
+  context?: AdapterContextType
 }
 
 /**
- * AdapterStaticHookListener Interface.
+ * AdapterHook type.
  *
- * Represents a listener for adapter lifecycle hooks.
+ * Represents lifecycle hooks that can be defined for the adapter, such as initialization, pre-handling, and termination.
  */
-export interface AdapterStaticHookListener {
-  onStart: AdapterHookListener
-  onStop: AdapterHookListener
+export interface AdapterHookType<AdapterContextType = any, RawResponseType = any> {
+  onStart?: Array<AdapterHookListener<AdapterContextType>>
+  onProcessingAdapterMiddleware?: Array<PipelineHookListener<AdapterContextType, AdapterEventBuilderType<RawResponseType>, any[]>>
+  onAdapterMiddlewareProcessed?: Array<PipelineHookListener<AdapterContextType, AdapterEventBuilderType<RawResponseType>, any[]>>
+  onBuildingIncomingEvent?: Array<AdapterHookListener<AdapterContextType>>
+  onHandlingAdapterError?: Array<AdapterHookListener<AdapterContextType>>
+  onBuildingRawResponse?: Array<AdapterHookListener<AdapterContextType>>
+  onStop?: Array<AdapterHookListener<AdapterContextType>>
+}
+
+/**
+ * AdapterHook Interface.
+ *
+ * Represents lifecycle hooks that can be defined for the adapter, such as initialization, pre-handling, and termination.
+ */
+export interface IAdapterHook<AdapterContextType = any, RawResponseType = any> {
+  onStart?: AdapterHookListener<AdapterContextType>
+  onProcessingAdapterMiddleware?: PipelineHookListener<AdapterContextType, AdapterEventBuilderType<RawResponseType>, any[]>
+  onAdapterMiddlewareProcessed?: PipelineHookListener<AdapterContextType, AdapterEventBuilderType<RawResponseType>, any[]>
+  onBuildingIncomingEvent?: AdapterHookListener<AdapterContextType>
+  onHandlingAdapterError?: AdapterHookListener<AdapterContextType>
+  onBuildingRawResponse?: AdapterHookListener<AdapterContextType>
+  onStop?: AdapterHookListener<AdapterContextType>
 }
 
 /**
@@ -1076,7 +1201,9 @@ export interface AdapterErrorContext<RawEventType, RawResponseType, ExecutionCon
  * @template RawResponseType
  * @template ExecutionContextType
  */
-export type IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType> = new (...args: any[]) => IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
+export type IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType> = new (
+  ...args: any[]
+) => IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
 
 /**
  * Adapter ErrorHandler Interface.
@@ -1096,7 +1223,10 @@ export interface IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionCo
  * @template RawResponseType
  * @template ExecutionContextType
  */
-export type FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> = (error: any, context: AdapterErrorContext<RawEventType, RawResponseType, ExecutionContextType>) => Promiseable<RawResponseType>
+export type FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> = (
+  error: any,
+  context: AdapterErrorContext<RawEventType, RawResponseType, ExecutionContextType>
+) => Promiseable<IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>
 
 /**
  * FactoryAdapterErrorHandler Type.
@@ -1107,14 +1237,19 @@ export type FunctionalAdapterErrorHandler<RawEventType, RawResponseType, Executi
  * @template RawResponseType
  * @template ExecutionContextType
  */
-export type FactoryAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> = (options: AdapterHandlerOptions) => FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
+export type FactoryAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> = (
+  options: AdapterHandlerOptions
+) => FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
 
 /**
  * AdapterErrorHandler Type.
  *
  * Represents an error handler which can either be a class, a simple function or a factory function.
  */
-export type AdapterErrorHandlerType<RawEventType, RawResponseType, ExecutionContextType> = IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType> | FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType> | FactoryAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
+export type AdapterErrorHandlerType<RawEventType, RawResponseType, ExecutionContextType> =
+  | IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType>
+  | FactoryAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
+  | FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>
 
 /**
  * MetaAdapterErrorHandler Interface.

@@ -8,7 +8,7 @@
 
 > **stoneApp**\<`U`, `V`\>(`options`): [`StoneBuilder`](../classes/StoneBuilder.md)\<`U`, `V`\>
 
-Defined in: [core/src/StoneBuilder.ts:227](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/StoneBuilder.ts#L227)
+Defined in: [core/src/StoneBuilder.ts:197](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/StoneBuilder.ts#L197)
 
 Create a new Stone instance with the given options.
 

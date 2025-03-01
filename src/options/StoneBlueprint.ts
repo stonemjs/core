@@ -1,3 +1,12 @@
+import {
+  IBlueprint,
+  MetaService,
+  LifecycleHookType,
+  MetaEventListener,
+  MixedConfiguration,
+  MixedEventSubscriber,
+  MixedServiceProvider
+} from '../declarations'
 import { LoggerConfig, logger } from './LoggerConfig'
 import { KernelConfig, kernel } from './KernelConfig'
 import { IncomingEvent } from '../events/IncomingEvent'
@@ -5,15 +14,6 @@ import { BuilderConfig, builder } from './BuilderConfig'
 import { AdapterConfig, adapters } from './AdapterConfig'
 import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import {
-  MetaService,
-  MetaApplication,
-  MixedEventHandler,
-  MetaEventListener,
-  MixedConfiguration,
-  MixedEventSubscriber,
-  MixedServiceProvider
-} from '../declarations'
 
 /**
  * Environment settings.
@@ -65,20 +65,26 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   fallback_locale: string
 
   /**
+   * A secret key used for encryption purposes throughout the application.
+   * This key should be kept secure.
+   */
+  secret?: string
+
+  /**
    * Configuration options for building the application, including middleware and pipe priorities.
    */
-  builder: BuilderConfig
+  builder: BuilderConfig<IBlueprint, any >
 
   /**
    * Current Adapter configurations for the application.
    * This key allow you to specify the current adapter with the alias key.
    */
-  adapter?: Partial<AdapterConfig>
+  adapter?: Partial<AdapterConfig<any, any, any, U, any, V>>
 
   /**
    * Adapter configurations for the application.
    */
-  adapters: AdapterConfig[]
+  adapters: Array<AdapterConfig<any, any, any, U, any, V>>
 
   /**
    * Global middleware settings for the application kernel.
@@ -110,7 +116,7 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   /**
    * Service providers to be automatically loaded for each request to the application.
    */
-  providers: Array<MixedServiceProvider<U, V>>
+  providers: MixedServiceProvider[]
 
   /**
    * Class aliases to be registered when the application starts.
@@ -119,24 +125,10 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   aliases: Record<string, any>
 
   /**
-   * A secret key used for encryption purposes throughout the application.
-   * This key should be kept secure.
+   * Lifecycle hooks for the application.
+   * These hooks allow you to run custom code at different stages of the application lifecycle.
    */
-  secret?: string
-
-  /**
-   * The main handler function for the application.
-   * This is the main function that handles incoming requests.
-   * Every Stone.js application must have an handler function.
-   */
-  handler?: MixedEventHandler<U, V>
-
-  /**
-   * The main application entry point module in declarative context.
-   * It is the class decorated with the @StoneApp() decorator.
-   * Note: It does not exist in imperative context.
-   */
-  application?: MetaApplication<U, V>
+  lifecycleHooks?: LifecycleHookType<IBlueprint, any, any, U, V>
 
   /**
    * Live configurations are loaded at each request.

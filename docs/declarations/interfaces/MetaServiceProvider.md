@@ -4,17 +4,11 @@
 
 [Core Documentation](../../modules.md) / [declarations](../README.md) / MetaServiceProvider
 
-# Interface: MetaServiceProvider\<TEvent, UResponse\>
+# Interface: MetaServiceProvider
 
-Defined in: [core/src/declarations.ts:282](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L282)
+Defined in: [core/src/declarations.ts:263](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L263)
 
 Represents a MetaServiceProvider type.
-
-## Type Parameters
-
-• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
-
-• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Properties
 
@@ -22,7 +16,7 @@ Represents a MetaServiceProvider type.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:283](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L283)
+Defined in: [core/src/declarations.ts:264](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L264)
 
 ***
 
@@ -30,12 +24,12 @@ Defined in: [core/src/declarations.ts:283](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:284](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L284)
+Defined in: [core/src/declarations.ts:265](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L265)
 
 ***
 
 ### module
 
-> **module**: [`ServiceProviderType`](../type-aliases/ServiceProviderType.md)\<`TEvent`, `UResponse`\>
+> **module**: [`ServiceProviderType`](../type-aliases/ServiceProviderType.md)
 
-Defined in: [core/src/declarations.ts:285](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L285)
+Defined in: [core/src/declarations.ts:266](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L266)

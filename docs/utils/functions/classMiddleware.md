@@ -8,7 +8,7 @@
 
 > **classMiddleware**\<`U`, `V`\>(`module`, `options`): [`MetaMiddleware`](../../declarations/type-aliases/MetaMiddleware.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:221](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L221)
+Defined in: [core/src/utils.ts:240](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L240)
 
 Defines a class middleware with metadata for the provided module.
 

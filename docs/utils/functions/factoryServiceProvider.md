@@ -6,28 +6,22 @@
 
 # Function: factoryServiceProvider()
 
-> **factoryServiceProvider**\<`U`, `V`\>(`module`): [`MetaServiceProvider`](../../declarations/interfaces/MetaServiceProvider.md)\<`U`, `V`\>
+> **factoryServiceProvider**(`module`): [`MetaServiceProvider`](../../declarations/interfaces/MetaServiceProvider.md)
 
-Defined in: [core/src/utils.ts:157](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L157)
+Defined in: [core/src/utils.ts:178](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L178)
 
 Defines a factory service provider with metadata for the provided module.
-
-## Type Parameters
-
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
-
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 
 ### module
 
-[`FactoryServiceProvider`](../../declarations/type-aliases/FactoryServiceProvider.md)\<`U`, `V`\>
+[`FactoryServiceProvider`](../../declarations/type-aliases/FactoryServiceProvider.md)
 
 The module handler function to be defined.
 
 ## Returns
 
-[`MetaServiceProvider`](../../declarations/interfaces/MetaServiceProvider.md)\<`U`, `V`\>
+[`MetaServiceProvider`](../../declarations/interfaces/MetaServiceProvider.md)
 
 The defined factory service provider with metadata.

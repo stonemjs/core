@@ -8,7 +8,7 @@
 
 > **isFunction**(`value`): `value is Function`
 
-Defined in: pipeline/dist/index.d.ts:286
+Defined in: pipeline/dist/index.d.ts:358
 
 Check if the value is a function.
 

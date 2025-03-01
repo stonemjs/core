@@ -8,7 +8,7 @@
 
 > **factoryService**(`alias`, `module`): [`MetaService`](../../declarations/interfaces/MetaService.md)
 
-Defined in: [core/src/utils.ts:170](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L170)
+Defined in: [core/src/utils.ts:189](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L189)
 
 Defines a factory service with metadata for the provided module.
 

@@ -8,7 +8,7 @@
 
 > **FunctionalConfiguration**\<`TValues`\>: (`blueprint`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:656](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L656)
+Defined in: [core/src/declarations.ts:755](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L755)
 
 FunctionalConfiguration Type.
 

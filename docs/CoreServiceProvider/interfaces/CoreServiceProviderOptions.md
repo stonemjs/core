@@ -6,7 +6,7 @@
 
 # Interface: CoreServiceProviderOptions
 
-Defined in: [core/src/CoreServiceProvider.ts:11](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L11)
+Defined in: [core/src/CoreServiceProvider.ts:33](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L33)
 
 CoreServiceProvider options.
 
@@ -16,7 +16,7 @@ CoreServiceProvider options.
 
 > **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:14](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L14)
+Defined in: [core/src/CoreServiceProvider.ts:35](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L35)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/CoreServiceProvider.ts:14](https://github.com/stonemjs/cor
 
 > **container**: `Container`
 
-Defined in: [core/src/CoreServiceProvider.ts:13](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L13)
+Defined in: [core/src/CoreServiceProvider.ts:34](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L34)
 
 ***
 
@@ -32,12 +32,4 @@ Defined in: [core/src/CoreServiceProvider.ts:13](https://github.com/stonemjs/cor
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:15](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L15)
-
-***
-
-### logger
-
-> **logger**: [`ILogger`](../../declarations/interfaces/ILogger.md)
-
-Defined in: [core/src/CoreServiceProvider.ts:12](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L12)
+Defined in: [core/src/CoreServiceProvider.ts:36](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L36)

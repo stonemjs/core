@@ -8,7 +8,7 @@
 
 > **ResponseResolverOptions**: [`OutgoingResponseOptions`](../../events/OutgoingResponse/interfaces/OutgoingResponseOptions.md) & `Record`\<`string`, `unknown`\>
 
-Defined in: [core/src/declarations.ts:551](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L551)
+Defined in: [core/src/declarations.ts:638](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L638)
 
 ResponseResolverOptions Type.
 

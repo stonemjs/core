@@ -4,21 +4,25 @@
 
 [Core Documentation](../../modules.md) / [declarations](../README.md) / AdapterHookListener
 
-# Type Alias: AdapterHookListener()
+# Type Alias: AdapterHookListener()\<AdapterContextType\>
 
-> **AdapterHookListener**: (`blueprint`) => [`Promiseable`](Promiseable.md)\<`void`\>
+> **AdapterHookListener**\<`AdapterContextType`\>: (`context`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:933](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L933)
+Defined in: [core/src/declarations.ts:1053](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1053)
 
 AdapterHookListener Type.
 
 Represents a listener hook that can either be synchronous or asynchronous.
 
+## Type Parameters
+
+• **AdapterContextType** = `any`
+
 ## Parameters
 
-### blueprint
+### context
 
-[`IBlueprint`](IBlueprint.md)
+[`AdapterHookListenerContext`](../interfaces/AdapterHookListenerContext.md)\<`AdapterContextType`\>
 
 ## Returns
 

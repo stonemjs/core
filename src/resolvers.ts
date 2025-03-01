@@ -43,6 +43,5 @@ export function defaultResponseResolver (options: ResponseResolverOptions): Outg
  * @returns A `Kernel` instance configured with the provided blueprint.
  */
 export function defaultKernelResolver<U extends IncomingEvent, V extends OutgoingResponse> (blueprint: IBlueprint): Kernel<U, V> {
-  const loggerResolver = blueprint.get('stone.logger.resolver', defaultLoggerResolver)
-  return Kernel.create({ blueprint, logger: loggerResolver(blueprint), container: Container.create(), eventEmitter: new EventEmitter() })
+  return Kernel.create({ blueprint, container: Container.create(), eventEmitter: new EventEmitter() })
 }

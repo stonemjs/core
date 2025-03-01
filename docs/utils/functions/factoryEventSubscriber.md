@@ -8,7 +8,7 @@
 
 > **factoryEventSubscriber**(`module`): [`MetaEventSubscriber`](../../declarations/interfaces/MetaEventSubscriber.md)
 
-Defined in: [core/src/utils.ts:194](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L194)
+Defined in: [core/src/utils.ts:213](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L213)
 
 Defines a factory event subscriber with metadata for the provided module.
 

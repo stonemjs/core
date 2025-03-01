@@ -6,7 +6,7 @@
 
 # Interface: AppConfig\<U, V\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:34](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L34)
+Defined in: [core/src/options/StoneBlueprint.ts:34](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L34)
 
 Application settings.
 
@@ -24,9 +24,9 @@ middleware options, logging settings, and service registration.
 
 ### adapter?
 
-> `optional` **adapter**: `Partial`\<[`AdapterConfig`](../../AdapterConfig/interfaces/AdapterConfig.md)\>
+> `optional` **adapter**: `Partial`\<[`AdapterConfig`](../../AdapterConfig/interfaces/AdapterConfig.md)\<`U`, `V`\>\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:76](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L76)
+Defined in: [core/src/options/StoneBlueprint.ts:82](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L82)
 
 Current Adapter configurations for the application.
 This key allow you to specify the current adapter with the alias key.
@@ -35,9 +35,9 @@ This key allow you to specify the current adapter with the alias key.
 
 ### adapters
 
-> **adapters**: [`AdapterConfig`](../../AdapterConfig/interfaces/AdapterConfig.md)[]
+> **adapters**: [`AdapterConfig`](../../AdapterConfig/interfaces/AdapterConfig.md)\<`U`, `V`\>[]
 
-Defined in: [core/src/options/StoneBlueprint.ts:81](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L81)
+Defined in: [core/src/options/StoneBlueprint.ts:87](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L87)
 
 Adapter configurations for the application.
 
@@ -47,30 +47,18 @@ Adapter configurations for the application.
 
 > **aliases**: `Record`\<`string`, `any`\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:119](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L119)
+Defined in: [core/src/options/StoneBlueprint.ts:125](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L125)
 
 Class aliases to be registered when the application starts.
 These aliases provide shorthand references to commonly used classes.
 
 ***
 
-### application?
-
-> `optional` **application**: [`MetaApplication`](../../../declarations/interfaces/MetaApplication.md)\<`U`, `V`\>
-
-Defined in: [core/src/options/StoneBlueprint.ts:139](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L139)
-
-The main application entry point module in declarative context.
-It is the class decorated with the @StoneApp() decorator.
-Note: It does not exist in imperative context.
-
-***
-
 ### builder
 
-> **builder**: [`BuilderConfig`](../../BuilderConfig/interfaces/BuilderConfig.md)
+> **builder**: [`BuilderConfig`](../../BuilderConfig/interfaces/BuilderConfig.md)\<`any`\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:70](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L70)
+Defined in: [core/src/options/StoneBlueprint.ts:76](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L76)
 
 Configuration options for building the application, including middleware and pipe priorities.
 
@@ -80,7 +68,7 @@ Configuration options for building the application, including middleware and pip
 
 > **debug**: `boolean`
 
-Defined in: [core/src/options/StoneBlueprint.ts:50](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L50)
+Defined in: [core/src/options/StoneBlueprint.ts:50](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L50)
 
 Determines if the application is in debug mode.
 When enabled, detailed error messages with stack traces will be shown.
@@ -91,7 +79,7 @@ When enabled, detailed error messages with stack traces will be shown.
 
 > **env**: [`Environment`](../enumerations/Environment.md)
 
-Defined in: [core/src/options/StoneBlueprint.ts:44](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L44)
+Defined in: [core/src/options/StoneBlueprint.ts:44](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L44)
 
 The current environment in which the application is running.
 Possible values are development, production, and test.
@@ -102,21 +90,9 @@ Possible values are development, production, and test.
 
 > **fallback\_locale**: `string`
 
-Defined in: [core/src/options/StoneBlueprint.ts:65](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L65)
+Defined in: [core/src/options/StoneBlueprint.ts:65](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L65)
 
 The fallback locale used when a translation for the default locale is unavailable.
-
-***
-
-### handler?
-
-> `optional` **handler**: [`MixedEventHandler`](../../../declarations/type-aliases/MixedEventHandler.md)\<`U`, `V`\>
-
-Defined in: [core/src/options/StoneBlueprint.ts:132](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L132)
-
-The main handler function for the application.
-This is the main function that handles incoming requests.
-Every Stone.js application must have an handler function.
 
 ***
 
@@ -124,9 +100,20 @@ Every Stone.js application must have an handler function.
 
 > **kernel**: [`KernelConfig`](../../KernelConfig/interfaces/KernelConfig.md)\<`U`, `V`\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:86](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L86)
+Defined in: [core/src/options/StoneBlueprint.ts:92](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L92)
 
 Global middleware settings for the application kernel.
+
+***
+
+### lifecycleHooks?
+
+> `optional` **lifecycleHooks**: [`LifecycleHookType`](../../../declarations/type-aliases/LifecycleHookType.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md), `any`, `any`, `U`, `V`\>
+
+Defined in: [core/src/options/StoneBlueprint.ts:131](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L131)
+
+Lifecycle hooks for the application.
+These hooks allow you to run custom code at different stages of the application lifecycle.
 
 ***
 
@@ -134,7 +121,7 @@ Global middleware settings for the application kernel.
 
 > **listeners**: [`MetaEventListener`](../../../declarations/interfaces/MetaEventListener.md)[]
 
-Defined in: [core/src/options/StoneBlueprint.ts:102](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L102)
+Defined in: [core/src/options/StoneBlueprint.ts:108](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L108)
 
 Event listeners to be automatically registered when the application starts.
 This allows you to specify functions to listen for specific events.
@@ -145,7 +132,7 @@ This allows you to specify functions to listen for specific events.
 
 > `optional` **liveConfigurations**: [`MixedConfiguration`](../../../declarations/type-aliases/MixedConfiguration.md)[]
 
-Defined in: [core/src/options/StoneBlueprint.ts:146](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L146)
+Defined in: [core/src/options/StoneBlueprint.ts:138](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L138)
 
 Live configurations are loaded at each request.
 By default, configurations are loaded once when the application starts.
@@ -157,7 +144,7 @@ This is useful for defining dynamic configurations that do not require a restart
 
 > **locale**: `string`
 
-Defined in: [core/src/options/StoneBlueprint.ts:60](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L60)
+Defined in: [core/src/options/StoneBlueprint.ts:60](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L60)
 
 The default locale for the application.
 
@@ -167,7 +154,7 @@ The default locale for the application.
 
 > **logger**: [`LoggerConfig`](../../LoggerConfig/interfaces/LoggerConfig.md)
 
-Defined in: [core/src/options/StoneBlueprint.ts:91](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L91)
+Defined in: [core/src/options/StoneBlueprint.ts:97](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L97)
 
 Logging settings, including the logger instance and error reporting configurations.
 
@@ -177,7 +164,7 @@ Logging settings, including the logger instance and error reporting configuratio
 
 > **name**: `string`
 
-Defined in: [core/src/options/StoneBlueprint.ts:38](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L38)
+Defined in: [core/src/options/StoneBlueprint.ts:38](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L38)
 
 The name of the application.
 
@@ -185,9 +172,9 @@ The name of the application.
 
 ### providers
 
-> **providers**: [`MixedServiceProvider`](../../../declarations/type-aliases/MixedServiceProvider.md)\<`U`, `V`\>[]
+> **providers**: [`MixedServiceProvider`](../../../declarations/type-aliases/MixedServiceProvider.md)[]
 
-Defined in: [core/src/options/StoneBlueprint.ts:113](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L113)
+Defined in: [core/src/options/StoneBlueprint.ts:119](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L119)
 
 Service providers to be automatically loaded for each request to the application.
 
@@ -197,7 +184,7 @@ Service providers to be automatically loaded for each request to the application
 
 > `optional` **secret**: `string`
 
-Defined in: [core/src/options/StoneBlueprint.ts:125](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L125)
+Defined in: [core/src/options/StoneBlueprint.ts:71](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L71)
 
 A secret key used for encryption purposes throughout the application.
 This key should be kept secure.
@@ -208,7 +195,7 @@ This key should be kept secure.
 
 > **services**: [`MetaService`](../../../declarations/interfaces/MetaService.md)[]
 
-Defined in: [core/src/options/StoneBlueprint.ts:96](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L96)
+Defined in: [core/src/options/StoneBlueprint.ts:102](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L102)
 
 Services to be automatically registered when the application starts.
 
@@ -218,7 +205,7 @@ Services to be automatically registered when the application starts.
 
 > **subscribers**: [`MixedEventSubscriber`](../../../declarations/type-aliases/MixedEventSubscriber.md)[]
 
-Defined in: [core/src/options/StoneBlueprint.ts:108](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L108)
+Defined in: [core/src/options/StoneBlueprint.ts:114](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L114)
 
 Subscribers to be automatically registered when the application starts.
 Subscribers are used for handling and responding to events.
@@ -229,6 +216,6 @@ Subscribers are used for handling and responding to events.
 
 > **timezone**: `string`
 
-Defined in: [core/src/options/StoneBlueprint.ts:55](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/options/StoneBlueprint.ts#L55)
+Defined in: [core/src/options/StoneBlueprint.ts:55](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/options/StoneBlueprint.ts#L55)
 
 The default timezone for the application.

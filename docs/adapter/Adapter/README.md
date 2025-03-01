@@ -9,7 +9,3 @@
 ## Classes
 
 - [Adapter](classes/Adapter.md)
-
-## Interfaces
-
-- [AdapterOptions](interfaces/AdapterOptions.md)

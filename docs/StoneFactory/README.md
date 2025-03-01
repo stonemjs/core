@@ -9,7 +9,3 @@
 ## Classes
 
 - [StoneFactory](classes/StoneFactory.md)
-
-## Interfaces
-
-- [StoneFactoryOptions](interfaces/StoneFactoryOptions.md)

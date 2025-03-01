@@ -8,7 +8,7 @@
 
 > **Listener**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/decorators/Listener.ts#L34)
+Defined in: [core/src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/decorators/Listener.ts#L34)
 
 Listener decorator to mark a class as a listener for a specific event.
 

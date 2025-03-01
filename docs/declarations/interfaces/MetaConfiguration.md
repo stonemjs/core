@@ -6,7 +6,7 @@
 
 # Interface: MetaConfiguration\<TValues\>
 
-Defined in: [core/src/declarations.ts:665](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L665)
+Defined in: [core/src/declarations.ts:764](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L764)
 
 MetaConfiguration Interface.
 
@@ -22,7 +22,7 @@ Represents a metadata object for a configuration.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:666](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L666)
+Defined in: [core/src/declarations.ts:765](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L765)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [core/src/declarations.ts:666](https://github.com/stonemjs/core/blob
 
 > **module**: [`ConfigurationClass`](../type-aliases/ConfigurationClass.md)\<`TValues`\> \| [`FunctionalConfiguration`](../type-aliases/FunctionalConfiguration.md)\<`TValues`\>
 
-Defined in: [core/src/declarations.ts:667](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L667)
+Defined in: [core/src/declarations.ts:766](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L766)

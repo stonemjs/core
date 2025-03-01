@@ -8,7 +8,7 @@
 
 > **MixedConfiguration**\<`TValues`\>: [`MetaConfiguration`](../interfaces/MetaConfiguration.md)\<`TValues`\> \| [`FunctionalConfiguration`](FunctionalConfiguration.md)\<`TValues`\>
 
-Defined in: [core/src/declarations.ts:675](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L675)
+Defined in: [core/src/declarations.ts:774](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L774)
 
 MixedConfiguration Type.
 

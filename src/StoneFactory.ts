@@ -1,27 +1,6 @@
-import { RuntimeError } from './errors/RuntimeError'
+import { isEmpty } from './utils'
 import { IntegrationError } from './errors/IntegrationError'
 import { AdapterResolver, IAdapter, IBlueprint } from './declarations'
-
-/**
- * StoneFactoryOptions interface.
- *
- * This interface defines the configuration options for creating an instance of `StoneFactory`.
- * The options must include a `blueprint` that defines the core settings and configurations
- * required by the Stone.js framework.
- *
- * @property {IBlueprint} blueprint - The core configuration object for the Stone.js framework.
- *
- * @example
- * ```typescript
- * const stoneFactory = StoneFactory.create({ blueprint });
- * ```
- */
-export interface StoneFactoryOptions {
-  /**
-   * The blueprint configuration used by StoneFactory.
-   */
-  blueprint: IBlueprint
-}
 
 /**
  * Class representing StoneFactory.
@@ -33,34 +12,26 @@ export interface StoneFactoryOptions {
  */
 export class StoneFactory {
   /**
-   * The blueprint configuration for the application.
-   */
-  private readonly blueprint: IBlueprint
-
-  /**
    * Create a new StoneFactory instance.
    *
-   * @param options - The options to create the StoneFactory.
+   * @param blueprint - The blueprint object that contains the configuration for the application.
    * @returns A new StoneFactory instance.
    *
    * @example
    * ```typescript
-   * const factory = StoneFactory.create({ blueprint });
+   * const factory = StoneFactory.create(blueprint);
    * ```
    */
-  public static create (options: StoneFactoryOptions): StoneFactory {
-    return new this(options)
+  public static create (blueprint: IBlueprint): StoneFactory {
+    return new this(blueprint)
   }
 
   /**
    * Create a new instance of StoneFactory.
    *
-   * @param options - The options to create the StoneFactory.
+   * @param blueprint - The blueprint object that contains the configuration for the application.
    */
-  private constructor ({ blueprint }: StoneFactoryOptions) {
-    if (blueprint === undefined) { throw new RuntimeError('Blueprint is required to create a StoneFactory instance.') }
-    this.blueprint = blueprint
-  }
+  private constructor (private readonly blueprint: IBlueprint) {}
 
   /**
    * Run the application by resolving and executing the adapter.
@@ -74,25 +45,27 @@ export class StoneFactory {
    * ```
    */
   public async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
-    return await this.makeAdapter().run<ExecutionResultType>()
+    return await this.resolveAdapter().run<ExecutionResultType>()
   }
 
   /**
-   * Resolve and create the appropriate adapter from the blueprint.
+   * Resolve the adapter instance from the blueprint.
    *
    * @returns The resolved adapter instance.
    * @throws {IntegrationError} If no adapter resolver or adapter is provided in the blueprint.
    */
-  private makeAdapter (): IAdapter {
+  private resolveAdapter (): IAdapter {
     const resolver = this.blueprint.get<AdapterResolver>('stone.adapter.resolver')
 
-    if (resolver === undefined) {
-      throw new IntegrationError('No adapter resolver provided. Ensure that a valid adapter resolver is configured under "stone.adapter.resolver" in the blueprint configuration.')
+    if (isEmpty(resolver)) {
+      throw new IntegrationError(
+        'No adapter resolver provided. Ensure that a valid adapter resolver is configured under "stone.adapter.resolver" in the blueprint configuration.'
+      )
     }
 
     const adapter = resolver(this.blueprint)
 
-    if (adapter === undefined) {
+    if (isEmpty(adapter)) {
       throw new IntegrationError('No adapters provided. Stone.js needs at least one adapter to run.')
     }
 

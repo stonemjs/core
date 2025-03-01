@@ -1,10 +1,3 @@
-import { Config } from '@stone-js/config'
-import { mergeBlueprints } from './utils'
-import { StoneFactory } from './StoneFactory'
-import { BlueprintBuilder } from './BlueprintBuilder'
-import { IncomingEvent } from './events/IncomingEvent'
-import { StoneBlueprint } from './options/StoneBlueprint'
-import { OutgoingResponse } from './events/OutgoingResponse'
 import {
   HookName,
   IBlueprint,
@@ -14,6 +7,13 @@ import {
   KernelHookListener,
   AdapterHookListener
 } from './declarations'
+import { Config } from '@stone-js/config'
+import { mergeBlueprints } from './utils'
+import { StoneFactory } from './StoneFactory'
+import { BlueprintBuilder } from './BlueprintBuilder'
+import { IncomingEvent } from './events/IncomingEvent'
+import { StoneBlueprint } from './options/StoneBlueprint'
+import { OutgoingResponse } from './events/OutgoingResponse'
 
 /**
  * Stone builder options.
@@ -135,7 +135,7 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The current StoneBuilder instance.
    */
   hook (key: HookName, listener: KernelHookListener): this {
-    return this.add(`stone.kernel.hooks.${key}`, [listener])
+    return this.add(`stone.lifecycleHooks.${key}`, [listener])
   }
 
   /**
@@ -145,8 +145,8 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @param listener - The hook function to execute on adapter start.
    * @returns The current StoneBuilder instance.
    */
-  onStart (listener: AdapterHookListener): this {
-    return this.add('stone.adapter.hooks.onStart', [listener])
+  onStart (listener: AdapterHookListener<any>): this {
+    return this.add('stone.lifecycleHooks.onStart', [listener])
   }
 
   /**
@@ -156,38 +156,8 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @param listener - The hook function to execute on adapter stop.
    * @returns The current StoneBuilder instance.
    */
-  onStop (listener: AdapterHookListener): this {
-    return this.add('stone.adapter.hooks.onStop', [listener])
-  }
-
-  /**
-   * Hook to register modules to the service container.
-   * This hook is called when the application is prepared.
-   * Just after the onPrepare hook.
-   * At this point, the application is ready to register modules to the service container.
-   * And all third-party modules are already registered.
-   * Usefull to register your own modules to the service container.
-   *
-   * @param listener - The hook function listener to add.
-   * @returns The current StoneBuilder instance.
-   */
-  onRegister (listener: KernelHookListener): this {
-    return this.hook('onPrepare', listener)
-  }
-
-  /**
-   * Hook to boot the application.
-   * This hook is called when the application is booted.
-   * At this point, the application is ready to handle events.
-   * This hook is called after the onRegister hook.
-   * And just before the handle method is called.
-   * Usefull to boot stuffs at each event handling.
-   *
-   * @param listener - The hook function listener to add.
-   * @returns The current StoneBuilder instance.
-   */
-  onBoot (listener: KernelHookListener): this {
-    return this.hook('beforeHandle', listener)
+  onStop (listener: AdapterHookListener<any>): this {
+    return this.add('stone.lifecycleHooks.onStop', [listener])
   }
 
   /**
@@ -198,7 +168,7 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The platform-specific response.
    */
   async handle<ExecutionResultType = unknown>(handler: MixedEventHandler<TEvent, unknown>): Promise<ExecutionResultType> {
-    this.blueprint.set('stone.handler', handler)
+    this.blueprint.set('stone.kernel.eventHandler', handler)
     return await this.run()
   }
 
@@ -209,8 +179,8 @@ export class StoneBuilder<TEvent extends IncomingEvent, UResponse extends Outgoi
    * @returns The platform-specific response.
    */
   async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
-    const blueprint = await BlueprintBuilder.create().build(this.modules, this.blueprint)
-    return await StoneFactory.create({ blueprint }).run<ExecutionResultType>()
+    const blueprint = await BlueprintBuilder.create(this.blueprint).build(this.modules)
+    return await StoneFactory.create(blueprint).run<ExecutionResultType>()
   }
 }
 

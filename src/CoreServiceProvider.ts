@@ -1,15 +1,36 @@
+import {
+  isConstructor,
+  isMetaClassModule,
+  isMetaFactoryModule,
+  isMetaFunctionModule
+} from './utils'
+import {
+  ILogger,
+  IBlueprint,
+  MetaService,
+  IServiceClass,
+  IEventListener,
+  FactoryService,
+  IServiceProvider,
+  IEventSubscriber,
+  MetaEventListener,
+  IEventListenerClass,
+  MixedEventSubscriber,
+  FactoryEventListener,
+  IEventSubscriberClass,
+  FactoryEventSubscriber,
+  FunctionalEventListener,
+  FunctionalEventSubscriber
+} from './declarations'
 import { Event } from './events/Event'
+import { defaultLoggerResolver } from './resolvers'
 import { EventEmitter } from './events/EventEmitter'
 import { Container } from '@stone-js/service-container'
-import { InitializationError } from './errors/InitializationError'
-import { isConstructor, isMetaClassModule, isMetaFactoryModule, isMetaFunctionModule } from './utils'
-import { IBlueprint, IEventListener, ILogger, IServiceProvider, IEventSubscriber, MetaService, MetaEventListener, MixedEventSubscriber, IServiceClass, FactoryService, FactoryEventListener, IEventListenerClass, FunctionalEventListener, FactoryEventSubscriber, FunctionalEventSubscriber, IEventSubscriberClass } from './declarations'
 
 /**
  * CoreServiceProvider options.
  */
 export interface CoreServiceProviderOptions {
-  logger: ILogger
   container: Container
   blueprint: IBlueprint
   eventEmitter: EventEmitter
@@ -52,16 +73,11 @@ export class CoreServiceProvider implements IServiceProvider {
    * @param container - The service container to manage dependencies.
    * @throws {InitializationError} If the Blueprint config or EventEmitter is not bound to the container.
    */
-  constructor ({ container, blueprint, eventEmitter, logger }: CoreServiceProviderOptions) {
-    if (logger === undefined) { throw new InitializationError('Logger is required to create a CoreServiceProvider instance.') }
-    if (container === undefined) { throw new InitializationError('Container is required to create a CoreServiceProvider instance.') }
-    if (blueprint === undefined) { throw new InitializationError('Blueprint is required to create a CoreServiceProvider instance.') }
-    if (eventEmitter === undefined) { throw new InitializationError('EventEmitter is required to create a CoreServiceProvider instance.') }
-
-    this.logger = logger
+  constructor ({ container, blueprint, eventEmitter }: CoreServiceProviderOptions) {
     this.container = container
     this.blueprint = blueprint
     this.eventEmitter = eventEmitter
+    this.logger = blueprint.get('stone.logger.resolver', defaultLoggerResolver)(blueprint)
   }
 
   /**
@@ -106,6 +122,7 @@ export class CoreServiceProvider implements IServiceProvider {
    * This method registers services, listeners, adapters, and aliases in the container.
    */
   public register (): void {
+    this.registerLogger()
     this.registerServices()
     this.registerListeners()
     this.registerAliases()
@@ -118,6 +135,15 @@ export class CoreServiceProvider implements IServiceProvider {
    */
   public async boot (): Promise<void> {
     await this.bootSubscribers()
+  }
+
+  /**
+   * Register the logger in the service container.
+   *
+   * @returns This CoreServiceProvider instance for chaining.
+   */
+  private registerLogger (): void {
+    this.container.instance('logger', this.logger)
   }
 
   /**

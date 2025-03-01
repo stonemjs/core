@@ -1,5 +1,12 @@
-import { MixedPipe } from '@stone-js/pipeline'
-import { AdapterHooks, AdapterResolver, MetaAdapterErrorHandler } from '../declarations'
+import {
+  AdapterContext,
+  AdapterResolver,
+  AdapterMixedPipeType,
+  MetaAdapterErrorHandler,
+  AdapterEventHandlerResolver
+} from '../declarations'
+import { OutgoingResponse } from '../events/OutgoingResponse'
+import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'
 
 /**
  * AdapterConfig Interface.
@@ -12,7 +19,9 @@ export interface AdapterConfig<
   RawEventType = any,
   RawResponseType = any,
   ExecutionContextType = any,
-  ResponseBuilderType = any
+  IncomingEventType extends IncomingEvent = IncomingEvent,
+  IncomingEventOptionsType extends IncomingEventOptions = IncomingEventOptions,
+  OutgoingResponseType extends OutgoingResponse = OutgoingResponse,
 > {
   /**
    * The platform identifier for the adapter.
@@ -29,19 +38,25 @@ export interface AdapterConfig<
    * The middleware used for processing incoming or outgoing data in the adapter.
    * Middleware can modify or handle events at different stages of the adapter's lifecycle.
    */
-  middleware: Array<MixedPipe<ExecutionContextType, ResponseBuilderType>>
+  middleware: Array<AdapterMixedPipeType<AdapterContext<
+  RawEventType,
+  RawResponseType,
+  ExecutionContextType,
+  IncomingEventType,
+  IncomingEventOptionsType,
+  OutgoingResponseType
+  >, RawResponseType>>
+
+  /**
+   * The event handler resolver used to create instances of the event handler.
+   */
+  eventHandlerResolver: AdapterEventHandlerResolver<IncomingEventType, OutgoingResponseType>
 
   /**
    * Error handlers used to manage and report errors that occur within the adapter.
    * These handlers can be used to customize error handling behavior and logging.
    */
   errorHandlers: Record<string, MetaAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>
-
-  /**
-   * Hooks that provide additional behavior during specific lifecycle events of the adapter.
-   * These hooks can be used to extend the adapter's functionality at various points.
-   */
-  hooks?: AdapterHooks
 
   /**
    * The alias name for the adapter.

@@ -2,16 +2,16 @@ import { Config } from '@stone-js/config'
 import { SetupError } from '../../src/errors/SetupError'
 import { MetadataSymbol } from '../../src/decorators/Metadata'
 import { stoneBlueprint } from '../../src/options/StoneBlueprint'
-import { ClassType, ConfigContext, IBlueprint, MetadataHolder } from '../../src/declarations'
+import { ClassType, BlueprintContext, IBlueprint, MetadataHolder } from '../../src/declarations'
 import { STONE_APP_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../../src/decorators/constants'
-import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, ApplicationEntryPointMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterOnStartOnStopHooksMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
+import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, MainEventHandlerMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterLifecycleHooksMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
 
 // Mock dependencies
 vi.mock('@stone-js/pipeline')
 const mockNext = vi.fn()
 
 // Utility functions
-const createMockContext = (modules: ClassType[]): ConfigContext<IBlueprint, ClassType> => ({ modules, blueprint: Config.create() })
+const createMockContext = (modules: ClassType[]): BlueprintContext<IBlueprint, ClassType> => ({ modules, blueprint: Config.create() })
 const createMockModule = (key: PropertyKey, metadata: Record<any, any>): ClassType => {
   /* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
   const MyClass: ClassType & Partial<MetadataHolder> = class {
@@ -46,7 +46,7 @@ const createMockModule2 = (key: PropertyKey, metadata: Record<any, any>): ClassT
 
 describe('configMiddleware', () => {
   let mockModules: ClassType[]
-  let mockContext: ConfigContext<IBlueprint, ClassType>
+  let mockContext: BlueprintContext<IBlueprint, ClassType>
 
   beforeEach(async () => {
     const mockModule: any = {}
@@ -103,16 +103,16 @@ describe('configMiddleware', () => {
 
   describe('MainHandlerMiddleware', () => {
     it('should call next with updated blueprint', async () => {
-      const result = await ApplicationEntryPointMiddleware(mockContext, mockNext)
+      const result = await MainEventHandlerMiddleware(mockContext, mockNext)
 
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)
-      expect(mockContext.blueprint.get('stone.handler')).toBeTruthy()
+      expect(mockContext.blueprint.get('stone.kernel.eventHandler')).toBeTruthy()
     })
 
     it('should throw an error when main handler is not defined', async () => {
       await expect(async () => {
-        await ApplicationEntryPointMiddleware(createMockContext([createMockModule(LISTENER_KEY, {})]), mockNext)
+        await MainEventHandlerMiddleware(createMockContext([createMockModule(LISTENER_KEY, {})]), mockNext)
       }).rejects.toThrow(SetupError)
     })
   })
@@ -183,7 +183,7 @@ describe('configMiddleware', () => {
     it('should call next with onStart providers added to adapter hooks', async () => {
       mockContext.blueprint.set('stone.adapter', { alias: 'adapter', hooks: {} })
       await ProviderMiddleware(mockContext, mockNext)
-      const result = await RegisterOnStartOnStopHooksMiddleware(mockContext, mockNext)
+      const result = await RegisterLifecycleHooksMiddleware(mockContext, mockNext)
       const OnStartFn: Function = mockContext.blueprint.get('stone.adapter.hooks.onStart.0', () => {})
       expect(mockNext).toHaveBeenCalledWith({ modules: mockContext.modules, blueprint: mockContext.blueprint })
       expect(result).toBe(mockContext.blueprint)

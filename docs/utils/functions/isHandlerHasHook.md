@@ -8,7 +8,7 @@
 
 > **isHandlerHasHook**\<`HandlerType`\>(`handler`, `hookName`): `handler is HandlerType & Record<keyof HandlerType, (args: any[]) => any>`
 
-Defined in: [core/src/utils.ts:316](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L316)
+Defined in: [core/src/utils.ts:335](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L335)
 
 Check if the provided handler has the specified hook.
 

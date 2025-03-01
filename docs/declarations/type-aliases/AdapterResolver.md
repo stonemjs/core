@@ -8,7 +8,7 @@
 
 > **AdapterResolver**: (`blueprint`) => [`IAdapter`](../interfaces/IAdapter.md)
 
-Defined in: [core/src/declarations.ts:990](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L990)
+Defined in: [core/src/declarations.ts:1115](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1115)
 
 AdapterResolver Type.
 

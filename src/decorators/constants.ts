@@ -62,3 +62,8 @@ export const SUBSCRIBER_KEY = Symbol.for('Subscriber')
  * A unique symbol key to mark classes as the blueprint container.
  */
 export const BLUEPRINT_KEY = Symbol.for('blueprint')
+
+/**
+ * A unique symbol key to mark classes as lifecycle hooks.
+ */
+export const LIFECYCLE_HOOK_KEY = Symbol.for('lifeCycleHook')

@@ -1,0 +1,129 @@
+[**Core Documentation v0.0.4**](../../README.md)
+
+***
+
+[Core Documentation](../../modules.md) / [BlueprintBuilder](../README.md) / BlueprintBuilder
+
+# Class: BlueprintBuilder\<BlueprintType, ContextType\>
+
+Defined in: [core/src/BlueprintBuilder.ts:23](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L23)
+
+Class representing a BlueprintBuilder for the Stone.js framework.
+
+The BlueprintBuilder is responsible for constructing and configuring the dynamic, complex structured options required by the Stone.js framework.
+It introspects various modules, extracts metadata, and builds the "blueprint" object which serves as the primary configuration for the Stone.js application.
+This class also manages middleware used to process and populate the configuration during the application setup.
+
+The BlueprintBuilder allows users to create a unified configuration that is used to initialize and bootstrap the Stone.js application,
+ensuring all necessary metadata is aggregated into a blueprint that can be used consistently throughout the application lifecycle.
+
+## Author
+
+Mr. Stone <evensstone@gmail.com>
+
+## Type Parameters
+
+• **BlueprintType** *extends* [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+
+• **ContextType** *extends* [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\>
+
+## Implements
+
+- [`IBlueprintBuilder`](../../declarations/interfaces/IBlueprintBuilder.md)\<`BlueprintType`\>
+
+## Constructors
+
+### new BlueprintBuilder()
+
+> `protected` **new BlueprintBuilder**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
+
+Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L49)
+
+Create a BlueprintBuilder.
+
+#### Parameters
+
+##### blueprint
+
+`BlueprintType`
+
+The blueprint to create a BlueprintBuilder.
+
+#### Returns
+
+[`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
+
+## Properties
+
+### blueprint
+
+> `protected` `readonly` **blueprint**: `BlueprintType`
+
+Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L49)
+
+The blueprint to create a BlueprintBuilder.
+
+## Methods
+
+### build()
+
+> **build**(`modules`): `Promise`\<`BlueprintType`\>
+
+Defined in: [core/src/BlueprintBuilder.ts:70](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L70)
+
+Build the configuration blueprint by extracting metadata from the provided modules.
+
+#### Parameters
+
+##### modules
+
+`unknown`[]
+
+The modules to build the configuration from.
+
+#### Returns
+
+`Promise`\<`BlueprintType`\>
+
+The configuration blueprint.
+
+#### Example
+
+```typescript
+const BlueprintBuilder = BlueprintBuilder.create(Config.create());
+const blueprint = await BlueprintBuilder.build(rawModules);
+```
+
+#### Implementation of
+
+[`IBlueprintBuilder`](../../declarations/interfaces/IBlueprintBuilder.md).[`build`](../../declarations/interfaces/IBlueprintBuilder.md#build)
+
+***
+
+### create()
+
+> `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
+
+Defined in: [core/src/BlueprintBuilder.ts:37](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L37)
+
+Create a BlueprintBuilder.
+
+#### Type Parameters
+
+• **BlueprintType** *extends* [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+
+• **ContextType** *extends* [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\>
+
+#### Parameters
+
+##### blueprint
+
+`BlueprintType`
+
+The blueprint to create a BlueprintBuilder.
+
+#### Returns
+
+[`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
+
+A new BlueprintBuilder instance.

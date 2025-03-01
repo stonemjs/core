@@ -6,7 +6,7 @@
 
 # Interface: IMiddleware\<T, R\>
 
-Defined in: [core/src/declarations.ts:58](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L58)
+Defined in: [core/src/declarations.ts:63](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L63)
 
 Represents a PipeInstance type.
 
@@ -22,4 +22,4 @@ Represents a PipeInstance type.
 
 > **handle**: [`FunctionalMiddleware`](../type-aliases/FunctionalMiddleware.md)\<`T`, `R`\>
 
-Defined in: [core/src/declarations.ts:59](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L59)
+Defined in: [core/src/declarations.ts:64](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L64)

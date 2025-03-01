@@ -4,19 +4,13 @@
 
 [Core Documentation](../../modules.md) / [declarations](../README.md) / FactoryServiceProvider
 
-# Type Alias: FactoryServiceProvider()\<TEvent, UResponse\>
+# Type Alias: FactoryServiceProvider()
 
-> **FactoryServiceProvider**\<`TEvent`, `UResponse`\>: (`container`) => [`IServiceProvider`](../interfaces/IServiceProvider.md)\<`TEvent`, `UResponse`\>
+> **FactoryServiceProvider**: (`container`) => [`IServiceProvider`](../interfaces/IServiceProvider.md)
 
-Defined in: [core/src/declarations.ts:272](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L272)
+Defined in: [core/src/declarations.ts:253](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L253)
 
 Represents a FactoryServiceProvider type.
-
-## Type Parameters
-
-• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
-
-• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 
@@ -28,6 +22,6 @@ The dependency injection container.
 
 ## Returns
 
-[`IServiceProvider`](../interfaces/IServiceProvider.md)\<`TEvent`, `UResponse`\>
+[`IServiceProvider`](../interfaces/IServiceProvider.md)
 
 The service provider object.

@@ -8,7 +8,7 @@
 
 > **isFunctionModule**\<`FunctionModuleType`\>(`value`): `value is FunctionModuleType`
 
-Defined in: [core/src/utils.ts:255](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/utils.ts#L255)
+Defined in: [core/src/utils.ts:274](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L274)
 
 Check if the provided value is a function module.
 

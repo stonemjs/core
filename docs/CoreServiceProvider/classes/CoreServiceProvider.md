@@ -6,7 +6,7 @@
 
 # Class: CoreServiceProvider
 
-Defined in: [core/src/CoreServiceProvider.ts:28](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L28)
+Defined in: [core/src/CoreServiceProvider.ts:49](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L49)
 
 Class representing a CoreServiceProvider.
 
@@ -29,7 +29,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new CoreServiceProvider**(`container`): [`CoreServiceProvider`](CoreServiceProvider.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:55](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L55)
+Defined in: [core/src/CoreServiceProvider.ts:76](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L76)
 
 Create a new instance of CoreServiceProvider.
 
@@ -55,7 +55,7 @@ If the Blueprint config or EventEmitter is not bound to the container.
 
 > **boot**(): `Promise`\<`void`\>
 
-Defined in: [core/src/CoreServiceProvider.ts:119](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L119)
+Defined in: [core/src/CoreServiceProvider.ts:136](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L136)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -73,7 +73,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > **register**(): `void`
 
-Defined in: [core/src/CoreServiceProvider.ts:108](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/CoreServiceProvider.ts#L108)
+Defined in: [core/src/CoreServiceProvider.ts:124](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L124)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

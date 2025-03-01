@@ -8,7 +8,7 @@
 
 > **ProposalPropertyDecorator**: (`target`, `context`) => (`initialValue`) => `unknown` \| `undefined`
 
-Defined in: [core/src/declarations.ts:817](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L817)
+Defined in: [core/src/declarations.ts:913](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L913)
 
 Represents a property decorator using the 2023-11 proposal syntax.
 

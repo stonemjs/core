@@ -8,7 +8,7 @@
 
 > **MixedMiddleware**\<`T`, `R`\>: `MixedPipe`\<`T`, `R`\>
 
-Defined in: [core/src/declarations.ts:53](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L53)
+Defined in: [core/src/declarations.ts:58](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L58)
 
 Represents a MixedMiddleware type.
 

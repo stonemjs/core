@@ -4,9 +4,9 @@
 
 [Core Documentation](../../modules.md) / [declarations](../README.md) / IServiceProvider
 
-# Interface: IServiceProvider\<TEvent, UResponse\>
+# Interface: IServiceProvider
 
-Defined in: [core/src/declarations.ts:172](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L172)
+Defined in: [core/src/declarations.ts:230](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L230)
 
 Interface representing a service provider within the system.
 
@@ -14,61 +14,13 @@ This interface provides lifecycle hooks for managing the registration,
 initialization, and termination phases of a provider. Implementations
 of this interface are expected to define these lifecycle methods as needed.
 
-## Template
-
-UResponse
-
-## Extended by
-
-- [`IApplication`](IApplication.md)
-
-## Type Parameters
-
-• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
-
-• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
-
 ## Properties
-
-### afterHandle()?
-
-> `optional` **afterHandle**: (`context`) => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-Defined in: [core/src/declarations.ts:199](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L199)
-
-Hook that runs after the main handler is invoked. This can be used for cleanup tasks.
-
-#### Parameters
-
-##### context
-
-[`HookContext`](HookContext.md)\<`TEvent`, `UResponse`\>
-
-#### Returns
-
-[`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-***
-
-### beforeHandle()?
-
-> `optional` **beforeHandle**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-Defined in: [core/src/declarations.ts:184](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L184)
-
-Hook that runs before the main handler is invoked. This can be used for setup or validation purposes.
-
-#### Returns
-
-[`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-***
 
 ### boot()?
 
 > `optional` **boot**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:194](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L194)
+Defined in: [core/src/declarations.ts:239](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L239)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -82,7 +34,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > `optional` **mustSkip**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`boolean`\>
 
-Defined in: [core/src/declarations.ts:209](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L209)
+Defined in: [core/src/declarations.ts:244](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L244)
 
 Skip this provider.
 
@@ -92,45 +44,11 @@ Skip this provider.
 
 ***
 
-### onPrepare()?
-
-> `optional` **onPrepare**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-Defined in: [core/src/declarations.ts:179](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L179)
-
-Hook that runs before the context is created. This can be used for setup or validation purposes.
-
-#### Returns
-
-[`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-***
-
-### onTerminate()?
-
-> `optional` **onTerminate**: (`context`) => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-Defined in: [core/src/declarations.ts:204](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L204)
-
-Hook that runs after the main handler completes. This can be used for cleanup tasks.
-
-#### Parameters
-
-##### context
-
-`Partial`\<[`HookContext`](HookContext.md)\<`TEvent`, `UResponse`\>\>
-
-#### Returns
-
-[`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
-
-***
-
 ### register()?
 
 > `optional` **register**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:189](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L189)
+Defined in: [core/src/declarations.ts:234](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L234)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

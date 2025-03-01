@@ -8,7 +8,7 @@
 
 > **ClassType**\<`Type`\>: (...`args`) => `Type`
 
-Defined in: [core/src/declarations.ts:708](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L708)
+Defined in: [core/src/declarations.ts:790](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L790)
 
 ClassType Type.
 

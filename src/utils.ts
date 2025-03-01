@@ -1,3 +1,25 @@
+import {
+  IBlueprint,
+  MetaService,
+  FactoryService,
+  MetaMiddleware,
+  MiddlewareClass,
+  ErrorHandlerType,
+  EventHandlerType,
+  MetaErrorHandler,
+  MetaEventHandler,
+  FactoryMiddleware,
+  MetaEventListener,
+  MetaServiceProvider,
+  FactoryErrorHandler,
+  MetaEventSubscriber,
+  FactoryEventHandler,
+  FactoryEventListener,
+  FactoryEventSubscriber,
+  FactoryServiceProvider,
+  MetaAdapterErrorHandler,
+  AdapterErrorHandlerType
+} from './declarations'
 import deepmerge from 'deepmerge'
 import { Event } from './events/Event'
 import { isObjectLike } from 'lodash-es'
@@ -7,7 +29,6 @@ import { AdapterConfig } from './options/AdapterConfig'
 import { StoneBlueprint } from './options/StoneBlueprint'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { isConstructor, isFunction } from '@stone-js/pipeline'
-import { EventHandlerType, MetaEventHandler, IBlueprint, ErrorHandlerType, MetaErrorHandler, AdapterErrorHandlerType, MetaAdapterErrorHandler, FactoryEventHandler, FactoryErrorHandler, FactoryServiceProvider, MetaServiceProvider, FactoryService, MetaService, FactoryEventListener, MetaEventListener, FactoryEventSubscriber, MetaEventSubscriber, FactoryMiddleware, MetaMiddleware, MiddlewareClass } from './declarations'
 
 /**
  * Export utils functions from the pipeline package.
@@ -154,9 +175,7 @@ export const factoryErrorHandler = <U extends IncomingEvent = IncomingEvent, V =
  * @param module - The module handler function to be defined.
  * @returns The defined factory service provider with metadata.
 */
-export const factoryServiceProvider = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(
-  module: FactoryServiceProvider<U, V>
-): MetaServiceProvider<U, V> => {
+export const factoryServiceProvider = (module: FactoryServiceProvider): MetaServiceProvider => {
   return { module, isFactory: true }
 }
 
@@ -317,7 +336,7 @@ export const isHandlerHasHook = <HandlerType>(
   handler: any,
   hookName: keyof HandlerType
 ): handler is HandlerType & Record<typeof hookName, (...args: any[]) => any> => {
-  return typeof handler[hookName] === 'function'
+  return isFunctionModule(handler?.[hookName])
 }
 
 /**
@@ -339,7 +358,8 @@ export const isNotEmpty = <ValueType = unknown>(value: unknown): value is ValueT
 
   if (typeof value === 'object') {
     return Object.keys(value).length > 0 ||
-      Object.getOwnPropertySymbols(value).length > 0
+      Object.getOwnPropertySymbols(value).length > 0 ||
+      Object.getOwnPropertyNames(Object.getPrototypeOf(value)).length > 0
   }
 
   return true

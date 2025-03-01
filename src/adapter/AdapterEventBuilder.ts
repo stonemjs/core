@@ -36,7 +36,7 @@ export class AdapterEventBuilder<V extends object, R> implements IAdapterEventBu
   /**
    * The options used for building the final object.
    */
-  private readonly options: V
+  public readonly options: V
 
   /**
    * The resolver function that takes the options and returns the final object of type `R`.

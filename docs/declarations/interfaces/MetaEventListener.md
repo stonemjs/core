@@ -6,7 +6,7 @@
 
 # Interface: MetaEventListener\<TEvent\>
 
-Defined in: [core/src/declarations.ts:360](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L360)
+Defined in: [core/src/declarations.ts:344](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L344)
 
 Represents a MetaEventListener type.
 
@@ -20,7 +20,7 @@ Represents a MetaEventListener type.
 
 > **event**: `string`
 
-Defined in: [core/src/declarations.ts:361](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L361)
+Defined in: [core/src/declarations.ts:345](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L345)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [core/src/declarations.ts:361](https://github.com/stonemjs/core/blob
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:362](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L362)
+Defined in: [core/src/declarations.ts:346](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L346)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [core/src/declarations.ts:362](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:363](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L363)
+Defined in: [core/src/declarations.ts:347](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L347)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [core/src/declarations.ts:363](https://github.com/stonemjs/core/blob
 
 > **module**: [`EventListenerType`](../type-aliases/EventListenerType.md)\<`TEvent`\>
 
-Defined in: [core/src/declarations.ts:364](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L364)
+Defined in: [core/src/declarations.ts:348](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L348)

@@ -6,9 +6,9 @@
 
 # Type Alias: AdapterEventHandlerType\<TEvent, UResponse\>
 
-> **AdapterEventHandlerType**\<`TEvent`, `UResponse`\>: [`LifecycleAdapterEventHandler`](../interfaces/LifecycleAdapterEventHandler.md)\<`TEvent`, `UResponse`\> \| [`FunctionalAdapterEventHandler`](FunctionalAdapterEventHandler.md)\<`TEvent`, `UResponse`\>
+> **AdapterEventHandlerType**\<`TEvent`, `UResponse`\>: [`ILifecycleAdapterEventHandler`](../interfaces/ILifecycleAdapterEventHandler.md)\<`TEvent`, `UResponse`\> \| [`FunctionalAdapterEventHandler`](FunctionalAdapterEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/declarations.ts:912](https://github.com/stonemjs/core/blob/8c14a336c794eb98d8513b950cb1c2786962eaaf/src/declarations.ts#L912)
+Defined in: [core/src/declarations.ts:1030](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1030)
 
 AdapterEventHandler Type.
 

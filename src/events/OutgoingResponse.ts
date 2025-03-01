@@ -103,6 +103,28 @@ export class OutgoingResponse extends Event {
   }
 
   /**
+   * Set the status code of the response.
+   *
+   * @param statusCode - The status code to set.
+   * @returns This OutgoingResponse instance.
+   */
+  setStatusCode (statusCode: number): this {
+    this._statusCode = statusCode
+    return this
+  }
+
+  /**
+   * Set the content of the response.
+   *
+   * @param content - The content to set.
+   * @returns This OutgoingResponse instance.
+   */
+  setContent (content: unknown): this {
+    this._content = content
+    return this
+  }
+
+  /**
    * Prepare response before sending it.
    *
    * @param _event - The incoming event associated with this response.

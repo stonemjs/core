@@ -8,7 +8,7 @@
 
 > **isString**(`value`): `value is string`
 
-Defined in: pipeline/dist/index.d.ts:279
+Defined in: pipeline/dist/index.d.ts:351
 
 Check if the value is a string.
 

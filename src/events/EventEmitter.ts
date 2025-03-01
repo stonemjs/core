@@ -1,6 +1,11 @@
+import {
+  ListenerHandler,
+  WildcardEventName,
+  MixedListenerHandler,
+  WildcardListenerHandler
+} from '../declarations'
 import { Event } from './Event'
 import { isNotEmpty } from '../utils'
-import { ListenerHandler, MixedListenerHandler, WildcardEventName, WildcardListenerHandler } from '../declarations'
 
 /**
  * EVENT_EMITTER_ALIAS.
