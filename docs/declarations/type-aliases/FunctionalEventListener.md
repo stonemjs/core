@@ -8,7 +8,7 @@
 
 > **FunctionalEventListener**\<`TEvent`\>: (`event`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:323](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L323)
+Defined in: [core/src/declarations.ts:324](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L324)
 
 Represents a FunctionalEventListener type.
 

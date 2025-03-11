@@ -17,10 +17,10 @@ import {
   PipelineOptions
 } from '@stone-js/pipeline'
 import {
-  KernelHookType,
   IBlueprint,
   IErrorHandler,
   IEventHandler,
+  KernelHookType,
   IConfiguration,
   KernelHookName,
   IServiceProvider,
@@ -173,17 +173,20 @@ export class Kernel<
     if (isEmpty(event)) { throw new InitializationError('No IncomingEvent provided.') }
     if (isFunctionModule(event.clone)) { this.container.instance('originalEvent', event.clone()) }
 
+    let response: OutgoingResponseType
     this.container.instance('event', event).instance('request', event)
 
     try {
-      return await Pipeline
+      response = await Pipeline
         .create(this.makePipelineOptions())
         .send(event)
         .through(...this.middleware)
         .then(async (ev) => await this.handleEvent(ev))
     } catch (error: any) {
-      return await this.handleError(error, event)
+      response = await this.handleError(error, event)
     }
+
+    return await this.prepareResponse(event, response)
   }
 
   /**
@@ -196,8 +199,7 @@ export class Kernel<
     await this.executeHooks('onExecutingEventHandler')
 
     try {
-      const response = await this.resolveEventHandler().handle(event)
-      return await this.prepareResponse(event, response)
+      return await this.resolveEventHandler().handle(event)
     } catch (error: any) {
       return await this.handleError(error, event)
     }
@@ -212,12 +214,8 @@ export class Kernel<
    */
   private async handleError (error: Error, event: IncomingEventType): Promise<OutgoingResponseType> {
     this.container.instance('error', error)
-
     await this.executeHooks('onExecutingErrorHandler')
-
-    const response = await this.resolveErrorHandler(error).handle(error, event)
-
-    return await this.prepareResponse(event, response)
+    return await this.resolveErrorHandler(error).handle(error, event)
   }
 
   /**
@@ -229,6 +227,8 @@ export class Kernel<
    */
   private async prepareResponse (event: IncomingEventType, response: unknown): Promise<OutgoingResponseType> {
     const validatedResponse = await this.validateAndResolveResponse(response)
+
+    if (validatedResponse.isPrepared) { return validatedResponse }
 
     this.container.instance('response', validatedResponse)
 

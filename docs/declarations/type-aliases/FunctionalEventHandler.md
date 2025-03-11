@@ -8,7 +8,7 @@
 
 > **FunctionalEventHandler**\<`TEvent`, `UResponse`\>: (`incomingEvent`) => [`Promiseable`](Promiseable.md)\<`UResponse`\>
 
-Defined in: [core/src/declarations.ts:434](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L434)
+Defined in: [core/src/declarations.ts:435](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L435)
 
 FunctionalEventHandler.
 

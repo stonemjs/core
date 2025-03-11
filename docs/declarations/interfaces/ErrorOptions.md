@@ -6,7 +6,7 @@
 
 # Interface: ErrorOptions
 
-Defined in: [core/src/declarations.ts:811](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L811)
+Defined in: [core/src/declarations.ts:812](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L812)
 
 Represents options for configuring an error.
 
@@ -16,7 +16,7 @@ Represents options for configuring an error.
 
 > `optional` **cause**: `Error`
 
-Defined in: [core/src/declarations.ts:820](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L820)
+Defined in: [core/src/declarations.ts:821](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L821)
 
 The original error that caused this error, useful for error chaining.
 
@@ -26,7 +26,7 @@ The original error that caused this error, useful for error chaining.
 
 > `optional` **code**: `string`
 
-Defined in: [core/src/declarations.ts:815](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L815)
+Defined in: [core/src/declarations.ts:816](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L816)
 
 A specific error code for identifying the error.
 
@@ -36,6 +36,6 @@ A specific error code for identifying the error.
 
 > `optional` **metadata**: `unknown`
 
-Defined in: [core/src/declarations.ts:825](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L825)
+Defined in: [core/src/declarations.ts:826](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L826)
 
 Additional information or context about the error.

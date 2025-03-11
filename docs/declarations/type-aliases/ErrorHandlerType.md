@@ -8,7 +8,7 @@
 
 > **ErrorHandlerType**\<`TEvent`, `UResponse`\>: [`IErrorHandlerClass`](IErrorHandlerClass.md)\<`TEvent`, `UResponse`\> \| [`FunctionalErrorHandler`](FunctionalErrorHandler.md)\<`TEvent`, `UResponse`\> \| [`FactoryErrorHandler`](FactoryErrorHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/declarations.ts:709](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L709)
+Defined in: [core/src/declarations.ts:710](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L710)
 
 ErrorHandler Type.
 

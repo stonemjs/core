@@ -8,6 +8,6 @@
 
 > `const` **ADAPTER\_ERROR\_HANDLER\_KEY**: *typeof* [`ADAPTER_ERROR_HANDLER_KEY`](ADAPTER_ERROR_HANDLER_KEY.md)
 
-Defined in: [core/src/decorators/constants.ts:34](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/decorators/constants.ts#L34)
+Defined in: [core/src/decorators/constants.ts:34](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/constants.ts#L34)
 
 A unique symbol used as a key for the adapter error handler metadata.

@@ -8,7 +8,7 @@
 
 > **AdapterEventBuilderType**\<`RawResponseType`\>: [`IAdapterEventBuilder`](../interfaces/IAdapterEventBuilder.md)\<[`RawResponseOptions`](../interfaces/RawResponseOptions.md), [`IRawResponseWrapper`](../interfaces/IRawResponseWrapper.md)\<`RawResponseType`\>\>
 
-Defined in: [core/src/declarations.ts:973](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L973)
+Defined in: [core/src/declarations.ts:974](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L974)
 
 AdapterEventBuilderType Type.
 

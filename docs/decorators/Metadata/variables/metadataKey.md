@@ -8,6 +8,6 @@
 
 > `const` **metadataKey**: unique `symbol`
 
-Defined in: [core/src/decorators/Metadata.ts:12](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/decorators/Metadata.ts#L12)
+Defined in: [core/src/decorators/Metadata.ts:12](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Metadata.ts#L12)
 
 Declare the unique symbol type for metadata keys.

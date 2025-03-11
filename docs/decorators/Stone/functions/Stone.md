@@ -8,7 +8,7 @@
 
 > **Stone**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/decorators/Stone.ts#L20)
+Defined in: [core/src/decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Stone.ts#L20)
 
 Stone decorator to mark a class as a stone and automatically bind it to the container.
 

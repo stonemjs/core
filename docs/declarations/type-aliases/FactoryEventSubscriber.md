@@ -8,7 +8,7 @@
 
 > **FactoryEventSubscriber**: (`container`) => [`FunctionalEventSubscriber`](FunctionalEventSubscriber.md)
 
-Defined in: [core/src/declarations.ts:385](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L385)
+Defined in: [core/src/declarations.ts:386](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L386)
 
 Represents a FactoryEventSubscriber type.
 

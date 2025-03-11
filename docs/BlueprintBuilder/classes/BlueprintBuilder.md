@@ -6,7 +6,7 @@
 
 # Class: BlueprintBuilder\<BlueprintType, ContextType\>
 
-Defined in: [core/src/BlueprintBuilder.ts:23](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L23)
+Defined in: [core/src/BlueprintBuilder.ts:23](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L23)
 
 Class representing a BlueprintBuilder for the Stone.js framework.
 
@@ -37,7 +37,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new BlueprintBuilder**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L49)
+Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L49)
 
 Create a BlueprintBuilder.
 
@@ -59,7 +59,7 @@ The blueprint to create a BlueprintBuilder.
 
 > `protected` `readonly` **blueprint**: `BlueprintType`
 
-Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L49)
+Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L49)
 
 The blueprint to create a BlueprintBuilder.
 
@@ -69,7 +69,7 @@ The blueprint to create a BlueprintBuilder.
 
 > **build**(`modules`): `Promise`\<`BlueprintType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:70](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L70)
+Defined in: [core/src/BlueprintBuilder.ts:70](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L70)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -104,7 +104,7 @@ const blueprint = await BlueprintBuilder.build(rawModules);
 
 > `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:37](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/BlueprintBuilder.ts#L37)
+Defined in: [core/src/BlueprintBuilder.ts:37](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L37)
 
 Create a BlueprintBuilder.
 

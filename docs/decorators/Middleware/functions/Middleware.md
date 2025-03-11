@@ -8,7 +8,7 @@
 
 > **Middleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Middleware.ts:44](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/decorators/Middleware.ts#L44)
+Defined in: [core/src/decorators/Middleware.ts:54](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Middleware.ts#L54)
 
 Middleware decorator to mark a class as middleware within the Stone.js framework.
 
@@ -36,7 +36,7 @@ A decorator function to set metadata on the target class.
 ## Example
 
 ```typescript
-@Middleware({ platform: 'node', priority: 1, singleton: true, alias: 'MyMiddleware', layer: 'adapter', type: 'input' })
+@Middleware({ params: ['node'], priority: 1, global: true, alias: 'MyMiddleware' })
 class MyMiddleware {
   // Middleware class logic here.
 }

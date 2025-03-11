@@ -8,7 +8,7 @@
 
 > **mergeBlueprints**\<`U`, `V`\>(...`blueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:57](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L57)
+Defined in: [core/src/utils.ts:57](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L57)
 
 Merges multiple blueprints into a single application blueprint.
 

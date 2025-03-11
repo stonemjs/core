@@ -9,6 +9,16 @@ import { setClassMetadata } from './Metadata'
  */
 export interface MiddlewareOptions {
   /**
+   * Whether the middleware should be treated as a singleton.
+   */
+  singleton?: boolean
+
+  /**
+   * The alias of the middleware.
+   */
+  alias?: string | string[]
+
+  /**
    * The params to pass to the middleware.
    */
   params?: unknown[]
@@ -35,7 +45,7 @@ export interface MiddlewareOptions {
  *
  * @example
  * ```typescript
- * @Middleware({ platform: 'node', priority: 1, singleton: true, alias: 'MyMiddleware', layer: 'adapter', type: 'input' })
+ * @Middleware({ params: ['node'], priority: 1, global: true, alias: 'MyMiddleware' })
  * class MyMiddleware {
  *   // Middleware class logic here.
  * }

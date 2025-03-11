@@ -3,6 +3,7 @@ import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
 import { MetadataSymbol } from './decorators/Metadata'
 import { Container } from '@stone-js/service-container'
+import { MiddlewareOptions } from './decorators/Middleware'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 import { OutgoingResponse, OutgoingResponseOptions } from './events/OutgoingResponse'
 import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipelineHookListener, PipeType } from '@stone-js/pipeline'
@@ -50,7 +51,7 @@ export type MiddlewareType<T = unknown, R = T> = PipeType<T, R>
 /**
  * Represents a MetaMiddleware type.
  */
-export type MetaMiddleware<T = unknown, R = T> = MetaPipe<T, R>
+export type MetaMiddleware<T = unknown, R = T> = MetaPipe<T, R> & MiddlewareOptions
 
 /**
  * Represents a MixedMiddleware type.

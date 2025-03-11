@@ -6,7 +6,7 @@
 
 # Interface: CoreServiceProviderOptions
 
-Defined in: [core/src/CoreServiceProvider.ts:33](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L33)
+Defined in: [core/src/CoreServiceProvider.ts:35](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/CoreServiceProvider.ts#L35)
 
 CoreServiceProvider options.
 
@@ -16,7 +16,7 @@ CoreServiceProvider options.
 
 > **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:35](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L35)
+Defined in: [core/src/CoreServiceProvider.ts:37](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/CoreServiceProvider.ts#L37)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/CoreServiceProvider.ts:35](https://github.com/stonemjs/cor
 
 > **container**: `Container`
 
-Defined in: [core/src/CoreServiceProvider.ts:34](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L34)
+Defined in: [core/src/CoreServiceProvider.ts:36](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/CoreServiceProvider.ts#L36)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [core/src/CoreServiceProvider.ts:34](https://github.com/stonemjs/cor
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:36](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/CoreServiceProvider.ts#L36)
+Defined in: [core/src/CoreServiceProvider.ts:38](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/CoreServiceProvider.ts#L38)

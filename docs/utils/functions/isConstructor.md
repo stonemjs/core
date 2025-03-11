@@ -8,7 +8,7 @@
 
 > **isConstructor**\<`ClassType`\>(`value`): `value is (args: any[]) => ClassType`
 
-Defined in: pipeline/dist/index.d.ts:365
+Defined in: pipeline/dist/index.d.ts:358
 
 Checks if the given value is a constructor function.
 

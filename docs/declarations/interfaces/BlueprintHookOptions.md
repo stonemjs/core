@@ -6,7 +6,7 @@
 
 # Interface: BlueprintHookOptions
 
-Defined in: [core/src/declarations.ts:133](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L133)
+Defined in: [core/src/declarations.ts:134](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L134)
 
 Represents a BlueprintHookOptions type.
 
@@ -16,7 +16,7 @@ Represents a BlueprintHookOptions type.
 
 > **method**: `string`
 
-Defined in: [core/src/declarations.ts:135](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L135)
+Defined in: [core/src/declarations.ts:136](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L136)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [core/src/declarations.ts:135](https://github.com/stonemjs/core/blob
 
 > **name**: [`BlueprintHookName`](../type-aliases/BlueprintHookName.md)
 
-Defined in: [core/src/declarations.ts:134](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L134)
+Defined in: [core/src/declarations.ts:135](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L135)

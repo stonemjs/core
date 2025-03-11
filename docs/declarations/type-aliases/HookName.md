@@ -8,6 +8,6 @@
 
 > **HookName**: [`BlueprintHookName`](BlueprintHookName.md) \| [`AdapterHookName`](AdapterHookName.md) \| [`KernelHookName`](KernelHookName.md)
 
-Defined in: [core/src/declarations.ts:81](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L81)
+Defined in: [core/src/declarations.ts:82](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L82)
 
 HookName Type.

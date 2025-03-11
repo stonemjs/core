@@ -8,7 +8,7 @@
 
 > **Hook**\<`T`\>(`name`): `MethodDecorator`
 
-Defined in: core/src/decorators/Hook.ts:21
+Defined in: [core/src/decorators/Hook.ts:21](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Hook.ts#L21)
 
 Hook decorator to mark a method as a lifecycle hook
 And automatically add it to the global lifecycle hook registry.

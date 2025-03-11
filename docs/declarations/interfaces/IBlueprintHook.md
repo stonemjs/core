@@ -6,7 +6,7 @@
 
 # Interface: IBlueprintHook\<BlueprintType, ContextType\>
 
-Defined in: [core/src/declarations.ts:590](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L590)
+Defined in: [core/src/declarations.ts:591](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L591)
 
 Blueprint Hook interface.
 
@@ -24,7 +24,7 @@ Represents a hook that can either be synchronous or asynchronous.
 
 > `optional` **onBlueprintMiddlewareProcessed**: `PipelineHookListener`\<`ContextType`, `BlueprintType`, `any`[]\>
 
-Defined in: [core/src/declarations.ts:597](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L597)
+Defined in: [core/src/declarations.ts:598](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L598)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/declarations.ts:597](https://github.com/stonemjs/core/blob
 
 > `optional` **onBlueprintPrepared**: [`BlueprintHookListener`](../type-aliases/BlueprintHookListener.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/declarations.ts:595](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L595)
+Defined in: [core/src/declarations.ts:596](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L596)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [core/src/declarations.ts:595](https://github.com/stonemjs/core/blob
 
 > `optional` **onPreparingBlueprint**: [`BlueprintHookListener`](../type-aliases/BlueprintHookListener.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/declarations.ts:594](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L594)
+Defined in: [core/src/declarations.ts:595](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L595)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [core/src/declarations.ts:594](https://github.com/stonemjs/core/blob
 
 > `optional` **onProcessingBlueprintMiddleware**: `PipelineHookListener`\<`ContextType`, `BlueprintType`, `any`[]\>
 
-Defined in: [core/src/declarations.ts:596](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L596)
+Defined in: [core/src/declarations.ts:597](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L597)

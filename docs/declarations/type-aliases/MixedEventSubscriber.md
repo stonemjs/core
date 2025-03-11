@@ -8,6 +8,6 @@
 
 > **MixedEventSubscriber**: [`FunctionalEventSubscriber`](FunctionalEventSubscriber.md) \| [`MetaEventSubscriber`](../interfaces/MetaEventSubscriber.md)
 
-Defined in: [core/src/declarations.ts:404](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L404)
+Defined in: [core/src/declarations.ts:405](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L405)
 
 Represents a MixedEventSubscriber type.

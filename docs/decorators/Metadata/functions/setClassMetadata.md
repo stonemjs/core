@@ -8,7 +8,7 @@
 
 > **setClassMetadata**\<`T`\>(`key`, `value`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/decorators/Metadata.ts#L134)
+Defined in: [core/src/decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Metadata.ts#L134)
 
 Set metadata on a class using a class decorator.
 

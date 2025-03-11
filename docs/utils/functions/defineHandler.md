@@ -8,7 +8,7 @@
 
 > **defineHandler**\<`U`, `V`\>(`module`, `options`): [`MetaEventHandler`](../../declarations/interfaces/MetaEventHandler.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:109](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/utils.ts#L109)
+Defined in: [core/src/utils.ts:109](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L109)
 
 Defines an application handler with metadata for the provided handler function.
 This function allows users to define an application handler with metadata.

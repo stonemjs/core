@@ -6,7 +6,7 @@
 
 # Interface: AdapterErrorContext\<RawEventType, RawResponseType, ExecutionContextType\>
 
-Defined in: [core/src/declarations.ts:1178](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1178)
+Defined in: [core/src/declarations.ts:1179](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L1179)
 
 Class representing an AdapterErrorContext.
 
@@ -24,7 +24,7 @@ Class representing an AdapterErrorContext.
 
 > `readonly` **executionContext**: `ExecutionContextType`
 
-Defined in: [core/src/declarations.ts:1187](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1187)
+Defined in: [core/src/declarations.ts:1188](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L1188)
 
 The executionContext of type ExecutionContextType.
 
@@ -34,7 +34,7 @@ The executionContext of type ExecutionContextType.
 
 > `readonly` **rawEvent**: `RawEventType`
 
-Defined in: [core/src/declarations.ts:1182](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1182)
+Defined in: [core/src/declarations.ts:1183](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L1183)
 
 The rawEvent of type RawEventType.
 
@@ -44,6 +44,6 @@ The rawEvent of type RawEventType.
 
 > `readonly` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
 
-Defined in: [core/src/declarations.ts:1192](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/declarations.ts#L1192)
+Defined in: [core/src/declarations.ts:1193](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L1193)
 
 The rawResponseBuilder.

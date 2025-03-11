@@ -11,6 +11,8 @@ import {
   IServiceClass,
   IEventListener,
   FactoryService,
+  MetaMiddleware,
+  MiddlewareClass,
   IServiceProvider,
   IEventSubscriber,
   MetaEventListener,
@@ -90,6 +92,15 @@ export class CoreServiceProvider implements IServiceProvider {
   }
 
   /**
+   * Get the list of middleware from the configuration.
+   *
+   * @returns A list of middleware.
+   */
+  private get middleware (): MetaMiddleware[] {
+    return this.blueprint.get<MetaMiddleware[]>('stone.kernel.middleware', [])
+  }
+
+  /**
    * Get the list of listeners from the configuration.
    *
    * @returns A record of event listeners.
@@ -124,6 +135,7 @@ export class CoreServiceProvider implements IServiceProvider {
   public register (): void {
     this.registerLogger()
     this.registerServices()
+    this.registerMiddleware()
     this.registerListeners()
     this.registerAliases()
   }
@@ -173,6 +185,21 @@ export class CoreServiceProvider implements IServiceProvider {
       } else if (isMetaFactoryModule<FactoryService>(service)) {
         const [name, ...aliases] = [alias].flat()
         this.container.autoBinding(name, service.module, true, aliases)
+      }
+    })
+  }
+
+  /**
+   * Register decorated and imported middleware.
+   *
+   * @returns This CoreServiceProvider instance for chaining.
+   */
+  private registerMiddleware (): void {
+    this.middleware.forEach(middleware => {
+      const { singleton = true, alias = [] } = middleware
+
+      if (isMetaClassModule<MiddlewareClass>(middleware)) {
+        this.container.autoBinding(middleware.module, middleware.module, singleton, alias)
       }
     })
   }

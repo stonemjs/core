@@ -6,7 +6,7 @@
 
 # Class: Kernel\<IncomingEventType, OutgoingResponseType\>
 
-Defined in: [core/src/Kernel.ts:70](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L70)
+Defined in: [core/src/Kernel.ts:70](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L70)
 
 Class representing a Kernel.
 
@@ -34,7 +34,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **handle**(`event`): `Promise`\<`OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:147](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L147)
+Defined in: [core/src/Kernel.ts:147](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L147)
 
 Handle Stone IncomingEvent.
 
@@ -62,7 +62,7 @@ The Stone outgoing response.
 
 > **onEventHandled**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:154](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L154)
+Defined in: [core/src/Kernel.ts:154](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L154)
 
 Invoke subsequent hooks after handling the event.
 
@@ -80,7 +80,7 @@ Invoke subsequent hooks after handling the event.
 
 > **onHandlingEvent**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:136](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L136)
+Defined in: [core/src/Kernel.ts:136](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L136)
 
 Boot the providers.
 Invoke subsequent hooks.
@@ -100,7 +100,7 @@ Note: Execution order is important here, never change it.
 
 > **onInit**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:122](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L122)
+Defined in: [core/src/Kernel.ts:122](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L122)
 
 Populate the context with the given bindings.
 The context here is the service container.
@@ -121,7 +121,7 @@ Note: Execution order is important here, never change it.
 
 > **onTerminate**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:161](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L161)
+Defined in: [core/src/Kernel.ts:161](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L161)
 
 Invoke subsequent hooks on termination.
 
@@ -139,7 +139,7 @@ Invoke subsequent hooks on termination.
 
 > `static` **create**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:91](https://github.com/stonemjs/core/blob/4b1b931e44a5db2600109fa7ae2a8b532ed77730/src/Kernel.ts#L91)
+Defined in: [core/src/Kernel.ts:91](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L91)
 
 Create a Kernel.
 
