@@ -6,7 +6,7 @@
 
 # Interface: MetaEventSubscriber
 
-Defined in: [core/src/declarations.ts:396](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L396)
+Defined in: [core/src/declarations.ts:396](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L396)
 
 Represents a MetaEventSubscriber type.
 
@@ -16,7 +16,7 @@ Represents a MetaEventSubscriber type.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:397](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L397)
+Defined in: [core/src/declarations.ts:397](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L397)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/declarations.ts:397](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:398](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L398)
+Defined in: [core/src/declarations.ts:398](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L398)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [core/src/declarations.ts:398](https://github.com/stonemjs/core/blob
 
 > **module**: [`EventSubscriberType`](../type-aliases/EventSubscriberType.md)
 
-Defined in: [core/src/declarations.ts:399](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L399)
+Defined in: [core/src/declarations.ts:399](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L399)

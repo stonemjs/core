@@ -6,7 +6,7 @@
 
 # Class: BlueprintBuilder\<BlueprintType, ContextType\>
 
-Defined in: [core/src/BlueprintBuilder.ts:23](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L23)
+Defined in: [core/src/BlueprintBuilder.ts:23](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/BlueprintBuilder.ts#L23)
 
 Class representing a BlueprintBuilder for the Stone.js framework.
 
@@ -31,45 +31,13 @@ Mr. Stone <evensstone@gmail.com>
 
 - [`IBlueprintBuilder`](../../declarations/interfaces/IBlueprintBuilder.md)\<`BlueprintType`\>
 
-## Constructors
-
-### new BlueprintBuilder()
-
-> `protected` **new BlueprintBuilder**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
-
-Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L49)
-
-Create a BlueprintBuilder.
-
-#### Parameters
-
-##### blueprint
-
-`BlueprintType`
-
-The blueprint to create a BlueprintBuilder.
-
-#### Returns
-
-[`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
-
-## Properties
-
-### blueprint
-
-> `protected` `readonly` **blueprint**: `BlueprintType`
-
-Defined in: [core/src/BlueprintBuilder.ts:49](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L49)
-
-The blueprint to create a BlueprintBuilder.
-
 ## Methods
 
 ### build()
 
 > **build**(`modules`): `Promise`\<`BlueprintType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:70](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L70)
+Defined in: [core/src/BlueprintBuilder.ts:70](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/BlueprintBuilder.ts#L70)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -104,7 +72,7 @@ const blueprint = await BlueprintBuilder.build(rawModules);
 
 > `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:37](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/BlueprintBuilder.ts#L37)
+Defined in: [core/src/BlueprintBuilder.ts:37](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/BlueprintBuilder.ts#L37)
 
 Create a BlueprintBuilder.
 

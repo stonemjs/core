@@ -10,10 +10,10 @@ import {
 import { LoggerConfig, logger } from './LoggerConfig'
 import { KernelConfig, kernel } from './KernelConfig'
 import { IncomingEvent } from '../events/IncomingEvent'
-import { BuilderConfig, builder } from './BuilderConfig'
 import { AdapterConfig, adapters } from './AdapterConfig'
 import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
+import { BlueprintConfig, blueprint } from './BlueprintConfig'
 
 /**
  * Environment settings.
@@ -71,9 +71,9 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   secret?: string
 
   /**
-   * Configuration options for building the application, including middleware and pipe priorities.
+   * Configuration options for building the application blueprint, including middleware and pipe priorities.
    */
-  builder: BuilderConfig<IBlueprint, any >
+  blueprint: BlueprintConfig<IBlueprint, any>
 
   /**
    * Current Adapter configurations for the application.
@@ -83,11 +83,12 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
 
   /**
    * Adapter configurations for the application.
+   * List of all adapters used in the application.
    */
   adapters: Array<AdapterConfig<any, any, any, U, any, V>>
 
   /**
-   * Global middleware settings for the application kernel.
+   * Kernel configurations for the application.
    */
   kernel: KernelConfig<U, V>
 
@@ -190,8 +191,8 @@ export const stoneBlueprint: StoneBlueprint = {
     // The fallback locale for your application.
     fallback_locale: 'en',
 
-    // Options builder namespace.
-    builder,
+    // Blueprint builder namespace.
+    blueprint,
 
     // Adapters namespace.
     // Here you can define adapter settings.

@@ -8,7 +8,7 @@
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): [`MetaAdapterErrorHandler`](../../declarations/interfaces/MetaAdapterErrorHandler.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>
 
-Defined in: [core/src/utils.ts:139](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L139)
+Defined in: [core/src/utils.ts:129](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L129)
 
 Defines an adapter error handler with metadata for the provided handler function.
 This function allows users to define an adapter error handler with metadata.

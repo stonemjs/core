@@ -4,7 +4,7 @@ import { MetadataSymbol } from '../../src/decorators/Metadata'
 import { stoneBlueprint } from '../../src/options/StoneBlueprint'
 import { ClassType, BlueprintContext, IBlueprint, MetadataHolder } from '../../src/declarations'
 import { STONE_APP_KEY, MIDDLEWARE_KEY, BLUEPRINT_KEY, ADAPTER_MIDDLEWARE_KEY, SUBSCRIBER_KEY, CONFIGURATION_KEY, PROVIDER_KEY, SERVICE_KEY, LISTENER_KEY, ERROR_HANDLER_KEY, ADAPTER_ERROR_HANDLER_KEY } from '../../src/decorators/constants'
-import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, MainEventHandlerMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterLifecycleHooksMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/configMiddleware'
+import { AdapterErrorHandlerMiddleware, AdapterMiddlewareMiddleware, BlueprintMiddleware, ErrorHandlerMiddleware, ListenerMiddleware, MainEventHandlerMiddleware, MiddlewareMiddleware, ProviderMiddleware, RegisterLifecycleHooksMiddleware, ServiceMiddleware, SetCurrentAdapterMiddleware, SubscriberMiddleware } from '../../src/middleware/BlueprintMiddleware'
 
 // Mock dependencies
 vi.mock('@stone-js/pipeline')

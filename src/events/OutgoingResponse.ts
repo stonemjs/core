@@ -120,11 +120,13 @@ export class OutgoingResponse extends Event {
   /**
    * Set the status code of the response.
    *
-   * @param statusCode - The status code to set.
+   * @param code - The status code.
+   * @param text - Optional status message.
    * @returns This OutgoingResponse instance.
    */
-  setStatusCode (statusCode: number): this {
-    this._statusCode = statusCode
+  setStatus (code: number, text?: string): this {
+    this._statusCode = code
+    this._statusMessage = text
     return this
   }
 

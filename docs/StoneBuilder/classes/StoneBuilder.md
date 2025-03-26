@@ -6,7 +6,7 @@
 
 # Class: StoneBuilder\<TEvent, UResponse\>
 
-Defined in: [core/src/StoneBuilder.ts:34](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L34)
+Defined in: [core/src/StoneBuilder.ts:34](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L34)
 
 Stone builder.
 
@@ -30,7 +30,7 @@ UResponse
 
 > **add**(`key`, `value`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:113](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L113)
+Defined in: [core/src/StoneBuilder.ts:113](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L113)
 
 Add a value to the application blueprint.
 
@@ -60,7 +60,7 @@ The current StoneBuilder instance.
 
 > **configure**(`resolver`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:89](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L89)
+Defined in: [core/src/StoneBuilder.ts:89](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L89)
 
 Configure the application using the blueprint resolver.
 Use this method to add custom configurations to the application.
@@ -85,7 +85,7 @@ The current StoneBuilder instance.
 
 > **handle**\<`ExecutionResultType`\>(`handler`): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [core/src/StoneBuilder.ts:170](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L170)
+Defined in: [core/src/StoneBuilder.ts:170](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L170)
 
 Handle application events.
 This method is a shorthand for running the application with the provided event handler.
@@ -114,7 +114,7 @@ The platform-specific response.
 
 > **hook**(`key`, `listener`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:137](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L137)
+Defined in: [core/src/StoneBuilder.ts:137](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L137)
 
 Add a listener hook to the application.
 
@@ -144,7 +144,7 @@ The current StoneBuilder instance.
 
 > **on**(`event`, `handler`, `options`?): `this`
 
-Defined in: [core/src/StoneBuilder.ts:126](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L126)
+Defined in: [core/src/StoneBuilder.ts:126](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L126)
 
 Add an event listener handler to the application.
 
@@ -180,7 +180,7 @@ The current StoneBuilder instance.
 
 > **onStart**(`listener`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:148](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L148)
+Defined in: [core/src/StoneBuilder.ts:148](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L148)
 
 Registers a listener that runs when the adapter starts.
 This hook is triggered when the adapter is initialized, before the application itself starts.
@@ -205,7 +205,7 @@ The current StoneBuilder instance.
 
 > **onStop**(`listener`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:159](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L159)
+Defined in: [core/src/StoneBuilder.ts:159](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L159)
 
 Registers a listener that runs when the adapter stops.
 This hook is triggered before the adapter shuts down, allowing for cleanup operations.
@@ -230,7 +230,7 @@ The current StoneBuilder instance.
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [core/src/StoneBuilder.ts:181](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L181)
+Defined in: [core/src/StoneBuilder.ts:181](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L181)
 
 Run the application.
 Populates the blueprint via introspection and runs the application.
@@ -251,7 +251,7 @@ The platform-specific response.
 
 > **set**(`key`, `value`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:101](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L101)
+Defined in: [core/src/StoneBuilder.ts:101](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L101)
 
 Set a value in the application blueprint.
 
@@ -281,7 +281,7 @@ The current StoneBuilder instance.
 
 > **use**(...`blueprints`): `this`
 
-Defined in: [core/src/StoneBuilder.ts:71](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L71)
+Defined in: [core/src/StoneBuilder.ts:71](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L71)
 
 Add Stone plugins's blueprint to the application.
 
@@ -305,7 +305,7 @@ The current StoneBuilder instance.
 
 > `static` **create**\<`TEvent`, `UResponse`\>(`options`): [`StoneBuilder`](StoneBuilder.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/StoneBuilder.ts:49](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneBuilder.ts#L49)
+Defined in: [core/src/StoneBuilder.ts:49](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneBuilder.ts#L49)
 
 Create a new StoneBuilder instance.
 

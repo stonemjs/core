@@ -7,12 +7,12 @@ import {
 } from '@stone-js/pipeline'
 import {
   isEmpty,
+  isNotEmpty,
   isHandlerHasHook,
   isMetaClassModule,
   isObjectLikeModule,
   isMetaFactoryModule,
-  isMetaFunctionModule,
-  isNotEmpty
+  isMetaFunctionModule
 } from '../utils'
 import {
   IAdapter,
@@ -30,9 +30,9 @@ import {
   AdapterEventBuilderType,
   IAdapterErrorHandlerClass,
   FactoryAdapterErrorHandler,
+  AdapterEventHandlerResolver,
   ILifecycleAdapterEventHandler,
-  FunctionalAdapterErrorHandler,
-  AdapterEventHandlerResolver
+  FunctionalAdapterErrorHandler
 } from '../declarations'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { IntegrationError } from '../errors/IntegrationError'

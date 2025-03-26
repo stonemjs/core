@@ -8,6 +8,6 @@
 
 > `const` **BLUEPRINT\_KEY**: *typeof* [`BLUEPRINT_KEY`](BLUEPRINT_KEY.md)
 
-Defined in: [core/src/decorators/constants.ts:64](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/constants.ts#L64)
+Defined in: [core/src/decorators/constants.ts:64](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/constants.ts#L64)
 
 A unique symbol key to mark classes as the blueprint container.

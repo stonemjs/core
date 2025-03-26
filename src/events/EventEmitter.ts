@@ -20,6 +20,15 @@ export class EventEmitter {
 
   /**
    * Create an EventEmitter.
+   *
+   * @returns A new EventEmitter instance.
+   */
+  static create (): EventEmitter {
+    return new this()
+  }
+
+  /**
+   * Create an EventEmitter.
    */
   constructor () {
     this.listeners = new Map()

@@ -8,7 +8,7 @@
 
 > `const` **stoneBlueprint**: [`StoneBlueprint`](../interfaces/StoneBlueprint.md)
 
-Defined in: [core/src/options/StoneBlueprint.ts:170](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/options/StoneBlueprint.ts#L170)
+Defined in: [core/src/options/StoneBlueprint.ts:171](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/StoneBlueprint.ts#L171)
 
 Stone main options.
 

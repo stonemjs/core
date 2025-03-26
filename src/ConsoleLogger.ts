@@ -113,9 +113,10 @@ export class ConsoleLogger implements ILogger {
    * @returns {boolean} - True if the specified log level should be logged, otherwise false.
    */
   private shouldLog (level: LogLevel): boolean {
+    const debug = this.blueprint.get<boolean>('stone.debug', false)
     const levels = ['trace', 'debug', 'info', 'warn', 'error']
     const appLevel = this.blueprint.get('stone.logger.level', 'info')
-    return levels.slice(levels.indexOf(appLevel)).includes(level)
+    return debug || levels.slice(levels.indexOf(appLevel)).includes(level)
   }
 
   /**

@@ -8,7 +8,7 @@
 
 > **isMetaAliasModule**\<`AliasModuleType`\>(`value`): `value is Record<"module", AliasModuleType>`
 
-Defined in: [core/src/utils.ts:324](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L324)
+Defined in: [core/src/utils.ts:314](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L314)
 
 Check if the provided value is a meta alias module.
 

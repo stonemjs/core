@@ -8,7 +8,7 @@
 
 > **isObjectLikeModule**\<`ObjectModuleType`\>(`value`): `value is ObjectModuleType`
 
-Defined in: [core/src/utils.ts:264](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L264)
+Defined in: [core/src/utils.ts:254](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L254)
 
 Check if the provided value is an object module.
 

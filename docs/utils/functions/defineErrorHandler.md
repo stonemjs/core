@@ -8,7 +8,7 @@
 
 > **defineErrorHandler**\<`U`, `V`\>(`module`, `options`): [`MetaErrorHandler`](../../declarations/interfaces/MetaErrorHandler.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:124](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L124)
+Defined in: [core/src/utils.ts:114](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L114)
 
 Defines an error handler with metadata for the provided handler function.
 This function allows users to define an error handler with metadata.

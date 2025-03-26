@@ -8,7 +8,7 @@
 
 > **Provider**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Provider.ts:34](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Provider.ts#L34)
+Defined in: [core/src/decorators/Provider.ts:34](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/Provider.ts#L34)
 
 Provider decorator to mark a class as a ServiceProvider and automatically bind its services to the container.
 

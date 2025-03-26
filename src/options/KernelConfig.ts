@@ -37,7 +37,7 @@ UResponse extends OutgoingResponse = OutgoingResponse
   errorHandlers?: Record<string, MetaErrorHandler<TEvent, UResponse>>
 
   /**
-   * The response resolver, used to create instances.
+   * The response resolver, used to create instances of the response object.
    */
   responseResolver?: ResponseResolver<UResponse>
 }

@@ -6,7 +6,7 @@
 
 # Class: AdapterEventBuilder\<V, R\>
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:35](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L35)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:35](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L35)
 
 Class representing a generic AdapterEventBuilder.
 
@@ -33,7 +33,7 @@ The type of the final object that will be built.
 
 > `protected` **new AdapterEventBuilder**\<`V`, `R`\>(`options`): [`AdapterEventBuilder`](AdapterEventBuilder.md)\<`V`, `R`\>
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:62](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L62)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:62](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L62)
 
 Constructs an AdapterEventBuilder.
 
@@ -55,7 +55,7 @@ The options for creating the AdapterEventBuilder instance, including the initial
 
 > `readonly` **options**: `V`
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:39](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L39)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:39](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L39)
 
 The options used for building the final object.
 
@@ -69,7 +69,7 @@ The options used for building the final object.
 
 > **add**(`key`, `value`): `this`
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:76](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L76)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:76](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L76)
 
 Adds or updates a key-value pair in the options.
 
@@ -103,7 +103,7 @@ This instance of AdapterEventBuilder for method chaining.
 
 > **addIf**(`key`, `value`): `this`
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:88](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L88)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:88](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L88)
 
 Adds a key-value pair in the options if the key does not already exist.
 
@@ -137,7 +137,7 @@ This instance of AdapterEventBuilder for method chaining.
 
 > **build**(): `R`
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:100](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L100)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:100](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L100)
 
 Builds the final object by using the resolver function with the current options.
 
@@ -157,7 +157,7 @@ The final object of type `R`.
 
 > `static` **create**\<`V`, `R`\>(`options`): [`AdapterEventBuilder`](AdapterEventBuilder.md)\<`V`, `R`\>
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:52](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/adapter/AdapterEventBuilder.ts#L52)
+Defined in: [core/src/adapter/AdapterEventBuilder.ts:52](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/adapter/AdapterEventBuilder.ts#L52)
 
 Static method to create a new AdapterEventBuilder instance.
 

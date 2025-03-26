@@ -1,12 +1,12 @@
 import deepmerge from 'deepmerge'
 import { Config } from '@stone-js/config'
 import { AppConfig } from './options/StoneBlueprint'
-import { BuilderConfig } from './options/BuilderConfig'
+import { BlueprintConfig } from './options/BlueprintConfig'
 import { isEmpty, isObjectLikeModule, isStoneBlueprint, isNotEmpty } from './utils'
 import { isConstructor, MixedPipe, Pipeline, PipelineOptions } from '@stone-js/pipeline'
 import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from './decorators/Metadata'
 import { CONFIGURATION_KEY, CONFIG_MIDDLEWARE_KEY, LIFECYCLE_HOOK_KEY } from './decorators/constants'
-import { IBlueprint, ClassType, BlueprintContext, BlueprintHookType, IBlueprintBuilder, BlueprintHookName, BlueprintHookOptions } from './declarations'
+import { IBlueprint, ClassType, BlueprintContext, BlueprintHookType, IBlueprintBuilder, BlueprintHookOptions } from './declarations'
 
 /**
  * Class representing a BlueprintBuilder for the Stone.js framework.
@@ -46,10 +46,10 @@ export class BlueprintBuilder<
    *
    * @param blueprint - The blueprint to create a BlueprintBuilder.
    */
-  protected constructor (protected readonly blueprint: BlueprintType) {
+  private constructor (private readonly blueprint: BlueprintType) {
     this.hooks = blueprint.get('stone.lifecycleHooks', {})
-    this.middleware = blueprint.get('stone.builder.middleware', [])
-    this.defaultMiddlewarePriority = blueprint.get('stone.builder.defaultMiddlewarePriority', 0)
+    this.middleware = blueprint.get('stone.blueprint.middleware', [])
+    this.defaultMiddlewarePriority = blueprint.get('stone.blueprint.defaultMiddlewarePriority', 0)
   }
 
   /**
@@ -67,7 +67,7 @@ export class BlueprintBuilder<
    * const blueprint = await BlueprintBuilder.build(rawModules);
    * ```
    */
-  async build (modules: unknown[]): Promise<BlueprintType> {
+  public async build (modules: unknown[]): Promise<BlueprintType> {
     const context = await this.discoverOptionsAndMakeContext(modules)
 
     await this.executeHooks('onPreparingBlueprint', context)
@@ -130,7 +130,7 @@ export class BlueprintBuilder<
       this.populateOptions(getBlueprint(module)?.stone)
     } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) {
       const metadata = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
-      this.populateOptions({ builder: { middleware: [{ ...metadata, module }] } })
+      this.populateOptions({ blueprint: { middleware: [{ ...metadata, module }] } })
     } else if (
       hasMetadata(module, CONFIGURATION_KEY) &&
       !getMetadata(module, CONFIGURATION_KEY, { live: false }).live
@@ -144,18 +144,19 @@ export class BlueprintBuilder<
   /**
    * Populate the configuration options with metadata.
    *
-   * @param builder - The builder to populate the options with.
+   * @param stone - The stone blueprint to populate the options with.
    */
   private populateOptions (stone?: Partial<AppConfig<any, any>>): void {
-    if (isObjectLikeModule<BuilderConfig<BlueprintType, ContextType>>(stone?.builder)) {
-      this.middleware = this.middleware.concat(stone.builder.middleware ?? [])
+    if (isObjectLikeModule<BlueprintConfig<BlueprintType, ContextType>>(stone?.blueprint)) {
+      this.middleware = this.middleware.concat(stone.blueprint.middleware ?? [])
       this.hooks = isEmpty(stone.lifecycleHooks) ? this.hooks : deepmerge(this.hooks, stone.lifecycleHooks)
-      this.defaultMiddlewarePriority = stone.builder.defaultMiddlewarePriority ?? this.defaultMiddlewarePriority
+      this.defaultMiddlewarePriority = stone.blueprint.defaultMiddlewarePriority ?? this.defaultMiddlewarePriority
     }
   }
 
   /**
    * Discover hooks from a module.
+   * Extracts the method from the module, bind it and store it in the hooks object.
    *
    * @param module - The module to discover hooks from.
    */
@@ -174,12 +175,8 @@ export class BlueprintBuilder<
    * @param name - The name of the hook to
    * @param context - The context to pass to the hook.
    */
-  private async executeHooks (name: BlueprintHookName, context: ContextType): Promise<void> {
-    if (
-      Array.isArray(this.hooks[name]) &&
-      name !== 'onBlueprintMiddlewareProcessed' &&
-      name !== 'onProcessingBlueprintMiddleware'
-    ) {
+  private async executeHooks (name: 'onPreparingBlueprint' | 'onBlueprintPrepared', context: ContextType): Promise<void> {
+    if (Array.isArray(this.hooks[name])) {
       for (const listener of this.hooks[name]) {
         await listener(context)
       }

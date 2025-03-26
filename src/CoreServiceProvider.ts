@@ -49,24 +49,9 @@ export interface CoreServiceProviderOptions {
  * @author Mr. Stone <evensstone@gmail.com>
  */
 export class CoreServiceProvider implements IServiceProvider {
-  /**
-   * The logger
-   */
   private readonly logger: ILogger
-
-  /**
-   * The service container that manages dependencies.
-   */
   private readonly container: Container
-
-  /**
-   * Blueprint configuration used to retrieve app settings.
-   */
   private readonly blueprint: IBlueprint
-
-  /**
-   * The event emitter used for managing and firing events.
-   */
   private readonly eventEmitter: EventEmitter
 
   /**

@@ -1,5 +1,4 @@
 import {
-  IBlueprint,
   MetaService,
   FactoryService,
   MetaMiddleware,
@@ -25,7 +24,6 @@ import { Event } from './events/Event'
 import { isObjectLike } from 'lodash-es'
 import { SetupError } from './errors/SetupError'
 import { IncomingEvent } from './events/IncomingEvent'
-import { AdapterConfig } from './options/AdapterConfig'
 import { StoneBlueprint } from './options/StoneBlueprint'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { isConstructor, isFunction } from '@stone-js/pipeline'
@@ -63,18 +61,6 @@ export const mergeBlueprints = <
 }
 
 /**
- * Set the current adapter configuration by platform.
- *
- * @param blueprint - The blueprint object containing the adapter configurations.
- * @param platform - The platform identifier to explicitly select the adapter.
- */
-export const setCurrentAdapterByPlatform = (blueprint: IBlueprint, platform: string): void => {
-  const adapters = blueprint.get<AdapterConfig[]>('stone.adapters', [])
-  const selectedAdapter = adapters.find((v) => v.platform === platform)
-  selectedAdapter !== undefined && blueprint.set('stone.adapter', selectedAdapter)
-}
-
-/**
  * Defines an application blueprint by merging user-defined blueprints with default options.
  *
  * This function allows users to define their own blueprints and merges them with
@@ -91,22 +77,26 @@ export const setCurrentAdapterByPlatform = (blueprint: IBlueprint, platform: str
  * const appBlueprint = defineAppBlueprint(customBlueprint1, customBlueprint2);
  * ```
  */
-export const defineAppBlueprint = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(
-  ...userBlueprints: Array<StoneBlueprint<U, V>>
-): StoneBlueprint<U, V> => {
+export const defineAppBlueprint = <
+U extends IncomingEvent = IncomingEvent,
+V extends OutgoingResponse = OutgoingResponse,
+W extends StoneBlueprint<U, V> = StoneBlueprint<U, V>
+>(
+    ...userBlueprints: Array<W | Record<string, any>>
+  ): StoneBlueprint<U, V> => {
   validateBlueprints(userBlueprints)
   return mergeBlueprints(...userBlueprints)
 }
 
 /**
- * Defines an application handler with metadata for the provided handler function.
- * This function allows users to define an application handler with metadata.
+ * Defines an application event handler with metadata for the provided handler function.
+ * This function allows users to define an application event handler with metadata.
  *
  * @param module - The module handler function to be defined.
  * @param options - The metadata options for the handler.
  * @returns The defined application handler with metadata.
  */
-export const defineHandler = <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse>(
+export const defineEventHandler = <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse>(
   module: EventHandlerType<U, V>,
   options: Omit<MetaEventHandler<U, V>, 'module'> = {}
 ): MetaEventHandler<U, V> => {
@@ -150,7 +140,7 @@ export const defineAdapterErrorHandler = <RawEventType, RawResponseType, Executi
  * @param module - The module handler function to be defined.
  * @returns The defined factory handler with metadata.
 */
-export const factoryHandler = <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse>(
+export const defineFactoryEventHandler = <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse>(
   module: FactoryEventHandler<U, V>
 ): MetaEventHandler<U, V> => {
   return { module, isFactory: true }
@@ -163,7 +153,7 @@ export const factoryHandler = <U extends IncomingEvent = IncomingEvent, V = Outg
  * @param module - The module handler function to be defined.
  * @returns The defined error handler with metadata.
  */
-export const factoryErrorHandler = <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse>(
+export const defineFactoryErrorHandler = <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse>(
   module: FactoryErrorHandler<U, V>
 ): MetaErrorHandler<U, V> => {
   return { module, isFactory: true }
@@ -175,7 +165,7 @@ export const factoryErrorHandler = <U extends IncomingEvent = IncomingEvent, V =
  * @param module - The module handler function to be defined.
  * @returns The defined factory service provider with metadata.
 */
-export const factoryServiceProvider = (module: FactoryServiceProvider): MetaServiceProvider => {
+export const defineFactoryServiceProvider = (module: FactoryServiceProvider): MetaServiceProvider => {
   return { module, isFactory: true }
 }
 
@@ -186,7 +176,7 @@ export const factoryServiceProvider = (module: FactoryServiceProvider): MetaServ
  * @param module - The module handler function to be defined.
  * @returns The defined factory service with metadata.
 */
-export const factoryService = (alias: string | string[], module: FactoryService): MetaService => {
+export const defineFactoryService = (alias: string | string[], module: FactoryService): MetaService => {
   return { alias, module, isFactory: true }
 }
 
@@ -197,7 +187,7 @@ export const factoryService = (alias: string | string[], module: FactoryService)
  * @param module - The module handler function to be defined.
  * @returns The defined factory event listener with metadata.
 */
-export const factoryEventListener = <TEvent extends Event = Event>(
+export const defineFactoryEventListener = <TEvent extends Event = Event>(
   event: string,
   module: FactoryEventListener<TEvent>
 ): MetaEventListener<TEvent> => {
@@ -210,7 +200,7 @@ export const factoryEventListener = <TEvent extends Event = Event>(
  * @param module - The module handler function to be defined.
  * @returns The defined factory event subscriber with metadata.
 */
-export const factoryEventSubscriber = (
+export const defineFactoryEventSubscriber = (
   module: FactoryEventSubscriber
 ): MetaEventSubscriber => {
   return { module, isFactory: true }
@@ -223,7 +213,7 @@ export const factoryEventSubscriber = (
  * @param options - The metadata options for the middleware.
  * @returns The defined factory middleware with metadata.
 */
-export const factoryMiddleware = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(
+export const defineFactoryMiddleware = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(
   module: FactoryMiddleware<U, V>,
   options: Omit<MetaMiddleware<U, V>, 'module' | 'isClass' | 'isFactory'> = {}
 ): MetaMiddleware<U, V> => {
@@ -237,7 +227,7 @@ export const factoryMiddleware = <U extends IncomingEvent = IncomingEvent, V ext
  * @param options - The metadata options for the middleware.
  * @returns The defined class middleware with metadata.
 */
-export const classMiddleware = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(
+export const defineClassMiddleware = <U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse>(
   module: MiddlewareClass<U, V>,
   options: Omit<MetaMiddleware<U, V>, 'module' | 'isClass' | 'isFactory'> = {}
 ): MetaMiddleware<U, V> => {

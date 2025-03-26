@@ -6,7 +6,7 @@
 
 # Interface: KernelOptions
 
-Defined in: [core/src/Kernel.ts:55](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L55)
+Defined in: [core/src/Kernel.ts:55](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/Kernel.ts#L55)
 
 KernelOptions.
 
@@ -16,7 +16,7 @@ KernelOptions.
 
 > **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [core/src/Kernel.ts:57](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L57)
+Defined in: [core/src/Kernel.ts:57](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/Kernel.ts#L57)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/Kernel.ts:57](https://github.com/stonemjs/core/blob/93efe0
 
 > **container**: `Container`
 
-Defined in: [core/src/Kernel.ts:56](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L56)
+Defined in: [core/src/Kernel.ts:56](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/Kernel.ts#L56)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [core/src/Kernel.ts:56](https://github.com/stonemjs/core/blob/93efe0
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [core/src/Kernel.ts:58](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/Kernel.ts#L58)
+Defined in: [core/src/Kernel.ts:58](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/Kernel.ts#L58)

@@ -6,9 +6,9 @@
 
 # Function: defineAppBlueprint()
 
-> **defineAppBlueprint**\<`U`, `V`\>(...`userBlueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
+> **defineAppBlueprint**\<`U`, `V`, `W`\>(...`userBlueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:94](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L94)
+Defined in: [core/src/utils.ts:80](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L80)
 
 Defines an application blueprint by merging user-defined blueprints with default options.
 
@@ -22,11 +22,13 @@ It ensures that all necessary properties are available while allowing user custo
 
 • **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
+• **W** *extends* [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\> = [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
+
 ## Parameters
 
 ### userBlueprints
 
-...[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>[]
+...(`Record`\<`string`, `any`\> \| `W`)[]
 
 An array of partial user-defined blueprints to be merged with defaults.
 

@@ -6,7 +6,7 @@
 
 # Interface: IServiceProvider
 
-Defined in: [core/src/declarations.ts:231](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L231)
+Defined in: [core/src/declarations.ts:231](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L231)
 
 Interface representing a service provider within the system.
 
@@ -20,7 +20,7 @@ of this interface are expected to define these lifecycle methods as needed.
 
 > `optional` **boot**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:240](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L240)
+Defined in: [core/src/declarations.ts:240](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L240)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -34,7 +34,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > `optional` **mustSkip**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`boolean`\>
 
-Defined in: [core/src/declarations.ts:245](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L245)
+Defined in: [core/src/declarations.ts:245](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L245)
 
 Skip this provider.
 
@@ -48,7 +48,7 @@ Skip this provider.
 
 > `optional` **register**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:235](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L235)
+Defined in: [core/src/declarations.ts:235](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L235)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

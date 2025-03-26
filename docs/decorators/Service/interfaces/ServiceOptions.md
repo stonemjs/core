@@ -6,7 +6,7 @@
 
 # Interface: ServiceOptions
 
-Defined in: [core/src/decorators/Service.ts:10](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Service.ts#L10)
+Defined in: [core/src/decorators/Service.ts:10](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/Service.ts#L10)
 
 Service options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as a servic
 
 > **alias**: `string` \| `string`[]
 
-Defined in: [core/src/decorators/Service.ts:22](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Service.ts#L22)
+Defined in: [core/src/decorators/Service.ts:22](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/Service.ts#L22)
 
 Alias or aliases for the service, used for identification or access.
 Can be a single alias or an array of aliases.
@@ -29,7 +29,7 @@ Can be a single alias or an array of aliases.
 
 > `optional` **singleton**: `boolean`
 
-Defined in: [core/src/decorators/Service.ts:16](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/Service.ts#L16)
+Defined in: [core/src/decorators/Service.ts:16](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/Service.ts#L16)
 
 Whether the service should be treated as a singleton.
 A singleton service will only have one instance in the container.

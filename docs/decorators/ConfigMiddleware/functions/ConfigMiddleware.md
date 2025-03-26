@@ -8,7 +8,7 @@
 
 > **ConfigMiddleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/ConfigMiddleware.ts:39](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/ConfigMiddleware.ts#L39)
+Defined in: [core/src/decorators/ConfigMiddleware.ts:39](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/ConfigMiddleware.ts#L39)
 
 ConfigMiddleware decorator to mark a class as middleware within the Stone.js framework.
 

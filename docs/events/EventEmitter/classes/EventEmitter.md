@@ -6,7 +6,7 @@
 
 # Class: EventEmitter
 
-Defined in: [core/src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/events/EventEmitter.ts#L18)
+Defined in: [core/src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/events/EventEmitter.ts#L18)
 
 Class representing an EventEmitter.
 
@@ -16,7 +16,7 @@ Class representing an EventEmitter.
 
 > **new EventEmitter**(): [`EventEmitter`](EventEmitter.md)
 
-Defined in: [core/src/events/EventEmitter.ts:24](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/events/EventEmitter.ts#L24)
+Defined in: [core/src/events/EventEmitter.ts:33](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/events/EventEmitter.ts#L33)
 
 Create an EventEmitter.
 
@@ -30,7 +30,7 @@ Create an EventEmitter.
 
 > **emit**\<`TEvent`\>(`event`, `args`?): `Promise`\<`void`\>
 
-Defined in: [core/src/events/EventEmitter.ts:64](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/events/EventEmitter.ts#L64)
+Defined in: [core/src/events/EventEmitter.ts:73](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/events/EventEmitter.ts#L73)
 
 Emits an event, triggering all associated listeners.
 
@@ -62,7 +62,7 @@ Additional arguments to pass to the listeners.
 
 > **off**\<`TEvent`\>(`event`, `handler`): `this`
 
-Defined in: [core/src/events/EventEmitter.ts:49](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/events/EventEmitter.ts#L49)
+Defined in: [core/src/events/EventEmitter.ts:58](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/events/EventEmitter.ts#L58)
 
 Removes an event listener for the given event type.
 
@@ -94,7 +94,7 @@ The callback to remove.
 
 > **on**\<`TEvent`\>(`event`, `handler`): `this`
 
-Defined in: [core/src/events/EventEmitter.ts:34](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/events/EventEmitter.ts#L34)
+Defined in: [core/src/events/EventEmitter.ts:43](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/events/EventEmitter.ts#L43)
 
 Registers an event listener for the given event type.
 
@@ -119,3 +119,19 @@ The callback to invoke when the event is emitted.
 #### Returns
 
 `this`
+
+***
+
+### create()
+
+> `static` **create**(): [`EventEmitter`](EventEmitter.md)
+
+Defined in: [core/src/events/EventEmitter.ts:26](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/events/EventEmitter.ts#L26)
+
+Create an EventEmitter.
+
+#### Returns
+
+[`EventEmitter`](EventEmitter.md)
+
+A new EventEmitter instance.

@@ -8,7 +8,7 @@
 
 > **EventHandlerType**\<`TEvent`, `UResponse`\>: [`EventHandlerClass`](EventHandlerClass.md)\<`TEvent`, `UResponse`\> \| [`FunctionalEventHandler`](FunctionalEventHandler.md)\<`TEvent`, `UResponse`\> \| [`FactoryEventHandler`](FactoryEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/declarations.ts:458](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L458)
+Defined in: [core/src/declarations.ts:458](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L458)
 
 EventHandler Interface.
 Represents an event handler that can handle incoming events and return outgoing responses.

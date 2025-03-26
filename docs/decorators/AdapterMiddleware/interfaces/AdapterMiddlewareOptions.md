@@ -6,7 +6,7 @@
 
 # Interface: AdapterMiddlewareOptions
 
-Defined in: [core/src/decorators/AdapterMiddleware.ts:10](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/AdapterMiddleware.ts#L10)
+Defined in: [core/src/decorators/AdapterMiddleware.ts:10](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/AdapterMiddleware.ts#L10)
 
 AdapterMiddleware options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as middlewa
 
 > `optional` **alias**: `string`
 
-Defined in: [core/src/decorators/AdapterMiddleware.ts:24](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/AdapterMiddleware.ts#L24)
+Defined in: [core/src/decorators/AdapterMiddleware.ts:24](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/AdapterMiddleware.ts#L24)
 
 The platform name for which the middleware is used.
 
@@ -28,7 +28,7 @@ The platform name for which the middleware is used.
 
 > `optional` **params**: `unknown`[]
 
-Defined in: [core/src/decorators/AdapterMiddleware.ts:14](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/AdapterMiddleware.ts#L14)
+Defined in: [core/src/decorators/AdapterMiddleware.ts:14](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/AdapterMiddleware.ts#L14)
 
 The params to pass to the middleware.
 
@@ -38,7 +38,7 @@ The params to pass to the middleware.
 
 > `optional` **platform**: `string`
 
-Defined in: [core/src/decorators/AdapterMiddleware.ts:29](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/AdapterMiddleware.ts#L29)
+Defined in: [core/src/decorators/AdapterMiddleware.ts:29](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/AdapterMiddleware.ts#L29)
 
 The platform name for which the middleware is used.
 
@@ -48,6 +48,6 @@ The platform name for which the middleware is used.
 
 > `optional` **priority**: `number`
 
-Defined in: [core/src/decorators/AdapterMiddleware.ts:19](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/decorators/AdapterMiddleware.ts#L19)
+Defined in: [core/src/decorators/AdapterMiddleware.ts:19](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/AdapterMiddleware.ts#L19)
 
 The execution priority of the middleware.

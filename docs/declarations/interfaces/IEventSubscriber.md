@@ -6,7 +6,7 @@
 
 # Interface: IEventSubscriber
 
-Defined in: [core/src/declarations.ts:364](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L364)
+Defined in: [core/src/declarations.ts:364](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L364)
 
 Interface representing a subscriber to an event emitter.
 
@@ -19,7 +19,7 @@ and handle multiple types of events.
 
 > **subscribe**: [`FunctionalEventSubscriber`](../type-aliases/FunctionalEventSubscriber.md)
 
-Defined in: [core/src/declarations.ts:370](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/declarations.ts#L370)
+Defined in: [core/src/declarations.ts:370](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L370)
 
 Subscribes to an event emitter to handle various events.
 

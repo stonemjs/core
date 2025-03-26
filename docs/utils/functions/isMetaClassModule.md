@@ -8,7 +8,7 @@
 
 > **isMetaClassModule**\<`ClassModuleType`\>(`value`): `value is Record<"module", ClassModuleType>`
 
-Defined in: [core/src/utils.ts:304](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/utils.ts#L304)
+Defined in: [core/src/utils.ts:294](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L294)
 
 Check if the provided value is a meta class module.
 

@@ -6,7 +6,7 @@
 
 # Class: StoneFactory
 
-Defined in: [core/src/StoneFactory.ts:13](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneFactory.ts#L13)
+Defined in: [core/src/StoneFactory.ts:13](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneFactory.ts#L13)
 
 Class representing StoneFactory.
 
@@ -23,7 +23,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [core/src/StoneFactory.ts:47](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneFactory.ts#L47)
+Defined in: [core/src/StoneFactory.ts:47](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneFactory.ts#L47)
 
 Run the application by resolving and executing the adapter.
 
@@ -53,7 +53,7 @@ await factory.run();
 
 > `static` **create**(`blueprint`): [`StoneFactory`](StoneFactory.md)
 
-Defined in: [core/src/StoneFactory.ts:25](https://github.com/stonemjs/core/blob/93efe04ef1a71ad6f49c3b315da54d45ace50f23/src/StoneFactory.ts#L25)
+Defined in: [core/src/StoneFactory.ts:25](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/StoneFactory.ts#L25)
 
 Create a new StoneFactory instance.
 
