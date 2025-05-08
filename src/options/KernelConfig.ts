@@ -22,19 +22,19 @@ UResponse extends OutgoingResponse = OutgoingResponse
   /**
    * Middleware configuration options for different stages of the kernel's lifecycle.
    */
-  middleware?: Array<MixedPipe<TEvent, UResponse>>
+  middleware?: Array<MixedPipe<TEvent, UResponse | unknown>>
 
   /**
    * The main event handler for the application.
    * Every Stone.js application must have a main event handler.
    */
-  eventHandler?: MixedEventHandler<TEvent, UResponse>
+  eventHandler?: MixedEventHandler<TEvent, UResponse | unknown>
 
   /**
    * Error handlers used to manage and report errors that occur within the kernel.
    * These handlers can be used to customize error handling behavior and logging.
    */
-  errorHandlers?: Record<string, MetaErrorHandler<TEvent, UResponse>>
+  errorHandlers?: Record<string, MetaErrorHandler<TEvent, UResponse | unknown>>
 
   /**
    * The response resolver, used to create instances of the response object.

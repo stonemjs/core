@@ -137,6 +137,12 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
    * This is useful for defining dynamic configurations that do not require a restart to apply changes.
    */
   liveConfigurations?: MixedConfiguration[]
+
+  /**
+   * Allow adding any additional custom properties.
+   * The value of the custom properties can be of any type, depending on user requirements.
+   */
+  [key: string]: unknown
 }
 
 /**

@@ -1,4 +1,3 @@
-import { RuntimeError } from './errors/RuntimeError'
 import { IBlueprint, ILogger, LogLevel } from './declarations'
 
 /**
@@ -42,7 +41,6 @@ export class ConsoleLogger implements ILogger {
    * @param {LoggerOptions} options - Options for creating the ConsoleLogger.
    */
   constructor ({ blueprint }: LoggerOptions) {
-    if (blueprint === undefined) { throw new RuntimeError('Blueprint is required to create a ConsoleLogger instance.') }
     this.blueprint = blueprint
   }
 

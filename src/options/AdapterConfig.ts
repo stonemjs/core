@@ -30,6 +30,12 @@ export interface AdapterConfig<
   platform: string
 
   /**
+   * The class type of the adapter.
+   * This is used to identify the category of the adapter.
+   */
+  variant: 'server' | 'browser' | 'console'
+
+  /**
    * The class type resolver used to create instances of the adapter.
    */
   resolver: AdapterResolver

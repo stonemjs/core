@@ -8,7 +8,7 @@
 
 > **ListenerHandler**\<`T`\>: (`event`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:837](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L837)
+Defined in: [core/src/declarations.ts:866](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L866)
 
 Represents an event listener handler.
 

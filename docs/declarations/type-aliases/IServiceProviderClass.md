@@ -8,7 +8,7 @@
 
 > **IServiceProviderClass**: (...`args`) => [`IServiceProvider`](../interfaces/IServiceProvider.md)
 
-Defined in: [core/src/declarations.ts:222](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L222)
+Defined in: [core/src/declarations.ts:250](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L250)
 
 Represents an IServiceProviderClass type.
 

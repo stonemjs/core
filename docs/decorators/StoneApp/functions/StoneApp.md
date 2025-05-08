@@ -8,7 +8,7 @@
 
 > **StoneApp**\<`T`\>(`options`, `blueprints`): `ClassDecorator`
 
-Defined in: [core/src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/StoneApp.ts#L30)
+Defined in: [core/src/decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/StoneApp.ts#L30)
 
 StoneApp decorator to mark a class as the main application entry point.
 

@@ -21,7 +21,7 @@ export interface AdapterMiddlewareOptions {
   /**
    * The platform name for which the middleware is used.
    */
-  alias?: string
+  adapterAlias?: string
 
   /**
    * The platform name for which the middleware is used.

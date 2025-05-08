@@ -6,7 +6,7 @@
 
 # Interface: IBlueprintBuilder\<BlueprintType\>
 
-Defined in: [core/src/declarations.ts:541](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L541)
+Defined in: [core/src/declarations.ts:569](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L569)
 
 Represents a IBlueprintBuilder type.
 
@@ -20,7 +20,7 @@ Represents a IBlueprintBuilder type.
 
 > **build**: (`modules`) => `Promise`\<`BlueprintType`\>
 
-Defined in: [core/src/declarations.ts:548](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L548)
+Defined in: [core/src/declarations.ts:576](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L576)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 

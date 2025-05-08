@@ -2,13 +2,13 @@
 
 ***
 
-[Core Documentation](../../modules.md) / [utils](../README.md) / defineFactoryEventListener
+[Core Documentation](../../modules.md) / [BlueprintUtils](../README.md) / defineFactoryEventListener
 
 # Function: defineFactoryEventListener()
 
 > **defineFactoryEventListener**\<`TEvent`\>(`event`, `module`): [`MetaEventListener`](../../declarations/interfaces/MetaEventListener.md)\<`TEvent`\>
 
-Defined in: [core/src/utils.ts:190](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/utils.ts#L190)
+Defined in: core/src/BlueprintUtils.ts:167
 
 Defines a factory event listener with metadata for the provided module.
 

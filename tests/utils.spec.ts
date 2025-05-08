@@ -1,6 +1,6 @@
 import { IBlueprint } from '../src/declarations'
 import { SetupError } from '../src/errors/SetupError'
-import { mergeBlueprints, defineAppBlueprint, setCurrentAdapterByPlatform } from '../src/utils'
+import { mergeBlueprints, defineBlueprintConfig, setCurrentAdapterByPlatform } from '../src/utils'
 import { StoneBlueprint, Environment, stoneBlueprint } from '../src/options/StoneBlueprint'
 
 // Mock data for blueprints
@@ -55,9 +55,9 @@ describe('mergeBlueprints', () => {
   })
 })
 
-describe('defineAppBlueprint', () => {
+describe('defineBlueprintConfig', () => {
   it('should merge user-defined blueprints with default blueprint', () => {
-    const appBlueprint = defineAppBlueprint(stoneBlueprint, mockUserBlueprint)
+    const appBlueprint = defineBlueprintConfig(stoneBlueprint, mockUserBlueprint)
 
     expect(appBlueprint.stone?.name).toBe('Stone.js') // Default blueprint name
     expect(appBlueprint.stone?.timezone).toBe('PST') // User-defined value
@@ -65,13 +65,13 @@ describe('defineAppBlueprint', () => {
 
   it('should override default properties with user-defined ones', () => {
     const customBlueprint = { stone: { name: 'CustomApp' } }
-    const appBlueprint = defineAppBlueprint(stoneBlueprint, customBlueprint)
+    const appBlueprint = defineBlueprintConfig(stoneBlueprint, customBlueprint)
 
     expect(appBlueprint.stone?.name).toBe('CustomApp')
   })
 
   it('should throw SetupError if any user-defined blueprint is invalid', () => {
-    expect(() => defineAppBlueprint(invalidBlueprint as any)).toThrow(SetupError)
+    expect(() => defineBlueprintConfig(invalidBlueprint as any)).toThrow(SetupError)
   })
 })
 

@@ -1,21 +1,20 @@
 import {
+  isEmpty,
   isNotEmpty,
-  mergeBlueprints,
-  isStoneBlueprint
+  isFunctionModule,
+  isMetaFactoryModule,
+  isMetaFunctionModule
 } from '../utils'
 import {
   ClassType,
   IBlueprint,
-  HookOptions,
-  IConfiguration,
   BlueprintContext,
+  MixedEventHandler,
   AdapterMixedPipeType
 } from '../declarations'
 import {
   getMetadata,
-  hasMetadata,
-  getBlueprint,
-  hasBlueprint
+  hasMetadata
 } from '../decorators/Metadata'
 import {
   SERVICE_KEY,
@@ -25,8 +24,6 @@ import {
   MIDDLEWARE_KEY,
   SUBSCRIBER_KEY,
   ERROR_HANDLER_KEY,
-  CONFIGURATION_KEY,
-  LIFECYCLE_HOOK_KEY,
   ADAPTER_MIDDLEWARE_KEY,
   ADAPTER_ERROR_HANDLER_KEY
 } from '../decorators/constants'
@@ -34,90 +31,10 @@ import { SetupError } from '../errors/SetupError'
 import { ServiceOptions } from '../decorators/Service'
 import { AdapterConfig } from '../options/AdapterConfig'
 import { ListenerOptions } from '../decorators/Listener'
-import { StoneBlueprint } from '../options/StoneBlueprint'
 import { MiddlewareOptions } from '../decorators/Middleware'
 import { ErrorHandlerOptions } from '../decorators/ErrorHandler'
+import { MetaPipe, NextPipe, PipeClass } from '@stone-js/pipeline'
 import { AdapterMiddlewareOptions } from '../decorators/AdapterMiddleware'
-import { isConstructor, MetaPipe, NextPipe, PipeClass } from '@stone-js/pipeline'
-
-/**
- * Middleware to build a blueprint from provided modules and pass it to the next pipeline step.
- *
- * This middleware processes each module to extract its blueprint or configuration metadata, merges
- * them into a single meta blueprint, and sets the resulting blueprint in the provided context.
- * It uses `Promise.all()` to execute the module processing concurrently for better performance.
- *
- * @param context - The configuration context containing modules and blueprint.
- * @param next - The next function in the pipeline.
- * @returns A promise that resolves to the updated blueprint.
- *
- * @example
- * ```typescript
- * await BlueprintMiddleware({ modules, blueprint }, next);
- * ```
- */
-export const BlueprintMiddleware = async (
-  context: BlueprintContext<IBlueprint, ClassType>,
-  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
-): Promise<IBlueprint> => {
-  let blueprints: StoneBlueprint[] = []
-
-  for (const module of context.modules) {
-    if (isStoneBlueprint(module)) { // Blueprint configuration (Plain object)
-      blueprints = blueprints.concat(module)
-    } else if (hasBlueprint(module)) { // Implicit configuration (Decorator)
-      blueprints = blueprints.concat(getBlueprint(module, { stone: {} }))
-    } else if (hasMetadata(module, CONFIGURATION_KEY) && isConstructor<IConfiguration>(module)) { // Explicit configuration (Class)
-      const options = getMetadata(module, CONFIGURATION_KEY, { live: false })
-
-      if (!options.live) {
-        await (new module.prototype.constructor()).configure(context.blueprint)
-      } else {
-        context.blueprint.add('stone.liveConfigurations', [{ ...options, module }])
-      }
-    }
-  }
-
-  // Imperative configuration takes precedence over declarative configuration
-  context.blueprint.setItems(mergeBlueprints(...blueprints, context.blueprint.all()))
-
-  return await next(context)
-}
-
-/**
- * Middleware to register lifecycle hooks to the blueprint.
- *
- * This middleware identifies modules marked as lifecycle hooks
- * and adds them to the blueprint's list of stone.lifecycleHooks.
- *
- * @param context - The configuration context containing modules and blueprint.
- * @param next - The next function in the pipeline.
- * @returns The updated blueprint.
- *
- * @example
- * ```typescript
- * await RegisterLifecycleHooksMiddleware({ modules, blueprint }, next);
- * ```
- */
-export const RegisterLifecycleHooksMiddleware = async (
-  context: BlueprintContext<IBlueprint, ClassType>,
-  next: NextPipe<BlueprintContext<IBlueprint, ClassType>, IBlueprint>
-): Promise<IBlueprint> => {
-  context.modules
-    .filter(module => hasMetadata(module, LIFECYCLE_HOOK_KEY))
-    .forEach(module => {
-      getMetadata<ClassType, HookOptions[]>(module, LIFECYCLE_HOOK_KEY, []).forEach(options => {
-        if (isNotEmpty<HookOptions>(options)) {
-          context.blueprint.add(
-            `stone.lifecycleHooks.${options.name}`,
-            [module.prototype[options.method].bind(module.prototype)]
-          )
-        }
-      })
-    })
-
-  return await next(context)
-}
 
 /**
  * Middleware to set the main event handler in the blueprint.
@@ -144,11 +61,19 @@ export const MainEventHandlerMiddleware = async (
   const blueprint = await next(context)
   const module = context.modules.find(module => hasMetadata(module, STONE_APP_KEY))
 
-  if (isNotEmpty<ClassType>(module) && !blueprint.has('stone.kernel.eventHandler.module')) {
-    blueprint.set('stone.kernel.eventHandler', { ...getMetadata(module, STONE_APP_KEY, {}), module })
+  if (isNotEmpty<ClassType>(module) && isNotEmpty(module.prototype?.handle)) {
+    blueprint.setIf('stone.kernel.eventHandler', { ...getMetadata(module, STONE_APP_KEY, {}), module })
   }
 
-  if (!blueprint.has('stone.kernel.eventHandler.module')) {
+  const eventHandler = blueprint.get<MixedEventHandler>('stone.kernel.eventHandler')
+
+  if (
+    isEmpty(eventHandler) ||
+    (!isFunctionModule(eventHandler) &&
+    !isMetaFunctionModule(eventHandler) &&
+    !isMetaFactoryModule(eventHandler) &&
+    isEmpty((eventHandler as { module?: ClassType }).module?.prototype?.handle))
+  ) {
     throw new SetupError(
       'No main event handler found. Every Stone.js app must define one main event handler.'
     )
@@ -412,7 +337,7 @@ export const AdapterMiddlewareMiddleware = async (
           adapter.middleware ??= []
           if (options.platform === undefined) {
             adapter.middleware.push(middleware)
-          } else if (options.alias === adapter.alias) {
+          } else if (options.adapterAlias === adapter.alias) {
             adapter.middleware.push(middleware)
           } else if (options.platform === adapter.platform) {
             adapter.middleware.push(middleware)
@@ -470,10 +395,8 @@ export const MiddlewareMiddleware = async (
  * ```
  */
 export const metaCoreBlueprintMiddleware: Array<MetaPipe<BlueprintContext<IBlueprint, ClassType | PipeClass>, IBlueprint>> = [
-  { module: BlueprintMiddleware, priority: 0 },
-  { module: RegisterLifecycleHooksMiddleware, priority: 0.1 },
-  { module: MainEventHandlerMiddleware, priority: 0.2 },
-  { module: SetCurrentAdapterMiddleware, priority: 0.5 },
+  { module: MainEventHandlerMiddleware, priority: 0 },
+  { module: SetCurrentAdapterMiddleware, priority: 0.1 },
   { module: ProviderMiddleware, priority: 0.6 },
   { module: ServiceMiddleware, priority: 0.7 },
   { module: ListenerMiddleware, priority: 0.7 },

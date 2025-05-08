@@ -8,7 +8,7 @@
 
 > **MixedListenerHandler**\<`TEventType`, `UEventName`\>: [`ListenerHandler`](ListenerHandler.md)\<`TEventType`\> \| [`WildcardListenerHandler`](WildcardListenerHandler.md)\<`UEventName`, `TEventType`\>
 
-Defined in: [core/src/declarations.ts:847](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L847)
+Defined in: [core/src/declarations.ts:876](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L876)
 
 Represents a listener handler that can either be a simple function or a wildcard function.
 

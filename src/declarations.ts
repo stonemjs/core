@@ -6,12 +6,27 @@ import { Container } from '@stone-js/service-container'
 import { MiddlewareOptions } from './decorators/Middleware'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 import { OutgoingResponse, OutgoingResponseOptions } from './events/OutgoingResponse'
-import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipelineHookListener, PipeType } from '@stone-js/pipeline'
+import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipelineHookContext, PipelineHookListener, PipeType } from '@stone-js/pipeline'
+
+/**
+ * Represents a BlueprintMiddlewareHookContext type.
+ */
+export type BlueprintMiddlewareHookContext = PipelineHookContext<BlueprintContext, IBlueprint, any[]>
+
+/**
+ * Represents a MiddlewareHookContext type.
+ */
+export type MiddlewareHookContext<T = unknown, R = T, Args extends any[] = any[]> = PipelineHookContext<T, R, Args>
 
 /**
  * Represents a Promiseable type.
  */
 export type Promiseable<T> = T | Promise<T>
+
+/**
+ * Represents a Arrayable type.
+ */
+export type Arrayable<T> = T | T[]
 
 /**
  * Represents a Container type.
@@ -190,6 +205,19 @@ export interface ILogger {
    */
   trace?: (message: string, ...optionalParams: unknown[]) => void
 }
+
+/**
+ * Represents a ILoggerClass type.
+ */
+export type ILoggerClass = new (...args: any[]) => ILogger
+
+/**
+ * Represents a FactoryLogger type.
+ *
+ * @param container - The dependency injection container.
+ * @returns The logger object.
+ */
+export type FactoryLogger = (container: IContainer | any) => ILogger
 
 /**
  * Represents an IncomingEvent source.
@@ -741,7 +769,8 @@ export type ConfigurationClass<TValues extends object = any> = new (...args: any
  * @template TValues
  */
 export interface IConfiguration<TValues extends object = any> {
-  configure: FunctionalConfiguration<TValues>
+  configure?: FunctionalConfiguration<TValues>
+  afterConfigure?: FunctionalConfiguration<TValues>
 }
 
 /**

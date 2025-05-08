@@ -8,7 +8,7 @@
 
 > `const` **adapters**: [`AdapterConfig`](../interfaces/AdapterConfig.md)[] = `[]`
 
-Defined in: [core/src/options/AdapterConfig.ts:87](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/AdapterConfig.ts#L87)
+Defined in: [core/src/options/AdapterConfig.ts:93](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/AdapterConfig.ts#L93)
 
 Common adapters settings.
 

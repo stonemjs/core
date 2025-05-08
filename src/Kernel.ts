@@ -42,6 +42,7 @@ import {
   FunctionalConfiguration,
   ILifecycleAdapterEventHandler
 } from './declarations'
+import { Logger } from './Logger'
 import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
@@ -281,8 +282,10 @@ export class Kernel<
     this.container
       .instance(Config, this.blueprint)
       .instance(Container, this.container)
+      .instance(Logger, Logger.getInstance())
       .instance(EventEmitter, this.eventEmitter)
       .alias(Config, 'config')
+      .alias(Logger, 'logger')
       .alias(Config, 'blueprint')
       .alias(Container, 'container')
       .alias(EventEmitter, 'events')
@@ -446,7 +449,7 @@ export class Kernel<
 
     for (const configuration of liveConfigurations) {
       if (isMetaClassModule<ConfigurationClass>(configuration)) {
-        await this.container.resolve<IConfiguration>(configuration.module).configure(this.blueprint)
+        await this.container.resolve<IConfiguration>(configuration.module).configure?.(this.blueprint)
       } else if (isFunctionModule<FunctionalConfiguration>(configuration)) {
         await configuration(this.blueprint)
       }

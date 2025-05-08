@@ -1,51 +1,181 @@
-import { isEmpty } from './utils'
+import {
+  IAdapter,
+  ClassType,
+  HookOptions,
+  AdapterResolver,
+  BlueprintContext,
+  MixedEventHandler,
+  FunctionalConfiguration
+} from './declarations'
+import { Logger } from './Logger'
+import { Config } from '@stone-js/config'
+import { BlueprintBuilder } from './BlueprintBuilder'
+import { IncomingEvent } from './events/IncomingEvent'
+import { defineBlueprintConfig } from './BlueprintUtils'
+import { StoneBlueprint } from './options/StoneBlueprint'
+import { OutgoingResponse } from './events/OutgoingResponse'
 import { IntegrationError } from './errors/IntegrationError'
-import { AdapterResolver, IAdapter, IBlueprint } from './declarations'
+import { isConstructor, isEmpty, isNotEmpty, isStoneBlueprint } from './utils'
+import { hasBlueprint, getBlueprint, hasMetadata, getMetadata } from './decorators/Metadata'
+import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, LIFECYCLE_HOOK_KEY } from './decorators/constants'
 
 /**
- * Class representing StoneFactory.
+ * Stone factory options.
+ */
+export interface StoneFactoryOptions {
+  modules?: unknown[]
+}
+
+/**
+ * StoneFactory.
  *
- * The StoneFactory is responsible for creating and running the main application by resolving
+ * This class provides a fluent interface for building Stone applications.
+ * It is responsible for creating and running the main application by resolving
  * the appropriate adapter from the provided blueprint. It handles the core setup of the application.
  *
- * @author Mr. Stone <evensstone@gmail.com>
+ * @template TEvent, UResponse
  */
-export class StoneFactory {
+export class StoneFactory<TEvent extends IncomingEvent, UResponse extends OutgoingResponse> {
+  private readonly modules: unknown[]
+  private readonly blueprint: Config<StoneBlueprint<TEvent, UResponse>>
+
   /**
    * Create a new StoneFactory instance.
    *
-   * @param blueprint - The blueprint object that contains the configuration for the application.
+   * @param options - The options to create the StoneFactory.
    * @returns A new StoneFactory instance.
    *
    * @example
    * ```typescript
-   * const factory = StoneFactory.create(blueprint);
+   * const stone = StoneFactory.create({ modules: [\/* your modules *\/] });
    * ```
    */
-  public static create (blueprint: IBlueprint): StoneFactory {
-    return new this(blueprint)
+  public static create<TEvent extends IncomingEvent, UResponse extends OutgoingResponse>(
+    options: StoneFactoryOptions = {}
+  ): StoneFactory<TEvent, UResponse> {
+    return new this(options)
   }
 
   /**
-   * Create a new instance of StoneFactory.
+   * Create a new StoneFactory instance.
    *
-   * @param blueprint - The blueprint object that contains the configuration for the application.
+   * @param options - The options to create the StoneFactory.
    */
-  private constructor (private readonly blueprint: IBlueprint) {}
+  private constructor ({ modules = [] }: StoneFactoryOptions = {}) {
+    this.modules = modules
+    this.blueprint = Config.create()
+  }
 
   /**
-   * Run the application by resolving and executing the adapter.
+   * Configure the application using the blueprint resolver.
+   * Use this method to add custom configurations to the application.
    *
-   * @returns A promise that resolves to the result of the adapter's `run` method.
-   * @throws {IntegrationError} If no adapter resolver or adapter is provided in the blueprint.
-   *
-   * @example
-   * ```typescript
-   * await factory.run();
-   * ```
+   * @param configuration - The user-defined blueprint configuration.
+   * @returns The current StoneFactory instance.
    */
-  public async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
+  configure (
+    configuration:
+    | FunctionalConfiguration
+    | Partial<Record<'configure' | 'afterConfigure', FunctionalConfiguration>>
+  ): this {
+    this.modules.push(defineBlueprintConfig(configuration))
+    return this
+  }
+
+  /**
+   * Handle application events.
+   * This method is a shorthand for running the application with the provided event handler.
+   *
+   * @param handler - The application event handler function.
+   * @returns The platform-specific response.
+   */
+  async handle<ExecutionResultType = unknown>(handler: MixedEventHandler<TEvent, unknown>): Promise<ExecutionResultType> {
+    this.blueprint.set('stone.kernel.eventHandler', handler)
+    return await this.run()
+  }
+
+  /**
+   * Run the application.
+   * Populates the blueprint via introspection and runs the application.
+   *
+   * @returns The platform-specific response.
+   */
+  async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
+    // Initialize the blueprint.
+    // The first step is to set up the blueprint with the provided modules.
+    await this.initBlueprint()
+    // Initialize the logger.
+    Logger.init(this.blueprint)
+    // Populate the blueprint with modules.
+    await BlueprintBuilder.create(this.blueprint).build(this.modules)
+    // Run the application using the resolved adapter.
     return await this.resolveAdapter().run<ExecutionResultType>()
+  }
+
+  /**
+   * Initialize the blueprint by processing the provided modules.
+   * This method extracts metadata and configurations from the modules and populates the blueprint.
+   *
+   * @returns A promise that resolves when the blueprint is initialized.
+   */
+  private async initBlueprint (): Promise<void> {
+    for (const module of this.modules) {
+      if (isStoneBlueprint(module)) { // Blueprint configuration (Plain object)
+        this.blueprint.set(module)
+      } else if (isConstructor<ClassType>(module)) {
+        if (hasBlueprint(module)) { // From @StoneApp()
+          this.blueprint.set(getBlueprint(module, { stone: {} }))
+        } else if (hasMetadata(module, LIFECYCLE_HOOK_KEY)) { // From @Hook()
+          this.registerLifecycleHooks(module)
+        } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) { // From @ConfigMiddleware()
+          const options = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
+          this.blueprint.add('stone.blueprint.middleware', [{ ...options, module }])
+        } else if (hasMetadata(module, CONFIGURATION_KEY)) { // From @Configuration()
+          await this.initBlueprintConfigurations(module)
+        }
+      }
+    }
+  }
+
+  /**
+   * Register lifecycle hooks for the given module.
+   * This method extracts lifecycle hook metadata from the module and adds it to the blueprint.
+   *
+   * @param module - The module to register lifecycle hooks for.
+   */
+  private registerLifecycleHooks (module: ClassType): void {
+    getMetadata<ClassType, HookOptions[]>(module, LIFECYCLE_HOOK_KEY, []).forEach(options => {
+      if (isNotEmpty<HookOptions>(options)) {
+        this.blueprint.add(
+          `stone.lifecycleHooks.${options.name}`,
+          [module.prototype[options.method].bind(module.prototype)]
+        )
+      }
+    })
+  }
+
+  /**
+   * Initialize blueprint configurations for the given module.
+   * This method extracts configuration metadata from the module and applies it to the blueprint.
+   *
+   * @param module - The module to initialize configurations for.
+   */
+  private async initBlueprintConfigurations (module: ClassType): Promise<void> {
+    const options = getMetadata(module, CONFIGURATION_KEY, { live: false })
+
+    if (!options.live) {
+      const configuration = new module.prototype.constructor()
+      await configuration.configure?.(this.blueprint)
+
+      if (isNotEmpty<Function>(configuration.afterConfigure)) {
+        this.blueprint.add(
+          'stone.lifecycleHooks.onBlueprintPrepared',
+          [({ blueprint }: BlueprintContext) => configuration.afterConfigure(blueprint)]
+        )
+      }
+    } else {
+      this.blueprint.add('stone.liveConfigurations', [{ ...options, module }])
+    }
   }
 
   /**
@@ -71,4 +201,21 @@ export class StoneFactory {
 
     return adapter
   }
+}
+
+/**
+ * Create a new Stone instance with the given options.
+ *
+ * This function creates a new Stone instance with the provided options.
+ * It allows you to configure the application using the StoneFactory.
+ *
+ * @template U, V
+ * @param options - The options to create the Stone instance.
+ * @returns A new StoneFactory instance.
+ */
+export function stoneApp<
+  U extends IncomingEvent,
+  V extends OutgoingResponse
+> (options: StoneFactoryOptions = {}): StoneFactory<U, V> {
+  return StoneFactory.create(options)
 }

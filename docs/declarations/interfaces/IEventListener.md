@@ -6,7 +6,7 @@
 
 # Interface: IEventListener\<TEvent\>
 
-Defined in: [core/src/declarations.ts:310](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L310)
+Defined in: [core/src/declarations.ts:338](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L338)
 
 Interface representing a listener for handling specific events.
 
@@ -23,7 +23,7 @@ that is called whenever the associated event occurs.
 
 > **handle**: [`FunctionalEventListener`](../type-aliases/FunctionalEventListener.md)\<`TEvent`\>
 
-Defined in: [core/src/declarations.ts:316](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L316)
+Defined in: [core/src/declarations.ts:344](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L344)
 
 Handles the event when it occurs. This method contains the logic that runs when the event is triggered.
 

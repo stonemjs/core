@@ -6,7 +6,7 @@
 
 # Interface: LoggerConfig
 
-Defined in: [core/src/options/LoggerConfig.ts:11](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/LoggerConfig.ts#L11)
+Defined in: [core/src/options/LoggerConfig.ts:11](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/LoggerConfig.ts#L11)
 
 **LoggerConfig Interface**
 
@@ -18,9 +18,9 @@ output styling, and the logger resolver.
 
 ### level?
 
-> `optional` **level**: `"debug"` \| `"info"` \| `"warn"` \| `"error"` \| `"trace"`
+> `optional` **level**: [`LogLevel`](../../../declarations/enumerations/LogLevel.md)
 
-Defined in: [core/src/options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/LoggerConfig.ts#L25)
+Defined in: [core/src/options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/LoggerConfig.ts#L25)
 
 The log level for the logger.
 
@@ -42,7 +42,7 @@ Common values include:
 
 > `optional` **resolver**: [`LoggerResolver`](../../../declarations/type-aliases/LoggerResolver.md)
 
-Defined in: [core/src/options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/LoggerConfig.ts#L54)
+Defined in: [core/src/options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/LoggerConfig.ts#L54)
 
 A resolver function that returns a logger instance.
 
@@ -59,7 +59,7 @@ This function provides a way to inject a logger that suits specific requirements
 
 > `optional` **useColors**: `boolean`
 
-Defined in: [core/src/options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/LoggerConfig.ts#L35)
+Defined in: [core/src/options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/LoggerConfig.ts#L35)
 
 Whether to enable color output in the logs.
 
@@ -76,7 +76,7 @@ or when using third-party loggers such as Pino.
 
 > `optional` **useTimestamp**: `boolean`
 
-Defined in: [core/src/options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/LoggerConfig.ts#L44)
+Defined in: [core/src/options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/LoggerConfig.ts#L44)
 
 Defines whether to include a timestamp in log messages.
 

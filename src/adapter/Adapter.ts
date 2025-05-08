@@ -34,6 +34,7 @@ import {
   ILifecycleAdapterEventHandler,
   FunctionalAdapterErrorHandler
 } from '../declarations'
+import { Logger } from '../Logger'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { IntegrationError } from '../errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'
@@ -217,9 +218,9 @@ export abstract class Adapter<
       },
       resolver: (metaPipe: MetaPipe<AdapterContextType, AdapterEventBuilderType<RawResponseType>>) => {
         if (isClassPipe(metaPipe)) {
-          return new metaPipe.module.prototype.constructor({ blueprint: this.blueprint })
+          return new metaPipe.module.prototype.constructor({ blueprint: this.blueprint, logger: Logger.getInstance() })
         } else if (isFactoryPipe(metaPipe)) {
-          return metaPipe.module({ blueprint: this.blueprint })
+          return metaPipe.module({ blueprint: this.blueprint, logger: Logger.getInstance() })
         }
       }
     }

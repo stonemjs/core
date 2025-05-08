@@ -6,7 +6,7 @@
 
 # Interface: AdapterHookListenerContext\<AdapterContextType\>
 
-Defined in: [core/src/declarations.ts:1063](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L1063)
+Defined in: [core/src/declarations.ts:1092](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L1092)
 
 AdapterHookListenerContext Interface.
 
@@ -22,7 +22,7 @@ Represents the context object for adapter hook listeners.
 
 > **blueprint**: [`IBlueprint`](../type-aliases/IBlueprint.md)\<`any`\>
 
-Defined in: [core/src/declarations.ts:1065](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L1065)
+Defined in: [core/src/declarations.ts:1094](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L1094)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [core/src/declarations.ts:1065](https://github.com/stonemjs/core/blo
 
 > `optional` **context**: `AdapterContextType`
 
-Defined in: [core/src/declarations.ts:1066](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L1066)
+Defined in: [core/src/declarations.ts:1095](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L1095)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [core/src/declarations.ts:1066](https://github.com/stonemjs/core/blo
 
 > `optional` **error**: `any`
 
-Defined in: [core/src/declarations.ts:1064](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L1064)
+Defined in: [core/src/declarations.ts:1093](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L1093)

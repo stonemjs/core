@@ -6,7 +6,7 @@
 
 # Interface: IncomingEventSource
 
-Defined in: [core/src/declarations.ts:197](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L197)
+Defined in: [core/src/declarations.ts:225](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L225)
 
 Represents an IncomingEvent source.
 
@@ -16,7 +16,7 @@ Represents an IncomingEvent source.
 
 > **platform**: `string` \| `symbol`
 
-Defined in: [core/src/declarations.ts:216](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L216)
+Defined in: [core/src/declarations.ts:244](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L244)
 
 The platform from which the event originated.
 
@@ -26,7 +26,7 @@ The platform from which the event originated.
 
 > **rawContext**: `unknown`
 
-Defined in: [core/src/declarations.ts:206](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L206)
+Defined in: [core/src/declarations.ts:234](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L234)
 
 The raw context object from the originating platform.
 
@@ -36,7 +36,7 @@ The raw context object from the originating platform.
 
 > **rawEvent**: `unknown`
 
-Defined in: [core/src/declarations.ts:201](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L201)
+Defined in: [core/src/declarations.ts:229](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L229)
 
 The raw event object from the originating platform.
 
@@ -46,6 +46,6 @@ The raw event object from the originating platform.
 
 > `optional` **rawResponse**: `unknown`
 
-Defined in: [core/src/declarations.ts:211](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L211)
+Defined in: [core/src/declarations.ts:239](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L239)
 
 The raw response object from the originating platform.

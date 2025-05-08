@@ -8,7 +8,7 @@
 
 > **AbstractClassType**\<`Type`\>: (...`args`) => `Type`
 
-Defined in: [core/src/declarations.ts:798](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/declarations.ts#L798)
+Defined in: [core/src/declarations.ts:827](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L827)
 
 Abstract ClassType Type.
 

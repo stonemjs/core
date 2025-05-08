@@ -8,7 +8,7 @@
 
 > **classDecoratorLegacyWrapper**\<`T`\>(`decorator`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Metadata.ts:232](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/decorators/Metadata.ts#L232)
+Defined in: [core/src/decorators/Metadata.ts:232](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Metadata.ts#L232)
 
 Wraps a class decorator to ensure compatibility with both legacy and 2023-11 proposal contexts.
 

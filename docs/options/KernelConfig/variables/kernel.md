@@ -8,7 +8,7 @@
 
 > `const` **kernel**: [`KernelConfig`](../interfaces/KernelConfig.md)
 
-Defined in: [core/src/options/KernelConfig.ts:52](https://github.com/stonemjs/core/blob/d2167ff53d508d3a75c05f0cf962180518d3e061/src/options/KernelConfig.ts#L52)
+Defined in: [core/src/options/KernelConfig.ts:52](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/KernelConfig.ts#L52)
 
 Global app-level settings for all adapters.
 

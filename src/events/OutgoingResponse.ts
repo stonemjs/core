@@ -1,3 +1,4 @@
+import { Promiseable } from '../declarations'
 import { Event, EventOptions } from './Event'
 import { IncomingEvent } from './IncomingEvent'
 import { Container } from '@stone-js/service-container'
@@ -159,7 +160,7 @@ export class OutgoingResponse extends Event {
    * @param _container - The container.
    * @returns This OutgoingResponse instance.
    */
-  prepare (_event: IncomingEvent, _container?: Container): this | Promise<this> {
+  prepare (_event: IncomingEvent, _container?: Container): Promiseable<this> {
     return this.setPrepared(true)
   }
 }

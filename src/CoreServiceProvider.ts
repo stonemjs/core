@@ -25,7 +25,6 @@ import {
   FunctionalEventSubscriber
 } from './declarations'
 import { Event } from './events/Event'
-import { defaultLoggerResolver } from './resolvers'
 import { EventEmitter } from './events/EventEmitter'
 import { Container } from '@stone-js/service-container'
 
@@ -33,6 +32,7 @@ import { Container } from '@stone-js/service-container'
  * CoreServiceProvider options.
  */
 export interface CoreServiceProviderOptions {
+  logger: ILogger
   container: Container
   blueprint: IBlueprint
   eventEmitter: EventEmitter
@@ -60,11 +60,11 @@ export class CoreServiceProvider implements IServiceProvider {
    * @param container - The service container to manage dependencies.
    * @throws {InitializationError} If the Blueprint config or EventEmitter is not bound to the container.
    */
-  constructor ({ container, blueprint, eventEmitter }: CoreServiceProviderOptions) {
+  constructor ({ container, blueprint, eventEmitter, logger }: CoreServiceProviderOptions) {
+    this.logger = logger
     this.container = container
     this.blueprint = blueprint
     this.eventEmitter = eventEmitter
-    this.logger = blueprint.get('stone.logger.resolver', defaultLoggerResolver)(blueprint)
   }
 
   /**
@@ -118,7 +118,6 @@ export class CoreServiceProvider implements IServiceProvider {
    * This method registers services, listeners, adapters, and aliases in the container.
    */
   public register (): void {
-    this.registerLogger()
     this.registerServices()
     this.registerMiddleware()
     this.registerListeners()
@@ -132,15 +131,6 @@ export class CoreServiceProvider implements IServiceProvider {
    */
   public async boot (): Promise<void> {
     await this.bootSubscribers()
-  }
-
-  /**
-   * Register the logger in the service container.
-   *
-   * @returns This CoreServiceProvider instance for chaining.
-   */
-  private registerLogger (): void {
-    this.container.instance('logger', this.logger)
   }
 
   /**

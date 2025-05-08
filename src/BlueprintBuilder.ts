@@ -1,12 +1,6 @@
-import deepmerge from 'deepmerge'
-import { Config } from '@stone-js/config'
-import { AppConfig } from './options/StoneBlueprint'
-import { BlueprintConfig } from './options/BlueprintConfig'
-import { isEmpty, isObjectLikeModule, isStoneBlueprint, isNotEmpty } from './utils'
-import { isConstructor, MixedPipe, Pipeline, PipelineOptions } from '@stone-js/pipeline'
-import { getBlueprint, getMetadata, hasBlueprint, hasMetadata } from './decorators/Metadata'
-import { CONFIGURATION_KEY, CONFIG_MIDDLEWARE_KEY, LIFECYCLE_HOOK_KEY } from './decorators/constants'
-import { IBlueprint, ClassType, BlueprintContext, BlueprintHookType, IBlueprintBuilder, BlueprintHookOptions } from './declarations'
+import { Logger } from './Logger'
+import { IBlueprint, BlueprintContext, BlueprintHookType, IBlueprintBuilder } from './declarations'
+import { isClassPipe, isFactoryPipe, MetaPipe, MixedPipe, Pipeline, PipelineOptions } from '@stone-js/pipeline'
 
 /**
  * Class representing a BlueprintBuilder for the Stone.js framework.
@@ -24,9 +18,9 @@ export class BlueprintBuilder<
   BlueprintType extends IBlueprint = IBlueprint,
   ContextType extends BlueprintContext<BlueprintType> = BlueprintContext<BlueprintType>
 > implements IBlueprintBuilder<BlueprintType> {
-  private defaultMiddlewarePriority: number
-  private hooks: BlueprintHookType<BlueprintType, ContextType>
-  private middleware: Array<MixedPipe<ContextType, BlueprintType>>
+  private readonly defaultMiddlewarePriority: number
+  private readonly hooks: BlueprintHookType<BlueprintType, ContextType>
+  private readonly middleware: Array<MixedPipe<ContextType, BlueprintType>>
 
   /**
    * Create a BlueprintBuilder.
@@ -68,7 +62,10 @@ export class BlueprintBuilder<
    * ```
    */
   public async build (modules: unknown[]): Promise<BlueprintType> {
-    const context = await this.discoverOptionsAndMakeContext(modules)
+    const context = {
+      modules,
+      blueprint: this.blueprint
+    } as unknown as ContextType
 
     await this.executeHooks('onPreparingBlueprint', context)
 
@@ -85,24 +82,6 @@ export class BlueprintBuilder<
   }
 
   /**
-   * Discover options and make the context for the BlueprintBuilder.
-   *
-   * @param modules - The modules to build the context from.
-   * @returns The context for the BlueprintBuilder.
-   */
-  private async discoverOptionsAndMakeContext (modules: unknown[]): Promise<ContextType> {
-    for (const module of modules) {
-      if (isConstructor(module)) {
-        await this.applyMetadata(module)
-      } else if (isStoneBlueprint(module)) {
-        this.populateOptions(module.stone)
-      }
-    }
-
-    return { modules, blueprint: this.blueprint } as unknown as ContextType
-  }
-
-  /**
    * Creates pipeline options for the BlueprintBuilder.
    *
    * @returns The pipeline options for configuring middleware.
@@ -112,61 +91,15 @@ export class BlueprintBuilder<
       hooks: {
         onPipeProcessed: this.hooks.onBlueprintMiddlewareProcessed ?? [],
         onProcessingPipe: this.hooks.onProcessingBlueprintMiddleware ?? []
+      },
+      resolver: (metaPipe: MetaPipe<ContextType, BlueprintType>) => {
+        if (isClassPipe(metaPipe)) {
+          return new metaPipe.module.prototype.constructor({ logger: Logger.getInstance() })
+        } else if (isFactoryPipe(metaPipe)) {
+          return metaPipe.module({ logger: Logger.getInstance() })
+        }
       }
     }
-  }
-
-  /**
-   * Apply metadata from a class to the options.
-   *
-   * @param module - The class to extract metadata from.
-   */
-  private async applyMetadata (module: ClassType): Promise<void> {
-    if (hasMetadata(module, LIFECYCLE_HOOK_KEY)) {
-      this.discoverHooks(module)
-    }
-
-    if (hasBlueprint(module)) {
-      this.populateOptions(getBlueprint(module)?.stone)
-    } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) {
-      const metadata = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
-      this.populateOptions({ blueprint: { middleware: [{ ...metadata, module }] } })
-    } else if (
-      hasMetadata(module, CONFIGURATION_KEY) &&
-      !getMetadata(module, CONFIGURATION_KEY, { live: false }).live
-    ) {
-      const blueprint = Config.create()
-      await (new module.prototype.constructor()).configure(blueprint)
-      this.populateOptions(blueprint.get('stone'))
-    }
-  }
-
-  /**
-   * Populate the configuration options with metadata.
-   *
-   * @param stone - The stone blueprint to populate the options with.
-   */
-  private populateOptions (stone?: Partial<AppConfig<any, any>>): void {
-    if (isObjectLikeModule<BlueprintConfig<BlueprintType, ContextType>>(stone?.blueprint)) {
-      this.middleware = this.middleware.concat(stone.blueprint.middleware ?? [])
-      this.hooks = isEmpty(stone.lifecycleHooks) ? this.hooks : deepmerge(this.hooks, stone.lifecycleHooks)
-      this.defaultMiddlewarePriority = stone.blueprint.defaultMiddlewarePriority ?? this.defaultMiddlewarePriority
-    }
-  }
-
-  /**
-   * Discover hooks from a module.
-   * Extracts the method from the module, bind it and store it in the hooks object.
-   *
-   * @param module - The module to discover hooks from.
-   */
-  private discoverHooks (module: any): void {
-    getMetadata<ClassType, BlueprintHookOptions[]>(module, LIFECYCLE_HOOK_KEY, []).forEach(options => {
-      if (isNotEmpty<BlueprintHookOptions>(options)) {
-        const listener = module.prototype[options.method].bind(module.prototype)
-        this.hooks[options.name] = [listener].concat(this.hooks[options.name] ?? [])
-      }
-    })
   }
 
   /**
