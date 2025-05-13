@@ -1,36 +1,49 @@
-**Core Documentation v0.0.4**
+**Core Documentation**
 
 ***
 
-# Stone.js: Core
+# Core Documentation
 
-[![npm](https://img.shields.io/npm/l/@stone-js/core)](https://opensource.org/licenses/Apache-2.0)
-[![npm](https://img.shields.io/npm/v/@stone-js/core)](https://www.npmjs.com/package/@stone-js/core)
-[![npm](https://img.shields.io/npm/dm/@stone-js/core)](https://www.npmjs.com/package/@stone-js/core)
-![Maintenance](https://img.shields.io/maintenance/yes/2025)
-[![Publish Package to npmjs](https://github.com/stonemjs/core/actions/workflows/release.yml/badge.svg)](https://github.com/stonemjs/core/actions/workflows/release.yml)
-[![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg?logo=dependabot)](https://github.com/stonemjs/core/network/updates)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+## Modules
 
-The Stone.js framework is versatile, allowing you to build applications for different environments, including command line (CLI), browser, HTTP servers, cloud functions like AWS Lambda.
-
-It offers core components such as:
-- A **Service container** for managing dependencies,
-- An **Event manager** to handle application events,
-- A **Kernel** to execute the application lifecycle,
-- An **Adapter** to ensure compatibility across different environments (e.g., console, browser, cloud), and
-- A **Config Builder** to build the blueprint, which aggregates and structures configuration settings for the application.
-
-All features are fully customizable, making it easy to extend existing functionality or integrate third-party solutions.
-
----
-
-Get started with the [documentation](https://stonejs.com).
-
-## API documentation
-
-- [API](https://github.com/stonemjs/core/blob/main/docs/modules.md)
-
-## Contributing
-
-See [Contributing Guide](https://github.com/stonemjs/core/blob/main/CONTRIBUTING.md).
+- [adapter/Adapter](adapter/Adapter/README.md)
+- [adapter/AdapterEventBuilder](adapter/AdapterEventBuilder/README.md)
+- [BlueprintBuilder](BlueprintBuilder/README.md)
+- [BlueprintUtils](BlueprintUtils/README.md)
+- [ConsoleLogger](ConsoleLogger/README.md)
+- [CoreServiceProvider](CoreServiceProvider/README.md)
+- [declarations](declarations/README.md)
+- [decorators/AdapterErrorHandler](decorators/AdapterErrorHandler/README.md)
+- [decorators/AdapterMiddleware](decorators/AdapterMiddleware/README.md)
+- [decorators/ConfigMiddleware](decorators/ConfigMiddleware/README.md)
+- [decorators/Configuration](decorators/Configuration/README.md)
+- [decorators/constants](decorators/constants/README.md)
+- [decorators/ErrorHandler](decorators/ErrorHandler/README.md)
+- [decorators/Hook](decorators/Hook/README.md)
+- [decorators/Listener](decorators/Listener/README.md)
+- [decorators/Metadata](decorators/Metadata/README.md)
+- [decorators/Middleware](decorators/Middleware/README.md)
+- [decorators/Provider](decorators/Provider/README.md)
+- [decorators/Service](decorators/Service/README.md)
+- [decorators/Stone](decorators/Stone/README.md)
+- [decorators/StoneApp](decorators/StoneApp/README.md)
+- [decorators/Subscriber](decorators/Subscriber/README.md)
+- [errors/InitializationError](errors/InitializationError/README.md)
+- [errors/IntegrationError](errors/IntegrationError/README.md)
+- [errors/RuntimeError](errors/RuntimeError/README.md)
+- [errors/SetupError](errors/SetupError/README.md)
+- [events/Event](events/Event/README.md)
+- [events/EventEmitter](events/EventEmitter/README.md)
+- [events/IncomingEvent](events/IncomingEvent/README.md)
+- [events/OutgoingResponse](events/OutgoingResponse/README.md)
+- [Kernel](Kernel/README.md)
+- [Logger](Logger/README.md)
+- [middleware/BlueprintMiddleware](middleware/BlueprintMiddleware/README.md)
+- [options/AdapterConfig](options/AdapterConfig/README.md)
+- [options/BlueprintConfig](options/BlueprintConfig/README.md)
+- [options/KernelConfig](options/KernelConfig/README.md)
+- [options/LoggerConfig](options/LoggerConfig/README.md)
+- [options/StoneBlueprint](options/StoneBlueprint/README.md)
+- [resolvers](resolvers/README.md)
+- [StoneFactory](StoneFactory/README.md)
+- [utils](utils/README.md)

@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / methodDecoratorLegacyWrapper
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / methodDecoratorLegacyWrapper
 
 # Function: methodDecoratorLegacyWrapper()
 
 > **methodDecoratorLegacyWrapper**\<`T`\>(`decorator`): `MethodDecorator`
 
-Defined in: [core/src/decorators/Metadata.ts:260](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Metadata.ts#L260)
+Defined in: [decorators/Metadata.ts:260](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L260)
 
 Wraps a method decorator to ensure compatibility with both legacy and 2023-11 proposal contexts.
 
@@ -17,7 +17,9 @@ and throws appropriate errors for unsupported usage.
 
 ## Type Parameters
 
-• **T** *extends* `Function` = `Function`
+### T
+
+`T` *extends* `Function` = `Function`
 
 The type of the method being decorated.
 

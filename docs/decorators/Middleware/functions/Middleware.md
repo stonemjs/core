@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Middleware](../README.md) / Middleware
+[Core Documentation](../../../README.md) / [decorators/Middleware](../README.md) / Middleware
 
 # Function: Middleware()
 
 > **Middleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Middleware.ts:54](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L54)
+Defined in: [decorators/Middleware.ts:54](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L54)
 
 Middleware decorator to mark a class as middleware within the Stone.js framework.
 
@@ -17,7 +17,9 @@ as part of the request/response lifecycle or other layers such as adapter, kerne
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

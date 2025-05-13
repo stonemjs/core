@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Middleware](../README.md) / MiddlewareOptions
+[Core Documentation](../../../README.md) / [decorators/Middleware](../README.md) / MiddlewareOptions
 
 # Interface: MiddlewareOptions
 
-Defined in: [core/src/decorators/Middleware.ts:10](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L10)
+Defined in: [decorators/Middleware.ts:10](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L10)
 
 Middleware options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as middlewa
 
 > `optional` **alias**: `string` \| `string`[]
 
-Defined in: [core/src/decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L19)
+Defined in: [decorators/Middleware.ts:19](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L19)
 
 The alias of the middleware.
 
@@ -28,7 +28,7 @@ The alias of the middleware.
 
 > `optional` **global**: `boolean`
 
-Defined in: [core/src/decorators/Middleware.ts:34](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L34)
+Defined in: [decorators/Middleware.ts:34](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L34)
 
 Set as Kernel middleware
 
@@ -38,7 +38,7 @@ Set as Kernel middleware
 
 > `optional` **params**: `unknown`[]
 
-Defined in: [core/src/decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L24)
+Defined in: [decorators/Middleware.ts:24](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L24)
 
 The params to pass to the middleware.
 
@@ -48,7 +48,7 @@ The params to pass to the middleware.
 
 > `optional` **priority**: `number`
 
-Defined in: [core/src/decorators/Middleware.ts:29](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L29)
+Defined in: [decorators/Middleware.ts:29](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L29)
 
 The execution priority of the middleware.
 
@@ -58,6 +58,6 @@ The execution priority of the middleware.
 
 > `optional` **singleton**: `boolean`
 
-Defined in: [core/src/decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Middleware.ts#L14)
+Defined in: [decorators/Middleware.ts:14](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Middleware.ts#L14)
 
 Whether the middleware should be treated as a singleton.

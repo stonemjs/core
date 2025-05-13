@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / getBlueprint
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / getBlueprint
 
 # Function: getBlueprint()
 
@@ -18,17 +18,21 @@ The default value to return if the blueprint key is not found.
 
 ## Call Signature
 
-> **getBlueprint**\<`TClass`, `UReturn`\>(`Class`): `UReturn` \| `undefined`
+> **getBlueprint**\<`TClass`, `UReturn`\>(`Class`): `undefined` \| `UReturn`
 
-Defined in: [core/src/decorators/Metadata.ts:198](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Metadata.ts#L198)
+Defined in: [decorators/Metadata.ts:198](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L198)
 
 Get the blueprint value from a class.
 
 ### Type Parameters
 
-• **TClass** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+#### TClass
 
-• **UReturn** = [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)
+`TClass` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+
+#### UReturn
+
+`UReturn` = [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>
 
 ### Parameters
 
@@ -40,9 +44,7 @@ The class to get the blueprint from.
 
 ### Returns
 
-`UReturn` \| `undefined`
-
-The blueprint value or the default value if the key does not exist.
+`undefined` \| `UReturn`
 
 The blueprint value or the default value if the key does not exist.
 
@@ -58,15 +60,19 @@ The default value to return if the blueprint key is not found.
 
 > **getBlueprint**\<`TClass`, `UReturn`\>(`Class`, `fallback`): `UReturn`
 
-Defined in: [core/src/decorators/Metadata.ts:207](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Metadata.ts#L207)
+Defined in: [decorators/Metadata.ts:207](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L207)
 
 Get the blueprint value from a class.
 
 ### Type Parameters
 
-• **TClass** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+#### TClass
 
-• **UReturn** = [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)
+`TClass` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+
+#### UReturn
+
+`UReturn` = [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>
 
 ### Parameters
 
@@ -85,8 +91,6 @@ The default value to return if the blueprint key is not found.
 ### Returns
 
 `UReturn`
-
-The blueprint value or the default value if the key does not exist.
 
 The blueprint value or the default value if the key does not exist.
 

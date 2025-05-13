@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / ClassMethodType
+[Core Documentation](../../README.md) / [declarations](../README.md) / ClassMethodType
 
 # Type Alias: ClassMethodType()\<This\>
 
-> **ClassMethodType**\<`This`\>: (`this`, ...`args`) => `any`
+> **ClassMethodType**\<`This`\> = (`this`, ...`args`) => `any`
 
-Defined in: [core/src/declarations.ts:836](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L836)
+Defined in: [declarations.ts:836](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L836)
 
 ClassMethodType Type.
 
@@ -16,7 +16,9 @@ Represents a method type within a class, with a specific context.
 
 ## Type Parameters
 
-• **This** = `unknown`
+### This
+
+`This` = `unknown`
 
 ## Parameters
 

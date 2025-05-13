@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / MetaEventHandler
+[Core Documentation](../../README.md) / [declarations](../README.md) / MetaEventHandler
 
 # Interface: MetaEventHandler\<TEvent, UResponse\>
 
-Defined in: [core/src/declarations.ts:498](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L498)
+Defined in: [declarations.ts:498](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L498)
 
 MetaEventHandler Interface.
 
@@ -18,9 +18,13 @@ UResponse
 
 ## Type Parameters
 
-• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+### TEvent
 
-• **UResponse** = `unknown`
+`TEvent` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### UResponse
+
+`UResponse` = `unknown`
 
 ## Properties
 
@@ -28,7 +32,7 @@ UResponse
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:499](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L499)
+Defined in: [declarations.ts:499](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L499)
 
 ***
 
@@ -36,7 +40,7 @@ Defined in: [core/src/declarations.ts:499](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:500](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L500)
+Defined in: [declarations.ts:500](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L500)
 
 ***
 
@@ -44,4 +48,4 @@ Defined in: [core/src/declarations.ts:500](https://github.com/stonemjs/core/blob
 
 > **module**: [`EventHandlerType`](../type-aliases/EventHandlerType.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [core/src/declarations.ts:501](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L501)
+Defined in: [declarations.ts:501](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L501)

@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Service](../README.md) / Service
+[Core Documentation](../../../README.md) / [decorators/Service](../README.md) / Service
 
 # Function: Service()
 
 > **Service**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Service.ts:42](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Service.ts#L42)
+Defined in: [decorators/Service.ts:42](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Service.ts#L42)
 
 Service decorator to mark a class as a service and automatically bind it to the container.
 
@@ -17,7 +17,9 @@ making them easily injectable and manageable by the service container.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

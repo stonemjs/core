@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [adapter/AdapterEventBuilder](../README.md) / AdapterEventBuilderOptions
+[Core Documentation](../../../README.md) / [adapter/AdapterEventBuilder](../README.md) / AdapterEventBuilderOptions
 
 # Interface: AdapterEventBuilderOptions\<V, R\>
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:14](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/adapter/AdapterEventBuilder.ts#L14)
+Defined in: [adapter/AdapterEventBuilder.ts:14](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/adapter/AdapterEventBuilder.ts#L14)
 
 AdapterEventBuilderOptions.
 
@@ -15,11 +15,15 @@ It includes an optional initial options object of type `V` and a resolver functi
 
 ## Type Parameters
 
-• **V**
+### V
+
+`V`
 
 The type of the options used to build the final object.
 
-• **R**
+### R
+
+`R`
 
 The type of the final object that will be built.
 
@@ -29,7 +33,7 @@ The type of the final object that will be built.
 
 > `optional` **options**: `V`
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:18](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/adapter/AdapterEventBuilder.ts#L18)
+Defined in: [adapter/AdapterEventBuilder.ts:18](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/adapter/AdapterEventBuilder.ts#L18)
 
 The initial options used for building the object. This is optional.
 
@@ -39,7 +43,7 @@ The initial options used for building the object. This is optional.
 
 > **resolver**: (`options`) => `R`
 
-Defined in: [core/src/adapter/AdapterEventBuilder.ts:23](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/adapter/AdapterEventBuilder.ts#L23)
+Defined in: [adapter/AdapterEventBuilder.ts:23](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/adapter/AdapterEventBuilder.ts#L23)
 
 The resolver function that takes the options and returns the final object of type `R`.
 

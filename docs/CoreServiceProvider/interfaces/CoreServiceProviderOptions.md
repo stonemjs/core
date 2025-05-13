@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [CoreServiceProvider](../README.md) / CoreServiceProviderOptions
+[Core Documentation](../../README.md) / [CoreServiceProvider](../README.md) / CoreServiceProviderOptions
 
 # Interface: CoreServiceProviderOptions
 
-Defined in: [core/src/CoreServiceProvider.ts:34](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/CoreServiceProvider.ts#L34)
+Defined in: [CoreServiceProvider.ts:34](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/CoreServiceProvider.ts#L34)
 
 CoreServiceProvider options.
 
@@ -16,7 +16,7 @@ CoreServiceProvider options.
 
 > **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:37](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/CoreServiceProvider.ts#L37)
+Defined in: [CoreServiceProvider.ts:37](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/CoreServiceProvider.ts#L37)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/CoreServiceProvider.ts:37](https://github.com/stonemjs/cor
 
 > **container**: `Container`
 
-Defined in: [core/src/CoreServiceProvider.ts:36](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/CoreServiceProvider.ts#L36)
+Defined in: [CoreServiceProvider.ts:36](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/CoreServiceProvider.ts#L36)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/CoreServiceProvider.ts:36](https://github.com/stonemjs/cor
 
 > **eventEmitter**: [`EventEmitter`](../../events/EventEmitter/classes/EventEmitter.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:38](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/CoreServiceProvider.ts#L38)
+Defined in: [CoreServiceProvider.ts:38](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/CoreServiceProvider.ts#L38)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [core/src/CoreServiceProvider.ts:38](https://github.com/stonemjs/cor
 
 > **logger**: [`ILogger`](../../declarations/interfaces/ILogger.md)
 
-Defined in: [core/src/CoreServiceProvider.ts:35](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/CoreServiceProvider.ts#L35)
+Defined in: [CoreServiceProvider.ts:35](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/CoreServiceProvider.ts#L35)

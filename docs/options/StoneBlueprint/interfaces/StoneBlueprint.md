@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [options/StoneBlueprint](../README.md) / StoneBlueprint
+[Core Documentation](../../../README.md) / [options/StoneBlueprint](../README.md) / StoneBlueprint
 
 # Interface: StoneBlueprint\<U, V\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:155](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/StoneBlueprint.ts#L155)
+Defined in: [options/StoneBlueprint.ts:155](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/options/StoneBlueprint.ts#L155)
 
 Stone blueprint.
 
@@ -16,13 +16,20 @@ while allowing additional custom options to be added.
 
 ## Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
+### U
 
-• **V** *extends* [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`U` *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### V
+
+`V` *extends* [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Indexable
 
 \[`key`: `string`\]: `unknown`
+
+Allow adding any additional custom properties.
+The value of the custom properties can be of any type, depending on user requirements.
 
 ## Properties
 
@@ -30,6 +37,6 @@ while allowing additional custom options to be added.
 
 > **stone**: `Partial`\<[`AppConfig`](AppConfig.md)\<`U`, `V`\>\>
 
-Defined in: [core/src/options/StoneBlueprint.ts:159](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/options/StoneBlueprint.ts#L159)
+Defined in: [options/StoneBlueprint.ts:159](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/options/StoneBlueprint.ts#L159)
 
 Application-level settings, including environment, middleware, logging, and service registration.

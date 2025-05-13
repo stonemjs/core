@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [BlueprintUtils](../README.md) / defineEventHandler
+[Core Documentation](../../README.md) / [BlueprintUtils](../README.md) / defineEventHandler
 
 # Function: defineEventHandler()
 
@@ -18,17 +18,21 @@ Indicates if the handler is a factory function. e.g. `true` for a factory functi
 
 ## Call Signature
 
-> **defineEventHandler**\<`U`, `V`\>(`module`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineEventHandler**\<`U`, `V`\>(`module`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:220
+Defined in: [BlueprintUtils.ts:220](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L220)
 
 Utility function to define a function-based event handler.
 
 ### Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+#### U
 
-• **V** = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`U` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+#### V
+
+`V` = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ### Parameters
 
@@ -40,9 +44,7 @@ The EventHandler module.
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 
@@ -56,17 +58,21 @@ Indicates if the handler is a factory function. e.g. `true` for a factory functi
 
 ## Call Signature
 
-> **defineEventHandler**\<`U`, `V`\>(`module`, `isFactory`?): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineEventHandler**\<`U`, `V`\>(`module`, `isFactory?`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:231
+Defined in: [BlueprintUtils.ts:231](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L231)
 
 Utility function to define a factory-based event handler.
 
 ### Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+#### U
 
-• **V** = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`U` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+#### V
+
+`V` = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ### Parameters
 
@@ -84,9 +90,7 @@ Indicates if the handler is a factory function. e.g. `true` for a factory functi
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 
@@ -100,17 +104,21 @@ Indicates if the handler is a factory function. e.g. `true` for a factory functi
 
 ## Call Signature
 
-> **defineEventHandler**\<`U`, `V`\>(`module`, `isFactory`?): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineEventHandler**\<`U`, `V`\>(`module`, `isFactory?`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:243
+Defined in: [BlueprintUtils.ts:243](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L243)
 
 Utility function to define a factory-based event handler.
 
 ### Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+#### U
 
-• **V** = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`U` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+#### V
+
+`V` = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ### Parameters
 
@@ -128,9 +136,7 @@ Indicates if the handler is a factory function. e.g. `false` for a class.
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 

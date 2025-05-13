@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / LogLevel
+[Core Documentation](../../README.md) / [declarations](../README.md) / LogLevel
 
 # Enumeration: LogLevel
 
-Defined in: [core/src/declarations.ts:86](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L86)
+Defined in: [declarations.ts:86](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L86)
 
 Log level enumeration to define possible log levels.
 
@@ -16,7 +16,7 @@ Log level enumeration to define possible log levels.
 
 > **DEBUG**: `"debug"`
 
-Defined in: [core/src/declarations.ts:90](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L90)
+Defined in: [declarations.ts:90](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L90)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/declarations.ts:90](https://github.com/stonemjs/core/blob/
 
 > **ERROR**: `"error"`
 
-Defined in: [core/src/declarations.ts:89](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L89)
+Defined in: [declarations.ts:89](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L89)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/declarations.ts:89](https://github.com/stonemjs/core/blob/
 
 > **INFO**: `"info"`
 
-Defined in: [core/src/declarations.ts:87](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L87)
+Defined in: [declarations.ts:87](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L87)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [core/src/declarations.ts:87](https://github.com/stonemjs/core/blob/
 
 > **TRACE**: `"trace"`
 
-Defined in: [core/src/declarations.ts:91](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L91)
+Defined in: [declarations.ts:91](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L91)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [core/src/declarations.ts:91](https://github.com/stonemjs/core/blob/
 
 > **WARN**: `"warn"`
 
-Defined in: [core/src/declarations.ts:88](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L88)
+Defined in: [declarations.ts:88](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L88)

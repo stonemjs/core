@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / FunctionalAdapterEventHandler
+[Core Documentation](../../README.md) / [declarations](../README.md) / FunctionalAdapterEventHandler
 
 # Type Alias: FunctionalAdapterEventHandler()\<TEvent, UResponse\>
 
-> **FunctionalAdapterEventHandler**\<`TEvent`, `UResponse`\>: (`incomingEvent`) => [`Promiseable`](Promiseable.md)\<`UResponse`\>
+> **FunctionalAdapterEventHandler**\<`TEvent`, `UResponse`\> = (`incomingEvent`) => [`Promiseable`](Promiseable.md)\<`UResponse`\>
 
-Defined in: [core/src/declarations.ts:1049](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L1049)
+Defined in: [declarations.ts:1049](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1049)
 
 FunctionalAdapterEventHandler.
 
@@ -16,9 +16,13 @@ Represents a function that handles incoming events and returns an outgoing respo
 
 ## Type Parameters
 
-• **TEvent** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+### TEvent
 
-• **UResponse** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`TEvent` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### UResponse
+
+`UResponse` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 

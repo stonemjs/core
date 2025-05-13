@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [middleware/BlueprintMiddleware](../README.md) / MiddlewareMiddleware
+[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / MiddlewareMiddleware
 
 # Function: MiddlewareMiddleware()
 
 > **MiddlewareMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [core/src/middleware/BlueprintMiddleware.ts:366](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/middleware/BlueprintMiddleware.ts#L366)
+Defined in: [middleware/BlueprintMiddleware.ts:366](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/middleware/BlueprintMiddleware.ts#L366)
 
 Middleware to add global and specific middleware to the kernel blueprint.
 

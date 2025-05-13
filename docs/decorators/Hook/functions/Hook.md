@@ -1,21 +1,23 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Hook](../README.md) / Hook
+[Core Documentation](../../../README.md) / [decorators/Hook](../README.md) / Hook
 
 # Function: Hook()
 
 > **Hook**\<`T`\>(`name`): `MethodDecorator`
 
-Defined in: [core/src/decorators/Hook.ts:21](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Hook.ts#L21)
+Defined in: [decorators/Hook.ts:21](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Hook.ts#L21)
 
 Hook decorator to mark a method as a lifecycle hook
 And automatically add it to the global lifecycle hook registry.
 
 ## Type Parameters
 
-• **T** *extends* `Function` = `Function`
+### T
+
+`T` *extends* `Function` = `Function`
 
 ## Parameters
 

@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / ProposalMethodDecorator
+[Core Documentation](../../README.md) / [declarations](../README.md) / ProposalMethodDecorator
 
 # Type Alias: ProposalMethodDecorator()\<T\>
 
-> **ProposalMethodDecorator**\<`T`\>: \<`TFunction`\>(`target`, `context`) => `TFunction` \| `undefined`
+> **ProposalMethodDecorator**\<`T`\> = \<`TFunction`\>(`target`, `context`) => `TFunction` \| `undefined`
 
-Defined in: [core/src/declarations.ts:928](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L928)
+Defined in: [declarations.ts:928](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L928)
 
 Represents a method decorator using the 2023-11 proposal syntax.
 
@@ -16,13 +16,17 @@ A function that decorates a class method and optionally returns a new method imp
 
 ## Type Parameters
 
-• **T** *extends* `Function` = `Function`
+### T
+
+`T` *extends* `Function` = `Function`
 
 The type of the method being decorated.
 
 ## Type Parameters
 
-• **TFunction** *extends* `T`
+### TFunction
+
+`TFunction` *extends* `T`
 
 ## Parameters
 

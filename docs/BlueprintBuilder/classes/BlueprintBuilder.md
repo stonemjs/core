@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [BlueprintBuilder](../README.md) / BlueprintBuilder
+[Core Documentation](../../README.md) / [BlueprintBuilder](../README.md) / BlueprintBuilder
 
 # Class: BlueprintBuilder\<BlueprintType, ContextType\>
 
-Defined in: [core/src/BlueprintBuilder.ts:17](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/BlueprintBuilder.ts#L17)
+Defined in: [BlueprintBuilder.ts:17](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintBuilder.ts#L17)
 
 Class representing a BlueprintBuilder for the Stone.js framework.
 
@@ -23,9 +23,13 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Type Parameters
 
-• **BlueprintType** *extends* [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+### BlueprintType
 
-• **ContextType** *extends* [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\>
+`BlueprintType` *extends* [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+
+### ContextType
+
+`ContextType` *extends* [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\>
 
 ## Implements
 
@@ -37,7 +41,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **build**(`modules`): `Promise`\<`BlueprintType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:64](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/BlueprintBuilder.ts#L64)
+Defined in: [BlueprintBuilder.ts:64](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintBuilder.ts#L64)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -70,17 +74,21 @@ const blueprint = await BlueprintBuilder.build(rawModules);
 
 ### create()
 
-> `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): [`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
+> `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): `BlueprintBuilder`\<`BlueprintType`, `ContextType`\>
 
-Defined in: [core/src/BlueprintBuilder.ts:31](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/BlueprintBuilder.ts#L31)
+Defined in: [BlueprintBuilder.ts:31](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintBuilder.ts#L31)
 
 Create a BlueprintBuilder.
 
 #### Type Parameters
 
-• **BlueprintType** *extends* [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+##### BlueprintType
 
-• **ContextType** *extends* [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`\>
+`BlueprintType` *extends* [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md) = [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+
+##### ContextType
+
+`ContextType` *extends* [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, [`ClassType`](../../declarations/type-aliases/ClassType.md)\<`any`\> \| `PipeClass`\> = [`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, [`ClassType`](../../declarations/type-aliases/ClassType.md)\<`any`\> \| `PipeClass`\>
 
 #### Parameters
 
@@ -92,6 +100,6 @@ The blueprint to create a BlueprintBuilder.
 
 #### Returns
 
-[`BlueprintBuilder`](BlueprintBuilder.md)\<`BlueprintType`, `ContextType`\>
+`BlueprintBuilder`\<`BlueprintType`, `ContextType`\>
 
 A new BlueprintBuilder instance.

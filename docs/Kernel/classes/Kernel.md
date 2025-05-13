@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [Kernel](../README.md) / Kernel
+[Core Documentation](../../README.md) / [Kernel](../README.md) / Kernel
 
 # Class: Kernel\<IncomingEventType, OutgoingResponseType\>
 
-Defined in: [core/src/Kernel.ts:71](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L71)
+Defined in: [Kernel.ts:71](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L71)
 
 Class representing a Kernel.
 
@@ -20,9 +20,13 @@ Mr. Stone <evensstone@gmail.com>
 
 ## Type Parameters
 
-• **IncomingEventType** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+### IncomingEventType
 
-• **OutgoingResponseType** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`IncomingEventType` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### OutgoingResponseType
+
+`OutgoingResponseType` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Implements
 
@@ -34,7 +38,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **handle**(`event`): `Promise`\<`OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:148](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L148)
+Defined in: [Kernel.ts:148](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L148)
 
 Handle Stone IncomingEvent.
 
@@ -62,7 +66,7 @@ The Stone outgoing response.
 
 > **onEventHandled**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:155](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L155)
+Defined in: [Kernel.ts:155](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L155)
 
 Invoke subsequent hooks after handling the event.
 
@@ -80,7 +84,7 @@ Invoke subsequent hooks after handling the event.
 
 > **onHandlingEvent**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:137](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L137)
+Defined in: [Kernel.ts:137](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L137)
 
 Boot the providers.
 Invoke subsequent hooks.
@@ -100,7 +104,7 @@ Note: Execution order is important here, never change it.
 
 > **onInit**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:123](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L123)
+Defined in: [Kernel.ts:123](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L123)
 
 Populate the context with the given bindings.
 The context here is the service container.
@@ -121,7 +125,7 @@ Note: Execution order is important here, never change it.
 
 > **onTerminate**(): `Promise`\<`void`\>
 
-Defined in: [core/src/Kernel.ts:162](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L162)
+Defined in: [Kernel.ts:162](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L162)
 
 Invoke subsequent hooks on termination.
 
@@ -137,17 +141,21 @@ Invoke subsequent hooks on termination.
 
 ### create()
 
-> `static` **create**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): [`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
+> `static` **create**\<`IncomingEventType`, `OutgoingResponseType`\>(`options`): `Kernel`\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [core/src/Kernel.ts:92](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/Kernel.ts#L92)
+Defined in: [Kernel.ts:92](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Kernel.ts#L92)
 
 Create a Kernel.
 
 #### Type Parameters
 
-• **IncomingEventType** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+##### IncomingEventType
 
-• **OutgoingResponseType** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`IncomingEventType` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+##### OutgoingResponseType
+
+`OutgoingResponseType` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 #### Parameters
 
@@ -159,6 +167,6 @@ Kernel configuration options.
 
 #### Returns
 
-[`Kernel`](Kernel.md)\<`IncomingEventType`, `OutgoingResponseType`\>
+`Kernel`\<`IncomingEventType`, `OutgoingResponseType`\>
 
 A new Kernel instance.

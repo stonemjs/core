@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [utils](../README.md) / mergeBlueprints
+[Core Documentation](../../README.md) / [utils](../README.md) / mergeBlueprints
 
 # Function: mergeBlueprints()
 
 > **mergeBlueprints**\<`U`, `V`\>(...`blueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
 
-Defined in: [core/src/utils.ts:33](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/utils.ts#L33)
+Defined in: [utils.ts:33](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/utils.ts#L33)
 
 Merges multiple blueprints into a single application blueprint.
 
@@ -20,9 +20,13 @@ Consider handling such cases or documenting this behavior if it applies to your 
 
 ## Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+### U
 
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`U` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### V
+
+`V` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 

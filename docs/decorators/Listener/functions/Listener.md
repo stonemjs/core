@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Listener](../README.md) / Listener
+[Core Documentation](../../../README.md) / [decorators/Listener](../README.md) / Listener
 
 # Function: Listener()
 
 > **Listener**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Listener.ts#L34)
+Defined in: [decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Listener.ts#L34)
 
 Listener decorator to mark a class as a listener for a specific event.
 
@@ -17,7 +17,9 @@ It allows the class to be recognized and managed by the event-handling system.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

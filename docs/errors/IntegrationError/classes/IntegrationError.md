@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [errors/IntegrationError](../README.md) / IntegrationError
+[Core Documentation](../../../README.md) / [errors/IntegrationError](../README.md) / IntegrationError
 
 # Class: IntegrationError
 
-Defined in: [core/src/errors/IntegrationError.ts:7](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/IntegrationError.ts#L7)
+Defined in: [errors/IntegrationError.ts:7](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/IntegrationError.ts#L7)
 
 Custom error for Integration layer operations.
 
@@ -16,11 +16,11 @@ Custom error for Integration layer operations.
 
 ## Constructors
 
-### new IntegrationError()
+### Constructor
 
-> **new IntegrationError**(`message`, `options`): [`IntegrationError`](IntegrationError.md)
+> **new IntegrationError**(`message`, `options`): `IntegrationError`
 
-Defined in: [core/src/errors/IntegrationError.ts:8](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/IntegrationError.ts#L8)
+Defined in: [errors/IntegrationError.ts:8](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/IntegrationError.ts#L8)
 
 #### Parameters
 
@@ -34,11 +34,11 @@ Defined in: [core/src/errors/IntegrationError.ts:8](https://github.com/stonemjs/
 
 #### Returns
 
-[`IntegrationError`](IntegrationError.md)
+`IntegrationError`
 
 #### Overrides
 
-[`RuntimeError`](../../RuntimeError/classes/RuntimeError.md).[`constructor`](../../RuntimeError/classes/RuntimeError.md#constructors)
+[`RuntimeError`](../../RuntimeError/classes/RuntimeError.md).[`constructor`](../../RuntimeError/classes/RuntimeError.md#constructor)
 
 ## Properties
 
@@ -46,7 +46,7 @@ Defined in: [core/src/errors/IntegrationError.ts:8](https://github.com/stonemjs/
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: [core/src/errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/RuntimeError.ts#L10)
+Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/RuntimeError.ts#L10)
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: [core/src/errors/RuntimeError.ts:10](https://github.com/stonemjs/cor
 
 > `readonly` `optional` **code**: `string`
 
-Defined in: [core/src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/RuntimeError.ts#L9)
+Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/RuntimeError.ts#L9)
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: [core/src/errors/RuntimeError.ts:9](https://github.com/stonemjs/core
 
 > `readonly` `optional` **metadata**: `unknown`
 
-Defined in: [core/src/errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/RuntimeError.ts#L11)
+Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/RuntimeError.ts#L11)
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: [core/src/errors/RuntimeError.ts:11](https://github.com/stonemjs/cor
 
 > **toString**(`multiline`): `string`
 
-Defined in: [core/src/errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/RuntimeError.ts#L51)
+Defined in: [errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/RuntimeError.ts#L51)
 
 Converts the error to a formatted string representation.
 
@@ -110,13 +110,15 @@ A formatted error string.
 
 > `static` **create**\<`T`\>(`message`, `options`): `T`
 
-Defined in: [core/src/errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/errors/RuntimeError.ts#L19)
+Defined in: [errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/errors/RuntimeError.ts#L19)
 
 Create a RuntimeError.
 
 #### Type Parameters
 
-• **T** *extends* [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md)
+##### T
+
+`T` *extends* [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md)
 
 #### Parameters
 

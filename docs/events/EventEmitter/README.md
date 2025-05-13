@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / events/EventEmitter
+[Core Documentation](../../README.md) / events/EventEmitter
 
 # events/EventEmitter
 

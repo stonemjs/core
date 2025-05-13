@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / adapter/AdapterEventBuilder
+[Core Documentation](../../README.md) / adapter/AdapterEventBuilder
 
 # adapter/AdapterEventBuilder
 

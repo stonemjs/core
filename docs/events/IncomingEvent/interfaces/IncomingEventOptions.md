@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
+[Core Documentation](../../../README.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
 
 # Interface: IncomingEventOptions
 
-Defined in: [core/src/events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/IncomingEvent.ts#L7)
+Defined in: [events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/IncomingEvent.ts#L7)
 
 IncomingEventOptions.
 
@@ -24,7 +24,7 @@ IncomingEventOptions.
 
 > `optional` **locale**: `string`
 
-Defined in: [core/src/events/IncomingEvent.ts:8](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/IncomingEvent.ts#L8)
+Defined in: [events/IncomingEvent.ts:8](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/IncomingEvent.ts#L8)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/events/IncomingEvent.ts:8](https://github.com/stonemjs/cor
 
 > `optional` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [core/src/events/Event.ts:10](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/Event.ts#L10)
+Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/Event.ts#L10)
 
 #### Inherited from
 
@@ -44,7 +44,7 @@ Defined in: [core/src/events/Event.ts:10](https://github.com/stonemjs/core/blob/
 
 > **source**: [`IncomingEventSource`](../../../declarations/interfaces/IncomingEventSource.md)
 
-Defined in: [core/src/events/IncomingEvent.ts:9](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/IncomingEvent.ts#L9)
+Defined in: [events/IncomingEvent.ts:9](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/IncomingEvent.ts#L9)
 
 #### Overrides
 
@@ -56,7 +56,7 @@ Defined in: [core/src/events/IncomingEvent.ts:9](https://github.com/stonemjs/cor
 
 > `optional` **timeStamp**: `number`
 
-Defined in: [core/src/events/Event.ts:9](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/Event.ts#L9)
+Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/Event.ts#L9)
 
 #### Inherited from
 
@@ -68,7 +68,7 @@ Defined in: [core/src/events/Event.ts:9](https://github.com/stonemjs/core/blob/2
 
 > `optional` **type**: `string`
 
-Defined in: [core/src/events/Event.ts:7](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/Event.ts#L7)
+Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/Event.ts#L7)
 
 #### Inherited from
 

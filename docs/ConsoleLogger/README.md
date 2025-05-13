@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../README.md)
+[**Core Documentation**](../README.md)
 
 ***
 
-[Core Documentation](../modules.md) / ConsoleLogger
+[Core Documentation](../README.md) / ConsoleLogger
 
 # ConsoleLogger
 

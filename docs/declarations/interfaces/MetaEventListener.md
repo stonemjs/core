@@ -1,18 +1,20 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / MetaEventListener
+[Core Documentation](../../README.md) / [declarations](../README.md) / MetaEventListener
 
 # Interface: MetaEventListener\<TEvent\>
 
-Defined in: [core/src/declarations.ts:373](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L373)
+Defined in: [declarations.ts:373](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L373)
 
 Represents a MetaEventListener type.
 
 ## Type Parameters
 
-• **TEvent** *extends* [`Event`](../../events/Event/classes/Event.md) = [`Event`](../../events/Event/classes/Event.md)
+### TEvent
+
+`TEvent` *extends* [`Event`](../../events/Event/classes/Event.md) = [`Event`](../../events/Event/classes/Event.md)
 
 ## Properties
 
@@ -20,7 +22,7 @@ Represents a MetaEventListener type.
 
 > **event**: `string`
 
-Defined in: [core/src/declarations.ts:374](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L374)
+Defined in: [declarations.ts:374](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L374)
 
 ***
 
@@ -28,7 +30,7 @@ Defined in: [core/src/declarations.ts:374](https://github.com/stonemjs/core/blob
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:375](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L375)
+Defined in: [declarations.ts:375](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L375)
 
 ***
 
@@ -36,7 +38,7 @@ Defined in: [core/src/declarations.ts:375](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:376](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L376)
+Defined in: [declarations.ts:376](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L376)
 
 ***
 
@@ -44,4 +46,4 @@ Defined in: [core/src/declarations.ts:376](https://github.com/stonemjs/core/blob
 
 > **module**: [`EventListenerType`](../type-aliases/EventListenerType.md)\<`TEvent`\>
 
-Defined in: [core/src/declarations.ts:377](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L377)
+Defined in: [declarations.ts:377](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L377)

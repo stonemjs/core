@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / FactoryEventListener
+[Core Documentation](../../README.md) / [declarations](../README.md) / FactoryEventListener
 
 # Type Alias: FactoryEventListener()\<TEvent\>
 
-> **FactoryEventListener**\<`TEvent`\>: (`container`) => [`FunctionalEventListener`](FunctionalEventListener.md)\<`TEvent`\>
+> **FactoryEventListener**\<`TEvent`\> = (`container`) => [`FunctionalEventListener`](FunctionalEventListener.md)\<`TEvent`\>
 
-Defined in: [core/src/declarations.ts:360](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L360)
+Defined in: [declarations.ts:360](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L360)
 
 Represents a FactoryEventListener type.
 
 ## Type Parameters
 
-• **TEvent** *extends* [`Event`](../../events/Event/classes/Event.md) = [`Event`](../../events/Event/classes/Event.md)
+### TEvent
+
+`TEvent` *extends* [`Event`](../../events/Event/classes/Event.md) = [`Event`](../../events/Event/classes/Event.md)
 
 ## Parameters
 

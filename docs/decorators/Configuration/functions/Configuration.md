@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Configuration](../README.md) / Configuration
+[Core Documentation](../../../README.md) / [decorators/Configuration](../README.md) / Configuration
 
 # Function: Configuration()
 
 > **Configuration**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Configuration.ts:36](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Configuration.ts#L36)
+Defined in: [decorators/Configuration.ts:36](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Configuration.ts#L36)
 
 Configuration decorator to set imperative configuration.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

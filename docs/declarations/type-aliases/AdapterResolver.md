@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / AdapterResolver
+[Core Documentation](../../README.md) / [declarations](../README.md) / AdapterResolver
 
 # Type Alias: AdapterResolver()
 
-> **AdapterResolver**: (`blueprint`) => [`IAdapter`](../interfaces/IAdapter.md)
+> **AdapterResolver** = (`blueprint`) => [`IAdapter`](../interfaces/IAdapter.md)
 
-Defined in: [core/src/declarations.ts:1145](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L1145)
+Defined in: [declarations.ts:1145](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1145)
 
 AdapterResolver Type.
 

@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / MetaService
+[Core Documentation](../../README.md) / [declarations](../README.md) / MetaService
 
 # Interface: MetaService
 
-Defined in: [core/src/declarations.ts:319](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L319)
+Defined in: [declarations.ts:319](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L319)
 
 Represents a MetaService type.
 
@@ -16,7 +16,7 @@ Represents a MetaService type.
 
 > **alias**: `string` \| `string`[]
 
-Defined in: [core/src/declarations.ts:323](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L323)
+Defined in: [declarations.ts:323](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L323)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [core/src/declarations.ts:323](https://github.com/stonemjs/core/blob
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [core/src/declarations.ts:320](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L320)
+Defined in: [declarations.ts:320](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L320)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [core/src/declarations.ts:320](https://github.com/stonemjs/core/blob
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [core/src/declarations.ts:321](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L321)
+Defined in: [declarations.ts:321](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L321)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [core/src/declarations.ts:321](https://github.com/stonemjs/core/blob
 
 > **module**: [`IServiceClass`](../type-aliases/IServiceClass.md) \| [`FactoryService`](../type-aliases/FactoryService.md)
 
-Defined in: [core/src/declarations.ts:324](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L324)
+Defined in: [declarations.ts:324](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L324)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [core/src/declarations.ts:324](https://github.com/stonemjs/core/blob
 
 > `optional` **singleton**: `boolean`
 
-Defined in: [core/src/declarations.ts:322](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L322)
+Defined in: [declarations.ts:322](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L322)

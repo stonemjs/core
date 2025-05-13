@@ -1,42 +1,44 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [events/EventEmitter](../README.md) / EventEmitter
+[Core Documentation](../../../README.md) / [events/EventEmitter](../README.md) / EventEmitter
 
 # Class: EventEmitter
 
-Defined in: [core/src/events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/EventEmitter.ts#L18)
+Defined in: [events/EventEmitter.ts:18](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/EventEmitter.ts#L18)
 
 Class representing an EventEmitter.
 
 ## Constructors
 
-### new EventEmitter()
+### Constructor
 
-> **new EventEmitter**(): [`EventEmitter`](EventEmitter.md)
+> **new EventEmitter**(): `EventEmitter`
 
-Defined in: [core/src/events/EventEmitter.ts:33](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/EventEmitter.ts#L33)
+Defined in: [events/EventEmitter.ts:33](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/EventEmitter.ts#L33)
 
 Create an EventEmitter.
 
 #### Returns
 
-[`EventEmitter`](EventEmitter.md)
+`EventEmitter`
 
 ## Methods
 
 ### emit()
 
-> **emit**\<`TEvent`\>(`event`, `args`?): `Promise`\<`void`\>
+> **emit**\<`TEvent`\>(`event`, `args?`): `Promise`\<`void`\>
 
-Defined in: [core/src/events/EventEmitter.ts:73](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/EventEmitter.ts#L73)
+Defined in: [events/EventEmitter.ts:73](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/EventEmitter.ts#L73)
 
 Emits an event, triggering all associated listeners.
 
 #### Type Parameters
 
-• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
+##### TEvent
+
+`TEvent` *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 #### Parameters
 
@@ -62,13 +64,15 @@ Additional arguments to pass to the listeners.
 
 > **off**\<`TEvent`\>(`event`, `handler`): `this`
 
-Defined in: [core/src/events/EventEmitter.ts:58](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/EventEmitter.ts#L58)
+Defined in: [events/EventEmitter.ts:58](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/EventEmitter.ts#L58)
 
 Removes an event listener for the given event type.
 
 #### Type Parameters
 
-• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
+##### TEvent
+
+`TEvent` *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 #### Parameters
 
@@ -94,13 +98,15 @@ The callback to remove.
 
 > **on**\<`TEvent`\>(`event`, `handler`): `this`
 
-Defined in: [core/src/events/EventEmitter.ts:43](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/EventEmitter.ts#L43)
+Defined in: [events/EventEmitter.ts:43](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/EventEmitter.ts#L43)
 
 Registers an event listener for the given event type.
 
 #### Type Parameters
 
-• **TEvent** *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
+##### TEvent
+
+`TEvent` *extends* [`Event`](../../Event/classes/Event.md) = [`Event`](../../Event/classes/Event.md)
 
 #### Parameters
 
@@ -124,14 +130,14 @@ The callback to invoke when the event is emitted.
 
 ### create()
 
-> `static` **create**(): [`EventEmitter`](EventEmitter.md)
+> `static` **create**(): `EventEmitter`
 
-Defined in: [core/src/events/EventEmitter.ts:26](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/events/EventEmitter.ts#L26)
+Defined in: [events/EventEmitter.ts:26](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/events/EventEmitter.ts#L26)
 
 Create an EventEmitter.
 
 #### Returns
 
-[`EventEmitter`](EventEmitter.md)
+`EventEmitter`
 
 A new EventEmitter instance.

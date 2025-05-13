@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / middleware/BlueprintMiddleware
+[Core Documentation](../../README.md) / middleware/BlueprintMiddleware
 
 # middleware/BlueprintMiddleware
 

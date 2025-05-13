@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [middleware/BlueprintMiddleware](../README.md) / metaCoreBlueprintMiddleware
+[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / metaCoreBlueprintMiddleware
 
 # Variable: metaCoreBlueprintMiddleware
 
 > `const` **metaCoreBlueprintMiddleware**: `MetaPipe`\<[`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md), [`ClassType`](../../../declarations/type-aliases/ClassType.md) \| `PipeClass`\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>[]
 
-Defined in: [core/src/middleware/BlueprintMiddleware.ts:397](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/middleware/BlueprintMiddleware.ts#L397)
+Defined in: [middleware/BlueprintMiddleware.ts:397](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/middleware/BlueprintMiddleware.ts#L397)
 
 Array representing the core configuration middleware for the application.
 

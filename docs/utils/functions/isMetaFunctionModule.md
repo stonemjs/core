@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [utils](../README.md) / isMetaFunctionModule
+[Core Documentation](../../README.md) / [utils](../README.md) / isMetaFunctionModule
 
 # Function: isMetaFunctionModule()
 
 > **isMetaFunctionModule**\<`FunctionModuleType`\>(`value`): `value is Record<"module", FunctionModuleType>`
 
-Defined in: [core/src/utils.ts:88](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/utils.ts#L88)
+Defined in: [utils.ts:88](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/utils.ts#L88)
 
 Check if the provided value is a meta function module.
 
 ## Type Parameters
 
-• **FunctionModuleType**
+### FunctionModuleType
+
+`FunctionModuleType`
 
 ## Parameters
 

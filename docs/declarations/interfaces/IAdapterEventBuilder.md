@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / IAdapterEventBuilder
+[Core Documentation](../../README.md) / [declarations](../README.md) / IAdapterEventBuilder
 
 # Interface: IAdapterEventBuilder\<TValues, UResponse\>
 
-Defined in: [core/src/declarations.ts:989](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L989)
+Defined in: [declarations.ts:989](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L989)
 
 IAdapterEventBuilder Interface.
 
@@ -18,9 +18,13 @@ UResponse
 
 ## Type Parameters
 
-• **TValues**
+### TValues
 
-• **UResponse**
+`TValues`
+
+### UResponse
+
+`UResponse`
 
 ## Properties
 
@@ -28,7 +32,7 @@ UResponse
 
 > **add**: (`key`, `value`) => `this`
 
-Defined in: [core/src/declarations.ts:992](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L992)
+Defined in: [declarations.ts:992](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L992)
 
 #### Parameters
 
@@ -50,7 +54,7 @@ keyof `TValues`
 
 > **addIf**: (`key`, `value`) => `this`
 
-Defined in: [core/src/declarations.ts:993](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L993)
+Defined in: [declarations.ts:993](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L993)
 
 #### Parameters
 
@@ -72,7 +76,7 @@ keyof `TValues`
 
 > **build**: () => `UResponse`
 
-Defined in: [core/src/declarations.ts:991](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L991)
+Defined in: [declarations.ts:991](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L991)
 
 #### Returns
 
@@ -84,4 +88,4 @@ Defined in: [core/src/declarations.ts:991](https://github.com/stonemjs/core/blob
 
 > `readonly` **options**: `TValues`
 
-Defined in: [core/src/declarations.ts:990](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L990)
+Defined in: [declarations.ts:990](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L990)

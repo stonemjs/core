@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [BlueprintUtils](../README.md) / defineBlueprintConfig
+[Core Documentation](../../README.md) / [BlueprintUtils](../README.md) / defineBlueprintConfig
 
 # Function: defineBlueprintConfig()
 
 > **defineBlueprintConfig**(`configuration`): [`ConfigurationClass`](../../declarations/type-aliases/ConfigurationClass.md)
 
-Defined in: core/src/BlueprintUtils.ts:60
+Defined in: [BlueprintUtils.ts:60](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L60)
 
 Defines an application blueprint by merging user-defined blueprints with default options.
 

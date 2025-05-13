@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [BlueprintUtils](../README.md) / defineFactoryEventSubscriber
+[Core Documentation](../../README.md) / [BlueprintUtils](../README.md) / defineFactoryEventSubscriber
 
 # Function: defineFactoryEventSubscriber()
 
 > **defineFactoryEventSubscriber**(`module`): [`MetaEventSubscriber`](../../declarations/interfaces/MetaEventSubscriber.md)
 
-Defined in: core/src/BlueprintUtils.ts:180
+Defined in: [BlueprintUtils.ts:180](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L180)
 
 Defines a factory event subscriber with metadata for the provided module.
 

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [BlueprintUtils](../README.md) / defineBlueprintMiddleware
+[Core Documentation](../../README.md) / [BlueprintUtils](../README.md) / defineBlueprintMiddleware
 
 # Function: defineBlueprintMiddleware()
 
@@ -22,9 +22,9 @@ The options for the Middleware.
 
 ## Call Signature
 
-> **defineBlueprintMiddleware**(`module`, `isFactory`?, `options`?): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineBlueprintMiddleware**(`module`, `isFactory?`, `options?`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:280
+Defined in: [BlueprintUtils.ts:280](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L280)
 
 Utility function to define a function-based blueprint middleware.
 
@@ -32,7 +32,7 @@ Utility function to define a function-based blueprint middleware.
 
 #### module
 
-[`Arrayable`](../../declarations/type-aliases/Arrayable.md)\<[`FunctionalMiddleware`](../../declarations/type-aliases/FunctionalMiddleware.md)\<[`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md), [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>\>
+[`Arrayable`](../../declarations/type-aliases/Arrayable.md)\<[`FunctionalMiddleware`](../../declarations/type-aliases/FunctionalMiddleware.md)\<[`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\<`any`\>, [`ClassType`](../../declarations/type-aliases/ClassType.md)\<`any`\> \| `PipeClass`\>, [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>\>
 
 The Middleware module.
 
@@ -46,19 +46,17 @@ Indicates if the Middleware is a function. e.g. `undefined` for a function.
 
 The options for the Middleware.
 
-##### params
+##### params?
 
 `any`[]
 
-##### priority
+##### priority?
 
 `number`
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 
@@ -76,9 +74,9 @@ The options for the Middleware.
 
 ## Call Signature
 
-> **defineBlueprintMiddleware**(`module`, `isFactory`?, `options`?): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineBlueprintMiddleware**(`module`, `isFactory?`, `options?`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:294
+Defined in: [BlueprintUtils.ts:294](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L294)
 
 Utility function to define a factory-based blueprint middleware.
 
@@ -86,7 +84,7 @@ Utility function to define a factory-based blueprint middleware.
 
 #### module
 
-[`Arrayable`](../../declarations/type-aliases/Arrayable.md)\<[`FactoryMiddleware`](../../declarations/type-aliases/FactoryMiddleware.md)\<[`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md), [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>\>
+[`Arrayable`](../../declarations/type-aliases/Arrayable.md)\<[`FactoryMiddleware`](../../declarations/type-aliases/FactoryMiddleware.md)\<[`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\<`any`\>, [`ClassType`](../../declarations/type-aliases/ClassType.md)\<`any`\> \| `PipeClass`\>, [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>\>
 
 The Middleware module.
 
@@ -100,19 +98,17 @@ Indicates if the Middleware is a factory function. e.g. `true` for a factory fun
 
 The options for the Middleware.
 
-##### params
+##### params?
 
 `any`[]
 
-##### priority
+##### priority?
 
 `number`
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 
@@ -130,9 +126,9 @@ The options for the Middleware.
 
 ## Call Signature
 
-> **defineBlueprintMiddleware**(`module`, `isFactory`?, `options`?): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineBlueprintMiddleware**(`module`, `isFactory?`, `options?`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:308
+Defined in: [BlueprintUtils.ts:308](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L308)
 
 Utility function to define a class-based blueprint middleware.
 
@@ -140,7 +136,7 @@ Utility function to define a class-based blueprint middleware.
 
 #### module
 
-[`Arrayable`](../../declarations/type-aliases/Arrayable.md)\<[`MiddlewareClass`](../../declarations/type-aliases/MiddlewareClass.md)\<[`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md), [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>\>
+[`Arrayable`](../../declarations/type-aliases/Arrayable.md)\<[`MiddlewareClass`](../../declarations/type-aliases/MiddlewareClass.md)\<[`BlueprintContext`](../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\<`any`\>, [`ClassType`](../../declarations/type-aliases/ClassType.md)\<`any`\> \| `PipeClass`\>, [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)\>\>
 
 The Middleware module.
 
@@ -154,19 +150,17 @@ Indicates if the Middleware is a factory function. e.g. `false` for a class.
 
 The options for the Middleware.
 
-##### params
+##### params?
 
 `any`[]
 
-##### priority
+##### priority?
 
 `number`
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 

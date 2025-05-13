@@ -1,19 +1,23 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / MixedListenerHandler
+[Core Documentation](../../README.md) / [declarations](../README.md) / MixedListenerHandler
 
 # Type Alias: MixedListenerHandler\<TEventType, UEventName\>
 
-> **MixedListenerHandler**\<`TEventType`, `UEventName`\>: [`ListenerHandler`](ListenerHandler.md)\<`TEventType`\> \| [`WildcardListenerHandler`](WildcardListenerHandler.md)\<`UEventName`, `TEventType`\>
+> **MixedListenerHandler**\<`TEventType`, `UEventName`\> = [`ListenerHandler`](ListenerHandler.md)\<`TEventType`\> \| [`WildcardListenerHandler`](WildcardListenerHandler.md)\<`UEventName`, `TEventType`\>
 
-Defined in: [core/src/declarations.ts:876](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L876)
+Defined in: [declarations.ts:876](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L876)
 
 Represents a listener handler that can either be a simple function or a wildcard function.
 
 ## Type Parameters
 
-• **TEventType** *extends* [`Event`](../../events/Event/classes/Event.md)
+### TEventType
 
-• **UEventName**
+`TEventType` *extends* [`Event`](../../events/Event/classes/Event.md)
+
+### UEventName
+
+`UEventName`

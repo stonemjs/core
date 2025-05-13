@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [Logger](../README.md) / Logger
+[Core Documentation](../../README.md) / [Logger](../README.md) / Logger
 
 # Class: Logger
 
-Defined in: core/src/Logger.ts:13
+Defined in: [Logger.ts:13](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L13)
 
 Class representing a Logger for the Stone.js framework.
 
@@ -15,13 +15,13 @@ The Logger class provides static methods for logging messages at different level
 
 ## Constructors
 
-### new Logger()
+### Constructor
 
-> **new Logger**(): [`Logger`](Logger.md)
+> **new Logger**(): `Logger`
 
 #### Returns
 
-[`Logger`](Logger.md)
+`Logger`
 
 ## Methods
 
@@ -29,7 +29,7 @@ The Logger class provides static methods for logging messages at different level
 
 > `static` **debug**(`message`, ...`optionalParams`): `void`
 
-Defined in: core/src/Logger.ts:59
+Defined in: [Logger.ts:59](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L59)
 
 Logs debug-level messages, used for debugging purposes.
 
@@ -57,7 +57,7 @@ Optional parameters to log.
 
 > `static` **error**(`message`, ...`optionalParams`): `void`
 
-Defined in: core/src/Logger.ts:79
+Defined in: [Logger.ts:79](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L79)
 
 Logs errors, used to report errors or exceptions.
 
@@ -85,7 +85,7 @@ Optional parameters to log.
 
 > `static` **getInstance**(): [`ILogger`](../../declarations/interfaces/ILogger.md)
 
-Defined in: core/src/Logger.ts:36
+Defined in: [Logger.ts:36](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L36)
 
 Returns the current logger instance.
 
@@ -101,7 +101,7 @@ Returns the current logger instance.
 
 > `static` **info**(`message`, ...`optionalParams`): `void`
 
-Defined in: core/src/Logger.ts:49
+Defined in: [Logger.ts:49](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L49)
 
 Logs informational messages.
 
@@ -129,7 +129,7 @@ Optional parameters to log.
 
 > `static` **init**(`blueprint`): `void`
 
-Defined in: core/src/Logger.ts:21
+Defined in: [Logger.ts:21](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L21)
 
 Initializes the logger instance.
 
@@ -151,7 +151,7 @@ The blueprint to initialize the logger with.
 
 > `static` **log**(`message`, ...`optionalParams`): `void`
 
-Defined in: core/src/Logger.ts:89
+Defined in: [Logger.ts:89](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L89)
 
 Logs general messages, similar to `info` but less specific.
 
@@ -179,7 +179,7 @@ Optional parameters to log.
 
 > `static` **warn**(`message`, ...`optionalParams`): `void`
 
-Defined in: core/src/Logger.ts:69
+Defined in: [Logger.ts:69](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/Logger.ts#L69)
 
 Logs warnings, used to indicate potential issues.
 

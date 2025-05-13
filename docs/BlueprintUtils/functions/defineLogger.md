@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [BlueprintUtils](../README.md) / defineLogger
+[Core Documentation](../../README.md) / [BlueprintUtils](../README.md) / defineLogger
 
 # Function: defineLogger()
 
-> **defineLogger**(`module`, `isFactory`?, `options`?): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+> **defineLogger**(`module`, `isFactory?`, `options?`): `Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: core/src/BlueprintUtils.ts:351
+Defined in: [BlueprintUtils.ts:351](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/BlueprintUtils.ts#L351)
 
 Utility function to define a logger.
 
@@ -34,9 +34,7 @@ The options for the Logger.
 
 ## Returns
 
-`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-The StoneBlueprint.
+`Partial`\<[`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
 The StoneBlueprint.
 

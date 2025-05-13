@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.4**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / setClassMetadata
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / setClassMetadata
 
 # Function: setClassMetadata()
 
 > **setClassMetadata**\<`T`\>(`key`, `value`): `ClassDecorator`
 
-Defined in: [core/src/decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/decorators/Metadata.ts#L134)
+Defined in: [decorators/Metadata.ts:134](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L134)
 
 Set metadata on a class using a class decorator.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

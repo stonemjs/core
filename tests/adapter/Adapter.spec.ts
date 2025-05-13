@@ -1,402 +1,280 @@
+import {
+  IBlueprint,
+  AdapterContext,
+  AdapterHookType,
+  RawResponseOptions,
+  IRawResponseWrapper,
+  IAdapterEventBuilder,
+  IAdapterErrorHandler,
+  AdapterEventHandlerType
+} from '../../src/declarations'
+import { Logger } from '../../src/logger'
 import { Config } from '@stone-js/config'
-import { NextPipe } from '@stone-js/pipeline'
-import { RuntimeError } from '../../src/errors/RuntimeError'
-import { Adapter, AdapterOptions } from '../../src/adapter/Adapter'
+import { Adapter } from '../../src/adapter/Adapter'
 import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
-import { AdapterEventBuilder } from '../../src/adapter/AdapterEventBuilder'
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
-import { ILogger, IBlueprint, AdapterContext, AdapterEventHandlerResolver, AdapterHookType, IRawResponseWrapper, ILifecycleAdapterEventHandler, RawResponseOptions, IAdapterEventBuilder, IAdapterErrorHandler, AdapterErrorContext } from '../../src/declarations'
 
-/* eslint-disable @typescript-eslint/no-useless-constructor */
-
-// Incoming platform event
-type MockRawEvent = Record<string, unknown>
-
-// Outgoing platform response
-type MockRawResponse = string
-
-// Adapter context
-type MockAdapterContext = AdapterContext<
-MockRawEvent,
-MockRawResponse,
-any,
-IncomingEvent,
-IncomingEventOptions,
-OutgoingResponse
->
-
-// Adapter ResponseBuilder
-type MockAdapterResponseBuilder = IAdapterEventBuilder<RawResponseOptions, MockRawResponse>
-
-// Send response Spy
-const rawResponseWrapperRespondSpy = vi.fn()
-
-// Outgoing platform response wrapper
-// Return the final response return to end user
-class MockRawResponseWrapper<T = MockRawResponse> implements IRawResponseWrapper<T> {
-  constructor (public readonly options: RawResponseOptions = {}) {}
-
-  respond (): T {
-    rawResponseWrapperRespondSpy()
-    return this.options.name as T
+/**
+ * Mocks
+ */
+class MockResponseWrapper implements IRawResponseWrapper<string> {
+  constructor (readonly options: RawResponseOptions) {}
+  respond (): string {
+    return `wrapped: ${this.options.name}`
   }
 }
 
-// Mock Adapter
-// Implement the run method to send event through destination
-class MockAdapter extends Adapter<MockRawEvent, MockRawResponse, MockRawResponse, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
-  constructor (adapterOptions: AdapterOptions<IncomingEvent, OutgoingResponse>) {
-    super(adapterOptions)
+class UnitTestAdapter extends Adapter<Record<string, unknown>, string, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
+  public simulateSendEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return this.sendEventThroughDestination(ctx, handler)
   }
 
-  public async run<ExecutionResultType = MockRawResponse> (): Promise<ExecutionResultType> {
-    await this.onStart()
-    const eventHandler = this.eventHandlerResolver(this.blueprint) as ILifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
-    await this.onInit(eventHandler)
-    const rawEvent: MockRawEvent = { name: 'Stone.js' }
-    const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
-      rawEvent,
-      executionContext: {},
-      incomingEventBuilder: AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
-      rawResponseBuilder: AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => new MockRawResponseWrapper(v) })
-    }
-    return await this.sendEventThroughDestination(eventHandler, context) as ExecutionResultType
-  }
-}
-
-// MockAdapter2 resolver
-const mockAdapter2Resolver = (incomingEventBuilder: any, rawResponseBuilder: any): Function => class extends Adapter<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
-  constructor (adapterOptions: AdapterOptions<IncomingEvent, OutgoingResponse>) {
-    super(adapterOptions)
+  public simulateValidate (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return this.validateContextAndEventHandler(ctx, handler)
   }
 
-  public async run (): Promise<any> {
-    await this.onStart()
-    const eventHandler = this.eventHandlerResolver(this.blueprint) as ILifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse>
-    await this.onInit(eventHandler)
-    const rawEvent: MockRawEvent = { name: 'Stone.js' }
-    const context: AdapterContext<MockRawEvent, MockRawResponse, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> = {
-      rawEvent,
-      executionContext: {},
-      incomingEventBuilder,
-      rawResponseBuilder
-    }
-    return await this.sendEventThroughDestination(eventHandler, context)
+  public simulateHooks (name: string, ctx?: AdapterContext<any, any, any, any, any, any>, error?: Error) {
+    return this.executeHooks(name as any, ctx, error)
+  }
+
+  public simulateEventHooks (hook: string, handler: AdapterEventHandlerType<any, any>) {
+    return this.executeEventHandlerHooks(hook as any, handler)
+  }
+
+  public simulateResolveHandler () {
+    return this.resolveEventHandler()
+  }
+
+  public simulateResolveErrorHandler (err: Error) {
+    return this.resolveErrorHandler(err)
+  }
+
+  public simulateBuildRawResponse (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return this.buildRawResponse(ctx, handler)
+  }
+
+  public simulateHandleError (err: Error, ctx: AdapterContext<any, any, any, any, any, any>) {
+    return this.handleError(err, ctx)
+  }
+
+  public simulateHandleEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return this.handleEvent(ctx, handler)
   }
 }
-
-// Create mock logger
-const createMockLogger = (): ILogger => ({
-  info: vi.fn(),
-  debug: vi.fn(),
-  warn: vi.fn(),
-  error: vi.fn()
-})
-
-// App Hooks
-const appOnInitHookSpy = vi.fn()
-const appOnHandlingEventHookSpy = vi.fn()
-const appOnEventHandledHookSpy = vi.fn()
-const appOnTerminateHookSpy = vi.fn()
-
-// Create Lifecycle App Event handler
-class MockAppEventHandler implements ILifecycleAdapterEventHandler<IncomingEvent, OutgoingResponse> {
-  constructor (private readonly blueprint: IBlueprint) {}
-
-  onInit (): void | Promise<void> { appOnInitHookSpy() }
-  onHandlingEvent (): void | Promise<void> { appOnHandlingEventHookSpy() }
-  handle (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> {
-    return OutgoingResponse.create({ content: { version: this.blueprint.get('version'), name: event.get('name') } })
-  }
-
-  onEventHandled (): void | Promise<void> { appOnEventHandledHookSpy() }
-  onTerminate (): void | Promise<void> { appOnTerminateHookSpy() }
-}
-
-// Create function app event handler
-const MockFunctionEventHandler = (event: IncomingEvent): OutgoingResponse | Promise<OutgoingResponse> => OutgoingResponse.create({ content: { name: event.getMetadataValue('name') } })
-
-// Input class Middleware
-class InputMiddleware {
-  private readonly blueprint: IBlueprint
-  constructor ({ blueprint }: { blueprint: IBlueprint }) {
-    this.blueprint = blueprint
-  }
-
-  handle (context: MockAdapterContext, next: NextPipe<MockAdapterContext, MockAdapterResponseBuilder>): MockAdapterResponseBuilder | Promise<MockAdapterResponseBuilder> {
-    context.incomingEventBuilder?.add('metadata', { version: this.blueprint.get('version'), name: context.rawEvent?.name })
-    return next(context)
-  }
-}
-
-// Output function Middleware
-const outputMiddleware = async (context: MockAdapterContext, next: NextPipe<MockAdapterContext, MockAdapterResponseBuilder>): Promise<MockAdapterResponseBuilder> => {
-  const rawResponseBuilder = await next(context)
-  const content: { name: string, version: string } = context.outgoingResponse?.content as any
-
-  rawResponseBuilder
-    .add('name', content.name)
-    .add('version', content.version)
-    .add('status', context.outgoingResponse?.statusCode)
-    .add('statusMessage', context.outgoingResponse?.statusMessage)
-
-  return rawResponseBuilder
-}
-
-// Error handler spies
-const MockErrorHandlerSpy = vi.fn()
-
-// Error handler
-class MockErrorHandler implements IAdapterErrorHandler<MockRawEvent, MockRawResponse, unknown> {
-  handle (error: any, context: AdapterErrorContext<MockRawEvent, MockRawResponse, unknown>): MockRawResponse | Promise<MockRawResponse> {
-    MockErrorHandlerSpy()
-    return context.rawResponseBuilder.add('name', error.name).build().respond()
-  }
-}
-
-// Global Adapter hooks spies
-const globalOnStartSpy = vi.fn()
-const globalOnInitSpy = vi.fn()
-const globalOnHandlingEventSpy = vi.fn()
-const globalOnEventHandledSpy = vi.fn()
-const globalOnTerminateSpy = vi.fn()
 
 describe('Adapter', () => {
-  let logger: ILogger
-  let hooks: AdapterHookType
-  let adapter: MockAdapter
   let blueprint: IBlueprint
-  let handlerResolver: AdapterEventHandlerResolver<IncomingEvent, OutgoingResponse>
+  let adapter: UnitTestAdapter
+  let context: AdapterContext<any, any, any, any, any, any>
 
   beforeEach(() => {
-    logger = createMockLogger()
-    blueprint = Config.create({
-      stone: {
-        version: '1.0.0',
-        adapter: {
-          middleware: [
-            { priority: 0, pipe: InputMiddleware },
-            { priority: 200, pipe: outputMiddleware }
-          ]
+    blueprint = Config.create()
+    blueprint.set('stone.adapter.middleware', [])
+    blueprint.set('stone.adapter.eventHandlerResolver', () => () => OutgoingResponse.create({ content: { ok: true } }))
+    adapter = new UnitTestAdapter(blueprint)
+
+    context = {
+      rawEvent: {},
+      executionContext: {},
+      incomingEventBuilder: {
+        build: () => IncomingEvent.create({ name: 'unit' })
+      },
+      rawResponseBuilder: {
+        add: vi.fn().mockReturnThis(),
+        build: () => new MockResponseWrapper({ name: 'unit' })
+      }
+    }
+  })
+
+  describe('sendEventThroughDestination', () => {
+    it('sendEventThroughDestination should process the event through pipeline and build response', async () => {
+      const handleEventSpy = vi.spyOn(adapter as any, 'handleEvent').mockImplementation(async () => ({
+        build: new MockResponseWrapper({ name: 'event-built' })
+      }))
+      const buildRawResponseSpy = vi.spyOn(adapter as any, 'buildRawResponse').mockImplementation(async () => 'final-response')
+
+      const result = await adapter.simulateSendEvent(context, () => OutgoingResponse.create({ name: 'X' }))
+
+      expect(handleEventSpy).toHaveBeenCalled()
+      expect(buildRawResponseSpy).toHaveBeenCalled()
+      expect(result).toBe('final-response')
+    })
+
+    it('should handle error if pipeline or handler throws (catch path)', async () => {
+      const error = new Error('mock-fail')
+      const handleErrorSpy = vi.spyOn(adapter as any, 'handleError').mockResolvedValue({
+        build: () => new MockResponseWrapper({ name: 'error-handled' })
+      })
+      const buildResponseSpy = vi.spyOn(adapter as any, 'buildRawResponse').mockResolvedValue('error-response')
+
+      // Simulate failure by mocking handleEvent to throw
+      vi.spyOn(adapter as any, 'handleEvent').mockImplementation(() => {
+        throw error
+      })
+
+      const result = await adapter.simulateSendEvent(context, () => OutgoingResponse.create({ name: 'X' }))
+
+      expect(handleErrorSpy).toHaveBeenCalledWith(error, context)
+      expect(buildResponseSpy).toHaveBeenCalled()
+      expect(result).toBe('error-response')
+    })
+  })
+
+
+  describe('validateContextAndEventHandler', () => {
+    it('validateContextAndEventHandler throws for missing handler', () => {
+      expect(() => {
+        adapter.simulateValidate(context, undefined as any)
+      }).toThrow(IntegrationError)
+    })
+
+    it('validateContextAndEventHandler throws for missing rawResponseBuilder', () => {
+      context.rawResponseBuilder = undefined as any
+      expect(() => {
+        adapter.simulateValidate(context, () => OutgoingResponse.create({}))
+      }).toThrow(IntegrationError)
+    })
+
+    it('validateContextAndEventHandler throws for missing incomingEventBuilder', () => {
+      context.rawResponseBuilder = { build: () => {} }
+      context.incomingEventBuilder = undefined as any
+      expect(() => {
+        adapter.simulateValidate(context, () => OutgoingResponse.create({}))
+      }).toThrow(IntegrationError)
+    })
+
+    it('validateContextAndEventHandler throws for missing incomingEventBuilder', () => {
+      context.rawResponseBuilder = { build: () => {} }
+      context.incomingEventBuilder = { build: null }
+      expect(() => {
+        adapter.simulateValidate(context, () => OutgoingResponse.create({}))
+      }).toThrow(IntegrationError)
+    })
+  })
+
+  describe('resolveEventHandler', () => {
+    it('resolveEventHandler throws if missing eventHandlerResolver', () => {
+      blueprint.set('stone.adapter.eventHandlerResolver', undefined)
+      expect(() => adapter.simulateResolveHandler()).toThrow(IntegrationError)
+    })
+
+    it('resolveEventHandler throws if missing eventHandler', () => {
+      blueprint.set('stone.adapter.eventHandlerResolver', () => undefined)
+      expect(() => adapter.simulateResolveHandler()).toThrow(IntegrationError)
+    })
+
+    it('should return the eventHandler', () => {
+      blueprint.set('stone.adapter.eventHandlerResolver', () => vi.fn())
+      expect(adapter.simulateResolveHandler()).toBeInstanceOf(Function)
+    })
+  })
+
+  describe('handleEvent', () => {
+    it('handleEvent throws if missing incomingEvent', () => {
+      context.incomingEventBuilder = { build: () => undefined }
+      expect(() => adapter.simulateHandleEvent(context, {})).rejects.toThrow(IntegrationError)
+    })
+
+    it('handleEvent calls function handler and hooks', async () => {
+      const handler = vi.fn().mockResolvedValue(OutgoingResponse.create({ success: true }))
+      await adapter.simulateHandleEvent(context, handler)
+      expect(handler).toHaveBeenCalled()
+    })
+
+    it('handleEvent calls class handler and hooks', async () => {
+      const spy = vi.fn()
+      blueprint.set('stone.lifecycleHooks', {
+        onBuildingIncomingEvent: [() => spy()]
+      })
+      adapter = new UnitTestAdapter(blueprint)
+
+      const handler = {
+        onEventHandled: () => spy(),
+        onHandlingEvent: () => spy(),
+        handle: vi.fn().mockResolvedValue(OutgoingResponse.create({ success: true }))
+      }
+
+      await adapter.simulateHandleEvent(context, handler)
+      expect(handler.handle).toHaveBeenCalled()
+      expect(spy).toHaveBeenCalledTimes(3)
+    })
+  })
+    
+  describe('handleError', () => {
+    it('handleError throws if not a valid error handler', () => {
+      blueprint.set('stone.adapter.errorHandlers.default', { module: { handle: () => {} } })
+      expect(() => adapter.simulateHandleError(new Error('fail'), context)).rejects.toThrow(IntegrationError)
+    })
+
+    it('function-based: handleError delegates to error handler and returns builder', async () => {
+      const errorHandler = () => ({ build: () => new MockResponseWrapper({ name: 'handled' }) })
+      blueprint.set('stone.adapter.errorHandlers.default', {
+        module: errorHandler
+      })
+
+      const resBuilder = await adapter.simulateHandleError(new Error('fail'), context)
+      expect(resBuilder.build().respond()).toBe('wrapped: handled')
+    })
+
+    it('factory-based: handleError delegates to error handler and returns builder', async () => {
+      const errorHandler = () => () => ({ build: () => new MockResponseWrapper({ name: 'handled' }) })
+      blueprint.set('stone.adapter.errorHandlers.default', {
+        module: errorHandler,
+        isFactory: true
+      })
+
+      const resBuilder = await adapter.simulateHandleError(new Error('fail'), context)
+      expect(resBuilder.build().respond()).toBe('wrapped: handled')
+    })
+
+    it('class-based: handleError delegates to error handler and returns builder', async () => {
+      const errorHandler = class {
+        handle() {
+          return { build: () => new MockResponseWrapper({ name: 'handled' }) }
         }
       }
+      blueprint.set('stone.adapter.errorHandlers.default', {
+        module: errorHandler,
+        isClass: true
+      })
+
+      const resBuilder = await adapter.simulateHandleError(new Error('fail'), context)
+      expect(resBuilder.build().respond()).toBe('wrapped: handled')
     })
-    handlerResolver = (blueprint: IBlueprint) => new MockAppEventHandler(blueprint)
-    hooks = {
-      onStart: [globalOnStartSpy],
-      onInit: [globalOnInitSpy],
-      onHandlingEvent: [globalOnHandlingEventSpy],
-      onEventHandled: [globalOnEventHandledSpy],
-      onTerminate: [globalOnTerminateSpy]
+  })
+
+  it('executeHooks runs lifecycle listeners', async () => {
+    const calls: string[] = []
+    blueprint.set('stone.lifecycleHooks', {
+      onStart: [({ context }) => calls.push('onStart')]
+    })
+    adapter = new UnitTestAdapter(blueprint)
+    await adapter.simulateHooks('onStart', context)
+    expect(calls).toContain('onStart')
+  })
+
+  it('buildRawResponse calls respond()', async () => {
+    const result = await adapter.simulateBuildRawResponse(context, { onTerminate: vi.fn() })
+    expect(result).toContain('wrapped')
+  })
+
+  it('makePipelineOptions returns valid resolver', () => {
+    Logger.init(blueprint)
+    const factorySpy = vi.fn()
+    const constructorSpy = vi.fn()
+    const factoryModule = () => factorySpy()
+    const classModule = class {
+      constructor () {
+        constructorSpy()
+      }
     }
-
-    adapter = new MockAdapter({
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks
-    })
-  })
-
-  it('should throw errors on invalid handlerResolver', () => {
-    expect(() => {
-      Reflect.construct(MockAdapter, [{
-        logger,
-        blueprint,
-        handlerResolver: 'undefined' as any,
-        hooks
-      }])
-    }).toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid logger', () => {
-    expect(() => {
-      Reflect.construct(MockAdapter, [{
-        logger: undefined as any,
-        blueprint,
-        handlerResolver,
-        hooks
-      }])
-    }).toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid blueprint', () => {
-    expect(() => {
-      Reflect.construct(MockAdapter, [{
-        logger,
-        blueprint: {} as any,
-        handlerResolver,
-        hooks
-      }])
-    }).toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid eventHandler', async () => {
-    const adapter = Reflect.construct(MockAdapter, [{
-      logger,
-      blueprint,
-      handlerResolver: (_blueprint: IBlueprint) => undefined,
-      hooks
-    }])
-
-    await expect(async () => { await adapter.run() }).rejects.toThrow(IntegrationError)
-  })
-
-  // Test AdapterBuilder here for simplicity
-  it('should throw an error if resolver is not provided to AdapterBuilder', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => AdapterEventBuilder.create({ resolver: undefined })).toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid incomingEventBuilder', async () => {
-    const MockAdapter2 = mockAdapter2Resolver(
-      undefined,
-      AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => new MockRawResponseWrapper(v) })
-    )
-
-    const adapter = Reflect.construct(MockAdapter2, [{
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks
-    }])
-
-    await expect(async () => { await adapter.run() }).rejects.toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid rawResponseBuilder', async () => {
-    const MockAdapter2 = mockAdapter2Resolver(
-      AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
-      null as any
-    )
-
-    const adapter = Reflect.construct(MockAdapter2, [{
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks
-    }])
-
-    await expect(async () => { await adapter.run() }).rejects.toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid AdapterBuilder resolver', async () => {
-    const MockAdapter2 = mockAdapter2Resolver(
-      // @ts-expect-error - invalid value for test purposes
-      AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: () => undefined }),
-      // @ts-expect-error - invalid value for test purposes
-      AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: () => undefined })
-    )
-
-    const adapter = Reflect.construct(MockAdapter2, [{
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks
-    }])
-
-    await expect(async () => { await adapter.run() }).rejects.toThrow(IntegrationError)
-  })
-
-  it('should throw errors on invalid rawResponseWrapper', async () => {
-    const MockAdapter2 = mockAdapter2Resolver(
-      AdapterEventBuilder.create<IncomingEventOptions, IncomingEvent>({ resolver: v => IncomingEvent.create(v) }),
-      AdapterEventBuilder.create<RawResponseOptions, MockRawResponseWrapper>({ resolver: v => ({} as any) })
-    )
-
-    const adapter = Reflect.construct(MockAdapter2, [{
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks
-    }])
-
-    await expect(async () => { await adapter.run() }).rejects.toThrow(IntegrationError)
-  })
-
-  it('should not handle error when no default nor specific error handler is defined', async () => {
-    blueprint.set('stone.adapter.errorHandlers', { TypeError: MockErrorHandler })
-    handlerResolver = (_blueprint: IBlueprint) => () => { throw new RuntimeError('Test Error') }
-    adapter = new MockAdapter({
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks: undefined as any
-    })
-
-    await expect(async () => { await adapter.run() }).rejects.toThrow(IntegrationError)
-  })
-
-  it('should handle error when default error handler is defined', async () => {
-    blueprint.set('stone.adapter.errorHandlers', { default: MockErrorHandler })
-    handlerResolver = (_blueprint: IBlueprint) => () => { throw new RuntimeError('Test Error') }
-    adapter = new MockAdapter({
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks: undefined as any
-    })
-
-    const result = await adapter.run()
-    expect(result).toBe('RuntimeError')
-  })
-
-  it('should handle error when specific error handler is defined', async () => {
-    blueprint.set('stone.adapter.errorHandlers', { RuntimeError: MockErrorHandler })
-    handlerResolver = (_blueprint: IBlueprint) => () => { throw new RuntimeError('Test Error') }
-    adapter = new MockAdapter({
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks: undefined as any
-    })
-
-    const result = await adapter.run()
-    expect(result).toBe('RuntimeError')
-  })
-
-  it('should catch and log errors thrown by onTerminate hook', async () => {
-    handlerResolver = (_blueprint: IBlueprint) => MockFunctionEventHandler
-    adapter = new MockAdapter({
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks: { onTerminate: [() => { throw new Error('Test Error') }] }
-    })
-    const result = await adapter.run()
-    expect(result).toBe('Stone.js')
-    expect(logger.error).toHaveBeenCalled()
-  })
-
-  it('should execute the run method with lifecycle handler', async () => {
-    const result = await adapter.run()
-
-    expect(result).toBe('Stone.js')
-
-    expect(appOnInitHookSpy).toHaveBeenCalled()
-    expect(appOnHandlingEventHookSpy).toHaveBeenCalled()
-    expect(appOnEventHandledHookSpy).toHaveBeenCalled()
-    expect(appOnTerminateHookSpy).toHaveBeenCalled()
-
-    expect(globalOnStartSpy).toHaveBeenCalled()
-    expect(globalOnInitSpy).toHaveBeenCalled()
-    expect(globalOnHandlingEventSpy).toHaveBeenCalled()
-    expect(globalOnEventHandledSpy).toHaveBeenCalled()
-    expect(globalOnTerminateSpy).toHaveBeenCalled()
-
-    expect(rawResponseWrapperRespondSpy).toHaveBeenCalled()
-  })
-
-  it('should execute the run method with function handler', async () => {
-    handlerResolver = (_blueprint: IBlueprint) => MockFunctionEventHandler
-    adapter = new MockAdapter({
-      logger,
-      blueprint,
-      handlerResolver,
-      hooks: undefined as any
-    })
-    const result = await adapter.run()
-    expect(result).toBe('Stone.js')
+    const opts = adapter['makePipelineOptions']()
+    expect(typeof opts.resolver).toBe('function')
+    expect(opts.hooks).toBeDefined()
+    opts.resolver({ module: classModule, isClass: true })
+    expect(constructorSpy).toHaveBeenCalled()
+    opts.resolver({ module: factoryModule, isFactory: true })
+    expect(factorySpy).toHaveBeenCalled()
   })
 })

@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.4**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / BlueprintHookListener
+[Core Documentation](../../README.md) / [declarations](../README.md) / BlueprintHookListener
 
 # Type Alias: BlueprintHookListener()\<BlueprintType, ContextType\>
 
-> **BlueprintHookListener**\<`BlueprintType`, `ContextType`\>: (`context`) => [`Promiseable`](Promiseable.md)\<`void`\>
+> **BlueprintHookListener**\<`BlueprintType`, `ContextType`\> = (`context`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [core/src/declarations.ts:634](https://github.com/stonemjs/core/blob/2adc2da4c7e3b5a9f593c198ba7e8ad639651777/src/declarations.ts#L634)
+Defined in: [declarations.ts:634](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L634)
 
 BlueprintHookListener Type.
 
@@ -16,9 +16,13 @@ Represents a listener hook that can either be synchronous or asynchronous.
 
 ## Type Parameters
 
-• **BlueprintType** *extends* [`IBlueprint`](IBlueprint.md) = [`IBlueprint`](IBlueprint.md)
+### BlueprintType
 
-• **ContextType** *extends* [`BlueprintContext`](../interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../interfaces/BlueprintContext.md)\<`BlueprintType`\>
+`BlueprintType` *extends* [`IBlueprint`](IBlueprint.md) = [`IBlueprint`](IBlueprint.md)
+
+### ContextType
+
+`ContextType` *extends* [`BlueprintContext`](../interfaces/BlueprintContext.md)\<`BlueprintType`\> = [`BlueprintContext`](../interfaces/BlueprintContext.md)\<`BlueprintType`\>
 
 ## Parameters
 
