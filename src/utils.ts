@@ -140,7 +140,7 @@ export const isHandlerHasHook = <HandlerType>(
  * @returns `true` if the value is not empty, otherwise `false`.
  */
 export const isNotEmpty = <ValueType = unknown>(value: unknown): value is ValueType => {
-  if (value === null || value === undefined) return false
+  if (value === null || value === undefined || value === false || value === 0) return false
 
   if (typeof value === 'string' || Array.isArray(value)) {
     return value.length > 0
@@ -151,9 +151,7 @@ export const isNotEmpty = <ValueType = unknown>(value: unknown): value is ValueT
   }
 
   if (typeof value === 'object') {
-    return Object.keys(value).length > 0 ||
-      Object.getOwnPropertySymbols(value).length > 0 ||
-      Object.getOwnPropertyNames(Object.getPrototypeOf(value)).length > 0
+    return Object.keys(value).length > 0 || Object.getOwnPropertySymbols(value).length > 0
   }
 
   return true

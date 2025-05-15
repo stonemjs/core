@@ -66,8 +66,10 @@ describe('Metadata Utilities', () => {
   it('should return metadata value for a given key', () => {
     const result = getMetadata(MockClass, metadataKey)
     const result2 = getMetadata(class {}, metadataKey, 'fallback')
+    const result3 = getMetadata({ [MetadataSymbol]: { [metadataKey]: metadataValue } }, metadataKey)
     expect(result).toBe(metadataValue)
     expect(result2).toBe('fallback')
+    expect(result3).toBe(metadataValue)
   })
 
   it('should return all metadata for a given class', () => {

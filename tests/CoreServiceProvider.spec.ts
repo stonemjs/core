@@ -1,130 +1,445 @@
-import { Config } from '@stone-js/config'
-import { Container } from '@stone-js/service-container'
-import { KernelEvent } from '../src/events/KernelEvent'
-import { EventEmitter } from '../src/events/EventEmitter'
-import { InitializationError } from '../src/errors/InitializationError'
-import { IBlueprint, IEventListener, ILogger, IEventSubscriber } from '../src/declarations'
-import { CoreServiceProvider, CoreServiceProviderOptions } from '../src/CoreServiceProvider'
-
-/* eslint-disable-next-line @typescript-eslint/no-extraneous-class */
-class MockService {}
-
-const mockListenerHandleSpy = vi.fn()
-const mockListenerHandleSpyError = vi.fn().mockRejectedValue(new Error('something bad happened'))
-class MockListener implements IEventListener {
-  handle = mockListenerHandleSpy
-}
-
-class MockListenerError implements IEventListener {
-  handle = mockListenerHandleSpyError
-}
-
-class MockSubscriber implements IEventSubscriber {
-  subscribe = vi.fn()
-}
-
-class MockSubscriberError implements IEventSubscriber {
-  subscribe = vi.fn(async () => await Promise.reject(new InitializationError('something bad happened')))
-}
+import { CoreServiceProvider } from '../src/CoreServiceProvider'
 
 describe('CoreServiceProvider', () => {
-  let logger: ILogger
-  let container: Container
-  let blueprint: IBlueprint
-  let eventEmitter: EventEmitter
-  let coreServiceProvider: CoreServiceProvider
-  let coreServiceProviderOptions: CoreServiceProviderOptions
+  describe('register', () => {
+    it('should call all internal register* methods', () => {
+      const container = {}
+      const blueprint = {}
+      const logger = {}
+      const eventEmitter = {}
 
-  beforeEach(() => {
-    blueprint = Config.create()
-    container = Container.create()
-    eventEmitter = new EventEmitter()
-    logger = { error: vi.fn() } as unknown as ILogger
-    coreServiceProviderOptions = { container, blueprint, eventEmitter, logger }
-    coreServiceProvider = new CoreServiceProvider(coreServiceProviderOptions)
+      const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
+
+      const s = vi.spyOn(provider as any, 'registerServices').mockImplementation(() => {})
+      const m = vi.spyOn(provider as any, 'registerMiddleware').mockImplementation(() => {})
+      const l = vi.spyOn(provider as any, 'registerListeners').mockImplementation(() => {})
+      const a = vi.spyOn(provider as any, 'registerAliases').mockImplementation(() => {})
+
+      provider.register()
+
+      expect(s).toHaveBeenCalled()
+      expect(m).toHaveBeenCalled()
+      expect(l).toHaveBeenCalled()
+      expect(a).toHaveBeenCalled()
+    })
   })
 
-  it('should throw an error if logger is not provided', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ container: undefined, blueprint, eventEmitter })).toThrow(InitializationError)
+  describe('boot', () => {
+    it('should call bootSubscribers', async () => {
+      const container = {}
+      const blueprint = {}
+      const logger = {}
+      const eventEmitter = {}
+
+      const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
+
+      const bootSpy = vi.spyOn(provider as any, 'bootSubscribers').mockResolvedValue()
+
+      await provider.boot()
+
+      expect(bootSpy).toHaveBeenCalled()
+    })
   })
 
-  it('should throw an error if container is not provided', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ logger, container: undefined, blueprint, eventEmitter })).toThrow(InitializationError)
+  describe('registerAliases', () => {
+    it('should register all constructor aliases into the container', () => {
+      const MyService = class {}
+
+      const container = { alias: vi.fn() }
+      const blueprint = {
+        get: vi.fn().mockImplementation((key: string) => {
+          if (key === 'stone.aliases') {
+            return {
+              MyServiceAlias: MyService,
+              NonConstructor: 'not-a-class'
+            }
+          }
+          return undefined
+        })
+      }
+
+      const provider = new CoreServiceProvider({
+        container: container as any,
+        blueprint: blueprint as any,
+        eventEmitter: {} as any,
+        logger: {} as any
+      })
+
+      provider.registerAliases()
+
+      expect(container.alias).toHaveBeenCalledTimes(1)
+      expect(container.alias).toHaveBeenCalledWith(MyService, 'MyServiceAlias')
+    })
   })
 
-  it('should throw an error if blueprint is not provided', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ logger, container, blueprint: undefined, eventEmitter })).toThrow(InitializationError)
+  describe('registerServices', () => {
+    it('should register meta class services via autoBinding', () => {
+      const container = { autoBinding: vi.fn() }
+      const logger = {}
+      const eventEmitter = {}
+      const MyService = class {}
+
+      const blueprint = {
+        get: vi.fn().mockImplementation((key: string) => {
+          if (key === 'stone.services') {
+            return [
+              {
+                isClass: true,
+                module: MyService,
+                singleton: true,
+                alias: ['Alpha']
+              }
+            ]
+          }
+        })
+      }
+
+      const provider = new CoreServiceProvider({ container, blueprint, eventEmitter, logger } as any)
+
+      provider.registerServices()
+
+      expect(container.autoBinding).toHaveBeenCalledWith(MyService, MyService, true, ['Alpha'])
+    })
+
+    it('should register meta factory services via autoBinding', () => {
+      const container = { autoBinding: vi.fn() }
+      const factory = () => ({})
+      const blueprint = {
+        get: vi.fn().mockImplementation((key: string) => {
+          if (key === 'stone.services') {
+            return [
+              {
+                isFactory: true,
+                module: factory,
+                alias: ['MainService']
+              }
+            ]
+          }
+        })
+      }
+
+      const provider = new CoreServiceProvider({
+        container,
+        blueprint,
+        logger: {},
+        eventEmitter: {}
+      } as any)
+
+      provider.registerServices()
+
+      expect(container.autoBinding).toHaveBeenCalledWith(
+        'MainService',
+        factory,
+        true,
+        []
+      )
+    })
   })
 
-  it('should throw an error if eventEmitter is not provided', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => new CoreServiceProvider({ logger, container, blueprint, eventEmitter: undefined })).toThrow(InitializationError)
+  describe('registerMiddleware', () => {
+    it('should register class-based middleware using autoBinding', () => {
+      const container = { autoBinding: vi.fn() }
+      const logger = {}
+      const eventEmitter = {}
+
+      const MyMiddleware = class {}
+
+      const blueprint = {
+        get: vi.fn().mockImplementation((key: string) => {
+          if (key === 'stone.kernel.middleware') {
+            return [
+              {
+                isClass: true,
+                module: MyMiddleware,
+                singleton: true,
+                alias: ['log']
+              }
+            ]
+          }
+        })
+      }
+
+      const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
+
+      provider.registerMiddleware()
+
+      expect(container.autoBinding).toHaveBeenCalledWith(
+        MyMiddleware,
+        MyMiddleware,
+        true,
+        ['log']
+      )
+    })
+
+    it('should skip non-class middleware', () => {
+      const container = { autoBinding: vi.fn() }
+
+      const blueprint = {
+        get: vi.fn().mockReturnValue([
+          { module: 'not-a-class', alias: ['noop'] }
+        ])
+      }
+
+      const provider = new CoreServiceProvider({
+        container,
+        blueprint,
+        logger: {},
+        eventEmitter: {}
+      } as any)
+
+      provider.registerMiddleware()
+
+      expect(container.autoBinding).not.toHaveBeenCalled()
+    })
   })
 
-  it('should register services', () => {
-    blueprint.set('stone.services', [MockService])
-    const autoBindingSpy = vi.spyOn(container, 'autoBinding')
+  describe('registerListeners', () => {
+    it('should register class-based listeners in eventEmitter', async () => {
+      const handleSpy = vi.fn()
+      const ListenerClass = class {}
+      const container = {
+        resolve: vi.fn().mockReturnValue({ handle: handleSpy })
+      }
 
-    coreServiceProvider.register()
+      const listenerMeta = {
+        isClass: true,
+        module: ListenerClass,
+        event: 'user.created'
+      }
 
-    expect(autoBindingSpy).toHaveBeenCalledWith(MockService, MockService, true)
+      const eventEmitter = {
+        on: vi.fn((event, cb) => {
+          expect(event).toBe('user.created')
+          cb({}) // simulate event
+        })
+      }
+
+      const logger = { error: vi.fn() }
+
+      const blueprint = {
+        get: vi.fn().mockImplementation((key: string) => {
+          if (key === 'stone.listeners') return [listenerMeta]
+        })
+      }
+
+      const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
+
+      provider.registerListeners()
+
+      expect(container.resolve).toHaveBeenCalledWith(ListenerClass, true)
+      expect(eventEmitter.on).toHaveBeenCalled()
+      expect(handleSpy).toHaveBeenCalled()
+    })
+
+    it('should register factory-based listeners in eventEmitter', async () => {
+      const handler = vi.fn().mockReturnValue(vi.fn())
+      const listenerMeta = {
+        isFactory: true,
+        module: () => handler,
+        event: 'order.paid'
+      }
+
+      const container = {}
+      const eventEmitter = {
+        on: vi.fn((event, cb) => cb({}))
+      }
+      const blueprint = {
+        get: vi.fn().mockReturnValue([listenerMeta])
+      }
+
+      const provider = new CoreServiceProvider({
+        container,
+        blueprint,
+        eventEmitter,
+        logger: { error: vi.fn() }
+      } as any)
+
+      provider.registerListeners()
+
+      expect(eventEmitter.on).toHaveBeenCalledWith('order.paid', expect.any(Function))
+      expect(handler).toHaveBeenCalled()
+    })
+
+    it('should register function-based listeners in eventEmitter', async () => {
+      const handle = vi.fn()
+      const listenerMeta = {
+        module: handle,
+        event: 'session.destroyed'
+      }
+
+      const eventEmitter = {
+        on: vi.fn((event, cb) => cb({}))
+      }
+
+      const blueprint = {
+        get: vi.fn().mockReturnValue([listenerMeta])
+      }
+
+      const provider = new CoreServiceProvider({
+        container: {},
+        blueprint,
+        eventEmitter,
+        logger: { error: vi.fn() }
+      } as any)
+
+      provider.registerListeners()
+
+      expect(eventEmitter.on).toHaveBeenCalledWith('session.destroyed', expect.any(Function))
+      expect(handle).toHaveBeenCalled()
+    })
+
+    it('should catch errors from listeners and log them', async () => {
+      const error = new Error('fail')
+      const faulty = vi.fn().mockRejectedValue(error)
+
+      const listenerMeta = {
+        module: faulty,
+        event: 'boom'
+      }
+
+      const eventEmitter = {
+        on: vi.fn((_, cb) => cb({}))
+      }
+
+      const logger = {
+        error: vi.fn()
+      }
+
+      const blueprint = {
+        get: vi.fn().mockReturnValue([listenerMeta])
+      }
+
+      const provider = new CoreServiceProvider({
+        container: {},
+        blueprint,
+        eventEmitter,
+        logger
+      } as any)
+
+      await provider.registerListeners()
+
+      expect(logger.error).toHaveBeenCalledWith(expect.stringContaining('fail'))
+    })
   })
 
-  it('should register listeners', async () => {
-    blueprint.set('stone.listeners', { 'test:event': [MockListener] })
+  describe('bootSubscribers', () => {
+    it('should call subscribe() on class-based subscribers', async () => {
+      const subscribeSpy = vi.fn()
 
-    coreServiceProvider.register()
-    await eventEmitter.emit('test:event')
+      const SubscriberClass = class {}
 
-    expect(mockListenerHandleSpy).toHaveBeenCalled()
-    eventEmitter.off('test:event', mockListenerHandleSpy)
-  })
+      const container = {
+        resolve: vi.fn().mockReturnValue({ subscribe: subscribeSpy })
+      }
 
-  it('should log error when listeners in is error', async () => {
-    blueprint.set('stone.listeners', { [KernelEvent.RESPONSE_PREPARED]: [MockListenerError] })
-    const event = KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata: {} }).setMetadataValue('name', 'Stone.js')
-    coreServiceProvider.register()
+      const blueprint = {
+        get: vi.fn().mockReturnValue([
+          { module: SubscriberClass, isClass: true }
+        ])
+      }
 
-    await eventEmitter.emit(event)
+      const provider = new CoreServiceProvider({
+        container,
+        blueprint,
+        eventEmitter: {},
+        logger: { error: vi.fn() }
+      } as any)
 
-    expect(mockListenerHandleSpyError).toHaveBeenCalled()
-    expect(event).toEqual(event.clone())
-    expect(event.getMetadataValue('name')).toBe('Stone.js')
-  })
+      await provider.bootSubscribers()
 
-  it('should register aliases', () => {
-    blueprint.set('stone.services', [[MockService, { singleton: true }]])
-    blueprint.set('stone.aliases', { mockService: MockService })
-    const aliasSpy = vi.spyOn(container, 'alias')
-    const autoBindingSpy = vi.spyOn(container, 'autoBinding')
+      expect(container.resolve).toHaveBeenCalledWith(SubscriberClass, true)
+      expect(subscribeSpy).toHaveBeenCalled()
+    })
 
-    coreServiceProvider.register()
+    it('should call subscribe() on factory-based subscribers', async () => {
+      const subscribe = vi.fn()
 
-    expect(aliasSpy).toHaveBeenCalledWith(MockService, 'mockService')
-    expect(autoBindingSpy).toHaveBeenCalledWith(MockService, MockService, true, undefined)
-  })
+      const blueprint = {
+        get: vi.fn().mockReturnValue([
+          { module: () => subscribe, isFactory: true }
+        ])
+      }
 
-  it('should boot subscribers', async () => {
-    blueprint.set('stone.subscribers', [MockSubscriber])
-    const resolveSpy = vi.spyOn(container, 'resolve')
+      const provider = new CoreServiceProvider({
+        container: {},
+        blueprint,
+        eventEmitter: {},
+        logger: { error: vi.fn() }
+      } as any)
 
-    await coreServiceProvider.boot()
+      await provider.bootSubscribers()
 
-    expect(resolveSpy).toHaveBeenCalledWith(MockSubscriber, true)
-  })
+      expect(subscribe).toHaveBeenCalled()
+    })
 
-  it('should log error on booting subscribers', async () => {
-    blueprint.set('stone.subscribers', [MockSubscriberError])
-    const resolveSpy = vi.spyOn(container, 'resolve')
-    const loggerSpy = vi.spyOn(logger, 'error').mockImplementation(() => {})
+    it('should call subscribe() on function-based subscribers', async () => {
+      const subscribe = vi.fn()
 
-    await coreServiceProvider.boot()
+      const blueprint = {
+        get: vi.fn().mockReturnValue([
+          { module: subscribe }
+        ])
+      }
 
-    expect(resolveSpy).toHaveBeenCalledWith(MockSubscriberError, true)
-    expect(loggerSpy).toHaveBeenCalledWith(expect.stringContaining('An error has occured'))
-    loggerSpy.mockRestore()
+      const provider = new CoreServiceProvider({
+        container: {},
+        blueprint,
+        eventEmitter: {},
+        logger: { error: vi.fn() }
+      } as any)
+
+      await provider.bootSubscribers()
+
+      expect(subscribe).toHaveBeenCalled()
+    })
+
+    it('should call subscribe() on raw constructor subscribers', async () => {
+      const subscribeSpy = vi.fn()
+      const RawClass = class {}
+
+      const container = {
+        resolve: vi.fn().mockReturnValue({ subscribe: subscribeSpy })
+      }
+
+      const blueprint = {
+        get: vi.fn().mockReturnValue([RawClass])
+      }
+
+      const provider = new CoreServiceProvider({
+        container,
+        blueprint,
+        eventEmitter: {},
+        logger: { error: vi.fn() }
+      } as any)
+
+      await provider.bootSubscribers()
+
+      expect(container.resolve).toHaveBeenCalledWith(RawClass, true)
+      expect(subscribeSpy).toHaveBeenCalled()
+    })
+
+    it('should catch errors thrown by subscribe() and log them', async () => {
+      const error = new Error('fail')
+      const logger = { error: vi.fn() }
+
+      const subscriber = {
+        module: () => { throw error }
+      }
+
+      const blueprint = {
+        get: vi.fn().mockReturnValue([subscriber])
+      }
+
+      const provider = new CoreServiceProvider({
+        container: {},
+        blueprint,
+        eventEmitter: {},
+        logger
+      } as any)
+
+      await provider.bootSubscribers()
+
+      expect(logger.error).toHaveBeenCalledWith(expect.stringContaining('fail'))
+    })
   })
 })

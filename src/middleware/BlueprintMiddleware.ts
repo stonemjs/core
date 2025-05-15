@@ -213,7 +213,7 @@ export const AdapterErrorHandlerMiddleware = async (
       const options: ErrorHandlerOptions = getMetadata(module, ADAPTER_ERROR_HANDLER_KEY, { error: 'default' })
       Array(options.error)
         .flat()
-        .forEach(error => blueprint.set(`stone.adapter.errorHandlers.${error}}`, { ...options, error, module }))
+        .forEach(error => blueprint.set(`stone.adapter.errorHandlers.${error}`, { ...options, error, module }))
     })
 
   return blueprint
@@ -335,11 +335,11 @@ export const AdapterMiddlewareMiddleware = async (
         .get<AdapterConfig[]>('stone.adapters', [])
         .forEach(adapter => {
           adapter.middleware ??= []
-          if (options.platform === undefined) {
+          if (isEmpty(options.adapterAlias) && isEmpty(options.platform)) {
             adapter.middleware.push(middleware)
-          } else if (options.adapterAlias === adapter.alias) {
+          } else if (isNotEmpty<string>(adapter.alias) && options.adapterAlias === adapter.alias) {
             adapter.middleware.push(middleware)
-          } else if (options.platform === adapter.platform) {
+          } else if (isNotEmpty<string>(adapter.platform) && options.platform === adapter.platform) {
             adapter.middleware.push(middleware)
           }
         })

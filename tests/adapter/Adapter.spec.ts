@@ -26,20 +26,20 @@ class MockResponseWrapper implements IRawResponseWrapper<string> {
 }
 
 class UnitTestAdapter extends Adapter<Record<string, unknown>, string, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
-  public simulateSendEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
-    return this.sendEventThroughDestination(ctx, handler)
+  public async simulateSendEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return await this.sendEventThroughDestination(ctx, handler)
   }
 
   public simulateValidate (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
     return this.validateContextAndEventHandler(ctx, handler)
   }
 
-  public simulateHooks (name: string, ctx?: AdapterContext<any, any, any, any, any, any>, error?: Error) {
-    return this.executeHooks(name as any, ctx, error)
+  public async simulateHooks (name: string, ctx?: AdapterContext<any, any, any, any, any, any>, error?: Error) {
+    return await this.executeHooks(name as any, ctx, error)
   }
 
-  public simulateEventHooks (hook: string, handler: AdapterEventHandlerType<any, any>) {
-    return this.executeEventHandlerHooks(hook as any, handler)
+  public async simulateEventHooks (hook: string, handler: AdapterEventHandlerType<any, any>) {
+    return await this.executeEventHandlerHooks(hook as any, handler)
   }
 
   public simulateResolveHandler () {
@@ -50,16 +50,16 @@ class UnitTestAdapter extends Adapter<Record<string, unknown>, string, any, Inco
     return this.resolveErrorHandler(err)
   }
 
-  public simulateBuildRawResponse (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
-    return this.buildRawResponse(ctx, handler)
+  public async simulateBuildRawResponse (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return await this.buildRawResponse(ctx, handler)
   }
 
-  public simulateHandleError (err: Error, ctx: AdapterContext<any, any, any, any, any, any>) {
-    return this.handleError(err, ctx)
+  public async simulateHandleError (err: Error, ctx: AdapterContext<any, any, any, any, any, any>) {
+    return await this.handleError(err, ctx)
   }
 
-  public simulateHandleEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
-    return this.handleEvent(ctx, handler)
+  public async simulateHandleEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+    return await this.handleEvent(ctx, handler)
   }
 }
 
@@ -121,7 +121,6 @@ describe('Adapter', () => {
     })
   })
 
-
   describe('validateContextAndEventHandler', () => {
     it('validateContextAndEventHandler throws for missing handler', () => {
       expect(() => {
@@ -171,9 +170,9 @@ describe('Adapter', () => {
   })
 
   describe('handleEvent', () => {
-    it('handleEvent throws if missing incomingEvent', () => {
+    it('handleEvent throws if missing incomingEvent', async () => {
       context.incomingEventBuilder = { build: () => undefined }
-      expect(() => adapter.simulateHandleEvent(context, {})).rejects.toThrow(IntegrationError)
+      await expect(async () => await adapter.simulateHandleEvent(context, {})).rejects.toThrow(IntegrationError)
     })
 
     it('handleEvent calls function handler and hooks', async () => {
@@ -200,11 +199,11 @@ describe('Adapter', () => {
       expect(spy).toHaveBeenCalledTimes(3)
     })
   })
-    
+
   describe('handleError', () => {
-    it('handleError throws if not a valid error handler', () => {
+    it('handleError throws if not a valid error handler', async () => {
       blueprint.set('stone.adapter.errorHandlers.default', { module: { handle: () => {} } })
-      expect(() => adapter.simulateHandleError(new Error('fail'), context)).rejects.toThrow(IntegrationError)
+      await expect(async () => await adapter.simulateHandleError(new Error('fail'), context)).rejects.toThrow(IntegrationError)
     })
 
     it('function-based: handleError delegates to error handler and returns builder', async () => {
@@ -230,7 +229,7 @@ describe('Adapter', () => {
 
     it('class-based: handleError delegates to error handler and returns builder', async () => {
       const errorHandler = class {
-        handle() {
+        handle () {
           return { build: () => new MockResponseWrapper({ name: 'handled' }) }
         }
       }
@@ -269,7 +268,7 @@ describe('Adapter', () => {
         constructorSpy()
       }
     }
-    const opts = adapter['makePipelineOptions']()
+    const opts = adapter.makePipelineOptions()
     expect(typeof opts.resolver).toBe('function')
     expect(opts.hooks).toBeDefined()
     opts.resolver({ module: classModule, isClass: true })
