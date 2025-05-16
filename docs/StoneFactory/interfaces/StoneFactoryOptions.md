@@ -6,7 +6,7 @@
 
 # Interface: StoneFactoryOptions
 
-Defined in: [StoneFactory.ts:25](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L25)
+Defined in: [StoneFactory.ts:25](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/StoneFactory.ts#L25)
 
 Stone factory options.
 
@@ -16,4 +16,4 @@ Stone factory options.
 
 > `optional` **modules**: `unknown`[]
 
-Defined in: [StoneFactory.ts:26](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L26)
+Defined in: [StoneFactory.ts:26](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/StoneFactory.ts#L26)

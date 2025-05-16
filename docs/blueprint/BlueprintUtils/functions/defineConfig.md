@@ -8,7 +8,7 @@
 
 > **defineConfig**(`configuration`): [`ConfigurationClass`](../../../declarations/type-aliases/ConfigurationClass.md)
 
-Defined in: [blueprint/BlueprintUtils.ts:128](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintUtils.ts#L128)
+Defined in: [blueprint/BlueprintUtils.ts:128](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/BlueprintUtils.ts#L128)
 
 Defines an application blueprint by merging user-defined blueprints with default options.
 

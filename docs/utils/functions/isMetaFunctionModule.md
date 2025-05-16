@@ -8,7 +8,7 @@
 
 > **isMetaFunctionModule**\<`FunctionModuleType`\>(`value`): `value is Record<"module", FunctionModuleType>`
 
-Defined in: [utils.ts:88](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/utils.ts#L88)
+Defined in: [utils.ts:88](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/utils.ts#L88)
 
 Check if the provided value is a meta function module.
 

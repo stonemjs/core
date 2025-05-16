@@ -6,7 +6,7 @@
 
 # Interface: ServiceOptions
 
-Defined in: [declarations.ts:263](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L263)
+Defined in: [declarations.ts:263](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L263)
 
 Service options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as a servic
 
 > **alias**: `string` \| `string`[]
 
-Defined in: [declarations.ts:275](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L275)
+Defined in: [declarations.ts:275](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L275)
 
 Alias or aliases for the service, used for identification or access.
 Can be a single alias or an array of aliases.
@@ -29,7 +29,7 @@ Can be a single alias or an array of aliases.
 
 > `optional` **singleton**: `boolean`
 
-Defined in: [declarations.ts:269](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L269)
+Defined in: [declarations.ts:269](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L269)
 
 Whether the service should be treated as a singleton.
 A singleton service will only have one instance in the container.

@@ -29,7 +29,7 @@ defineMiddleware((event, next) => next(event))
 
 > **defineMiddleware**\<`U`, `V`\>(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-Defined in: [blueprint/KernelUtils.ts:273](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L273)
+Defined in: [blueprint/KernelUtils.ts:273](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L273)
 
 Defines a function-based middleware.
 
@@ -81,7 +81,7 @@ defineMiddleware((event, next) => next(event))
 
 > **defineMiddleware**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-Defined in: [blueprint/KernelUtils.ts:285](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L285)
+Defined in: [blueprint/KernelUtils.ts:285](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L285)
 
 Defines a factory-based middleware.
 
@@ -133,7 +133,7 @@ defineMiddleware((event, next) => next(event))
 
 > **defineMiddleware**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-Defined in: [blueprint/KernelUtils.ts:297](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L297)
+Defined in: [blueprint/KernelUtils.ts:297](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L297)
 
 Defines a class-based middleware.
 

@@ -8,7 +8,7 @@
 
 > **defaultLoggerResolver**(`blueprint`): [`ConsoleLogger`](../../logger/ConsoleLogger/classes/ConsoleLogger.md)
 
-Defined in: [resolvers.ts:18](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/resolvers.ts#L18)
+Defined in: [resolvers.ts:18](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/resolvers.ts#L18)
 
 Default logger resolver function.
 
