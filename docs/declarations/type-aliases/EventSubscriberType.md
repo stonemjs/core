@@ -8,6 +8,6 @@
 
 > **EventSubscriberType** = [`IEventSubscriberClass`](IEventSubscriberClass.md) \| [`FunctionalEventSubscriber`](FunctionalEventSubscriber.md) \| [`FactoryEventSubscriber`](FactoryEventSubscriber.md)
 
-Defined in: [declarations.ts:419](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L419)
+Defined in: [declarations.ts:553](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L553)
 
 Represents a EventSubscriber type.

@@ -6,10 +6,6 @@
 
 # decorators/Service
 
-## Interfaces
-
-- [ServiceOptions](interfaces/ServiceOptions.md)
-
 ## Functions
 
 - [Service](functions/Service.md)

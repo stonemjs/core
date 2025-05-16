@@ -6,10 +6,6 @@
 
 # decorators/Listener
 
-## Interfaces
-
-- [ListenerOptions](interfaces/ListenerOptions.md)
-
 ## Functions
 
 - [Listener](functions/Listener.md)

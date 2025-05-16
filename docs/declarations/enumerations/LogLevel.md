@@ -6,7 +6,7 @@
 
 # Enumeration: LogLevel
 
-Defined in: [declarations.ts:86](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L86)
+Defined in: [declarations.ts:85](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L85)
 
 Log level enumeration to define possible log levels.
 
@@ -16,7 +16,7 @@ Log level enumeration to define possible log levels.
 
 > **DEBUG**: `"debug"`
 
-Defined in: [declarations.ts:90](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L90)
+Defined in: [declarations.ts:89](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L89)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [declarations.ts:90](https://github.com/stonemjs/core/blob/e2200da50
 
 > **ERROR**: `"error"`
 
-Defined in: [declarations.ts:89](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L89)
+Defined in: [declarations.ts:88](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L88)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [declarations.ts:89](https://github.com/stonemjs/core/blob/e2200da50
 
 > **INFO**: `"info"`
 
-Defined in: [declarations.ts:87](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L87)
+Defined in: [declarations.ts:86](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L86)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [declarations.ts:87](https://github.com/stonemjs/core/blob/e2200da50
 
 > **TRACE**: `"trace"`
 
-Defined in: [declarations.ts:91](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L91)
+Defined in: [declarations.ts:90](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L90)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [declarations.ts:91](https://github.com/stonemjs/core/blob/e2200da50
 
 > **WARN**: `"warn"`
 
-Defined in: [declarations.ts:88](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L88)
+Defined in: [declarations.ts:87](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L87)

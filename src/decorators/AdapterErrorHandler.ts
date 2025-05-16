@@ -1,18 +1,6 @@
-import { ClassType } from '../declarations'
 import { setClassMetadata } from './Metadata'
 import { ADAPTER_ERROR_HANDLER_KEY } from './constants'
-
-/**
- * AdapterErrorHandler options.
- *
- * This interface defines the AdapterErrorHandler options for marking a class as a AdapterErrorHandler.
- */
-export interface AdapterErrorHandlerOptions {
-  /**
-   * Additional configuration settings for the AdapterErrorHandler, if needed.
-   */
-  error: string | 'default' | string[]
-}
+import { ClassType, AdapterErrorHandlerOptions } from '../declarations'
 
 /**
  * AdapterErrorHandler decorator to set imperative configuration.

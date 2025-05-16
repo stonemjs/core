@@ -8,7 +8,7 @@
 
 > **AdapterMiddlewareMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [middleware/BlueprintMiddleware.ts:324](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/middleware/BlueprintMiddleware.ts#L324)
+Defined in: [middleware/BlueprintMiddleware.ts:330](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/middleware/BlueprintMiddleware.ts#L330)
 
 Middleware to add adapter-specific middleware to the blueprint.
 

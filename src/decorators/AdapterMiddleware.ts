@@ -1,33 +1,6 @@
-import { ClassType } from '../declarations'
 import { setClassMetadata } from './Metadata'
 import { ADAPTER_MIDDLEWARE_KEY } from './constants'
-
-/**
- * AdapterMiddleware options.
- *
- * This interface defines the configuration options for marking a class as middleware.
- */
-export interface AdapterMiddlewareOptions {
-  /**
-   * The params to pass to the middleware.
-   */
-  params?: unknown[]
-
-  /**
-   * The execution priority of the middleware.
-   */
-  priority?: number
-
-  /**
-   * The platform name for which the middleware is used.
-   */
-  adapterAlias?: string
-
-  /**
-   * The platform name for which the middleware is used.
-   */
-  platform?: string
-}
+import { ClassType, AdapterMiddlewareOptions } from '../declarations'
 
 /**
  * AdapterMiddleware decorator to mark a class as middleware within the Stone.js framework.

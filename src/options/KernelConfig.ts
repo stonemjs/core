@@ -22,7 +22,7 @@ UResponse extends OutgoingResponse = OutgoingResponse
   /**
    * Middleware configuration options for different stages of the kernel's lifecycle.
    */
-  middleware?: Array<MixedPipe<TEvent, UResponse | unknown>>
+  middleware?: Array<MixedPipe<TEvent, UResponse>>
 
   /**
    * The main event handler for the application.

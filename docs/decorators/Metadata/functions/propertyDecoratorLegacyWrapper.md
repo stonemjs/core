@@ -8,7 +8,7 @@
 
 > **propertyDecoratorLegacyWrapper**(`decorator`): `PropertyDecorator`
 
-Defined in: [decorators/Metadata.ts:291](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L291)
+Defined in: [decorators/Metadata.ts:291](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L291)
 
 Wraps a property decorator to ensure compatibility with both legacy and 2023-11 proposal contexts.
 

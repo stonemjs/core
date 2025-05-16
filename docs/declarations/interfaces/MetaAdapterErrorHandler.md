@@ -6,7 +6,7 @@
 
 # Interface: MetaAdapterErrorHandler\<RawEventType, RawResponseType, ExecutionContextType\>
 
-Defined in: [declarations.ts:1293](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1293)
+Defined in: [declarations.ts:1444](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1444)
 
 MetaAdapterErrorHandler Interface.
 
@@ -32,7 +32,7 @@ Represents a metadata object for an adapter error handler.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [declarations.ts:1294](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1294)
+Defined in: [declarations.ts:1445](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1445)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [declarations.ts:1294](https://github.com/stonemjs/core/blob/e2200da
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [declarations.ts:1295](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1295)
+Defined in: [declarations.ts:1446](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1446)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [declarations.ts:1295](https://github.com/stonemjs/core/blob/e2200da
 
 > **module**: [`AdapterErrorHandlerType`](../type-aliases/AdapterErrorHandlerType.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>
 
-Defined in: [declarations.ts:1296](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1296)
+Defined in: [declarations.ts:1447](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1447)

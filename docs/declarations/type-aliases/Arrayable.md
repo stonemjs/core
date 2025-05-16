@@ -8,7 +8,7 @@
 
 > **Arrayable**\<`T`\> = `T` \| `T`[]
 
-Defined in: [declarations.ts:29](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L29)
+Defined in: [declarations.ts:28](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L28)
 
 Represents a Arrayable type.
 

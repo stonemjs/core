@@ -1,15 +1,12 @@
 import {
   IBlueprint,
   AdapterContext,
-  AdapterHookType,
   RawResponseOptions,
   IRawResponseWrapper,
-  IAdapterEventBuilder,
-  IAdapterErrorHandler,
   AdapterEventHandlerType
 } from '../../src/declarations'
-import { Logger } from '../../src/logger'
 import { Config } from '@stone-js/config'
+import { Logger } from '../../src/logger/Logger'
 import { Adapter } from '../../src/adapter/Adapter'
 import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
@@ -26,6 +23,14 @@ class MockResponseWrapper implements IRawResponseWrapper<string> {
 }
 
 class UnitTestAdapter extends Adapter<Record<string, unknown>, string, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
+  constructor (blueprint: IBlueprint) {
+    super(blueprint)
+  }
+
+  async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
+    throw new Error('Method not implemented.')
+  }
+
   public async simulateSendEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
     return await this.sendEventThroughDestination(ctx, handler)
   }

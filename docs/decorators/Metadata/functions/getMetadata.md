@@ -24,7 +24,7 @@ The default value to return if the metadata key is not found.
 
 > **getMetadata**\<`TClass`, `UReturn`\>(`Class`, `key`): `undefined` \| `UReturn`
 
-Defined in: [decorators/Metadata.ts:63](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L63)
+Defined in: [decorators/Metadata.ts:63](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L63)
 
 Get the metadata value for a given key from a class.
 
@@ -74,7 +74,7 @@ The default value to return if the metadata key is not found.
 
 > **getMetadata**\<`TClass`, `UReturn`\>(`Class`, `key`, `fallback`): `UReturn`
 
-Defined in: [decorators/Metadata.ts:73](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L73)
+Defined in: [decorators/Metadata.ts:73](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L73)
 
 Get the metadata value for a given key from a class.
 

@@ -8,9 +8,14 @@ import {
 import {
   ClassType,
   IBlueprint,
+  ServiceOptions,
+  ListenerOptions,
   BlueprintContext,
   MixedEventHandler,
-  AdapterMixedPipeType
+  MiddlewareOptions,
+  ErrorHandlerOptions,
+  AdapterMiddlewareOptions,
+  AdapterErrorHandlerOptions
 } from '../declarations'
 import {
   getMetadata,
@@ -28,13 +33,8 @@ import {
   ADAPTER_ERROR_HANDLER_KEY
 } from '../decorators/constants'
 import { SetupError } from '../errors/SetupError'
-import { ServiceOptions } from '../decorators/Service'
 import { AdapterConfig } from '../options/AdapterConfig'
-import { ListenerOptions } from '../decorators/Listener'
-import { MiddlewareOptions } from '../decorators/Middleware'
-import { ErrorHandlerOptions } from '../decorators/ErrorHandler'
 import { MetaPipe, NextPipe, PipeClass } from '@stone-js/pipeline'
-import { AdapterMiddlewareOptions } from '../decorators/AdapterMiddleware'
 
 /**
  * Middleware to set the main event handler in the blueprint.
@@ -210,10 +210,16 @@ export const AdapterErrorHandlerMiddleware = async (
   context.modules
     .filter(module => hasMetadata(module, ADAPTER_ERROR_HANDLER_KEY))
     .forEach(module => {
-      const options: ErrorHandlerOptions = getMetadata(module, ADAPTER_ERROR_HANDLER_KEY, { error: 'default' })
-      Array(options.error)
-        .flat()
-        .forEach(error => blueprint.set(`stone.adapter.errorHandlers.${error}`, { ...options, error, module }))
+      const options: AdapterErrorHandlerOptions = getMetadata(module, ADAPTER_ERROR_HANDLER_KEY, { error: 'default' })
+      if (
+        (isEmpty(options?.adapterAlias) && isEmpty(options?.platform)) ||
+        (isNotEmpty<string>(options?.platform) && blueprint.is('stone.adapter.platform', options.platform)) ||
+        (isNotEmpty<string>(options?.adapterAlias) && blueprint.is('stone.adapter.alias', options.adapterAlias))
+      ) {
+        Array(options.error)
+          .flat()
+          .forEach(error => blueprint.set(`stone.adapter.errorHandlers.${error}`, { ...options, error, module }))
+      }
     })
 
   return blueprint
@@ -325,27 +331,27 @@ export const AdapterMiddlewareMiddleware = async (
   context: BlueprintContext<IBlueprint, PipeClass>,
   next: NextPipe<BlueprintContext<IBlueprint, PipeClass>, IBlueprint>
 ): Promise<IBlueprint> => {
+  const blueprint = await next(context)
+
   context.modules
     .filter(module => hasMetadata(module, ADAPTER_MIDDLEWARE_KEY))
     .forEach(module => {
       const options: AdapterMiddlewareOptions = getMetadata(module, ADAPTER_MIDDLEWARE_KEY, {})
-      const middleware: AdapterMixedPipeType<any, any> = { ...options, module }
+      const matchesAdapter =
+        (isEmpty(options?.adapterAlias) && isEmpty(options?.platform)) ||
+        (isNotEmpty<string>(options?.platform) && blueprint.is('stone.adapter.platform', options.platform)) ||
+        (isNotEmpty<string>(options?.adapterAlias) && blueprint.is('stone.adapter.alias', options.adapterAlias))
 
-      context.blueprint
-        .get<AdapterConfig[]>('stone.adapters', [])
-        .forEach(adapter => {
-          adapter.middleware ??= []
-          if (isEmpty(options.adapterAlias) && isEmpty(options.platform)) {
-            adapter.middleware.push(middleware)
-          } else if (isNotEmpty<string>(adapter.alias) && options.adapterAlias === adapter.alias) {
-            adapter.middleware.push(middleware)
-          } else if (isNotEmpty<string>(adapter.platform) && options.platform === adapter.platform) {
-            adapter.middleware.push(middleware)
-          }
-        })
+      if (matchesAdapter) {
+        blueprint.add('stone.adapter.middleware', [{
+          ...options,
+          module,
+          isClass: true
+        }])
+      }
     })
 
-  return await next(context)
+  return blueprint
 }
 
 /**

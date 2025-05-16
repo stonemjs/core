@@ -6,9 +6,9 @@
 
 # Type Alias: MetaMiddleware\<T, R\>
 
-> **MetaMiddleware**\<`T`, `R`\> = `MetaPipe`\<`T`, `R`\> & [`MiddlewareOptions`](../../decorators/Middleware/interfaces/MiddlewareOptions.md)
+> **MetaMiddleware**\<`T`, `R`\> = `MetaPipe`\<`T`, `R`\> & [`MiddlewareOptions`](../interfaces/MiddlewareOptions.md)
 
-Defined in: [declarations.ts:69](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L69)
+Defined in: [declarations.ts:68](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L68)
 
 Represents a MetaMiddleware type.
 

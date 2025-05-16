@@ -1,5 +1,5 @@
-import { LoggerResolver, LogLevel } from '../declarations'
 import { defaultLoggerResolver } from '../resolvers'
+import { LoggerResolver, LogLevel } from '../declarations'
 
 /**
  * **LoggerConfig Interface**

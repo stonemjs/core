@@ -8,6 +8,6 @@
 
 > **ServiceProviderType** = [`IServiceProviderClass`](IServiceProviderClass.md) \| [`FactoryServiceProvider`](FactoryServiceProvider.md)
 
-Defined in: [declarations.ts:287](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L287)
+Defined in: [declarations.ts:416](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L416)
 
 Represents a ServiceProvider type.

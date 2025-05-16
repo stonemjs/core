@@ -8,7 +8,7 @@
 
 > **AdapterHookListener**\<`AdapterContextType`\> = (`context`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:1083](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1083)
+Defined in: [declarations.ts:1234](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1234)
 
 AdapterHookListener Type.
 

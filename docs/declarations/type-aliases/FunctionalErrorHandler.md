@@ -8,7 +8,7 @@
 
 > **FunctionalErrorHandler**\<`TEvent`, `UResponse`\> = (`error`, `event`) => [`Promiseable`](Promiseable.md)\<`UResponse`\>
 
-Defined in: [declarations.ts:715](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L715)
+Defined in: [declarations.ts:849](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L849)
 
 FunctionalErrorHandler Type.
 

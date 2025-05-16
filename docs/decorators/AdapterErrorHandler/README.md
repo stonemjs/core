@@ -6,10 +6,6 @@
 
 # decorators/AdapterErrorHandler
 
-## Interfaces
-
-- [AdapterErrorHandlerOptions](interfaces/AdapterErrorHandlerOptions.md)
-
 ## Functions
 
 - [AdapterErrorHandler](functions/AdapterErrorHandler.md)

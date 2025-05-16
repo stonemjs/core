@@ -6,7 +6,7 @@
 
 # Interface: ILifecycleAdapterEventHandler\<TEvent, UResponse\>
 
-Defined in: [declarations.ts:1032](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1032)
+Defined in: [declarations.ts:1183](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1183)
 
 ILifecycleAdapterEventHandler Interface.
 
@@ -32,7 +32,7 @@ UResponse
 
 > **handle**: [`FunctionalAdapterEventHandler`](../type-aliases/FunctionalAdapterEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:1035](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1035)
+Defined in: [declarations.ts:1186](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1186)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [declarations.ts:1035](https://github.com/stonemjs/core/blob/e2200da
 
 > `optional` **onEventHandled**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:1036](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1036)
+Defined in: [declarations.ts:1187](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1187)
 
 #### Returns
 
@@ -52,7 +52,7 @@ Defined in: [declarations.ts:1036](https://github.com/stonemjs/core/blob/e2200da
 
 > `optional` **onHandlingEvent**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:1034](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1034)
+Defined in: [declarations.ts:1185](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1185)
 
 #### Returns
 
@@ -64,7 +64,7 @@ Defined in: [declarations.ts:1034](https://github.com/stonemjs/core/blob/e2200da
 
 > `optional` **onInit**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:1033](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1033)
+Defined in: [declarations.ts:1184](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1184)
 
 #### Returns
 
@@ -76,7 +76,7 @@ Defined in: [declarations.ts:1033](https://github.com/stonemjs/core/blob/e2200da
 
 > `optional` **onTerminate**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:1037](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1037)
+Defined in: [declarations.ts:1188](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1188)
 
 #### Returns
 

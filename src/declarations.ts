@@ -3,7 +3,6 @@ import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
 import { MetadataSymbol } from './decorators/Metadata'
 import { Container } from '@stone-js/service-container'
-import { MiddlewareOptions } from './decorators/Middleware'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 import { OutgoingResponse, OutgoingResponseOptions } from './events/OutgoingResponse'
 import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipelineHookContext, PipelineHookListener, PipeType } from '@stone-js/pipeline'
@@ -152,6 +151,131 @@ export interface BlueprintHookOptions {
 }
 
 /**
+ * AdapterMiddleware options.
+ *
+ * This interface defines the configuration options for marking a class as middleware.
+ */
+export interface AdapterMiddlewareOptions {
+  /**
+   * The params to pass to the middleware.
+   */
+  params?: unknown[]
+
+  /**
+   * The execution priority of the middleware.
+   */
+  priority?: number
+
+  /**
+   * The alias name for which the middleware is used.
+   */
+  adapterAlias?: string
+
+  /**
+   * The platform name for which the middleware is used.
+   */
+  platform?: string
+}
+
+/**
+ * AdapterErrorHandler options.
+ *
+ * This interface defines the AdapterErrorHandler options for marking a class as a AdapterErrorHandler.
+ */
+export interface AdapterErrorHandlerOptions {
+  /**
+   * Additional configuration settings for the AdapterErrorHandler, if needed.
+   */
+  error: string | 'default' | string[]
+
+  /**
+   * The alias name for which the AdapterErrorHandler is used.
+   */
+  adapterAlias?: string
+
+  /**
+   * The platform name for which the AdapterErrorHandler is used.
+   */
+  platform?: string
+}
+
+/**
+ * ErrorHandler options.
+ *
+ * This interface defines the ErrorHandler options for marking a class as a ErrorHandler.
+ */
+export interface ErrorHandlerOptions {
+  /**
+   * Additional configuration settings for the ErrorHandler, if needed.
+   */
+  error: string | 'default' | string[]
+}
+
+/**
+ * Listener options.
+ *
+ * This interface defines the configuration options for marking a class as a listener.
+ */
+export interface ListenerOptions {
+  /**
+   * The event that the listener should handle.
+   */
+  event: string
+}
+
+/**
+ * Middleware options.
+ *
+ * This interface defines the configuration options for marking a class as middleware.
+ */
+export interface MiddlewareOptions {
+  /**
+   * Whether the middleware should be treated as a singleton.
+   */
+  singleton?: boolean
+
+  /**
+   * The alias of the middleware.
+   */
+  alias?: string | string[]
+
+  /**
+   * The params to pass to the middleware.
+   */
+  params?: unknown[]
+
+  /**
+   * The execution priority of the middleware.
+   */
+  priority?: number
+
+  /**
+   * Set as Kernel middleware
+   */
+  global?: boolean
+}
+
+/**
+ * Service options.
+ *
+ * This interface defines the configuration options for marking a class as a service.
+ */
+export interface ServiceOptions {
+  /**
+   * Whether the service should be treated as a singleton.
+   * A singleton service will only have one instance in the container.
+   * Optional.
+   */
+  singleton?: boolean
+
+  /**
+   * Alias or aliases for the service, used for identification or access.
+   * Can be a single alias or an array of aliases.
+   */
+  alias: string | string[]
+}
+
+/**
  * Logger Interface.
  *
  * Represents a generic logging interface, which can either be a native console object or a popular JavaScript logging library.
@@ -218,6 +342,11 @@ export type ILoggerClass = new (...args: any[]) => ILogger
  * @returns The logger object.
  */
 export type FactoryLogger = (container: IContainer | any) => ILogger
+
+/**
+ * Represents a Logger type.
+ */
+export type LoggerType = ILoggerClass | FactoryLogger
 
 /**
  * Represents an IncomingEvent source.
@@ -314,6 +443,11 @@ export type IServiceClass = new (...args: any[]) => any
 export type FactoryService = (container: IContainer | any) => Record<PropertyKey, any>
 
 /**
+ * Represents a ServiceProvider type.
+ */
+export type ServiceType = IServiceClass | FactoryService
+
+/**
  * Represents a MetaService type.
  */
 export interface MetaService {
@@ -321,7 +455,7 @@ export interface MetaService {
   isFactory?: boolean
   singleton?: boolean
   alias: string | string[]
-  module: IServiceClass | FactoryService
+  module: ServiceType
 }
 
 /**
@@ -891,6 +1025,23 @@ OutgoingResponseType extends OutgoingResponse = OutgoingResponse
   & BlueprintHookType<BlueprintType>
   & AdapterHookType<AdapterContextType, RawResponseType>
   & KernelHookType<IncomingEventType, OutgoingResponseType>
+
+/**
+ * Represents the application lifecycle hooks listeners.
+ */
+export type LifecycleHookListener<
+BlueprintType extends IBlueprint = IBlueprint,
+AdapterContextType = unknown,
+RawResponseType = unknown,
+IncomingEventType extends IncomingEvent = IncomingEvent,
+OutgoingResponseType extends OutgoingResponse = OutgoingResponse
+> =
+  | BlueprintHookListener<BlueprintType>
+  | PipelineHookListener<BlueprintContext<BlueprintType>, BlueprintType, any[]>
+  | AdapterHookListener<AdapterContextType>
+  | PipelineHookListener<AdapterContextType, AdapterEventBuilderType<RawResponseType>, any[]>
+  | KernelHookListener
+  | PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>
 
 /** *********************************************** Proposal decorator *************/
 /**

@@ -8,7 +8,7 @@
 
 > **Listener**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Listener.ts:34](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Listener.ts#L34)
+Defined in: [decorators/Listener.ts:22](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Listener.ts#L22)
 
 Listener decorator to mark a class as a listener for a specific event.
 
@@ -25,7 +25,7 @@ It allows the class to be recognized and managed by the event-handling system.
 
 ### options
 
-[`ListenerOptions`](../interfaces/ListenerOptions.md)
+[`ListenerOptions`](../../../declarations/interfaces/ListenerOptions.md)
 
 The configuration options for the listener, including the event to listen for.
 

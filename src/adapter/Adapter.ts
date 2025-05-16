@@ -34,7 +34,7 @@ import {
   ILifecycleAdapterEventHandler,
   FunctionalAdapterErrorHandler
 } from '../declarations'
-import { Logger } from '../Logger'
+import { Logger } from '../logger/Logger'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { IntegrationError } from '../errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'

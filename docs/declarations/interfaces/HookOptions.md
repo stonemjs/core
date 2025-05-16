@@ -6,7 +6,7 @@
 
 # Interface: HookOptions
 
-Defined in: [declarations.ts:141](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L141)
+Defined in: [declarations.ts:140](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L140)
 
 Represents a HookOptions type.
 
@@ -16,7 +16,7 @@ Represents a HookOptions type.
 
 > **method**: `string`
 
-Defined in: [declarations.ts:143](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L143)
+Defined in: [declarations.ts:142](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L142)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [declarations.ts:143](https://github.com/stonemjs/core/blob/e2200da5
 
 > **name**: [`HookName`](../type-aliases/HookName.md)
 
-Defined in: [declarations.ts:142](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L142)
+Defined in: [declarations.ts:141](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L141)

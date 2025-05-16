@@ -11,9 +11,9 @@ import { LoggerConfig, logger } from './LoggerConfig'
 import { KernelConfig, kernel } from './KernelConfig'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { AdapterConfig, adapters } from './AdapterConfig'
-import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { BlueprintConfig, blueprint } from './BlueprintConfig'
+import { CoreServiceProvider } from '../providers/CoreServiceProvider'
 
 /**
  * Environment settings.
@@ -106,7 +106,7 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
    * Event listeners to be automatically registered when the application starts.
    * This allows you to specify functions to listen for specific events.
    */
-  listeners: MetaEventListener[]
+  listeners: Array<MetaEventListener<any>>
 
   /**
    * Subscribers to be automatically registered when the application starts.

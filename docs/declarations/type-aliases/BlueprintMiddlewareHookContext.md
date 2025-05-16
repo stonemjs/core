@@ -8,6 +8,6 @@
 
 > **BlueprintMiddlewareHookContext** = `PipelineHookContext`\<[`BlueprintContext`](../interfaces/BlueprintContext.md), [`IBlueprint`](IBlueprint.md), `any`[]\>
 
-Defined in: [declarations.ts:14](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L14)
+Defined in: [declarations.ts:13](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L13)
 
 Represents a BlueprintMiddlewareHookContext type.

@@ -6,10 +6,6 @@
 
 # decorators/Middleware
 
-## Interfaces
-
-- [MiddlewareOptions](interfaces/MiddlewareOptions.md)
-
 ## Functions
 
 - [Middleware](functions/Middleware.md)

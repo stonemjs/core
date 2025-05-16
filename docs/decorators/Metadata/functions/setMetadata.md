@@ -8,7 +8,7 @@
 
 > **setMetadata**(`context`, `key`, `value`): `void`
 
-Defined in: [decorators/Metadata.ts:30](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L30)
+Defined in: [decorators/Metadata.ts:30](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L30)
 
 Set metadata on a given decorator context.
 

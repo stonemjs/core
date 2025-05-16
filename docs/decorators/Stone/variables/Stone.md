@@ -8,7 +8,7 @@
 
 > `const` **Stone**: \<`T`\>(`options`) => `ClassDecorator` = `Service`
 
-Defined in: [decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Stone.ts#L20)
+Defined in: [decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Stone.ts#L20)
 
 Stone decorator to mark a class as a stone and automatically bind it to the container.
 
@@ -30,7 +30,7 @@ making them easily injectable and manageable by the service container.
 
 ### options
 
-`Partial`\<[`ServiceOptions`](../../Service/interfaces/ServiceOptions.md)\> = `{}`
+`Partial`\<[`ServiceOptions`](../../../declarations/interfaces/ServiceOptions.md)\> = `{}`
 
 The configuration options for the service, including singleton and alias settings.
 

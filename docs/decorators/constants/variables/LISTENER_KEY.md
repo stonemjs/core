@@ -8,6 +8,6 @@
 
 > `const` **LISTENER\_KEY**: *typeof* `LISTENER_KEY`
 
-Defined in: [decorators/constants.ts:39](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/constants.ts#L39)
+Defined in: [decorators/constants.ts:39](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/constants.ts#L39)
 
 A unique symbol key to mark classes as listeners.

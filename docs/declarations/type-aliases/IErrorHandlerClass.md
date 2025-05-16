@@ -8,7 +8,7 @@
 
 > **IErrorHandlerClass**\<`TEvent`, `UResponse`\> = (...`args`) => [`IErrorHandler`](../interfaces/IErrorHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:689](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L689)
+Defined in: [declarations.ts:823](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L823)
 
 IErrorHandlerClass Type.
 

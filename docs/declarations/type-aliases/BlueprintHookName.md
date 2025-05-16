@@ -8,6 +8,6 @@
 
 > **BlueprintHookName** = `"onPreparingBlueprint"` \| `"onProcessingBlueprintMiddleware"` \| `"onBlueprintMiddlewareProcessed"` \| `"onBlueprintPrepared"`
 
-Defined in: [declarations.ts:105](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L105)
+Defined in: [declarations.ts:104](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L104)
 
 BlueprintHookName Type.

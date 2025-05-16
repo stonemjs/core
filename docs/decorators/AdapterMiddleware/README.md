@@ -6,10 +6,6 @@
 
 # decorators/AdapterMiddleware
 
-## Interfaces
-
-- [AdapterMiddlewareOptions](interfaces/AdapterMiddlewareOptions.md)
-
 ## Functions
 
 - [AdapterMiddleware](functions/AdapterMiddleware.md)

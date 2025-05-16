@@ -8,7 +8,7 @@
 
 > **AdapterMixedPipeType**\<`AdapterContextType`, `RawResponseType`\> = `MixedPipe`\<`AdapterContextType`, [`AdapterEventBuilderType`](AdapterEventBuilderType.md)\<`RawResponseType`\>\>
 
-Defined in: [declarations.ts:1013](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L1013)
+Defined in: [declarations.ts:1164](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1164)
 
 AdapterMixedPipeType Type.
 

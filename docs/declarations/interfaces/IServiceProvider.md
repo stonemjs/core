@@ -6,7 +6,7 @@
 
 # Interface: IServiceProvider
 
-Defined in: [declarations.ts:259](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L259)
+Defined in: [declarations.ts:388](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L388)
 
 Interface representing a service provider within the system.
 
@@ -20,7 +20,7 @@ of this interface are expected to define these lifecycle methods as needed.
 
 > `optional` **boot**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:268](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L268)
+Defined in: [declarations.ts:397](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L397)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -34,7 +34,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > `optional` **mustSkip**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`boolean`\>
 
-Defined in: [declarations.ts:273](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L273)
+Defined in: [declarations.ts:402](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L402)
 
 Skip this provider.
 
@@ -48,7 +48,7 @@ Skip this provider.
 
 > `optional` **register**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:263](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L263)
+Defined in: [declarations.ts:392](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L392)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

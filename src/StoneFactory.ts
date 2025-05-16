@@ -7,14 +7,14 @@ import {
   MixedEventHandler,
   FunctionalConfiguration
 } from './declarations'
-import { Logger } from './Logger'
+import { Logger } from './logger/Logger'
 import { Config } from '@stone-js/config'
-import { BlueprintBuilder } from './BlueprintBuilder'
 import { IncomingEvent } from './events/IncomingEvent'
-import { defineBlueprintConfig } from './BlueprintUtils'
 import { StoneBlueprint } from './options/StoneBlueprint'
+import { defineConfig } from './blueprint/BlueprintUtils'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { IntegrationError } from './errors/IntegrationError'
+import { BlueprintBuilder } from './blueprint/BlueprintBuilder'
 import { isConstructor, isEmpty, isNotEmpty, isStoneBlueprint } from './utils'
 import { hasBlueprint, getBlueprint, hasMetadata, getMetadata } from './decorators/Metadata'
 import { CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, LIFECYCLE_HOOK_KEY } from './decorators/constants'
@@ -78,7 +78,7 @@ export class StoneFactory<TEvent extends IncomingEvent, UResponse extends Outgoi
     | FunctionalConfiguration
     | Partial<Record<'configure' | 'afterConfigure', FunctionalConfiguration>>
   ): this {
-    this.modules.push(defineBlueprintConfig(configuration))
+    this.modules.push(defineConfig(configuration))
     return this
   }
 

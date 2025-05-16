@@ -1,6 +1,6 @@
-import { Logger } from '../src/Logger'
-import { ConsoleLogger } from '../src/ConsoleLogger'
+import { Logger } from '../src/logger/Logger'
 import { RuntimeError } from '../src/errors/RuntimeError'
+import { ConsoleLogger } from '../src/logger/ConsoleLogger'
 
 describe('Logger', () => {
   beforeEach(() => {

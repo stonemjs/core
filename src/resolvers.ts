@@ -1,7 +1,7 @@
 import { Kernel } from './Kernel'
-import { ConsoleLogger } from './ConsoleLogger'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
+import { ConsoleLogger } from './logger/ConsoleLogger'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { IBlueprint, ResponseResolverOptions } from './declarations'

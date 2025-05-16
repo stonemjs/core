@@ -6,7 +6,7 @@
 
 # Interface: MetaEventListener\<TEvent\>
 
-Defined in: [declarations.ts:373](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L373)
+Defined in: [declarations.ts:507](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L507)
 
 Represents a MetaEventListener type.
 
@@ -22,7 +22,7 @@ Represents a MetaEventListener type.
 
 > **event**: `string`
 
-Defined in: [declarations.ts:374](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L374)
+Defined in: [declarations.ts:508](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L508)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [declarations.ts:374](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [declarations.ts:375](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L375)
+Defined in: [declarations.ts:509](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L509)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [declarations.ts:375](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [declarations.ts:376](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L376)
+Defined in: [declarations.ts:510](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L510)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [declarations.ts:376](https://github.com/stonemjs/core/blob/e2200da5
 
 > **module**: [`EventListenerType`](../type-aliases/EventListenerType.md)\<`TEvent`\>
 
-Defined in: [declarations.ts:377](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L377)
+Defined in: [declarations.ts:511](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L511)

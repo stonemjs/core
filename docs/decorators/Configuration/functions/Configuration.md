@@ -8,7 +8,7 @@
 
 > **Configuration**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Configuration.ts:36](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Configuration.ts#L36)
+Defined in: [decorators/Configuration.ts:36](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Configuration.ts#L36)
 
 Configuration decorator to set imperative configuration.
 

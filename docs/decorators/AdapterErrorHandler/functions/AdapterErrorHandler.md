@@ -8,7 +8,7 @@
 
 > **AdapterErrorHandler**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/AdapterErrorHandler.ts:31](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/AdapterErrorHandler.ts#L31)
+Defined in: [decorators/AdapterErrorHandler.ts:19](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/AdapterErrorHandler.ts#L19)
 
 AdapterErrorHandler decorator to set imperative configuration.
 
@@ -22,7 +22,7 @@ AdapterErrorHandler decorator to set imperative configuration.
 
 ### options
 
-[`AdapterErrorHandlerOptions`](../interfaces/AdapterErrorHandlerOptions.md)
+[`AdapterErrorHandlerOptions`](../../../declarations/interfaces/AdapterErrorHandlerOptions.md)
 
 The AdapterErrorHandler options.
 

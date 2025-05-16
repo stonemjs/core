@@ -1,6 +1,5 @@
 import { IBlueprint } from '../src/declarations'
-import { ConsoleLogger } from '../src/ConsoleLogger'
-import { RuntimeError } from '../src/errors/RuntimeError'
+import { ConsoleLogger } from '../src/logger/ConsoleLogger'
 
 // Mock implementation of IBlueprint to simulate behavior for testing
 const createMockBlueprint = (loggerOptions: Record<string, unknown> = {}): IBlueprint => {

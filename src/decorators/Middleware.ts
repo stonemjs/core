@@ -1,38 +1,6 @@
-import { ClassType } from '../declarations'
 import { MIDDLEWARE_KEY } from './constants'
 import { setClassMetadata } from './Metadata'
-
-/**
- * Middleware options.
- *
- * This interface defines the configuration options for marking a class as middleware.
- */
-export interface MiddlewareOptions {
-  /**
-   * Whether the middleware should be treated as a singleton.
-   */
-  singleton?: boolean
-
-  /**
-   * The alias of the middleware.
-   */
-  alias?: string | string[]
-
-  /**
-   * The params to pass to the middleware.
-   */
-  params?: unknown[]
-
-  /**
-   * The execution priority of the middleware.
-   */
-  priority?: number
-
-  /**
-   * Set as Kernel middleware
-   */
-  global?: boolean
-}
+import { ClassType, MiddlewareOptions } from '../declarations'
 
 /**
  * Middleware decorator to mark a class as middleware within the Stone.js framework.

@@ -8,7 +8,7 @@
 
 > **MiddlewareType**\<`T`, `R`\> = `PipeType`\<`T`, `R`\>
 
-Defined in: [declarations.ts:64](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L64)
+Defined in: [declarations.ts:63](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L63)
 
 Represents a PipeAlias type.
 

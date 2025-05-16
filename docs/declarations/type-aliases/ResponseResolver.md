@@ -8,7 +8,7 @@
 
 > **ResponseResolver**\<`TOutgoingResponse`\> = (`options`) => [`Promiseable`](Promiseable.md)\<`TOutgoingResponse`\>
 
-Defined in: [declarations.ts:678](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L678)
+Defined in: [declarations.ts:812](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L812)
 
 ResponseResolver Type.
 

@@ -1,6 +1,6 @@
 import { Kernel } from '../src/Kernel'
 import { Config } from '@stone-js/config'
-import { ConsoleLogger } from '../src/ConsoleLogger'
+import { ConsoleLogger } from '../src/logger/ConsoleLogger'
 import { OutgoingResponse } from '../src/events/OutgoingResponse'
 import { defaultKernelResolver, defaultLoggerResolver, defaultResponseResolver } from '../src/resolvers'
 

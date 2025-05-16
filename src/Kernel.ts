@@ -42,7 +42,7 @@ import {
   FunctionalConfiguration,
   ILifecycleAdapterEventHandler
 } from './declarations'
-import { Logger } from './Logger'
+import { Logger } from './logger/Logger'
 import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'

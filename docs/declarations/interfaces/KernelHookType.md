@@ -6,7 +6,7 @@
 
 # Interface: KernelHookType\<IncomingEventType, OutgoingResponseType\>
 
-Defined in: [declarations.ts:520](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L520)
+Defined in: [declarations.ts:654](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L654)
 
 Hook Type.
 
@@ -28,7 +28,7 @@ Represents a hook that can either be synchronous or asynchronous.
 
 > `optional` **onEventHandled**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:532](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L532)
+Defined in: [declarations.ts:666](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L666)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [declarations.ts:532](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onExecutingErrorHandler**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:527](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L527)
+Defined in: [declarations.ts:661](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L661)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [declarations.ts:527](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onExecutingEventHandler**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:526](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L526)
+Defined in: [declarations.ts:660](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L660)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [declarations.ts:526](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onHandlingEvent**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:525](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L525)
+Defined in: [declarations.ts:659](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L659)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [declarations.ts:525](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onInit**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:524](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L524)
+Defined in: [declarations.ts:658](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L658)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [declarations.ts:524](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onKernelMiddlewareProcessed**: `PipelineHookListener`\<`IncomingEventType`, `OutgoingResponseType`, `any`[]\>[]
 
-Defined in: [declarations.ts:531](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L531)
+Defined in: [declarations.ts:665](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L665)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [declarations.ts:531](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onPreparingResponse**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:528](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L528)
+Defined in: [declarations.ts:662](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L662)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [declarations.ts:528](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onProcessingKernelMiddleware**: `PipelineHookListener`\<`IncomingEventType`, `OutgoingResponseType`, `any`[]\>[]
 
-Defined in: [declarations.ts:530](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L530)
+Defined in: [declarations.ts:664](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L664)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [declarations.ts:530](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onResponsePrepared**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:529](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L529)
+Defined in: [declarations.ts:663](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L663)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [declarations.ts:529](https://github.com/stonemjs/core/blob/e2200da5
 
 > `optional` **onTerminate**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)[]
 
-Defined in: [declarations.ts:533](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L533)
+Defined in: [declarations.ts:667](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L667)

@@ -8,7 +8,7 @@
 
 > **FactoryEventListener**\<`TEvent`\> = (`container`) => [`FunctionalEventListener`](FunctionalEventListener.md)\<`TEvent`\>
 
-Defined in: [declarations.ts:360](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L360)
+Defined in: [declarations.ts:494](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L494)
 
 Represents a FactoryEventListener type.
 

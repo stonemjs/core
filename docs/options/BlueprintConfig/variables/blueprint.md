@@ -8,7 +8,7 @@
 
 > `const` **blueprint**: [`BlueprintConfig`](../interfaces/BlueprintConfig.md)
 
-Defined in: [options/BlueprintConfig.ts:35](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/options/BlueprintConfig.ts#L35)
+Defined in: [options/BlueprintConfig.ts:35](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/options/BlueprintConfig.ts#L35)
 
 Options blueprint builder namespace.
 

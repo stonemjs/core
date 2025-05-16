@@ -6,10 +6,6 @@
 
 # decorators/ErrorHandler
 
-## Interfaces
-
-- [ErrorHandlerOptions](interfaces/ErrorHandlerOptions.md)
-
 ## Functions
 
 - [ErrorHandler](functions/ErrorHandler.md)

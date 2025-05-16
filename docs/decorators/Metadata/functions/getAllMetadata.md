@@ -20,7 +20,7 @@ The default value to return if no metadata is found.
 
 > **getAllMetadata**\<`TClass`, `UReturn`\>(`Class`): `undefined` \| `UReturn`
 
-Defined in: [decorators/Metadata.ts:93](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L93)
+Defined in: [decorators/Metadata.ts:93](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L93)
 
 Get all metadata from a class.
 
@@ -60,7 +60,7 @@ The default value to return if no metadata is found.
 
 > **getAllMetadata**\<`TClass`, `UReturn`\>(`Class`, `fallback`): `UReturn`
 
-Defined in: [decorators/Metadata.ts:102](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L102)
+Defined in: [decorators/Metadata.ts:102](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L102)
 
 Get all metadata from a class.
 

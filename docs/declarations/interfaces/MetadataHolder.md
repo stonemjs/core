@@ -6,7 +6,7 @@
 
 # Interface: MetadataHolder
 
-Defined in: [declarations.ts:899](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L899)
+Defined in: [declarations.ts:1050](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1050)
 
 Represents an object that holds metadata keyed by the `MetadataSymbol`.
 
@@ -16,4 +16,4 @@ Represents an object that holds metadata keyed by the `MetadataSymbol`.
 
 > **\[metadataKey\]**: `Record`\<`PropertyKey`, `unknown`\>
 
-Defined in: [declarations.ts:900](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L900)
+Defined in: [declarations.ts:1051](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1051)

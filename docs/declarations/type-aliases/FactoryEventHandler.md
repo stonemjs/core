@@ -8,7 +8,7 @@
 
 > **FactoryEventHandler**\<`TEvent`, `UResponse`\> = (`container`) => [`FunctionalEventHandler`](FunctionalEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:476](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L476)
+Defined in: [declarations.ts:610](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L610)
 
 FactoryEventHandler.
 

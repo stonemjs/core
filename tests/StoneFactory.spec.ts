@@ -1,27 +1,27 @@
-import { Logger } from '../src/Logger'
-import { BlueprintBuilder } from '../src/BlueprintBuilder'
+import { Logger } from '../src/logger/Logger'
 import { MetadataSymbol } from '../src/decorators/Metadata'
 import { StoneFactory, stoneApp } from '../src/StoneFactory'
-import { defineBlueprintConfig } from '../src/BlueprintUtils'
+import { defineConfig } from '../src/blueprint/BlueprintUtils'
 import { IntegrationError } from '../src/errors/IntegrationError'
+import { BlueprintBuilder } from '../src/blueprint/BlueprintBuilder'
 import { CONFIGURATION_KEY, CONFIG_MIDDLEWARE_KEY, LIFECYCLE_HOOK_KEY, BLUEPRINT_KEY } from '../src/decorators/constants'
 
-vi.mock('../src/BlueprintUtils', async (importOriginal) => {
+vi.mock('../src/blueprint/BlueprintUtils', async (importOriginal) => {
   const actual = await importOriginal()
   return {
     ...actual,
-    defineBlueprintConfig: vi.fn(actual.defineBlueprintConfig)
+    defineConfig: vi.fn(actual.defineConfig)
   }
 })
 
-vi.mock('../src/Logger', () => ({
+vi.mock('../src/logger/Logger', () => ({
   Logger: {
     init: vi.fn(),
     getInstance: vi.fn(() => ({ info: vi.fn() }))
   }
 }))
 
-vi.mock('../src/BlueprintBuilder', () => {
+vi.mock('../src/blueprint/BlueprintBuilder', () => {
   return {
     BlueprintBuilder: {
       create: vi.fn().mockReturnValue({
@@ -52,7 +52,7 @@ describe('StoneFactory - create & configure', () => {
 
     // @ts-expect-error access private
     expect(factory.modules.length).toBe(1)
-    expect(defineBlueprintConfig).toHaveBeenCalledWith(configFn)
+    expect(defineConfig).toHaveBeenCalledWith(configFn)
   })
 
   it('should support chainable configure()', () => {

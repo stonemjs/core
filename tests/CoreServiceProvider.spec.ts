@@ -1,4 +1,4 @@
-import { CoreServiceProvider } from '../src/CoreServiceProvider'
+import { CoreServiceProvider } from '../src/providers/CoreServiceProvider'
 
 describe('CoreServiceProvider', () => {
   describe('register', () => {

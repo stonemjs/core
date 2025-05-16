@@ -8,7 +8,7 @@
 
 > **Service**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Service.ts:42](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Service.ts#L42)
+Defined in: [decorators/Service.ts:22](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Service.ts#L22)
 
 Service decorator to mark a class as a service and automatically bind it to the container.
 
@@ -25,7 +25,7 @@ making them easily injectable and manageable by the service container.
 
 ### options
 
-`Partial`\<[`ServiceOptions`](../interfaces/ServiceOptions.md)\> = `{}`
+`Partial`\<[`ServiceOptions`](../../../declarations/interfaces/ServiceOptions.md)\> = `{}`
 
 The configuration options for the service, including singleton and alias settings.
 

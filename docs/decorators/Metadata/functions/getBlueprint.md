@@ -20,7 +20,7 @@ The default value to return if the blueprint key is not found.
 
 > **getBlueprint**\<`TClass`, `UReturn`\>(`Class`): `undefined` \| `UReturn`
 
-Defined in: [decorators/Metadata.ts:198](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L198)
+Defined in: [decorators/Metadata.ts:198](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L198)
 
 Get the blueprint value from a class.
 
@@ -60,7 +60,7 @@ The default value to return if the blueprint key is not found.
 
 > **getBlueprint**\<`TClass`, `UReturn`\>(`Class`, `fallback`): `UReturn`
 
-Defined in: [decorators/Metadata.ts:207](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/decorators/Metadata.ts#L207)
+Defined in: [decorators/Metadata.ts:207](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L207)
 
 Get the blueprint value from a class.
 

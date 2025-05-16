@@ -8,7 +8,7 @@
 
 > **WildcardListenerHandler**\<`T`, `U`\> = (`eventName`, `event`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:871](https://github.com/stonemjs/core/blob/e2200da501349da1fec304d821c002bb6d055b61/src/declarations.ts#L871)
+Defined in: [declarations.ts:1005](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L1005)
 
 Represents a wildcard event listener handler.
 
