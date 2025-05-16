@@ -1,22 +1,8 @@
-import { Pipeline } from '@stone-js/pipeline'
+import { Config } from '@stone-js/config'
 import { Logger } from '../../src/logger/Logger'
 import { BlueprintBuilder } from '../../src/blueprint/BlueprintBuilder'
 
-vi.mock('@stone-js/pipeline', async () => {
-  const actual = await vi.importActual('@stone-js/pipeline')
-  return {
-    ...actual,
-    Pipeline: {
-      create: vi.fn().mockReturnThis(),
-      send: vi.fn().mockReturnThis(),
-      through: vi.fn().mockReturnThis(),
-      defaultPriority: vi.fn().mockReturnThis(),
-      then: vi.fn().mockImplementation(async (cb) => {
-        return cb({ blueprint: 'final-blueprint' })
-      })
-    }
-  }
-})
+/* eslint-disable @typescript-eslint/no-extraneous-class */
 
 describe('BlueprintBuilder', () => {
   let blueprint: any
@@ -42,16 +28,20 @@ describe('BlueprintBuilder', () => {
   })
 
   it('should build the blueprint and call pipeline correctly', async () => {
-    const result = await builder.build(['SomeModule'])
+    const middlewareSpy = vi.fn((context, next) => {
+      context.blueprint.set('myValue', context.modules[0].myValue)
+      return next(context)
+    })
+    blueprint = Config.create()
+    blueprint.set('stone.blueprint.middleware', [middlewareSpy])
 
-    expect(result).toBe('final-blueprint')
-    expect(Pipeline.create).toHaveBeenCalled()
-    expect(Pipeline.send).toHaveBeenCalledWith(expect.objectContaining({
-      modules: ['SomeModule'],
-      blueprint
-    }))
-    expect(Pipeline.through).toHaveBeenCalled()
-    expect(Pipeline.defaultPriority).toHaveBeenCalledWith(0)
+    builder = BlueprintBuilder.create(blueprint)
+
+    const result = await builder.build([{ myValue: 'SomeModule' }])
+
+    expect(result).toBeInstanceOf(Config)
+    expect(result.get('myValue')).toBe('SomeModule')
+    expect(middlewareSpy).toHaveBeenCalledTimes(1)
   })
 
   it('should execute lifecycle hooks if present', async () => {
@@ -78,10 +68,11 @@ describe('BlueprintBuilder', () => {
     const mockClassPipe = { module: class Test {}, isClass: true }
     const mockFactoryPipe = { module: () => () => 'created', isFactory: true }
 
+    // @ts-expect-error - private access
     const opts = builder.makePipelineOptions()
 
-    const classInstance = opts.resolver(mockClassPipe as any)
-    const factoryInstance = opts.resolver(mockFactoryPipe as any)
+    const classInstance = opts.resolver?.(mockClassPipe as any)
+    const factoryInstance: any = opts.resolver?.(mockFactoryPipe as any)
 
     expect(classInstance).toBeInstanceOf(mockClassPipe.module)
     expect(factoryInstance()).toBe('created')

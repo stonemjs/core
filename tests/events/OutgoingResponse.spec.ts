@@ -1,6 +1,5 @@
-import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IncomingEvent } from '../../src/events/IncomingEvent'
-import { Container } from '@stone-js/service-container'
+import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 
 describe('OutgoingResponse', () => {
   const baseOptions = {
@@ -59,7 +58,7 @@ describe('OutgoingResponse', () => {
 
   it('should return self from prepare() and mark prepared=true', async () => {
     const response = OutgoingResponse.create({ source: { platform: 'cli' } })
-    const event = IncomingEvent.create({ source: { platform: 'cli' } })
+    const event = IncomingEvent.create({ source: { platform: 'cli', rawContext: '', rawEvent: '' } })
 
     const prepared = await response.prepare(event)
 

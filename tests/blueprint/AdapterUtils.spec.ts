@@ -32,7 +32,7 @@ describe('defineAdapterErrorHandler', () => {
 
   it('registers class handler when isFactory is false', async () => {
     class HandlerClass {
-      handle (error: any): Promiseable<any> {
+      handle (_error: any): Promiseable<any> {
         // Handle error
       }
     }
@@ -60,7 +60,7 @@ describe('defineAdapterErrorHandler', () => {
     const blueprint = createMockBlueprint(false, set)
     next.mockResolvedValueOnce(blueprint)
 
-    const partial = defineAdapterErrorHandler((error: any): Promiseable<any> => {}, {
+    const partial = defineAdapterErrorHandler((_error: any): Promiseable<any> => {}, {
       error: 'SkippedError',
       platform: 'lambda'
     })
@@ -76,7 +76,7 @@ describe('defineAdapterErrorHandler', () => {
     const blueprint = createMockBlueprint(true, set)
     next.mockResolvedValueOnce(blueprint)
 
-    const partial = defineAdapterErrorHandler((error: any): Promiseable<any> => {}, {
+    const partial = defineAdapterErrorHandler((_error: any): Promiseable<any> => {}, {
       error: ['Err1', 'Err2']
     })
 

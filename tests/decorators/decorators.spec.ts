@@ -1,17 +1,18 @@
 import { Hook } from '../../src/decorators/Hook'
 import { Stone } from '../../src/decorators/Stone'
+import { Service } from '../../src/decorators/Service'
 import { Provider } from '../../src/decorators/Provider'
+import { Listener } from '../../src/decorators/Listener'
+import { Middleware } from '../../src/decorators/Middleware'
 import { Subscriber } from '../../src/decorators/Subscriber'
+import { ErrorHandler } from '../../src/decorators/ErrorHandler'
 import { Configuration } from '../../src/decorators/Configuration'
-import { Service, ServiceOptions } from '../../src/decorators/Service'
 import { StoneApp, StoneAppOptions } from '../../src/decorators/StoneApp'
-import { Listener, ListenerOptions } from '../../src/decorators/Listener'
-import { Middleware, MiddlewareOptions } from '../../src/decorators/Middleware'
-import { ErrorHandler, ErrorHandlerOptions } from '../../src/decorators/ErrorHandler'
+import { AdapterMiddleware } from '../../src/decorators/AdapterMiddleware'
+import { AdapterErrorHandler } from '../../src/decorators/AdapterErrorHandler'
 import { ConfigMiddleware, ConfigMiddlewareOptions } from '../../src/decorators/ConfigMiddleware'
-import { AdapterMiddleware, AdapterMiddlewareOptions } from '../../src/decorators/AdapterMiddleware'
-import { AdapterErrorHandler, AdapterErrorHandlerOptions } from '../../src/decorators/AdapterErrorHandler'
 import { addBlueprint, setClassMetadata, setMetadata, addMetadata, MetadataSymbol } from '../../src/decorators/Metadata'
+import { AdapterMiddlewareOptions, ServiceOptions, ErrorHandlerOptions, AdapterErrorHandlerOptions, ListenerOptions, MiddlewareOptions } from '../../src/declarations'
 import { ADAPTER_ERROR_HANDLER_KEY, ADAPTER_MIDDLEWARE_KEY, LIFECYCLE_HOOK_KEY, CONFIG_MIDDLEWARE_KEY, CONFIGURATION_KEY, ERROR_HANDLER_KEY, LISTENER_KEY, STONE_APP_KEY, MIDDLEWARE_KEY, PROVIDER_KEY, SERVICE_KEY, SUBSCRIBER_KEY } from '../../src/decorators/constants'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
@@ -79,6 +80,7 @@ describe('Service', () => {
 
 describe('Hook', () => {
   it('should call methodDecoratorLegacyWrapper with correct parameters', () => {
+    // @ts-expect-error - Testing legacy decorator as 2023-11 proposal decorator
     Hook('onStart')(function () {}, { name: 'onStarting' })
     expect(addMetadata).toHaveBeenCalledWith({ name: 'onStarting' }, LIFECYCLE_HOOK_KEY, { name: 'onStart', method: 'onStarting' })
   })

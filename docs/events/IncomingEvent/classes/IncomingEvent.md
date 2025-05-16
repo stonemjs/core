@@ -6,7 +6,7 @@
 
 # Class: IncomingEvent
 
-Defined in: [events/IncomingEvent.ts:19](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L19)
+Defined in: [events/IncomingEvent.ts:19](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L19)
 
 Class representing an IncomingEvent.
 
@@ -24,7 +24,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > `protected` **new IncomingEvent**(`options`): `IncomingEvent`
 
-Defined in: [events/IncomingEvent.ts:52](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L52)
+Defined in: [events/IncomingEvent.ts:52](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L52)
 
 Create an IncomingEvent.
 
@@ -50,7 +50,7 @@ The options to create an IncomingEvent.
 
 > `readonly` **locale**: `string`
 
-Defined in: [events/IncomingEvent.ts:30](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L30)
+Defined in: [events/IncomingEvent.ts:30](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L30)
 
 The locale of the event.
 
@@ -60,7 +60,7 @@ The locale of the event.
 
 > `readonly` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [events/Event.ts:27](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L27)
+Defined in: [events/Event.ts:27](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L27)
 
 The metadata associated with the event.
 
@@ -74,7 +74,7 @@ The metadata associated with the event.
 
 > `readonly` **source**: [`IncomingEventSource`](../../../declarations/interfaces/IncomingEventSource.md)
 
-Defined in: [events/IncomingEvent.ts:35](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L35)
+Defined in: [events/IncomingEvent.ts:35](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L35)
 
 The source of the event.
 
@@ -88,7 +88,7 @@ The source of the event.
 
 > `readonly` **timeStamp**: `number`
 
-Defined in: [events/Event.ts:37](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L37)
+Defined in: [events/Event.ts:37](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L37)
 
 The timestamp of the event creation.
 
@@ -102,7 +102,7 @@ The timestamp of the event creation.
 
 > `readonly` **type**: `string`
 
-Defined in: [events/Event.ts:22](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L22)
+Defined in: [events/Event.ts:22](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L22)
 
 The type of the event.
 
@@ -118,7 +118,7 @@ The type of the event.
 
 > **get** **platform**(): `string` \| `symbol`
 
-Defined in: [events/IncomingEvent.ts:69](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L69)
+Defined in: [events/IncomingEvent.ts:69](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L69)
 
 Get the platform of the event source.
 
@@ -134,7 +134,7 @@ The platform of the event source.
 
 > **clone**\<`T`\>(): `T`
 
-Defined in: [events/Event.ts:124](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L124)
+Defined in: [events/Event.ts:124](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L124)
 
 Return a cloned instance.
 
@@ -172,7 +172,7 @@ The fallback value if the key is not found.
 
 > **get**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
 
-Defined in: [events/Event.ts:57](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L57)
+Defined in: [events/Event.ts:57](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L57)
 
 Get data from metadata.
 
@@ -212,7 +212,7 @@ The fallback value if the key is not found.
 
 > **get**\<`TReturn`\>(`key`, `fallback`): `TReturn`
 
-Defined in: [events/Event.ts:66](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L66)
+Defined in: [events/Event.ts:66](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L66)
 
 Get data from metadata.
 
@@ -272,7 +272,7 @@ The fallback value if the key is not found.
 
 > **getMetadataValue**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
 
-Defined in: [events/Event.ts:85](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L85)
+Defined in: [events/Event.ts:85](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L85)
 
 Get data from metadata.
 
@@ -312,7 +312,7 @@ The fallback value if the key is not found.
 
 > **getMetadataValue**\<`TReturn`\>(`key`, `fallback`): `TReturn`
 
-Defined in: [events/Event.ts:94](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L94)
+Defined in: [events/Event.ts:94](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L94)
 
 Get data from metadata.
 
@@ -360,7 +360,7 @@ The fallback value if the key is not found.
 
 > **isPlatform**(`platform`): `boolean`
 
-Defined in: [events/IncomingEvent.ts:79](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L79)
+Defined in: [events/IncomingEvent.ts:79](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L79)
 
 Check if the event source is from a platform.
 
@@ -384,7 +384,7 @@ True if the event source is from the platform, false otherwise.
 
 > **setMetadataValue**(`key`, `value?`): `this`
 
-Defined in: [events/Event.ts:114](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L114)
+Defined in: [events/Event.ts:114](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L114)
 
 Add data to metadata.
 
@@ -418,7 +418,7 @@ This Event instance.
 
 > `static` **create**(`options`): `IncomingEvent`
 
-Defined in: [events/IncomingEvent.ts:43](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L43)
+Defined in: [events/IncomingEvent.ts:43](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L43)
 
 Create an IncomingEvent.
 
@@ -442,7 +442,7 @@ A new IncomingEvent instance.
 
 > `static` **INCOMING\_EVENT**: `string` = `'stonejs@incoming_event'`
 
-Defined in: [events/IncomingEvent.ts:25](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/IncomingEvent.ts#L25)
+Defined in: [events/IncomingEvent.ts:25](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/IncomingEvent.ts#L25)
 
 INCOMING_EVENT Event name, fires on platform message.
 

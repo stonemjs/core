@@ -30,7 +30,7 @@ defineService((container) => ({ save(){} }), { alias: 'myService' })
 
 > **defineService**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:398
+Defined in: [blueprint/KernelUtils.ts:398](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L398)
 
 Defines a factory-based service for the Stone.js application.
 
@@ -73,7 +73,7 @@ defineService((container) => ({ save(){} }), { alias: 'myService' })
 
 > **defineService**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:410
+Defined in: [blueprint/KernelUtils.ts:410](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L410)
 
 Defines a class-based service for the Stone.js application.
 

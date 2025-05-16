@@ -6,7 +6,7 @@
 
 # Interface: IConfiguration\<TValues\>
 
-Defined in: [declarations.ts:905](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L905)
+Defined in: [declarations.ts:905](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L905)
 
 Configuration Interface.
 
@@ -28,7 +28,7 @@ The blueprint to configure.
 
 > `optional` **afterConfigure**: [`FunctionalConfiguration`](../type-aliases/FunctionalConfiguration.md)\<`TValues`\>
 
-Defined in: [declarations.ts:907](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L907)
+Defined in: [declarations.ts:907](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L907)
 
 ***
 
@@ -36,4 +36,4 @@ Defined in: [declarations.ts:907](https://github.com/stonemjs/core/blob/3581a30d
 
 > `optional` **configure**: [`FunctionalConfiguration`](../type-aliases/FunctionalConfiguration.md)\<`TValues`\>
 
-Defined in: [declarations.ts:906](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L906)
+Defined in: [declarations.ts:906](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L906)

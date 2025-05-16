@@ -14,19 +14,21 @@ import { SetupError } from '../../src/errors/SetupError'
 import { MetadataSymbol } from '../../src/decorators/Metadata'
 import { STONE_APP_KEY, SERVICE_KEY, ADAPTER_MIDDLEWARE_KEY, MIDDLEWARE_KEY, ADAPTER_ERROR_HANDLER_KEY, SUBSCRIBER_KEY, LISTENER_KEY, PROVIDER_KEY, ERROR_HANDLER_KEY } from '../../src/decorators/constants'
 
-const createMockBlueprint = () => ({
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+
+const createMockBlueprint = (): any => ({
   set: vi.fn(),
   add: vi.fn(),
   setIf: vi.fn(),
   is: vi.fn().mockReturnValue(false),
   get: vi.fn().mockReturnValue(undefined)
-} as any)
+})
 
 describe('MainEventHandlerMiddleware', () => {
   it('should set the main event handler if found', async () => {
     const blueprint = createMockBlueprint()
     const handler = class {
-      handle () {}
+      handle (): void {}
       public static [MetadataSymbol] = { [STONE_APP_KEY]: { stone: { name: 'test handler' } } }
     }
     const context = { modules: [handler], blueprint }

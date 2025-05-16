@@ -3,34 +3,31 @@ import { Config } from '@stone-js/config'
 import { Logger } from '../src/logger/Logger'
 import { Container } from '@stone-js/service-container'
 import { EventEmitter } from '../src/events/EventEmitter'
-import { RuntimeError } from '../src/errors/RuntimeError'
 import { IncomingEvent } from '../src/events/IncomingEvent'
-import { ConsoleLogger } from '../src/logger/ConsoleLogger'
-import { IBlueprint, IContainer } from '../src/declarations'
 import { OutgoingResponse } from '../src/events/OutgoingResponse'
 import { InitializationError } from '../src/errors/InitializationError'
+import { IBlueprint, IServiceProvider, NextMiddleware } from '../src/declarations'
+
+class TestEvent extends IncomingEvent {
+  static create (): TestEvent {
+    return new TestEvent({ source: { platform: 'test', rawEvent: '', rawContext: '' } })
+  }
+}
+
+class TestResponse extends OutgoingResponse {}
+
+const createKernel = (blueprint?: IBlueprint): Kernel<TestEvent, TestResponse> => {
+  const container = Container.create()
+  const eventEmitter = EventEmitter.create()
+  const config = blueprint ?? Config.create()
+  Logger.init(config)
+  return Kernel.create({ blueprint: config, container, eventEmitter })
+}
 
 describe('Kernel', () => {
-  let validBlueprint: IBlueprint
-  let validContainer: IContainer
-  let validEventEmitter: EventEmitter
-  let kernel: Kernel<IncomingEvent, OutgoingResponse>
-
-  beforeEach(() => {
-    validBlueprint = Config.create()
-    validContainer = Container.create()
-    validEventEmitter = EventEmitter.create()
-
-    kernel = Kernel.create({
-      blueprint: validBlueprint,
-      container: validContainer,
-      eventEmitter: validEventEmitter
-    })
-  })
-
-  describe('create & validateOptions', () => {
+  describe('create', () => {
     it('should create a Kernel instance with valid options', () => {
-      expect(kernel).toBeInstanceOf(Kernel)
+      expect(createKernel()).toBeInstanceOf(Kernel)
     })
 
     it('should throw if blueprint is missing or invalid', () => {
@@ -38,8 +35,8 @@ describe('Kernel', () => {
         Kernel.create({
           // @ts-expect-error
           blueprint: {},
-          container: validContainer,
-          eventEmitter: validEventEmitter
+          container: Container.create(),
+          eventEmitter: EventEmitter.create()
         })
       }).toThrow(InitializationError)
     })
@@ -47,10 +44,10 @@ describe('Kernel', () => {
     it('should throw if container is missing or invalid', () => {
       expect(() => {
         Kernel.create({
-          blueprint: validBlueprint,
+          blueprint: Config.create(),
           // @ts-expect-error
           container: {},
-          eventEmitter: validEventEmitter
+          eventEmitter: EventEmitter.create()
         })
       }).toThrow(InitializationError)
     })
@@ -58,8 +55,8 @@ describe('Kernel', () => {
     it('should throw if eventEmitter is missing or invalid', () => {
       expect(() => {
         Kernel.create({
-          blueprint: validBlueprint,
-          container: validContainer,
+          blueprint: Config.create(),
+          container: Container.create(),
           // @ts-expect-error
           eventEmitter: {}
         })
@@ -67,487 +64,336 @@ describe('Kernel', () => {
     })
   })
 
-  describe('lifecycle hooks', () => {
-    it('should call all internal methods on onInit()', async () => {
-      (kernel as any).executeHooks = vi.fn()
-      (kernel as any).resolveProviders = vi.fn()
-      (kernel as any).registerProviders = vi.fn()
-      (kernel as any).runLiveConfigurations = vi.fn()
-      (kernel as any).registerBaseBindings = vi.fn().mockReturnThis()
+  describe('onInit', () => {
+    it('should bind base services and run lifecycle', async () => {
+      const spyHook = vi.fn()
+      const config = Config.create()
+      const middleware = (event: TestEvent, next: NextMiddleware): unknown => next(event)
+
+      config.set('stone.kernel.skipMiddleware', true)
+      config.set('stone.kernel.middleware', [middleware])
+      config.set('stone.lifecycleHooks.onInit', [spyHook])
+
+      const kernel = createKernel(config)
 
       await kernel.onInit()
 
-      expect((kernel as any).resolveProviders).toHaveBeenCalled()
-      expect((kernel as any).registerProviders).toHaveBeenCalled()
-      expect((kernel as any).registerBaseBindings).toHaveBeenCalled()
-      expect((kernel as any).runLiveConfigurations).toHaveBeenCalled()
-      expect((kernel as any).executeHooks).toHaveBeenCalledWith('onInit')
+      // Base services
+      /* eslint-disable-next-line */
+      expect(kernel['middleware']).toHaveLength(0)
+      /* eslint-disable-next-line */
+      expect(kernel['container'].resolve(Config)).toBe(config)
+      /* eslint-disable-next-line */
+      expect(kernel['container'].resolve(Container)).toBe(kernel['container'])
+      /* eslint-disable-next-line */
+      expect(kernel['container'].resolve(EventEmitter)).toBeInstanceOf(EventEmitter)
+
+      // Lifecycle hook called
+      expect(spyHook).toHaveBeenCalledOnce()
     })
 
-    it('should call bootProviders and hook on onHandlingEvent()', async () => {
-      const spyBoot = vi.spyOn(kernel as any, 'bootProviders').mockResolvedValue()
-      const spyHooks = vi.spyOn(kernel as any, 'executeHooks').mockResolvedValue()
-
-      await kernel.onHandlingEvent()
-
-      expect(spyBoot).toHaveBeenCalled()
-      expect(spyHooks).toHaveBeenCalledWith('onHandlingEvent')
-    })
-
-    it('should execute hook on onEventHandled()', async () => {
-      const spyHooks = vi.spyOn(kernel as any, 'executeHooks').mockResolvedValue()
-
-      await kernel.onEventHandled()
-
-      expect(spyHooks).toHaveBeenCalledWith('onEventHandled')
-    })
-
-    it('should execute hook on onTerminate()', async () => {
-      const spyHooks = vi.spyOn(kernel as any, 'executeHooks').mockResolvedValue()
-
-      await kernel.onTerminate()
-
-      expect(spyHooks).toHaveBeenCalledWith('onTerminate')
-    })
-  })
-
-  describe('registerBaseBindings', () => {
-    it('should bind core components and aliases correctly', () => {
-      const blueprint = new Config()
-      const container = new Container()
-      const emitter = new EventEmitter()
-      Logger.init(blueprint)
-
-      const kernel = Kernel.create({
-        container,
-        blueprint,
-        eventEmitter: emitter
-      })
-
-      kernel.registerBaseBindings()
-
-      expect(container.resolve(Config)).toBe(blueprint)
-      expect(container.resolve(Container)).toBe(container)
-      expect(container.resolve(EventEmitter)).toBe(emitter)
-      expect(container.resolve('config')).toBe(blueprint)
-      expect(container.resolve('logger')).toBeInstanceOf(ConsoleLogger)
-      expect(container.resolve('blueprint')).toBe(blueprint)
-      expect(container.resolve('events')).toBe(emitter)
-      expect(container.resolve('eventEmitter')).toBe(emitter)
-    })
-  })
-
-  describe('runLiveConfigurations', () => {
-    it('should run class-based configurations', async () => {
-      const configureSpy = vi.fn()
-
-      class LiveConfig {
-        configure = configureSpy
-      }
-
-      const blueprint = new Config()
-      const container = new Container()
-      blueprint.set('stone.liveConfigurations', [
-        { module: LiveConfig, isClass: true }
-      ])
-
-      const kernel = Kernel.create({
-        container,
-        blueprint,
-        eventEmitter: new EventEmitter()
-      })
-
-      await kernel.runLiveConfigurations()
-
-      expect(configureSpy).toHaveBeenCalledWith(blueprint)
-    })
-
-    it('should run function-based configuration directly', async () => {
-      const fn = vi.fn()
-      const blueprint = new Config()
-      blueprint.set('stone.liveConfigurations', [fn])
-
-      const kernel = Kernel.create({
-        container: new Container(),
-        blueprint,
-        eventEmitter: new EventEmitter()
-      })
-
-      await kernel.runLiveConfigurations()
-
-      expect(fn).toHaveBeenCalledWith(blueprint)
-    })
-  })
-
-  describe('Provider Lifecycle', () => {
-    let container: Container
-    let blueprint: Config
-    let kernel: Kernel<any, any>
-
-    beforeEach(() => {
-      container = new Container()
-      blueprint = new Config()
-      kernel = Kernel.create({
-        container,
-        blueprint,
-        eventEmitter: new EventEmitter()
-      })
-    })
-
-    it('should resolve class-based providers and call mustSkip()', async () => {
-      const skipSpy = vi.fn().mockResolvedValue(false)
-      class MyProvider {
-        mustSkip = skipSpy
-      }
-
-      blueprint.set('stone.providers', [{ module: MyProvider, isClass: true }])
-
-      await kernel.resolveProviders()
-
-      expect(skipSpy).toHaveBeenCalled()
-      expect([...kernel.providers].length).toBe(1)
-    })
-
-    it('should resolve factory-based providers and include them', async () => {
-      const mockProvider = { mustSkip: vi.fn().mockResolvedValue(false) }
-      const factory = () => mockProvider
-
-      blueprint.set('stone.providers', [{ module: factory, isFactory: true }])
-
-      await kernel.resolveProviders()
-
-      expect([...kernel.providers]).toContain(mockProvider)
-    })
-
-    it('should resolve raw constructor providers', async () => {
-      class RawProvider {}
-
-      blueprint.set('stone.providers', [RawProvider])
-
-      await kernel.resolveProviders()
-
-      expect([...kernel.providers].some(p => p instanceof RawProvider)).toBe(true)
-    })
-
-    it('should register all resolved providers once', async () => {
+    it('should resolve and register class provider once even called many times', async () => {
       const register = vi.fn()
-      class Service {
+      class Provider implements IServiceProvider {
         register = register
       }
 
-      blueprint.set('stone.providers', [{ module: Service, isClass: true }])
+      const config = Config.create()
+      config.set('stone.providers', [Provider, { module: Provider, isClass: true }])
 
-      await kernel.resolveProviders()
-      await kernel.registerProviders()
-      await kernel.registerProviders() // should skip already registered
+      const kernel = createKernel(config)
 
-      expect(register).toHaveBeenCalledTimes(1)
+      await kernel.onInit()
+      await kernel.onInit()
+
+      expect(register).toHaveBeenCalledOnce()
     })
 
-    it('should boot all resolved providers', async () => {
-      const boot = vi.fn()
-      class Booter {
-        boot = boot
+    it('should skip provider if mustSkip returns true', async () => {
+      const register = vi.fn()
+      const Provider = (): IServiceProvider => ({
+        register,
+        async mustSkip () { return true }
+      })
+
+      const config = Config.create()
+      config.set('stone.providers', [{ module: Provider, isFactory: true }])
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      expect(register).not.toHaveBeenCalled()
+    })
+
+    it('should run functional live configuration', async () => {
+      const spy = vi.fn((bp: IBlueprint) => {
+        bp.set('stone.test.config', true)
+      })
+      const config = Config.create()
+      config.set('stone.liveConfigurations', [spy])
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      expect(config.get('stone.test.config')).toBe(true)
+    })
+
+    it('should run class-based live configuration', async () => {
+      const spy = vi.fn((bp: IBlueprint) => {
+        bp.set('stone.test.config', true)
+      })
+      class LiveConfig {
+        configure = spy
       }
+      const config = Config.create()
+      config.set('stone.liveConfigurations', [{ module: LiveConfig, isClass: true }])
 
-      blueprint.set('stone.providers', [{ module: Booter, isClass: true }])
+      const kernel = createKernel(config)
+      await kernel.onInit()
 
-      await kernel.resolveProviders()
-      await kernel.bootProviders()
-
-      expect(boot).toHaveBeenCalledTimes(1)
+      expect(config.get('stone.test.config')).toBe(true)
     })
   })
 
-  describe('handle event', () => {
-    let blueprint: Config
-    let container: Container
-    let kernel: Kernel<any, any>
+  describe('onHandlingEvent', () => {
+    it('should boot providers and run hook', async () => {
+      const boot = vi.fn()
+      const hook = vi.fn()
 
-    class MyEvent extends IncomingEvent {}
-    class MyResponse extends OutgoingResponse {}
-
-    beforeEach(() => {
-      blueprint = new Config()
-      container = new Container()
-      kernel = Kernel.create({ container, blueprint, eventEmitter: new EventEmitter() })
-    })
-
-    it('should call sendEventThroughDestination when handle is called', async () => {
-      const spy = vi.spyOn(kernel as any, 'sendEventThroughDestination').mockResolvedValue(new MyResponse({ source: {} }))
-
-      const result = await kernel.handle(new MyEvent({ source: {} }))
-
-      expect(spy).toHaveBeenCalled()
-      expect(result).toBeInstanceOf(MyResponse)
-    })
-
-    it('should throw if event is missing', async () => {
-      await expect(kernel.sendEventThroughDestination(undefined as any)).rejects.toThrow()
-    })
-
-    it('should clone original event if clone method is available', async () => {
-      const cloneSpy = vi.fn()
-      class ClonableEvent extends MyEvent {
-        clone = cloneSpy
+      class Provider implements IServiceProvider {
+        boot = boot
       }
 
-      const event = new ClonableEvent({})
-      vi.spyOn(kernel as any, 'handleEvent').mockResolvedValue(new MyResponse({ source: {} }))
-      vi.spyOn(kernel as any, 'prepareResponse').mockResolvedValue(new MyResponse({ source: {} }))
+      const config = Config.create()
+      config.set('stone.providers', [Provider])
+      config.set('stone.lifecycleHooks.onHandlingEvent', [hook])
 
-      await kernel.sendEventThroughDestination(event)
+      const kernel = createKernel(config)
+      await kernel.onInit()
+      await kernel.onHandlingEvent()
 
-      expect(cloneSpy).toHaveBeenCalled()
+      expect(boot).toHaveBeenCalled()
+      expect(hook).toHaveBeenCalled()
     })
+  })
 
-    it('should execute handleEvent and prepare the response', async () => {
-      const response = new MyResponse({ source: {} })
-      const event = new MyEvent({ source: {} })
+  describe('handle', () => {
+    it('should return prepared response after passing through pipeline', async () => {
+      const event = TestEvent.create()
+      const response = TestResponse.create({ content: 'hello' })
+      const handler = vi.fn().mockResolvedValue(response)
 
-      const handler = { handle: vi.fn().mockResolvedValue(response) }
-      blueprint.set('stone.kernel.eventHandler', handler.handle)
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', handler)
 
-      const prepareSpy = vi.spyOn(kernel as any, 'prepareResponse').mockResolvedValue(response)
+      const kernel = createKernel(config)
+      await kernel.onInit()
+      await kernel.onHandlingEvent()
+      const result = await kernel.handle(event)
 
-      const result = await kernel.handleEvent(event)
-
-      expect(handler.handle).toHaveBeenCalledWith(event)
-      expect(prepareSpy).toHaveBeenCalledWith(event, response)
       expect(result).toBe(response)
+      expect(result.isPrepared).toBe(true)
+      expect(handler).toHaveBeenCalledWith(event)
     })
 
-    it('should handle error during handleEvent and delegate to handleError', async () => {
-      const error = new Error('boom')
-      const event = new MyEvent({ source: {} })
-      const handler = { handle: vi.fn().mockRejectedValue(error) }
+    it('should handle empty event with error', async () => {
+      const kernel = createKernel()
+      // @ts-expect-error simulate bad input
+      await expect(kernel.handle(undefined)).rejects.toThrow(InitializationError)
+    })
 
-      blueprint.set('stone.kernel.eventHandler', handler.handle)
+    it('should handle empty handler with error', async () => {
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', {})
+      config.set('stone.kernel.responseResolver', async () => TestResponse.create({ content: 'hello' }))
 
-      const handleErrorSpy = vi.spyOn(kernel as any, 'handleError').mockResolvedValue(new MyResponse({ source: {} }))
+      const kernel = createKernel(config)
+      await kernel.onInit()
 
-      await kernel.handleEvent(event)
+      await expect(async () => await kernel.handle(TestEvent.create())).rejects.toThrow(InitializationError)
+    })
 
-      expect(handleErrorSpy).toHaveBeenCalledWith(error, event)
+    it('should handle empty response resolver with empty message with error', async () => {
+      const config = Config.create()
+      const Handler = vi.fn().mockResolvedValue(undefined)
+      config.set('stone.kernel.eventHandler', Handler)
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      await expect(async () => await kernel.handle(TestEvent.create())).rejects.toThrow(InitializationError)
+    })
+
+    it('should handle empty response resolver with non outgoing reponse instance with error', async () => {
+      const config = Config.create()
+      const Handler = vi.fn().mockResolvedValue('Hello')
+      config.set('stone.kernel.eventHandler', Handler)
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      await expect(async () => await kernel.handle(TestEvent.create())).rejects.toThrow(InitializationError)
+    })
+
+    it('should support response transformation via responseResolver', async () => {
+      class Handler {
+        handle = vi.fn().mockResolvedValue('hello')
+      }
+      const factoryMiddleware = () => (event: TestEvent, next: NextMiddleware) => next(event)
+
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', { module: Handler, isClass: true })
+      config.set('stone.kernel.middleware', [{ module: factoryMiddleware, isFactory: true }])
+      config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+      const result = await kernel.handle(TestEvent.create())
+
+      /* eslint-disable-next-line */
+      expect(kernel['middleware']).toHaveLength(1)
+      expect(result).toBeInstanceOf(TestResponse)
+      expect(result.content).toBe('hello')
+    })
+
+    it('should support response transformation via responseResolver with factory-based handler', async () => {
+      const Handler = (): unknown => vi.fn().mockResolvedValue({ statusCode: 200, content: 'hello' })
+      class ClassMiddleware {
+        handle = (event: TestEvent, next: NextMiddleware): unknown => next(event)
+      }
+
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', { module: Handler, isFactory: true })
+      config.set('stone.kernel.middleware', [{ module: ClassMiddleware, isClass: true }])
+      config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+      const result = await kernel.handle(TestEvent.create())
+
+      expect(result).toBeInstanceOf(TestResponse)
+      expect(result.content).toBe('hello')
+    })
+
+    it('should support response transformation via responseResolver with functional-based handler', async () => {
+      const Handler = vi.fn().mockResolvedValue(undefined)
+
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', { module: Handler })
+      config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+      const result = await kernel.handle(TestEvent.create())
+
+      expect(result).toBeInstanceOf(TestResponse)
+      expect(result.content).toBeFalsy()
     })
   })
 
   describe('error handling', () => {
-    let container: Container
-    let blueprint: Config
-    let kernel: Kernel<any, any>
-
-    class MyEvent extends IncomingEvent {}
-    class MyResponse extends OutgoingResponse {}
-
-    beforeEach(() => {
-      container = new Container()
-      blueprint = new Config()
-      kernel = Kernel.create({ container, blueprint, eventEmitter: new EventEmitter() })
-    })
-
-    it('should call resolveErrorHandler and prepareResponse', async () => {
-      const err = new RuntimeError('fail')
-      const event = new MyEvent({ source: {} })
-      const response = new MyResponse({ source: {} })
-      const handlerSpy = vi.fn().mockResolvedValue(response)
-
-      blueprint.set('stone.kernel.errorHandlers.RuntimeError', {
-        module: () => handlerSpy, isFactory: true
-      })
-
-      const prepareSpy = vi.spyOn(kernel as any, 'prepareResponse').mockResolvedValue(response)
-      const hookSpy = vi.spyOn(kernel as any, 'executeHooks').mockResolvedValue()
-
-      const result = await kernel.handleError(err, event)
-
-      expect(hookSpy).toHaveBeenCalledWith('onExecutingErrorHandler')
-      expect(handlerSpy).toHaveBeenCalledWith(err, event)
-      expect(prepareSpy).toHaveBeenCalledWith(event, response)
-      expect(result).toBe(response)
-    })
-
-    it('should resolve class-based error handler', () => {
-      class MyHandler {
-        handle = vi.fn()
+    it('should handle errors via default error handler', async () => {
+      const handler = (): void => {
+        throw new Error('Boom')
       }
 
-      blueprint.set('stone.kernel.errorHandlers.TypeError', {
-        module: MyHandler, isClass: true
-      })
+      const errorHandler = vi.fn().mockResolvedValue('error')
 
-      const handler = kernel.resolveErrorHandler(new TypeError('x'))
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', handler)
+      config.set('stone.kernel.errorHandlers.default', { module: errorHandler })
+      config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
 
-      expect(handler.handle).toBeInstanceOf(Function)
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      const response = await kernel.handle(TestEvent.create())
+
+      expect(errorHandler).toHaveBeenCalledWith(expect.any(Error), expect.any(TestEvent))
+      expect(response.content).toBe('error')
     })
 
-    it('should resolve factory-based error handler', () => {
-      const handle = vi.fn()
-      const factory = () => handle
+    it('should handle errors via default factory error handler', async () => {
+      const handler = (): void => {
+        throw new Error('Boom')
+      }
 
-      blueprint.set('stone.kernel.errorHandlers.SyntaxError', {
-        module: factory, isFactory: true
-      })
+      const errorHandler = vi.fn().mockResolvedValue('error')
 
-      const handler = kernel.resolveErrorHandler(new SyntaxError('y'))
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', handler)
+      config.set('stone.kernel.errorHandlers.default', { module: () => errorHandler, isFactory: true })
+      config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
 
-      expect(handler.handle).toBe(handle)
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      const response = await kernel.handle(TestEvent.create())
+
+      expect(errorHandler).toHaveBeenCalledWith(expect.any(Error), expect.any(TestEvent))
+      expect(response.content).toBe('error')
     })
 
-    it('should resolve functional error handler', () => {
-      const handle = vi.fn()
+    it('should handle errors via error-named class error handler', async () => {
+      const errorHandler = vi.fn().mockResolvedValue('error')
+      class MyError extends Error {
+        constructor (message: string) {
+          super(message)
+          this.name = 'MyError'
+        }
+      }
+      const handler = (): void => {
+        throw new MyError('Boom')
+      }
+      class ErrorHandler {
+        handle = errorHandler
+      }
 
-      blueprint.set('stone.kernel.errorHandlers.ReferenceError', {
-        module: handle
-      })
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', handler)
+      config.set('stone.kernel.errorHandlers.MyError', { module: ErrorHandler, isClass: true })
+      config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
 
-      const handler = kernel.resolveErrorHandler(new ReferenceError('z'))
+      const kernel = createKernel(config)
+      await kernel.onInit()
 
-      expect(handler.handle).toBe(handle)
+      const response = await kernel.handle(TestEvent.create())
+
+      expect(errorHandler).toHaveBeenCalledWith(expect.any(Error), expect.any(TestEvent))
+      expect(response.content).toBe('error')
     })
 
-    it('should throw if no handler is provided at all', () => {
-      expect(() => {
-        kernel.resolveErrorHandler(new URIError('oops'))
-      }).toThrow(URIError)
+    it('should throw if no error handler and unknown error', async () => {
+      const err = new Error('Unknown')
+      const handler = vi.fn().mockRejectedValue(err)
+
+      const config = Config.create()
+      config.set('stone.kernel.eventHandler', handler)
+      config.set('stone.kernel.errorHandlers', {}) // empty map
+
+      const kernel = createKernel(config)
+      await kernel.onInit()
+
+      await expect(kernel.handle(TestEvent.create())).rejects.toThrow('Unknown')
     })
   })
 
-  describe('prepare & validate response', () => {
-    let container: Container
-    let blueprint: Config
-    let kernel: Kernel<any, any>
+  describe('lifecycle hooks', () => {
+    it('should call onEventHandled and onTerminate hooks', async () => {
+      const onEventHandled = vi.fn()
+      const onTerminate = vi.fn()
 
-    class MyEvent extends IncomingEvent {}
-    class MyResponse extends OutgoingResponse {}
+      const config = Config.create()
+      config.set('stone.lifecycleHooks.onEventHandled', [onEventHandled])
+      config.set('stone.lifecycleHooks.onTerminate', [onTerminate])
 
-    beforeEach(() => {
-      container = new Container()
-      blueprint = new Config()
-      kernel = Kernel.create({ container, blueprint, eventEmitter: new EventEmitter() })
-    })
+      const kernel = createKernel(config)
+      await kernel.onInit()
+      await kernel.onEventHandled()
+      await kernel.onTerminate()
 
-    it('should skip preparation if response is already prepared', async () => {
-      const event = new MyEvent({ source: {} })
-      const prepared = new MyResponse({ source: {} })
-      prepared.prepared = true
-
-      const result = await kernel.prepareResponse(event, prepared)
-
-      expect(result).toBe(prepared)
-    })
-
-    it('should prepare response if not prepared and bind it in container', async () => {
-      const event = new MyEvent({ source: {} })
-      const unprepared = new MyResponse({ source: {} })
-      unprepared.prepare = vi.fn(() => unprepared)
-
-      const hookSpy = vi.spyOn(kernel as any, 'executeHooks').mockResolvedValue()
-
-      const result = await kernel.prepareResponse(event, unprepared)
-
-      expect(hookSpy).toHaveBeenCalledWith('onPreparingResponse')
-      expect(unprepared.prepare).toHaveBeenCalled()
-      expect(hookSpy).toHaveBeenCalledWith('onResponsePrepared')
-      expect(result).toBe(unprepared)
-    })
-
-    it('should return response as-is if it is an instance of OutgoingResponse', async () => {
-      const response = new MyResponse({ source: {} })
-      const result = await kernel.validateAndResolveResponse(response)
-
-      expect(result).toBe(response)
-    })
-
-    it('should resolve empty return value using responseResolver', async () => {
-      const resolver = vi.fn().mockResolvedValue(new MyResponse({ source: {} }))
-
-      blueprint.set('stone.kernel.responseResolver', resolver)
-
-      const result = await kernel.validateAndResolveResponse(undefined)
-
-      expect(resolver).toHaveBeenCalledWith({})
-      expect(result).toBeInstanceOf(MyResponse)
-    })
-
-    it('should resolve non-OutgoingResponse using responseResolver', async () => {
-      const resolver = vi.fn().mockResolvedValue(new MyResponse({ source: {} }))
-      blueprint.set('stone.kernel.responseResolver', resolver)
-
-      const result = await kernel.validateAndResolveResponse({ name: 'Stone' })
-
-      expect(resolver).toHaveBeenCalledWith({ content: { name: 'Stone' }, statusCode: 200 })
-      expect(result).toBeInstanceOf(MyResponse)
-    })
-
-    it('should throw error if no responseResolver and value is missing', async () => {
-      await expect(kernel.validateAndResolveResponse(undefined)).rejects.toThrow(InitializationError)
-    })
-
-    it('should throw error if no responseResolver and value is not an OutgoingResponse', async () => {
-      await expect(kernel.validateAndResolveResponse({ msg: 'fail' })).rejects.toThrow(InitializationError)
-    })
-  })
-
-  describe('makePipelineOptions', () => {
-    let container: Container
-    let blueprint: Config
-    let kernel: Kernel<any, any>
-
-    beforeEach(() => {
-      container = new Container()
-      blueprint = new Config()
-      kernel = Kernel.create({ container, blueprint, eventEmitter: new EventEmitter() })
-    })
-
-    it('should include middleware hook callbacks if defined', () => {
-      const onProcess = [vi.fn()]
-      const onProcessed = [vi.fn()]
-
-      blueprint.set('stone.lifecycleHooks', {
-        onProcessingKernelMiddleware: onProcess,
-        onKernelMiddlewareProcessed: onProcessed
-      }).set('stone.kernel.skipMiddleware', true)
-
-      kernel = Kernel.create({ container, blueprint, eventEmitter: new EventEmitter() })
-
-      const opts = kernel.makePipelineOptions()
-
-      expect(opts.hooks.onProcessingPipe).toBe(onProcess)
-      expect(opts.hooks.onPipeProcessed).toBe(onProcessed)
-    })
-
-    it('should resolve class pipe using container', () => {
-      class MyPipe { handle = vi.fn() }
-
-      const opts = kernel.makePipelineOptions()
-      const resolved = opts.resolver({ module: MyPipe, isClass: true, priority: 1 })
-
-      expect(resolved).toBeInstanceOf(MyPipe)
-    })
-
-    it('should resolve alias pipe using container', () => {
-      class AliasPipe { handle = vi.fn() }
-
-      container.singleton(AliasPipe, () => new AliasPipe()).alias(AliasPipe, 'MyAlias')
-
-      const opts = kernel.makePipelineOptions()
-      const resolved = opts.resolver({ module: 'MyAlias', isAlias: true, priority: 1 })
-
-      expect(resolved).toBeInstanceOf(AliasPipe)
-    })
-
-    it('should resolve factory pipe using container', () => {
-      const instance = { handle: vi.fn() }
-      const factory = (c: any) => {
-        expect(c).toBe(container)
-        return instance
-      }
-
-      const opts = kernel.makePipelineOptions()
-      const resolved = opts.resolver({ module: factory, isFactory: true, priority: 1 })
-
-      expect(resolved).toBe(instance)
+      expect(onEventHandled).toHaveBeenCalledOnce()
+      expect(onTerminate).toHaveBeenCalledOnce()
     })
   })
 })

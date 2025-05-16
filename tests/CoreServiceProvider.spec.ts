@@ -1,5 +1,7 @@
 import { CoreServiceProvider } from '../src/providers/CoreServiceProvider'
 
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+
 describe('CoreServiceProvider', () => {
   describe('register', () => {
     it('should call all internal register* methods', () => {
@@ -33,7 +35,7 @@ describe('CoreServiceProvider', () => {
 
       const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
 
-      const bootSpy = vi.spyOn(provider as any, 'bootSubscribers').mockResolvedValue()
+      const bootSpy = vi.spyOn(provider as any, 'bootSubscribers').mockImplementation(() => {})
 
       await provider.boot()
 
@@ -65,6 +67,7 @@ describe('CoreServiceProvider', () => {
         logger: {} as any
       })
 
+      // @ts-expect-error access private
       provider.registerAliases()
 
       expect(container.alias).toHaveBeenCalledTimes(1)
@@ -96,6 +99,7 @@ describe('CoreServiceProvider', () => {
 
       const provider = new CoreServiceProvider({ container, blueprint, eventEmitter, logger } as any)
 
+      // @ts-expect-error access private
       provider.registerServices()
 
       expect(container.autoBinding).toHaveBeenCalledWith(MyService, MyService, true, ['Alpha'])
@@ -103,7 +107,7 @@ describe('CoreServiceProvider', () => {
 
     it('should register meta factory services via autoBinding', () => {
       const container = { autoBinding: vi.fn() }
-      const factory = () => ({})
+      const factory = (): unknown => ({})
       const blueprint = {
         get: vi.fn().mockImplementation((key: string) => {
           if (key === 'stone.services') {
@@ -125,6 +129,7 @@ describe('CoreServiceProvider', () => {
         eventEmitter: {}
       } as any)
 
+      // @ts-expect-error access private
       provider.registerServices()
 
       expect(container.autoBinding).toHaveBeenCalledWith(
@@ -161,6 +166,7 @@ describe('CoreServiceProvider', () => {
 
       const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
 
+      // @ts-expect-error access private
       provider.registerMiddleware()
 
       expect(container.autoBinding).toHaveBeenCalledWith(
@@ -187,6 +193,7 @@ describe('CoreServiceProvider', () => {
         eventEmitter: {}
       } as any)
 
+      // @ts-expect-error access private
       provider.registerMiddleware()
 
       expect(container.autoBinding).not.toHaveBeenCalled()
@@ -208,9 +215,9 @@ describe('CoreServiceProvider', () => {
       }
 
       const eventEmitter = {
-        on: vi.fn((event, cb) => {
+        on: vi.fn((event, listener) => {
           expect(event).toBe('user.created')
-          cb({}) // simulate event
+          listener({}) // simulate event
         })
       }
 
@@ -224,6 +231,7 @@ describe('CoreServiceProvider', () => {
 
       const provider = new CoreServiceProvider({ container, blueprint, logger, eventEmitter } as any)
 
+      // @ts-expect-error access private
       provider.registerListeners()
 
       expect(container.resolve).toHaveBeenCalledWith(ListenerClass, true)
@@ -241,7 +249,7 @@ describe('CoreServiceProvider', () => {
 
       const container = {}
       const eventEmitter = {
-        on: vi.fn((event, cb) => cb({}))
+        on: vi.fn((event, listener) => listener({}))
       }
       const blueprint = {
         get: vi.fn().mockReturnValue([listenerMeta])
@@ -254,6 +262,7 @@ describe('CoreServiceProvider', () => {
         logger: { error: vi.fn() }
       } as any)
 
+      // @ts-expect-error access private
       provider.registerListeners()
 
       expect(eventEmitter.on).toHaveBeenCalledWith('order.paid', expect.any(Function))
@@ -268,7 +277,7 @@ describe('CoreServiceProvider', () => {
       }
 
       const eventEmitter = {
-        on: vi.fn((event, cb) => cb({}))
+        on: vi.fn((event, listener) => listener({}))
       }
 
       const blueprint = {
@@ -282,6 +291,7 @@ describe('CoreServiceProvider', () => {
         logger: { error: vi.fn() }
       } as any)
 
+      // @ts-expect-error access private
       provider.registerListeners()
 
       expect(eventEmitter.on).toHaveBeenCalledWith('session.destroyed', expect.any(Function))
@@ -298,7 +308,7 @@ describe('CoreServiceProvider', () => {
       }
 
       const eventEmitter = {
-        on: vi.fn((_, cb) => cb({}))
+        on: vi.fn((_, listener) => listener({}))
       }
 
       const logger = {
@@ -316,6 +326,7 @@ describe('CoreServiceProvider', () => {
         logger
       } as any)
 
+      // @ts-expect-error access private
       await provider.registerListeners()
 
       expect(logger.error).toHaveBeenCalledWith(expect.stringContaining('fail'))
@@ -345,6 +356,7 @@ describe('CoreServiceProvider', () => {
         logger: { error: vi.fn() }
       } as any)
 
+      // @ts-expect-error access private
       await provider.bootSubscribers()
 
       expect(container.resolve).toHaveBeenCalledWith(SubscriberClass, true)
@@ -367,6 +379,7 @@ describe('CoreServiceProvider', () => {
         logger: { error: vi.fn() }
       } as any)
 
+      // @ts-expect-error access private
       await provider.bootSubscribers()
 
       expect(subscribe).toHaveBeenCalled()
@@ -388,6 +401,7 @@ describe('CoreServiceProvider', () => {
         logger: { error: vi.fn() }
       } as any)
 
+      // @ts-expect-error access private
       await provider.bootSubscribers()
 
       expect(subscribe).toHaveBeenCalled()
@@ -412,6 +426,7 @@ describe('CoreServiceProvider', () => {
         logger: { error: vi.fn() }
       } as any)
 
+      // @ts-expect-error access private
       await provider.bootSubscribers()
 
       expect(container.resolve).toHaveBeenCalledWith(RawClass, true)
@@ -437,6 +452,7 @@ describe('CoreServiceProvider', () => {
         logger
       } as any)
 
+      // @ts-expect-error access private
       await provider.bootSubscribers()
 
       expect(logger.error).toHaveBeenCalledWith(expect.stringContaining('fail'))

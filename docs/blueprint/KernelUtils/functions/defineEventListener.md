@@ -29,7 +29,7 @@ defineEventListener((event) => console.log(event), { event: 'user.created' })
 
 > **defineEventListener**\<`TEvent`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:206
+Defined in: [blueprint/KernelUtils.ts:206](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L206)
 
 Defines a function-based event listener.
 
@@ -77,7 +77,7 @@ defineEventListener((event) => console.log(event), { event: 'user.created' })
 
 > **defineEventListener**\<`TEvent`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:218
+Defined in: [blueprint/KernelUtils.ts:218](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L218)
 
 Defines a factory-based event listener.
 
@@ -125,7 +125,7 @@ defineEventListener((event) => console.log(event), { event: 'user.created' })
 
 > **defineEventListener**\<`TEvent`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:230
+Defined in: [blueprint/KernelUtils.ts:230](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L230)
 
 Defines a class-based event listener.
 

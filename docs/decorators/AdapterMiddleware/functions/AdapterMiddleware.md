@@ -8,7 +8,7 @@
 
 > **AdapterMiddleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/AdapterMiddleware.ts:22](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/AdapterMiddleware.ts#L22)
+Defined in: [decorators/AdapterMiddleware.ts:22](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/decorators/AdapterMiddleware.ts#L22)
 
 AdapterMiddleware decorator to mark a class as middleware within the Stone.js framework.
 

@@ -6,7 +6,7 @@
 
 # Interface: BlueprintContext\<BlueprintType, ModuleType\>
 
-Defined in: [declarations.ts:718](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L718)
+Defined in: [declarations.ts:718](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L718)
 
 ConfigContext Interface.
 
@@ -28,7 +28,7 @@ Represents the context object for configuration, which contains the modules and 
 
 > `readonly` **blueprint**: `BlueprintType`
 
-Defined in: [declarations.ts:725](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L725)
+Defined in: [declarations.ts:725](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L725)
 
 The configuration blueprint.
 
@@ -38,6 +38,6 @@ The configuration blueprint.
 
 > `readonly` **modules**: `ModuleType`[]
 
-Defined in: [declarations.ts:730](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L730)
+Defined in: [declarations.ts:730](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L730)
 
 List of configuration modules.

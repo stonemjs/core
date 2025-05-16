@@ -6,7 +6,7 @@
 
 # Class: StoneFactory\<TEvent, UResponse\>
 
-Defined in: [StoneFactory.ts:38](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/StoneFactory.ts#L38)
+Defined in: [StoneFactory.ts:38](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L38)
 
 StoneFactory.
 
@@ -34,7 +34,7 @@ UResponse
 
 > **configure**(`configuration`): `this`
 
-Defined in: [StoneFactory.ts:76](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/StoneFactory.ts#L76)
+Defined in: [StoneFactory.ts:76](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L76)
 
 Configure the application using the blueprint resolver.
 Use this method to add custom configurations to the application.
@@ -59,7 +59,7 @@ The current StoneFactory instance.
 
 > **handle**\<`ExecutionResultType`\>(`handler`): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [StoneFactory.ts:92](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/StoneFactory.ts#L92)
+Defined in: [StoneFactory.ts:92](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L92)
 
 Handle application events.
 This method is a shorthand for running the application with the provided event handler.
@@ -90,7 +90,7 @@ The platform-specific response.
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [StoneFactory.ts:103](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/StoneFactory.ts#L103)
+Defined in: [StoneFactory.ts:103](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L103)
 
 Run the application.
 Populates the blueprint via introspection and runs the application.
@@ -113,7 +113,7 @@ The platform-specific response.
 
 > `static` **create**\<`TEvent`, `UResponse`\>(`options`): `StoneFactory`\<`TEvent`, `UResponse`\>
 
-Defined in: [StoneFactory.ts:53](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/StoneFactory.ts#L53)
+Defined in: [StoneFactory.ts:53](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/StoneFactory.ts#L53)
 
 Create a new StoneFactory instance.
 

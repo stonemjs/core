@@ -183,7 +183,7 @@ export class Kernel<
         .through(...this.middleware)
         .then(async (ev) => await this.handleEvent(ev))
       // We also need to prepare the response here
-      // because the middleware might return a non-prepared response.
+      // because the middleware might return a non-prepared response instance.
       return await this.prepareResponse(event, response)
     } catch (error: any) {
       return await this.handleError(error, event)

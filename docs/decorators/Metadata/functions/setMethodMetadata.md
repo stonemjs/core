@@ -8,7 +8,7 @@
 
 > **setMethodMetadata**\<`T`\>(`key`, `value`): `MethodDecorator`
 
-Defined in: [decorators/Metadata.ts:147](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L147)
+Defined in: [decorators/Metadata.ts:147](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/decorators/Metadata.ts#L147)
 
 Set metadata on a class method using a method decorator.
 

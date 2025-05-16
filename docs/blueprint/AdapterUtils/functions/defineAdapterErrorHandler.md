@@ -23,7 +23,7 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/AdapterUtils.ts:27
+Defined in: [blueprint/AdapterUtils.ts:27](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/AdapterUtils.ts#L27)
 
 Defines a function-based adapter error handler.
 
@@ -75,7 +75,7 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/AdapterUtils.ts:45
+Defined in: [blueprint/AdapterUtils.ts:45](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/AdapterUtils.ts#L45)
 
 Defines a factory-based adapter error handler.
 
@@ -127,7 +127,7 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/AdapterUtils.ts:63
+Defined in: [blueprint/AdapterUtils.ts:63](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/AdapterUtils.ts#L63)
 
 Defines a class-based adapter error handler.
 

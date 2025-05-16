@@ -6,7 +6,7 @@
 
 # Class: OutgoingResponse
 
-Defined in: [events/OutgoingResponse.ts:20](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L20)
+Defined in: [events/OutgoingResponse.ts:20](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L20)
 
 Class representing an OutgoingResponse.
 
@@ -20,7 +20,7 @@ Class representing an OutgoingResponse.
 
 > `protected` **new OutgoingResponse**(`options`): `OutgoingResponse`
 
-Defined in: [events/OutgoingResponse.ts:68](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L68)
+Defined in: [events/OutgoingResponse.ts:68](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L68)
 
 Create an OutgoingResponse.
 
@@ -46,7 +46,7 @@ The options to create an OutgoingResponse.
 
 > `protected` **\_content**: `unknown`
 
-Defined in: [events/OutgoingResponse.ts:36](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L36)
+Defined in: [events/OutgoingResponse.ts:36](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L36)
 
 The content of the response.
 
@@ -56,7 +56,7 @@ The content of the response.
 
 > `protected` `optional` **\_statusCode**: `number`
 
-Defined in: [events/OutgoingResponse.ts:41](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L41)
+Defined in: [events/OutgoingResponse.ts:41](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L41)
 
 The status code of the response.
 
@@ -66,7 +66,7 @@ The status code of the response.
 
 > `protected` `optional` **\_statusMessage**: `string`
 
-Defined in: [events/OutgoingResponse.ts:46](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L46)
+Defined in: [events/OutgoingResponse.ts:46](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L46)
 
 The status message of the response.
 
@@ -76,7 +76,7 @@ The status message of the response.
 
 > `readonly` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [events/Event.ts:27](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L27)
+Defined in: [events/Event.ts:27](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L27)
 
 The metadata associated with the event.
 
@@ -90,7 +90,7 @@ The metadata associated with the event.
 
 > `readonly` **originalContent**: `unknown`
 
-Defined in: [events/OutgoingResponse.ts:31](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L31)
+Defined in: [events/OutgoingResponse.ts:31](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L31)
 
 The original content of the response.
 
@@ -100,7 +100,7 @@ The original content of the response.
 
 > `protected` **prepared**: `boolean`
 
-Defined in: [events/OutgoingResponse.ts:51](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L51)
+Defined in: [events/OutgoingResponse.ts:51](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L51)
 
 The prepared status of the response.
 
@@ -110,7 +110,7 @@ The prepared status of the response.
 
 > `readonly` `optional` **source**: `object`
 
-Defined in: [events/Event.ts:32](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L32)
+Defined in: [events/Event.ts:32](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L32)
 
 The source of the event.
 
@@ -124,7 +124,7 @@ The source of the event.
 
 > `readonly` **timeStamp**: `number`
 
-Defined in: [events/Event.ts:37](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L37)
+Defined in: [events/Event.ts:37](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L37)
 
 The timestamp of the event creation.
 
@@ -138,7 +138,7 @@ The timestamp of the event creation.
 
 > `readonly` **type**: `string`
 
-Defined in: [events/Event.ts:22](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L22)
+Defined in: [events/Event.ts:22](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L22)
 
 The type of the event.
 
@@ -154,7 +154,7 @@ The type of the event.
 
 > **get** **content**(): `unknown`
 
-Defined in: [events/OutgoingResponse.ts:108](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L108)
+Defined in: [events/OutgoingResponse.ts:108](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L108)
 
 Gets the content of the outgoing response.
 
@@ -172,7 +172,7 @@ The content of the outgoing response.
 
 > **get** **isPrepared**(): `boolean`
 
-Defined in: [events/OutgoingResponse.ts:117](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L117)
+Defined in: [events/OutgoingResponse.ts:117](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L117)
 
 Gets the prepared status of the outgoing response.
 
@@ -190,7 +190,7 @@ The prepared status of the response.
 
 > **get** **statusCode**(): `undefined` \| `number`
 
-Defined in: [events/OutgoingResponse.ts:90](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L90)
+Defined in: [events/OutgoingResponse.ts:90](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L90)
 
 Gets the status code of the outgoing response.
 
@@ -208,7 +208,7 @@ The status code of the response, or undefined if not set.
 
 > **get** **statusMessage**(): `undefined` \| `string`
 
-Defined in: [events/OutgoingResponse.ts:99](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L99)
+Defined in: [events/OutgoingResponse.ts:99](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L99)
 
 Gets the status message of the outgoing response.
 
@@ -224,7 +224,7 @@ The status message of the response, or undefined if not set.
 
 > **clone**\<`T`\>(): `T`
 
-Defined in: [events/Event.ts:124](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L124)
+Defined in: [events/Event.ts:124](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L124)
 
 Return a cloned instance.
 
@@ -262,7 +262,7 @@ The fallback value if the key is not found.
 
 > **get**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
 
-Defined in: [events/Event.ts:57](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L57)
+Defined in: [events/Event.ts:57](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L57)
 
 Get data from metadata.
 
@@ -302,7 +302,7 @@ The fallback value if the key is not found.
 
 > **get**\<`TReturn`\>(`key`, `fallback`): `TReturn`
 
-Defined in: [events/Event.ts:66](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L66)
+Defined in: [events/Event.ts:66](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L66)
 
 Get data from metadata.
 
@@ -362,7 +362,7 @@ The fallback value if the key is not found.
 
 > **getMetadataValue**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
 
-Defined in: [events/Event.ts:85](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L85)
+Defined in: [events/Event.ts:85](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L85)
 
 Get data from metadata.
 
@@ -402,7 +402,7 @@ The fallback value if the key is not found.
 
 > **getMetadataValue**\<`TReturn`\>(`key`, `fallback`): `TReturn`
 
-Defined in: [events/Event.ts:94](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L94)
+Defined in: [events/Event.ts:94](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L94)
 
 Get data from metadata.
 
@@ -450,7 +450,7 @@ The fallback value if the key is not found.
 
 > **prepare**(`_event`, `_container?`): [`Promiseable`](../../../declarations/type-aliases/Promiseable.md)\<`OutgoingResponse`\>
 
-Defined in: [events/OutgoingResponse.ts:163](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L163)
+Defined in: [events/OutgoingResponse.ts:163](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L163)
 
 Prepare response before sending it.
 
@@ -480,7 +480,7 @@ This OutgoingResponse instance.
 
 > **setContent**(`content`): `this`
 
-Defined in: [events/OutgoingResponse.ts:140](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L140)
+Defined in: [events/OutgoingResponse.ts:140](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L140)
 
 Set the content of the response.
 
@@ -504,7 +504,7 @@ This OutgoingResponse instance.
 
 > **setMetadataValue**(`key`, `value?`): `this`
 
-Defined in: [events/Event.ts:114](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/Event.ts#L114)
+Defined in: [events/Event.ts:114](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/Event.ts#L114)
 
 Add data to metadata.
 
@@ -538,7 +538,7 @@ This Event instance.
 
 > **setPrepared**(`prepared`): `this`
 
-Defined in: [events/OutgoingResponse.ts:151](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L151)
+Defined in: [events/OutgoingResponse.ts:151](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L151)
 
 Set the prepared status of the response.
 
@@ -562,7 +562,7 @@ This OutgoingResponse instance.
 
 > **setStatus**(`code`, `text?`): `this`
 
-Defined in: [events/OutgoingResponse.ts:128](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L128)
+Defined in: [events/OutgoingResponse.ts:128](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L128)
 
 Set the status code of the response.
 
@@ -592,7 +592,7 @@ This OutgoingResponse instance.
 
 > `static` **create**(`options`): `OutgoingResponse`
 
-Defined in: [events/OutgoingResponse.ts:59](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L59)
+Defined in: [events/OutgoingResponse.ts:59](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L59)
 
 Create an OutgoingResponse.
 
@@ -616,7 +616,7 @@ A new OutgoingResponse instance.
 
 > `static` **OUTGOING\_RESPONSE**: `string` = `'stonejs@outgoing_response'`
 
-Defined in: [events/OutgoingResponse.ts:26](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/events/OutgoingResponse.ts#L26)
+Defined in: [events/OutgoingResponse.ts:26](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/events/OutgoingResponse.ts#L26)
 
 OUTGOING_RESPONSE Event name, fires on response to the incoming event.
 

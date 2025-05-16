@@ -6,7 +6,7 @@
 
 # Interface: MiddlewareOptions
 
-Defined in: [declarations.ts:231](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L231)
+Defined in: [declarations.ts:231](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L231)
 
 Middleware options.
 
@@ -18,7 +18,7 @@ This interface defines the configuration options for marking a class as middlewa
 
 > `optional` **alias**: `string` \| `string`[]
 
-Defined in: [declarations.ts:240](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L240)
+Defined in: [declarations.ts:240](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L240)
 
 The alias of the middleware.
 
@@ -28,7 +28,7 @@ The alias of the middleware.
 
 > `optional` **global**: `boolean`
 
-Defined in: [declarations.ts:255](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L255)
+Defined in: [declarations.ts:255](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L255)
 
 Set as Kernel middleware
 
@@ -38,7 +38,7 @@ Set as Kernel middleware
 
 > `optional` **params**: `unknown`[]
 
-Defined in: [declarations.ts:245](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L245)
+Defined in: [declarations.ts:245](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L245)
 
 The params to pass to the middleware.
 
@@ -48,7 +48,7 @@ The params to pass to the middleware.
 
 > `optional` **priority**: `number`
 
-Defined in: [declarations.ts:250](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L250)
+Defined in: [declarations.ts:250](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L250)
 
 The execution priority of the middleware.
 
@@ -58,6 +58,6 @@ The execution priority of the middleware.
 
 > `optional` **singleton**: `boolean`
 
-Defined in: [declarations.ts:235](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/declarations.ts#L235)
+Defined in: [declarations.ts:235](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/declarations.ts#L235)
 
 Whether the middleware should be treated as a singleton.

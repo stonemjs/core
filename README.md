@@ -8,25 +8,47 @@
 [![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg?logo=dependabot)](https://github.com/stonemjs/core/network/updates)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-The Stone.js framework is versatile, allowing you to build applications for different environments, including command line (CLI), browser, HTTP servers, cloud functions like AWS Lambda.
+**Stone.js Core** is the heart of the Stone.js framework — a context-aware, universal JavaScript framework designed to help you build scalable and portable applications that adapt to any runtime.
 
-It offers core components such as:
-- A **Service container** for managing dependencies,
-- An **Event manager** to handle application events,
-- A **Kernel** to execute the application lifecycle,
-- An **Adapter** to ensure compatibility across different environments (e.g., console, browser, cloud), and
-- A **Config Builder** to build the blueprint, which aggregates and structures configuration settings for the application.
+> With Stone.js, business logic is no longer tied to one environment.  
+> It becomes **reusable**, **composable**, and **context-resilient**.
 
-All features are fully customizable, making it easy to extend existing functionality or integrate third-party solutions.
+Whether you're targeting a command-line interface, an HTTP server, a browser app, an AWS Lambda function, or an edge environment, `@stone-js/core` provides the foundational architecture to keep your logic consistent, modular, and fully decoupled from infrastructure.
+
+## ✨ Why Stone.js Core?
+
+- **Write once, run anywhere** — build your application logic independently of the environment.
+- **Context-first architecture** — every runtime context (CLI, HTTP, cloud, serverless, FaaS, browser) becomes a plug-and-play adapter.
+- **Universal lifecycle** — process events and produce responses in a unified flow.
+- **No assumptions, full control** — fully customizable configuration, extensibility, and composition.
+- **Framework without a framework** — use Stone.js with or without a frontend, backend, or transport protocol.
+
+## 🧩 What's Inside?
+
+Stone.js Core provides the foundational building blocks that power the entire ecosystem:
+
+- A flexible **context execution engine** (kernel) to handle app lifecycles.
+- A universal **event system** that translates any platform input into structured intents.
+- A **blueprint configuration model** for organizing app behavior and dependencies.
+- A powerful, context-aware **middleware and handler pipeline**.
+- A runtime-independent foundation to power **modular, adaptive applications**.
+
+## 📚 Learn More
+
+Stone.js is more than a framework — it’s a new way to think about application boundaries.
+
+👉 Explore the full documentation:  
+https://stonejs.com
+
+## 📖 API Reference
+
+- [API Documentation](https://github.com/stonemjs/core/blob/main/docs/modules.md)
+
+## 🤝 Contributing
+
+We welcome contributions!  
+See our [Contributing Guide](https://github.com/stonemjs/core/blob/main/CONTRIBUTING.md).
 
 ---
 
-Get started with the [documentation](https://stonejs.com).
-
-## API documentation
-
-- [API](https://github.com/stonemjs/core/blob/main/docs/modules.md)
-
-## Contributing
-
-See [Contributing Guide](https://github.com/stonemjs/core/blob/main/CONTRIBUTING.md).
+> Stone.js lets you focus on what matters: logic, not logistics.

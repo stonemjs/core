@@ -6,7 +6,7 @@
 
 # Interface: StoneBlueprint\<U, V\>
 
-Defined in: [options/StoneBlueprint.ts:155](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/options/StoneBlueprint.ts#L155)
+Defined in: [options/StoneBlueprint.ts:155](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/options/StoneBlueprint.ts#L155)
 
 Stone blueprint.
 
@@ -37,6 +37,6 @@ The value of the custom properties can be of any type, depending on user require
 
 > **stone**: `Partial`\<[`AppConfig`](AppConfig.md)\<`U`, `V`\>\>
 
-Defined in: [options/StoneBlueprint.ts:159](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/options/StoneBlueprint.ts#L159)
+Defined in: [options/StoneBlueprint.ts:159](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/options/StoneBlueprint.ts#L159)
 
 Application-level settings, including environment, middleware, logging, and service registration.

@@ -29,7 +29,7 @@ defineEventSubscriber((emitter) => { ... })
 
 > **defineEventSubscriber**(`module`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:469
+Defined in: [blueprint/KernelUtils.ts:469](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L469)
 
 Registers a **functional event subscriber** into the Stone blueprint.
 
@@ -67,7 +67,7 @@ defineEventSubscriber((emitter) => { ... })
 
 > **defineEventSubscriber**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:480
+Defined in: [blueprint/KernelUtils.ts:480](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L480)
 
 Registers a **factory-based event subscriber** into the Stone blueprint.
 
@@ -113,7 +113,7 @@ defineEventSubscriber((emitter) => { ... })
 
 > **defineEventSubscriber**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:492
+Defined in: [blueprint/KernelUtils.ts:492](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L492)
 
 Registers a **class-based event subscriber** into the Stone blueprint.
 

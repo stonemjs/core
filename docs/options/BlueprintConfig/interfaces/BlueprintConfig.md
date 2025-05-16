@@ -6,7 +6,7 @@
 
 # Interface: BlueprintConfig\<BlueprintType, ContextType\>
 
-Defined in: [options/BlueprintConfig.ts:11](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/options/BlueprintConfig.ts#L11)
+Defined in: [options/BlueprintConfig.ts:11](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/options/BlueprintConfig.ts#L11)
 
 Blueprint options.
 
@@ -29,7 +29,7 @@ It includes middleware for building the blueprint and the default priority for p
 
 > `optional` **defaultMiddlewarePriority**: `number`
 
-Defined in: [options/BlueprintConfig.ts:26](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/options/BlueprintConfig.ts#L26)
+Defined in: [options/BlueprintConfig.ts:26](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/options/BlueprintConfig.ts#L26)
 
 The default priority for pipes, used when a specific pipe does not have an explicitly set priority.
 This value helps to determine the order in which middleware pipes are executed.
@@ -41,7 +41,7 @@ Default value is set to 10.
 
 > **middleware**: `MixedPipe`\<`ContextType`, `BlueprintType`\>[]
 
-Defined in: [options/BlueprintConfig.ts:19](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/options/BlueprintConfig.ts#L19)
+Defined in: [options/BlueprintConfig.ts:19](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/options/BlueprintConfig.ts#L19)
 
 Middleware used for processing data during the blueprint construction.
 The middleware array can include core pipes and any additional custom pipes.

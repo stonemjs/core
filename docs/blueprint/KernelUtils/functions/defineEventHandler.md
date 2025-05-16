@@ -20,7 +20,7 @@ The options for the EventHandler.
 
 > **defineEventHandler**\<`U`, `V`\>(`module`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:118
+Defined in: [blueprint/KernelUtils.ts:118](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L118)
 
 Utility function to define a function-based event handler.
 
@@ -60,7 +60,7 @@ The options for the EventHandler.
 
 > **defineEventHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:129
+Defined in: [blueprint/KernelUtils.ts:129](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L129)
 
 Utility function to define a factory-based event handler.
 
@@ -108,7 +108,7 @@ The options for the EventHandler.
 
 > **defineEventHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/KernelUtils.ts:141
+Defined in: [blueprint/KernelUtils.ts:141](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/KernelUtils.ts#L141)
 
 Utility function to define a factory-based event handler.
 

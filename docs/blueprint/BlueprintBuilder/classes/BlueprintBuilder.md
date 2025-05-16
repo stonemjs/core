@@ -6,7 +6,7 @@
 
 # Class: BlueprintBuilder\<BlueprintType, ContextType\>
 
-Defined in: blueprint/BlueprintBuilder.ts:17
+Defined in: [blueprint/BlueprintBuilder.ts:17](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintBuilder.ts#L17)
 
 Class representing a BlueprintBuilder for the Stone.js framework.
 
@@ -41,7 +41,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **build**(`modules`): `Promise`\<`BlueprintType`\>
 
-Defined in: blueprint/BlueprintBuilder.ts:64
+Defined in: [blueprint/BlueprintBuilder.ts:64](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintBuilder.ts#L64)
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -76,7 +76,7 @@ const blueprint = await BlueprintBuilder.build(rawModules);
 
 > `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): `BlueprintBuilder`\<`BlueprintType`, `ContextType`\>
 
-Defined in: blueprint/BlueprintBuilder.ts:31
+Defined in: [blueprint/BlueprintBuilder.ts:31](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintBuilder.ts#L31)
 
 Create a BlueprintBuilder.
 

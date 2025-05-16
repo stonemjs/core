@@ -1,5 +1,5 @@
-import { Event } from '../../src/events/Event'
 import { EventEmitter } from '../../src/events/EventEmitter'
+import { Event, EventOptions } from '../../src/events/Event'
 
 describe('EventEmitter', () => {
   let emitter: EventEmitter
@@ -42,12 +42,12 @@ describe('EventEmitter', () => {
     const spy = vi.fn()
     emitter.on('login', spy)
     class MyEvent extends Event {
-      static create (options: IncomingEventOptions): IncomingEvent {
-        return new this(options)
+      static create (options: EventOptions): MyEvent {
+        return new MyEvent(options)
       }
     }
 
-    const event = MyEvent.create({ type: 'login', metadata: { user: 'stone' }, source: {} })
+    const event = MyEvent.create({ type: 'login', metadata: { user: 'stone' }, source: { platform: 'cli', rawContext: '', rawEvent: '' } })
     await emitter.emit(event)
 
     expect(spy).toHaveBeenCalledWith(event)
@@ -72,7 +72,7 @@ describe('EventEmitter', () => {
   })
 
   it('should support chaining calls to .off()', () => {
-    const result = emitter.off('off:chain')
+    const result = emitter.off('off:chain', () => {})
     expect(result).toBe(emitter)
   })
 })

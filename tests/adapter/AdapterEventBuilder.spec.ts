@@ -7,7 +7,7 @@ describe('AdapterEventBuilder', () => {
     bar?: number
   }
 
-  const defaultResolver = (opts: TestOptions) => ({ ...opts, resolved: true })
+  const defaultResolver = (opts: TestOptions): unknown => ({ ...opts, resolved: true })
 
   it('should create a builder with initial options', () => {
     const builder = AdapterEventBuilder.create<TestOptions, any>({ options: { foo: 'abc' }, resolver: defaultResolver })

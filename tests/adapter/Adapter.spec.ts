@@ -3,7 +3,10 @@ import {
   AdapterContext,
   RawResponseOptions,
   IRawResponseWrapper,
-  AdapterEventHandlerType
+  IAdapterEventBuilder,
+  IAdapterErrorHandler,
+  AdapterEventHandlerType,
+  AdapterEventBuilderType
 } from '../../src/declarations'
 import { Config } from '@stone-js/config'
 import { Logger } from '../../src/logger/Logger'
@@ -12,58 +15,60 @@ import { OutgoingResponse } from '../../src/events/OutgoingResponse'
 import { IntegrationError } from '../../src/errors/IntegrationError'
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
 
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+
 /**
  * Mocks
  */
 class MockResponseWrapper implements IRawResponseWrapper<string> {
   constructor (readonly options: RawResponseOptions) {}
   respond (): string {
-    return `wrapped: ${this.options.name}`
+    return `wrapped: ${String(this.options.name)}`
   }
 }
 
 class UnitTestAdapter extends Adapter<Record<string, unknown>, string, any, IncomingEvent, IncomingEventOptions, OutgoingResponse> {
-  constructor (blueprint: IBlueprint) {
-    super(blueprint)
+  public static create (blueprint: IBlueprint): UnitTestAdapter {
+    return new this(blueprint)
   }
 
   async run<ExecutionResultType = unknown>(): Promise<ExecutionResultType> {
     throw new Error('Method not implemented.')
   }
 
-  public async simulateSendEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+  public async simulateSendEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>): Promise<string> {
     return await this.sendEventThroughDestination(ctx, handler)
   }
 
-  public simulateValidate (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+  public simulateValidate (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>): void {
     return this.validateContextAndEventHandler(ctx, handler)
   }
 
-  public async simulateHooks (name: string, ctx?: AdapterContext<any, any, any, any, any, any>, error?: Error) {
+  public async simulateHooks (name: string, ctx?: AdapterContext<any, any, any, any, any, any>, error?: Error): Promise<void> {
     return await this.executeHooks(name as any, ctx, error)
   }
 
-  public async simulateEventHooks (hook: string, handler: AdapterEventHandlerType<any, any>) {
+  public async simulateEventHooks (hook: string, handler: AdapterEventHandlerType<any, any>): Promise<void> {
     return await this.executeEventHandlerHooks(hook as any, handler)
   }
 
-  public simulateResolveHandler () {
+  public simulateResolveHandler (): AdapterEventHandlerType<IncomingEvent, OutgoingResponse> {
     return this.resolveEventHandler()
   }
 
-  public simulateResolveErrorHandler (err: Error) {
+  public simulateResolveErrorHandler (err: Error): IAdapterErrorHandler<Record<string, unknown>, string, any> {
     return this.resolveErrorHandler(err)
   }
 
-  public async simulateBuildRawResponse (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+  public async simulateBuildRawResponse (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>): Promise<string> {
     return await this.buildRawResponse(ctx, handler)
   }
 
-  public async simulateHandleError (err: Error, ctx: AdapterContext<any, any, any, any, any, any>) {
+  public async simulateHandleError (err: Error, ctx: AdapterContext<any, any, any, any, any, any>): Promise<AdapterEventBuilderType<string>> {
     return await this.handleError(err, ctx)
   }
 
-  public async simulateHandleEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>) {
+  public async simulateHandleEvent (ctx: AdapterContext<any, any, any, any, any, any>, handler: AdapterEventHandlerType<any, any>): Promise<IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<string>>> {
     return await this.handleEvent(ctx, handler)
   }
 }
@@ -77,18 +82,18 @@ describe('Adapter', () => {
     blueprint = Config.create()
     blueprint.set('stone.adapter.middleware', [])
     blueprint.set('stone.adapter.eventHandlerResolver', () => () => OutgoingResponse.create({ content: { ok: true } }))
-    adapter = new UnitTestAdapter(blueprint)
+    adapter = UnitTestAdapter.create(blueprint)
 
     context = {
       rawEvent: {},
       executionContext: {},
       incomingEventBuilder: {
-        build: () => IncomingEvent.create({ name: 'unit' })
-      },
+        build: () => IncomingEvent.create({ name: 'unit', source: { platform: 'cli', rawContext: '', rawEvent: '' } })
+      } as unknown as IAdapterEventBuilder<IncomingEventOptions, IncomingEvent>,
       rawResponseBuilder: {
         add: vi.fn().mockReturnThis(),
         build: () => new MockResponseWrapper({ name: 'unit' })
-      }
+      } as unknown as IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<string>>
     }
   })
 
@@ -134,22 +139,27 @@ describe('Adapter', () => {
     })
 
     it('validateContextAndEventHandler throws for missing rawResponseBuilder', () => {
-      context.rawResponseBuilder = undefined as any
+      // @ts-expect-error - missing type
+      context.rawResponseBuilder = undefined
       expect(() => {
         adapter.simulateValidate(context, () => OutgoingResponse.create({}))
       }).toThrow(IntegrationError)
     })
 
     it('validateContextAndEventHandler throws for missing incomingEventBuilder', () => {
+      // @ts-expect-error - missing type
       context.rawResponseBuilder = { build: () => {} }
-      context.incomingEventBuilder = undefined as any
+      // @ts-expect-error - missing type
+      context.incomingEventBuilder = undefined
       expect(() => {
         adapter.simulateValidate(context, () => OutgoingResponse.create({}))
       }).toThrow(IntegrationError)
     })
 
     it('validateContextAndEventHandler throws for missing incomingEventBuilder', () => {
+      // @ts-expect-error - missing type
       context.rawResponseBuilder = { build: () => {} }
+      // @ts-expect-error - missing type
       context.incomingEventBuilder = { build: null }
       expect(() => {
         adapter.simulateValidate(context, () => OutgoingResponse.create({}))
@@ -176,7 +186,9 @@ describe('Adapter', () => {
 
   describe('handleEvent', () => {
     it('handleEvent throws if missing incomingEvent', async () => {
+      // @ts-expect-error - missing type
       context.incomingEventBuilder = { build: () => undefined }
+      // @ts-expect-error - missing type
       await expect(async () => await adapter.simulateHandleEvent(context, {})).rejects.toThrow(IntegrationError)
     })
 
@@ -191,7 +203,7 @@ describe('Adapter', () => {
       blueprint.set('stone.lifecycleHooks', {
         onBuildingIncomingEvent: [() => spy()]
       })
-      adapter = new UnitTestAdapter(blueprint)
+      adapter = UnitTestAdapter.create(blueprint)
 
       const handler = {
         onEventHandled: () => spy(),
@@ -212,7 +224,7 @@ describe('Adapter', () => {
     })
 
     it('function-based: handleError delegates to error handler and returns builder', async () => {
-      const errorHandler = () => ({ build: () => new MockResponseWrapper({ name: 'handled' }) })
+      const errorHandler = (): unknown => ({ build: (): MockResponseWrapper => new MockResponseWrapper({ name: 'handled' }) })
       blueprint.set('stone.adapter.errorHandlers.default', {
         module: errorHandler
       })
@@ -234,8 +246,8 @@ describe('Adapter', () => {
 
     it('class-based: handleError delegates to error handler and returns builder', async () => {
       const errorHandler = class {
-        handle () {
-          return { build: () => new MockResponseWrapper({ name: 'handled' }) }
+        handle (): unknown {
+          return { build: (): MockResponseWrapper => new MockResponseWrapper({ name: 'handled' }) }
         }
       }
       blueprint.set('stone.adapter.errorHandlers.default', {
@@ -251,15 +263,15 @@ describe('Adapter', () => {
   it('executeHooks runs lifecycle listeners', async () => {
     const calls: string[] = []
     blueprint.set('stone.lifecycleHooks', {
-      onStart: [({ context }) => calls.push('onStart')]
+      onStart: [() => calls.push('onStart')]
     })
-    adapter = new UnitTestAdapter(blueprint)
+    adapter = UnitTestAdapter.create(blueprint)
     await adapter.simulateHooks('onStart', context)
     expect(calls).toContain('onStart')
   })
 
   it('buildRawResponse calls respond()', async () => {
-    const result = await adapter.simulateBuildRawResponse(context, { onTerminate: vi.fn() })
+    const result = await adapter.simulateBuildRawResponse(context, { handle: vi.fn(), onTerminate: vi.fn() })
     expect(result).toContain('wrapped')
   })
 
@@ -267,18 +279,19 @@ describe('Adapter', () => {
     Logger.init(blueprint)
     const factorySpy = vi.fn()
     const constructorSpy = vi.fn()
-    const factoryModule = () => factorySpy()
+    const factoryModule = (): any => factorySpy()
     const classModule = class {
       constructor () {
         constructorSpy()
       }
     }
+    // @ts-expect-error - private access
     const opts = adapter.makePipelineOptions()
     expect(typeof opts.resolver).toBe('function')
     expect(opts.hooks).toBeDefined()
-    opts.resolver({ module: classModule, isClass: true })
+    opts.resolver?.({ module: classModule, isClass: true })
     expect(constructorSpy).toHaveBeenCalled()
-    opts.resolver({ module: factoryModule, isFactory: true })
+    opts.resolver?.({ module: factoryModule, isFactory: true })
     expect(factorySpy).toHaveBeenCalled()
   })
 })

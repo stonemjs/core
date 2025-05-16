@@ -4,6 +4,8 @@ import { StoneBlueprint } from '../../src/options/StoneBlueprint'
 import { IBlueprint, IEventSubscriber, ILogger, IServiceProvider, LogLevel, NextMiddleware, Promiseable } from '../../src/declarations'
 import { defineErrorHandler, defineEventHandler, defineEventListener, defineEventSubscriber, defineHookListener, defineLogger, defineMiddleware, defineService, defineServiceProvider, defineStone } from '../../src/blueprint/KernelUtils'
 
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+
 // Mock handlers
 const functionalHandler = vi.fn()
 const factoryHandler = vi.fn(() => functionalHandler)
@@ -181,7 +183,7 @@ describe('defineEventListener', () => {
   })
 
   it('should define a class-based event listener', () => {
-    class MyListener { handle () {} }
+    class MyListener { handle (): void {} }
     const blueprint = defineEventListener(MyListener, { event: eventName, isFactory: false })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
@@ -235,7 +237,7 @@ describe('defineMiddleware', () => {
 
   it('should define a class-based middleware', () => {
     class MyMiddleware {
-      handle (_event: IncomingEvent, _next: NextMiddleware<IncomingEvent>) {}
+      handle (_event: IncomingEvent, _next: NextMiddleware<IncomingEvent>): void {}
     }
 
     const blueprint = defineMiddleware(MyMiddleware, { isFactory: false })
@@ -273,8 +275,8 @@ describe('defineServiceProvider', () => {
 
   it('should define a class-based service provider', () => {
     class MyProvider implements IServiceProvider {
-      register () {}
-      async boot () {}
+      register (): void {}
+      async boot (): Promise<void> {}
     }
 
     const blueprint = defineServiceProvider(MyProvider, { isFactory: false })
@@ -434,7 +436,7 @@ describe('defineEventSubscriber', () => {
   })
 
   it('should define a factory-based event subscriber', () => {
-    const factory = () => vi.fn()
+    const factory = (): any => vi.fn()
     const blueprint = defineEventSubscriber(factory, { isFactory: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
@@ -494,10 +496,10 @@ describe('defineLogger', () => {
   it('should define a class-based logger', () => {
     class Logger implements ILogger {
       constructor (public ctx: any) {}
-      info (message: string, ...optionalParams: unknown[]) {}
-      debug (message: string, ...optionalParams: unknown[]) {}
-      warn (message: string, ...optionalParams: unknown[]) {}
-      error (message: string, ...optionalParams: unknown[]) {}
+      info (message: string, ...optionalParams: unknown[]): void {}
+      debug (message: string, ...optionalParams: unknown[]): void {}
+      warn (message: string, ...optionalParams: unknown[]): void {}
+      error (message: string, ...optionalParams: unknown[]): void {}
     }
 
     const blueprint = defineLogger(Logger, { isFactory: false, level: LogLevel.DEBUG })

@@ -8,7 +8,7 @@
 
 > **hasMetadata**\<`T`\>(`Class`, `key`): `boolean`
 
-Defined in: [decorators/Metadata.ts:52](https://github.com/stonemjs/core/blob/3581a30de158e951ead319c3cc6abead0be9639f/src/decorators/Metadata.ts#L52)
+Defined in: [decorators/Metadata.ts:52](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/decorators/Metadata.ts#L52)
 
 Check if a class has specific metadata.
 

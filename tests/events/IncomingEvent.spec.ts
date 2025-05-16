@@ -1,7 +1,7 @@
 import { IncomingEvent, IncomingEventOptions } from '../../src/events/IncomingEvent'
 
 describe('IncomingEvent', () => {
-  const baseSource = { platform: 'cli', data: { user: 'stone' } }
+  const baseSource = { platform: 'cli', rawContext: '', rawEvent: '', data: { user: 'stone' } }
 
   const baseOptions: IncomingEventOptions = {
     source: baseSource,
@@ -26,6 +26,7 @@ describe('IncomingEvent', () => {
   })
 
   it('should fallback to default values when missing', () => {
+    // @ts-expect-error - missing type
     const event = IncomingEvent.create({ source: baseSource, metadata: 12 })
 
     expect(event.locale).toBe('en')

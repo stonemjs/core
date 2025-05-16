@@ -20,7 +20,7 @@ The options for the Middleware.
 
 > **defineBlueprintMiddleware**(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/BlueprintUtils.ts:158
+Defined in: [blueprint/BlueprintUtils.ts:158](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintUtils.ts#L158)
 
 Utility function to define a function-based blueprint middleware.
 
@@ -62,7 +62,7 @@ The options for the Middleware.
 
 > **defineBlueprintMiddleware**(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/BlueprintUtils.ts:170
+Defined in: [blueprint/BlueprintUtils.ts:170](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintUtils.ts#L170)
 
 Utility function to define a factory-based blueprint middleware.
 
@@ -108,7 +108,7 @@ The options for the Middleware.
 
 > **defineBlueprintMiddleware**(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: blueprint/BlueprintUtils.ts:182
+Defined in: [blueprint/BlueprintUtils.ts:182](https://github.com/stonemjs/core/blob/b1f29857c7f1e529739f22d486494bed3b22d2c6/src/blueprint/BlueprintUtils.ts#L182)
 
 Utility function to define a class-based blueprint middleware.
 

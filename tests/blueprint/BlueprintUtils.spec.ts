@@ -4,6 +4,8 @@ import { CONFIGURATION_KEY } from '../../src/decorators/constants'
 import { isMetaClassModule, isMetaFactoryModule, isMetaFunctionModule } from '../../src/utils'
 import { defineConfig, defineBlueprintMiddleware, defineStoneApp } from '../../src/blueprint/BlueprintUtils'
 
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+
 describe('defineStoneApp', () => {
   it('should create blueprint with function-based event handler', () => {
     const handler = vi.fn((_event: IncomingEvent) => {})
@@ -19,7 +21,7 @@ describe('defineStoneApp', () => {
 
   it('should create blueprint with class-based event handler', () => {
     class MyHandler {
-      handle (_event: IncomingEvent) {}
+      handle (_event: IncomingEvent): void {}
     }
 
     const blueprint = defineStoneApp(MyHandler, { isFactory: false })
@@ -80,7 +82,7 @@ describe('defineConfig', () => {
 
     expect(instance.configure).toBe(configure)
     expect(instance.afterConfigure).toBeInstanceOf(Function)
-    expect(async () => await instance.afterConfigure!({} as any)).not.toThrow()
+    expect(async () => await instance.afterConfigure?.({} as any)).not.toThrow()
     expect(getMetadata(Config, CONFIGURATION_KEY)).toEqual({ isClass: true })
   })
 
@@ -98,8 +100,8 @@ describe('defineConfig', () => {
     const Config = defineConfig({})
     const instance = new Config()
 
-    expect(async () => await instance.configure!({} as any)).not.toThrow()
-    expect(async () => await instance.afterConfigure!({} as any)).not.toThrow()
+    expect(async () => await instance.configure?.({} as any)).not.toThrow()
+    expect(async () => await instance.afterConfigure?.({} as any)).not.toThrow()
   })
 })
 
@@ -142,7 +144,7 @@ describe('defineBlueprintMiddleware', () => {
   })
 
   it('should define factory-based middleware', () => {
-    const factory = () => DummyMiddleware
+    const factory = (): any => DummyMiddleware
     const result = defineBlueprintMiddleware(factory, { isFactory: true })
 
     expect(result.stone?.blueprint?.middleware?.[0]).toMatchObject({
