@@ -8,7 +8,7 @@
 
 > **EventHandlerClass**\<`TEvent`, `UResponse`\> = (...`args`) => [`IEventHandler`](../interfaces/IEventHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:574](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L574)
+Defined in: [declarations.ts:579](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L579)
 
 Represents a LifecycleEventHandler class.
 

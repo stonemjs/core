@@ -8,7 +8,7 @@
 
 > **removeMetadata**\<`T`\>(`Class`, `key`): `void`
 
-Defined in: [decorators/Metadata.ts:121](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/decorators/Metadata.ts#L121)
+Defined in: [decorators/Metadata.ts:121](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/decorators/Metadata.ts#L121)
 
 Remove a specific metadata entry from a class.
 

@@ -23,6 +23,8 @@ import {
   ErrorHandlerOptions,
   ServiceProviderType,
   IEventListenerClass,
+  FactoryErrorHandler,
+  IErrorHandlerClass,
   FactoryEventListener,
   FunctionalMiddleware,
   LifecycleHookListener,
@@ -31,6 +33,7 @@ import {
   FunctionalEventHandler,
   FactoryServiceProvider,
   FactoryEventSubscriber,
+  FunctionalErrorHandler,
   FunctionalEventListener,
   FunctionalEventSubscriber
 } from '../declarations'
@@ -47,7 +50,7 @@ import { OutgoingResponse } from '../events/OutgoingResponse'
  * @returns A partial StoneBlueprint registering the error handler.
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: ErrorHandlerType<U, V>,
+  module: FunctionalErrorHandler<U, V>,
   options: ErrorHandlerOptions
 ): Partial<StoneBlueprint<U>>
 
@@ -59,7 +62,7 @@ export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = 
  * @returns A partial StoneBlueprint registering the error handler.
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: ErrorHandlerType<U, V>,
+  module: FactoryErrorHandler<U, V>,
   options: ErrorHandlerOptions & { isFactory: true }
 ): Partial<StoneBlueprint<U>>
 
@@ -71,8 +74,8 @@ export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = 
  * @returns A partial StoneBlueprint registering the error handler.
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: ErrorHandlerType<U, V>,
-  options: ErrorHandlerOptions & { isFactory: false }
+  module: IErrorHandlerClass<U, V>,
+  options: ErrorHandlerOptions & { isClass: true }
 ): Partial<StoneBlueprint<U>>
 
 /**
@@ -87,15 +90,15 @@ export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = 
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: ErrorHandlerType<U, V>,
-  options: ErrorHandlerOptions & { isFactory?: boolean }
+  options: ErrorHandlerOptions & { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint<U>> {
   const errorHandlers = Object.fromEntries(
     [options.error].flat().map((errorName) => [
       errorName,
       {
         module,
-        isClass: options.isFactory === false,
-        isFactory: options.isFactory === true
+        isClass: options.isClass,
+        isFactory: options.isFactory
       }
     ])
   )
@@ -140,7 +143,7 @@ export function defineEventHandler <U extends IncomingEvent = IncomingEvent, V =
  */
 export function defineEventHandler <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: EventHandlerClass<U, V>,
-  options: { isFactory: false }
+  options: { isClass: true }
 ): Partial<StoneBlueprint<U>>
 
 /**
@@ -152,15 +155,15 @@ export function defineEventHandler <U extends IncomingEvent = IncomingEvent, V =
  */
 export function defineEventHandler <U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: EventHandlerType<U, V>,
-  options?: { isFactory?: boolean }
+  options: { isFactory?: boolean, isClass?: boolean } = {}
 ): Partial<StoneBlueprint<U>> {
   return {
     stone: {
       kernel: {
         eventHandler: {
           module,
-          isClass: options?.isFactory === false,
-          isFactory: options?.isFactory === true
+          isClass: options.isClass,
+          isFactory: options.isFactory
         }
       }
     }
@@ -229,7 +232,7 @@ export function defineEventListener<TEvent extends Event = Event> (
  */
 export function defineEventListener<TEvent extends Event = Event> (
   module: IEventListenerClass<TEvent>,
-  options: ListenerOptions & { isFactory: false }
+  options: ListenerOptions & { isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -249,15 +252,13 @@ export function defineEventListener<TEvent extends Event = Event> (
  */
 export function defineEventListener<TEvent extends Event = Event> (
   module: EventListenerType<TEvent>,
-  options: ListenerOptions & { isFactory?: boolean }
+  options: ListenerOptions & { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint> {
   return {
     stone: {
       listeners: [{
         ...options,
-        module,
-        isClass: options.isFactory === false,
-        isFactory: options.isFactory === true
+        module
       }]
     }
   }
@@ -291,12 +292,12 @@ export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V exte
  * Defines a class-based middleware.
  *
  * @param module - A class-based middleware with a `handle` method.
- * @param options - Middleware options including `isFactory: false`.
+ * @param options - Middleware options including `isClass: true`.
  * @returns A partial StoneBlueprint registering the middleware with class metadata.
  */
 export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> (
   module: MiddlewareClass<U, V>,
-  options: MiddlewareOptions & { isFactory: false }
+  options: MiddlewareOptions & { isClass: true }
 ): Partial<StoneBlueprint<U, V>>
 
 /**
@@ -316,16 +317,14 @@ export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V exte
  */
 export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> (
   module: MiddlewareType<U, V>,
-  options?: MiddlewareOptions & { isFactory?: boolean }
+  options?: MiddlewareOptions & { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint<U, V>> {
   return {
     stone: {
       kernel: {
         middleware: [{
           ...options,
-          module,
-          isClass: options?.isFactory === false,
-          isFactory: options?.isFactory === true
+          module
         }]
       }
     }
@@ -353,7 +352,7 @@ export function defineServiceProvider (
  */
 export function defineServiceProvider (
   module: IServiceProviderClass,
-  options: { isFactory: false }
+  options: { isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -368,21 +367,20 @@ export function defineServiceProvider (
  *
  * @example
  * ```ts
- * defineServiceProvider(MyServiceProviderClass, { isFactory: false })
+ * defineServiceProvider(MyServiceProviderClass, { isClass: true })
  * defineServiceProvider((container) => new MyProvider(container))
  * ```
  */
 export function defineServiceProvider (
   module: ServiceProviderType,
-  options?: { isFactory?: boolean }
+  options?: { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint> {
   return {
     stone: {
       providers: [{
-        ...options,
         module,
-        isClass: options?.isFactory === false,
-        isFactory: options?.isFactory !== false
+        isClass: options?.isClass,
+        isFactory: options?.isFactory ?? options?.isClass !== true
       }]
     }
   }
@@ -409,7 +407,7 @@ export function defineService (
  */
 export function defineService (
   module: IServiceClass,
-  options: ServiceOptions & { isFactory: false }
+  options: ServiceOptions & { isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -424,21 +422,21 @@ export function defineService (
  *
  * @example
  * ```ts
- * defineService(MyServiceClass, { alias: 'myService', isFactory: false })
+ * defineService(MyServiceClass, { alias: 'myService', isClass: true })
  * defineService((container) => ({ save(){} }), { alias: 'myService' })
  * ```
  */
 export function defineService (
   module: ServiceType,
-  options: ServiceOptions & { isFactory?: boolean }
+  options: ServiceOptions & { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint> {
   return {
     stone: {
       services: [{
         ...options,
         module,
-        isClass: options.isFactory === false,
-        isFactory: options.isFactory === true
+        isClass: options?.isClass,
+        isFactory: options?.isFactory ?? options?.isClass !== true
       }]
     }
   }
@@ -454,7 +452,7 @@ export function defineService (
  *
  * @example
  * ```ts
- * defineStone(MyStoneServiceClass, { alias: 'stone.core', isFactory: false })
+ * defineStone(MyStoneServiceClass, { alias: 'stone.core', isClass: true })
  * defineStone((container) => ({ save(){} }), { alias: 'myService' })
  * ```
  */
@@ -486,12 +484,12 @@ export function defineEventSubscriber (
  * Registers a **class-based event subscriber** into the Stone blueprint.
  *
  * @param module - The subscriber class.
- * @param options - Must include `isFactory: false`.
+ * @param options - Must include `isClass: true`.
  * @returns A partial StoneBlueprint with the subscriber metadata.
  */
 export function defineEventSubscriber (
   module: IEventSubscriberClass,
-  options: { isFactory: false }
+  options: { isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -504,22 +502,20 @@ export function defineEventSubscriber (
  *
  * @example
  * ```ts
- * defineEventSubscriber(MySubscriberClass, { isFactory: false })
+ * defineEventSubscriber(MySubscriberClass, { isClass: true })
  * defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
  * defineEventSubscriber((emitter) => { ... })
  * ```
  */
 export function defineEventSubscriber (
   module: EventSubscriberType,
-  options?: { isFactory?: boolean }
+  options?: { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint> {
   return {
     stone: {
       subscribers: [{
         ...options,
-        module,
-        isClass: options?.isFactory === false,
-        isFactory: options?.isFactory === true
+        module
       }]
     }
   }
@@ -529,12 +525,12 @@ export function defineEventSubscriber (
  * Registers a **class-based logger** into the Stone blueprint.
  *
  * @param module - The logger class that implements `ILogger`.
- * @param options - Optional configuration (must include `isFactory: false` if specified).
+ * @param options - Optional configuration (must include `isClass: true` if specified).
  * @returns A partial StoneBlueprint with the logger configuration.
  */
 export function defineLogger (
   module: ILoggerClass,
-  options?: { isFactory: false, level?: LogLevel } & Record<string, unknown>
+  options?: { isClass: true, level?: LogLevel } & Record<string, unknown>
 ): Partial<StoneBlueprint>
 
 /**
@@ -558,20 +554,20 @@ export function defineLogger (
  *
  * @example
  * ```ts
- * defineLogger(MyLogger, { level: 'debug', isFactory: false })
+ * defineLogger(MyLogger, { level: 'debug', isClass: true })
  * defineLogger((ctx) => new MyLogger(ctx), { level: 'info', isFactory: true })
  * ```
  */
 export function defineLogger (
   module: LoggerType,
-  options?: { isFactory?: boolean, level?: LogLevel } & Record<string, unknown>
+  options?: { isFactory?: boolean, isClass?: boolean, level?: LogLevel } & Record<string, unknown>
 ): Partial<StoneBlueprint> {
   return {
     stone: {
       logger: {
         ...options,
         resolver: (blueprint: IBlueprint) => {
-          return options?.isFactory === false
+          return options?.isClass === true
             ? new (module as ILoggerClass).prototype.constructor({ blueprint })
             : (module as FactoryLogger)({ blueprint })
         }

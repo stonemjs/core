@@ -8,7 +8,7 @@
 
 > `const` **Stone**: \<`T`\>(`options`) => `ClassDecorator` = `Service`
 
-Defined in: [decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/decorators/Stone.ts#L20)
+Defined in: [decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/decorators/Stone.ts#L20)
 
 Stone decorator to mark a class as a stone and automatically bind it to the container.
 

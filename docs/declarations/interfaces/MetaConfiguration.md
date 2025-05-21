@@ -6,7 +6,7 @@
 
 # Interface: MetaConfiguration\<TValues\>
 
-Defined in: [declarations.ts:928](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L928)
+Defined in: [declarations.ts:933](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L933)
 
 MetaConfiguration Interface.
 
@@ -24,7 +24,7 @@ Represents a metadata object for a configuration.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [declarations.ts:929](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L929)
+Defined in: [declarations.ts:934](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L934)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [declarations.ts:929](https://github.com/stonemjs/core/blob/85781fe5
 
 > **module**: [`ConfigurationClass`](../type-aliases/ConfigurationClass.md)\<`TValues`\> \| [`FunctionalConfiguration`](../type-aliases/FunctionalConfiguration.md)\<`TValues`\>
 
-Defined in: [declarations.ts:930](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L930)
+Defined in: [declarations.ts:935](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L935)

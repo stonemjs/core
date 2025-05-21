@@ -8,7 +8,7 @@
 
 > **AdapterErrorHandlerMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [middleware/BlueprintMiddleware.ts:205](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/middleware/BlueprintMiddleware.ts#L205)
+Defined in: [middleware/BlueprintMiddleware.ts:206](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/middleware/BlueprintMiddleware.ts#L206)
 
 Middleware to add adapter error handlers to the blueprint.
 

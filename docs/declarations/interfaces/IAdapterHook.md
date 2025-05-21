@@ -6,7 +6,7 @@
 
 # Interface: IAdapterHook\<AdapterContextType, RawResponseType\>
 
-Defined in: [declarations.ts:1269](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1269)
+Defined in: [declarations.ts:1274](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1274)
 
 AdapterHook Interface.
 
@@ -28,7 +28,7 @@ Represents lifecycle hooks that can be defined for the adapter, such as initiali
 
 > `optional` **onAdapterMiddlewareProcessed**: `PipelineHookListener`\<`AdapterContextType`, [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>, `any`[]\>
 
-Defined in: [declarations.ts:1272](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1272)
+Defined in: [declarations.ts:1277](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1277)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [declarations.ts:1272](https://github.com/stonemjs/core/blob/85781fe
 
 > `optional` **onBuildingIncomingEvent**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)\<`AdapterContextType`\>
 
-Defined in: [declarations.ts:1273](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1273)
+Defined in: [declarations.ts:1278](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1278)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [declarations.ts:1273](https://github.com/stonemjs/core/blob/85781fe
 
 > `optional` **onBuildingRawResponse**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)\<`AdapterContextType`\>
 
-Defined in: [declarations.ts:1275](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1275)
+Defined in: [declarations.ts:1280](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1280)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [declarations.ts:1275](https://github.com/stonemjs/core/blob/85781fe
 
 > `optional` **onHandlingAdapterError**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)\<`AdapterContextType`\>
 
-Defined in: [declarations.ts:1274](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1274)
+Defined in: [declarations.ts:1279](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1279)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [declarations.ts:1274](https://github.com/stonemjs/core/blob/85781fe
 
 > `optional` **onProcessingAdapterMiddleware**: `PipelineHookListener`\<`AdapterContextType`, [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>, `any`[]\>
 
-Defined in: [declarations.ts:1271](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1271)
+Defined in: [declarations.ts:1276](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1276)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [declarations.ts:1271](https://github.com/stonemjs/core/blob/85781fe
 
 > `optional` **onStart**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)\<`AdapterContextType`\>
 
-Defined in: [declarations.ts:1270](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1270)
+Defined in: [declarations.ts:1275](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1275)
 
 ***
 
@@ -76,4 +76,4 @@ Defined in: [declarations.ts:1270](https://github.com/stonemjs/core/blob/85781fe
 
 > `optional` **onStop**: [`AdapterHookListener`](../type-aliases/AdapterHookListener.md)\<`AdapterContextType`\>
 
-Defined in: [declarations.ts:1276](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1276)
+Defined in: [declarations.ts:1281](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1281)

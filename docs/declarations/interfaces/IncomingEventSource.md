@@ -6,7 +6,7 @@
 
 # Interface: IncomingEventSource
 
-Defined in: [declarations.ts:354](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L354)
+Defined in: [declarations.ts:359](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L359)
 
 Represents an IncomingEvent source.
 
@@ -16,7 +16,7 @@ Represents an IncomingEvent source.
 
 > **platform**: `string` \| `symbol`
 
-Defined in: [declarations.ts:373](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L373)
+Defined in: [declarations.ts:378](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L378)
 
 The platform from which the event originated.
 
@@ -26,7 +26,7 @@ The platform from which the event originated.
 
 > **rawContext**: `unknown`
 
-Defined in: [declarations.ts:363](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L363)
+Defined in: [declarations.ts:368](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L368)
 
 The raw context object from the originating platform.
 
@@ -36,7 +36,7 @@ The raw context object from the originating platform.
 
 > **rawEvent**: `unknown`
 
-Defined in: [declarations.ts:358](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L358)
+Defined in: [declarations.ts:363](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L363)
 
 The raw event object from the originating platform.
 
@@ -46,6 +46,6 @@ The raw event object from the originating platform.
 
 > `optional` **rawResponse**: `unknown`
 
-Defined in: [declarations.ts:368](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L368)
+Defined in: [declarations.ts:373](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L373)
 
 The raw response object from the originating platform.

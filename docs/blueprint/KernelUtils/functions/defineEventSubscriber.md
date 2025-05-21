@@ -20,7 +20,7 @@ Optional `isFactory` flag to define subscriber type.
 ## Example
 
 ```ts
-defineEventSubscriber(MySubscriberClass, { isFactory: false })
+defineEventSubscriber(MySubscriberClass, { isClass: true })
 defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
 defineEventSubscriber((emitter) => { ... })
 ```
@@ -29,7 +29,7 @@ defineEventSubscriber((emitter) => { ... })
 
 > **defineEventSubscriber**(`module`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:469](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L469)
+Defined in: [blueprint/KernelUtils.ts:467](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L467)
 
 Registers a **functional event subscriber** into the Stone blueprint.
 
@@ -58,7 +58,7 @@ Optional `isFactory` flag to define subscriber type.
 ### Example
 
 ```ts
-defineEventSubscriber(MySubscriberClass, { isFactory: false })
+defineEventSubscriber(MySubscriberClass, { isClass: true })
 defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
 defineEventSubscriber((emitter) => { ... })
 ```
@@ -67,7 +67,7 @@ defineEventSubscriber((emitter) => { ... })
 
 > **defineEventSubscriber**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:480](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L480)
+Defined in: [blueprint/KernelUtils.ts:478](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L478)
 
 Registers a **factory-based event subscriber** into the Stone blueprint.
 
@@ -104,7 +104,7 @@ Optional `isFactory` flag to define subscriber type.
 ### Example
 
 ```ts
-defineEventSubscriber(MySubscriberClass, { isFactory: false })
+defineEventSubscriber(MySubscriberClass, { isClass: true })
 defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
 defineEventSubscriber((emitter) => { ... })
 ```
@@ -113,7 +113,7 @@ defineEventSubscriber((emitter) => { ... })
 
 > **defineEventSubscriber**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:492](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L492)
+Defined in: [blueprint/KernelUtils.ts:490](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L490)
 
 Registers a **class-based event subscriber** into the Stone blueprint.
 
@@ -127,11 +127,11 @@ The subscriber class.
 
 #### options
 
-Must include `isFactory: false`.
+Must include `isClass: true`.
 
-##### isFactory
+##### isClass
 
-`false`
+`true`
 
 ### Returns
 
@@ -150,7 +150,7 @@ Optional `isFactory` flag to define subscriber type.
 ### Example
 
 ```ts
-defineEventSubscriber(MySubscriberClass, { isFactory: false })
+defineEventSubscriber(MySubscriberClass, { isClass: true })
 defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
 defineEventSubscriber((emitter) => { ... })
 ```

@@ -6,7 +6,7 @@
 
 # Interface: IAdapterErrorHandler\<RawEventType, RawResponseType, ExecutionContextType\>
 
-Defined in: [declarations.ts:1394](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1394)
+Defined in: [declarations.ts:1399](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1399)
 
 Adapter ErrorHandler Interface.
 
@@ -32,4 +32,4 @@ Represents an error handler for the adapters, which can handle errors and return
 
 > **handle**: [`FunctionalAdapterErrorHandler`](../type-aliases/FunctionalAdapterErrorHandler.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>
 
-Defined in: [declarations.ts:1395](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1395)
+Defined in: [declarations.ts:1400](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1400)

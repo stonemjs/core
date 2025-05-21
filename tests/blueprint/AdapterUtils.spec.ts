@@ -26,7 +26,7 @@ describe('defineAdapterErrorHandler', () => {
 
     expect(blueprint.set).toHaveBeenCalledWith(
       'stone.adapter.errorHandlers.FunctionalError',
-      expect.objectContaining({ module: handler, isClass: false, isFactory: false, platform: 'node' })
+      expect.objectContaining({ module: handler, platform: 'node' })
     )
   })
 
@@ -42,7 +42,7 @@ describe('defineAdapterErrorHandler', () => {
 
     const partial = defineAdapterErrorHandler(HandlerClass, {
       error: 'ClassError',
-      isFactory: false,
+      isClass: true,
       adapterAlias: 'cli'
     })
 
@@ -51,7 +51,7 @@ describe('defineAdapterErrorHandler', () => {
 
     expect(blueprint.set).toHaveBeenCalledWith(
       'stone.adapter.errorHandlers.ClassError',
-      expect.objectContaining({ module: HandlerClass, isClass: true, isFactory: false, adapterAlias: 'cli' })
+      expect.objectContaining({ module: HandlerClass, isClass: true, adapterAlias: 'cli' })
     )
   })
 
@@ -129,9 +129,7 @@ describe('defineAdapterMiddleware', () => {
     expect(blueprint.add).toHaveBeenCalledWith('stone.adapter.middleware', [{
       module: DummyMiddleware,
       platform: 'node',
-      priority: 10,
-      isClass: false,
-      isFactory: false
+      priority: 10
     }])
   })
 
@@ -142,7 +140,7 @@ describe('defineAdapterMiddleware', () => {
     const result = defineAdapterMiddleware(DummyMiddleware, {
       adapterAlias: 'my-adapter',
       priority: 5,
-      isFactory: false
+      isClass: true
     })
 
     const middlewareFn = result.stone?.blueprint?.middleware?.[0]
@@ -152,8 +150,7 @@ describe('defineAdapterMiddleware', () => {
       module: DummyMiddleware,
       adapterAlias: 'my-adapter',
       priority: 5,
-      isClass: true,
-      isFactory: false
+      isClass: true
     }])
   })
 
@@ -167,9 +164,7 @@ describe('defineAdapterMiddleware', () => {
     isMetaFunctionModule<FunctionalPipe>(middlewareFn) && await middlewareFn.module(createMockContext(blueprint), mockNext)
 
     expect(blueprint.add).toHaveBeenCalledWith('stone.adapter.middleware', [{
-      module: DummyMiddleware,
-      isClass: false,
-      isFactory: false
+      module: DummyMiddleware
     }])
   })
 

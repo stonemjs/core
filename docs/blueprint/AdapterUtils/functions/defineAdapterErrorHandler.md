@@ -23,7 +23,7 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/AdapterUtils.ts:27](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/AdapterUtils.ts#L27)
+Defined in: [blueprint/AdapterUtils.ts:30](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/AdapterUtils.ts#L30)
 
 Defines a function-based adapter error handler.
 
@@ -75,7 +75,7 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/AdapterUtils.ts:45](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/AdapterUtils.ts#L45)
+Defined in: [blueprint/AdapterUtils.ts:48](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/AdapterUtils.ts#L48)
 
 Defines a factory-based adapter error handler.
 
@@ -127,7 +127,7 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 > **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/AdapterUtils.ts:63](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/AdapterUtils.ts#L63)
+Defined in: [blueprint/AdapterUtils.ts:66](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/AdapterUtils.ts#L66)
 
 Defines a class-based adapter error handler.
 

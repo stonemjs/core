@@ -6,7 +6,7 @@
 
 # Class: CoreServiceProvider
 
-Defined in: [providers/CoreServiceProvider.ts:51](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/providers/CoreServiceProvider.ts#L51)
+Defined in: [providers/CoreServiceProvider.ts:51](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/providers/CoreServiceProvider.ts#L51)
 
 Class representing a CoreServiceProvider.
 
@@ -29,7 +29,7 @@ Mr. Stone <evensstone@gmail.com>
 
 > **new CoreServiceProvider**(`container`): `CoreServiceProvider`
 
-Defined in: [providers/CoreServiceProvider.ts:63](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/providers/CoreServiceProvider.ts#L63)
+Defined in: [providers/CoreServiceProvider.ts:63](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/providers/CoreServiceProvider.ts#L63)
 
 Create a new instance of CoreServiceProvider.
 
@@ -55,7 +55,7 @@ If the Blueprint config or EventEmitter is not bound to the container.
 
 > **boot**(): `Promise`\<`void`\>
 
-Defined in: [providers/CoreServiceProvider.ts:132](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/providers/CoreServiceProvider.ts#L132)
+Defined in: [providers/CoreServiceProvider.ts:132](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/providers/CoreServiceProvider.ts#L132)
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -73,7 +73,7 @@ Boots the provider after registration. This method is used to initialize service
 
 > **register**(): `void`
 
-Defined in: [providers/CoreServiceProvider.ts:120](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/providers/CoreServiceProvider.ts#L120)
+Defined in: [providers/CoreServiceProvider.ts:120](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/providers/CoreServiceProvider.ts#L120)
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

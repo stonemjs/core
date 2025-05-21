@@ -8,7 +8,7 @@
 
 > **defineHookListener**\<`U`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:186](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L186)
+Defined in: [blueprint/KernelUtils.ts:189](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L189)
 
 Defines a lifecycle hook listener for the application.
 

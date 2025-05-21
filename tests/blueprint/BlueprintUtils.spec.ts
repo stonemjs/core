@@ -14,8 +14,8 @@ describe('defineStoneApp', () => {
 
     if (isMetaFunctionModule(blueprint.stone?.kernel?.eventHandler)) {
       expect(blueprint.stone?.kernel?.eventHandler?.module).toBe(handler)
-      expect(blueprint.stone?.kernel?.eventHandler?.isFactory).toBe(false)
-      expect(blueprint.stone?.kernel?.eventHandler?.isClass).toBe(false)
+      expect(blueprint.stone?.kernel?.eventHandler?.isFactory).toBeUndefined()
+      expect(blueprint.stone?.kernel?.eventHandler?.isClass).toBeUndefined()
     }
   })
 
@@ -24,11 +24,11 @@ describe('defineStoneApp', () => {
       handle (_event: IncomingEvent): void {}
     }
 
-    const blueprint = defineStoneApp(MyHandler, { isFactory: false })
+    const blueprint = defineStoneApp(MyHandler, { isClass: true })
 
     if (isMetaClassModule(blueprint.stone?.kernel?.eventHandler)) {
       expect(blueprint.stone?.kernel?.eventHandler?.module).toBe(MyHandler)
-      expect(blueprint.stone?.kernel?.eventHandler?.isFactory).toBe(false)
+      expect(blueprint.stone?.kernel?.eventHandler?.isFactory).toBeUndefined()
       expect(blueprint.stone?.kernel?.eventHandler?.isClass).toBe(true)
     }
   })
@@ -41,7 +41,7 @@ describe('defineStoneApp', () => {
     if (isMetaFactoryModule(blueprint.stone?.kernel?.eventHandler)) {
       expect(blueprint.stone?.kernel?.eventHandler?.module).toBe(factory)
       expect(blueprint.stone?.kernel?.eventHandler?.isFactory).toBe(true)
-      expect(blueprint.stone?.kernel?.eventHandler?.isClass).toBe(false)
+      expect(blueprint.stone?.kernel?.eventHandler?.isClass).toBeUndefined()
     }
   })
 
@@ -115,9 +115,7 @@ describe('defineBlueprintMiddleware', () => {
       stone: {
         blueprint: {
           middleware: [{
-            module: DummyMiddleware,
-            isClass: false,
-            isFactory: false
+            module: DummyMiddleware
           }]
         }
       }
@@ -131,15 +129,11 @@ describe('defineBlueprintMiddleware', () => {
     expect(result.stone?.blueprint?.middleware).toHaveLength(2)
     expect(result.stone?.blueprint?.middleware?.[0]).toMatchObject({
       module: DummyMiddleware,
-      priority: 1,
-      isClass: false,
-      isFactory: false
+      priority: 1
     })
     expect(result.stone?.blueprint?.middleware?.[1]).toMatchObject({
       module: another,
-      priority: 1,
-      isClass: false,
-      isFactory: false
+      priority: 1
     })
   })
 
@@ -149,19 +143,17 @@ describe('defineBlueprintMiddleware', () => {
 
     expect(result.stone?.blueprint?.middleware?.[0]).toMatchObject({
       module: factory,
-      isFactory: true,
-      isClass: false
+      isFactory: true
     })
   })
 
   it('should define class-based middleware', () => {
     class ClassMiddleware {}
-    const result = defineBlueprintMiddleware(ClassMiddleware, { isFactory: false })
+    const result = defineBlueprintMiddleware(ClassMiddleware, { isClass: true })
 
     expect(result.stone?.blueprint?.middleware?.[0]).toMatchObject({
       module: ClassMiddleware,
-      isClass: true,
-      isFactory: false
+      isClass: true
     })
   })
 })

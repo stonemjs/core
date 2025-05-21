@@ -6,7 +6,7 @@
 
 # Interface: IErrorHandler\<TEvent, UResponse\>
 
-Defined in: [declarations.ts:835](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L835)
+Defined in: [declarations.ts:840](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L840)
 
 ErrorHandler Interface.
 
@@ -32,4 +32,4 @@ UResponse
 
 > **handle**: [`FunctionalErrorHandler`](../type-aliases/FunctionalErrorHandler.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:836](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L836)
+Defined in: [declarations.ts:841](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L841)

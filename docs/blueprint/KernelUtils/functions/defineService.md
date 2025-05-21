@@ -22,7 +22,7 @@ Service configuration options including alias and factory flag.
 ## Example
 
 ```ts
-defineService(MyServiceClass, { alias: 'myService', isFactory: false })
+defineService(MyServiceClass, { alias: 'myService', isClass: true })
 defineService((container) => ({ save(){} }), { alias: 'myService' })
 ```
 
@@ -30,7 +30,7 @@ defineService((container) => ({ save(){} }), { alias: 'myService' })
 
 > **defineService**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:398](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L398)
+Defined in: [blueprint/KernelUtils.ts:396](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L396)
 
 Defines a factory-based service for the Stone.js application.
 
@@ -65,7 +65,7 @@ Service configuration options including alias and factory flag.
 ### Example
 
 ```ts
-defineService(MyServiceClass, { alias: 'myService', isFactory: false })
+defineService(MyServiceClass, { alias: 'myService', isClass: true })
 defineService((container) => ({ save(){} }), { alias: 'myService' })
 ```
 
@@ -73,7 +73,7 @@ defineService((container) => ({ save(){} }), { alias: 'myService' })
 
 > **defineService**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:410](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L410)
+Defined in: [blueprint/KernelUtils.ts:408](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L408)
 
 Defines a class-based service for the Stone.js application.
 
@@ -108,6 +108,6 @@ Service configuration options including alias and factory flag.
 ### Example
 
 ```ts
-defineService(MyServiceClass, { alias: 'myService', isFactory: false })
+defineService(MyServiceClass, { alias: 'myService', isClass: true })
 defineService((container) => ({ save(){} }), { alias: 'myService' })
 ```

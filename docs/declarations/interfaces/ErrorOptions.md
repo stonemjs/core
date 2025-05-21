@@ -6,7 +6,7 @@
 
 # Interface: ErrorOptions
 
-Defined in: [declarations.ts:975](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L975)
+Defined in: [declarations.ts:980](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L980)
 
 Represents options for configuring an error.
 
@@ -16,7 +16,7 @@ Represents options for configuring an error.
 
 > `optional` **cause**: `Error`
 
-Defined in: [declarations.ts:984](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L984)
+Defined in: [declarations.ts:989](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L989)
 
 The original error that caused this error, useful for error chaining.
 
@@ -26,7 +26,7 @@ The original error that caused this error, useful for error chaining.
 
 > `optional` **code**: `string`
 
-Defined in: [declarations.ts:979](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L979)
+Defined in: [declarations.ts:984](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L984)
 
 A specific error code for identifying the error.
 
@@ -36,6 +36,6 @@ A specific error code for identifying the error.
 
 > `optional` **metadata**: `unknown`
 
-Defined in: [declarations.ts:989](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L989)
+Defined in: [declarations.ts:994](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L994)
 
 Additional information or context about the error.

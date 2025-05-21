@@ -111,6 +111,7 @@
 - [KernelHookListener](type-aliases/KernelHookListener.md)
 - [KernelHookName](type-aliases/KernelHookName.md)
 - [KernelResolver](type-aliases/KernelResolver.md)
+- [Laziable](type-aliases/Laziable.md)
 - [LifecycleHookListener](type-aliases/LifecycleHookListener.md)
 - [LifecycleHookType](type-aliases/LifecycleHookType.md)
 - [ListenerHandler](type-aliases/ListenerHandler.md)

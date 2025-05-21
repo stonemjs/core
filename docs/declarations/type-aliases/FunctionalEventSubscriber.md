@@ -8,7 +8,7 @@
 
 > **FunctionalEventSubscriber** = (`eventEmitter`) => [`Promiseable`](Promiseable.md)\<`void`\>
 
-Defined in: [declarations.ts:540](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L540)
+Defined in: [declarations.ts:545](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L545)
 
 Represents a FunctionalEventSubscriber type.
 

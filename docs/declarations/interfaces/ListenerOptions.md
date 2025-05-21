@@ -6,7 +6,7 @@
 
 # Interface: ListenerOptions
 
-Defined in: [declarations.ts:219](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L219)
+Defined in: [declarations.ts:224](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L224)
 
 Listener options.
 
@@ -18,6 +18,6 @@ This interface defines the configuration options for marking a class as a listen
 
 > **event**: `string`
 
-Defined in: [declarations.ts:223](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L223)
+Defined in: [declarations.ts:228](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L228)
 
 The event that the listener should handle.

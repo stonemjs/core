@@ -6,7 +6,7 @@
 
 # Interface: AdapterErrorHandlerOptions
 
-Defined in: [declarations.ts:185](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L185)
+Defined in: [declarations.ts:190](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L190)
 
 AdapterErrorHandler options.
 
@@ -18,7 +18,7 @@ This interface defines the AdapterErrorHandler options for marking a class as a 
 
 > `optional` **adapterAlias**: `string`
 
-Defined in: [declarations.ts:194](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L194)
+Defined in: [declarations.ts:199](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L199)
 
 The alias name for which the AdapterErrorHandler is used.
 
@@ -28,7 +28,7 @@ The alias name for which the AdapterErrorHandler is used.
 
 > **error**: `string` \| `string`[]
 
-Defined in: [declarations.ts:189](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L189)
+Defined in: [declarations.ts:194](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L194)
 
 Additional configuration settings for the AdapterErrorHandler, if needed.
 
@@ -38,6 +38,6 @@ Additional configuration settings for the AdapterErrorHandler, if needed.
 
 > `optional` **platform**: `string`
 
-Defined in: [declarations.ts:199](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L199)
+Defined in: [declarations.ts:204](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L204)
 
 The platform name for which the AdapterErrorHandler is used.

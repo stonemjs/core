@@ -6,7 +6,7 @@
 
 # Interface: MetaEventHandler\<TEvent, UResponse\>
 
-Defined in: [declarations.ts:632](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L632)
+Defined in: [declarations.ts:637](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L637)
 
 MetaEventHandler Interface.
 
@@ -32,7 +32,7 @@ UResponse
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [declarations.ts:633](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L633)
+Defined in: [declarations.ts:638](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L638)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [declarations.ts:633](https://github.com/stonemjs/core/blob/85781fe5
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [declarations.ts:634](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L634)
+Defined in: [declarations.ts:639](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L639)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [declarations.ts:634](https://github.com/stonemjs/core/blob/85781fe5
 
 > **module**: [`EventHandlerType`](../type-aliases/EventHandlerType.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:635](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L635)
+Defined in: [declarations.ts:640](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L640)

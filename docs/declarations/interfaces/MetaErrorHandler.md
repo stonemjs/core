@@ -6,7 +6,7 @@
 
 # Interface: MetaErrorHandler\<TEvent, UResponse\>
 
-Defined in: [declarations.ts:883](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L883)
+Defined in: [declarations.ts:888](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L888)
 
 MetaErrorHandler Interface.
 
@@ -32,7 +32,7 @@ UResponse
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [declarations.ts:884](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L884)
+Defined in: [declarations.ts:889](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L889)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [declarations.ts:884](https://github.com/stonemjs/core/blob/85781fe5
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [declarations.ts:885](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L885)
+Defined in: [declarations.ts:890](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L890)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [declarations.ts:885](https://github.com/stonemjs/core/blob/85781fe5
 
 > **module**: [`ErrorHandlerType`](../type-aliases/ErrorHandlerType.md)\<`TEvent`, `UResponse`\>
 
-Defined in: [declarations.ts:886](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L886)
+Defined in: [declarations.ts:891](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L891)

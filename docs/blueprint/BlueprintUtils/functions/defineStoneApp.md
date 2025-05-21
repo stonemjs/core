@@ -27,7 +27,7 @@ Additional partial blueprints to merge into the final one.
 
 ```ts
 defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isFactory: false })
+defineStoneApp(MyHandlerClass, { isClass: true })
 defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
 ```
 
@@ -35,7 +35,7 @@ defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFac
 
 > **defineStoneApp**\<`U`, `V`\>(`module`, `options?`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-Defined in: [blueprint/BlueprintUtils.ts:33](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/BlueprintUtils.ts#L33)
+Defined in: [blueprint/BlueprintUtils.ts:33](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L33)
 
 Declares a complete Stone application blueprint using a function-based event handler.
 
@@ -91,7 +91,7 @@ Additional partial blueprints to merge into the final one.
 
 ```ts
 defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isFactory: false })
+defineStoneApp(MyHandlerClass, { isClass: true })
 defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
 ```
 
@@ -99,7 +99,7 @@ defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFac
 
 > **defineStoneApp**\<`U`, `V`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-Defined in: [blueprint/BlueprintUtils.ts:47](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/BlueprintUtils.ts#L47)
+Defined in: [blueprint/BlueprintUtils.ts:47](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L47)
 
 Declares a complete Stone application blueprint using a factory-based event handler.
 
@@ -155,7 +155,7 @@ Additional partial blueprints to merge into the final one.
 
 ```ts
 defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isFactory: false })
+defineStoneApp(MyHandlerClass, { isClass: true })
 defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
 ```
 
@@ -163,7 +163,7 @@ defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFac
 
 > **defineStoneApp**\<`U`, `V`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-Defined in: [blueprint/BlueprintUtils.ts:61](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/BlueprintUtils.ts#L61)
+Defined in: [blueprint/BlueprintUtils.ts:61](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L61)
 
 Declares a complete Stone application blueprint using a class-based event handler.
 
@@ -189,7 +189,7 @@ A class constructor for the event handler.
 
 `Partial`\<[`AppConfig`](../../../options/StoneBlueprint/interfaces/AppConfig.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\> & `object`
 
-Application-level configuration with `{ isFactory: false }`.
+Application-level configuration with `{ isClass: true }`.
 
 #### blueprints?
 
@@ -219,6 +219,6 @@ Additional partial blueprints to merge into the final one.
 
 ```ts
 defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isFactory: false })
+defineStoneApp(MyHandlerClass, { isClass: true })
 defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
 ```

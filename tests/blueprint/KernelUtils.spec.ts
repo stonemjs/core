@@ -21,9 +21,7 @@ describe('defineEventHandler', () => {
       stone: {
         kernel: {
           eventHandler: {
-            module: functionalHandler,
-            isClass: false,
-            isFactory: false
+            module: functionalHandler
           }
         }
       }
@@ -38,7 +36,6 @@ describe('defineEventHandler', () => {
         kernel: {
           eventHandler: {
             module: factoryHandler,
-            isClass: false,
             isFactory: true
           }
         }
@@ -47,15 +44,14 @@ describe('defineEventHandler', () => {
   })
 
   it('should define a class-based event handler', () => {
-    const blueprint = defineEventHandler(ClassHandler, { isFactory: false })
+    const blueprint = defineEventHandler(ClassHandler, { isClass: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         kernel: {
           eventHandler: {
             module: ClassHandler,
-            isClass: true,
-            isFactory: false
+            isClass: true
           }
         }
       }
@@ -74,9 +70,7 @@ describe('defineErrorHandler', () => {
         kernel: {
           errorHandlers: {
             MyError: {
-              module: functionalHandler,
-              isClass: false,
-              isFactory: false
+              module: functionalHandler
             }
           }
         }
@@ -96,12 +90,10 @@ describe('defineErrorHandler', () => {
           errorHandlers: {
             MyError: {
               module: factoryHandler,
-              isClass: false,
               isFactory: true
             },
             OtherError: {
               module: factoryHandler,
-              isClass: false,
               isFactory: true
             }
           }
@@ -113,7 +105,7 @@ describe('defineErrorHandler', () => {
   it('should define a class-based error handler with single error', () => {
     const blueprint = defineErrorHandler(ClassHandler, {
       error: 'FatalError',
-      isFactory: false
+      isClass: true
     })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
@@ -122,8 +114,7 @@ describe('defineErrorHandler', () => {
           errorHandlers: {
             FatalError: {
               module: ClassHandler,
-              isClass: true,
-              isFactory: false
+              isClass: true
             }
           }
         }
@@ -158,9 +149,7 @@ describe('defineEventListener', () => {
       stone: {
         listeners: [{
           module: fn,
-          event: eventName,
-          isClass: false,
-          isFactory: false
+          event: eventName
         }]
       }
     })
@@ -175,7 +164,6 @@ describe('defineEventListener', () => {
         listeners: [{
           module: factory,
           event: eventName,
-          isClass: false,
           isFactory: true
         }]
       }
@@ -184,15 +172,14 @@ describe('defineEventListener', () => {
 
   it('should define a class-based event listener', () => {
     class MyListener { handle (): void {} }
-    const blueprint = defineEventListener(MyListener, { event: eventName, isFactory: false })
+    const blueprint = defineEventListener(MyListener, { event: eventName, isClass: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         listeners: [{
           module: MyListener,
           event: eventName,
-          isClass: true,
-          isFactory: false
+          isClass: true
         }]
       }
     })
@@ -209,9 +196,7 @@ describe('defineMiddleware', () => {
       stone: {
         kernel: {
           middleware: [{
-            module: dummyMiddleware,
-            isClass: false,
-            isFactory: false
+            module: dummyMiddleware
           }]
         }
       }
@@ -227,7 +212,6 @@ describe('defineMiddleware', () => {
         kernel: {
           middleware: [{
             module: factory,
-            isClass: false,
             isFactory: true
           }]
         }
@@ -240,15 +224,14 @@ describe('defineMiddleware', () => {
       handle (_event: IncomingEvent, _next: NextMiddleware<IncomingEvent>): void {}
     }
 
-    const blueprint = defineMiddleware(MyMiddleware, { isFactory: false })
+    const blueprint = defineMiddleware(MyMiddleware, { isClass: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         kernel: {
           middleware: [{
             module: MyMiddleware,
-            isClass: true,
-            isFactory: false
+            isClass: true
           }]
         }
       }
@@ -266,8 +249,7 @@ describe('defineServiceProvider', () => {
       stone: {
         providers: [{
           module: factory,
-          isFactory: true,
-          isClass: false
+          isFactory: true
         }]
       }
     })
@@ -279,14 +261,14 @@ describe('defineServiceProvider', () => {
       async boot (): Promise<void> {}
     }
 
-    const blueprint = defineServiceProvider(MyProvider, { isFactory: false })
+    const blueprint = defineServiceProvider(MyProvider, { isClass: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         providers: [{
           module: MyProvider,
-          isFactory: false,
-          isClass: true
+          isClass: true,
+          isFactory: false
         }]
       }
     })
@@ -300,8 +282,7 @@ describe('defineServiceProvider', () => {
       stone: {
         providers: [{
           module: fn,
-          isFactory: true,
-          isClass: false
+          isFactory: true
         }]
       }
     })
@@ -323,8 +304,7 @@ describe('defineService', () => {
         services: [{
           alias,
           module: factory,
-          isFactory: true,
-          isClass: false
+          isFactory: true
         }]
       }
     })
@@ -334,7 +314,7 @@ describe('defineService', () => {
     class MyService {}
     const blueprint = defineService(MyService, {
       alias: 'MyService',
-      isFactory: false
+      isClass: true
     })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
@@ -342,8 +322,8 @@ describe('defineService', () => {
         services: [{
           alias: 'MyService',
           module: MyService,
-          isFactory: false,
-          isClass: true
+          isClass: true,
+          isFactory: false
         }]
       }
     })
@@ -361,8 +341,7 @@ describe('defineService', () => {
         services: [{
           alias: 'AutoFactory',
           module: factory,
-          isFactory: true,
-          isClass: false
+          isFactory: true
         }]
       }
     })
@@ -379,8 +358,7 @@ describe('defineStone', () => {
         services: [{
           alias: 'core.service',
           module: factory,
-          isFactory: true,
-          isClass: false
+          isFactory: true
         }]
       }
     })
@@ -388,15 +366,15 @@ describe('defineStone', () => {
 
   it('should define a class-based stone service', () => {
     class CoreService {}
-    const blueprint = defineStone(CoreService, { alias: 'core', isFactory: false })
+    const blueprint = defineStone(CoreService, { alias: 'core', isClass: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         services: [{
           alias: 'core',
           module: CoreService,
-          isFactory: false,
-          isClass: true
+          isClass: true,
+          isFactory: false
         }]
       }
     })
@@ -411,8 +389,7 @@ describe('defineStone', () => {
         services: [{
           alias: 'auto.factory',
           module: factory,
-          isFactory: true,
-          isClass: false
+          isFactory: true
         }]
       }
     })
@@ -427,9 +404,7 @@ describe('defineEventSubscriber', () => {
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         subscribers: [{
-          module: subscriber,
-          isClass: false,
-          isFactory: false
+          module: subscriber
         }]
       }
     })
@@ -443,7 +418,6 @@ describe('defineEventSubscriber', () => {
       stone: {
         subscribers: [{
           module: factory,
-          isClass: false,
           isFactory: true
         }]
       }
@@ -454,14 +428,13 @@ describe('defineEventSubscriber', () => {
     class Subscriber implements IEventSubscriber {
       subscribe (eventEmitter: EventEmitter): Promiseable<void> {}
     }
-    const blueprint = defineEventSubscriber(Subscriber, { isFactory: false })
+    const blueprint = defineEventSubscriber(Subscriber, { isClass: true })
 
     expect(blueprint).toEqual<Partial<StoneBlueprint>>({
       stone: {
         subscribers: [{
           module: Subscriber,
-          isClass: true,
-          isFactory: false
+          isClass: true
         }]
       }
     })
@@ -502,7 +475,7 @@ describe('defineLogger', () => {
       error (message: string, ...optionalParams: unknown[]): void {}
     }
 
-    const blueprint = defineLogger(Logger, { isFactory: false, level: LogLevel.DEBUG })
+    const blueprint = defineLogger(Logger, { isClass: true, level: LogLevel.DEBUG })
     expect(blueprint.stone?.logger?.level).toBe('debug')
 
     const resolved = blueprint.stone?.logger?.resolver?.(fakeBlueprint)

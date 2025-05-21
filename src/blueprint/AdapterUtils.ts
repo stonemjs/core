@@ -1,7 +1,10 @@
 import {
   ClassType,
   IBlueprint,
+  MiddlewareClass,
   BlueprintContext,
+  FactoryMiddleware,
+  FunctionalMiddleware,
   AdapterMixedPipeType,
   AdapterErrorHandlerType,
   AdapterMiddlewareOptions,
@@ -11,9 +14,9 @@ import {
   FunctionalAdapterErrorHandler
 } from '../declarations'
 import { isEmpty } from 'lodash-es'
+import { isNotEmpty } from '../utils'
 import { NextPipe } from '@stone-js/pipeline'
 import { StoneBlueprint } from '../options/StoneBlueprint'
-import { isNotEmpty } from '../utils'
 
 /**
  * Defines a function-based adapter error handler.
@@ -66,7 +69,7 @@ export function defineAdapterErrorHandler<
   ExecutionContextType = any
 > (
   module: IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType>,
-  options: AdapterErrorHandlerOptions & { isFactory: false }
+  options: AdapterErrorHandlerOptions & { isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -85,7 +88,7 @@ export function defineAdapterErrorHandler<
   ExecutionContextType = any
 > (
   module: AdapterErrorHandlerType<RawEventType, RawResponseType, ExecutionContextType>,
-  options: AdapterErrorHandlerOptions & { isFactory?: boolean }
+  options: AdapterErrorHandlerOptions & { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint> {
   const AdapterErrorHandlerMiddleware = async (
     context: BlueprintContext<IBlueprint, ClassType>,
@@ -93,19 +96,12 @@ export function defineAdapterErrorHandler<
   ): Promise<IBlueprint> => {
     const blueprint = await next(context)
 
-    const matchesAdapter =
-      (isEmpty(options.adapterAlias) && isEmpty(options.platform)) ||
-      (isNotEmpty<string>(options.platform) && blueprint.is('stone.adapter.platform', options.platform)) ||
-      (isNotEmpty<string>(options.adapterAlias) && blueprint.is('stone.adapter.alias', options.adapterAlias))
-
-    if (matchesAdapter) {
+    if (isMatchedAdapter(blueprint, options.platform, options.adapterAlias)) {
       for (const error of Array(options.error).flat()) {
         blueprint.set(`stone.adapter.errorHandlers.${error}`, {
           ...options,
           error,
-          module,
-          isClass: options.isFactory === false,
-          isFactory: options.isFactory === true
+          module
         })
       }
     }
@@ -137,7 +133,7 @@ export function defineAdapterMiddleware<
   ExecutionContextType = any,
   RawResponseType = any
 > (
-  module: AdapterMixedPipeType<ExecutionContextType, RawResponseType>,
+  module: FunctionalMiddleware<ExecutionContextType, RawResponseType>,
   options?: AdapterMiddlewareOptions
 ): Partial<StoneBlueprint>
 
@@ -154,7 +150,7 @@ export function defineAdapterMiddleware<
   ExecutionContextType = any,
   RawResponseType = any
 > (
-  module: AdapterMixedPipeType<ExecutionContextType, RawResponseType>,
+  module: FactoryMiddleware<ExecutionContextType, RawResponseType>,
   options: AdapterMiddlewareOptions & { isFactory: true }
 ): Partial<StoneBlueprint>
 
@@ -171,8 +167,8 @@ export function defineAdapterMiddleware<
   ExecutionContextType = any,
   RawResponseType = any
 > (
-  module: AdapterMixedPipeType<ExecutionContextType, RawResponseType>,
-  options: AdapterMiddlewareOptions & { isFactory: false }
+  module: MiddlewareClass<ExecutionContextType, RawResponseType>,
+  options: AdapterMiddlewareOptions & { isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -190,7 +186,7 @@ export function defineAdapterMiddleware<
   RawResponseType = any
 > (
   module: AdapterMixedPipeType<ExecutionContextType, RawResponseType>,
-  options?: AdapterMiddlewareOptions & { isFactory?: boolean }
+  options?: AdapterMiddlewareOptions & { isFactory?: boolean, isClass?: boolean }
 ): Partial<StoneBlueprint> {
   const AdapterMiddleware = async (
     context: BlueprintContext<IBlueprint, ClassType>,
@@ -206,9 +202,7 @@ export function defineAdapterMiddleware<
     if (matchesAdapter) {
       blueprint.add('stone.adapter.middleware', [{
         ...options,
-        module,
-        isClass: options?.isFactory === false,
-        isFactory: options?.isFactory === true
+        module
       }])
     }
 
@@ -224,4 +218,22 @@ export function defineAdapterMiddleware<
       }
     }
   }
+}
+
+/**
+ * Checks if the adapter matches the given alias or platform.
+ *
+ * This function evaluates whether the provided adapter alias or platform
+ * matches the current blueprint context. It returns true if either is empty,
+ * or if they match the blueprint's registered values.
+ *
+ * @param blueprint - The blueprint to check against.
+ * @param platform - The platform to match.
+ * @param adapterAlias - The adapter alias to match.
+ * @returns True if the adapter matches, false otherwise.
+ */
+export function isMatchedAdapter (blueprint: IBlueprint, platform?: string, adapterAlias?: string): boolean {
+  return (isEmpty(adapterAlias) && isEmpty(platform)) ||
+    (isNotEmpty<string>(platform) && blueprint.is('stone.adapter.platform', platform)) ||
+    (isNotEmpty<string>(adapterAlias) && blueprint.is('stone.adapter.alias', adapterAlias))
 }

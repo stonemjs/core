@@ -23,6 +23,11 @@ export type MiddlewareHookContext<T = unknown, R = T, Args extends any[] = any[]
 export type Promiseable<T> = T | Promise<T>
 
 /**
+ * Represents a lazy-loaded type.
+ */
+export type Laziable<T> = () => Promise<T>
+
+/**
  * Represents a Arrayable type.
  */
 export type Arrayable<T> = T | T[]

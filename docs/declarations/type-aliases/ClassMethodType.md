@@ -8,7 +8,7 @@
 
 > **ClassMethodType**\<`This`\> = (`this`, ...`args`) => `any`
 
-Defined in: [declarations.ts:970](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L970)
+Defined in: [declarations.ts:975](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L975)
 
 ClassMethodType Type.
 

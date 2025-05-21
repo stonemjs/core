@@ -8,7 +8,7 @@
 
 > **isEmpty**(`value`): value is undefined \| null \| false \| "" \| 0
 
-Defined in: [utils.ts:166](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/utils.ts#L166)
+Defined in: [utils.ts:166](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/utils.ts#L166)
 
 Check if the provided value is empty.
 

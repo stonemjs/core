@@ -8,7 +8,7 @@
 
 > **ILoggerClass** = (...`args`) => [`ILogger`](../interfaces/ILogger.md)
 
-Defined in: [declarations.ts:336](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L336)
+Defined in: [declarations.ts:341](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L341)
 
 Represents a ILoggerClass type.
 

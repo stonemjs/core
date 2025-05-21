@@ -8,7 +8,7 @@
 
 > **ProposalClassDecorator**\<`TClass`\> = \<`TFunction`\>(`target`, `context`) => `TFunction` \| `undefined`
 
-Defined in: [declarations.ts:1064](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1064)
+Defined in: [declarations.ts:1069](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1069)
 
 Represents a class decorator using the 2023-11 proposal syntax.
 

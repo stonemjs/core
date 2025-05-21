@@ -20,7 +20,7 @@ The options for the EventHandler.
 
 > **defineEventHandler**\<`U`, `V`\>(`module`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:118](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L118)
+Defined in: [blueprint/KernelUtils.ts:121](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L121)
 
 Utility function to define a function-based event handler.
 
@@ -60,7 +60,7 @@ The options for the EventHandler.
 
 > **defineEventHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:129](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L129)
+Defined in: [blueprint/KernelUtils.ts:132](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L132)
 
 Utility function to define a factory-based event handler.
 
@@ -108,7 +108,7 @@ The options for the EventHandler.
 
 > **defineEventHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:141](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L141)
+Defined in: [blueprint/KernelUtils.ts:144](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L144)
 
 Utility function to define a factory-based event handler.
 
@@ -134,9 +134,9 @@ The EventHandler module.
 
 The options for the EventHandler.
 
-##### isFactory
+##### isClass
 
-`false`
+`true`
 
 ### Returns
 

@@ -8,7 +8,7 @@
 
 > **Service**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Service.ts:22](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/decorators/Service.ts#L22)
+Defined in: [decorators/Service.ts:22](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/decorators/Service.ts#L22)
 
 Service decorator to mark a class as a service and automatically bind it to the container.
 

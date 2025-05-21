@@ -6,7 +6,7 @@
 
 # Interface: EventOptions
 
-Defined in: [events/Event.ts:6](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/events/Event.ts#L6)
+Defined in: [events/Event.ts:6](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/events/Event.ts#L6)
 
 EventOptions.
 
@@ -29,7 +29,7 @@ EventOptions.
 
 > `optional` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/events/Event.ts#L10)
+Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/events/Event.ts#L10)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/85781fe5b
 
 > `optional` **source**: `object`
 
-Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/events/Event.ts#L8)
+Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/events/Event.ts#L8)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/85781fe5b8
 
 > `optional` **timeStamp**: `number`
 
-Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/events/Event.ts#L9)
+Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/events/Event.ts#L9)
 
 ***
 
@@ -53,4 +53,4 @@ Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/85781fe5b8
 
 > `optional` **type**: `string`
 
-Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/events/Event.ts#L7)
+Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/events/Event.ts#L7)

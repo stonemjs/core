@@ -6,7 +6,7 @@
 
 # Interface: AdapterHandlerOptions
 
-Defined in: [declarations.ts:1118](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1118)
+Defined in: [declarations.ts:1123](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1123)
 
 Represents an adapter handler options.
 
@@ -16,4 +16,4 @@ Represents an adapter handler options.
 
 > **blueprint**: [`IBlueprint`](../type-aliases/IBlueprint.md)
 
-Defined in: [declarations.ts:1119](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1119)
+Defined in: [declarations.ts:1124](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1124)

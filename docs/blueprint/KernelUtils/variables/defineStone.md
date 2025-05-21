@@ -8,7 +8,7 @@
 
 > `const` **defineStone**: \{(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>; (`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>; \} = `defineService`
 
-Defined in: [blueprint/KernelUtils.ts:461](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L461)
+Defined in: [blueprint/KernelUtils.ts:459](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L459)
 
 Defines a core Stone.js service.
 
@@ -74,6 +74,6 @@ defineService
 ## Example
 
 ```ts
-defineStone(MyStoneServiceClass, { alias: 'stone.core', isFactory: false })
+defineStone(MyStoneServiceClass, { alias: 'stone.core', isClass: true })
 defineStone((container) => ({ save(){} }), { alias: 'myService' })
 ```

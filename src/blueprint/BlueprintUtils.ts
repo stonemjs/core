@@ -54,13 +54,13 @@ export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = Outg
  * Declares a complete Stone application blueprint using a class-based event handler.
  *
  * @param module - A class constructor for the event handler.
- * @param options - Application-level configuration with `{ isFactory: false }`.
+ * @param options - Application-level configuration with `{ isClass: true }`.
  * @param blueprints - Additional partial blueprints to merge.
  * @returns A fully merged Stone blueprint.
  */
 export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: EventHandlerClass<U, V>,
-  options: Partial<AppConfig<U>> & { isFactory: false },
+  options: Partial<AppConfig<U>> & { isClass: true },
   blueprints?: Array<StoneBlueprint<any, any> & Record<string, any>>
 ): StoneBlueprint<U>
 
@@ -78,19 +78,19 @@ export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = Outg
  * @example
  * ```ts
  * defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
- * defineStoneApp(MyHandlerClass, { isFactory: false })
+ * defineStoneApp(MyHandlerClass, { isClass: true })
  * defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
  * ```
  */
 export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: EventHandlerType<U, V>,
-  options: Partial<AppConfig<U>> & { isFactory?: boolean } = {},
+  options: Partial<AppConfig<U>> & { isFactory?: boolean, isClass?: boolean } = {},
   blueprints: Array<StoneBlueprint<any, any> & Record<string, any>> = []
 ): StoneBlueprint<U> {
   const eventHandler = {
     module,
-    isClass: options?.isFactory === false,
-    isFactory: options?.isFactory === true
+    isClass: options.isClass,
+    isFactory: options.isFactory
   }
 
   return mergeBlueprints<U>(
@@ -169,7 +169,7 @@ export function defineBlueprintMiddleware (
  */
 export function defineBlueprintMiddleware (
   module: Arrayable<FactoryMiddleware<BlueprintContext, IBlueprint>>,
-  options?: { params?: any[], priority?: number, isFactory?: true }
+  options: { params?: any[], priority?: number, isFactory: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -181,7 +181,7 @@ export function defineBlueprintMiddleware (
  */
 export function defineBlueprintMiddleware (
   module: Arrayable<MiddlewareClass<BlueprintContext, IBlueprint>>,
-  options?: { params?: any[], priority?: number, isFactory?: false }
+  options: { params?: any[], priority?: number, isClass: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -193,13 +193,11 @@ export function defineBlueprintMiddleware (
  */
 export function defineBlueprintMiddleware (
   module: Arrayable<MiddlewareType<BlueprintContext, IBlueprint>>,
-  options?: { params?: any[], priority?: number, isFactory?: boolean }
+  options: { params?: any[], priority?: number, isFactory?: boolean, isClass?: boolean } = {}
 ): Partial<StoneBlueprint> {
   const middleware: Array<MetaMiddleware<BlueprintContext, IBlueprint>> = [module].flat().map((item) => ({
     ...options,
-    module: item,
-    isClass: options?.isFactory === false,
-    isFactory: options?.isFactory === true
+    module: item
   }))
 
   return {

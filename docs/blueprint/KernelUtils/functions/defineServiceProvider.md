@@ -22,7 +22,7 @@ Optional flag to indicate if it's a factory.
 ## Example
 
 ```ts
-defineServiceProvider(MyServiceProviderClass, { isFactory: false })
+defineServiceProvider(MyServiceProviderClass, { isClass: true })
 defineServiceProvider((container) => new MyProvider(container))
 ```
 
@@ -30,7 +30,7 @@ defineServiceProvider((container) => new MyProvider(container))
 
 > **defineServiceProvider**(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:342](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L342)
+Defined in: [blueprint/KernelUtils.ts:341](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L341)
 
 Defines a factory-based service provider.
 
@@ -67,7 +67,7 @@ Optional flag to indicate if it's a factory.
 ### Example
 
 ```ts
-defineServiceProvider(MyServiceProviderClass, { isFactory: false })
+defineServiceProvider(MyServiceProviderClass, { isClass: true })
 defineServiceProvider((container) => new MyProvider(container))
 ```
 
@@ -75,7 +75,7 @@ defineServiceProvider((container) => new MyProvider(container))
 
 > **defineServiceProvider**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/KernelUtils.ts:354](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/KernelUtils.ts#L354)
+Defined in: [blueprint/KernelUtils.ts:353](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L353)
 
 Defines a class-based service provider.
 
@@ -91,9 +91,9 @@ The class that implements a service provider.
 
 Optional flag indicating this is a class-based provider.
 
-##### isFactory
+##### isClass
 
-`false`
+`true`
 
 ### Returns
 
@@ -112,6 +112,6 @@ Optional flag to indicate if it's a factory.
 ### Example
 
 ```ts
-defineServiceProvider(MyServiceProviderClass, { isFactory: false })
+defineServiceProvider(MyServiceProviderClass, { isClass: true })
 defineServiceProvider((container) => new MyProvider(container))
 ```

@@ -8,7 +8,7 @@
 
 > **LifecycleHookListener**\<`BlueprintType`, `AdapterContextType`, `RawResponseType`, `IncomingEventType`, `OutgoingResponseType`\> = [`BlueprintHookListener`](BlueprintHookListener.md)\<`BlueprintType`\> \| `PipelineHookListener`\<[`BlueprintContext`](../interfaces/BlueprintContext.md)\<`BlueprintType`\>, `BlueprintType`, `any`[]\> \| [`AdapterHookListener`](AdapterHookListener.md)\<`AdapterContextType`\> \| `PipelineHookListener`\<`AdapterContextType`, [`AdapterEventBuilderType`](AdapterEventBuilderType.md)\<`RawResponseType`\>, `any`[]\> \| [`KernelHookListener`](KernelHookListener.md) \| `PipelineHookListener`\<`IncomingEventType`, `OutgoingResponseType`, `any`[]\>
 
-Defined in: [declarations.ts:1032](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/declarations.ts#L1032)
+Defined in: [declarations.ts:1037](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1037)
 
 Represents the application lifecycle hooks listeners.
 

@@ -34,6 +34,7 @@ import {
 } from '../decorators/constants'
 import { SetupError } from '../errors/SetupError'
 import { AdapterConfig } from '../options/AdapterConfig'
+import { isMatchedAdapter } from '../blueprint/AdapterUtils'
 import { MetaPipe, NextPipe, PipeClass } from '@stone-js/pipeline'
 
 /**
@@ -211,11 +212,7 @@ export const AdapterErrorHandlerMiddleware = async (
     .filter(module => hasMetadata(module, ADAPTER_ERROR_HANDLER_KEY))
     .forEach(module => {
       const options: AdapterErrorHandlerOptions = getMetadata(module, ADAPTER_ERROR_HANDLER_KEY, { error: 'default' })
-      if (
-        (isEmpty(options?.adapterAlias) && isEmpty(options?.platform)) ||
-        (isNotEmpty<string>(options?.platform) && blueprint.is('stone.adapter.platform', options.platform)) ||
-        (isNotEmpty<string>(options?.adapterAlias) && blueprint.is('stone.adapter.alias', options.adapterAlias))
-      ) {
+      if (isMatchedAdapter(blueprint, options.platform, options.adapterAlias)) {
         Array(options.error)
           .flat()
           .forEach(error => blueprint.set(`stone.adapter.errorHandlers.${error}`, { ...options, error, module }))

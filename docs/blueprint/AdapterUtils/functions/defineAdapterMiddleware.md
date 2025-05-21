@@ -23,7 +23,7 @@ Metadata describing which adapter(s) the middleware applies to.
 
 > **defineAdapterMiddleware**\<`ExecutionContextType`, `RawResponseType`\>(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/AdapterUtils.ts:136](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/AdapterUtils.ts#L136)
+Defined in: [blueprint/AdapterUtils.ts:132](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/AdapterUtils.ts#L132)
 
 Defines a function-based adapter middleware.
 
@@ -43,7 +43,7 @@ This overload is used to register middleware as a simple function for a specific
 
 #### module
 
-[`AdapterMixedPipeType`](../../../declarations/type-aliases/AdapterMixedPipeType.md)\<`ExecutionContextType`, `RawResponseType`\>
+[`FunctionalMiddleware`](../../../declarations/type-aliases/FunctionalMiddleware.md)\<`ExecutionContextType`, `RawResponseType`\>
 
 The middleware function to be registered.
 
@@ -71,7 +71,7 @@ Metadata describing which adapter(s) the middleware applies to.
 
 > **defineAdapterMiddleware**\<`ExecutionContextType`, `RawResponseType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/AdapterUtils.ts:153](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/AdapterUtils.ts#L153)
+Defined in: [blueprint/AdapterUtils.ts:149](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/AdapterUtils.ts#L149)
 
 Defines a factory-based adapter middleware.
 
@@ -91,7 +91,7 @@ This overload registers a middleware factory function for a specific adapter pla
 
 #### module
 
-[`AdapterMixedPipeType`](../../../declarations/type-aliases/AdapterMixedPipeType.md)\<`ExecutionContextType`, `RawResponseType`\>
+[`FactoryMiddleware`](../../../declarations/type-aliases/FactoryMiddleware.md)\<`ExecutionContextType`, `RawResponseType`\>
 
 The factory function that returns middleware.
 
@@ -119,7 +119,7 @@ Metadata describing which adapter(s) the middleware applies to.
 
 > **defineAdapterMiddleware**\<`ExecutionContextType`, `RawResponseType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
 
-Defined in: [blueprint/AdapterUtils.ts:170](https://github.com/stonemjs/core/blob/85781fe5b87769612839dd6b850ba45186d357fa/src/blueprint/AdapterUtils.ts#L170)
+Defined in: [blueprint/AdapterUtils.ts:166](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/AdapterUtils.ts#L166)
 
 Defines a class-based adapter middleware.
 
@@ -139,7 +139,7 @@ This overload registers a middleware class for a specific adapter platform or al
 
 #### module
 
-[`AdapterMixedPipeType`](../../../declarations/type-aliases/AdapterMixedPipeType.md)\<`ExecutionContextType`, `RawResponseType`\>
+[`MiddlewareClass`](../../../declarations/type-aliases/MiddlewareClass.md)\<`ExecutionContextType`, `RawResponseType`\>
 
 The class to be used as middleware.
 
