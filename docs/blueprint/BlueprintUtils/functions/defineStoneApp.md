@@ -6,36 +6,25 @@
 
 # Function: defineStoneApp()
 
-Declares a complete Stone application blueprint.
-
-This utility combines a main event handler with additional blueprints and configuration options
-to define a full application. The event handler can be functional, class-based, or factory-based.
+Defines a Stone app using a function-based, factory-based or class-based main handler.
 
 ## Param
 
-A function, factory, or class that handles incoming events.
+A function, factory function or class constructor for the main page.
 
 ## Param
 
-Optional application-level configuration (log level, middleware, lifecycle, etc.)
+Optional application-level configuration.
 
 ## Param
 
-Additional partial blueprints to merge into the final one.
-
-## Example
-
-```ts
-defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isClass: true })
-defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
-```
+Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`, `V`\>(`module`, `options?`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
+> **defineStoneApp**\<`U`\>(`module`, `options?`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-Defined in: [blueprint/BlueprintUtils.ts:33](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L33)
+Defined in: [blueprint/BlueprintUtils.ts:32](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L32)
 
 Declares a complete Stone application blueprint using a function-based event handler.
 
@@ -45,21 +34,17 @@ Declares a complete Stone application blueprint using a function-based event han
 
 `U` *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
 
-#### V
-
-`V` = [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
-
 ### Parameters
 
 #### module
 
-[`FunctionalEventHandler`](../../../declarations/type-aliases/FunctionalEventHandler.md)\<`U`, `V`\>
+[`FunctionalEventHandler`](../../../declarations/type-aliases/FunctionalEventHandler.md)\<`U`\>
 
 A function as an event handler.
 
 #### options?
 
-`Partial`\<[`AppConfig`](../../../options/StoneBlueprint/interfaces/AppConfig.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+`Partial`\<[`AppConfig`](../../../options/StoneBlueprint/interfaces/AppConfig.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\> & `object`
 
 Application-level configuration.
 
@@ -73,33 +58,25 @@ Additional partial blueprints to merge.
 
 [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-A fully merged Stone blueprint representing the application.
+A fully merged Stone blueprint.
 
 ### Param
 
-A function, factory, or class that handles incoming events.
+A function, factory function or class constructor for the main page.
 
 ### Param
 
-Optional application-level configuration (log level, middleware, lifecycle, etc.)
+Optional application-level configuration.
 
 ### Param
 
-Additional partial blueprints to merge into the final one.
-
-### Example
-
-```ts
-defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isClass: true })
-defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
-```
+Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`, `V`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
+> **defineStoneApp**\<`U`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-Defined in: [blueprint/BlueprintUtils.ts:47](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L47)
+Defined in: [blueprint/BlueprintUtils.ts:46](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L46)
 
 Declares a complete Stone application blueprint using a factory-based event handler.
 
@@ -109,15 +86,11 @@ Declares a complete Stone application blueprint using a factory-based event hand
 
 `U` *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
 
-#### V
-
-`V` = [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
-
 ### Parameters
 
 #### module
 
-[`FactoryEventHandler`](../../../declarations/type-aliases/FactoryEventHandler.md)\<`U`, `V`\>
+[`FactoryEventHandler`](../../../declarations/type-aliases/FactoryEventHandler.md)\<`U`\>
 
 A factory function that returns an event handler.
 
@@ -137,33 +110,25 @@ Additional partial blueprints to merge.
 
 [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-A fully merged Stone blueprint representing the application.
+A fully merged Stone blueprint.
 
 ### Param
 
-A function, factory, or class that handles incoming events.
+A function, factory function or class constructor for the main page.
 
 ### Param
 
-Optional application-level configuration (log level, middleware, lifecycle, etc.)
+Optional application-level configuration.
 
 ### Param
 
-Additional partial blueprints to merge into the final one.
-
-### Example
-
-```ts
-defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isClass: true })
-defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
-```
+Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`, `V`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
+> **defineStoneApp**\<`U`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-Defined in: [blueprint/BlueprintUtils.ts:61](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L61)
+Defined in: [blueprint/BlueprintUtils.ts:60](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L60)
 
 Declares a complete Stone application blueprint using a class-based event handler.
 
@@ -173,15 +138,11 @@ Declares a complete Stone application blueprint using a class-based event handle
 
 `U` *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
 
-#### V
-
-`V` = [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
-
 ### Parameters
 
 #### module
 
-[`EventHandlerClass`](../../../declarations/type-aliases/EventHandlerClass.md)\<`U`, `V`\>
+[`EventHandlerClass`](../../../declarations/type-aliases/EventHandlerClass.md)\<`U`\>
 
 A class constructor for the event handler.
 
@@ -201,24 +162,62 @@ Additional partial blueprints to merge.
 
 [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
 
-A fully merged Stone blueprint representing the application.
+A fully merged Stone blueprint.
 
 ### Param
 
-A function, factory, or class that handles incoming events.
+A function, factory function or class constructor for the main page.
 
 ### Param
 
-Optional application-level configuration (log level, middleware, lifecycle, etc.)
+Optional application-level configuration.
 
 ### Param
 
-Additional partial blueprints to merge into the final one.
+Additional blueprints to merge.
 
-### Example
+## Call Signature
 
-```ts
-defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
-defineStoneApp(MyHandlerClass, { isClass: true })
-defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
-```
+> **defineStoneApp**\<`U`\>(`options?`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
+
+Defined in: [blueprint/BlueprintUtils.ts:73](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L73)
+
+Defines a Stone app without a main handler (router-only).
+
+### Type Parameters
+
+#### U
+
+`U` *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### Parameters
+
+#### options?
+
+`Partial`\<[`AppConfig`](../../../options/StoneBlueprint/interfaces/AppConfig.md)\<`U`, [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+
+Application-level configuration.
+
+#### blueprints?
+
+[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`any`, `any`\> & `Record`\<`string`, `any`\>[]
+
+Additional partial blueprints to merge.
+
+### Returns
+
+[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
+
+A fully merged Stone blueprint.
+
+### Param
+
+A function, factory function or class constructor for the main page.
+
+### Param
+
+Optional application-level configuration.
+
+### Param
+
+Additional blueprints to merge.

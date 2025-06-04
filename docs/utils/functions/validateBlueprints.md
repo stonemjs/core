@@ -8,7 +8,7 @@
 
 > **validateBlueprints**\<`U`, `V`\>(`blueprints`): `void`
 
-Defined in: [utils.ts:200](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/utils.ts#L200)
+Defined in: [utils.ts:200](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/utils.ts#L200)
 
 Validates that the provided blueprints are valid objects.
 

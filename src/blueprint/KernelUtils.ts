@@ -35,7 +35,8 @@ import {
   FactoryEventSubscriber,
   FunctionalErrorHandler,
   FunctionalEventListener,
-  FunctionalEventSubscriber
+  FunctionalEventSubscriber,
+  LifecycleHookType
 } from '../declarations'
 import { Event } from '../events/Event'
 import { IncomingEvent } from '../events/IncomingEvent'
@@ -51,7 +52,7 @@ import { OutgoingResponse } from '../events/OutgoingResponse'
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: FunctionalErrorHandler<U, V>,
-  options: ErrorHandlerOptions
+  options: ErrorHandlerOptions & { isFactory?: undefined, isClass?: undefined }
 ): Partial<StoneBlueprint<U>>
 
 /**
@@ -63,7 +64,7 @@ export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = 
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: FactoryErrorHandler<U, V>,
-  options: ErrorHandlerOptions & { isFactory: true }
+  options: ErrorHandlerOptions & { isFactory: true, isClass?: undefined }
 ): Partial<StoneBlueprint<U>>
 
 /**
@@ -75,7 +76,7 @@ export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = 
  */
 export function defineErrorHandler<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
   module: IErrorHandlerClass<U, V>,
-  options: ErrorHandlerOptions & { isClass: true }
+  options: ErrorHandlerOptions & { isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint<U>>
 
 /**
@@ -200,6 +201,20 @@ export function defineHookListener<U extends IncomingEvent = IncomingEvent> (
 }
 
 /**
+ * Defines a lifecycle hooks listeners for the application.
+ *
+ * @param lifecycleHooks - The hook function listeners to be registered.
+ * @returns A partial StoneBlueprint with the lifecycle hook injected.
+ */
+export function defineHookListeners <
+T extends LifecycleHookType<IBlueprint, any, any, any, any> = LifecycleHookType<IBlueprint, any, any, any, any>
+> (
+  lifecycleHooks: T
+): Partial<StoneBlueprint> {
+  return { stone: { lifecycleHooks } }
+}
+
+/**
  * Defines a function-based event listener.
  *
  * @param module - The listener function to be registered.
@@ -208,7 +223,7 @@ export function defineHookListener<U extends IncomingEvent = IncomingEvent> (
  */
 export function defineEventListener<TEvent extends Event = Event> (
   module: FunctionalEventListener<TEvent>,
-  options: ListenerOptions
+  options: ListenerOptions & { isFactory?: undefined, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -220,7 +235,7 @@ export function defineEventListener<TEvent extends Event = Event> (
  */
 export function defineEventListener<TEvent extends Event = Event> (
   module: FactoryEventListener<TEvent>,
-  options: ListenerOptions & { isFactory: true }
+  options: ListenerOptions & { isFactory: true, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -232,7 +247,7 @@ export function defineEventListener<TEvent extends Event = Event> (
  */
 export function defineEventListener<TEvent extends Event = Event> (
   module: IEventListenerClass<TEvent>,
-  options: ListenerOptions & { isClass: true }
+  options: ListenerOptions & { isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -273,7 +288,7 @@ export function defineEventListener<TEvent extends Event = Event> (
  */
 export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> (
   module: FunctionalMiddleware<U, V>,
-  options?: MiddlewareOptions
+  options?: MiddlewareOptions & { isFactory?: undefined, isClass?: undefined }
 ): Partial<StoneBlueprint<U, V>>
 
 /**
@@ -285,7 +300,7 @@ export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V exte
  */
 export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> (
   module: FactoryMiddleware<U, V>,
-  options: MiddlewareOptions & { isFactory: true }
+  options: MiddlewareOptions & { isFactory: true, isClass?: undefined }
 ): Partial<StoneBlueprint<U, V>>
 
 /**
@@ -297,7 +312,7 @@ export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V exte
  */
 export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V extends OutgoingResponse = OutgoingResponse> (
   module: MiddlewareClass<U, V>,
-  options: MiddlewareOptions & { isClass: true }
+  options: MiddlewareOptions & { isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint<U, V>>
 
 /**
@@ -340,7 +355,7 @@ export function defineMiddleware<U extends IncomingEvent = IncomingEvent, V exte
  */
 export function defineServiceProvider (
   module: FactoryServiceProvider,
-  options?: { isFactory: true }
+  options?: { isFactory?: true }
 ): Partial<StoneBlueprint>
 
 /**
@@ -395,7 +410,7 @@ export function defineServiceProvider (
  */
 export function defineService (
   module: FactoryService,
-  options: ServiceOptions & { isFactory: true }
+  options: ServiceOptions & { isFactory?: true, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -407,7 +422,7 @@ export function defineService (
  */
 export function defineService (
   module: IServiceClass,
-  options: ServiceOptions & { isClass: true }
+  options: ServiceOptions & { isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -530,7 +545,7 @@ export function defineEventSubscriber (
  */
 export function defineLogger (
   module: ILoggerClass,
-  options?: { isClass: true, level?: LogLevel } & Record<string, unknown>
+  options: { isClass: true, level?: LogLevel } & Record<string, unknown>
 ): Partial<StoneBlueprint>
 
 /**
@@ -542,7 +557,7 @@ export function defineLogger (
  */
 export function defineLogger (
   module: FactoryLogger,
-  options?: { isFactory?: true, level?: LogLevel } & Record<string, unknown>
+  options: { isFactory: true, level?: LogLevel } & Record<string, unknown>
 ): Partial<StoneBlueprint>
 
 /**

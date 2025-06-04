@@ -18,9 +18,9 @@ The options for the Middleware.
 
 ## Call Signature
 
-> **defineBlueprintMiddleware**(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+> **defineBlueprintMiddleware**(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-Defined in: [blueprint/BlueprintUtils.ts:158](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L158)
+Defined in: [blueprint/BlueprintUtils.ts:183](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L183)
 
 Utility function to define a function-based blueprint middleware.
 
@@ -36,6 +36,14 @@ The Middleware module.
 
 The options for the Middleware.
 
+##### isClass?
+
+`undefined`
+
+##### isFactory?
+
+`undefined`
+
 ##### params?
 
 `any`[]
@@ -46,7 +54,7 @@ The options for the Middleware.
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+`Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
 The StoneBlueprint.
 
@@ -60,9 +68,9 @@ The options for the Middleware.
 
 ## Call Signature
 
-> **defineBlueprintMiddleware**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+> **defineBlueprintMiddleware**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-Defined in: [blueprint/BlueprintUtils.ts:170](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L170)
+Defined in: [blueprint/BlueprintUtils.ts:195](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L195)
 
 Utility function to define a factory-based blueprint middleware.
 
@@ -78,6 +86,10 @@ The Middleware module.
 
 The options for the Middleware.
 
+##### isClass?
+
+`undefined`
+
 ##### isFactory
 
 `true`
@@ -92,7 +104,7 @@ The options for the Middleware.
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+`Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
 The StoneBlueprint.
 
@@ -106,9 +118,9 @@ The options for the Middleware.
 
 ## Call Signature
 
-> **defineBlueprintMiddleware**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+> **defineBlueprintMiddleware**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-Defined in: [blueprint/BlueprintUtils.ts:182](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/BlueprintUtils.ts#L182)
+Defined in: [blueprint/BlueprintUtils.ts:207](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L207)
 
 Utility function to define a class-based blueprint middleware.
 
@@ -128,6 +140,10 @@ The options for the Middleware.
 
 `true`
 
+##### isFactory?
+
+`undefined`
+
 ##### params?
 
 `any`[]
@@ -138,7 +154,7 @@ The options for the Middleware.
 
 ### Returns
 
-`Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>\>
+`Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
 The StoneBlueprint.
 

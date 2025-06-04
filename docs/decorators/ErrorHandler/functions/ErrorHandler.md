@@ -8,7 +8,7 @@
 
 > **ErrorHandler**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/ErrorHandler.ts:19](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/decorators/ErrorHandler.ts#L19)
+Defined in: [decorators/ErrorHandler.ts:19](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/ErrorHandler.ts#L19)
 
 ErrorHandler decorator to set imperative configuration.
 

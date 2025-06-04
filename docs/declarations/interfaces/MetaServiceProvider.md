@@ -6,7 +6,7 @@
 
 # Interface: MetaServiceProvider
 
-Defined in: [declarations.ts:426](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L426)
+Defined in: [declarations.ts:426](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L426)
 
 Represents a MetaServiceProvider type.
 
@@ -16,7 +16,7 @@ Represents a MetaServiceProvider type.
 
 > `optional` **isClass**: `boolean`
 
-Defined in: [declarations.ts:427](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L427)
+Defined in: [declarations.ts:427](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L427)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [declarations.ts:427](https://github.com/stonemjs/core/blob/e2fddc95
 
 > `optional` **isFactory**: `boolean`
 
-Defined in: [declarations.ts:428](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L428)
+Defined in: [declarations.ts:428](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L428)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [declarations.ts:428](https://github.com/stonemjs/core/blob/e2fddc95
 
 > **module**: [`ServiceProviderType`](../type-aliases/ServiceProviderType.md)
 
-Defined in: [declarations.ts:429](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L429)
+Defined in: [declarations.ts:429](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L429)

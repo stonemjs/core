@@ -33,7 +33,7 @@ export function defineAdapterErrorHandler<
   ExecutionContextType = any
 > (
   module: FunctionalAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>,
-  options: AdapterErrorHandlerOptions
+  options: AdapterErrorHandlerOptions & { isFactory?: undefined, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -51,7 +51,7 @@ export function defineAdapterErrorHandler<
   ExecutionContextType = any
 > (
   module: FactoryAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>,
-  options: AdapterErrorHandlerOptions & { isFactory: true }
+  options: AdapterErrorHandlerOptions & { isFactory: true, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -69,7 +69,7 @@ export function defineAdapterErrorHandler<
   ExecutionContextType = any
 > (
   module: IAdapterErrorHandlerClass<RawEventType, RawResponseType, ExecutionContextType>,
-  options: AdapterErrorHandlerOptions & { isClass: true }
+  options: AdapterErrorHandlerOptions & { isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -134,7 +134,7 @@ export function defineAdapterMiddleware<
   RawResponseType = any
 > (
   module: FunctionalMiddleware<ExecutionContextType, RawResponseType>,
-  options?: AdapterMiddlewareOptions
+  options?: AdapterMiddlewareOptions & { isFactory?: undefined, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -151,7 +151,7 @@ export function defineAdapterMiddleware<
   RawResponseType = any
 > (
   module: FactoryMiddleware<ExecutionContextType, RawResponseType>,
-  options: AdapterMiddlewareOptions & { isFactory: true }
+  options: AdapterMiddlewareOptions & { isFactory: true, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -168,7 +168,7 @@ export function defineAdapterMiddleware<
   RawResponseType = any
 > (
   module: MiddlewareClass<ExecutionContextType, RawResponseType>,
-  options: AdapterMiddlewareOptions & { isClass: true }
+  options: AdapterMiddlewareOptions & { isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint>
 
 /**

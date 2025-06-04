@@ -27,6 +27,11 @@ jobs:
         run: npm run test:cvg
       - name: Build library
         run: npm run build
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: stonemjs/core
 
   release-please:
     runs-on: ubuntu-latest

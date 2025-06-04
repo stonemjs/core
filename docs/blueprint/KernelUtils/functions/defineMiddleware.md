@@ -29,7 +29,7 @@ defineMiddleware((event, next) => next(event))
 
 > **defineMiddleware**\<`U`, `V`\>(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-Defined in: [blueprint/KernelUtils.ts:274](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L274)
+Defined in: [blueprint/KernelUtils.ts:289](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L289)
 
 Defines a function-based middleware.
 
@@ -53,7 +53,7 @@ The middleware function to be registered.
 
 #### options?
 
-[`MiddlewareOptions`](../../../declarations/interfaces/MiddlewareOptions.md)
+[`MiddlewareOptions`](../../../declarations/interfaces/MiddlewareOptions.md) & `object`
 
 Optional middleware options.
 
@@ -81,7 +81,7 @@ defineMiddleware((event, next) => next(event))
 
 > **defineMiddleware**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-Defined in: [blueprint/KernelUtils.ts:286](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L286)
+Defined in: [blueprint/KernelUtils.ts:301](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L301)
 
 Defines a factory-based middleware.
 
@@ -133,7 +133,7 @@ defineMiddleware((event, next) => next(event))
 
 > **defineMiddleware**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-Defined in: [blueprint/KernelUtils.ts:298](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/blueprint/KernelUtils.ts#L298)
+Defined in: [blueprint/KernelUtils.ts:313](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L313)
 
 Defines a class-based middleware.
 

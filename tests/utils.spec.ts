@@ -165,6 +165,10 @@ describe('utils', () => {
       expect(isEmpty(0)).toBe(true)
       expect(isEmpty(false)).toBe(true)
       expect(isEmpty('')).toBe(true)
+      expect(isNotEmpty({})).toBe(false)
+      expect(isNotEmpty({ name: '' })).toBe(true)
+      expect(isNotEmpty(new Date())).toBe(true)
+      expect(isNotEmpty(new Error())).toBe(true)
     })
 
     it('should return false for truthy primitives', () => {

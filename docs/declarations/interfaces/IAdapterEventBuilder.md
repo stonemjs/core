@@ -6,7 +6,7 @@
 
 # Interface: IAdapterEventBuilder\<TValues, UResponse\>
 
-Defined in: [declarations.ts:1145](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1145)
+Defined in: [declarations.ts:1145](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1145)
 
 IAdapterEventBuilder Interface.
 
@@ -32,7 +32,7 @@ UResponse
 
 > **add**: (`key`, `value`) => `this`
 
-Defined in: [declarations.ts:1148](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1148)
+Defined in: [declarations.ts:1148](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1148)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ keyof `TValues`
 
 > **addIf**: (`key`, `value`) => `this`
 
-Defined in: [declarations.ts:1149](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1149)
+Defined in: [declarations.ts:1149](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1149)
 
 #### Parameters
 
@@ -76,7 +76,7 @@ keyof `TValues`
 
 > **build**: () => `UResponse`
 
-Defined in: [declarations.ts:1147](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1147)
+Defined in: [declarations.ts:1147](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1147)
 
 #### Returns
 
@@ -88,4 +88,4 @@ Defined in: [declarations.ts:1147](https://github.com/stonemjs/core/blob/e2fddc9
 
 > `readonly` **options**: `TValues`
 
-Defined in: [declarations.ts:1146](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L1146)
+Defined in: [declarations.ts:1146](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1146)

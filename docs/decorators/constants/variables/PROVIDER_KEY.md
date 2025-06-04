@@ -8,6 +8,6 @@
 
 > `const` **PROVIDER\_KEY**: *typeof* `PROVIDER_KEY`
 
-Defined in: [decorators/constants.ts:49](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/decorators/constants.ts#L49)
+Defined in: [decorators/constants.ts:49](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/constants.ts#L49)
 
 A unique symbol key to mark classes as providers.

@@ -18,9 +18,8 @@ import {
 import { IncomingEvent } from '../events/IncomingEvent'
 import { MetadataSymbol } from '../decorators/Metadata'
 import { CONFIGURATION_KEY } from '../decorators/constants'
-import { isFunctionModule, mergeBlueprints } from '../utils'
-import { OutgoingResponse } from '../events/OutgoingResponse'
 import { AppConfig, stoneBlueprint, StoneBlueprint } from '../options/StoneBlueprint'
+import { isFunctionModule, isNotEmpty, isObjectLikeModule, mergeBlueprints } from '../utils'
 
 /**
  * Declares a complete Stone application blueprint using a function-based event handler.
@@ -30,9 +29,9 @@ import { AppConfig, stoneBlueprint, StoneBlueprint } from '../options/StoneBluep
  * @param blueprints - Additional partial blueprints to merge.
  * @returns A fully merged Stone blueprint.
  */
-export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: FunctionalEventHandler<U, V>,
-  options?: Partial<AppConfig<U>>,
+export function defineStoneApp<U extends IncomingEvent = IncomingEvent> (
+  module: FunctionalEventHandler<U>,
+  options?: Partial<AppConfig<U>> & { isClass?: undefined, isFactory?: undefined },
   blueprints?: Array<StoneBlueprint<any, any> & Record<string, any>>
 ): StoneBlueprint<U>
 
@@ -44,9 +43,9 @@ export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = Outg
  * @param blueprints - Additional partial blueprints to merge.
  * @returns A fully merged Stone blueprint.
  */
-export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: FactoryEventHandler<U, V>,
-  options: Partial<AppConfig<U>> & { isFactory: true },
+export function defineStoneApp<U extends IncomingEvent = IncomingEvent> (
+  module: FactoryEventHandler<U>,
+  options: Partial<AppConfig<U>> & { isFactory: true, isClass?: undefined },
   blueprints?: Array<StoneBlueprint<any, any> & Record<string, any>>
 ): StoneBlueprint<U>
 
@@ -58,53 +57,79 @@ export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = Outg
  * @param blueprints - Additional partial blueprints to merge.
  * @returns A fully merged Stone blueprint.
  */
-export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: EventHandlerClass<U, V>,
-  options: Partial<AppConfig<U>> & { isClass: true },
+export function defineStoneApp<U extends IncomingEvent = IncomingEvent> (
+  module: EventHandlerClass<U>,
+  options: Partial<AppConfig<U>> & { isClass: true, isFactory?: undefined },
   blueprints?: Array<StoneBlueprint<any, any> & Record<string, any>>
 ): StoneBlueprint<U>
 
 /**
- * Declares a complete Stone application blueprint.
+ * Defines a Stone app without a main handler (router-only).
  *
- * This utility combines a main event handler with additional blueprints and configuration options
- * to define a full application. The event handler can be functional, class-based, or factory-based.
- *
- * @param module - A function, factory, or class that handles incoming events.
- * @param options - Optional application-level configuration (log level, middleware, lifecycle, etc.)
- * @param blueprints - Additional partial blueprints to merge into the final one.
- * @returns A fully merged Stone blueprint representing the application.
- *
- * @example
- * ```ts
- * defineStoneApp((event) => new OutgoingResponse({ content: 'ok' }))
- * defineStoneApp(MyHandlerClass, { isClass: true })
- * defineStoneApp(() => (event) => new OutgoingResponse({ content: 'ok' }), { isFactory: true })
- * ```
+ * @param options - Application-level configuration.
+ * @param blueprints - Additional partial blueprints to merge.
+ * @returns A fully merged Stone blueprint.
  */
-export function defineStoneApp<U extends IncomingEvent = IncomingEvent, V = OutgoingResponse> (
-  module: EventHandlerType<U, V>,
-  options: Partial<AppConfig<U>> & { isFactory?: boolean, isClass?: boolean } = {},
-  blueprints: Array<StoneBlueprint<any, any> & Record<string, any>> = []
+export function defineStoneApp<U extends IncomingEvent = IncomingEvent> (
+  options?: Partial<AppConfig<U>>,
+  blueprints?: Array<StoneBlueprint<any, any> & Record<string, any>>
+): StoneBlueprint<U>
+
+/**
+ * Defines a Stone app using a function-based, factory-based or class-based main handler.
+ *
+ * @param moduleOrOptions - A function, factory function or class constructor for the main page.
+ * @param optionsOrBlueprints - Optional application-level configuration.
+ * @param maybeBlueprints - Additional blueprints to merge.
+ * @returns A fully merged Stone blueprint.
+ */
+export function defineStoneApp<U extends IncomingEvent = IncomingEvent> (
+  moduleOrOptions: EventHandlerType<U> | Partial<AppConfig<U>> = {},
+  optionsOrBlueprints?:
+  | (Partial<AppConfig<U>> & { isFactory?: boolean, isClass?: boolean })
+  | Array<StoneBlueprint<any, any> & Record<string, any>>,
+  maybeBlueprints?: Array<StoneBlueprint<any, any> & Record<string, any>>
 ): StoneBlueprint<U> {
-  const eventHandler = {
-    module,
-    isClass: options.isClass,
-    isFactory: options.isFactory
+  let module: EventHandlerType<U> | undefined
+  let blueprints: Array<StoneBlueprint<any, any> & Record<string, any>> = []
+  let options: Partial<AppConfig<U>> & { isFactory?: boolean, isClass?: boolean } = {}
+
+  // Pattern: defineStoneApp(handler, options?, blueprints?)
+  if (isFunctionModule<EventHandlerType<U>>(moduleOrOptions)) {
+    module = moduleOrOptions
+
+    if (
+      isObjectLikeModule<Partial<AppConfig<U>>>(optionsOrBlueprints)
+    ) {
+      options = optionsOrBlueprints
+      blueprints = Array.isArray(maybeBlueprints) ? maybeBlueprints : []
+    }
+  } else if (
+    isObjectLikeModule<Partial<AppConfig<U>>>(moduleOrOptions)
+  ) { // Pattern: defineStoneApp(options, blueprints?)
+    options = moduleOrOptions
+    blueprints = Array.isArray(optionsOrBlueprints) ? optionsOrBlueprints : []
+  }
+
+  const stonePart: Record<string, any> = {
+    ...options,
+    kernel: {
+      ...options.kernel
+    }
+  }
+
+  if (isNotEmpty(module)) {
+    stonePart.kernel.eventHandler = {
+      module,
+      isClass: options.isClass,
+      isFactory: options.isFactory
+    }
   }
 
   return mergeBlueprints<U>(
     stoneBlueprint,
     ...blueprints,
-    {
-      stone: {
-        ...options,
-        kernel: {
-          ...options.kernel,
-          eventHandler
-        }
-      }
-    }
+    { stone: stonePart }
   )
 }
 
@@ -157,7 +182,7 @@ export function defineConfig (
  */
 export function defineBlueprintMiddleware (
   module: Arrayable<FunctionalMiddleware<BlueprintContext, IBlueprint>>,
-  options?: { params?: any[], priority?: number }
+  options?: { params?: any[], priority?: number, isFactory?: undefined, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -169,7 +194,7 @@ export function defineBlueprintMiddleware (
  */
 export function defineBlueprintMiddleware (
   module: Arrayable<FactoryMiddleware<BlueprintContext, IBlueprint>>,
-  options: { params?: any[], priority?: number, isFactory: true }
+  options: { params?: any[], priority?: number, isFactory: true, isClass?: undefined }
 ): Partial<StoneBlueprint>
 
 /**
@@ -181,7 +206,7 @@ export function defineBlueprintMiddleware (
  */
 export function defineBlueprintMiddleware (
   module: Arrayable<MiddlewareClass<BlueprintContext, IBlueprint>>,
-  options: { params?: any[], priority?: number, isClass: true }
+  options: { params?: any[], priority?: number, isClass: true, isFactory?: undefined }
 ): Partial<StoneBlueprint>
 
 /**

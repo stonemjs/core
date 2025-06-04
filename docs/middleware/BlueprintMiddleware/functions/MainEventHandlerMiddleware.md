@@ -8,7 +8,7 @@
 
 > **MainEventHandlerMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
 
-Defined in: [middleware/BlueprintMiddleware.ts:58](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/middleware/BlueprintMiddleware.ts#L58)
+Defined in: [middleware/BlueprintMiddleware.ts:58](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L58)
 
 Middleware to set the main event handler in the blueprint.
 

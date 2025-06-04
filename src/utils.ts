@@ -1,7 +1,7 @@
 import deepmerge from 'deepmerge'
-import { isObjectLike } from 'lodash-es'
 import { SetupError } from './errors/SetupError'
 import { IncomingEvent } from './events/IncomingEvent'
+import { isObjectLike, isPlainObject } from 'lodash-es'
 import { StoneBlueprint } from './options/StoneBlueprint'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { isConstructor, isFunction } from '@stone-js/pipeline'
@@ -45,7 +45,7 @@ export const mergeBlueprints = <
  * @param value - The value to check.
  * @returns `true` if the value is a Stone blueprint, otherwise `false`.
  */
-export const isStoneBlueprint = (value: any): value is StoneBlueprint => {
+export const isStoneBlueprint = <T extends StoneBlueprint<any, any>>(value: any): value is T => {
   return typeof value?.stone === 'object'
 }
 
@@ -150,7 +150,7 @@ export const isNotEmpty = <ValueType = unknown>(value: unknown): value is ValueT
     return value.size > 0
   }
 
-  if (typeof value === 'object') {
+  if (isPlainObject(value)) {
     return Object.keys(value).length > 0 || Object.getOwnPropertySymbols(value).length > 0
   }
 

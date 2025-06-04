@@ -8,7 +8,7 @@
 
 > **EventListenerType**\<`TEvent`\> = [`IEventListenerClass`](IEventListenerClass.md)\<`TEvent`\> \| [`FactoryEventListener`](FactoryEventListener.md)\<`TEvent`\> \| [`FunctionalEventListener`](FunctionalEventListener.md)\<`TEvent`\>
 
-Defined in: [declarations.ts:504](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/declarations.ts#L504)
+Defined in: [declarations.ts:504](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L504)
 
 Represents a EventListener type.
 

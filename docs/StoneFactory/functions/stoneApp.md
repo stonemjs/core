@@ -8,7 +8,7 @@
 
 > **stoneApp**\<`U`, `V`\>(`options`): [`StoneFactory`](../classes/StoneFactory.md)\<`U`, `V`\>
 
-Defined in: [StoneFactory.ts:216](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/StoneFactory.ts#L216)
+Defined in: [StoneFactory.ts:216](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L216)
 
 Create a new Stone instance with the given options.
 

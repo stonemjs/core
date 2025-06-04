@@ -64,7 +64,7 @@ describe('IncomingEvent', () => {
     const event = IncomingEvent.create(baseOptions)
 
     event.setMetadataValue('session.token', 'abc123')
-    expect(event.get('session.token')).toBe('abc123')
+    expect(event.is('session.token', 'abc123')).toBe(true)
 
     event.setMetadataValue({ app: 'stone', version: 1 })
     expect(event.get('app')).toBe('stone')

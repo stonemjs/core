@@ -17,6 +17,7 @@
 - [defineEventListener](functions/defineEventListener.md)
 - [defineEventSubscriber](functions/defineEventSubscriber.md)
 - [defineHookListener](functions/defineHookListener.md)
+- [defineHookListeners](functions/defineHookListeners.md)
 - [defineLogger](functions/defineLogger.md)
 - [defineMiddleware](functions/defineMiddleware.md)
 - [defineService](functions/defineService.md)

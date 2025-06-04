@@ -24,7 +24,7 @@ describe('defineStoneApp', () => {
       handle (_event: IncomingEvent): void {}
     }
 
-    const blueprint = defineStoneApp(MyHandler, { isClass: true })
+    const blueprint = defineStoneApp(MyHandler, { isClass: true }, [])
 
     if (isMetaClassModule(blueprint.stone?.kernel?.eventHandler)) {
       expect(blueprint.stone?.kernel?.eventHandler?.module).toBe(MyHandler)
@@ -46,31 +46,26 @@ describe('defineStoneApp', () => {
   })
 
   it('should merge additional blueprints', () => {
-    const handler = vi.fn()
     const additional = { stone: { name: 'test-app' } }
 
-    const blueprint = defineStoneApp(handler, undefined, [additional])
+    const blueprint = defineStoneApp({}, [additional])
 
     expect(blueprint.stone?.name).toBe('test-app')
 
     if (isMetaFunctionModule(blueprint.stone?.kernel?.eventHandler)) {
-      expect(blueprint.stone?.kernel?.eventHandler?.module).toBe(handler)
+      expect(blueprint.stone?.kernel?.eventHandler?.module).toBeUndefined()
     }
   })
 
   it('should override config kernel field', () => {
-    const handler = vi.fn()
-    const blueprint = defineStoneApp(handler, {
+    const blueprint = defineStoneApp({
       kernel: {
         middleware: [{ module: vi.fn() }]
       }
     })
 
     expect(blueprint.stone?.kernel?.middleware).toHaveLength(1)
-
-    if (isMetaFunctionModule(blueprint.stone?.kernel?.eventHandler)) {
-      expect(blueprint.stone?.kernel?.eventHandler?.module).toBe(handler)
-    }
+    expect(blueprint.stone?.kernel?.eventHandler).toBeUndefined()
   })
 })
 

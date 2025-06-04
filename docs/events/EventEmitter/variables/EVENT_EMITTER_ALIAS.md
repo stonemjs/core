@@ -8,6 +8,6 @@
 
 > `const` **EVENT\_EMITTER\_ALIAS**: `"eventEmitter"` = `'eventEmitter'`
 
-Defined in: [events/EventEmitter.ts:13](https://github.com/stonemjs/core/blob/e2fddc9518734748c09a72d4b4064dd1d4c1288c/src/events/EventEmitter.ts#L13)
+Defined in: [events/EventEmitter.ts:13](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/EventEmitter.ts#L13)
 
 EVENT_EMITTER_ALIAS.

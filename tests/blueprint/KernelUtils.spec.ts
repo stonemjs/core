@@ -2,7 +2,7 @@ import { EventEmitter } from '../../src/events/EventEmitter'
 import { IncomingEvent } from '../../src/events/IncomingEvent'
 import { StoneBlueprint } from '../../src/options/StoneBlueprint'
 import { IBlueprint, IEventSubscriber, ILogger, IServiceProvider, LogLevel, NextMiddleware, Promiseable } from '../../src/declarations'
-import { defineErrorHandler, defineEventHandler, defineEventListener, defineEventSubscriber, defineHookListener, defineLogger, defineMiddleware, defineService, defineServiceProvider, defineStone } from '../../src/blueprint/KernelUtils'
+import { defineErrorHandler, defineEventHandler, defineEventListener, defineEventSubscriber, defineHookListener, defineHookListeners, defineLogger, defineMiddleware, defineService, defineServiceProvider, defineStone } from '../../src/blueprint/KernelUtils'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -132,6 +132,22 @@ describe('defineHookListener', () => {
       stone: {
         lifecycleHooks: {
           onInit: [hook]
+        }
+      }
+    })
+  })
+})
+
+describe('defineHookListeners', () => {
+  it('should register lifecycle hooks under the given names', () => {
+    const hook = (): Promiseable<void> => {}
+    const blueprint = defineHookListeners({ onInit: [hook], onTerminate: [hook] })
+
+    expect(blueprint).toEqual<Partial<StoneBlueprint>>({
+      stone: {
+        lifecycleHooks: {
+          onInit: [hook],
+          onTerminate: [hook]
         }
       }
     })

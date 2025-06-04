@@ -77,6 +77,17 @@ export abstract class Event {
   }
 
   /**
+   * Check if the given value is equal to the specified value.
+   *
+   * @param key - The key to check.
+   * @param value - The value to compare against.
+   * @returns True if the key's value is equal to the specified value, false otherwise.
+   */
+  is (key: string, value: unknown): boolean {
+    return this.get(key) === value
+  }
+
+  /**
    * Get data from metadata.
    *
    * @param key - The key to retrieve from metadata.
