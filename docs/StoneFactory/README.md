@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.36**](../README.md)
+[**Core Documentation**](../README.md)
 
 ***
 
-[Core Documentation](../modules.md) / StoneFactory
+[Core Documentation](../README.md) / StoneFactory
 
 # StoneFactory
 
@@ -13,3 +13,7 @@
 ## Interfaces
 
 - [StoneFactoryOptions](interfaces/StoneFactoryOptions.md)
+
+## Functions
+
+- [stoneApp](functions/stoneApp.md)

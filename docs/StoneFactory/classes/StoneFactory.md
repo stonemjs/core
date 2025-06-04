@@ -1,78 +1,148 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [StoneFactory](../README.md) / StoneFactory
+[Core Documentation](../../README.md) / [StoneFactory](../README.md) / StoneFactory
 
-# Class: StoneFactory
+# Class: StoneFactory\<TEvent, UResponse\>
 
-Defined in: [StoneFactory.ts:41](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L41)
+Defined in: [StoneFactory.ts:38](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L38)
 
-Class representing StoneFactory.
+StoneFactory.
 
-The StoneFactory is responsible for creating and running the main application by resolving
+This class provides a fluent interface for building Stone applications.
+It is responsible for creating and running the main application by resolving
 the appropriate adapter from the provided blueprint. It handles the core setup of the application.
 
-## Author
+## Template
 
-Mr. Stone <evensstone@gmail.com>
+UResponse
+
+## Type Parameters
+
+### TEvent
+
+`TEvent` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### UResponse
+
+`UResponse` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Methods
 
-### run()
+### configure()
 
-> **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
+> **configure**(`configuration`): `this`
 
-Defined in: [StoneFactory.ts:83](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L83)
+Defined in: [StoneFactory.ts:76](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L76)
 
-Run the application by resolving and executing the adapter.
+Configure the application using the blueprint resolver.
+Use this method to add custom configurations to the application.
+
+#### Parameters
+
+##### configuration
+
+The user-defined blueprint configuration.
+
+[`FunctionalConfiguration`](../../declarations/type-aliases/FunctionalConfiguration.md) | `Partial`\<`Record`\<`"configure"` \| `"afterConfigure"`, [`FunctionalConfiguration`](../../declarations/type-aliases/FunctionalConfiguration.md)\>\>
+
+#### Returns
+
+`this`
+
+The current StoneFactory instance.
+
+***
+
+### handle()
+
+> **handle**\<`ExecutionResultType`\>(`handler`): `Promise`\<`ExecutionResultType`\>
+
+Defined in: [StoneFactory.ts:92](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L92)
+
+Handle application events.
+This method is a shorthand for running the application with the provided event handler.
 
 #### Type Parameters
 
-• **ExecutionResultType** = `unknown`
+##### ExecutionResultType
+
+`ExecutionResultType` = `unknown`
+
+#### Parameters
+
+##### handler
+
+[`MixedEventHandler`](../../declarations/type-aliases/MixedEventHandler.md)\<`TEvent`, `unknown`\>
+
+The application event handler function.
 
 #### Returns
 
 `Promise`\<`ExecutionResultType`\>
 
-A promise that resolves to the result of the adapter's `run` method.
+The platform-specific response.
 
-#### Throws
+***
 
-If no adapter resolver or adapter is provided in the blueprint.
+### run()
 
-#### Example
+> **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-```typescript
-await factory.run();
-```
+Defined in: [StoneFactory.ts:103](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L103)
+
+Run the application.
+Populates the blueprint via introspection and runs the application.
+
+#### Type Parameters
+
+##### ExecutionResultType
+
+`ExecutionResultType` = `unknown`
+
+#### Returns
+
+`Promise`\<`ExecutionResultType`\>
+
+The platform-specific response.
 
 ***
 
 ### create()
 
-> `static` **create**(`options`): [`StoneFactory`](StoneFactory.md)
+> `static` **create**\<`TEvent`, `UResponse`\>(`options`): `StoneFactory`\<`TEvent`, `UResponse`\>
 
-Defined in: [StoneFactory.ts:58](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L58)
+Defined in: [StoneFactory.ts:53](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L53)
 
 Create a new StoneFactory instance.
+
+#### Type Parameters
+
+##### TEvent
+
+`TEvent` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+##### UResponse
+
+`UResponse` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 #### Parameters
 
 ##### options
 
-[`StoneFactoryOptions`](../interfaces/StoneFactoryOptions.md)
+[`StoneFactoryOptions`](../interfaces/StoneFactoryOptions.md) = `{}`
 
 The options to create the StoneFactory.
 
 #### Returns
 
-[`StoneFactory`](StoneFactory.md)
+`StoneFactory`\<`TEvent`, `UResponse`\>
 
 A new StoneFactory instance.
 
 #### Example
 
 ```typescript
-const factory = StoneFactory.create({ blueprint });
+const stone = StoneFactory.create({ modules: [/* your modules */] });
 ```

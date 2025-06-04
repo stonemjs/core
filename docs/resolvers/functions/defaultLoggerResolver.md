@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [resolvers](../README.md) / defaultLoggerResolver
+[Core Documentation](../../README.md) / [resolvers](../README.md) / defaultLoggerResolver
 
 # Function: defaultLoggerResolver()
 
-> **defaultLoggerResolver**(`blueprint`): [`ConsoleLogger`](../../ConsoleLogger/classes/ConsoleLogger.md)
+> **defaultLoggerResolver**(`blueprint`): [`ConsoleLogger`](../../logger/ConsoleLogger/classes/ConsoleLogger.md)
 
-Defined in: [resolvers.ts:18](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/resolvers.ts#L18)
+Defined in: [resolvers.ts:18](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/resolvers.ts#L18)
 
 Default logger resolver function.
 
@@ -25,6 +25,6 @@ The blueprint configuration to use for the logger.
 
 ## Returns
 
-[`ConsoleLogger`](../../ConsoleLogger/classes/ConsoleLogger.md)
+[`ConsoleLogger`](../../logger/ConsoleLogger/classes/ConsoleLogger.md)
 
-- A `ConsoleLogger` instance.
+A `ConsoleLogger` instance.

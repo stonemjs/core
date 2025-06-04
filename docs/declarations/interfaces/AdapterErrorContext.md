@@ -1,22 +1,28 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / AdapterErrorContext
+[Core Documentation](../../README.md) / [declarations](../README.md) / AdapterErrorContext
 
 # Interface: AdapterErrorContext\<RawEventType, RawResponseType, ExecutionContextType\>
 
-Defined in: [declarations.ts:574](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L574)
+Defined in: [declarations.ts:1364](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1364)
 
 Class representing an AdapterErrorContext.
 
 ## Type Parameters
 
-• **RawEventType**
+### RawEventType
 
-• **RawResponseType**
+`RawEventType`
 
-• **ExecutionContextType**
+### RawResponseType
+
+`RawResponseType`
+
+### ExecutionContextType
+
+`ExecutionContextType`
 
 ## Properties
 
@@ -24,7 +30,7 @@ Class representing an AdapterErrorContext.
 
 > `readonly` **executionContext**: `ExecutionContextType`
 
-Defined in: [declarations.ts:583](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L583)
+Defined in: [declarations.ts:1373](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1373)
 
 The executionContext of type ExecutionContextType.
 
@@ -34,7 +40,7 @@ The executionContext of type ExecutionContextType.
 
 > `readonly` **rawEvent**: `RawEventType`
 
-Defined in: [declarations.ts:578](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L578)
+Defined in: [declarations.ts:1368](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1368)
 
 The rawEvent of type RawEventType.
 
@@ -44,6 +50,6 @@ The rawEvent of type RawEventType.
 
 > `readonly` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
 
-Defined in: [declarations.ts:588](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L588)
+Defined in: [declarations.ts:1378](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1378)
 
 The rawResponseBuilder.

@@ -1,5 +1,5 @@
-import { LoggerResolver } from '../declarations'
 import { defaultLoggerResolver } from '../resolvers'
+import { LoggerResolver, LogLevel } from '../declarations'
 
 /**
  * **LoggerConfig Interface**
@@ -22,7 +22,7 @@ export interface LoggerConfig {
    *
    * @default `'error'`
    */
-  level?: 'error' | 'warn' | 'info' | 'debug' | 'trace'
+  level?: LogLevel
 
   /**
    * Whether to enable color output in the logs.
@@ -68,8 +68,8 @@ export interface LoggerConfig {
  * This default configuration can be overridden by providing a custom `LoggerConfig` object.
  */
 export const logger: LoggerConfig = {
-  level: 'error',
   useColors: false,
   useTimestamp: false,
+  level: LogLevel.ERROR,
   resolver: defaultLoggerResolver
 }

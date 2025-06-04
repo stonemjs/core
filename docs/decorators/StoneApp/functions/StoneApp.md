@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/StoneApp](../README.md) / StoneApp
+[Core Documentation](../../../README.md) / [decorators/StoneApp](../README.md) / StoneApp
 
 # Function: StoneApp()
 
 > **StoneApp**\<`T`\>(`options`, `blueprints`): `ClassDecorator`
 
-Defined in: [decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/StoneApp.ts#L30)
+Defined in: [decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/StoneApp.ts#L30)
 
 StoneApp decorator to mark a class as the main application entry point.
 
@@ -17,7 +17,9 @@ It allows for configuring the main application settings via the provided options
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 
@@ -29,7 +31,7 @@ The configuration options for the application, based on StoneOptions.
 
 ### blueprints
 
-[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)[] = `[]`
+([`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\> \| `Record`\<`string`, `any`\>)[] = `[]`
 
 ## Returns
 

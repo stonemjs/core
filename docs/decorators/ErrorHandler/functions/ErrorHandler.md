@@ -1,26 +1,28 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/ErrorHandler](../README.md) / ErrorHandler
+[Core Documentation](../../../README.md) / [decorators/ErrorHandler](../README.md) / ErrorHandler
 
 # Function: ErrorHandler()
 
 > **ErrorHandler**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/ErrorHandler.ts:31](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/ErrorHandler.ts#L31)
+Defined in: [decorators/ErrorHandler.ts:19](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/ErrorHandler.ts#L19)
 
 ErrorHandler decorator to set imperative configuration.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 
 ### options
 
-[`ErrorHandlerOptions`](../interfaces/ErrorHandlerOptions.md)
+[`ErrorHandlerOptions`](../../../declarations/interfaces/ErrorHandlerOptions.md)
 
 The ErrorHandler options.
 

@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [errors/SetupError](../README.md) / SetupError
+[Core Documentation](../../../README.md) / [errors/SetupError](../README.md) / SetupError
 
 # Class: SetupError
 
-Defined in: [errors/SetupError.ts:7](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/SetupError.ts#L7)
+Defined in: [errors/SetupError.ts:7](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/SetupError.ts#L7)
 
 Custom error for Setup layer operations.
 
@@ -16,11 +16,11 @@ Custom error for Setup layer operations.
 
 ## Constructors
 
-### new SetupError()
+### Constructor
 
-> **new SetupError**(`message`, `options`): [`SetupError`](SetupError.md)
+> **new SetupError**(`message`, `options`): `SetupError`
 
-Defined in: [errors/SetupError.ts:8](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/SetupError.ts#L8)
+Defined in: [errors/SetupError.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/SetupError.ts#L8)
 
 #### Parameters
 
@@ -34,11 +34,11 @@ Defined in: [errors/SetupError.ts:8](https://github.com/stonemjs/core/blob/9f959
 
 #### Returns
 
-[`SetupError`](SetupError.md)
+`SetupError`
 
 #### Overrides
 
-[`RuntimeError`](../../RuntimeError/classes/RuntimeError.md).[`constructor`](../../RuntimeError/classes/RuntimeError.md#constructors)
+[`RuntimeError`](../../RuntimeError/classes/RuntimeError.md).[`constructor`](../../RuntimeError/classes/RuntimeError.md#constructor)
 
 ## Properties
 
@@ -46,7 +46,7 @@ Defined in: [errors/SetupError.ts:8](https://github.com/stonemjs/core/blob/9f959
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/RuntimeError.ts#L10)
+Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L10)
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/9f
 
 > `readonly` `optional` **code**: `string`
 
-Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/RuntimeError.ts#L9)
+Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L9)
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/9f9
 
 > `readonly` `optional` **metadata**: `unknown`
 
-Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/RuntimeError.ts#L11)
+Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L11)
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/9f
 
 > **toString**(`multiline`): `string`
 
-Defined in: [errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/RuntimeError.ts#L51)
+Defined in: [errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L51)
 
 Converts the error to a formatted string representation.
 
@@ -110,13 +110,15 @@ A formatted error string.
 
 > `static` **create**\<`T`\>(`message`, `options`): `T`
 
-Defined in: [errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/errors/RuntimeError.ts#L19)
+Defined in: [errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L19)
 
 Create a RuntimeError.
 
 #### Type Parameters
 
-• **T** *extends* [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md)
+##### T
+
+`T` *extends* [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md) = [`RuntimeError`](../../RuntimeError/classes/RuntimeError.md)
 
 #### Parameters
 

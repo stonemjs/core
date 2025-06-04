@@ -1,18 +1,6 @@
-import { ClassType } from '../declarations'
 import { setClassMetadata } from './Metadata'
 import { ERROR_HANDLER_KEY } from './constants'
-
-/**
- * ErrorHandler options.
- *
- * This interface defines the ErrorHandler options for marking a class as a ErrorHandler.
- */
-export interface ErrorHandlerOptions {
-  /**
-   * Additional configuration settings for the ErrorHandler, if needed.
-   */
-  error: string | string[]
-}
+import { ClassType, ErrorHandlerOptions } from '../declarations'
 
 /**
  * ErrorHandler decorator to set imperative configuration.
@@ -29,5 +17,5 @@ export interface ErrorHandlerOptions {
  * @returns A class decorator function that sets the metadata using the provided options.
  */
 export const ErrorHandler = <T extends ClassType = ClassType>(options: ErrorHandlerOptions): ClassDecorator => {
-  return setClassMetadata<T>(ERROR_HANDLER_KEY, options)
+  return setClassMetadata<T>(ERROR_HANDLER_KEY, { ...options, isClass: true })
 }

@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Provider](../README.md) / Provider
+[Core Documentation](../../../README.md) / [decorators/Provider](../README.md) / Provider
 
 # Function: Provider()
 
 > **Provider**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Provider.ts:34](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Provider.ts#L34)
+Defined in: [decorators/Provider.ts:34](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Provider.ts#L34)
 
 Provider decorator to mark a class as a ServiceProvider and automatically bind its services to the container.
 
@@ -17,7 +17,9 @@ allowing them to manage and provide their services to the service container.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

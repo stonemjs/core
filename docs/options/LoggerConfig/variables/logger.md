@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [options/LoggerConfig](../README.md) / logger
+[Core Documentation](../../../README.md) / [options/LoggerConfig](../README.md) / logger
 
 # Variable: logger
 
 > `const` **logger**: [`LoggerConfig`](../interfaces/LoggerConfig.md)
 
-Defined in: [options/LoggerConfig.ts:70](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/LoggerConfig.ts#L70)
+Defined in: [options/LoggerConfig.ts:70](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/LoggerConfig.ts#L70)
 
 **Default Logger Configuration**
 

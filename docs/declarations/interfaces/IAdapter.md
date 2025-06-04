@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / IAdapter
+[Core Documentation](../../README.md) / [declarations](../README.md) / IAdapter
 
 # Interface: IAdapter
 
-Defined in: [declarations.ts:336](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L336)
+Defined in: [declarations.ts:1289](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1289)
 
 Adapter Interface.
 
@@ -18,11 +18,13 @@ Represents an adapter with a run method that returns a promise of type Execution
 
 > **run**: \<`ExecutionResultType`\>() => `Promise`\<`ExecutionResultType`\>
 
-Defined in: [declarations.ts:337](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L337)
+Defined in: [declarations.ts:1290](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1290)
 
 #### Type Parameters
 
-• **ExecutionResultType** = `unknown`
+##### ExecutionResultType
+
+`ExecutionResultType` = `unknown`
 
 #### Returns
 

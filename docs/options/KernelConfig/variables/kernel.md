@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [options/KernelConfig](../README.md) / kernel
+[Core Documentation](../../../README.md) / [options/KernelConfig](../README.md) / kernel
 
 # Variable: kernel
 
 > `const` **kernel**: [`KernelConfig`](../interfaces/KernelConfig.md)
 
-Defined in: [options/KernelConfig.ts:47](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/KernelConfig.ts#L47)
+Defined in: [options/KernelConfig.ts:52](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L52)
 
 Global app-level settings for all adapters.
 

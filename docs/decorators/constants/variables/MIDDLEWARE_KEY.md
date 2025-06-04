@@ -1,13 +1,13 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/constants](../README.md) / MIDDLEWARE\_KEY
+[Core Documentation](../../../README.md) / [decorators/constants](../README.md) / MIDDLEWARE\_KEY
 
 # Variable: MIDDLEWARE\_KEY
 
-> `const` **MIDDLEWARE\_KEY**: *typeof* [`MIDDLEWARE_KEY`](MIDDLEWARE_KEY.md)
+> `const` **MIDDLEWARE\_KEY**: *typeof* `MIDDLEWARE_KEY`
 
-Defined in: [decorators/constants.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/constants.ts#L44)
+Defined in: [decorators/constants.ts:44](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/constants.ts#L44)
 
 A unique symbol key to mark classes as middleware.

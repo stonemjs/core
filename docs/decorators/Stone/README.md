@@ -1,11 +1,11 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / decorators/Stone
+[Core Documentation](../../README.md) / decorators/Stone
 
 # decorators/Stone
 
-## Functions
+## Variables
 
-- [Stone](functions/Stone.md)
+- [Stone](variables/Stone.md)

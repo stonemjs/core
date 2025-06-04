@@ -1,28 +1,40 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / AdapterContext
+[Core Documentation](../../README.md) / [declarations](../README.md) / AdapterContext
 
 # Interface: AdapterContext\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType\>
 
-Defined in: [declarations.ts:523](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L523)
+Defined in: [declarations.ts:1313](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1313)
 
 Class representing an AdapterContext.
 
 ## Type Parameters
 
-• **RawEventType**
+### RawEventType
 
-• **RawResponseType**
+`RawEventType`
 
-• **ExecutionContextType**
+### RawResponseType
 
-• **IncomingEventType** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+`RawResponseType`
 
-• **IncomingEventOptionsType** *extends* [`IncomingEventOptions`](../../events/IncomingEvent/interfaces/IncomingEventOptions.md) = [`IncomingEventOptions`](../../events/IncomingEvent/interfaces/IncomingEventOptions.md)
+### ExecutionContextType
 
-• **OutgoingResponseType** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`ExecutionContextType`
+
+### IncomingEventType
+
+`IncomingEventType` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### IncomingEventOptionsType
+
+`IncomingEventOptionsType` *extends* [`IncomingEventOptions`](../../events/IncomingEvent/interfaces/IncomingEventOptions.md) = [`IncomingEventOptions`](../../events/IncomingEvent/interfaces/IncomingEventOptions.md)
+
+### OutgoingResponseType
+
+`OutgoingResponseType` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Properties
 
@@ -30,7 +42,7 @@ Class representing an AdapterContext.
 
 > `readonly` **executionContext**: `ExecutionContextType`
 
-Defined in: [declarations.ts:544](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L544)
+Defined in: [declarations.ts:1334](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1334)
 
 The executionContext of type ExecutionContextType.
 
@@ -40,7 +52,7 @@ The executionContext of type ExecutionContextType.
 
 > `optional` **incomingEvent**: `IncomingEventType`
 
-Defined in: [declarations.ts:549](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L549)
+Defined in: [declarations.ts:1339](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1339)
 
 The incomingEvent associated with the executionContext.
 
@@ -50,7 +62,7 @@ The incomingEvent associated with the executionContext.
 
 > `readonly` **incomingEventBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<`IncomingEventOptionsType`, `IncomingEventType`\>
 
-Defined in: [declarations.ts:559](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L559)
+Defined in: [declarations.ts:1349](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1349)
 
 The incomingEventBuilder.
 
@@ -60,7 +72,7 @@ The incomingEventBuilder.
 
 > `optional` **outgoingResponse**: `OutgoingResponseType`
 
-Defined in: [declarations.ts:554](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L554)
+Defined in: [declarations.ts:1344](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1344)
 
 The outgoingResponse associated with the executionContext.
 
@@ -70,7 +82,7 @@ The outgoingResponse associated with the executionContext.
 
 > `readonly` **rawEvent**: `RawEventType`
 
-Defined in: [declarations.ts:534](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L534)
+Defined in: [declarations.ts:1324](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1324)
 
 The rawEvent of type RawEventType.
 
@@ -80,7 +92,7 @@ The rawEvent of type RawEventType.
 
 > `optional` **rawResponse**: `RawResponseType`
 
-Defined in: [declarations.ts:539](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L539)
+Defined in: [declarations.ts:1329](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1329)
 
 The rawResponse of type RawResponseType.
 
@@ -90,6 +102,6 @@ The rawResponse of type RawResponseType.
 
 > `readonly` **rawResponseBuilder**: [`IAdapterEventBuilder`](IAdapterEventBuilder.md)\<[`RawResponseOptions`](RawResponseOptions.md), [`IRawResponseWrapper`](IRawResponseWrapper.md)\<`RawResponseType`\>\>
 
-Defined in: [declarations.ts:564](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L564)
+Defined in: [declarations.ts:1354](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1354)
 
 The rawResponseBuilder.

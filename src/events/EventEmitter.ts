@@ -1,5 +1,11 @@
+import {
+  ListenerHandler,
+  WildcardEventName,
+  MixedListenerHandler,
+  WildcardListenerHandler
+} from '../declarations'
 import { Event } from './Event'
-import mitt, { Emitter, Handler, WildcardHandler } from 'mitt'
+import { isNotEmpty } from '../utils'
 
 /**
  * EVENT_EMITTER_ALIAS.
@@ -9,33 +15,53 @@ export const EVENT_EMITTER_ALIAS = 'eventEmitter'
 /**
  * Class representing an EventEmitter.
  */
-export class EventEmitter<TEvent extends Event = Event> {
-  private readonly emitter: Emitter<Record<string | symbol, TEvent>>
+export class EventEmitter {
+  private readonly listeners: Map<string | symbol, Array<MixedListenerHandler<any, WildcardEventName>>>
+
+  /**
+   * Create an EventEmitter.
+   *
+   * @returns A new EventEmitter instance.
+   */
+  static create (): EventEmitter {
+    return new this()
+  }
+
   /**
    * Create an EventEmitter.
    */
   constructor () {
-    this.emitter = mitt()
+    this.listeners = new Map()
   }
 
   /**
    * Registers an event listener for the given event type.
    *
    * @param event - The event name or type.
-   * @param listener - The callback to invoke when the event is emitted.
+   * @param handler - The callback to invoke when the event is emitted.
    */
-  on (event: string | symbol | '*', listener: Handler<Event> | WildcardHandler<Record<string | symbol, TEvent>>): void {
-    this.emitter.on(event, listener as any)
+  on<TEvent extends Event = Event>(event: WildcardEventName, handler: MixedListenerHandler<TEvent, WildcardEventName>): this {
+    const handlers = this.listeners.get(event)
+    isNotEmpty<Array<MixedListenerHandler<TEvent, WildcardEventName>>>(handlers)
+      ? handlers.push(handler)
+      : this.listeners.set(event, [handler])
+
+    return this
   }
 
   /**
    * Removes an event listener for the given event type.
    *
    * @param event - The event name or type.
-   * @param listener - The callback to remove.
+   * @param handler - The callback to remove.
    */
-  off (event: string | symbol | '*', listener: Handler<Event> | WildcardHandler<Record<string | symbol, TEvent>>): void {
-    this.emitter.off(event, listener as any)
+  off<TEvent extends Event = Event>(event: WildcardEventName, handler: MixedListenerHandler<TEvent, WildcardEventName>): this {
+    const handlers = this.listeners.get(event)
+    isNotEmpty<Array<MixedListenerHandler<TEvent, WildcardEventName>>>(handlers)
+      ? handlers.splice(handlers.indexOf(handler) >>> 0, 1)
+      : this.listeners.set(event, [])
+
+    return this
   }
 
   /**
@@ -44,11 +70,31 @@ export class EventEmitter<TEvent extends Event = Event> {
    * @param event - The event name or an instance of Event.
    * @param args - Additional arguments to pass to the listeners.
    */
-  emit (event: string | symbol | TEvent, args?: TEvent): void {
+  async emit<TEvent extends Event = Event>(event: string | symbol | TEvent, args?: any): Promise<void> {
+    let eventName: string | symbol
+    let eventPayload: TEvent | undefined
+
     if (event instanceof Event) {
-      this.emitter.emit(event.type, event)
+      eventName = event.type
+      eventPayload = event
     } else {
-      this.emitter.emit(event, args ?? {} as any)
+      eventName = event
+      eventPayload = args
+    }
+
+    const handlers = this.listeners.get(eventName)
+    const wilcardHandlers = this.listeners.get('*')
+
+    if (isNotEmpty<Array<ListenerHandler<TEvent>>>(handlers) && eventPayload !== undefined) {
+      for (const handler of handlers.slice()) {
+        await handler(eventPayload)
+      }
+    }
+
+    if (isNotEmpty<Array<WildcardListenerHandler<WildcardEventName, TEvent>>>(wilcardHandlers) && eventPayload !== undefined) {
+      for (const handler of wilcardHandlers.slice()) {
+        await handler(eventName, eventPayload)
+      }
     }
   }
 }

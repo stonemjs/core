@@ -1,38 +1,19 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [StoneFactory](../README.md) / StoneFactoryOptions
+[Core Documentation](../../README.md) / [StoneFactory](../README.md) / StoneFactoryOptions
 
 # Interface: StoneFactoryOptions
 
-Defined in: [StoneFactory.ts:26](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L26)
+Defined in: [StoneFactory.ts:25](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L25)
 
-StoneFactoryOptions interface.
-
-This interface defines the configuration options for creating an instance of `StoneFactory`.
-The options must include a `blueprint` that defines the core settings and configurations
-required by the Stone.js framework.
-
-## Example
-
-```typescript
-const factoryOptions: StoneFactoryOptions = {
-  blueprint: {
-    get: (key: string) => { ... },
-    set: (key: string, value: any) => { ... }
-  }
-};
-
-const stoneFactory = StoneFactory.create(factoryOptions);
-```
+Stone factory options.
 
 ## Properties
 
-### blueprint
+### modules?
 
-> **blueprint**: [`IBlueprint`](../../declarations/type-aliases/IBlueprint.md)
+> `optional` **modules**: `unknown`[]
 
-Defined in: [StoneFactory.ts:30](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/StoneFactory.ts#L30)
-
-The core configuration object for the Stone.js framework.
+Defined in: [StoneFactory.ts:26](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L26)

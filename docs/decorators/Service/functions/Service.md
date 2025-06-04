@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Service](../README.md) / Service
+[Core Documentation](../../../README.md) / [decorators/Service](../README.md) / Service
 
 # Function: Service()
 
 > **Service**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Service.ts:42](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Service.ts#L42)
+Defined in: [decorators/Service.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Service.ts#L22)
 
 Service decorator to mark a class as a service and automatically bind it to the container.
 
@@ -17,13 +17,15 @@ making them easily injectable and manageable by the service container.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 
 ### options
 
-`Partial`\<[`ServiceOptions`](../interfaces/ServiceOptions.md)\> = `{}`
+`Partial`\<[`ServiceOptions`](../../../declarations/interfaces/ServiceOptions.md)\> = `{}`
 
 The configuration options for the service, including singleton and alias settings.
 

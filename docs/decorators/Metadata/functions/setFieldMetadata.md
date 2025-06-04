@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / setFieldMetadata
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / setFieldMetadata
 
 # Function: setFieldMetadata()
 
 > **setFieldMetadata**(`key`, `value`): `PropertyDecorator`
 
-Defined in: [decorators/Metadata.ts:160](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L160)
+Defined in: [decorators/Metadata.ts:160](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L160)
 
 Set metadata on a class field using a field decorator.
 

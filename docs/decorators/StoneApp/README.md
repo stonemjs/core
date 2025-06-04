@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / decorators/StoneApp
+[Core Documentation](../../README.md) / decorators/StoneApp
 
 # decorators/StoneApp
 

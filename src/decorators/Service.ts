@@ -1,26 +1,6 @@
 import { SERVICE_KEY } from './constants'
-import { ClassType } from '../declarations'
 import { setClassMetadata } from './Metadata'
-
-/**
- * Service options.
- *
- * This interface defines the configuration options for marking a class as a service.
- */
-export interface ServiceOptions {
-  /**
-   * Whether the service should be treated as a singleton.
-   * A singleton service will only have one instance in the container.
-   * Optional.
-   */
-  singleton?: boolean
-
-  /**
-   * Alias or aliases for the service, used for identification or access.
-   * Can be a single alias or an array of aliases.
-   */
-  alias: string | string[]
-}
+import { ClassType, ServiceOptions } from '../declarations'
 
 /**
  * Service decorator to mark a class as a service and automatically bind it to the container.
@@ -40,5 +20,5 @@ export interface ServiceOptions {
  * ```
  */
 export const Service = <T extends ClassType = ClassType>(options: Partial<ServiceOptions> = {}): ClassDecorator => {
-  return setClassMetadata<T>(SERVICE_KEY, options)
+  return setClassMetadata<T>(SERVICE_KEY, { ...options, isClass: true })
 }

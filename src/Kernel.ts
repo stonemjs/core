@@ -1,20 +1,59 @@
-import { isConstructor } from './utils'
+import {
+  isEmpty,
+  isFunctionModule,
+  isMetaClassModule,
+  isMetaFactoryModule,
+  isMetaFunctionModule
+} from './utils'
+import {
+  MetaPipe,
+  Pipeline,
+  MixedPipe,
+  isClassPipe,
+  isAliasPipe,
+  PipeInstance,
+  isConstructor,
+  isFactoryPipe,
+  PipelineOptions
+} from '@stone-js/pipeline'
+import {
+  IBlueprint,
+  IErrorHandler,
+  IEventHandler,
+  KernelHookType,
+  IConfiguration,
+  KernelHookName,
+  IServiceProvider,
+  ResponseResolver,
+  MetaErrorHandler,
+  MixedEventHandler,
+  EventHandlerClass,
+  ConfigurationClass,
+  IErrorHandlerClass,
+  MixedConfiguration,
+  FactoryEventHandler,
+  FactoryErrorHandler,
+  MixedServiceProvider,
+  IServiceProviderClass,
+  FunctionalEventHandler,
+  FunctionalErrorHandler,
+  FactoryServiceProvider,
+  ResponseResolverOptions,
+  FunctionalConfiguration,
+  ILifecycleAdapterEventHandler
+} from './declarations'
+import { Logger } from './logger/Logger'
 import { Config } from '@stone-js/config'
-import { ConsoleLogger } from './ConsoleLogger'
-import { KernelEvent } from './events/KernelEvent'
 import { EventEmitter } from './events/EventEmitter'
 import { IncomingEvent } from './events/IncomingEvent'
 import { Container } from '@stone-js/service-container'
 import { OutgoingResponse } from './events/OutgoingResponse'
 import { InitializationError } from './errors/InitializationError'
-import { MixedPipe, Pipe, PipeInstance, Pipeline, PipelineOptions } from '@stone-js/pipeline'
-import { AppEventHandler, HookContext, IBlueprint, IErrorHandler, ILogger, IProvider, IRouter, LifecycleEventHandler, ResponseResolver, ResponseResolverOptions, RouterResolver } from './declarations'
 
 /**
  * KernelOptions.
  */
 export interface KernelOptions {
-  logger: ILogger
   container: Container
   blueprint: IBlueprint
   eventEmitter: EventEmitter
@@ -29,16 +68,20 @@ export interface KernelOptions {
  *
  * @author Mr. Stone <evensstone@gmail.com>
  */
-export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseType extends OutgoingResponse> implements LifecycleEventHandler<IncomingEventType, OutgoingResponseType> {
-  protected readonly logger: ILogger
-  protected readonly container: Container
-  protected readonly blueprint: IBlueprint
-  protected readonly eventEmitter: EventEmitter
-  protected readonly registeredProviders: Set<string>
-  protected readonly providers: Set<IProvider<IncomingEventType, OutgoingResponseType>>
+export class Kernel<
+  IncomingEventType extends IncomingEvent,
+  OutgoingResponseType extends OutgoingResponse
+> implements ILifecycleAdapterEventHandler<IncomingEventType, OutgoingResponseType> {
+  private readonly container: Container
+  private readonly blueprint: IBlueprint
+  private readonly eventEmitter: EventEmitter
+  private readonly providers: Set<IServiceProvider>
+  private readonly registeredProviders: Set<string>
+  private readonly hooks: KernelHookType<IncomingEventType, OutgoingResponseType>
+  private readonly middleware: Array<MixedPipe<IncomingEventType, OutgoingResponseType>>
+  private readonly resolvedErrorHandlers: Record<string, IErrorHandler<IncomingEventType, OutgoingResponseType>>
 
-  private resolvedRouter?: IRouter<IncomingEventType, OutgoingResponseType>
-  private resolvedAppEventHandler?: AppEventHandler<IncomingEventType, OutgoingResponseType>
+  private resolvedEventHandler?: IEventHandler<IncomingEventType, OutgoingResponseType>
 
   /**
    * Create a Kernel.
@@ -46,7 +89,10 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @param options - Kernel configuration options.
    * @returns A new Kernel instance.
    */
-  public static create<IncomingEventType extends IncomingEvent, OutgoingResponseType extends OutgoingResponse>(options: KernelOptions): Kernel<IncomingEventType, OutgoingResponseType> {
+  public static create<
+    IncomingEventType extends IncomingEvent,
+    OutgoingResponseType extends OutgoingResponse
+  >(options: KernelOptions): Kernel<IncomingEventType, OutgoingResponseType> {
     return new this(options)
   }
 
@@ -55,80 +101,66 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    *
    * @param options - Kernel configuration options.
    */
-  protected constructor ({ blueprint, container, eventEmitter, logger }: KernelOptions) {
-    if (!(blueprint instanceof Config)) { throw new InitializationError('Blueprint is required to create a Kernel instance.') }
-    if (!(container instanceof Container)) { throw new InitializationError('Container is required to create a Kernel instance.') }
-    if (!(eventEmitter instanceof EventEmitter)) { throw new InitializationError('EventEmitter is required to create a Kernel instance.') }
+  private constructor ({ blueprint, container, eventEmitter }: KernelOptions) {
+    this.validateOptions({ blueprint, container, eventEmitter })
 
-    this.logger = logger
     this.providers = new Set()
     this.blueprint = blueprint
     this.container = container
+    this.resolvedErrorHandlers = {}
     this.eventEmitter = eventEmitter
     this.registeredProviders = new Set()
+    this.hooks = blueprint.get('stone.lifecycleHooks', {})
+    this.middleware = blueprint.get('stone.kernel.skipMiddleware', false) ? [] : blueprint.get('stone.kernel.middleware', [])
   }
 
   /**
-   * Hook that runs before creating the event context.
-   * Useful to setup things.
+   * Populate the context with the given bindings.
+   * The context here is the service container.
+   * Invoke subsequent hooks.
+   * Note: Execution order is important here, never change it.
    */
-  public async onPrepare (): Promise<void> {
+  public async onInit (): Promise<void> {
     this.registerBaseBindings()
-    this.resolveProviders()
 
-    for (const provider of this.providers) {
-      await provider.onPrepare?.()
-    }
-
+    await this.runLiveConfigurations()
+    await this.resolveProviders()
     await this.registerProviders()
-    await this.resolveAppEventHandler()?.onPrepare?.()
+    await this.executeHooks('onInit')
   }
 
   /**
-   * Hook that runs before handling each event.
-   * Useful to initialize things at each event.
+   * Boot the providers.
+   * Invoke subsequent hooks.
+   * Note: Execution order is important here, never change it.
    */
-  public async beforeHandle (): Promise<void> {
-    for (const provider of this.providers) {
-      await provider.beforeHandle?.()
-    }
-
+  public async onHandlingEvent (): Promise<void> {
     await this.bootProviders()
-    await this.resolveAppEventHandler()?.beforeHandle?.()
+    await this.executeHooks('onHandlingEvent')
   }
 
   /**
-   * Handle IncomingEvent.
+   * Handle Stone IncomingEvent.
    *
-   * @param event - The incoming event to handle.
-   * @returns The outgoing response.
+   * @param event - The Stone incoming event to handle.
+   * @returns The Stone outgoing response.
    */
   public async handle (event: IncomingEventType): Promise<OutgoingResponseType> {
     return await this.sendEventThroughDestination(event)
   }
 
   /**
-   * Hook that runs after handling each event.
-   * Useful for cleanup tasks.
+   * Invoke subsequent hooks after handling the event.
    */
-  public async afterHandle (context: HookContext<IncomingEventType, OutgoingResponseType>): Promise<void> {
-    for (const provider of this.providers) {
-      await provider.afterHandle?.(context)
-    }
-
-    await this.resolveAppEventHandler()?.afterHandle?.(context)
+  public async onEventHandled (): Promise<void> {
+    await this.executeHooks('onEventHandled')
   }
 
   /**
-   * Hook that runs just before or just after returning the response.
-   * Useful to perform cleanup.
+   * Invoke subsequent hooks on termination.
    */
-  public async onTerminate (context: Partial<HookContext<IncomingEventType, OutgoingResponseType>>): Promise<void> {
-    await this.resolveAppEventHandler()?.onTerminate?.(context)
-
-    for (const provider of this.providers) {
-      await provider.onTerminate?.(context)
-    }
+  public async onTerminate (): Promise<void> {
+    await this.executeHooks('onTerminate')
   }
 
   /**
@@ -138,72 +170,103 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @returns The prepared response.
    * @throws InitializationError if no IncomingEvent is provided.
    */
-  protected async sendEventThroughDestination (event: IncomingEventType): Promise<OutgoingResponseType> {
-    if (event === undefined) { throw new InitializationError('No IncomingEvent provided.') }
-    if (typeof event.clone === 'function') { this.container.instance('originalEvent', event.clone()) }
+  private async sendEventThroughDestination (event: IncomingEventType): Promise<OutgoingResponseType> {
+    if (isEmpty(event)) { throw new InitializationError('No IncomingEvent provided.') }
+    if (isFunctionModule(event.clone)) { this.container.instance('originalEvent', event.clone()) }
 
     this.container.instance('event', event).instance('request', event)
 
     try {
-      return await Pipeline
-        .create<IncomingEventType, OutgoingResponseType>(this.makePipelineOptions())
+      const response = await Pipeline
+        .create(this.makePipelineOptions())
         .send(event)
-        .through(this.blueprint.get<MixedPipe[]>('stone.kernel.middleware', []))
-        .then(async (ev) => await this.prepareResponse(ev))
+        .through(...this.middleware)
+        .then(async (ev) => await this.handleEvent(ev))
+      // We also need to prepare the response here
+      // because the middleware might return a non-prepared response instance.
+      return await this.prepareResponse(event, response)
     } catch (error: any) {
-      const errorHandler = this.getErrorHandler(error)
-
-      if (errorHandler === undefined) {
-        throw error
-      } else {
-        const response = await errorHandler.handle(error, event)
-        return await response.prepare(event, this.container)
-      }
+      return await this.handleError(error, event)
     }
+  }
+
+  /**
+   * Handle the event.
+   *
+   * @param event - The incoming event.
+   * @returns The outgoing response.
+   */
+  private async handleEvent (event: IncomingEventType): Promise<OutgoingResponseType> {
+    await this.executeHooks('onExecutingEventHandler')
+
+    try {
+      const response = await this.resolveEventHandler().handle(event)
+      // We need to prepare the response here
+      // because the response middleware might need a prepared response.
+      return await this.prepareResponse(event, response)
+    } catch (error: any) {
+      return await this.handleError(error, event)
+    }
+  }
+
+  /**
+   * Handle error.
+   *
+   * @param error - The error to handle.
+   * @param event - The incoming event.
+   * @returns The outgoing response.
+   */
+  private async handleError (error: Error, event: IncomingEventType): Promise<OutgoingResponseType> {
+    this.container.instance('error', error)
+
+    await this.executeHooks('onExecutingErrorHandler')
+
+    const response = await this.resolveErrorHandler(error).handle(error, event)
+
+    return await this.prepareResponse(event, response)
   }
 
   /**
    * Prepare response before sending
    *
-   * @protected
    * @param event - The Kernel event.
+   * @param response - The response to prepare.
    * @returns The prepared response.
    */
-  protected async prepareResponse (event: IncomingEventType): Promise<OutgoingResponseType> {
-    let returnedValue: unknown
-    const router = this.resolveRouter()
-    const handler = this.resolveAppEventHandler()
+  private async prepareResponse (event: IncomingEventType, response: unknown): Promise<OutgoingResponseType> {
+    const validatedResponse = await this.validateAndResolveResponse(response)
 
-    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.DISPATCHING_EVENT, source: this, metadata: { event } }))
+    if (validatedResponse.isPrepared) { return validatedResponse }
 
-    if (typeof router?.dispatch === 'function') {
-      returnedValue = await router.dispatch(event)
-    } else if (typeof handler?.handle === 'function') {
-      returnedValue = await handler.handle(event)
-    } else {
-      throw new InitializationError('No routers nor handlers have been provided.')
-    }
+    this.container.instance('response', validatedResponse)
 
-    let response = this.validateAndResolveResponse(returnedValue)
+    await this.executeHooks('onPreparingResponse')
 
-    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.PREPARING_RESPONSE, source: this, metadata: { event, response } }))
-    response = await response.prepare(event, this.container)
-    this.eventEmitter.emit(KernelEvent.create({ type: KernelEvent.RESPONSE_PREPARED, source: this, metadata: { event, response } }))
+    const preparedResponse = await validatedResponse.prepare(event, this.container)
 
-    return response
+    await this.executeHooks('onResponsePrepared')
+
+    this.container.instance('response', preparedResponse)
+
+    return preparedResponse
   }
 
   /**
    * Creates pipeline options for the Kernel.
    *
-   * @protected
    * @returns The pipeline options for configuring middleware.
    */
-  protected makePipelineOptions (): PipelineOptions<IncomingEventType, OutgoingResponseType> {
+  private makePipelineOptions (): PipelineOptions<IncomingEventType, OutgoingResponseType> {
     return {
-      resolver: (middleware: Pipe) => {
-        if (isConstructor(middleware) || this.container.has(middleware)) {
-          return this.container.resolve<PipeInstance<IncomingEventType, OutgoingResponseType>>(middleware, true)
+      hooks: {
+        onPipeProcessed: this.hooks.onKernelMiddlewareProcessed ?? [],
+        onProcessingPipe: this.hooks.onProcessingKernelMiddleware ?? []
+      },
+      resolver: (metaPipe: MetaPipe<IncomingEventType, OutgoingResponseType>) => {
+        if (isClassPipe(metaPipe) || isAliasPipe(metaPipe)) {
+          return this.container.resolve<PipeInstance<IncomingEventType, OutgoingResponseType>>(metaPipe.module, true)
+        } else if (isFactoryPipe(metaPipe)) {
+          return metaPipe.module(this.container)
         }
       }
     }
@@ -219,13 +282,13 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
     this.container
       .instance(Config, this.blueprint)
       .instance(Container, this.container)
-      .instance(ConsoleLogger, this.logger)
+      .instance(Logger, Logger.getInstance())
       .instance(EventEmitter, this.eventEmitter)
       .alias(Config, 'config')
+      .alias(Logger, 'logger')
       .alias(Config, 'blueprint')
       .alias(Container, 'container')
       .alias(EventEmitter, 'events')
-      .alias(ConsoleLogger, 'logger')
       .alias(EventEmitter, 'eventEmitter')
 
     return this
@@ -235,32 +298,61 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * Resolves the app event handler from the container.
    *
    * @returns The resolved event handler or undefined if not found.
+   * @throws InitializationError if no event handler is found.
    */
-  private resolveAppEventHandler (): AppEventHandler<IncomingEventType, OutgoingResponseType> | undefined {
-    if (this.resolvedAppEventHandler === undefined) {
-      this.resolvedAppEventHandler = this.blueprint.get<LifecycleEventHandler<IncomingEventType, OutgoingResponseType>>('stone.handler')
-      if (isConstructor(this.resolvedAppEventHandler)) {
-        this.resolvedAppEventHandler = this.container.resolve(this.resolvedAppEventHandler, true)
+  private resolveEventHandler (): IEventHandler<IncomingEventType, OutgoingResponseType> {
+    if (isEmpty(this.resolvedEventHandler)) {
+      const mixedEventHandler = this.blueprint.get<MixedEventHandler<IncomingEventType, OutgoingResponseType>>(
+        'stone.kernel.eventHandler'
+      )
+
+      if (isMetaClassModule<EventHandlerClass<IncomingEventType, OutgoingResponseType>>(mixedEventHandler)) {
+        this.resolvedEventHandler = this.container.resolve(mixedEventHandler.module, true)
+      } else if (isMetaFactoryModule<FactoryEventHandler<IncomingEventType, OutgoingResponseType>>(mixedEventHandler)) {
+        this.resolvedEventHandler = { handle: mixedEventHandler.module(this.container) }
+      } else if (isMetaFunctionModule<FunctionalEventHandler<IncomingEventType, OutgoingResponseType>>(mixedEventHandler)) {
+        this.resolvedEventHandler = { handle: mixedEventHandler.module }
+      } else if (isFunctionModule<FunctionalEventHandler<IncomingEventType, OutgoingResponseType>>(mixedEventHandler)) {
+        this.resolvedEventHandler = { handle: mixedEventHandler }
+      } else {
+        throw new InitializationError('No event handler has been provided.')
       }
     }
 
-    return this.resolvedAppEventHandler
+    return this.resolvedEventHandler
   }
 
   /**
-   * Retrieves the router instance from the RouterResolver.
+   * Get the error handler for the given error.
    *
-   * @returns The router instance if available, otherwise undefined.
+   * @param error - The error to get the handler for.
+   * @returns The error handler.
+   * @throws Error if no error handler is found.
    */
-  private resolveRouter (): IRouter<IncomingEventType, OutgoingResponseType> | undefined {
-    if (this.resolvedRouter === undefined) {
-      const resolver = this.blueprint.get<RouterResolver<IncomingEventType, OutgoingResponseType>>('stone.kernel.routerResolver')
-      if (resolver !== undefined) {
-        this.resolvedRouter = resolver(this.container)
+  private resolveErrorHandler (error: Error): IErrorHandler<IncomingEventType, OutgoingResponseType> {
+    if (isEmpty(this.resolvedErrorHandlers[error.name])) {
+      const metaErrorHandler = this.blueprint.get<MetaErrorHandler<IncomingEventType, OutgoingResponseType>>(
+        `stone.kernel.errorHandlers.${error.name}`,
+        this.blueprint.get<MetaErrorHandler<IncomingEventType, OutgoingResponseType>>(
+          'stone.kernel.errorHandlers.default',
+          {} as any
+        )
+      )
+
+      if (isMetaClassModule<IErrorHandlerClass>(metaErrorHandler)) {
+        this.resolvedErrorHandlers[error.name] = this.container.resolve<
+        IErrorHandler<IncomingEventType, OutgoingResponseType>
+        >(metaErrorHandler.module, true)
+      } else if (isMetaFactoryModule<FactoryErrorHandler<IncomingEventType, OutgoingResponseType>>(metaErrorHandler)) {
+        this.resolvedErrorHandlers[error.name] = { handle: metaErrorHandler.module(this.container) }
+      } else if (isMetaFunctionModule<FunctionalErrorHandler<IncomingEventType, OutgoingResponseType>>(metaErrorHandler)) {
+        this.resolvedErrorHandlers[error.name] = { handle: metaErrorHandler.module }
+      } else {
+        throw error
       }
     }
 
-    return this.resolvedRouter
+    return this.resolvedErrorHandlers[error.name]
   }
 
   /**
@@ -269,14 +361,24 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @private
    * @returns The Kernel instance.
    */
-  private resolveProviders (): this {
-    this.blueprint
-      .get<Function[]>('stone.providers', [])
-      .map((provider) => this.container.resolve<IProvider<IncomingEventType, OutgoingResponseType>>(provider, true))
-      .filter((provider) => provider.mustSkip === undefined || !(provider.mustSkip?.()))
-      .forEach((provider) => this.providers.add(provider))
+  private async resolveProviders (): Promise<void> {
+    const providers = this.blueprint.get<MixedServiceProvider[]>('stone.providers', [])
 
-    return this
+    for (const provider of providers) {
+      let resolvedProvider: IServiceProvider | undefined
+
+      if (isMetaClassModule<IServiceProviderClass>(provider)) {
+        resolvedProvider = this.container.resolve<IServiceProvider>(provider.module, true)
+      } else if (isMetaFactoryModule<FactoryServiceProvider>(provider)) {
+        resolvedProvider = provider.module(this.container)
+      } else if (isConstructor<IServiceProviderClass>(provider)) {
+        resolvedProvider = this.container.resolve<IServiceProvider>(provider, true)
+      }
+
+      if (resolvedProvider !== undefined && (isEmpty(resolvedProvider.mustSkip) || !(await resolvedProvider.mustSkip()))) {
+        this.providers.add(resolvedProvider)
+      }
+    }
   }
 
   /**
@@ -287,12 +389,8 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    */
   private async registerProviders (): Promise<void> {
     for (const provider of this.providers) {
-      if (provider.register === undefined || this.registeredProviders.has(provider.constructor.name)) {
-        continue
-      }
-
+      if (isEmpty(provider.register) || this.registeredProviders.has(provider.constructor.name)) { continue }
       await provider.register()
-
       this.registeredProviders.add(provider.constructor.name)
     }
   }
@@ -316,39 +414,74 @@ export class Kernel<IncomingEventType extends IncomingEvent, OutgoingResponseTyp
    * @returns The validated and resolved response.
    * @throws InitializationError if the response is invalid or undefined.
    */
-  private validateAndResolveResponse (returnedValue: unknown): OutgoingResponseType {
+  private async validateAndResolveResponse (returnedValue: unknown): Promise<OutgoingResponseType> {
     const responseResolver = this.blueprint.get<ResponseResolver<OutgoingResponseType>>('stone.kernel.responseResolver')
 
-    if (returnedValue === undefined) {
-      if (responseResolver === undefined) {
+    if (isEmpty(returnedValue)) {
+      if (isEmpty(responseResolver)) {
         throw new InitializationError('No response was returned')
       }
-      return responseResolver({})
+      return await responseResolver({})
     }
 
     if (!(returnedValue instanceof OutgoingResponse)) {
-      if (responseResolver === undefined) {
-        throw new InitializationError('Return response must be an instance of `OutgoingResponse` or a subclass of it.')
+      if (isEmpty(responseResolver)) {
+        throw new InitializationError('Returned response must be an instance of `OutgoingResponse` or a subclass of it.')
       }
-      const options = ((returnedValue as ResponseResolverOptions)?.content === undefined ? { content: returnedValue } : returnedValue) as ResponseResolverOptions
-      return responseResolver(options)
+      const valueOptions = returnedValue as ResponseResolverOptions
+      const options = (
+        isEmpty(valueOptions?.statusCode)
+          ? { content: returnedValue, statusCode: 200 }
+          : returnedValue
+      ) as ResponseResolverOptions
+      return await responseResolver(options)
     }
 
     return returnedValue as OutgoingResponseType
   }
 
   /**
-   * Get the error handler for the given error.
-   *
-   * @param error - The error to get the handler for.
-   * @returns The error handler.
+   * Run live configurations.
+   * Live configurations are loaded at each request.
    */
-  private getErrorHandler (error: Error): IErrorHandler<IncomingEventType, OutgoingResponseType> | undefined {
-    const handlers = this.blueprint.get<Record<string, IErrorHandler<IncomingEventType, OutgoingResponseType>>>('stone.kernel.errorHandlers', {})
-    const ErrorHandler = handlers[error.name] ?? handlers.default
+  private async runLiveConfigurations (): Promise<void> {
+    const liveConfigurations = this.blueprint.get<MixedConfiguration[]>('stone.liveConfigurations', [])
 
-    if (isConstructor(ErrorHandler)) {
-      return this.container.resolve<IErrorHandler<IncomingEventType, OutgoingResponseType>>(ErrorHandler, true)
+    for (const configuration of liveConfigurations) {
+      if (isMetaClassModule<ConfigurationClass>(configuration)) {
+        await this.container.resolve<IConfiguration>(configuration.module).configure?.(this.blueprint)
+      } else if (isFunctionModule<FunctionalConfiguration>(configuration)) {
+        await configuration(this.blueprint)
+      }
     }
+  }
+
+  /**
+   * Execute lifecycle hooks.
+   *
+   * @param name - The hook's name.
+   */
+  private async executeHooks (name: KernelHookName): Promise<void> {
+    if (
+      Array.isArray(this.hooks[name]) &&
+      name !== 'onKernelMiddlewareProcessed' &&
+      name !== 'onProcessingKernelMiddleware'
+    ) {
+      for (const listener of this.hooks[name]) {
+        await listener(this.container)
+      }
+    }
+  }
+
+  /**
+   * Validate the Kernel options.
+   *
+   * @param options - The Kernel options to validate.
+   * @throws InitializationError if the options are invalid.
+   */
+  private validateOptions (options: KernelOptions): void {
+    if (!(options.blueprint instanceof Config)) { throw new InitializationError('Blueprint is required to create a Kernel instance.') }
+    if (!(options.container instanceof Container)) { throw new InitializationError('Container is required to create a Kernel instance.') }
+    if (!(options.eventEmitter instanceof EventEmitter)) { throw new InitializationError('EventEmitter is required to create a Kernel instance.') }
   }
 }

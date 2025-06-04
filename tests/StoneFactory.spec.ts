@@ -1,69 +1,256 @@
-import { RuntimeError } from '../src/errors/RuntimeError'
-import { StoneFactory, StoneFactoryOptions } from '../src/StoneFactory'
-import { IBlueprint, IAdapter, AdapterResolver } from '../src/declarations'
+import { Logger } from '../src/logger/Logger'
+import { IncomingEvent } from '../src/events/IncomingEvent'
+import { MetadataSymbol } from '../src/decorators/Metadata'
+import { StoneFactory, stoneApp } from '../src/StoneFactory'
+import { defineConfig } from '../src/blueprint/BlueprintUtils'
+import { IntegrationError } from '../src/errors/IntegrationError'
+import { BlueprintBuilder } from '../src/blueprint/BlueprintBuilder'
+import { CONFIGURATION_KEY, CONFIG_MIDDLEWARE_KEY, LIFECYCLE_HOOK_KEY, BLUEPRINT_KEY } from '../src/decorators/constants'
 
-// Mock implementations for IBlueprint and IAdapter
-class MockAdapter implements IAdapter {
-  async run<ExecutionResultType = string> (): Promise<ExecutionResultType> {
-    return 'Adapter Run Successfully' as ExecutionResultType
+vi.mock('../src/blueprint/BlueprintUtils', async (importOriginal) => {
+  const actual: any = await importOriginal()
+  return {
+    ...actual,
+    defineConfig: vi.fn(actual.defineConfig)
   }
-}
+})
 
-// Mock Blueprint
-const mockBlueprint = (resolver?: AdapterResolver): IBlueprint => ({
-  get: vi.fn((key: string) => {
-    if (key === 'stone.adapter.resolver') {
-      return resolver
+vi.mock('../src/logger/Logger', () => ({
+  Logger: {
+    init: vi.fn(),
+    getInstance: vi.fn(() => ({ info: vi.fn() }))
+  }
+}))
+
+vi.mock('../src/blueprint/BlueprintBuilder', () => {
+  return {
+    BlueprintBuilder: {
+      create: vi.fn().mockReturnValue({
+        build: vi.fn().mockResolvedValue({}) // returns mock blueprint
+      })
     }
-    return undefined
-  })
-}) as any
+  }
+})
 
 describe('StoneFactory', () => {
-  it('should throw an error if blueprint is not provided', () => {
-    // @ts-expect-error - invalid value for test purposes
-    expect(() => StoneFactory.create({ blueprint: undefined })).toThrow(RuntimeError)
+  describe('create & configure', () => {
+    it('should create an instance with default empty modules', () => {
+      const factory = StoneFactory.create()
+      // @ts-expect-error access private
+      expect(factory.modules).toEqual([])
+    })
+
+    it('should create an instance with provided modules', () => {
+      const modules = [{ test: true }]
+      const factory = StoneFactory.create({ modules })
+      // @ts-expect-error access private
+      expect(factory.modules).toEqual(modules)
+    })
+
+    it('should push config middleware via .configure()', () => {
+      const configFn = vi.fn()
+      const factory = StoneFactory.create()
+      factory.configure(configFn)
+
+      // @ts-expect-error access private
+      expect(factory.modules.length).toBe(1)
+      expect(defineConfig).toHaveBeenCalledWith(configFn)
+    })
+
+    it('should support chainable configure()', () => {
+      const factory = StoneFactory.create().configure(() => {}).configure(() => {})
+      // @ts-expect-error access private
+      expect(factory.modules.length).toBe(2)
+    })
   })
 
-  it('should create a StoneFactory instance', () => {
-    const blueprint = mockBlueprint()
-    const options: StoneFactoryOptions = { blueprint }
+  describe('handle()', () => {
+    it('should store the handler and delegate to run()', async () => {
+      const handler = vi.fn()
+      const runSpy = vi.fn().mockResolvedValue('mock-result')
 
-    const factory = StoneFactory.create(options)
+      const factory = StoneFactory.create<IncomingEvent, any>()
 
-    expect(factory).toBeInstanceOf(StoneFactory)
+      // Inject mocked .run method
+      factory.run = runSpy
+
+      const result = await factory.handle(handler)
+
+      // Handler should be stored in blueprint
+      // @ts-expect-error accessing private
+      const stored = factory.blueprint.get('stone.kernel.eventHandler')
+      expect(stored).toBe(handler)
+
+      expect(runSpy).toHaveBeenCalled()
+      expect(result).toBe('mock-result')
+    })
   })
 
-  it('should throw an error if no adapter resolver is provided in the blueprint', async () => {
-    const blueprint = mockBlueprint()
-    const options: StoneFactoryOptions = { blueprint }
-    const factory = StoneFactory.create(options)
+  describe('run()', () => {
+    it('should run blueprint + logger + builder + adapter lifecycle', async () => {
+      const runMock = vi.fn().mockResolvedValue('mock-response')
 
-    await expect(factory.run()).rejects.toThrow(
-      'No adapter resolver provided. Ensure that a valid adapter resolver is configured under "stone.adapter.resolver" in the blueprint configuration.'
-    )
+      const adapterMock = {
+        run: runMock
+      }
+
+      const factory = StoneFactory.create()
+
+      // Inject a fake adapter resolver
+      // @ts-expect-error access private
+      factory.blueprint.set('stone.adapter.resolver', () => adapterMock)
+
+      const result = await factory.run()
+
+      // @ts-expect-error access private
+      expect(Logger.init).toHaveBeenCalledWith(factory.blueprint)
+      // @ts-expect-error access private
+      expect(BlueprintBuilder.create).toHaveBeenCalledWith(factory.blueprint)
+      expect(result).toBe('mock-response')
+    })
   })
 
-  it('should throw an error if the adapter resolver returns undefined', async () => {
-    // @ts-expect-error - invalid value for test purposes
-    const resolver: AdapterResolver = () => undefined
-    const blueprint = mockBlueprint(resolver)
-    const options: StoneFactoryOptions = { blueprint }
-    const factory = StoneFactory.create(options)
+  describe('resolveAdapter()', () => {
+    it('should throw if resolver is missing from blueprint', () => {
+      const factory = StoneFactory.create()
 
-    await expect(factory.run()).rejects.toThrow(
-      'No adapters provided. Stone.js needs at least one adapter to run.'
-    )
+      expect(() => {
+        // @ts-expect-error
+        factory.resolveAdapter()
+      }).toThrow(IntegrationError)
+    })
+
+    it('should throw if resolver returns undefined', () => {
+      const factory = StoneFactory.create()
+      // @ts-expect-error
+      factory.blueprint.set('stone.adapter.resolver', () => undefined)
+
+      expect(() => {
+        // @ts-expect-error
+        factory.resolveAdapter()
+      }).toThrow(IntegrationError)
+    })
+
+    it('should return adapter if resolver resolves correctly', () => {
+      const adapterMock = { run: vi.fn() }
+      const factory = StoneFactory.create()
+
+      // @ts-expect-error
+      factory.blueprint.set('stone.adapter.resolver', () => adapterMock)
+
+      // @ts-expect-error
+      const resolved = factory.resolveAdapter()
+
+      expect(resolved).toBe(adapterMock)
+    })
   })
 
-  it('should run the adapter successfully when a valid adapter is provided', async () => {
-    const resolver: AdapterResolver = () => new MockAdapter()
-    const blueprint = mockBlueprint(resolver)
-    const options: StoneFactoryOptions = { blueprint }
-    const factory = StoneFactory.create(options)
+  describe('initBlueprint()', () => {
+    it('should inject plain blueprint objects', async () => {
+      const plainBlueprint = { stone: { foo: 'bar' } }
+      const factory = StoneFactory.create({ modules: [plainBlueprint] })
 
-    const result = await factory.run()
+      // @ts-expect-error access private
+      await factory.initBlueprint()
 
-    expect(result).toBe('Adapter Run Successfully')
+      // @ts-expect-error access private
+      expect(factory.blueprint.get('stone.foo')).toBe('bar')
+    })
+
+    it('should register blueprint via @StoneApp metadata', async () => {
+      const AppClass = class {
+        handle (): void {}
+        public static [MetadataSymbol] = { [BLUEPRINT_KEY]: { stone: { name: 'world' } } }
+      }
+
+      const factory = stoneApp({ modules: [AppClass] })
+
+      // @ts-expect-error access private
+      await factory.initBlueprint()
+
+      // @ts-expect-error access private
+      expect(factory.blueprint.get('stone.name')).toBe('world')
+    })
+
+    it('should register lifecycle hooks via @Hook metadata', async () => {
+      const methodSpy = vi.fn()
+      class MyHook {
+        methodRef (): void {
+          methodSpy()
+        }
+
+        public static [MetadataSymbol] = {
+          [LIFECYCLE_HOOK_KEY]: [
+            { name: 'onInit', method: 'methodRef' }
+          ]
+        }
+      }
+
+      const factory = stoneApp({ modules: [MyHook] })
+      // @ts-expect-error access private
+      await factory.initBlueprint()
+
+      // @ts-expect-error access private
+      const hooks = factory.blueprint.get('stone.lifecycleHooks.onInit', [])
+      expect(hooks.length).toBe(1)
+      expect(typeof hooks[0]).toBe('function')
+    })
+
+    it('should register blueprint middleware via @ConfigMiddleware', async () => {
+      const MiddlewareClass = class {
+        handle (): void {}
+        public static [MetadataSymbol] = {
+          [CONFIG_MIDDLEWARE_KEY]: { priority: 1 }
+        }
+      }
+
+      const factory = StoneFactory.create({ modules: [MiddlewareClass] })
+      // @ts-expect-error access private
+      await factory.initBlueprint()
+
+      // @ts-expect-error access private
+      const middleware = factory.blueprint.get('stone.blueprint.middleware', [])
+      expect(middleware[0]).toEqual(expect.objectContaining({
+        module: MiddlewareClass,
+        priority: 1
+      }))
+    })
+
+    it('should run configure and afterConfigure from @Configuration', async () => {
+      const configure = vi.fn()
+      const afterConfigure = vi.fn()
+
+      class ConfigClass {
+        configure = configure
+        afterConfigure = afterConfigure
+        public static [MetadataSymbol] = {
+          [CONFIGURATION_KEY]: { live: false }
+        }
+      }
+
+      const factory = StoneFactory.create({ modules: [ConfigClass] })
+      // @ts-expect-error access private
+      await factory.initBlueprint()
+      expect(configure).toHaveBeenCalled()
+      // @ts-expect-error access private
+      const hook = factory.blueprint.get('stone.lifecycleHooks.onBlueprintPrepared', [])
+      expect(hook[0]).toBeDefined()
+    })
+
+    it('should register live configs if live: true', async () => {
+      const LiveConfig = class {
+        configure (): void {}
+        public static [MetadataSymbol] = {
+          [CONFIGURATION_KEY]: { live: true }
+        }
+      }
+
+      const factory = StoneFactory.create({ modules: [LiveConfig] })
+      // @ts-expect-error access private
+      await factory.initBlueprint()
+      // @ts-expect-error access private
+      const live = factory.blueprint.get('stone.liveConfigurations', [])
+      expect(live[0]).toEqual(expect.objectContaining({ module: LiveConfig }))
+    })
   })
 })

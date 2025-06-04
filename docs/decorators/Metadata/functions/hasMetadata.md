@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / hasMetadata
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / hasMetadata
 
 # Function: hasMetadata()
 
 > **hasMetadata**\<`T`\>(`Class`, `key`): `boolean`
 
-Defined in: [decorators/Metadata.ts:52](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L52)
+Defined in: [decorators/Metadata.ts:52](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L52)
 
 Check if a class has specific metadata.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

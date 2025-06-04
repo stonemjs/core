@@ -1,18 +1,6 @@
-import { ClassType } from '../declarations'
 import { LISTENER_KEY } from './constants'
 import { setClassMetadata } from './Metadata'
-
-/**
- * Listener options.
- *
- * This interface defines the configuration options for marking a class as a listener.
- */
-export interface ListenerOptions {
-  /**
-   * The event that the listener should handle.
-   */
-  event: string
-}
+import { ClassType, ListenerOptions } from '../declarations'
 
 /**
  * Listener decorator to mark a class as a listener for a specific event.
@@ -32,5 +20,5 @@ export interface ListenerOptions {
  * ```
  */
 export const Listener = <T extends ClassType = ClassType>(options: ListenerOptions): ClassDecorator => {
-  return setClassMetadata<T>(LISTENER_KEY, options)
+  return setClassMetadata<T>(LISTENER_KEY, { ...options, isClass: true })
 }

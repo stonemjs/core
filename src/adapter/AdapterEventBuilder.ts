@@ -1,3 +1,4 @@
+import { isEmpty } from '../utils'
 import { IAdapterEventBuilder } from '../declarations'
 import { IntegrationError } from '../errors/IntegrationError'
 
@@ -35,7 +36,7 @@ export class AdapterEventBuilder<V extends object, R> implements IAdapterEventBu
   /**
    * The options used for building the final object.
    */
-  private readonly options: V
+  public readonly options: V
 
   /**
    * The resolver function that takes the options and returns the final object of type `R`.
@@ -74,6 +75,20 @@ export class AdapterEventBuilder<V extends object, R> implements IAdapterEventBu
    */
   add (key: keyof V, value: V[typeof key]): this {
     this.options[key] = value
+    return this
+  }
+
+  /**
+   * Adds a key-value pair in the options if the key does not already exist.
+   *
+   * @param key - The key in the options to be updated.
+   * @param value - The value to set for the given key.
+   * @returns This instance of AdapterEventBuilder for method chaining.
+   */
+  addIf (key: keyof V, value: V[typeof key]): this {
+    if (isEmpty(this.options[key])) {
+      this.add(key, value)
+    }
     return this
   }
 

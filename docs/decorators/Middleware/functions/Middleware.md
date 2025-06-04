@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Middleware](../README.md) / Middleware
+[Core Documentation](../../../README.md) / [decorators/Middleware](../README.md) / Middleware
 
 # Function: Middleware()
 
 > **Middleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Middleware.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Middleware.ts#L44)
+Defined in: [decorators/Middleware.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Middleware.ts#L22)
 
 Middleware decorator to mark a class as middleware within the Stone.js framework.
 
@@ -17,13 +17,15 @@ as part of the request/response lifecycle or other layers such as adapter, kerne
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 
 ### options
 
-[`MiddlewareOptions`](../interfaces/MiddlewareOptions.md) = `{}`
+[`MiddlewareOptions`](../../../declarations/interfaces/MiddlewareOptions.md) = `{}`
 
 The configuration options for the middleware, including platform, priority, singleton registration, alias, layer, and type.
 
@@ -36,7 +38,7 @@ A decorator function to set metadata on the target class.
 ## Example
 
 ```typescript
-@Middleware({ platform: 'node', priority: 1, singleton: true, alias: 'MyMiddleware', layer: 'adapter', type: 'input' })
+@Middleware({ params: ['node'], priority: 1, global: true, alias: 'MyMiddleware' })
 class MyMiddleware {
   // Middleware class logic here.
 }

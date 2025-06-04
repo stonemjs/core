@@ -1,6 +1,6 @@
 import { Kernel } from '../src/Kernel'
 import { Config } from '@stone-js/config'
-import { ConsoleLogger } from '../src/ConsoleLogger'
+import { ConsoleLogger } from '../src/logger/ConsoleLogger'
 import { OutgoingResponse } from '../src/events/OutgoingResponse'
 import { defaultKernelResolver, defaultLoggerResolver, defaultResponseResolver } from '../src/resolvers'
 
@@ -25,28 +25,28 @@ describe('defaultResponseResolver', () => {
 
 describe('defaultKernelResolver', () => {
   it('should create a Kernel with the given blueprint and default dependencies', () => {
-    mockBlueprint.set({ 'stone.handler': () => {} })
+    mockBlueprint.set({ 'stone.kernel.eventHandler': () => {} })
     const kernel = defaultKernelResolver(mockBlueprint)
     expect(kernel).toBeInstanceOf(Kernel)
     expect(kernel.handle).toBeInstanceOf(Function)
-    expect(kernel.beforeHandle).toBeInstanceOf(Function)
+    expect(kernel.onHandlingEvent).toBeInstanceOf(Function)
   })
 
   it('should create a Kernel with the given blueprint with class handler', () => {
     class Handler {}
-    mockBlueprint.set({ 'stone.handler': Handler })
+    mockBlueprint.set({ 'stone.kernel.eventHandler': Handler })
     const kernel = defaultKernelResolver(mockBlueprint)
     expect(kernel).toBeInstanceOf(Kernel)
     expect(kernel.handle).toBeInstanceOf(Function)
-    expect(kernel.beforeHandle).toBeInstanceOf(Function)
+    expect(kernel.onHandlingEvent).toBeInstanceOf(Function)
   })
 
   it('should create a Kernel with the given blueprint with function handler when class handler is undefined', () => {
     class Handler {}
-    mockBlueprint.set({ 'stone.handler': Handler })
+    mockBlueprint.set({ 'stone.kernel.eventHandler': Handler })
     const kernel = defaultKernelResolver(mockBlueprint)
     expect(kernel).toBeInstanceOf(Kernel)
     expect(kernel.handle).toBeInstanceOf(Function)
-    expect(kernel.beforeHandle).toBeInstanceOf(Function)
+    expect(kernel.onHandlingEvent).toBeInstanceOf(Function)
   })
 })

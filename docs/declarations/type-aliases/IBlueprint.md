@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / IBlueprint
+[Core Documentation](../../README.md) / [declarations](../README.md) / IBlueprint
 
 # Type Alias: IBlueprint\<TValues\>
 
-> **IBlueprint**\<`TValues`\>: `Config`\<`TValues`\>
+> **IBlueprint**\<`TValues`\> = `Config`\<`TValues`\>
 
-Defined in: [declarations.ts:451](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L451)
+Defined in: [declarations.ts:952](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L952)
 
 Blueprint Interface.
 
@@ -16,4 +16,6 @@ Represents the blueprint configuration object, which is an instance of Config.
 
 ## Type Parameters
 
-• **TValues** *extends* `object` = `any`
+### TValues
+
+`TValues` *extends* `object` = `any`

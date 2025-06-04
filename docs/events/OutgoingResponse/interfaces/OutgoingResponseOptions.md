@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
+[Core Documentation](../../../README.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
 
 # Interface: OutgoingResponseOptions
 
-Defined in: [events/OutgoingResponse.ts:8](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/OutgoingResponse.ts#L8)
+Defined in: [events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L9)
 
 OutgoingResponseOptions.
 
@@ -24,7 +24,7 @@ OutgoingResponseOptions.
 
 > `optional` **content**: `unknown`
 
-Defined in: [events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/OutgoingResponse.ts#L9)
+Defined in: [events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L10)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob
 
 > `optional` **metadata**: `Record`\<`string`, `unknown`\>
 
-Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L10)
+Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L10)
 
 #### Inherited from
 
@@ -44,7 +44,7 @@ Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0
 
 > `optional` **source**: `object`
 
-Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L8)
+Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L8)
 
 #### Inherited from
 
@@ -56,7 +56,7 @@ Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/9f959fbf08
 
 > `optional` **statusCode**: `number`
 
-Defined in: [events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/OutgoingResponse.ts#L10)
+Defined in: [events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L11)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blo
 
 > `optional` **statusMessage**: `string`
 
-Defined in: [events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/OutgoingResponse.ts#L11)
+Defined in: [events/OutgoingResponse.ts:12](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L12)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blo
 
 > `optional` **timeStamp**: `number`
 
-Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L9)
+Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L9)
 
 #### Inherited from
 
@@ -84,7 +84,7 @@ Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/9f959fbf08
 
 > `optional` **type**: `string`
 
-Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/events/Event.ts#L7)
+Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L7)
 
 #### Inherited from
 

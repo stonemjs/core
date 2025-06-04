@@ -32,5 +32,5 @@ export interface ProviderOptions {
  * ```
  */
 export const Provider = <T extends ClassType = ClassType>(options: ProviderOptions = {}): ClassDecorator => {
-  return setClassMetadata<T>(PROVIDER_KEY, options)
+  return setClassMetadata<T>(PROVIDER_KEY, { ...options, isClass: true })
 }

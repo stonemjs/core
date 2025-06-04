@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/ConfigMiddleware](../README.md) / ConfigMiddleware
+[Core Documentation](../../../README.md) / [decorators/ConfigMiddleware](../README.md) / ConfigMiddleware
 
 # Function: ConfigMiddleware()
 
 > **ConfigMiddleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/ConfigMiddleware.ts:39](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/ConfigMiddleware.ts#L39)
+Defined in: [decorators/ConfigMiddleware.ts:39](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/ConfigMiddleware.ts#L39)
 
 ConfigMiddleware decorator to mark a class as middleware within the Stone.js framework.
 
@@ -17,7 +17,9 @@ as part of the request/response lifecycle or other layers such as adapter, kerne
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 

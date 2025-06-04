@@ -1,19 +1,27 @@
+import {
+  IBlueprint,
+  MetaService,
+  LifecycleHookType,
+  MetaEventListener,
+  MixedConfiguration,
+  MixedEventSubscriber,
+  MixedServiceProvider
+} from '../declarations'
 import { LoggerConfig, logger } from './LoggerConfig'
 import { KernelConfig, kernel } from './KernelConfig'
 import { IncomingEvent } from '../events/IncomingEvent'
-import { BuilderConfig, builder } from './BuilderConfig'
 import { AdapterConfig, adapters } from './AdapterConfig'
-import { CoreServiceProvider } from '../CoreServiceProvider'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { AppEventHandler, IListener, IProvider, ISubscriber } from '../declarations'
+import { BlueprintConfig, blueprint } from './BlueprintConfig'
+import { CoreServiceProvider } from '../providers/CoreServiceProvider'
 
 /**
  * Environment settings.
  */
 export enum Environment {
-  Development = 'development',
-  Production = 'production',
   Test = 'test',
+  Production = 'production',
+  Development = 'development',
 }
 
 /**
@@ -57,23 +65,30 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   fallback_locale: string
 
   /**
-   * Configuration options for building the application, including middleware and pipe priorities.
+   * A secret key used for encryption purposes throughout the application.
+   * This key should be kept secure.
    */
-  builder: BuilderConfig
+  secret?: string
+
+  /**
+   * Configuration options for building the application blueprint, including middleware and pipe priorities.
+   */
+  blueprint: BlueprintConfig<IBlueprint, any>
 
   /**
    * Current Adapter configurations for the application.
    * This key allow you to specify the current adapter with the alias key.
    */
-  adapter?: Partial<AdapterConfig>
+  adapter?: Partial<AdapterConfig<any, any, any, U, any, V>>
 
   /**
    * Adapter configurations for the application.
+   * List of all adapters used in the application.
    */
-  adapters: AdapterConfig[]
+  adapters: Array<AdapterConfig<any, any, any, U, any, V>>
 
   /**
-   * Global middleware settings for the application kernel.
+   * Kernel configurations for the application.
    */
   kernel: KernelConfig<U, V>
 
@@ -85,42 +100,49 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
   /**
    * Services to be automatically registered when the application starts.
    */
-  services: Function[] | Function[][]
+  services: MetaService[]
 
   /**
    * Event listeners to be automatically registered when the application starts.
    * This allows you to specify functions to listen for specific events.
    */
-  listeners: Record<string, Array<new (...args: any[]) => IListener>>
+  listeners: Array<MetaEventListener<any>>
 
   /**
    * Subscribers to be automatically registered when the application starts.
    * Subscribers are used for handling and responding to events.
    */
-  subscribers: Array<new (...args: any[]) => ISubscriber>
+  subscribers: MixedEventSubscriber[]
 
   /**
    * Service providers to be automatically loaded for each request to the application.
    */
-  providers: Array<new (...args: any[]) => IProvider>
+  providers: MixedServiceProvider[]
 
   /**
    * Class aliases to be registered when the application starts.
    * These aliases provide shorthand references to commonly used classes.
    */
-  aliases: Record<string, unknown>
+  aliases: Record<string, any>
 
   /**
-   * A secret key used for encryption purposes throughout the application.
-   * This key should be kept secure.
+   * Lifecycle hooks for the application.
+   * These hooks allow you to run custom code at different stages of the application lifecycle.
    */
-  secret?: string
+  lifecycleHooks?: LifecycleHookType<IBlueprint, any, any, U, V>
 
   /**
-   * The entry point or handler function for the application.
-   * This is the main function that handles incoming requests.
+   * Live configurations are loaded at each request.
+   * By default, configurations are loaded once when the application starts.
+   * This is useful for defining dynamic configurations that do not require a restart to apply changes.
    */
-  handler?: AppEventHandler<IncomingEvent, OutgoingResponse>
+  liveConfigurations?: MixedConfiguration[]
+
+  /**
+   * Allow adding any additional custom properties.
+   * The value of the custom properties can be of any type, depending on user requirements.
+   */
+  [key: string]: unknown
 }
 
 /**
@@ -175,8 +197,8 @@ export const stoneBlueprint: StoneBlueprint = {
     // The fallback locale for your application.
     fallback_locale: 'en',
 
-    // Options builder namespace.
-    builder,
+    // Blueprint builder namespace.
+    blueprint,
 
     // Adapters namespace.
     // Here you can define adapter settings.
@@ -192,7 +214,7 @@ export const stoneBlueprint: StoneBlueprint = {
     services: [],
 
     // Listeners to be automatically registered when the application starts.
-    listeners: {},
+    listeners: [],
 
     // Subscribers to be automatically registered when the application starts.
     subscribers: [],

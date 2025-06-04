@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / IRawResponseWrapper
+[Core Documentation](../../README.md) / [declarations](../README.md) / IRawResponseWrapper
 
 # Interface: IRawResponseWrapper\<TResponse\>
 
-Defined in: [declarations.ts:183](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L183)
+Defined in: [declarations.ts:1134](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1134)
 
 RawResponseBuilder Interface.
 
@@ -14,16 +14,18 @@ Represents a wrapper for building raw responses with specific options and a resp
 
 ## Type Parameters
 
-• **TResponse**
+### TResponse
+
+`TResponse`
 
 ## Properties
 
 ### respond()
 
-> **respond**: () => `TResponse` \| `Promise`\<`TResponse`\>
+> **respond**: () => [`Promiseable`](../type-aliases/Promiseable.md)\<`TResponse`\>
 
-Defined in: [declarations.ts:184](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L184)
+Defined in: [declarations.ts:1135](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1135)
 
 #### Returns
 
-`TResponse` \| `Promise`\<`TResponse`\>
+[`Promiseable`](../type-aliases/Promiseable.md)\<`TResponse`\>

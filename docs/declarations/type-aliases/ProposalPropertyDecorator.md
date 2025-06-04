@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [declarations](../README.md) / ProposalPropertyDecorator
+[Core Documentation](../../README.md) / [declarations](../README.md) / ProposalPropertyDecorator
 
 # Type Alias: ProposalPropertyDecorator()
 
-> **ProposalPropertyDecorator**: (`target`, `context`) => (`initialValue`) => `unknown` \| `undefined`
+> **ProposalPropertyDecorator** = (`target`, `context`) => (`initialValue`) => `unknown` \| `undefined`
 
-Defined in: [declarations.ts:651](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/declarations.ts#L651)
+Defined in: [declarations.ts:1099](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1099)
 
 Represents a property decorator using the 2023-11 proposal syntax.
 
@@ -31,9 +31,9 @@ The context object providing metadata about the field.
 
 ## Returns
 
-`Function`
-
 An initializer function for the property value.
+
+> (`initialValue`): `unknown` \| `undefined`
 
 ### Parameters
 

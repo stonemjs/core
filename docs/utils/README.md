@@ -1,14 +1,23 @@
-[**Core Documentation v0.0.36**](../README.md)
+[**Core Documentation**](../README.md)
 
 ***
 
-[Core Documentation](../modules.md) / utils
+[Core Documentation](../README.md) / utils
 
 # utils
 
 ## Functions
 
-- [defineAppBlueprint](functions/defineAppBlueprint.md)
-- [isConstructor](functions/isConstructor.md)
+- [isEmpty](functions/isEmpty.md)
+- [isFunctionModule](functions/isFunctionModule.md)
+- [isHandlerHasHook](functions/isHandlerHasHook.md)
+- [isMetaAliasModule](functions/isMetaAliasModule.md)
+- [isMetaClassModule](functions/isMetaClassModule.md)
+- [isMetaFactoryModule](functions/isMetaFactoryModule.md)
+- [isMetaFunctionModule](functions/isMetaFunctionModule.md)
+- [isMetaModule](functions/isMetaModule.md)
+- [isNotEmpty](functions/isNotEmpty.md)
+- [isObjectLikeModule](functions/isObjectLikeModule.md)
+- [isStoneBlueprint](functions/isStoneBlueprint.md)
 - [mergeBlueprints](functions/mergeBlueprints.md)
-- [setCurrentAdapterByPlatform](functions/setCurrentAdapterByPlatform.md)
+- [validateBlueprints](functions/validateBlueprints.md)

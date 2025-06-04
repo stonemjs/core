@@ -1,40 +1,45 @@
 import { MixedPipe } from '@stone-js/pipeline'
+import { defaultResponseResolver } from '../resolvers'
 import { IncomingEvent } from '../events/IncomingEvent'
 import { OutgoingResponse } from '../events/OutgoingResponse'
-import { defaultKernelResolver, defaultResponseResolver } from '../resolvers'
-import { IErrorHandler, KernelResolver, ResponseResolver, RouterResolver } from '../declarations'
+import { ResponseResolver, MetaErrorHandler, MixedEventHandler } from '../declarations'
 
 /**
  * Kernel options.
  *
  * This interface defines the configuration for kernel-level options.
  */
-export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, UResponse extends OutgoingResponse = OutgoingResponse> {
+export interface KernelConfig<
+TEvent extends IncomingEvent = IncomingEvent,
+UResponse extends OutgoingResponse = OutgoingResponse
+> {
+  /**
+   * A flag indicating whether to skip middleware processing.
+   * This flag can be used to bypass middleware processing in the kernel.
+   */
+  skipMiddleware?: boolean
+
   /**
    * Middleware configuration options for different stages of the kernel's lifecycle.
    */
-  middleware?: MixedPipe[]
+  middleware?: Array<MixedPipe<TEvent, UResponse>>
 
   /**
-   * The kernel resolver, used to create instances.
+   * The main event handler for the application.
+   * Every Stone.js application must have a main event handler.
    */
-  resolver?: KernelResolver<TEvent, UResponse>
-
-  /**
-   * The router resolver, used to create instances.
-   */
-  routerResolver?: RouterResolver<TEvent, UResponse>
-
-  /**
-   * The response resolver, used to create instances.
-   */
-  responseResolver?: ResponseResolver<UResponse>
+  eventHandler?: MixedEventHandler<TEvent, UResponse | unknown>
 
   /**
    * Error handlers used to manage and report errors that occur within the kernel.
    * These handlers can be used to customize error handling behavior and logging.
    */
-  errorHandlers?: Record<string, new (...args: any[]) => IErrorHandler<TEvent, UResponse>>
+  errorHandlers?: Record<string, MetaErrorHandler<TEvent, UResponse | unknown>>
+
+  /**
+   * The response resolver, used to create instances of the response object.
+   */
+  responseResolver?: ResponseResolver<UResponse>
 }
 
 /**
@@ -46,6 +51,5 @@ export interface KernelConfig<TEvent extends IncomingEvent = IncomingEvent, URes
  */
 export const kernel: KernelConfig = {
   middleware: [],
-  resolver: defaultKernelResolver,
   responseResolver: defaultResponseResolver
 }

@@ -1,12 +1,12 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [options/AdapterConfig](../README.md) / AdapterConfig
+[Core Documentation](../../../README.md) / [options/AdapterConfig](../README.md) / AdapterConfig
 
-# Interface: AdapterConfig
+# Interface: AdapterConfig\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType\>
 
-Defined in: [options/AdapterConfig.ts:11](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L11)
+Defined in: [options/AdapterConfig.ts:18](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L18)
 
 AdapterConfig Interface.
 
@@ -14,13 +14,39 @@ This interface defines the configuration options for an adapter within the Stone
 It includes settings for the adapter's alias, resolver, middleware, and hooks, among other properties.
 The AdapterConfig allows developers to manage how the adapter behaves and how it integrates with the application.
 
+## Type Parameters
+
+### RawEventType
+
+`RawEventType` = `any`
+
+### RawResponseType
+
+`RawResponseType` = `any`
+
+### ExecutionContextType
+
+`ExecutionContextType` = `any`
+
+### IncomingEventType
+
+`IncomingEventType` *extends* [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md) = [`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### IncomingEventOptionsType
+
+`IncomingEventOptionsType` *extends* [`IncomingEventOptions`](../../../events/IncomingEvent/interfaces/IncomingEventOptions.md) = [`IncomingEventOptions`](../../../events/IncomingEvent/interfaces/IncomingEventOptions.md)
+
+### OutgoingResponseType
+
+`OutgoingResponseType` *extends* [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md) = [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)
+
 ## Properties
 
 ### alias?
 
 > `optional` **alias**: `string`
 
-Defined in: [options/AdapterConfig.ts:46](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L46)
+Defined in: [options/AdapterConfig.ts:72](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L72)
 
 The alias name for the adapter.
 This is a unique identifier used to reference the adapter.
@@ -32,7 +58,7 @@ Optional property.
 
 > `optional` **current**: `boolean`
 
-Defined in: [options/AdapterConfig.ts:53](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L53)
+Defined in: [options/AdapterConfig.ts:79](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L79)
 
 The current status identifier for the adapter.
 Used to indicate if this adapter instance is active or currently in use.
@@ -44,7 +70,7 @@ Optional property.
 
 > `optional` **default**: `boolean`
 
-Defined in: [options/AdapterConfig.ts:59](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L59)
+Defined in: [options/AdapterConfig.ts:85](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L85)
 
 Defines whether this adapter is the default adapter used by the application.
 Optional property.
@@ -53,31 +79,30 @@ Optional property.
 
 ### errorHandlers
 
-> **errorHandlers**: `Record`\<`string`, (...`args`) => [`IAdapterErrorHandler`](../../../declarations/interfaces/IAdapterErrorHandler.md)\<`any`, `any`, `any`\>\>
+> **errorHandlers**: `Record`\<`string`, [`MetaAdapterErrorHandler`](../../../declarations/interfaces/MetaAdapterErrorHandler.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>\>
 
-Defined in: [options/AdapterConfig.ts:39](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L39)
+Defined in: [options/AdapterConfig.ts:65](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L65)
 
 Error handlers used to manage and report errors that occur within the adapter.
 These handlers can be used to customize error handling behavior and logging.
 
 ***
 
-### hooks
+### eventHandlerResolver
 
-> **hooks**: [`AdapterHooks`](../../../declarations/interfaces/AdapterHooks.md)
+> **eventHandlerResolver**: [`AdapterEventHandlerResolver`](../../../declarations/type-aliases/AdapterEventHandlerResolver.md)\<`IncomingEventType`, `OutgoingResponseType`\>
 
-Defined in: [options/AdapterConfig.ts:33](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L33)
+Defined in: [options/AdapterConfig.ts:59](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L59)
 
-Hooks that provide additional behavior during specific lifecycle events of the adapter.
-These hooks can be used to extend the adapter's functionality at various points.
+The event handler resolver used to create instances of the event handler.
 
 ***
 
 ### middleware
 
-> **middleware**: `MixedPipe`[]
+> **middleware**: [`AdapterMixedPipeType`](../../../declarations/type-aliases/AdapterMixedPipeType.md)\<[`AdapterContext`](../../../declarations/interfaces/AdapterContext.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`, `IncomingEventType`, `IncomingEventOptionsType`, `OutgoingResponseType`\>, `RawResponseType`\>[]
 
-Defined in: [options/AdapterConfig.ts:27](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L27)
+Defined in: [options/AdapterConfig.ts:47](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L47)
 
 The middleware used for processing incoming or outgoing data in the adapter.
 Middleware can modify or handle events at different stages of the adapter's lifecycle.
@@ -88,7 +113,7 @@ Middleware can modify or handle events at different stages of the adapter's life
 
 > **platform**: `string`
 
-Defined in: [options/AdapterConfig.ts:16](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L16)
+Defined in: [options/AdapterConfig.ts:30](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L30)
 
 The platform identifier for the adapter.
 This is used to categorize the adapter based on the environment or technology it supports.
@@ -99,6 +124,17 @@ This is used to categorize the adapter based on the environment or technology it
 
 > **resolver**: [`AdapterResolver`](../../../declarations/type-aliases/AdapterResolver.md)
 
-Defined in: [options/AdapterConfig.ts:21](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/options/AdapterConfig.ts#L21)
+Defined in: [options/AdapterConfig.ts:41](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L41)
 
 The class type resolver used to create instances of the adapter.
+
+***
+
+### variant
+
+> **variant**: `"server"` \| `"browser"` \| `"console"`
+
+Defined in: [options/AdapterConfig.ts:36](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/AdapterConfig.ts#L36)
+
+The class type of the adapter.
+This is used to identify the category of the adapter.

@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/AdapterMiddleware](../README.md) / AdapterMiddleware
+[Core Documentation](../../../README.md) / [decorators/AdapterMiddleware](../README.md) / AdapterMiddleware
 
 # Function: AdapterMiddleware()
 
 > **AdapterMiddleware**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/AdapterMiddleware.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/AdapterMiddleware.ts#L44)
+Defined in: [decorators/AdapterMiddleware.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/AdapterMiddleware.ts#L22)
 
 AdapterMiddleware decorator to mark a class as middleware within the Stone.js framework.
 
@@ -17,13 +17,15 @@ as part of the request/response lifecycle or other layers such as adapter, kerne
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 
 ### options
 
-[`AdapterMiddlewareOptions`](../interfaces/AdapterMiddlewareOptions.md) = `{}`
+[`AdapterMiddlewareOptions`](../../../declarations/interfaces/AdapterMiddlewareOptions.md) = `{}`
 
 The configuration options for the middleware, including platform, priority, singleton registration, alias, layer, and type.
 

@@ -1,5 +1,12 @@
-import { MixedPipe } from '@stone-js/pipeline'
-import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../declarations'
+import {
+  AdapterContext,
+  AdapterResolver,
+  AdapterMixedPipeType,
+  MetaAdapterErrorHandler,
+  AdapterEventHandlerResolver
+} from '../declarations'
+import { OutgoingResponse } from '../events/OutgoingResponse'
+import { IncomingEvent, IncomingEventOptions } from '../events/IncomingEvent'
 
 /**
  * AdapterConfig Interface.
@@ -8,12 +15,25 @@ import { AdapterHooks, AdapterResolver, IAdapterErrorHandler } from '../declarat
  * It includes settings for the adapter's alias, resolver, middleware, and hooks, among other properties.
  * The AdapterConfig allows developers to manage how the adapter behaves and how it integrates with the application.
  */
-export interface AdapterConfig {
+export interface AdapterConfig<
+  RawEventType = any,
+  RawResponseType = any,
+  ExecutionContextType = any,
+  IncomingEventType extends IncomingEvent = IncomingEvent,
+  IncomingEventOptionsType extends IncomingEventOptions = IncomingEventOptions,
+  OutgoingResponseType extends OutgoingResponse = OutgoingResponse,
+> {
   /**
    * The platform identifier for the adapter.
    * This is used to categorize the adapter based on the environment or technology it supports.
    */
   platform: string
+
+  /**
+   * The class type of the adapter.
+   * This is used to identify the category of the adapter.
+   */
+  variant: 'server' | 'browser' | 'console'
 
   /**
    * The class type resolver used to create instances of the adapter.
@@ -24,19 +44,25 @@ export interface AdapterConfig {
    * The middleware used for processing incoming or outgoing data in the adapter.
    * Middleware can modify or handle events at different stages of the adapter's lifecycle.
    */
-  middleware: MixedPipe[]
+  middleware: Array<AdapterMixedPipeType<AdapterContext<
+  RawEventType,
+  RawResponseType,
+  ExecutionContextType,
+  IncomingEventType,
+  IncomingEventOptionsType,
+  OutgoingResponseType
+  >, RawResponseType>>
 
   /**
-   * Hooks that provide additional behavior during specific lifecycle events of the adapter.
-   * These hooks can be used to extend the adapter's functionality at various points.
+   * The event handler resolver used to create instances of the event handler.
    */
-  hooks: AdapterHooks
+  eventHandlerResolver: AdapterEventHandlerResolver<IncomingEventType, OutgoingResponseType>
 
   /**
    * Error handlers used to manage and report errors that occur within the adapter.
    * These handlers can be used to customize error handling behavior and logging.
    */
-  errorHandlers: Record<string, new (...args: any[]) => IAdapterErrorHandler<any, any, any>>
+  errorHandlers: Record<string, MetaAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>
 
   /**
    * The alias name for the adapter.

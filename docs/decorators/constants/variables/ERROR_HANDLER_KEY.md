@@ -1,13 +1,13 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/constants](../README.md) / ERROR\_HANDLER\_KEY
+[Core Documentation](../../../README.md) / [decorators/constants](../README.md) / ERROR\_HANDLER\_KEY
 
 # Variable: ERROR\_HANDLER\_KEY
 
-> `const` **ERROR\_HANDLER\_KEY**: *typeof* [`ERROR_HANDLER_KEY`](ERROR_HANDLER_KEY.md)
+> `const` **ERROR\_HANDLER\_KEY**: *typeof* `ERROR_HANDLER_KEY`
 
-Defined in: [decorators/constants.ts:29](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/constants.ts#L29)
+Defined in: [decorators/constants.ts:29](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/constants.ts#L29)
 
 A unique symbol used as a key for the error handler metadata.

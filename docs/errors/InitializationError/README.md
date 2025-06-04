@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / errors/InitializationError
+[Core Documentation](../../README.md) / errors/InitializationError
 
 # errors/InitializationError
 

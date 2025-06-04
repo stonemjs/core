@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / setMethodMetadata
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / setMethodMetadata
 
 # Function: setMethodMetadata()
 
 > **setMethodMetadata**\<`T`\>(`key`, `value`): `MethodDecorator`
 
-Defined in: [decorators/Metadata.ts:147](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L147)
+Defined in: [decorators/Metadata.ts:147](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L147)
 
 Set metadata on a class method using a method decorator.
 
 ## Type Parameters
 
-• **T** *extends* `Function` = `Function`
+### T
+
+`T` *extends* `Function` = `Function`
 
 ## Parameters
 

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Metadata](../README.md) / getAllMetadata
+[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / getAllMetadata
 
 # Function: getAllMetadata()
 
@@ -18,17 +18,21 @@ The default value to return if no metadata is found.
 
 ## Call Signature
 
-> **getAllMetadata**\<`TClass`, `UReturn`\>(`Class`): `UReturn` \| `undefined`
+> **getAllMetadata**\<`TClass`, `UReturn`\>(`Class`): `undefined` \| `UReturn`
 
-Defined in: [decorators/Metadata.ts:93](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L93)
+Defined in: [decorators/Metadata.ts:93](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L93)
 
 Get all metadata from a class.
 
 ### Type Parameters
 
-• **TClass** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+#### TClass
 
-• **UReturn** = `unknown`
+`TClass` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+
+#### UReturn
+
+`UReturn` = `unknown`
 
 ### Parameters
 
@@ -40,9 +44,7 @@ The class to get all metadata from.
 
 ### Returns
 
-`UReturn` \| `undefined`
-
-All metadata or the default value if no metadata exists.
+`undefined` \| `UReturn`
 
 All metadata or the default value if no metadata exists.
 
@@ -58,15 +60,19 @@ The default value to return if no metadata is found.
 
 > **getAllMetadata**\<`TClass`, `UReturn`\>(`Class`, `fallback`): `UReturn`
 
-Defined in: [decorators/Metadata.ts:102](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Metadata.ts#L102)
+Defined in: [decorators/Metadata.ts:102](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L102)
 
 Get all metadata from a class.
 
 ### Type Parameters
 
-• **TClass** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+#### TClass
 
-• **UReturn** = `unknown`
+`TClass` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+
+#### UReturn
+
+`UReturn` = `unknown`
 
 ### Parameters
 
@@ -85,8 +91,6 @@ The default value to return if no metadata is found.
 ### Returns
 
 `UReturn`
-
-All metadata or the default value if no metadata exists.
 
 All metadata or the default value if no metadata exists.
 

@@ -60,4 +60,23 @@ export class IncomingEvent extends Event {
     this.locale = locale
     this.source = source
   }
+
+  /**
+   * Get the platform of the event source.
+   *
+   * @returns The platform of the event source.
+   */
+  get platform (): string | symbol {
+    return this.source.platform
+  }
+
+  /**
+   * Check if the event source is from a platform.
+   *
+   * @param platform - The platform to check.
+   * @returns True if the event source is from the platform, false otherwise.
+   */
+  isPlatform (platform: string | symbol): boolean {
+    return this.source.platform === platform
+  }
 }

@@ -1,8 +1,8 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / events/OutgoingResponse
+[Core Documentation](../../README.md) / events/OutgoingResponse
 
 # events/OutgoingResponse
 

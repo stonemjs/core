@@ -1,20 +1,22 @@
-[**Core Documentation v0.0.36**](../../../README.md)
+[**Core Documentation**](../../../README.md)
 
 ***
 
-[Core Documentation](../../../modules.md) / [decorators/Configuration](../README.md) / Configuration
+[Core Documentation](../../../README.md) / [decorators/Configuration](../README.md) / Configuration
 
 # Function: Configuration()
 
 > **Configuration**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [decorators/Configuration.ts:31](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/decorators/Configuration.ts#L31)
+Defined in: [decorators/Configuration.ts:36](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Configuration.ts#L36)
 
 Configuration decorator to set imperative configuration.
 
 ## Type Parameters
 
-• **T** *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
+### T
+
+`T` *extends* [`ClassType`](../../../declarations/type-aliases/ClassType.md) = [`ClassType`](../../../declarations/type-aliases/ClassType.md)
 
 ## Parameters
 
@@ -34,7 +36,9 @@ A class decorator function that sets the metadata using the provided options.
 
 ```typescript
 @Configuration()
-class MyClass {
-  // ...
+MyConfiguration {
+ configure (blueprint): void | Promise<void> {
+   blueprint.set('name.name', {})
+ }
 }
 ```

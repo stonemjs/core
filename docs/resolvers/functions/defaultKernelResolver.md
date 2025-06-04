@@ -1,14 +1,14 @@
-[**Core Documentation v0.0.36**](../../README.md)
+[**Core Documentation**](../../README.md)
 
 ***
 
-[Core Documentation](../../modules.md) / [resolvers](../README.md) / defaultKernelResolver
+[Core Documentation](../../README.md) / [resolvers](../README.md) / defaultKernelResolver
 
 # Function: defaultKernelResolver()
 
 > **defaultKernelResolver**\<`U`, `V`\>(`blueprint`): [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
 
-Defined in: [resolvers.ts:44](https://github.com/stonemjs/core/blob/9f959fbf0878444ad50749e09c8b1ee612a83d71/src/resolvers.ts#L44)
+Defined in: [resolvers.ts:45](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/resolvers.ts#L45)
 
 Default kernel resolver function.
 
@@ -17,9 +17,13 @@ It creates a `Kernel` instance with the given blueprint, logger, container, and 
 
 ## Type Parameters
 
-• **U** *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+### U
 
-• **V** *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
+`U` *extends* [`IncomingEvent`](../../events/IncomingEvent/classes/IncomingEvent.md)
+
+### V
+
+`V` *extends* [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
 
 ## Parameters
 
@@ -33,4 +37,4 @@ The blueprint configuration to use for the kernel.
 
 [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
 
-- A `Kernel` instance configured with the provided blueprint.
+A `Kernel` instance configured with the provided blueprint.
