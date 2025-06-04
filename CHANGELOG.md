@@ -5,6 +5,13 @@ All notable changes to the "Stone.js Core" extension will be documented in this 
 ## Unreleased
 
 
+## [0.1.0](https://github.com/stonemjs/core/compare/v0.0.4...v0.1.0) (2025-06-04)
+
+
+### Features
+
+* major internal restructuring and cleanup ([#10](https://github.com/stonemjs/core/issues/10)) ([eb49057](https://github.com/stonemjs/core/commit/eb4905700b68d877c83920dea41d27fb1c7f6b98))
+
 ## [0.0.4](https://github.com/stonemjs/core/compare/v0.0.36...v0.0.4) (2025-01-21)
 
 
