@@ -11,6 +11,39 @@ All notable changes to the "Stone.js Core" extension will be documented in this 
 ### Features
 
 * major internal restructuring and cleanup ([#10](https://github.com/stonemjs/core/issues/10)) ([eb49057](https://github.com/stonemjs/core/commit/eb4905700b68d877c83920dea41d27fb1c7f6b98))
+* This Version introduces a comprehensive internal refactoring of the Stone.js core module to improve maintainability, developer experience, and project readiness for future releases.
+
+#### Highlights
+
+* **Documentation Overhaul**
+
+  * Updated `StoneFactory`, `Kernel`, and related modules to match the latest internal API.
+  * Removed outdated references and improved clarity for new contributors.
+
+* **License and Legal**
+
+  * Switched project license from **Apache 2.0** to **MIT**.
+  * Updated `README.md` to reflect the new licensing and project scope.
+
+* **CI & DevOps Improvements**
+
+  * Integrated **Codecov** for test coverage reporting.
+  * Added **Dependabot** configuration for automated dependency updates.
+
+* **Blueprint Utilities**
+
+  * Introduced new utility functions to streamline blueprint definition and validation.
+
+* **Testing Enhancements**
+
+  * Achieved 100% unit test coverage on core adapters and blueprint modules.
+  * Improved test organization and consistency across the project.
+
+* **Imperative API Polishing**
+
+  * Refined the imperative API for better developer ergonomics and internal coherence.
+
+This restructuring lays the groundwork for the upcoming beta phase and prepares the core for long-term stability.
 
 ## [0.0.4](https://github.com/stonemjs/core/compare/v0.0.36...v0.0.4) (2025-01-21)
 
