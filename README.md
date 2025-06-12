@@ -40,7 +40,7 @@ Stone.js Core provides the foundational building blocks that power the entire ec
 
 - A flexible **context execution engine** (kernel) to handle app lifecycles.
 - A universal **event system** that translates any platform input into structured intents.
-- A **blueprint coreuration model** for organizing app behavior and dependencies.
+- A **blueprint configuration model** for organizing app behavior and dependencies.
 - A powerful, context-aware **middleware and handler core**.
 - A runtime-independent foundation to power **modular, adaptive applications**.
 
