@@ -5,6 +5,13 @@ All notable changes to the "Stone.js Core" extension will be documented in this 
 ## Unreleased
 
 
+## [0.1.1](https://github.com/stone-foundation/stone-js-core/compare/v0.1.0...v0.1.1) (2025-06-12)
+
+
+### Miscellaneous Chores
+
+* migrate to stone-foundation, integrate sonar cloud and add security policy ([#14](https://github.com/stone-foundation/stone-js-core/issues/14)) ([fa3aa5e](https://github.com/stone-foundation/stone-js-core/commit/fa3aa5e08f8ebda739bd4fb0a7ba61d502b68790))
+
 ## [0.1.0](https://github.com/stone-foundation/stone-js-core/compare/v0.0.4...v0.1.0) (2025-06-04)
 
 
