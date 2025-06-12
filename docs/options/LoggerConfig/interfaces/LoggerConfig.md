@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [options/LoggerConfig](../README.md) / LoggerConfig
-
 # Interface: LoggerConfig
-
-Defined in: [options/LoggerConfig.ts:11](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/LoggerConfig.ts#L11)
 
 **LoggerConfig Interface**
 
@@ -18,9 +10,9 @@ output styling, and the logger resolver.
 
 ### level?
 
-> `optional` **level**: [`LogLevel`](../../../declarations/enumerations/LogLevel.md)
-
-Defined in: [options/LoggerConfig.ts:25](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/LoggerConfig.ts#L25)
+```ts
+optional level: LogLevel;
+```
 
 The log level for the logger.
 
@@ -40,9 +32,9 @@ Common values include:
 
 ### resolver?
 
-> `optional` **resolver**: [`LoggerResolver`](../../../declarations/type-aliases/LoggerResolver.md)
-
-Defined in: [options/LoggerConfig.ts:54](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/LoggerConfig.ts#L54)
+```ts
+optional resolver: LoggerResolver;
+```
 
 A resolver function that returns a logger instance.
 
@@ -57,9 +49,9 @@ This function provides a way to inject a logger that suits specific requirements
 
 ### useColors?
 
-> `optional` **useColors**: `boolean`
-
-Defined in: [options/LoggerConfig.ts:35](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/LoggerConfig.ts#L35)
+```ts
+optional useColors: boolean;
+```
 
 Whether to enable color output in the logs.
 
@@ -74,9 +66,9 @@ or when using third-party loggers such as Pino.
 
 ### useTimestamp?
 
-> `optional` **useTimestamp**: `boolean`
-
-Defined in: [options/LoggerConfig.ts:44](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/LoggerConfig.ts#L44)
+```ts
+optional useTimestamp: boolean;
+```
 
 Defines whether to include a timestamp in log messages.
 

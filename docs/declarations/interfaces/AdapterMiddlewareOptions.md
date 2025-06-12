@@ -1,12 +1,4 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / AdapterMiddlewareOptions
-
 # Interface: AdapterMiddlewareOptions
-
-Defined in: [declarations.ts:163](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L163)
 
 AdapterMiddleware options.
 
@@ -16,9 +8,9 @@ This interface defines the configuration options for marking a class as middlewa
 
 ### adapterAlias?
 
-> `optional` **adapterAlias**: `string`
-
-Defined in: [declarations.ts:177](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L177)
+```ts
+optional adapterAlias: string;
+```
 
 The alias name for which the middleware is used.
 
@@ -26,9 +18,9 @@ The alias name for which the middleware is used.
 
 ### params?
 
-> `optional` **params**: `unknown`[]
-
-Defined in: [declarations.ts:167](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L167)
+```ts
+optional params: unknown[];
+```
 
 The params to pass to the middleware.
 
@@ -36,9 +28,9 @@ The params to pass to the middleware.
 
 ### platform?
 
-> `optional` **platform**: `string`
-
-Defined in: [declarations.ts:182](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L182)
+```ts
+optional platform: string;
+```
 
 The platform name for which the middleware is used.
 
@@ -46,8 +38,8 @@ The platform name for which the middleware is used.
 
 ### priority?
 
-> `optional` **priority**: `number`
-
-Defined in: [declarations.ts:172](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L172)
+```ts
+optional priority: number;
+```
 
 The execution priority of the middleware.

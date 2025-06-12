@@ -1,12 +1,4 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / BlueprintHookType
-
 # Interface: BlueprintHookType\<BlueprintType, ContextType\>
-
-Defined in: [declarations.ts:743](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L743)
 
 Blueprint Hook Type.
 
@@ -26,30 +18,30 @@ Represents a hook that can either be synchronous or asynchronous.
 
 ### onBlueprintMiddlewareProcessed?
 
-> `optional` **onBlueprintMiddlewareProcessed**: `PipelineHookListener`\<`ContextType`, `BlueprintType`, `any`[]\>[]
-
-Defined in: [declarations.ts:750](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L750)
+```ts
+optional onBlueprintMiddlewareProcessed: PipelineHookListener<ContextType, BlueprintType, any[]>[];
+```
 
 ***
 
 ### onBlueprintPrepared?
 
-> `optional` **onBlueprintPrepared**: [`BlueprintHookListener`](../type-aliases/BlueprintHookListener.md)\<`BlueprintType`, `ContextType`\>[]
-
-Defined in: [declarations.ts:748](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L748)
+```ts
+optional onBlueprintPrepared: BlueprintHookListener<BlueprintType, ContextType>[];
+```
 
 ***
 
 ### onPreparingBlueprint?
 
-> `optional` **onPreparingBlueprint**: [`BlueprintHookListener`](../type-aliases/BlueprintHookListener.md)\<`BlueprintType`, `ContextType`\>[]
-
-Defined in: [declarations.ts:747](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L747)
+```ts
+optional onPreparingBlueprint: BlueprintHookListener<BlueprintType, ContextType>[];
+```
 
 ***
 
 ### onProcessingBlueprintMiddleware?
 
-> `optional` **onProcessingBlueprintMiddleware**: `PipelineHookListener`\<`ContextType`, `BlueprintType`, `any`[]\>[]
-
-Defined in: [declarations.ts:749](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L749)
+```ts
+optional onProcessingBlueprintMiddleware: PipelineHookListener<ContextType, BlueprintType, any[]>[];
+```

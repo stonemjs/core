@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [utils](../README.md) / validateBlueprints
-
 # Function: validateBlueprints()
 
-> **validateBlueprints**\<`U`, `V`\>(`blueprints`): `void`
-
-Defined in: [utils.ts:200](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/utils.ts#L200)
+```ts
+function validateBlueprints<U, V>(blueprints): void;
+```
 
 Validates that the provided blueprints are valid objects.
 
@@ -29,7 +23,9 @@ throwing a SetupError if an invalid blueprint is found.
 
 ### blueprints
 
-(`Record`\<`string`, `any`\> \| [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>)[]
+(
+  \| `Record`\<`string`, `any`\>
+  \| [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>)[]
 
 An array of blueprints to validate.
 

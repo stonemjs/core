@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [errors/RuntimeError](../README.md) / RuntimeError
-
 # Class: RuntimeError
-
-Defined in: [errors/RuntimeError.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L8)
 
 Class representing a RuntimeError.
 
@@ -28,9 +20,9 @@ Mr. Stone <evensstone@gmail.com>
 
 ### Constructor
 
-> **new RuntimeError**(`message`, `options`): `RuntimeError`
-
-Defined in: [errors/RuntimeError.ts:29](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L29)
+```ts
+new RuntimeError(message, options): RuntimeError;
+```
 
 Create a RuntimeError.
 
@@ -54,43 +46,47 @@ The error options.
 
 #### Overrides
 
-`Error.constructor`
+```ts
+Error.constructor
+```
 
 ## Properties
 
 ### cause?
 
-> `readonly` `optional` **cause**: `Error`
-
-Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L10)
+```ts
+readonly optional cause: Error;
+```
 
 #### Overrides
 
-`Error.cause`
+```ts
+Error.cause
+```
 
 ***
 
 ### code?
 
-> `readonly` `optional` **code**: `string`
-
-Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L9)
+```ts
+readonly optional code: string;
+```
 
 ***
 
 ### metadata?
 
-> `readonly` `optional` **metadata**: `unknown`
-
-Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L11)
+```ts
+readonly optional metadata: unknown;
+```
 
 ## Methods
 
 ### toString()
 
-> **toString**(`multiline`): `string`
-
-Defined in: [errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L51)
+```ts
+toString(multiline): string;
+```
 
 Converts the error to a formatted string representation.
 
@@ -112,9 +108,9 @@ A formatted error string.
 
 ### create()
 
-> `static` **create**\<`T`\>(`message`, `options`): `T`
-
-Defined in: [errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L19)
+```ts
+static create<T>(message, options): T;
+```
 
 Create a RuntimeError.
 

@@ -1,12 +1,4 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / MetaEventListener
-
 # Interface: MetaEventListener\<TEvent\>
-
-Defined in: [declarations.ts:512](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L512)
 
 Represents a MetaEventListener type.
 
@@ -20,30 +12,30 @@ Represents a MetaEventListener type.
 
 ### event
 
-> **event**: `string`
-
-Defined in: [declarations.ts:513](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L513)
+```ts
+event: string;
+```
 
 ***
 
 ### isClass?
 
-> `optional` **isClass**: `boolean`
-
-Defined in: [declarations.ts:514](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L514)
+```ts
+optional isClass: boolean;
+```
 
 ***
 
 ### isFactory?
 
-> `optional` **isFactory**: `boolean`
-
-Defined in: [declarations.ts:515](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L515)
+```ts
+optional isFactory: boolean;
+```
 
 ***
 
 ### module
 
-> **module**: [`EventListenerType`](../type-aliases/EventListenerType.md)\<`TEvent`\>
-
-Defined in: [declarations.ts:516](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L516)
+```ts
+module: EventListenerType<TEvent>;
+```

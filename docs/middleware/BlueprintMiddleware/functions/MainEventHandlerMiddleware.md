@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / MainEventHandlerMiddleware
-
 # Function: MainEventHandlerMiddleware()
 
-> **MainEventHandlerMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:58](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L58)
+```ts
+function MainEventHandlerMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to set the main event handler in the blueprint.
 

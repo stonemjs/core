@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / ProposalClassDecorator
-
 # Type Alias: ProposalClassDecorator()\<TClass\>
 
-> **ProposalClassDecorator**\<`TClass`\> = \<`TFunction`\>(`target`, `context`) => `TFunction` \| `undefined`
-
-Defined in: [declarations.ts:1069](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1069)
+```ts
+type ProposalClassDecorator<TClass> = <TFunction>(target, context) => TFunction | undefined;
+```
 
 Represents a class decorator using the 2023-11 proposal syntax.
 

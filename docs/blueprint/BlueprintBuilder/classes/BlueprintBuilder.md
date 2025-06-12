@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/BlueprintBuilder](../README.md) / BlueprintBuilder
-
 # Class: BlueprintBuilder\<BlueprintType, ContextType\>
-
-Defined in: [blueprint/BlueprintBuilder.ts:17](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintBuilder.ts#L17)
 
 Class representing a BlueprintBuilder for the Stone.js framework.
 
@@ -39,9 +31,9 @@ Mr. Stone <evensstone@gmail.com>
 
 ### build()
 
-> **build**(`modules`): `Promise`\<`BlueprintType`\>
-
-Defined in: [blueprint/BlueprintBuilder.ts:64](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintBuilder.ts#L64)
+```ts
+build(modules): Promise<BlueprintType>;
+```
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
@@ -74,9 +66,9 @@ const blueprint = await BlueprintBuilder.build(rawModules);
 
 ### create()
 
-> `static` **create**\<`BlueprintType`, `ContextType`\>(`blueprint`): `BlueprintBuilder`\<`BlueprintType`, `ContextType`\>
-
-Defined in: [blueprint/BlueprintBuilder.ts:31](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintBuilder.ts#L31)
+```ts
+static create<BlueprintType, ContextType>(blueprint): BlueprintBuilder<BlueprintType, ContextType>;
+```
 
 Create a BlueprintBuilder.
 
@@ -88,7 +80,11 @@ Create a BlueprintBuilder.
 
 ##### ContextType
 
-`ContextType` *extends* [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, `PipeClass` \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\> = [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, `PipeClass` \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\>
+`ContextType` *extends* [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, 
+  \| `PipeClass`
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\> = [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, 
+  \| `PipeClass`
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\>
 
 #### Parameters
 

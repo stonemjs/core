@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / removeMetadata
-
 # Function: removeMetadata()
 
-> **removeMetadata**\<`T`\>(`Class`, `key`): `void`
-
-Defined in: [decorators/Metadata.ts:121](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L121)
+```ts
+function removeMetadata<T>(Class, key): void;
+```
 
 Remove a specific metadata entry from a class.
 

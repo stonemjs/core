@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Subscriber](../README.md) / Subscriber
-
 # Function: Subscriber()
 
-> **Subscriber**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [decorators/Subscriber.ts:34](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Subscriber.ts#L34)
+```ts
+function Subscriber<T>(options): ClassDecorator;
+```
 
 Subscriber decorator to mark a class as a subscriber.
 

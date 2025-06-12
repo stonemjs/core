@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [providers/CoreServiceProvider](../README.md) / CoreServiceProvider
-
 # Class: CoreServiceProvider
-
-Defined in: [providers/CoreServiceProvider.ts:51](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/providers/CoreServiceProvider.ts#L51)
 
 Class representing a CoreServiceProvider.
 
@@ -27,9 +19,9 @@ Mr. Stone <evensstone@gmail.com>
 
 ### Constructor
 
-> **new CoreServiceProvider**(`container`): `CoreServiceProvider`
-
-Defined in: [providers/CoreServiceProvider.ts:63](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/providers/CoreServiceProvider.ts#L63)
+```ts
+new CoreServiceProvider(container): CoreServiceProvider;
+```
 
 Create a new instance of CoreServiceProvider.
 
@@ -53,9 +45,9 @@ If the Blueprint config or EventEmitter is not bound to the container.
 
 ### boot()
 
-> **boot**(): `Promise`\<`void`\>
-
-Defined in: [providers/CoreServiceProvider.ts:132](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/providers/CoreServiceProvider.ts#L132)
+```ts
+boot(): Promise<void>;
+```
 
 Boots the provider after registration. This method is used to initialize services that need to be started.
 
@@ -71,9 +63,9 @@ Boots the provider after registration. This method is used to initialize service
 
 ### register()
 
-> **register**(): `void`
-
-Defined in: [providers/CoreServiceProvider.ts:120](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/providers/CoreServiceProvider.ts#L120)
+```ts
+register(): void;
+```
 
 Registers the provider into the system. Typically used for adding services or bindings to the container.
 

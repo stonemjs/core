@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [events/Event](../README.md) / Event
-
 # Class: `abstract` Event
-
-Defined in: [events/Event.ts:18](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L18)
 
 Class representing an Event.
 
@@ -23,9 +15,9 @@ Mr. Stone <evensstone@gmail.com>
 
 ### Constructor
 
-> `protected` **new Event**(`options`): `Event`
-
-Defined in: [events/Event.ts:44](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L44)
+```ts
+protected new Event(options): Event;
+```
 
 Create an Event.
 
@@ -45,9 +37,9 @@ The options to create an Event.
 
 ### metadata
 
-> `readonly` **metadata**: `Record`\<`string`, `unknown`\>
-
-Defined in: [events/Event.ts:27](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L27)
+```ts
+readonly metadata: Record<string, unknown>;
+```
 
 The metadata associated with the event.
 
@@ -55,9 +47,9 @@ The metadata associated with the event.
 
 ### source?
 
-> `readonly` `optional` **source**: `object`
-
-Defined in: [events/Event.ts:32](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L32)
+```ts
+readonly optional source: object;
+```
 
 The source of the event.
 
@@ -65,9 +57,9 @@ The source of the event.
 
 ### timeStamp
 
-> `readonly` **timeStamp**: `number`
-
-Defined in: [events/Event.ts:37](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L37)
+```ts
+readonly timeStamp: number;
+```
 
 The timestamp of the event creation.
 
@@ -75,9 +67,9 @@ The timestamp of the event creation.
 
 ### type
 
-> `readonly` **type**: `string`
-
-Defined in: [events/Event.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L22)
+```ts
+readonly type: string;
+```
 
 The type of the event.
 
@@ -85,9 +77,9 @@ The type of the event.
 
 ### clone()
 
-> **clone**\<`T`\>(): `T`
-
-Defined in: [events/Event.ts:135](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L135)
+```ts
+clone<T>(): T;
+```
 
 Return a cloned instance.
 
@@ -119,9 +111,9 @@ The fallback value if the key is not found.
 
 #### Call Signature
 
-> **get**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
-
-Defined in: [events/Event.ts:57](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L57)
+```ts
+get<TReturn>(key): undefined | TReturn;
+```
 
 Get data from metadata.
 
@@ -155,9 +147,9 @@ The fallback value if the key is not found.
 
 #### Call Signature
 
-> **get**\<`TReturn`\>(`key`, `fallback`): `TReturn`
-
-Defined in: [events/Event.ts:66](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L66)
+```ts
+get<TReturn>(key, fallback): TReturn;
+```
 
 Get data from metadata.
 
@@ -211,9 +203,9 @@ The fallback value if the key is not found.
 
 #### Call Signature
 
-> **getMetadataValue**\<`TReturn`\>(`key`): `undefined` \| `TReturn`
-
-Defined in: [events/Event.ts:96](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L96)
+```ts
+getMetadataValue<TReturn>(key): undefined | TReturn;
+```
 
 Get data from metadata.
 
@@ -247,9 +239,9 @@ The fallback value if the key is not found.
 
 #### Call Signature
 
-> **getMetadataValue**\<`TReturn`\>(`key`, `fallback`): `TReturn`
-
-Defined in: [events/Event.ts:105](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L105)
+```ts
+getMetadataValue<TReturn>(key, fallback): TReturn;
+```
 
 Get data from metadata.
 
@@ -291,9 +283,9 @@ The fallback value if the key is not found.
 
 ### is()
 
-> **is**(`key`, `value`): `boolean`
-
-Defined in: [events/Event.ts:86](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L86)
+```ts
+is(key, value): boolean;
+```
 
 Check if the given value is equal to the specified value.
 
@@ -321,9 +313,9 @@ True if the key's value is equal to the specified value, false otherwise.
 
 ### setMetadataValue()
 
-> **setMetadataValue**(`key`, `value?`): `this`
-
-Defined in: [events/Event.ts:125](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L125)
+```ts
+setMetadataValue(key, value?): this;
+```
 
 Add data to metadata.
 

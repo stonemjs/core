@@ -1,8 +1,4 @@
-**Core Documentation**
-
-***
-
-# Core Documentation
+# Core
 
 ## Modules
 

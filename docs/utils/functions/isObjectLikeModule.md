@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [utils](../README.md) / isObjectLikeModule
-
 # Function: isObjectLikeModule()
 
-> **isObjectLikeModule**\<`ObjectModuleType`\>(`value`): `value is ObjectModuleType`
-
-Defined in: [utils.ts:58](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/utils.ts#L58)
+```ts
+function isObjectLikeModule<ObjectModuleType>(value): value is ObjectModuleType;
+```
 
 Check if the provided value is an object module.
 

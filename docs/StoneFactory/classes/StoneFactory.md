@@ -1,12 +1,4 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [StoneFactory](../README.md) / StoneFactory
-
 # Class: StoneFactory\<TEvent, UResponse\>
-
-Defined in: [StoneFactory.ts:38](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L38)
 
 StoneFactory.
 
@@ -32,9 +24,9 @@ UResponse
 
 ### configure()
 
-> **configure**(`configuration`): `this`
-
-Defined in: [StoneFactory.ts:76](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L76)
+```ts
+configure(configuration): this;
+```
 
 Configure the application using the blueprint resolver.
 Use this method to add custom configurations to the application.
@@ -57,9 +49,9 @@ The current StoneFactory instance.
 
 ### handle()
 
-> **handle**\<`ExecutionResultType`\>(`handler`): `Promise`\<`ExecutionResultType`\>
-
-Defined in: [StoneFactory.ts:92](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L92)
+```ts
+handle<ExecutionResultType>(handler): Promise<ExecutionResultType>;
+```
 
 Handle application events.
 This method is a shorthand for running the application with the provided event handler.
@@ -88,9 +80,9 @@ The platform-specific response.
 
 ### run()
 
-> **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
-
-Defined in: [StoneFactory.ts:103](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L103)
+```ts
+run<ExecutionResultType>(): Promise<ExecutionResultType>;
+```
 
 Run the application.
 Populates the blueprint via introspection and runs the application.
@@ -111,9 +103,9 @@ The platform-specific response.
 
 ### create()
 
-> `static` **create**\<`TEvent`, `UResponse`\>(`options`): `StoneFactory`\<`TEvent`, `UResponse`\>
-
-Defined in: [StoneFactory.ts:53](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L53)
+```ts
+static create<TEvent, UResponse>(options): StoneFactory<TEvent, UResponse>;
+```
 
 Create a new StoneFactory instance.
 

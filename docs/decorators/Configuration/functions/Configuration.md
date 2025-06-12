@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Configuration](../README.md) / Configuration
-
 # Function: Configuration()
 
-> **Configuration**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [decorators/Configuration.ts:36](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Configuration.ts#L36)
+```ts
+function Configuration<T>(options): ClassDecorator;
+```
 
 Configuration decorator to set imperative configuration.
 

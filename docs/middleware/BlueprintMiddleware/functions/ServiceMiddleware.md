@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / ServiceMiddleware
-
 # Function: ServiceMiddleware()
 
-> **ServiceMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:240](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L240)
+```ts
+function ServiceMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to add services to the blueprint.
 

@@ -1,9 +1,3 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / options/LoggerConfig
-
 # options/LoggerConfig
 
 ## Interfaces

@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / FactoryService
-
 # Type Alias: FactoryService()
 
-> **FactoryService** = (`container`) => `Record`\<`PropertyKey`, `any`\>
-
-Defined in: [declarations.ts:448](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L448)
+```ts
+type FactoryService = (container) => Record<PropertyKey, any>;
+```
 
 Represents a FactoryService type.
 

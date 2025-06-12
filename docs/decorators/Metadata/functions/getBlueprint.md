@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / getBlueprint
-
 # Function: getBlueprint()
 
 Get the blueprint value from a class.
@@ -18,9 +12,9 @@ The default value to return if the blueprint key is not found.
 
 ## Call Signature
 
-> **getBlueprint**\<`TClass`, `UReturn`\>(`Class`): `undefined` \| `UReturn`
-
-Defined in: [decorators/Metadata.ts:198](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L198)
+```ts
+function getBlueprint<TClass, UReturn>(Class): undefined | UReturn;
+```
 
 Get the blueprint value from a class.
 
@@ -58,9 +52,9 @@ The default value to return if the blueprint key is not found.
 
 ## Call Signature
 
-> **getBlueprint**\<`TClass`, `UReturn`\>(`Class`, `fallback`): `UReturn`
-
-Defined in: [decorators/Metadata.ts:207](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L207)
+```ts
+function getBlueprint<TClass, UReturn>(Class, fallback): UReturn;
+```
 
 Get the blueprint value from a class.
 

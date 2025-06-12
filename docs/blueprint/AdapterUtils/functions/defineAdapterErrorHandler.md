@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/AdapterUtils](../README.md) / defineAdapterErrorHandler
-
 # Function: defineAdapterErrorHandler()
 
 Registers an adapter error handler in the blueprint with appropriate metadata.
@@ -21,9 +15,9 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 ## Call Signature
 
-> **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/AdapterUtils.ts:30](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L30)
+```ts
+function defineAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a function-based adapter error handler.
 
@@ -73,9 +67,9 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 ## Call Signature
 
-> **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/AdapterUtils.ts:48](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L48)
+```ts
+function defineAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a factory-based adapter error handler.
 
@@ -125,9 +119,9 @@ Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
 
 ## Call Signature
 
-> **defineAdapterErrorHandler**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/AdapterUtils.ts:66](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L66)
+```ts
+function defineAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a class-based adapter error handler.
 

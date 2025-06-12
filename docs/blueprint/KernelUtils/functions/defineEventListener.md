@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineEventListener
-
 # Function: defineEventListener()
 
 Defines an event listener (function, class, or factory) for a specific event type.
@@ -27,9 +21,9 @@ defineEventListener((event) => console.log(event), { event: 'user.created' })
 
 ## Call Signature
 
-> **defineEventListener**\<`TEvent`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:224](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L224)
+```ts
+function defineEventListener<TEvent>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a function-based event listener.
 
@@ -75,9 +69,9 @@ defineEventListener((event) => console.log(event), { event: 'user.created' })
 
 ## Call Signature
 
-> **defineEventListener**\<`TEvent`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:236](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L236)
+```ts
+function defineEventListener<TEvent>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a factory-based event listener.
 
@@ -123,9 +117,9 @@ defineEventListener((event) => console.log(event), { event: 'user.created' })
 
 ## Call Signature
 
-> **defineEventListener**\<`TEvent`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:248](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L248)
+```ts
+function defineEventListener<TEvent>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a class-based event listener.
 

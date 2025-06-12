@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineMiddleware
-
 # Function: defineMiddleware()
 
 Defines middleware (function, factory, or class) for the Stone.js kernel.
@@ -27,9 +21,9 @@ defineMiddleware((event, next) => next(event))
 
 ## Call Signature
 
-> **defineMiddleware**\<`U`, `V`\>(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:289](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L289)
+```ts
+function defineMiddleware<U, V>(module, options?): Partial<StoneBlueprint<U, V>>;
+```
 
 Defines a function-based middleware.
 
@@ -79,9 +73,9 @@ defineMiddleware((event, next) => next(event))
 
 ## Call Signature
 
-> **defineMiddleware**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:301](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L301)
+```ts
+function defineMiddleware<U, V>(module, options): Partial<StoneBlueprint<U, V>>;
+```
 
 Defines a factory-based middleware.
 
@@ -131,9 +125,9 @@ defineMiddleware((event, next) => next(event))
 
 ## Call Signature
 
-> **defineMiddleware**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:313](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L313)
+```ts
+function defineMiddleware<U, V>(module, options): Partial<StoneBlueprint<U, V>>;
+```
 
 Defines a class-based middleware.
 

@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/StoneApp](../README.md) / StoneApp
-
 # Function: StoneApp()
 
-> **StoneApp**\<`T`\>(`options`, `blueprints`): `ClassDecorator`
-
-Defined in: [decorators/StoneApp.ts:30](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/StoneApp.ts#L30)
+```ts
+function StoneApp<T>(options, blueprints): ClassDecorator;
+```
 
 StoneApp decorator to mark a class as the main application entry point.
 
@@ -31,7 +25,9 @@ The configuration options for the application, based on StoneOptions.
 
 ### blueprints
 
-([`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\> \| `Record`\<`string`, `any`\>)[] = `[]`
+(
+  \| [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>
+  \| `Record`\<`string`, `any`\>)[] = `[]`
 
 ## Returns
 

@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / FunctionalConfiguration
-
 # Type Alias: FunctionalConfiguration()\<TValues\>
 
-> **FunctionalConfiguration**\<`TValues`\> = (`blueprint`) => [`Promiseable`](Promiseable.md)\<`void`\>
-
-Defined in: [declarations.ts:924](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L924)
+```ts
+type FunctionalConfiguration<TValues> = (blueprint) => Promiseable<void>;
+```
 
 FunctionalConfiguration Type.
 

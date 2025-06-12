@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / AdapterMiddlewareMiddleware
-
 # Function: AdapterMiddlewareMiddleware()
 
-> **AdapterMiddlewareMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:327](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L327)
+```ts
+function AdapterMiddlewareMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to add adapter-specific middleware to the blueprint.
 

@@ -1,14 +1,11 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / addMetadata
-
 # Function: addMetadata()
 
-> **addMetadata**(`context`, `key`, `value`): `void`
-
-Defined in: [decorators/Metadata.ts:41](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L41)
+```ts
+function addMetadata(
+   context, 
+   key, 
+   value): void;
+```
 
 Add metadata on a given decorator context.
 

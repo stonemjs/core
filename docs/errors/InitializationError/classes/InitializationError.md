@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [errors/InitializationError](../README.md) / InitializationError
-
 # Class: InitializationError
-
-Defined in: [errors/InitializationError.ts:7](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/InitializationError.ts#L7)
 
 Custom error for Initialization layer operations.
 
@@ -18,9 +10,9 @@ Custom error for Initialization layer operations.
 
 ### Constructor
 
-> **new InitializationError**(`message`, `options`): `InitializationError`
-
-Defined in: [errors/InitializationError.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/InitializationError.ts#L8)
+```ts
+new InitializationError(message, options): InitializationError;
+```
 
 #### Parameters
 
@@ -44,9 +36,9 @@ Defined in: [errors/InitializationError.ts:8](https://github.com/stonemjs/core/b
 
 ### cause?
 
-> `readonly` `optional` **cause**: `Error`
-
-Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L10)
+```ts
+readonly optional cause: Error;
+```
 
 #### Inherited from
 
@@ -56,9 +48,9 @@ Defined in: [errors/RuntimeError.ts:10](https://github.com/stonemjs/core/blob/65
 
 ### code?
 
-> `readonly` `optional` **code**: `string`
-
-Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L9)
+```ts
+readonly optional code: string;
+```
 
 #### Inherited from
 
@@ -68,9 +60,9 @@ Defined in: [errors/RuntimeError.ts:9](https://github.com/stonemjs/core/blob/65c
 
 ### metadata?
 
-> `readonly` `optional` **metadata**: `unknown`
-
-Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L11)
+```ts
+readonly optional metadata: unknown;
+```
 
 #### Inherited from
 
@@ -80,9 +72,9 @@ Defined in: [errors/RuntimeError.ts:11](https://github.com/stonemjs/core/blob/65
 
 ### toString()
 
-> **toString**(`multiline`): `string`
-
-Defined in: [errors/RuntimeError.ts:51](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L51)
+```ts
+toString(multiline): string;
+```
 
 Converts the error to a formatted string representation.
 
@@ -108,9 +100,9 @@ A formatted error string.
 
 ### create()
 
-> `static` **create**\<`T`\>(`message`, `options`): `T`
-
-Defined in: [errors/RuntimeError.ts:19](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/errors/RuntimeError.ts#L19)
+```ts
+static create<T>(message, options): T;
+```
 
 Create a RuntimeError.
 

@@ -1,14 +1,11 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/AdapterUtils](../README.md) / isMatchedAdapter
-
 # Function: isMatchedAdapter()
 
-> **isMatchedAdapter**(`blueprint`, `platform?`, `adapterAlias?`): `boolean`
-
-Defined in: [blueprint/AdapterUtils.ts:235](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L235)
+```ts
+function isMatchedAdapter(
+   blueprint, 
+   platform?, 
+   adapterAlias?): boolean;
+```
 
 Checks if the adapter matches the given alias or platform.
 

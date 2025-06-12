@@ -1,9 +1,3 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / providers/CoreServiceProvider
-
 # providers/CoreServiceProvider
 
 ## Classes

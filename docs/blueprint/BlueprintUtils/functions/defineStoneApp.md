@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/BlueprintUtils](../README.md) / defineStoneApp
-
 # Function: defineStoneApp()
 
 Defines a Stone app using a function-based, factory-based or class-based main handler.
@@ -22,9 +16,12 @@ Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`\>(`module`, `options?`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
-
-Defined in: [blueprint/BlueprintUtils.ts:32](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L32)
+```ts
+function defineStoneApp<U>(
+   module, 
+   options?, 
+blueprints?): StoneBlueprint<U>;
+```
 
 Declares a complete Stone application blueprint using a function-based event handler.
 
@@ -74,9 +71,12 @@ Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
-
-Defined in: [blueprint/BlueprintUtils.ts:46](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L46)
+```ts
+function defineStoneApp<U>(
+   module, 
+   options, 
+blueprints?): StoneBlueprint<U>;
+```
 
 Declares a complete Stone application blueprint using a factory-based event handler.
 
@@ -126,9 +126,12 @@ Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`\>(`module`, `options`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
-
-Defined in: [blueprint/BlueprintUtils.ts:60](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L60)
+```ts
+function defineStoneApp<U>(
+   module, 
+   options, 
+blueprints?): StoneBlueprint<U>;
+```
 
 Declares a complete Stone application blueprint using a class-based event handler.
 
@@ -178,9 +181,9 @@ Additional blueprints to merge.
 
 ## Call Signature
 
-> **defineStoneApp**\<`U`\>(`options?`, `blueprints?`): [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>
-
-Defined in: [blueprint/BlueprintUtils.ts:73](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/BlueprintUtils.ts#L73)
+```ts
+function defineStoneApp<U>(options?, blueprints?): StoneBlueprint<U>;
+```
 
 Defines a Stone app without a main handler (router-only).
 

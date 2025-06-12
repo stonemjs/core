@@ -1,12 +1,4 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / ILogger
-
 # Interface: ILogger
-
-Defined in: [declarations.ts:288](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L288)
 
 Logger Interface.
 
@@ -16,9 +8,9 @@ Represents a generic logging interface, which can either be a native console obj
 
 ### debug()
 
-> **debug**: (`message`, ...`optionalParams`) => `void`
-
-Defined in: [declarations.ts:303](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L303)
+```ts
+debug: (message, ...optionalParams) => void;
+```
 
 Logs debug-level messages, used for debugging purposes.
 
@@ -44,9 +36,9 @@ Optional parameters to log.
 
 ### error()
 
-> **error**: (`message`, ...`optionalParams`) => `void`
-
-Defined in: [declarations.ts:319](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L319)
+```ts
+error: (message, ...optionalParams) => void;
+```
 
 Logs errors, used to report errors or exceptions.
 
@@ -72,9 +64,9 @@ Optional parameters to log.
 
 ### info()
 
-> **info**: (`message`, ...`optionalParams`) => `void`
-
-Defined in: [declarations.ts:295](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L295)
+```ts
+info: (message, ...optionalParams) => void;
+```
 
 Logs informational messages.
 
@@ -100,9 +92,9 @@ Optional parameters to log.
 
 ### log()?
 
-> `optional` **log**: (`message`, ...`optionalParams`) => `void`
-
-Defined in: [declarations.ts:327](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L327)
+```ts
+optional log: (message, ...optionalParams) => void;
+```
 
 Logs general messages, similar to `info` but less specific.
 
@@ -128,9 +120,9 @@ Optional parameters to log.
 
 ### trace()?
 
-> `optional` **trace**: (`message`, ...`optionalParams`) => `void`
-
-Defined in: [declarations.ts:335](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L335)
+```ts
+optional trace: (message, ...optionalParams) => void;
+```
 
 Logs trace-level messages, providing the most detailed information, usually for diagnostic purposes.
 
@@ -156,9 +148,9 @@ Optional parameters to log.
 
 ### warn()
 
-> **warn**: (`message`, ...`optionalParams`) => `void`
-
-Defined in: [declarations.ts:311](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L311)
+```ts
+warn: (message, ...optionalParams) => void;
+```
 
 Logs warnings, used to indicate potential issues.
 

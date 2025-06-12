@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / BlueprintHookListener
-
 # Type Alias: BlueprintHookListener()\<BlueprintType, ContextType\>
 
-> **BlueprintHookListener**\<`BlueprintType`, `ContextType`\> = (`context`) => [`Promiseable`](Promiseable.md)\<`void`\>
-
-Defined in: [declarations.ts:773](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L773)
+```ts
+type BlueprintHookListener<BlueprintType, ContextType> = (context) => Promiseable<void>;
+```
 
 BlueprintHookListener Type.
 

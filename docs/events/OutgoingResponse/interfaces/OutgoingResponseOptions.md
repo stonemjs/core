@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [events/OutgoingResponse](../README.md) / OutgoingResponseOptions
-
 # Interface: OutgoingResponseOptions
-
-Defined in: [events/OutgoingResponse.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L9)
 
 OutgoingResponseOptions.
 
@@ -16,23 +8,25 @@ OutgoingResponseOptions.
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+```ts
+[key: string]: unknown
+```
 
 ## Properties
 
 ### content?
 
-> `optional` **content**: `unknown`
-
-Defined in: [events/OutgoingResponse.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L10)
+```ts
+optional content: unknown;
+```
 
 ***
 
 ### metadata?
 
-> `optional` **metadata**: `Record`\<`string`, `unknown`\>
-
-Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L10)
+```ts
+optional metadata: Record<string, unknown>;
+```
 
 #### Inherited from
 
@@ -42,9 +36,9 @@ Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9
 
 ### source?
 
-> `optional` **source**: `object`
-
-Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L8)
+```ts
+optional source: object;
+```
 
 #### Inherited from
 
@@ -54,25 +48,25 @@ Defined in: [events/Event.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d
 
 ### statusCode?
 
-> `optional` **statusCode**: `number`
-
-Defined in: [events/OutgoingResponse.ts:11](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L11)
+```ts
+optional statusCode: number;
+```
 
 ***
 
 ### statusMessage?
 
-> `optional` **statusMessage**: `string`
-
-Defined in: [events/OutgoingResponse.ts:12](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/OutgoingResponse.ts#L12)
+```ts
+optional statusMessage: string;
+```
 
 ***
 
 ### timeStamp?
 
-> `optional` **timeStamp**: `number`
-
-Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L9)
+```ts
+optional timeStamp: number;
+```
 
 #### Inherited from
 
@@ -82,9 +76,9 @@ Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d
 
 ### type?
 
-> `optional` **type**: `string`
-
-Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L7)
+```ts
+optional type: string;
+```
 
 #### Inherited from
 

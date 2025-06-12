@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [events/IncomingEvent](../README.md) / IncomingEventOptions
-
 # Interface: IncomingEventOptions
-
-Defined in: [events/IncomingEvent.ts:7](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/IncomingEvent.ts#L7)
 
 IncomingEventOptions.
 
@@ -16,23 +8,25 @@ IncomingEventOptions.
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+```ts
+[key: string]: unknown
+```
 
 ## Properties
 
 ### locale?
 
-> `optional` **locale**: `string`
-
-Defined in: [events/IncomingEvent.ts:8](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/IncomingEvent.ts#L8)
+```ts
+optional locale: string;
+```
 
 ***
 
 ### metadata?
 
-> `optional` **metadata**: `Record`\<`string`, `unknown`\>
-
-Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L10)
+```ts
+optional metadata: Record<string, unknown>;
+```
 
 #### Inherited from
 
@@ -42,9 +36,9 @@ Defined in: [events/Event.ts:10](https://github.com/stonemjs/core/blob/65c9e07f9
 
 ### source
 
-> **source**: [`IncomingEventSource`](../../../declarations/interfaces/IncomingEventSource.md)
-
-Defined in: [events/IncomingEvent.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/IncomingEvent.ts#L9)
+```ts
+source: IncomingEventSource;
+```
 
 #### Overrides
 
@@ -54,9 +48,9 @@ Defined in: [events/IncomingEvent.ts:9](https://github.com/stonemjs/core/blob/65
 
 ### timeStamp?
 
-> `optional` **timeStamp**: `number`
-
-Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L9)
+```ts
+optional timeStamp: number;
+```
 
 #### Inherited from
 
@@ -66,9 +60,9 @@ Defined in: [events/Event.ts:9](https://github.com/stonemjs/core/blob/65c9e07f9d
 
 ### type?
 
-> `optional` **type**: `string`
-
-Defined in: [events/Event.ts:7](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/events/Event.ts#L7)
+```ts
+optional type: string;
+```
 
 #### Inherited from
 
