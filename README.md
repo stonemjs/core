@@ -31,7 +31,7 @@ Whether you're targeting a command-line interface, an HTTP server, a browser app
 - **Write once, run anywhere** — build your application logic independently of the environment.
 - **Context-first architecture** — every runtime context (CLI, HTTP, cloud, serverless, FaaS, browser) becomes a plug-and-play adapter.
 - **Universal lifecycle** — process events and produce responses in a unified flow.
-- **No assumptions, full control** — fully customizable coreuration, extensibility, and composition.
+- **No assumptions, full control** — fully customizable configuration, extensibility, and composition.
 - **Framework without a framework** — use Stone.js with or without a frontend, backend, or transport protocol.
 
 ## What's Inside?
