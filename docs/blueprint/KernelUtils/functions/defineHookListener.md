@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineHookListener
-
 # Function: defineHookListener()
 
-> **defineHookListener**\<`U`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:190](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L190)
+```ts
+function defineHookListener<U>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a lifecycle hook listener for the application.
 

@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / ErrorHandlerMiddleware
-
 # Function: ErrorHandlerMiddleware()
 
-> **ErrorHandlerMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:171](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L171)
+```ts
+function ErrorHandlerMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to add error handlers to the blueprint.
 

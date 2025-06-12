@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [utils](../README.md) / mergeBlueprints
-
 # Function: mergeBlueprints()
 
-> **mergeBlueprints**\<`U`, `V`\>(...`blueprints`): [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>
-
-Defined in: [utils.ts:33](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/utils.ts#L33)
+```ts
+function mergeBlueprints<U, V>(...blueprints): StoneBlueprint<U, V>;
+```
 
 Merges multiple blueprints into a single application blueprint.
 
@@ -32,7 +26,9 @@ Consider handling such cases or documenting this behavior if it applies to your 
 
 ### blueprints
 
-...(`Record`\<`string`, `any`\> \| [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>)[]
+...(
+  \| `Record`\<`string`, `any`\>
+  \| [`StoneBlueprint`](../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>)[]
 
 An array of blueprints to be merged.
 

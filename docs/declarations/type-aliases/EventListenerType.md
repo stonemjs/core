@@ -1,14 +1,11 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / EventListenerType
-
 # Type Alias: EventListenerType\<TEvent\>
 
-> **EventListenerType**\<`TEvent`\> = [`IEventListenerClass`](IEventListenerClass.md)\<`TEvent`\> \| [`FactoryEventListener`](FactoryEventListener.md)\<`TEvent`\> \| [`FunctionalEventListener`](FunctionalEventListener.md)\<`TEvent`\>
-
-Defined in: [declarations.ts:504](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L504)
+```ts
+type EventListenerType<TEvent> = 
+  | IEventListenerClass<TEvent>
+  | FactoryEventListener<TEvent>
+| FunctionalEventListener<TEvent>;
+```
 
 Represents a EventListener type.
 

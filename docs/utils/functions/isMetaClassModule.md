@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [utils](../README.md) / isMetaClassModule
-
 # Function: isMetaClassModule()
 
-> **isMetaClassModule**\<`ClassModuleType`\>(`value`): `value is Record<"module", ClassModuleType>`
-
-Defined in: [utils.ts:98](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/utils.ts#L98)
+```ts
+function isMetaClassModule<ClassModuleType>(value): value is Record<"module", ClassModuleType>;
+```
 
 Check if the provided value is a meta class module.
 

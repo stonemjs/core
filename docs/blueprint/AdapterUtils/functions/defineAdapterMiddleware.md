@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/AdapterUtils](../README.md) / defineAdapterMiddleware
-
 # Function: defineAdapterMiddleware()
 
 Registers an adapter-specific middleware in the blueprint.
@@ -21,9 +15,9 @@ Metadata describing which adapter(s) the middleware applies to.
 
 ## Call Signature
 
-> **defineAdapterMiddleware**\<`ExecutionContextType`, `RawResponseType`\>(`module`, `options?`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/AdapterUtils.ts:132](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L132)
+```ts
+function defineAdapterMiddleware<ExecutionContextType, RawResponseType>(module, options?): Partial<StoneBlueprint>;
+```
 
 Defines a function-based adapter middleware.
 
@@ -69,9 +63,9 @@ Metadata describing which adapter(s) the middleware applies to.
 
 ## Call Signature
 
-> **defineAdapterMiddleware**\<`ExecutionContextType`, `RawResponseType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/AdapterUtils.ts:149](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L149)
+```ts
+function defineAdapterMiddleware<ExecutionContextType, RawResponseType>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a factory-based adapter middleware.
 
@@ -117,9 +111,9 @@ Metadata describing which adapter(s) the middleware applies to.
 
 ## Call Signature
 
-> **defineAdapterMiddleware**\<`ExecutionContextType`, `RawResponseType`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/AdapterUtils.ts:166](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/AdapterUtils.ts#L166)
+```ts
+function defineAdapterMiddleware<ExecutionContextType, RawResponseType>(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a class-based adapter middleware.
 

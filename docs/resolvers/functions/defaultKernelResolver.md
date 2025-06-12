@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [resolvers](../README.md) / defaultKernelResolver
-
 # Function: defaultKernelResolver()
 
-> **defaultKernelResolver**\<`U`, `V`\>(`blueprint`): [`Kernel`](../../Kernel/classes/Kernel.md)\<`U`, `V`\>
-
-Defined in: [resolvers.ts:45](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/resolvers.ts#L45)
+```ts
+function defaultKernelResolver<U, V>(blueprint): Kernel<U, V>;
+```
 
 Default kernel resolver function.
 

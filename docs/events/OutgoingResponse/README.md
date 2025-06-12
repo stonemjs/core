@@ -1,9 +1,3 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / events/OutgoingResponse
-
 # events/OutgoingResponse
 
 ## Classes

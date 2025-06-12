@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Listener](../README.md) / Listener
-
 # Function: Listener()
 
-> **Listener**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [decorators/Listener.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Listener.ts#L22)
+```ts
+function Listener<T>(options): ClassDecorator;
+```
 
 Listener decorator to mark a class as a listener for a specific event.
 

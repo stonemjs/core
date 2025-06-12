@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Service](../README.md) / Service
-
 # Function: Service()
 
-> **Service**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [decorators/Service.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Service.ts#L22)
+```ts
+function Service<T>(options): ClassDecorator;
+```
 
 Service decorator to mark a class as a service and automatically bind it to the container.
 

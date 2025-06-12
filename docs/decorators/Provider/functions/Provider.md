@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Provider](../README.md) / Provider
-
 # Function: Provider()
 
-> **Provider**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [decorators/Provider.ts:34](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Provider.ts#L34)
+```ts
+function Provider<T>(options): ClassDecorator;
+```
 
 Provider decorator to mark a class as a ServiceProvider and automatically bind its services to the container.
 

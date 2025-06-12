@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineEventSubscriber
-
 # Function: defineEventSubscriber()
 
 Registers an event subscriber into the Stone blueprint.
@@ -27,9 +21,9 @@ defineEventSubscriber((emitter) => { ... })
 
 ## Call Signature
 
-> **defineEventSubscriber**(`module`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:482](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L482)
+```ts
+function defineEventSubscriber(module): Partial<StoneBlueprint>;
+```
 
 Registers a **functional event subscriber** into the Stone blueprint.
 
@@ -65,9 +59,9 @@ defineEventSubscriber((emitter) => { ... })
 
 ## Call Signature
 
-> **defineEventSubscriber**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:493](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L493)
+```ts
+function defineEventSubscriber(module, options): Partial<StoneBlueprint>;
+```
 
 Registers a **factory-based event subscriber** into the Stone blueprint.
 
@@ -111,9 +105,9 @@ defineEventSubscriber((emitter) => { ... })
 
 ## Call Signature
 
-> **defineEventSubscriber**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:505](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L505)
+```ts
+function defineEventSubscriber(module, options): Partial<StoneBlueprint>;
+```
 
 Registers a **class-based event subscriber** into the Stone blueprint.
 

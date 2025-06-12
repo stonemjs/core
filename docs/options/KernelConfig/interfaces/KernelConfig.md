@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [options/KernelConfig](../README.md) / KernelConfig
-
 # Interface: KernelConfig\<TEvent, UResponse\>
-
-Defined in: [options/KernelConfig.ts:12](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L12)
 
 Kernel options.
 
@@ -26,9 +18,9 @@ This interface defines the configuration for kernel-level options.
 
 ### errorHandlers?
 
-> `optional` **errorHandlers**: `Record`\<`string`, [`MetaErrorHandler`](../../../declarations/interfaces/MetaErrorHandler.md)\<`TEvent`, `unknown`\>\>
-
-Defined in: [options/KernelConfig.ts:37](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L37)
+```ts
+optional errorHandlers: Record<string, MetaErrorHandler<TEvent, unknown>>;
+```
 
 Error handlers used to manage and report errors that occur within the kernel.
 These handlers can be used to customize error handling behavior and logging.
@@ -37,9 +29,9 @@ These handlers can be used to customize error handling behavior and logging.
 
 ### eventHandler?
 
-> `optional` **eventHandler**: [`MixedEventHandler`](../../../declarations/type-aliases/MixedEventHandler.md)\<`TEvent`, `unknown`\>
-
-Defined in: [options/KernelConfig.ts:31](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L31)
+```ts
+optional eventHandler: MixedEventHandler<TEvent, unknown>;
+```
 
 The main event handler for the application.
 Every Stone.js application must have a main event handler.
@@ -48,9 +40,9 @@ Every Stone.js application must have a main event handler.
 
 ### middleware?
 
-> `optional` **middleware**: `MixedPipe`\<`TEvent`, `UResponse`\>[]
-
-Defined in: [options/KernelConfig.ts:25](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L25)
+```ts
+optional middleware: MixedPipe<TEvent, UResponse>[];
+```
 
 Middleware configuration options for different stages of the kernel's lifecycle.
 
@@ -58,9 +50,9 @@ Middleware configuration options for different stages of the kernel's lifecycle.
 
 ### responseResolver?
 
-> `optional` **responseResolver**: [`ResponseResolver`](../../../declarations/type-aliases/ResponseResolver.md)\<`UResponse`\>
-
-Defined in: [options/KernelConfig.ts:42](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L42)
+```ts
+optional responseResolver: ResponseResolver<UResponse>;
+```
 
 The response resolver, used to create instances of the response object.
 
@@ -68,9 +60,9 @@ The response resolver, used to create instances of the response object.
 
 ### skipMiddleware?
 
-> `optional` **skipMiddleware**: `boolean`
-
-Defined in: [options/KernelConfig.ts:20](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/options/KernelConfig.ts#L20)
+```ts
+optional skipMiddleware: boolean;
+```
 
 A flag indicating whether to skip middleware processing.
 This flag can be used to bypass middleware processing in the kernel.

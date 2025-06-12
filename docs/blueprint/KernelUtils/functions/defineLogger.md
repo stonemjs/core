@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineLogger
-
 # Function: defineLogger()
 
 Registers a logger (class-based or factory-based) into the Stone blueprint.
@@ -25,9 +19,9 @@ defineLogger((ctx) => new MyLogger(ctx), { level: 'info', isFactory: true })
 
 ## Call Signature
 
-> **defineLogger**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:546](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L546)
+```ts
+function defineLogger(module, options): Partial<StoneBlueprint>;
+```
 
 Registers a **class-based logger** into the Stone blueprint.
 
@@ -68,9 +62,9 @@ defineLogger((ctx) => new MyLogger(ctx), { level: 'info', isFactory: true })
 
 ## Call Signature
 
-> **defineLogger**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:558](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L558)
+```ts
+function defineLogger(module, options): Partial<StoneBlueprint>;
+```
 
 Registers a **factory-based logger** into the Stone blueprint.
 

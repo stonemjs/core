@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / propertyDecoratorLegacyWrapper
-
 # Function: propertyDecoratorLegacyWrapper()
 
-> **propertyDecoratorLegacyWrapper**(`decorator`): `PropertyDecorator`
-
-Defined in: [decorators/Metadata.ts:291](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L291)
+```ts
+function propertyDecoratorLegacyWrapper(decorator): PropertyDecorator;
+```
 
 Wraps a property decorator to ensure compatibility with both legacy and 2023-11 proposal contexts.
 

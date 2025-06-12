@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / FactoryErrorHandler
-
 # Type Alias: FactoryErrorHandler()\<TEvent, UResponse\>
 
-> **FactoryErrorHandler**\<`TEvent`, `UResponse`\> = (`container`) => [`FunctionalErrorHandler`](FunctionalErrorHandler.md)\<`TEvent`, `UResponse`\>
-
-Defined in: [declarations.ts:868](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L868)
+```ts
+type FactoryErrorHandler<TEvent, UResponse> = (container) => FunctionalErrorHandler<TEvent, UResponse>;
+```
 
 FactoryErrorHandler Type.
 

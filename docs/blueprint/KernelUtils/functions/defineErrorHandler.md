@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineErrorHandler
-
 # Function: defineErrorHandler()
 
 Registers a kernel-level error handler in the blueprint.
@@ -21,9 +15,9 @@ Metadata defining the error types it handles, and type flags.
 
 ## Call Signature
 
-> **defineErrorHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:53](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L53)
+```ts
+function defineErrorHandler<U, V>(module, options): Partial<StoneBlueprint<U>>;
+```
 
 Defines a function-based error handler.
 
@@ -67,9 +61,9 @@ Metadata defining the error types it handles, and type flags.
 
 ## Call Signature
 
-> **defineErrorHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:65](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L65)
+```ts
+function defineErrorHandler<U, V>(module, options): Partial<StoneBlueprint<U>>;
+```
 
 Defines a factory-based error handler.
 
@@ -113,9 +107,9 @@ Metadata defining the error types it handles, and type flags.
 
 ## Call Signature
 
-> **defineErrorHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:77](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L77)
+```ts
+function defineErrorHandler<U, V>(module, options): Partial<StoneBlueprint<U>>;
+```
 
 Defines a class-based error handler.
 

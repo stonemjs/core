@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / FunctionalAdapterEventHandler
-
 # Type Alias: FunctionalAdapterEventHandler()\<TEvent, UResponse\>
 
-> **FunctionalAdapterEventHandler**\<`TEvent`, `UResponse`\> = (`incomingEvent`) => [`Promiseable`](Promiseable.md)\<`UResponse`\>
-
-Defined in: [declarations.ts:1205](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L1205)
+```ts
+type FunctionalAdapterEventHandler<TEvent, UResponse> = (incomingEvent) => Promiseable<UResponse>;
+```
 
 FunctionalAdapterEventHandler.
 

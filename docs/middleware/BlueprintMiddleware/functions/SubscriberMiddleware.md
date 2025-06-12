@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / SubscriberMiddleware
-
 # Function: SubscriberMiddleware()
 
-> **SubscriberMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:299](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L299)
+```ts
+function SubscriberMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to add subscribers to the blueprint.
 

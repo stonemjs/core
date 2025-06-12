@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [StoneFactory](../README.md) / stoneApp
-
 # Function: stoneApp()
 
-> **stoneApp**\<`U`, `V`\>(`options`): [`StoneFactory`](../classes/StoneFactory.md)\<`U`, `V`\>
-
-Defined in: [StoneFactory.ts:216](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/StoneFactory.ts#L216)
+```ts
+function stoneApp<U, V>(options): StoneFactory<U, V>;
+```
 
 Create a new Stone instance with the given options.
 

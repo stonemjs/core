@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / FactoryEventListener
-
 # Type Alias: FactoryEventListener()\<TEvent\>
 
-> **FactoryEventListener**\<`TEvent`\> = (`container`) => [`FunctionalEventListener`](FunctionalEventListener.md)\<`TEvent`\>
-
-Defined in: [declarations.ts:499](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L499)
+```ts
+type FactoryEventListener<TEvent> = (container) => FunctionalEventListener<TEvent>;
+```
 
 Represents a FactoryEventListener type.
 

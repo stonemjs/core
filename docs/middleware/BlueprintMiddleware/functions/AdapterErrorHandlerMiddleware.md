@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / AdapterErrorHandlerMiddleware
-
 # Function: AdapterErrorHandlerMiddleware()
 
-> **AdapterErrorHandlerMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:206](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L206)
+```ts
+function AdapterErrorHandlerMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to add adapter error handlers to the blueprint.
 

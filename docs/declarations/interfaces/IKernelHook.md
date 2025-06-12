@@ -1,12 +1,4 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / IKernelHook
-
 # Interface: IKernelHook\<IncomingEventType, OutgoingResponseType\>
-
-Defined in: [declarations.ts:680](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L680)
 
 Hook interface.
 
@@ -26,78 +18,78 @@ Represents a hook that can either be synchronous or asynchronous.
 
 ### onEventHandled?
 
-> `optional` **onEventHandled**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:692](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L692)
+```ts
+optional onEventHandled: KernelHookListener;
+```
 
 ***
 
 ### onExecutingErrorHandler?
 
-> `optional` **onExecutingErrorHandler**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:687](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L687)
+```ts
+optional onExecutingErrorHandler: KernelHookListener;
+```
 
 ***
 
 ### onExecutingEventHandler?
 
-> `optional` **onExecutingEventHandler**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:686](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L686)
+```ts
+optional onExecutingEventHandler: KernelHookListener;
+```
 
 ***
 
 ### onHandlingEvent?
 
-> `optional` **onHandlingEvent**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:685](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L685)
+```ts
+optional onHandlingEvent: KernelHookListener;
+```
 
 ***
 
 ### onInit?
 
-> `optional` **onInit**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:684](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L684)
+```ts
+optional onInit: KernelHookListener;
+```
 
 ***
 
 ### onKernelMiddlewareProcessed?
 
-> `optional` **onKernelMiddlewareProcessed**: `PipelineHookListener`\<`IncomingEventType`, `OutgoingResponseType`, `any`[]\>
-
-Defined in: [declarations.ts:691](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L691)
+```ts
+optional onKernelMiddlewareProcessed: PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>;
+```
 
 ***
 
 ### onPreparingResponse?
 
-> `optional` **onPreparingResponse**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:688](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L688)
+```ts
+optional onPreparingResponse: KernelHookListener;
+```
 
 ***
 
 ### onProcessingKernelMiddleware?
 
-> `optional` **onProcessingKernelMiddleware**: `PipelineHookListener`\<`IncomingEventType`, `OutgoingResponseType`, `any`[]\>
-
-Defined in: [declarations.ts:690](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L690)
+```ts
+optional onProcessingKernelMiddleware: PipelineHookListener<IncomingEventType, OutgoingResponseType, any[]>;
+```
 
 ***
 
 ### onResponsePrepared?
 
-> `optional` **onResponsePrepared**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:689](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L689)
+```ts
+optional onResponsePrepared: KernelHookListener;
+```
 
 ***
 
 ### onTerminate?
 
-> `optional` **onTerminate**: [`KernelHookListener`](../type-aliases/KernelHookListener.md)
-
-Defined in: [declarations.ts:693](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L693)
+```ts
+optional onTerminate: KernelHookListener;
+```

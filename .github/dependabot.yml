@@ -5,6 +5,16 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "sunday"
+      time: "05:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    labels: ["dependencies"]
+    reviewers: ["pierrevensy"]
+    assignees: ["pierrevensy"]
     groups:
       minor-updates:
         patterns:
@@ -12,22 +22,22 @@ updates:
         update-types:
           - "minor"
           - "patch"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
-    labels:
-      - "dependencies"
-    reviewers:
-      - "pierrevensy"
-    assignees:
-      - "pierrevensy"
 
   # Check for updates to GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "sunday"
+      time: "06:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "chore(actions)"
+      include: "scope"
+    labels: ["github-actions"]
+    reviewers: ["pierrevensy"]
+    assignees: ["pierrevensy"]
     groups:
       minor-updates:
         patterns:
@@ -35,13 +45,3 @@ updates:
         update-types:
           - "minor"
           - "patch"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "chore(actions)"
-      include: "scope"
-    labels:
-      - "github-actions"
-    reviewers:
-      - "pierrevensy"
-    assignees:
-      - "pierrevensy"

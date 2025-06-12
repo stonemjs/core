@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Metadata](../README.md) / classDecoratorLegacyWrapper
-
 # Function: classDecoratorLegacyWrapper()
 
-> **classDecoratorLegacyWrapper**\<`T`\>(`decorator`): `ClassDecorator`
-
-Defined in: [decorators/Metadata.ts:232](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Metadata.ts#L232)
+```ts
+function classDecoratorLegacyWrapper<T>(decorator): ClassDecorator;
+```
 
 Wraps a class decorator to ensure compatibility with both legacy and 2023-11 proposal contexts.
 

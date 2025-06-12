@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineService
-
 # Function: defineService()
 
 Defines a service (factory or class) for the Stone.js application.
@@ -28,9 +22,9 @@ defineService((container) => ({ save(){} }), { alias: 'myService' })
 
 ## Call Signature
 
-> **defineService**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:411](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L411)
+```ts
+function defineService(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a factory-based service for the Stone.js application.
 
@@ -71,9 +65,9 @@ defineService((container) => ({ save(){} }), { alias: 'myService' })
 
 ## Call Signature
 
-> **defineService**(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
-
-Defined in: [blueprint/KernelUtils.ts:423](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L423)
+```ts
+function defineService(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a class-based service for the Stone.js application.
 

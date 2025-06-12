@@ -1,14 +1,10 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / MixedEventHandler
-
 # Type Alias: MixedEventHandler\<TEvent, UResponse\>
 
-> **MixedEventHandler**\<`TEvent`, `UResponse`\> = [`FunctionalEventHandler`](FunctionalEventHandler.md)\<`TEvent`, `UResponse`\> \| [`MetaEventHandler`](../interfaces/MetaEventHandler.md)\<`TEvent`, `UResponse`\>
-
-Defined in: [declarations.ts:650](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L650)
+```ts
+type MixedEventHandler<TEvent, UResponse> = 
+  | FunctionalEventHandler<TEvent, UResponse>
+| MetaEventHandler<TEvent, UResponse>;
+```
 
 MixedEventHandler Type.
 

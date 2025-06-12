@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [declarations](../README.md) / FunctionalEventListener
-
 # Type Alias: FunctionalEventListener()\<TEvent\>
 
-> **FunctionalEventListener**\<`TEvent`\> = (`event`) => [`Promiseable`](Promiseable.md)\<`void`\>
-
-Defined in: [declarations.ts:491](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/declarations.ts#L491)
+```ts
+type FunctionalEventListener<TEvent> = (event) => Promiseable<void>;
+```
 
 Represents a FunctionalEventListener type.
 

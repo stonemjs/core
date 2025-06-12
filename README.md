@@ -4,12 +4,20 @@
 [![npm](https://img.shields.io/npm/v/@stone-js/core)](https://www.npmjs.com/package/@stone-js/core)
 [![npm](https://img.shields.io/npm/dm/@stone-js/core)](https://www.npmjs.com/package/@stone-js/core)
 ![Maintenance](https://img.shields.io/maintenance/yes/2025)
-[![Build Status](https://github.com/stonemjs/core/actions/workflows/main.yml/badge.svg)](https://github.com/stonemjs/core/actions/workflows/main.yml)
-[![Publish Package to npmjs](https://github.com/stonemjs/core/actions/workflows/release.yml/badge.svg)](https://github.com/stonemjs/core/actions/workflows/release.yml)
-[![codecov](https://codecov.io/gh/stonemjs/core/graph/badge.svg?token=5MKS9179YL)](https://codecov.io/gh/stonemjs/core)
-[![CodeQL](https://github.com/stonemjs/core/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/stonemjs/core/security/code-scanning)
-[![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/stonemjs/core/network/updates)
+[![Build Status](https://github.com/stone-foundation/stone-js-core/actions/workflows/main.yml/badge.svg)](https://github.com/stone-foundation/stone-js-core/actions/workflows/main.yml)
+[![Publish Package to npmjs](https://github.com/stone-foundation/stone-js-core/actions/workflows/release.yml/badge.svg)](https://github.com/stone-foundation/stone-js-core/actions/workflows/release.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=stone-foundation_stone-js-core&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=stone-foundation_stone-js-core)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=stone-foundation_stone-js-core&metric=coverage)](https://sonarcloud.io/summary/new_code?id=stone-foundation_stone-js-core)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-blue.svg)](./SECURITY.md)
+[![CodeQL](https://github.com/stone-foundation/stone-js-core/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/stone-foundation/stone-js-core/security/code-scanning)
+[![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/stone-foundation/stone-js-core/network/updates)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+A universal JavaScript/TypeScript core for building scalable, context-adaptive applications with reusable business logic, independent of runtime environments.
+
+---
+
+## Overview
 
 **Stone.js Core** is the heart of the Stone.js framework, a context-aware, universal JavaScript/TypeScript framework designed to help you build scalable and portable applications that adapt to any runtime.
 
@@ -23,7 +31,7 @@ Whether you're targeting a command-line interface, an HTTP server, a browser app
 - **Write once, run anywhere** — build your application logic independently of the environment.
 - **Context-first architecture** — every runtime context (CLI, HTTP, cloud, serverless, FaaS, browser) becomes a plug-and-play adapter.
 - **Universal lifecycle** — process events and produce responses in a unified flow.
-- **No assumptions, full control** — fully customizable configuration, extensibility, and composition.
+- **No assumptions, full control** — fully customizable coreuration, extensibility, and composition.
 - **Framework without a framework** — use Stone.js with or without a frontend, backend, or transport protocol.
 
 ## What's Inside?
@@ -32,25 +40,20 @@ Stone.js Core provides the foundational building blocks that power the entire ec
 
 - A flexible **context execution engine** (kernel) to handle app lifecycles.
 - A universal **event system** that translates any platform input into structured intents.
-- A **blueprint configuration model** for organizing app behavior and dependencies.
+- A **blueprint coreuration model** for organizing app behavior and dependencies.
 - A powerful, context-aware **middleware and handler core**.
 - A runtime-independent foundation to power **modular, adaptive applications**.
 
 ## Learn More
 
-Stone.js is more than a framework, it’s a new way to think about application boundaries.
+This package is part of the Stone.js ecosystem, a modern JavaScript framework built around the Continuum Architecture.
 
-👉 Explore the full documentation:  
-https://stonejs.com
+Explore the full documentation: https://stonejs.dev
 
 ## API documentation
 
-- [API](https://github.com/stonemjs/core/blob/main/docs/modules.md)
+- [API](https://github.com/stone-foundation/stone-js-core/blob/main/docs/modules.md)
 
 ## Contributing
 
-See [Contributing Guide](https://github.com/stonemjs/core/blob/main/CONTRIBUTING.md).
-
----
-
-> Stone.js lets you focus on what matters: logic, not logistics.
+See [Contributing Guide](https://github.com/stone-foundation/stone-js-core/blob/main/CONTRIBUTING.md).

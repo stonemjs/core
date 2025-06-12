@@ -1,9 +1,3 @@
-[**Core Documentation**](../README.md)
-
-***
-
-[Core Documentation](../README.md) / StoneFactory
-
 # StoneFactory
 
 ## Classes

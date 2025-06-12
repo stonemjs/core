@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [middleware/BlueprintMiddleware](../README.md) / SetCurrentAdapterMiddleware
-
 # Function: SetCurrentAdapterMiddleware()
 
-> **SetCurrentAdapterMiddleware**(`context`, `next`): `Promise`\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>
-
-Defined in: [middleware/BlueprintMiddleware.ts:102](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/middleware/BlueprintMiddleware.ts#L102)
+```ts
+function SetCurrentAdapterMiddleware(context, next): Promise<IBlueprint>;
+```
 
 Middleware to set the current adapter configuration in the blueprint.
 

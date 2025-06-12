@@ -1,14 +1,11 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineStone
-
 # Variable: defineStone()
 
-> `const` **defineStone**: \{(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>; (`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>; \} = `defineService`
-
-Defined in: [blueprint/KernelUtils.ts:474](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L474)
+```ts
+const defineStone: {
+  (module, options): Partial<StoneBlueprint>;
+  (module, options): Partial<StoneBlueprint>;
+} = defineService;
+```
 
 Defines a core Stone.js service.
 
@@ -17,7 +14,9 @@ that are part of the application’s foundation. It supports both factory and cl
 
 ## Call Signature
 
-> (`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+```ts
+(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a factory-based service for the Stone.js application.
 
@@ -43,7 +42,9 @@ A partial StoneBlueprint registering the service.
 
 ## Call Signature
 
-> (`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
+```ts
+(module, options): Partial<StoneBlueprint>;
+```
 
 Defines a class-based service for the Stone.js application.
 

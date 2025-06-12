@@ -1,12 +1,4 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [adapter/Adapter](../README.md) / Adapter
-
 # Class: `abstract` Adapter\<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, AdapterContextType\>
-
-Defined in: [adapter/Adapter.ts:55](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L55)
 
 Class representing an Adapter.
 
@@ -52,9 +44,9 @@ Mr. Stone <evensstone@gmail.com>
 
 ### Constructor
 
-> `protected` **new Adapter**\<`RawEventType`, `RawResponseType`, `ExecutionContextType`, `IncomingEventType`, `IncomingEventOptionsType`, `OutgoingResponseType`, `AdapterContextType`\>(`blueprint`): `Adapter`\<`RawEventType`, `RawResponseType`, `ExecutionContextType`, `IncomingEventType`, `IncomingEventOptionsType`, `OutgoingResponseType`, `AdapterContextType`\>
-
-Defined in: [adapter/Adapter.ts:87](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L87)
+```ts
+protected new Adapter<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, AdapterContextType>(blueprint): Adapter<RawEventType, RawResponseType, ExecutionContextType, IncomingEventType, IncomingEventOptionsType, OutgoingResponseType, AdapterContextType>;
+```
 
 Create an Adapter.
 
@@ -74,9 +66,9 @@ The blueprint to create the adapter.
 
 ### blueprint
 
-> `protected` `readonly` **blueprint**: [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)
-
-Defined in: [adapter/Adapter.ts:87](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L87)
+```ts
+protected readonly blueprint: IBlueprint;
+```
 
 The blueprint to create the adapter.
 
@@ -84,33 +76,33 @@ The blueprint to create the adapter.
 
 ### hooks
 
-> `protected` `readonly` **hooks**: [`AdapterHookType`](../../../declarations/interfaces/AdapterHookType.md)\<`AdapterContextType`, `RawResponseType`\>
-
-Defined in: [adapter/Adapter.ts:78](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L78)
+```ts
+protected readonly hooks: AdapterHookType<AdapterContextType, RawResponseType>;
+```
 
 ***
 
 ### middleware
 
-> `protected` `readonly` **middleware**: [`AdapterMixedPipeType`](../../../declarations/type-aliases/AdapterMixedPipeType.md)\<`AdapterContextType`, `RawResponseType`\>[]
-
-Defined in: [adapter/Adapter.ts:79](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L79)
+```ts
+protected readonly middleware: AdapterMixedPipeType<AdapterContextType, RawResponseType>[];
+```
 
 ***
 
 ### resolvedErrorHandlers
 
-> `protected` `readonly` **resolvedErrorHandlers**: `Record`\<`string`, [`IAdapterErrorHandler`](../../../declarations/interfaces/IAdapterErrorHandler.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>\>
-
-Defined in: [adapter/Adapter.ts:80](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L80)
+```ts
+protected readonly resolvedErrorHandlers: Record<string, IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>;
+```
 
 ## Methods
 
 ### buildRawResponse()
 
-> `protected` **buildRawResponse**(`context`, `eventHandler?`): `Promise`\<`RawResponseType`\>
-
-Defined in: [adapter/Adapter.ts:193](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L193)
+```ts
+protected buildRawResponse(context, eventHandler?): Promise<RawResponseType>;
+```
 
 Build the raw response.
 
@@ -138,9 +130,9 @@ The raw response wrapper.
 
 ### executeEventHandlerHooks()
 
-> `protected` **executeEventHandlerHooks**(`hook`, `eventHandler`): `Promise`\<`void`\>
-
-Defined in: [adapter/Adapter.ts:286](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L286)
+```ts
+protected executeEventHandlerHooks(hook, eventHandler): Promise<void>;
+```
 
 Execute the event handler lifecycle hooks.
 
@@ -166,9 +158,12 @@ The event handler to be run.
 
 ### executeHooks()
 
-> `protected` **executeHooks**(`name`, `context?`, `error?`): `Promise`\<`void`\>
-
-Defined in: [adapter/Adapter.ts:302](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L302)
+```ts
+protected executeHooks(
+   name, 
+   context?, 
+error?): Promise<void>;
+```
 
 Execute adapter lifecycle hooks.
 
@@ -200,9 +195,9 @@ The error to handle.
 
 ### handleError()
 
-> `protected` **handleError**(`error`, `context`): `Promise`\<[`IAdapterEventBuilder`](../../../declarations/interfaces/IAdapterEventBuilder.md)\<[`RawResponseOptions`](../../../declarations/interfaces/RawResponseOptions.md), [`IRawResponseWrapper`](../../../declarations/interfaces/IRawResponseWrapper.md)\<`RawResponseType`\>\>\>
-
-Defined in: [adapter/Adapter.ts:181](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L181)
+```ts
+protected handleError(error, context): Promise<IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>;
+```
 
 Handle error.
 
@@ -230,9 +225,9 @@ The raw response.
 
 ### handleEvent()
 
-> `protected` **handleEvent**(`context`, `eventHandler`): `Promise`\<[`IAdapterEventBuilder`](../../../declarations/interfaces/IAdapterEventBuilder.md)\<[`RawResponseOptions`](../../../declarations/interfaces/RawResponseOptions.md), [`IRawResponseWrapper`](../../../declarations/interfaces/IRawResponseWrapper.md)\<`RawResponseType`\>\>\>
-
-Defined in: [adapter/Adapter.ts:151](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L151)
+```ts
+protected handleEvent(context, eventHandler): Promise<IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>;
+```
 
 Handle the event.
 
@@ -260,9 +255,9 @@ The raw response wrapper.
 
 ### makePipelineOptions()
 
-> `protected` **makePipelineOptions**(): `PipelineOptions`\<`AdapterContextType`, [`IAdapterEventBuilder`](../../../declarations/interfaces/IAdapterEventBuilder.md)\<[`RawResponseOptions`](../../../declarations/interfaces/RawResponseOptions.md), [`IRawResponseWrapper`](../../../declarations/interfaces/IRawResponseWrapper.md)\<`RawResponseType`\>\>\>
-
-Defined in: [adapter/Adapter.ts:213](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L213)
+```ts
+protected makePipelineOptions(): PipelineOptions<AdapterContextType, IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<RawResponseType>>>;
+```
 
 Create pipeline options for the Adapter.
 
@@ -276,9 +271,9 @@ The pipeline options for transforming the event.
 
 ### resolveErrorHandler()
 
-> `protected` **resolveErrorHandler**(`error`): [`IAdapterErrorHandler`](../../../declarations/interfaces/IAdapterErrorHandler.md)\<`RawEventType`, `RawResponseType`, `ExecutionContextType`\>
-
-Defined in: [adapter/Adapter.ts:260](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L260)
+```ts
+protected resolveErrorHandler(error): IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>;
+```
 
 Get the error handler for the given error.
 
@@ -304,9 +299,9 @@ IntegrationError
 
 ### resolveEventHandler()
 
-> `protected` **resolveEventHandler**(): [`AdapterEventHandlerType`](../../../declarations/type-aliases/AdapterEventHandlerType.md)\<`IncomingEventType`, `OutgoingResponseType`\>
-
-Defined in: [adapter/Adapter.ts:235](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L235)
+```ts
+protected resolveEventHandler(): AdapterEventHandlerType<IncomingEventType, OutgoingResponseType>;
+```
 
 Get the event handler for the adapter.
 
@@ -324,9 +319,9 @@ If the event handler is missing.
 
 ### run()
 
-> `abstract` **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
-
-Defined in: [adapter/Adapter.ts:113](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L113)
+```ts
+abstract run<ExecutionResultType>(): Promise<ExecutionResultType>;
+```
 
 Run handler.
 
@@ -367,9 +362,9 @@ return await this.sendEventThroughDestination(context, eventHandler);
 
 ### sendEventThroughDestination()
 
-> `protected` **sendEventThroughDestination**(`context`, `eventHandler`): `Promise`\<`RawResponseType`\>
-
-Defined in: [adapter/Adapter.ts:123](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L123)
+```ts
+protected sendEventThroughDestination(context, eventHandler): Promise<RawResponseType>;
+```
 
 Send the raw event through the destination.
 
@@ -401,9 +396,9 @@ IntegrationError
 
 ### validateContextAndEventHandler()
 
-> `protected` **validateContextAndEventHandler**(`context`, `eventHandler`): `void`
-
-Defined in: [adapter/Adapter.ts:321](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/adapter/Adapter.ts#L321)
+```ts
+protected validateContextAndEventHandler(context, eventHandler): void;
+```
 
 Validate the context and event handler.
 

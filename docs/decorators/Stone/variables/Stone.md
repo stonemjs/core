@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/Stone](../README.md) / Stone
-
 # Variable: Stone()
 
-> `const` **Stone**: \<`T`\>(`options`) => `ClassDecorator` = `Service`
-
-Defined in: [decorators/Stone.ts:20](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/Stone.ts#L20)
+```ts
+const Stone: <T>(options) => ClassDecorator = Service;
+```
 
 Stone decorator to mark a class as a stone and automatically bind it to the container.
 

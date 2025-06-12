@@ -1,14 +1,8 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [decorators/AdapterMiddleware](../README.md) / AdapterMiddleware
-
 # Function: AdapterMiddleware()
 
-> **AdapterMiddleware**\<`T`\>(`options`): `ClassDecorator`
-
-Defined in: [decorators/AdapterMiddleware.ts:22](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/decorators/AdapterMiddleware.ts#L22)
+```ts
+function AdapterMiddleware<T>(options): ClassDecorator;
+```
 
 AdapterMiddleware decorator to mark a class as middleware within the Stone.js framework.
 

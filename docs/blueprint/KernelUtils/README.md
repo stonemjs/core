@@ -1,9 +1,3 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / blueprint/KernelUtils
-
 # blueprint/KernelUtils
 
 ## Variables

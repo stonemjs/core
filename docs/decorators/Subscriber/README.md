@@ -1,9 +1,3 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / decorators/Subscriber
-
 # decorators/Subscriber
 
 ## Interfaces

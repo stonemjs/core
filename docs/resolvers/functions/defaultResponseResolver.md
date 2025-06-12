@@ -1,14 +1,8 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / [resolvers](../README.md) / defaultResponseResolver
-
 # Function: defaultResponseResolver()
 
-> **defaultResponseResolver**(`options`): [`OutgoingResponse`](../../events/OutgoingResponse/classes/OutgoingResponse.md)
-
-Defined in: [resolvers.ts:31](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/resolvers.ts#L31)
+```ts
+function defaultResponseResolver(options): OutgoingResponse;
+```
 
 Default response resolver function.
 

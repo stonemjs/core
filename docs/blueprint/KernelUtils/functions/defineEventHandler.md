@@ -1,9 +1,3 @@
-[**Core Documentation**](../../../README.md)
-
-***
-
-[Core Documentation](../../../README.md) / [blueprint/KernelUtils](../README.md) / defineEventHandler
-
 # Function: defineEventHandler()
 
 Utility function to define an event handler.
@@ -18,9 +12,9 @@ The options for the EventHandler.
 
 ## Call Signature
 
-> **defineEventHandler**\<`U`, `V`\>(`module`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:122](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L122)
+```ts
+function defineEventHandler<U, V>(module): Partial<StoneBlueprint<U>>;
+```
 
 Utility function to define a function-based event handler.
 
@@ -58,9 +52,9 @@ The options for the EventHandler.
 
 ## Call Signature
 
-> **defineEventHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:133](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L133)
+```ts
+function defineEventHandler<U, V>(module, options): Partial<StoneBlueprint<U>>;
+```
 
 Utility function to define a factory-based event handler.
 
@@ -106,9 +100,9 @@ The options for the EventHandler.
 
 ## Call Signature
 
-> **defineEventHandler**\<`U`, `V`\>(`module`, `options`): `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
-
-Defined in: [blueprint/KernelUtils.ts:145](https://github.com/stonemjs/core/blob/65c9e07f9d264b07f6e4091fcc29046b5ca8ea45/src/blueprint/KernelUtils.ts#L145)
+```ts
+function defineEventHandler<U, V>(module, options): Partial<StoneBlueprint<U>>;
+```
 
 Utility function to define a factory-based event handler.
 

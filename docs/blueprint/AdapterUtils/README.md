@@ -1,9 +1,3 @@
-[**Core Documentation**](../../README.md)
-
-***
-
-[Core Documentation](../../README.md) / blueprint/AdapterUtils
-
 # blueprint/AdapterUtils
 
 ## Functions
