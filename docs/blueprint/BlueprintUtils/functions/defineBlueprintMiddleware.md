@@ -23,8 +23,8 @@ Utility function to define a function-based blueprint middleware.
 #### module
 
 [`Arrayable`](../../../declarations/type-aliases/Arrayable.md)\<[`FunctionalMiddleware`](../../../declarations/type-aliases/FunctionalMiddleware.md)\<[`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\<`any`\>, 
-  \| `PipeClass`
-  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>\>
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>
+  \| `PipeClass`\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>\>
 
 The Middleware module.
 
@@ -54,14 +54,6 @@ The options for the Middleware.
 
 The StoneBlueprint.
 
-### Param
-
-The Middleware module.
-
-### Param
-
-The options for the Middleware.
-
 ## Call Signature
 
 ```ts
@@ -75,8 +67,8 @@ Utility function to define a factory-based blueprint middleware.
 #### module
 
 [`Arrayable`](../../../declarations/type-aliases/Arrayable.md)\<[`FactoryMiddleware`](../../../declarations/type-aliases/FactoryMiddleware.md)\<[`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\<`any`\>, 
-  \| `PipeClass`
-  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>\>
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>
+  \| `PipeClass`\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>\>
 
 The Middleware module.
 
@@ -106,14 +98,6 @@ The options for the Middleware.
 
 The StoneBlueprint.
 
-### Param
-
-The Middleware module.
-
-### Param
-
-The options for the Middleware.
-
 ## Call Signature
 
 ```ts
@@ -127,8 +111,8 @@ Utility function to define a class-based blueprint middleware.
 #### module
 
 [`Arrayable`](../../../declarations/type-aliases/Arrayable.md)\<[`MiddlewareClass`](../../../declarations/type-aliases/MiddlewareClass.md)\<[`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<[`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\<`any`\>, 
-  \| `PipeClass`
-  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>\>
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>
+  \| `PipeClass`\>, [`IBlueprint`](../../../declarations/type-aliases/IBlueprint.md)\>\>
 
 The Middleware module.
 
@@ -157,11 +141,3 @@ The options for the Middleware.
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
 The StoneBlueprint.
-
-### Param
-
-The Middleware module.
-
-### Param
-
-The options for the Middleware.

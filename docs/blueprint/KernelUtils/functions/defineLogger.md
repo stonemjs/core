@@ -43,22 +43,7 @@ Optional configuration (must include `isClass: true` if specified).
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the logger resolver and settings.
-
-### Param
-
-Either a logger class or factory function.
-
-### Param
-
-Optional configuration, including log level and isFactory flag.
-
-### Example
-
-```ts
-defineLogger(MyLogger, { level: 'debug', isClass: true })
-defineLogger((ctx) => new MyLogger(ctx), { level: 'info', isFactory: true })
-```
+A partial StoneBlueprint with the logger configuration.
 
 ## Call Signature
 
@@ -86,19 +71,4 @@ Optional configuration (must include `isFactory: true` if specified).
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the logger resolver and settings.
-
-### Param
-
-Either a logger class or factory function.
-
-### Param
-
-Optional configuration, including log level and isFactory flag.
-
-### Example
-
-```ts
-defineLogger(MyLogger, { level: 'debug', isClass: true })
-defineLogger((ctx) => new MyLogger(ctx), { level: 'info', isFactory: true })
-```
+A partial StoneBlueprint with the logger configuration.

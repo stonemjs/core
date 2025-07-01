@@ -2,7 +2,6 @@
 
 ## Variables
 
-- [metadataKey](variables/metadataKey.md)
 - [MetadataSymbol](variables/MetadataSymbol.md)
 
 ## Functions

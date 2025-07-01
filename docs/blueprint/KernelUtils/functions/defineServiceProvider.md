@@ -48,22 +48,7 @@ Optional flag indicating this is a factory-based provider.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the provider metadata.
-
-### Param
-
-The service provider (factory function or class).
-
-### Param
-
-Optional flag to indicate if it's a factory.
-
-### Example
-
-```ts
-defineServiceProvider(MyServiceProviderClass, { isClass: true })
-defineServiceProvider((container) => new MyProvider(container))
-```
+A partial StoneBlueprint registering the provider.
 
 ## Call Signature
 
@@ -93,19 +78,4 @@ Optional flag indicating this is a class-based provider.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the provider metadata.
-
-### Param
-
-The service provider (factory function or class).
-
-### Param
-
-Optional flag to indicate if it's a factory.
-
-### Example
-
-```ts
-defineServiceProvider(MyServiceProviderClass, { isClass: true })
-defineServiceProvider((container) => new MyProvider(container))
-```
+A partial StoneBlueprint registering the provider.

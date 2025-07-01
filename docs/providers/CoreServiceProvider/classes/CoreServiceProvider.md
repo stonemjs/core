@@ -49,7 +49,9 @@ If the Blueprint config or EventEmitter is not bound to the container.
 boot(): Promise<void>;
 ```
 
-Boots the provider after registration. This method is used to initialize services that need to be started.
+Boot core components.
+
+This method is used to bootstrap subscribers.
 
 #### Returns
 
@@ -67,7 +69,9 @@ Boots the provider after registration. This method is used to initialize service
 register(): void;
 ```
 
-Registers the provider into the system. Typically used for adding services or bindings to the container.
+Register core components in the service container.
+
+This method registers services, listeners, adapters, and aliases in the container.
 
 #### Returns
 

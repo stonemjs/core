@@ -42,14 +42,6 @@ The EventHandler module.
 
 The StoneBlueprint.
 
-### Param
-
-The EventHandler module.
-
-### Param
-
-The options for the EventHandler.
-
 ## Call Signature
 
 ```ts
@@ -90,14 +82,6 @@ The options for the EventHandler.
 
 The StoneBlueprint.
 
-### Param
-
-The EventHandler module.
-
-### Param
-
-The options for the EventHandler.
-
 ## Call Signature
 
 ```ts
@@ -137,11 +121,3 @@ The options for the EventHandler.
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
 
 The StoneBlueprint.
-
-### Param
-
-The EventHandler module.
-
-### Param
-
-The options for the EventHandler.

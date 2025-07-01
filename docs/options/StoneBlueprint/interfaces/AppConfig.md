@@ -166,6 +166,16 @@ Logging settings, including the logger instance and error reporting configuratio
 
 ***
 
+### middleware?
+
+```ts
+optional middleware: MixedPipe<U, V>[];
+```
+
+Middleware configuration options for specific stages of the application lifecycle.
+
+***
+
 ### name
 
 ```ts

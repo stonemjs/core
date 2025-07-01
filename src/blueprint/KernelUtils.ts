@@ -18,13 +18,14 @@ import {
   EventListenerType,
   MiddlewareOptions,
   FactoryMiddleware,
+  LifecycleHookType,
+  IErrorHandlerClass,
   FactoryEventHandler,
   EventSubscriberType,
   ErrorHandlerOptions,
   ServiceProviderType,
   IEventListenerClass,
   FactoryErrorHandler,
-  IErrorHandlerClass,
   FactoryEventListener,
   FunctionalMiddleware,
   LifecycleHookListener,
@@ -35,8 +36,7 @@ import {
   FactoryEventSubscriber,
   FunctionalErrorHandler,
   FunctionalEventListener,
-  FunctionalEventSubscriber,
-  LifecycleHookType
+  FunctionalEventSubscriber
 } from '../declarations'
 import { Event } from '../events/Event'
 import { IncomingEvent } from '../events/IncomingEvent'

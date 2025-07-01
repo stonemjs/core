@@ -51,21 +51,7 @@ Listener options including event name.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the listener metadata injected.
-
-### Param
-
-The listener implementation (function, class, or factory).
-
-### Param
-
-Listener options including event name and factory flag.
-
-### Example
-
-```ts
-defineEventListener((event) => console.log(event), { event: 'user.created' })
-```
+A partial StoneBlueprint registering the listener.
 
 ## Call Signature
 
@@ -99,21 +85,7 @@ Listener options including event name.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the listener metadata injected.
-
-### Param
-
-The listener implementation (function, class, or factory).
-
-### Param
-
-Listener options including event name and factory flag.
-
-### Example
-
-```ts
-defineEventListener((event) => console.log(event), { event: 'user.created' })
-```
+A partial StoneBlueprint registering the listener with factory metadata.
 
 ## Call Signature
 
@@ -147,18 +119,4 @@ Listener options including event name.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint with the listener metadata injected.
-
-### Param
-
-The listener implementation (function, class, or factory).
-
-### Param
-
-Listener options including event name and factory flag.
-
-### Example
-
-```ts
-defineEventListener((event) => console.log(event), { event: 'user.created' })
-```
+A partial StoneBlueprint registering the listener with class metadata.

@@ -4,12 +4,7 @@ import { IncomingEvent } from '../events/IncomingEvent'
 import { StoneBlueprint } from '../options/StoneBlueprint'
 import { OutgoingResponse } from '../events/OutgoingResponse'
 import { isFunctionModule, isNotEmpty, isObjectLikeModule, mergeBlueprints } from '../utils'
-import { ClassType, MetadataHolder, ProposalClassDecorator, ProposalMethodDecorator, ProposalPropertyDecorator } from '../declarations'
-
-/**
- * Declare the unique symbol type for metadata keys.
- */
-export declare const metadataKey: unique symbol
+import { ClassType, MetadataHolder, ProposalClassDecorator, ProposalMethodDecorator, ProposalPropertyDecorator, metadataKey } from '../declarations'
 
 /**
  * A unique symbol for storing and accessing metadata on classes and their members.

@@ -624,7 +624,7 @@ describe('MiddlewareMiddleware', () => {
 
     const LocalMiddleware = class {
       public static [MetadataSymbol] = {
-        [MIDDLEWARE_KEY]: { global: false, priority: 5 }
+        [MIDDLEWARE_KEY]: { priority: 1 }
       }
     }
 
@@ -634,9 +634,12 @@ describe('MiddlewareMiddleware', () => {
     }
 
     const next = vi.fn().mockResolvedValue(blueprint)
-    await MiddlewareMiddleware(context, next)
+    const result = await MiddlewareMiddleware(context, next)
 
-    expect(blueprint.add).not.toHaveBeenCalled()
+    expect(result).toBe(blueprint)
+    expect(blueprint.add).toHaveBeenCalledWith('stone.middleware', [
+      { priority: 1, module: LocalMiddleware }
+    ])
   })
 
   it('should do nothing if no MIDDLEWARE_KEY is present', async () => {
