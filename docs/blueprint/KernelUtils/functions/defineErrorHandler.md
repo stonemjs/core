@@ -49,15 +49,7 @@ The error types and metadata.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
 
-A partial StoneBlueprint with the error handler(s) registered.
-
-### Param
-
-The error handler module (function, factory, or class).
-
-### Param
-
-Metadata defining the error types it handles, and type flags.
+A partial StoneBlueprint registering the error handler.
 
 ## Call Signature
 
@@ -95,15 +87,7 @@ The error types and metadata.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
 
-A partial StoneBlueprint with the error handler(s) registered.
-
-### Param
-
-The error handler module (function, factory, or class).
-
-### Param
-
-Metadata defining the error types it handles, and type flags.
+A partial StoneBlueprint registering the error handler.
 
 ## Call Signature
 
@@ -141,12 +125,4 @@ The error types and metadata.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`\>\>
 
-A partial StoneBlueprint with the error handler(s) registered.
-
-### Param
-
-The error handler module (function, factory, or class).
-
-### Param
-
-Metadata defining the error types it handles, and type flags.
+A partial StoneBlueprint registering the error handler.

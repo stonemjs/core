@@ -52,18 +52,6 @@ The key of the metadata to retrieve.
 
 The metadata value or the default value if the key does not exist.
 
-### Param
-
-The class to get the metadata from.
-
-### Param
-
-The key of the metadata to retrieve.
-
-### Param
-
-The default value to return if the metadata key is not found.
-
 ## Call Signature
 
 ```ts
@@ -110,15 +98,3 @@ The default value to return if the metadata key is not found.
 `UReturn`
 
 The metadata value or the default value if the key does not exist.
-
-### Param
-
-The class to get the metadata from.
-
-### Param
-
-The key of the metadata to retrieve.
-
-### Param
-
-The default value to return if the metadata key is not found.

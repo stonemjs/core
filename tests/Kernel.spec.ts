@@ -111,10 +111,8 @@ describe('Kernel', () => {
 
     it('should skip provider if mustSkip returns true', async () => {
       const register = vi.fn()
-      const Provider = (): IServiceProvider => ({
-        register,
-        async mustSkip () { return true }
-      })
+      const mustSkip = vi.fn().mockResolvedValue(true)
+      const Provider = (): IServiceProvider => ({ register, mustSkip })
 
       const config = Config.create()
       config.set('stone.providers', [{ module: Provider, isFactory: true }])
@@ -243,7 +241,7 @@ describe('Kernel', () => {
 
       const config = Config.create()
       config.set('stone.kernel.eventHandler', { module: Handler, isClass: true })
-      config.set('stone.kernel.middleware', [{ module: factoryMiddleware, isFactory: true }])
+      config.set('stone.kernel.middleware', [{ module: factoryMiddleware, isFactory: true, global: true }])
       config.set('stone.kernel.responseResolver', async (content: any) => TestResponse.create(content))
 
       const kernel = createKernel(config)

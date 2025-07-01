@@ -55,21 +55,7 @@ Optional middleware options.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-A partial StoneBlueprint with the middleware metadata.
-
-### Param
-
-The middleware implementation (function, factory, or class).
-
-### Param
-
-Optional middleware options and factory indicator.
-
-### Example
-
-```ts
-defineMiddleware((event, next) => next(event))
-```
+A partial StoneBlueprint registering the middleware.
 
 ## Call Signature
 
@@ -107,21 +93,7 @@ Middleware options including `isFactory: true`.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-A partial StoneBlueprint with the middleware metadata.
-
-### Param
-
-The middleware implementation (function, factory, or class).
-
-### Param
-
-Optional middleware options and factory indicator.
-
-### Example
-
-```ts
-defineMiddleware((event, next) => next(event))
-```
+A partial StoneBlueprint registering the middleware with factory metadata.
 
 ## Call Signature
 
@@ -159,18 +131,4 @@ Middleware options including `isClass: true`.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<`U`, `V`\>\>
 
-A partial StoneBlueprint with the middleware metadata.
-
-### Param
-
-The middleware implementation (function, factory, or class).
-
-### Param
-
-Optional middleware options and factory indicator.
-
-### Example
-
-```ts
-defineMiddleware((event, next) => next(event))
-```
+A partial StoneBlueprint registering the middleware with class metadata.

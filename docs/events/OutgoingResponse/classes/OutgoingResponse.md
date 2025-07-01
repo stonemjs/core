@@ -278,14 +278,6 @@ The key to retrieve from metadata.
 
 The value associated with the key or the fallback.
 
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
-
 ##### Inherited from
 
 [`Event`](../../Event/classes/Event.md).[`get`](../../Event/classes/Event.md#get)
@@ -323,14 +315,6 @@ The fallback value if the key is not found.
 `TReturn`
 
 The value associated with the key or the fallback.
-
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
 
 ##### Inherited from
 
@@ -378,14 +362,6 @@ The key to retrieve from metadata.
 
 The value associated with the key or the fallback.
 
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
-
 ##### Inherited from
 
 [`Event`](../../Event/classes/Event.md).[`getMetadataValue`](../../Event/classes/Event.md#getmetadatavalue)
@@ -423,14 +399,6 @@ The fallback value if the key is not found.
 `TReturn`
 
 The value associated with the key or the fallback.
-
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
 
 ##### Inherited from
 

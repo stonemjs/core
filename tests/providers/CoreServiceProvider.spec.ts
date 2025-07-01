@@ -1,4 +1,4 @@
-import { CoreServiceProvider } from '../src/providers/CoreServiceProvider'
+import { CoreServiceProvider } from '../../src/providers/CoreServiceProvider'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */
 
@@ -150,17 +150,19 @@ describe('CoreServiceProvider', () => {
       const MyMiddleware = class {}
 
       const blueprint = {
-        get: vi.fn().mockImplementation((key: string) => {
+        get: vi.fn().mockImplementation((key: string, fallback: any[]) => {
           if (key === 'stone.kernel.middleware') {
             return [
               {
                 isClass: true,
                 module: MyMiddleware,
                 singleton: true,
-                alias: ['log']
+                alias: ['log'],
+                global: true
               }
             ]
           }
+          return fallback
         })
       }
 
@@ -169,6 +171,8 @@ describe('CoreServiceProvider', () => {
       // @ts-expect-error access private
       provider.registerMiddleware()
 
+      expect(blueprint.get).toHaveBeenCalledWith('stone.middleware', [])
+      expect(blueprint.get).toHaveBeenCalledWith('stone.kernel.middleware', [])
       expect(container.autoBinding).toHaveBeenCalledWith(
         MyMiddleware,
         MyMiddleware,
@@ -308,7 +312,8 @@ describe('CoreServiceProvider', () => {
       }
 
       const eventEmitter = {
-        on: vi.fn((_, listener) => listener({}))
+        listener: (_: any) => Promise.resolve(),
+        on: vi.fn(async (_, listener) => { eventEmitter.listener = listener })
       }
 
       const logger = {
@@ -327,7 +332,9 @@ describe('CoreServiceProvider', () => {
       } as any)
 
       // @ts-expect-error access private
-      await provider.registerListeners()
+      provider.registerListeners()
+
+      await eventEmitter.listener({})
 
       expect(logger.error).toHaveBeenCalledWith(expect.stringContaining('fail'))
     })

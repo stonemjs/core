@@ -55,15 +55,7 @@ Metadata describing when to apply the handler (e.g. platform, alias, error types
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A Stone.js blueprint fragment that adds the registration middleware.
-
-### Param
-
-The handler function, factory, or class.
-
-### Param
-
-Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
+A blueprint partial containing registration middleware.
 
 ## Call Signature
 
@@ -107,15 +99,7 @@ Metadata describing when to apply the handler (e.g. platform, alias, error types
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A Stone.js blueprint fragment that adds the registration middleware.
-
-### Param
-
-The handler function, factory, or class.
-
-### Param
-
-Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
+A blueprint partial containing registration middleware.
 
 ## Call Signature
 
@@ -159,12 +143,4 @@ Metadata describing when to apply the handler (e.g. platform, alias, error types
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A Stone.js blueprint fragment that adds the registration middleware.
-
-### Param
-
-The handler function, factory, or class.
-
-### Param
-
-Options including `platform`, `adapterAlias`, and `error` type(s) to handle.
+A blueprint partial containing registration middleware.

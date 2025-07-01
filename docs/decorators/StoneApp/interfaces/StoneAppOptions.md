@@ -233,6 +233,22 @@ Partial.logger
 
 ***
 
+### middleware?
+
+```ts
+optional middleware: MixedPipe<IncomingEvent, OutgoingResponse>[];
+```
+
+Middleware configuration options for specific stages of the application lifecycle.
+
+#### Inherited from
+
+```ts
+Partial.middleware
+```
+
+***
+
 ### name?
 
 ```ts

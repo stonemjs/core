@@ -1,11 +1,15 @@
 import { Event } from './events/Event'
 import { Config } from '@stone-js/config'
 import { EventEmitter } from './events/EventEmitter'
-import { MetadataSymbol } from './decorators/Metadata'
 import { Container } from '@stone-js/service-container'
 import { IncomingEvent, IncomingEventOptions } from './events/IncomingEvent'
 import { OutgoingResponse, OutgoingResponseOptions } from './events/OutgoingResponse'
 import { FactoryPipe, FunctionalPipe, MetaPipe, MixedPipe, NextPipe, PipeAlias, PipeClass, PipelineHookContext, PipelineHookListener, PipeType } from '@stone-js/pipeline'
+
+/**
+ * Declare the unique symbol type for metadata keys.
+ */
+export declare const metadataKey: unique symbol
 
 /**
  * Represents a BlueprintMiddlewareHookContext type.
@@ -1053,7 +1057,7 @@ OutgoingResponseType extends OutgoingResponse = OutgoingResponse
  * Represents an object that holds metadata keyed by the `MetadataSymbol`.
  */
 export interface MetadataHolder {
-  [MetadataSymbol]: Record<PropertyKey, unknown>
+  [metadataKey]: Record<PropertyKey, unknown>
 }
 
 /**

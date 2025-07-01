@@ -37,6 +37,9 @@ build(modules): Promise<BlueprintType>;
 
 Build the configuration blueprint by extracting metadata from the provided modules.
 
+This method processes the given raw modules, extracts metadata to populate the blueprint,
+and returns the resulting configuration blueprint.
+
 #### Parameters
 
 ##### modules
@@ -81,10 +84,10 @@ Create a BlueprintBuilder.
 ##### ContextType
 
 `ContextType` *extends* [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, 
-  \| `PipeClass`
-  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\> = [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, 
-  \| `PipeClass`
-  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>\>
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>
+  \| `PipeClass`\> = [`BlueprintContext`](../../../declarations/interfaces/BlueprintContext.md)\<`BlueprintType`, 
+  \| [`ClassType`](../../../declarations/type-aliases/ClassType.md)\<`any`\>
+  \| `PipeClass`\>
 
 #### Parameters
 

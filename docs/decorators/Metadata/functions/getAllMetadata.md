@@ -42,14 +42,6 @@ The class to get all metadata from.
 
 All metadata or the default value if no metadata exists.
 
-### Param
-
-The class to get all metadata from.
-
-### Param
-
-The default value to return if no metadata is found.
-
 ## Call Signature
 
 ```ts
@@ -87,11 +79,3 @@ The default value to return if no metadata is found.
 `UReturn`
 
 All metadata or the default value if no metadata exists.
-
-### Param
-
-The class to get all metadata from.
-
-### Param
-
-The default value to return if no metadata is found.

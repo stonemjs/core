@@ -26,8 +26,8 @@ The configuration options for the application, based on StoneOptions.
 ### blueprints
 
 (
-  \| [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>
-  \| `Record`\<`string`, `any`\>)[] = `[]`
+  \| `Record`\<`string`, `any`\>
+  \| [`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\<[`IncomingEvent`](../../../events/IncomingEvent/classes/IncomingEvent.md), [`OutgoingResponse`](../../../events/OutgoingResponse/classes/OutgoingResponse.md)\>)[] = `[]`
 
 ## Returns
 

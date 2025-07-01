@@ -134,3 +134,7 @@
 - [ServiceType](type-aliases/ServiceType.md)
 - [WildcardEventName](type-aliases/WildcardEventName.md)
 - [WildcardListenerHandler](type-aliases/WildcardListenerHandler.md)
+
+## Variables
+
+- [metadataKey](variables/metadataKey.md)

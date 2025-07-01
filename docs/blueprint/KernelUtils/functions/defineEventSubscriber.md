@@ -41,22 +41,6 @@ The functional subscriber.
 
 A partial StoneBlueprint with the subscriber metadata.
 
-### Param
-
-The subscriber implementation.
-
-### Param
-
-Optional `isFactory` flag to define subscriber type.
-
-### Example
-
-```ts
-defineEventSubscriber(MySubscriberClass, { isClass: true })
-defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
-defineEventSubscriber((emitter) => { ... })
-```
-
 ## Call Signature
 
 ```ts
@@ -87,22 +71,6 @@ Must include `isFactory: true`.
 
 A partial StoneBlueprint with the subscriber metadata.
 
-### Param
-
-The subscriber implementation.
-
-### Param
-
-Optional `isFactory` flag to define subscriber type.
-
-### Example
-
-```ts
-defineEventSubscriber(MySubscriberClass, { isClass: true })
-defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
-defineEventSubscriber((emitter) => { ... })
-```
-
 ## Call Signature
 
 ```ts
@@ -132,19 +100,3 @@ Must include `isClass: true`.
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
 A partial StoneBlueprint with the subscriber metadata.
-
-### Param
-
-The subscriber implementation.
-
-### Param
-
-Optional `isFactory` flag to define subscriber type.
-
-### Example
-
-```ts
-defineEventSubscriber(MySubscriberClass, { isClass: true })
-defineEventSubscriber(() => ({ subscribe: emitter => ... }), { isFactory: true })
-defineEventSubscriber((emitter) => { ... })
-```

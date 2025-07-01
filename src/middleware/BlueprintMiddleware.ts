@@ -375,7 +375,7 @@ export const MiddlewareMiddleware = async (
     .forEach(module => {
       const options: MiddlewareOptions = getMetadata(module, MIDDLEWARE_KEY, {})
       const middleware: MetaPipe = { ...options, module }
-      options.global === true && context.blueprint.add('stone.kernel.middleware', [middleware])
+      context.blueprint.add(options.global === true ? 'stone.kernel.middleware' : 'stone.middleware', [middleware])
     })
 
   return await next(context)

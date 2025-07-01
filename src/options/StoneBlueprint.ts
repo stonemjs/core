@@ -7,6 +7,7 @@ import {
   MixedEventSubscriber,
   MixedServiceProvider
 } from '../declarations'
+import { MixedPipe } from '@stone-js/pipeline'
 import { LoggerConfig, logger } from './LoggerConfig'
 import { KernelConfig, kernel } from './KernelConfig'
 import { IncomingEvent } from '../events/IncomingEvent'
@@ -96,6 +97,11 @@ export interface AppConfig<U extends IncomingEvent = IncomingEvent, V extends Ou
    * Logging settings, including the logger instance and error reporting configurations.
    */
   logger: LoggerConfig
+
+  /**
+   * Middleware configuration options for specific stages of the application lifecycle.
+   */
+  middleware?: Array<MixedPipe<U, V>>
 
   /**
    * Services to be automatically registered when the application starts.

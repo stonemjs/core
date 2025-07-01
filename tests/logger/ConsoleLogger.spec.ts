@@ -1,5 +1,5 @@
-import { IBlueprint } from '../src/declarations'
-import { ConsoleLogger } from '../src/logger/ConsoleLogger'
+import { IBlueprint } from '../../src/declarations'
+import { ConsoleLogger } from '../../src/logger/ConsoleLogger'
 
 // Mock implementation of IBlueprint to simulate behavior for testing
 const createMockBlueprint = (loggerOptions: Record<string, unknown> = {}): IBlueprint => {
@@ -73,7 +73,7 @@ describe('ConsoleLogger', () => {
 
     logger.info('Test message with timestamp')
 
-    expect(consoleSpy).toHaveBeenCalledWith(expect.stringMatching(/\[.*\] Test message with timestamp/))
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringMatching(/\[.{0,100}\] Test message with timestamp/))
     consoleSpy.mockRestore()
   })
 

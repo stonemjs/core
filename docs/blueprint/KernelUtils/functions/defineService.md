@@ -46,22 +46,7 @@ Configuration options for the service including alias and factory flag.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint containing the service metadata.
-
-### Param
-
-The service class or factory function.
-
-### Param
-
-Service configuration options including alias and factory flag.
-
-### Example
-
-```ts
-defineService(MyServiceClass, { alias: 'myService', isClass: true })
-defineService((container) => ({ save(){} }), { alias: 'myService' })
-```
+A partial StoneBlueprint registering the service.
 
 ## Call Signature
 
@@ -89,19 +74,4 @@ Configuration options for the service including alias and factory flag.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A partial StoneBlueprint containing the service metadata.
-
-### Param
-
-The service class or factory function.
-
-### Param
-
-Service configuration options including alias and factory flag.
-
-### Example
-
-```ts
-defineService(MyServiceClass, { alias: 'myService', isClass: true })
-defineService((container) => ({ save(){} }), { alias: 'myService' })
-```
+A partial StoneBlueprint registering the service.

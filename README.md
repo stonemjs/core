@@ -48,7 +48,7 @@ Stone.js Core provides the foundational building blocks that power the entire ec
 
 This package is part of the Stone.js ecosystem, a modern JavaScript framework built around the Continuum Architecture.
 
-Explore the full documentation: https://stonejs.dev
+Explore the full documentation: [https://stonejs.dev](https://stonejs.dev)
 
 ## API documentation
 

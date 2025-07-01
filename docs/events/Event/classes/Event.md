@@ -137,14 +137,6 @@ The key to retrieve from metadata.
 
 The value associated with the key or the fallback.
 
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
-
 #### Call Signature
 
 ```ts
@@ -178,14 +170,6 @@ The fallback value if the key is not found.
 `TReturn`
 
 The value associated with the key or the fallback.
-
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
 
 ***
 
@@ -229,14 +213,6 @@ The key to retrieve from metadata.
 
 The value associated with the key or the fallback.
 
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
-
 #### Call Signature
 
 ```ts
@@ -270,14 +246,6 @@ The fallback value if the key is not found.
 `TReturn`
 
 The value associated with the key or the fallback.
-
-##### Param
-
-The key to retrieve from metadata.
-
-##### Param
-
-The fallback value if the key is not found.
 
 ***
 

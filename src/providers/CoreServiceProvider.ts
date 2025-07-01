@@ -82,7 +82,10 @@ export class CoreServiceProvider implements IServiceProvider {
    * @returns A list of middleware.
    */
   private get middleware (): MetaMiddleware[] {
-    return this.blueprint.get<MetaMiddleware[]>('stone.kernel.middleware', [])
+    return this
+      .blueprint
+      .get<MetaMiddleware[]>('stone.kernel.middleware', [])
+      .concat(this.blueprint.get<MetaMiddleware[]>('stone.middleware', []))
   }
 
   /**

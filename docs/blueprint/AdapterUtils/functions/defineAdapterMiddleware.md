@@ -51,15 +51,7 @@ Adapter-specific metadata such as platform or alias.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A blueprint fragment that registers the middleware conditionally.
-
-### Param
-
-The middleware module to register (function, factory, or class).
-
-### Param
-
-Metadata describing which adapter(s) the middleware applies to.
+A partial blueprint with the registration middleware.
 
 ## Call Signature
 
@@ -99,15 +91,7 @@ Adapter-specific metadata such as platform or alias.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A blueprint fragment that registers the middleware conditionally.
-
-### Param
-
-The middleware module to register (function, factory, or class).
-
-### Param
-
-Metadata describing which adapter(s) the middleware applies to.
+A partial blueprint with the registration middleware.
 
 ## Call Signature
 
@@ -147,12 +131,4 @@ Adapter-specific metadata such as platform or alias.
 
 `Partial`\<[`StoneBlueprint`](../../../options/StoneBlueprint/interfaces/StoneBlueprint.md)\>
 
-A blueprint fragment that registers the middleware conditionally.
-
-### Param
-
-The middleware module to register (function, factory, or class).
-
-### Param
-
-Metadata describing which adapter(s) the middleware applies to.
+A partial blueprint with the registration middleware.
