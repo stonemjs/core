@@ -5,6 +5,13 @@ All notable changes to the "Stone.js Core" extension will be documented in this 
 ## Unreleased
 
 
+## [0.1.2](https://github.com/stone-foundation/stone-js-core/compare/v0.1.1...v0.1.2) (2025-07-01)
+
+
+### Bug Fixes
+
+* bind non-global middleware to the container ([#19](https://github.com/stone-foundation/stone-js-core/issues/19)) ([9942811](https://github.com/stone-foundation/stone-js-core/commit/99428119fe074bafa7fff19c351cf03515fadecf))
+
 ## [0.1.1](https://github.com/stone-foundation/stone-js-core/compare/v0.1.0...v0.1.1) (2025-06-12)
 
 
