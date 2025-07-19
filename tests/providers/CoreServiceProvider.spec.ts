@@ -312,7 +312,7 @@ describe('CoreServiceProvider', () => {
       }
 
       const eventEmitter = {
-        listener: (_: any) => Promise.resolve(),
+        listener: async (_: any) => await Promise.resolve(),
         on: vi.fn(async (_, listener) => { eventEmitter.listener = listener })
       }
 
