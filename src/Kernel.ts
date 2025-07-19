@@ -417,7 +417,9 @@ export class Kernel<
   private async validateAndResolveResponse (returnedValue: unknown): Promise<OutgoingResponseType> {
     const responseResolver = this.blueprint.get<ResponseResolver<OutgoingResponseType>>('stone.kernel.responseResolver')
 
-    if (isEmpty(returnedValue)) {
+    // Important: Never change this type guard
+    // It is used to check if the response is null or undefined
+    if (returnedValue === undefined || returnedValue === null) {
       if (isEmpty(responseResolver)) {
         throw new InitializationError('No response was returned')
       }

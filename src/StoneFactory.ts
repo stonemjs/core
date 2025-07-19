@@ -125,12 +125,18 @@ export class StoneFactory<TEvent extends IncomingEvent, UResponse extends Outgoi
       } else if (isConstructor<ClassType>(module)) {
         if (hasBlueprint(module)) { // From @StoneApp()
           this.blueprint.set(getBlueprint(module, { stone: {} }))
-        } else if (hasMetadata(module, LIFECYCLE_HOOK_KEY)) { // From @Hook()
+        }
+
+        if (hasMetadata(module, LIFECYCLE_HOOK_KEY)) { // From @Hook()
           this.registerLifecycleHooks(module)
-        } else if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) { // From @ConfigMiddleware()
+        }
+
+        if (hasMetadata(module, CONFIG_MIDDLEWARE_KEY)) { // From @ConfigMiddleware()
           const options = getMetadata(module, CONFIG_MIDDLEWARE_KEY, {})
           this.blueprint.add('stone.blueprint.middleware', [{ ...options, module }])
-        } else if (hasMetadata(module, CONFIGURATION_KEY)) { // From @Configuration()
+        }
+
+        if (hasMetadata(module, CONFIGURATION_KEY)) { // From @Configuration()
           await this.initBlueprintConfigurations(module)
         }
       }
